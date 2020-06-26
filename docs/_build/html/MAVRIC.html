@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations &mdash; SCALE test documentation 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to SCALE test documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SCALE test documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cadis-methodology">CADIS Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-cadis">Overview of CADIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-sources-with-cadis">Multiple sources with CADIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-tallies-with-cadis">Multiple tallies with CADIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forward-weighted-cadis">Forward-weighted CADIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#composition-block">Composition block</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE test documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/MAVRIC.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mavric-monaco-with-automated-variance-reduction-using-importance-calculations">
+<span id="mavric"></span><h1>MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations<a class="headerlink" href="#mavric-monaco-with-automated-variance-reduction-using-importance-calculations" title="Permalink to this headline">¶</a></h1>
+<p><em>D. E. Peplow and C. Celik</em></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Monte Carlo particle transport calculations for deep penetration problems can require very long run times in order to achieve an acceptable level of statistical uncertainty in the final answers. Discrete-ordinates codes can be faster but have limitations relative to the discretization of space, energy, and direction. Monte Carlo calculations can be modified (biased) to produce results with the same variance in less time if an approximate answer or some other additional information is already known about the problem. If an importance can be assigned to different particles based on how much they will contribute to the final answer, more time can be spent on important particles with less time devoted to unimportant particles. One of the best ways to bias a Monte Carlo code for a particular tally is to form an importance map from the adjoint flux based on that tally. Unfortunately, determining the exact adjoint flux could be just as difficult as computing the original problem itself. However, an approximate adjoint can still be very useful in biasing the Monte Carlo solution <a class="bibtex reference internal" href="#wagner-acceleration-1997" id="id1">[Wag97]</a>. Discrete ordinates can be used to quickly compute that approximate adjoint. Together, Monte Carlo and discrete ordinates can be used to find solutions to thick shielding problems in reasonable times.</p>
+<p>The MAVRIC (Monaco with Automated Variance Reduction using Importance Calculations) sequence is based on the CADIS (Consistent Adjoint Driven Importance Sampling) and FW-CADIS (Forward-Weighted CADIS) methodologies <a class="bibtex reference internal" href="#wagner-automated-1998" id="id2">[WH98]</a> <a class="bibtex reference internal" href="#wagner-automated-2002" id="id3">[Wag02]</a> <a class="bibtex reference internal" href="#haghighat-monte-2003" id="id4">[HW03]</a> <a class="bibtex reference internal" href="#wagner-forward-weighted-2007" id="id5">[WBP07]</a> MAVRIC automatically performs a three-dimensional, discrete-ordinates calculation using Denovo to compute the adjoint flux as a function of position and energy. This adjoint flux information is then used to construct an importance map (i.e., target weights for weight windows) and a biased source distribution that work together—particles are born with a weight matching the target weight of the cell into which they are born. The fixed-source Monte Carlo radiation transport Monaco then uses the importance map for biasing during particle transport and the biased source distribution as its source. During transport, the particle weight is compared with the importance map after each particle interaction and whenever a particle crosses into a new importance cell in the map.</p>
+<p>For problems that do not require variance reduction to complete in a reasonable time, execution of MAVRIC without the importance map calculation provides an easy way to run Monaco. For problems that do require variance reduction to complete in a reasonable time, MAVRIC removes the burden of setting weight windows from the user and performs it automatically with a minimal amount of additional input. Note that the MAVRIC sequence can be used with the final Monaco calculation as either a multigroup (MG) or a continuous-energy (CE) calculation.</p>
+<p>Monaco has a wide variety of tally options: it can calculate fluxes (by group) at a point in space, over any geometrical region, or for a user-defined, three-dimensional, rectangular grid. These tallies can also integrate the fluxes with either standard response functions from the cross section library or user-defined response functions. All of these tallies are available in the MAVRIC sequence.</p>
+<p>While originally designed for CADIS, the MAVRIC sequence is also capable of creating importance maps using both forward and adjoint deterministic estimates. The FW-CADIS method can be used for optimizing several tallies at once, a mesh tally over a large region, or a mesh tally over the entire problem. Several other methods for producing importance maps are also available in MAVRIC and are explored in Appendix C.</p>
+</div>
+<div class="section" id="cadis-methodology">
+<h2>CADIS Methodology<a class="headerlink" href="#cadis-methodology" title="Permalink to this headline">¶</a></h2>
+<p>MAVRIC is an implementation of CADIS (Consistent Adjoint Driven Importance Sampling) using the Denovo SN and Monaco Monte Carlo functional modules. Source biasing and a mesh-based importance map, overlaying the physical geometry, are the basic methods of variance reduction. In order to make the best use of an importance map, the map must be made consistent with the source biasing. If the source biasing is inconsistent with the weight windows that will be used during the transport process, source particles will undergo Russian roulette or splitting immediately, wasting computational time and negating the intent of the biasing.</p>
+<div class="section" id="overview-of-cadis">
+<h3>Overview of CADIS<a class="headerlink" href="#overview-of-cadis" title="Permalink to this headline">¶</a></h3>
+<p>CADIS has been well described in the literature, so only a
+brief overview is given here. Consider a class source-detector problem
+described by a unit source with emission probability distribution
+function <span class="math notranslate nohighlight">\(q\left(\overrightarrow{r},E \right)\)</span> and a detector
+response function <span class="math notranslate nohighlight">\(\sigma_{d}\left(\overrightarrow{r},E \right)\)</span>.
+To determine the total detector response, <em>R</em>, the forward scalar flux
+<span class="math notranslate nohighlight">\(\phi\left(\overrightarrow{r},E \right)\)</span> must be known. The
+response is found by integrating the product of the detector response
+function and the flux over the detector volume <span class="math notranslate nohighlight">\(V_{d}\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-mavric-1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-mavric-1" title="Permalink to this equation">¶</a></span>\[R = \int_{V_{d}}^{}{\int_{E}^{}{\sigma_{d}\left( \overrightarrow{r},E \right)}}\phi\left(\overrightarrow{r},E \right)\textit{dE dV.}\]</div>
+<p>Alternatively, if the adjoint scalar flux,
+<span class="math notranslate nohighlight">\(\phi^{+}\left(\overrightarrow{r},E \right)\)</span>, is known from the
+corresponding adjoint problem with adjoint source
+<span class="math notranslate nohighlight">\(q^{+}\left(\overrightarrow{r},E \right) = \sigma_{d}\left(\overrightarrow{r},E \right)\)</span>,
+then the total detector response could be found by integrating the
+product of the forward source and the adjoint flux over the source
+volume, <span class="math notranslate nohighlight">\(V_{s}\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-mavric-2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-mavric-2" title="Permalink to this equation">¶</a></span>\[R = \int_{V_{s}}^{}{\int_{E}^{}{q\left(\overrightarrow{r},E \right)}}\phi^{+}\left( \overrightarrow{r},E \right)\textit{dE dV.}\]</div>
+<p>Unfortunately, the exact adjoint flux may be just as difficult to
+determine as the forward flux, but an approximation of the adjoint flux
+can still be used to form an importance map and a biased source
+distribution for use in the forward Monte Carlo calculation.</p>
+<p>Wagner<sup>1</sup> showed that if an estimate of the adjoint scalar flux
+for the corresponding adjoint problem could be found, then an estimate
+of the response <em>R</em> could be made using Eq. . The adjoint source for the
+adjoint problem is typically separable and corresponds to the detector
+response and spatial area of tally to be optimized:
+<span class="math notranslate nohighlight">\(q^{+}\left(\overrightarrow{r},E \right) = \sigma_{d}\left(E \right)g\left( \overrightarrow{r} \right)\)</span>,
+where <span class="math notranslate nohighlight">\(\sigma_{d}\left( E \right)\)</span> is a flux-to-dose conversion
+factor and <span class="math notranslate nohighlight">\(g\left( \overrightarrow{r} \right)\)</span> is 1 in the tally
+volume and 0 otherwise. Then, from the adjoint flux
+<span class="math notranslate nohighlight">\(\phi^{+}\left( \overrightarrow{r},E \right)\)</span> and response
+estimate <em>R</em>, a biased source distribution,
+<span class="math notranslate nohighlight">\(\widehat{q}\left( \overrightarrow{r},E \right)\)</span>, for source
+sampling of the form</p>
+<div class="math notranslate nohighlight" id="equation-mavric-3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-mavric-3" title="Permalink to this equation">¶</a></span>\[\widehat{q}\left(\overrightarrow{r},E \right) = \frac{1}{R}q\left(\overrightarrow{r},E\right)\phi^{+}\left( \overrightarrow{r},E \right)\]</div>
+<p>and weight window target values,
+<span class="math notranslate nohighlight">\(\overline{w}\left( \overrightarrow{r},E \right)\)</span>, for particle
+transport of the form</p>
+<div class="math notranslate nohighlight" id="equation-mavric-4">
+<span class="eqno">(4)<a class="headerlink" href="#equation-mavric-4" title="Permalink to this equation">¶</a></span>\[\overline{w}\left( \overrightarrow{r},E \right) = \frac{R}{\phi^{+}\left( \overrightarrow{r},E \right)}\]</div>
+<p>could be constructed, which minimize the variance in the forward Monte
+Carlo calculation of <em>R</em>.</p>
+<p>When a particle is sampled from the biased source distribution
+<span class="math notranslate nohighlight">\(\widehat{q}\left( \overrightarrow{r},E \right)\)</span>, to preserve a
+fair game, its initial weight is set to</p>
+<div class="math notranslate nohighlight" id="equation-mavric-5">
+<span class="eqno">(5)<a class="headerlink" href="#equation-mavric-5" title="Permalink to this equation">¶</a></span>\[w_{0}\left(\overrightarrow{r},E \right) = \frac{q\left(\overrightarrow{r},E \right)}{\widehat{q}\left( \overrightarrow{r},E \right)} = \frac{R}{\phi^{+}\left( \overrightarrow{r},E \right)}\,\]</div>
+<p>which exactly matches the target weight for that particle’s position and
+energy. This is the “consistent” part of CADIS—source particles are born
+with a weight matching the weight window of the region/energy they are
+born into. The source biasing and the weight windows work together.</p>
+<p>CADIS has been applied to many problems—including reactor ex-core
+detectors, well-logging instruments, cask shielding studies, and
+independent spent fuel storage facility models—and has demonstrated very
+significant speed-ups in calculation time compared to analog
+simulations.</p>
+</div>
+<div class="section" id="multiple-sources-with-cadis">
+<h3>Multiple sources with CADIS<a class="headerlink" href="#multiple-sources-with-cadis" title="Permalink to this headline">¶</a></h3>
+<p>For a typical Monte Carlo calculation with multiple sources (each with a
+probability distribution function
+<span class="math notranslate nohighlight">\(q_{i}\left( \overrightarrow{r},E \right)\)</span> and a strength
+<span class="math notranslate nohighlight">\(S_{i}\)</span>, giving a total source strength of
+<span class="math notranslate nohighlight">\(S = \sum_{}^{}S_{i}\)</span>), the source is sampled in two steps. First,
+the specific source <em>i</em> is sampled with probability
+<span class="math notranslate nohighlight">\(p\left( i \right) = \ S_{i}/S\)</span>, and then the particle is sampled
+from the specific source distribution
+<span class="math notranslate nohighlight">\(q_{i}\left( \overrightarrow{r},E \right)\)</span>.</p>
+<p>The source sampling can be biased at both levels: which source to sample
+from and how to sample each source. For example, the specific source can
+be sampled using some arbitrary distribution,
+<span class="math notranslate nohighlight">\(\widehat{p}\left( i \right)\)</span>, and then the individual sources can
+be sampled using distributions
+<span class="math notranslate nohighlight">\({\widehat{q}}_{i}\left( \overrightarrow{r},E \right)\)</span>. Particles
+would then have a birth weight of</p>
+<div class="math notranslate nohighlight" id="equation-mavric-6">
+<span class="eqno">(6)<a class="headerlink" href="#equation-mavric-6" title="Permalink to this equation">¶</a></span>\[w_{0} \equiv \ \left(\frac{p\left( i \right)}{\widehat{p}\left( i \right)} \right)\left(\frac{q_{i}\left( \overrightarrow{r},E \right)}{{\widehat{q}}_{i}\left( \overrightarrow{r},E \right)} \right)\text{.}\]</div>
+<p>For CADIS, a biased multiple source needs to be developed so that the
+birth weights of sampled particles still match the target weights of the
+importance map. For a problem with multiple sources (each with a
+distribution <span class="math notranslate nohighlight">\(q_{i}\left( \overrightarrow{r},E \right)\)</span> and a
+strength <span class="math notranslate nohighlight">\(S_{i}\)</span>), the goal of the Monte Carlo calculation is to
+compute some response <span class="math notranslate nohighlight">\(R\)</span> for a response function
+<span class="math notranslate nohighlight">\(\sigma_{d}\left( \overrightarrow{r},E \right)\)</span> at a given
+detector.</p>
+<div class="math notranslate nohighlight" id="equation-mavric-7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-mavric-7" title="Permalink to this equation">¶</a></span>\[R = \ \int_{V}^{}{\int_{E}^{}{\sigma_{d}\left( \overrightarrow{r},E \right)\text{ϕ}\left( \overrightarrow{r},E \right)\textit{dE dV.}}}\]</div>
+<p>Note that the flux <span class="math notranslate nohighlight">\(\phi\left( \overrightarrow{r},E \right)\)</span> has
+contributions from each source. The response, <span class="math notranslate nohighlight">\(R_{i}\)</span>, from each
+specific source (<span class="math notranslate nohighlight">\(S_{i}\)</span> with
+<span class="math notranslate nohighlight">\(q_{i}\left( \overrightarrow{r},E \right)\)</span>) can be expressed using
+just the flux from that source,
+<span class="math notranslate nohighlight">\(\phi_{i}\left( \overrightarrow{r},E \right)\)</span>, as</p>
+<div class="math notranslate nohighlight" id="equation-mavric-8">
+<span class="eqno">(8)<a class="headerlink" href="#equation-mavric-8" title="Permalink to this equation">¶</a></span>\[R_{i} = \ \int_{V}^{}{\int_{E}^{}{\sigma_{d}\left(\overrightarrow{r},E \right)\ \phi_{i}\left(\overrightarrow{r},E \right)\textit{dE dV .}}}\]</div>
+<p>The total response is then found as <span class="math notranslate nohighlight">\(R = \sum_{i}^{}R_{i}\)</span>.</p>
+<p>For the adjoint problem, using the adjoint source of
+<span class="math notranslate nohighlight">\(q^{+}\left( \overrightarrow{r},E \right) = \sigma_{d}\left( \overrightarrow{r},E \right)\)</span>,
+the response <span class="math notranslate nohighlight">\(R\)</span> can also be calculated as</p>
+<div class="math notranslate nohighlight" id="equation-mavric-9">
+<span class="eqno">(9)<a class="headerlink" href="#equation-mavric-9" title="Permalink to this equation">¶</a></span>\[R = \ \int_{V}^{}{\int_{E}^{}{\left\lbrack \sum_{i}^{}{S_{i}q_{i}\left( \overrightarrow{r},E \right)} \right\rbrack\ \phi^{+}\left( \overrightarrow{r},E \right)\textit{dE dV}}},\]</div>
+<p>with response contribution from each specific source being</p>
+<div class="math notranslate nohighlight" id="equation-mavric-10">
+<span class="eqno">(10)<a class="headerlink" href="#equation-mavric-10" title="Permalink to this equation">¶</a></span>\[R_{i} = \ \int_{V}^{}{\int_{E}^{}{\ {S_{i}q_{i}\left( \overrightarrow{r},E \right)\text{ϕ}}^{+}\left( \overrightarrow{r}, E \right)\textit{dE dV.}}}\]</div>
+<p>The target weights
+<span class="math notranslate nohighlight">\(\overline{w}\left( \overrightarrow{r},E \right)\)</span> of the
+importance map are found using</p>
+<div class="math notranslate nohighlight" id="equation-mavric-11">
+<span class="eqno">(11)<a class="headerlink" href="#equation-mavric-11" title="Permalink to this equation">¶</a></span>\[\overline{w}\left( \overrightarrow{r},E \right) = \frac{R/S}{\text{ϕ}^{+}\left( \overrightarrow{r},E \right)\ }.\]</div>
+<p>Each biased source
+<span class="math notranslate nohighlight">\({\widehat{q}}_{i}\left( \overrightarrow{r},E \right)\)</span> pdf is
+found using</p>
+<div class="math notranslate nohighlight" id="equation-mavric-12">
+<span class="eqno">(12)<a class="headerlink" href="#equation-mavric-12" title="Permalink to this equation">¶</a></span>\[{\widehat{q}}_{i}\left(\overrightarrow{r},E \right) = \frac{S_{i}}{R_{i}}{q_{i}\left( \overrightarrow{r},E \right)\text{ϕ}}^{+}\left( \overrightarrow{r}, E \right)\ ,\]</div>
+<p>and the biased distribution used to select an individual source is
+<span class="math notranslate nohighlight">\(\widehat{p}\left( i \right) = \ R_{i}/\sum_{}^{}{R_{i} = R_{i}/R}\)</span>.</p>
+<p>When using the biased distribution used to select an individual source,
+<span class="math notranslate nohighlight">\(\widehat{p}\left( i \right)\)</span>, and the biased source distribution,
+<span class="math notranslate nohighlight">\({\widehat{q}}_{i}\left( \overrightarrow{r},E \right)\)</span>, the birth
+weight of the sampled particle will be</p>
+<div class="math notranslate nohighlight" id="equation-mavric-13">
+<span class="eqno">(13)<a class="headerlink" href="#equation-mavric-13" title="Permalink to this equation">¶</a></span>\[\begin{split} \begin{matrix}
+    w_{0} &amp; \equiv &amp; \left( \frac{p\left( i \right)}{\widehat{p}\left( i \right)} \right)\left( \frac{q_{i}\left( \overrightarrow{r}, E \right)}{{\widehat{q}}_{i}\left(\overrightarrow{r},E \right)} \right) \\ &amp; = &amp; \ \left( \frac{\frac{S_{i}}{S}}{\frac{R_{i}}{R}} \right) \left( \frac{q_{i}\left( \overrightarrow{r},E \right)}{\frac{S_{i}}{R_{i}}{q_{i}\left( \overrightarrow{r},E \right)\text{ϕ}}^{+}\left( \overrightarrow{r},E \right)} \right) \\
+    &amp; = &amp; \frac{R/S}{\text{ϕ}^{+}\left( \overrightarrow{r},E \right)\ }, \\
+\end{matrix}\end{split}\]</div>
+<p>which matches the target weight,
+<span class="math notranslate nohighlight">\(\overline{w}\left( \overrightarrow{r},E \right)\)</span>.</p>
+</div>
+<div class="section" id="multiple-tallies-with-cadis">
+<h3>Multiple tallies with CADIS<a class="headerlink" href="#multiple-tallies-with-cadis" title="Permalink to this headline">¶</a></h3>
+<p>The CADIS methodology works quite well for classic source/detector problems. The statistical uncertainty of the tally that serves as the adjoint source is greatly reduced since the Monte Carlo transport is optimized to spend more simulation time on those particles that contribute to the tally, at the expense of tracking particles in other parts of phase space. However, more recently, Monte Carlo has been applied to problems where multiple tallies need to all be found with low statistical uncertainties. The extension of this idea is the mesh tally—where each voxel is a tally where the user desires low statistical uncertainties. For these problems, the user must accept a total simulation time that is controlled by the tally with the slowest convergence and simulation results where the tallies have a wide range of relative uncertainties.</p>
+<p>The obvious way around this problem is to create a separate problem for each tally and use CADIS to optimize each. Each simulation can then be run until the tally reaches the level of acceptable uncertainty. For more than a few tallies, this approach becomes complicated and time-consuming for the user. For large mesh tallies, this approach is not reasonable.</p>
+<p>Another approach to treat several tallies, if they are in close proximity to each other, or a mesh tally covering a small portion of the physical problem is to use the CADIS methodology with the adjoint source near the middle of the tallies to be optimized. Since particles in the forward Monte Carlo simulation are optimized to reach the location of the adjoint source, all the tallies surrounding that adjoint source should converge quickly. The drawback to this approach is the difficult question of “how close.” If the tallies are too far apart, certain energies or regions that are needed for one tally may be of low importance for getting particles to the central adjoint source. This may under-predict the flux or dose at the tally sites far from the adjoint source.</p>
+<p>MAVRIC has the capability to have multiple adjoint sources with this problem in mind. For several tallies that are far from each other, multiple adjoint sources could be used. In the forward Monte Carlo, particles would be drawn to one of those adjoint sources. The difficulty with this approach is that typically the tally that is closest to the true physical source converges faster than the other tallies—showing the closest adjoint source seems to attract more particles than the others. Assigning more strength to the adjoint source further from the true physical source helps, but finding the correct strengths so that all of the tallies converge to the same relative uncertainty in one simulation is an iterative process for the user.</p>
+</div>
+<div class="section" id="forward-weighted-cadis">
+<h3>Forward-weighted CADIS<a class="headerlink" href="#forward-weighted-cadis" title="Permalink to this headline">¶</a></h3>
+<p>In order to converge several tallies to the same relative uncertainty in
+one simulation, the adjoint source corresponding to each of those
+tallies needs to be weighted inversely by the expected tally value. In
+order to calculate the dose rate at two points—say one near a reactor
+and one far from a reactor—in one simulation, then the total adjoint
+source used to develop the weight windows and biased source needs to
+have two parts. The adjoint source far from the reactor needs to have
+more strength than the adjoint source near the reactor by a factor equal
+to the ratio of the expected near dose rate to the expected far dose
+rate.</p>
+<p>This concept can be extended to mesh tallies as well. Instead of using a
+uniform adjoint source strength over the entire mesh tally volume, each
+voxel of the adjoint source should be weighted inversely by the expected
+forward tally value for that voxel. Areas of low flux or low dose rate
+would have more adjoint source strength than areas of high flux or high
+dose rate.</p>
+<p>An estimate of the expected tally results can be found by using a quick
+discrete-ordinates calculation. This leads to an extension of the CADIS
+method: forward-weighted CADIS (FW-CADIS).**Error! Bookmark not
+defined.** First, a forward S<sub>N</sub> calculation is performed to
+estimate the expected tally results. A total adjoint source is
+constructed where the adjoint source corresponding to each tally is
+weighted inversely by those forward tally estimates. Then the standard
+CADIS approach is used—an importance map (target weight windows) and a
+biased source are made using the adjoint flux computed from the adjoint
+S<sub>N</sub> calculation.</p>
+<p>For example, if the goal is to calculate a detector response function
+<span class="math notranslate nohighlight">\(\sigma_{d}\left( E \right)\)</span> (such as dose rate using
+flux-to-dose-rate conversion factors) over a volume (defined by
+<span class="math notranslate nohighlight">\(g\left( \overrightarrow{r} \right)\)</span>) corresponding to mesh tally,
+then instead of simply using
+<span class="math notranslate nohighlight">\(q^{+}\left( \overrightarrow{r},E \right) = \sigma_{d}\left( E \right)\ g(\overrightarrow{r})\)</span>,
+the adjoint source would be</p>
+<div class="math notranslate nohighlight" id="equation-mavric-14">
+<span class="eqno">(14)<a class="headerlink" href="#equation-mavric-14" title="Permalink to this equation">¶</a></span>\[ q^{+}\left( \overrightarrow{r},E \right) = \frac{\sigma_{d}\left( E \right)\text{g}\left( \overrightarrow{r} \right)}{\int_{}^{}{\sigma_{d}\left( E \right)\text{ϕ}\left( \overrightarrow{r},E \right)}\textit{dE}}\ ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi\left( \overrightarrow{r},E \right)\)</span> is an estimate of
+the forward flux and the energy integral is over the voxel at <span class="math notranslate nohighlight">\(\overrightarrow{r}\)</span>.
+The adjoint source is nonzero only where the mesh tally is defined
+(<span class="math notranslate nohighlight">\(g\left( \overrightarrow{r} \right)\)</span>), and its strength is
+inversely proportional to the forward estimate of dose rate.</p>
+<p>The relative uncertainty of a tally is controlled by two components:
+first, the number of tracks contributing to the tally and, second, the
+shape of the distribution of scores contributing to that tally. In the
+Monte Carlo game, the number of simulated particles,
+<span class="math notranslate nohighlight">\(m\left( \overrightarrow{r},E \right)\)</span>, can be related to the true
+physical particle density, <span class="math notranslate nohighlight">\(n\left( \overrightarrow{r},E \right),\)</span>
+by the average Monte Carlo weight of scoring particles,
+<span class="math notranslate nohighlight">\(\overline{w}\left( \overrightarrow{r},E \right)\)</span>, by</p>
+<div class="math notranslate nohighlight" id="equation-mavric-15">
+<span class="eqno">(15)<a class="headerlink" href="#equation-mavric-15" title="Permalink to this equation">¶</a></span>\[n\left( \overrightarrow{r},E \right) = \ \overline{w}\left( \overrightarrow{r},E \right)\text{m}\left( \overrightarrow{r},E \right).\]</div>
+<p>In a typical Monte Carlo calculation, tallies are made by adding some
+score, multiplied by the current particle weight, to an accumulator. To
+calculate a similar quantity related to the Monte Carlo particle density
+would be very close to calculating any other quantity but without
+including the particle weight. The goal of FW-CADIS is to make the Monte
+Carlo particle density, <span class="math notranslate nohighlight">\(m\left( \overrightarrow{r},E \right)\)</span>,
+uniform over the tally areas, so an importance map needs to be developed
+that represents the importance to achieving uniform Monte Carlo particle
+density. By attempting to keep the Monte Carlo particle density more
+uniform, more uniform relative errors for the tallies should be
+realized.</p>
+<p>Two options for forward weighting are possible. For tallies over some
+area where the entire group-wise flux is needed with low relative
+uncertainties, the adjoint source should be weighted inversely by the
+forward flux, <span class="math notranslate nohighlight">\(\phi\left( \overrightarrow{r},E \right)\)</span>. The other
+option, for a tally where only an energy-integrated quantity is desired,
+is to weight the adjoint inversely by that energy-integrated
+quantity,<span class="math notranslate nohighlight">\(\int_{}^{}{\sigma_{d}\left( E \right)\text{ϕ}\left( \overrightarrow{r},E \right)}\text{\ dE}\)</span>.
+For a tally where the total flux is desired, then the response in the
+adjoint source is simply <span class="math notranslate nohighlight">\(\sigma_{d}\left( E \right) = 1\)</span>.</p>
+<p>To optimize the forward Monte Carlo simulation for the calculation of
+some quantity at multiple tally locations or across a mesh tally, the
+adjoint source needs to be weighted by the estimate of that quantity.
+For a tally defined by its spatial location
+<span class="math notranslate nohighlight">\(g\left( \overrightarrow{r} \right)\)</span> and its optional response
+<span class="math notranslate nohighlight">\(\sigma_{d}\left( E \right)\)</span>, the standard adjoint source would be
+<span class="math notranslate nohighlight">\(q^{+}\left( \overrightarrow{r},E \right) = \sigma_{d}\left( E \right)\text{g}\left( \overrightarrow{r} \right)\)</span>.
+The forward-weighted adjoint source,
+<span class="math notranslate nohighlight">\(q^{+}\left( \overrightarrow{r},E \right)\)</span>, depending on what
+quantity is to be optimized, is listed below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>For the calculation of</strong></p></th>
+<th class="head"><p><strong>Adjoint source</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Energy and spatially dependent flux.       <span class="math notranslate nohighlight">\(\phi\left(\overrightarrow{r},E \right)\)</span></p></td>
+<td><div class="math notranslate nohighlight">
+\[\frac{g\left( \overrightarrow{r}\right)}{\phi\left(\overrightarrow{r},E \right)}\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Spatially dependent total flux.         <span class="math notranslate nohighlight">\(\int_{}^{}{\phi\left( \overrightarrow{r},E \right)}\textit{dE}\)</span></p></td>
+<td><div class="math notranslate nohighlight">
+\[\frac{g\left( \overrightarrow{r}\right)}{\int_{}^{}{\phi\left( \overrightarrow{r},E \right)}\textit{dE}}\]</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Spatially dependent total response.         <span class="math notranslate nohighlight">\(\int_{}^{}{\sigma_{d}\left( E \right)\text{ϕ}\left(\overrightarrow{r},E\right)}\textit{dE}\)</span></p></td>
+<td><div class="math notranslate nohighlight">
+\[\frac{\sigma_{d}\left( E \right)\text{g}\left( \overrightarrow{r} \right)}{\int_{}^{}{\sigma_{d}\left( E \right)\text{ϕ}\left( \overrightarrow{r},E \right)}\textit{dE}}\]</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The bottom line of FW-CADIS is that in order to calculate a quantity at
+multiple tally locations (or across a mesh tally) with more uniform
+relative uncertainties, an adjoint source needs to be developed for an
+objective function that keeps some non-physical quantity—related to the
+Monte Carlo particle density and similar in form to the desired
+quantity—constant. FW-CADIS uses the solution of a forward
+discrete-ordinates calculation to properly weight the adjoint source.
+After that, the standard CADIS approach is used.</p>
+</div>
+<div class="section" id="composition-block">
+<h3>Composition block<a class="headerlink" href="#composition-block" title="Permalink to this headline">¶</a></h3>
+<p>Material information input follows the standard SCALE format for
+material input. Basic materials known to the SCALE library may be used
+as well as completely user-defined materials (using isotopes with known
+cross sections). Input instructions are located in the XSProc chapter in
+the SCALE manual. The Standard Composition Library chapter lists the
+different cross section libraries and the names of standard materials.
+An example is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read</span> <span class="n">composition</span>
+
+    <span class="n">uo2</span> <span class="mi">1</span> <span class="mf">0.2</span> <span class="mf">293.0</span> <span class="mi">92234</span> <span class="mf">0.0055</span> <span class="mi">92235</span> <span class="mf">3.5</span> <span class="mi">92238</span> <span class="mf">96.4945</span> <span class="n">end</span>
+
+    <span class="n">orconcrete</span> <span class="mi">2</span> <span class="mf">1.0</span> <span class="mf">293.0</span> <span class="n">end</span>
+
+    <span class="n">ss304</span> <span class="mi">3</span> <span class="mf">1.0</span> <span class="mf">293.0</span> <span class="n">end</span>
+
+<span class="n">end</span> <span class="n">composition</span>
+</pre></div>
+</div>
+<p>Details on the cell data block are also included in the XSProc chapter.
+When using different libraries for the importance map production (listed
+at the top of the input) and the final Monte Carlo calculation (listed
+in the parameters block, if different), make sure that the materials are
+present in both libraries.</p>
+<table class="colwidths-given docutils align-center" id="id6">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Overall input format</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input file</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=</span><span class="n">mavric</span>
+<span class="n">Some</span> <span class="n">title</span> <span class="k">for</span> <span class="n">this</span> <span class="n">problem</span>
+<span class="n">v7</span><span class="o">-</span><span class="mi">27</span><span class="n">n19g</span>
+<span class="n">read</span> <span class="n">composition</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">composition</span>
+<span class="n">read</span> <span class="n">celldata</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">celldata</span>
+<span class="n">read</span> <span class="n">geometry</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">geometry</span>
+<span class="n">read</span> <span class="n">array</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">array</span>
+<span class="n">read</span> <span class="n">volume</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">volume</span>
+<span class="n">read</span> <span class="n">plot</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">plot</span>
+<span class="n">read</span> <span class="n">definitions</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">definitions</span>
+<span class="n">read</span> <span class="n">sources</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">sources</span>
+<span class="n">read</span> <span class="n">tallies</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">tallies</span>
+<span class="n">read</span> <span class="n">parameters</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">parameters</span>
+<span class="n">read</span> <span class="n">biasing</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">biasing</span>
+<span class="n">read</span> <span class="n">importanceMap</span>
+   <span class="o">...</span>
+<span class="n">end</span> <span class="n">importanceMap</span>
+<span class="n">end</span> <span class="n">data</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">of</span> <span class="n">sequence</span>
+<span class="n">title</span>
+<span class="n">cross</span> <span class="n">section</span> <span class="n">library</span> <span class="n">name</span>
+<span class="n">SCALE</span> <span class="n">material</span> <span class="n">compositions</span>
+    <span class="p">[</span><span class="n">required</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">SCALE</span> <span class="n">resonance</span> <span class="bp">self</span><span class="o">-</span><span class="n">shielding</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">SCALE</span> <span class="n">SGGP</span> <span class="n">geometry</span>
+    <span class="p">[</span><span class="n">required</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">SCALE</span> <span class="n">SGGP</span> <span class="n">arrays</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">SCALE</span> <span class="n">SGGP</span> <span class="n">volume</span> <span class="n">calc</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">SGGP</span> <span class="n">Plots</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">Definitions</span>
+    <span class="p">[</span><span class="n">possibly</span> <span class="n">required</span><span class="p">]</span>
+
+<span class="n">Sources</span> <span class="n">definition</span>
+    <span class="p">[</span><span class="n">required</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">Tally</span> <span class="n">specifications</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">Monte</span> <span class="n">Carlo</span> <span class="n">parameters</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">Biasing</span> <span class="n">information</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">Importance</span> <span class="nb">map</span>
+    <span class="p">[</span><span class="n">optional</span> <span class="n">block</span><span class="p">]</span>
+
+<span class="n">end</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">blocks</span>
+<span class="n">end</span> <span class="n">of</span> <span class="n">MAVRIC</span> <span class="nb">input</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p id="bibtex-bibliography-MAVRIC-0"><dl class="citation">
+<dt class="bibtex label" id="haghighat-monte-2003"><span class="brackets"><a class="fn-backref" href="#id4">HW03</a></span></dt>
+<dd><p>Alireza Haghighat and John C. Wagner. Monte Carlo variance reduction with deterministic importance functions. <em>Progress in Nuclear Energy</em>, 42(1):25–53, 2003. Publisher: Elsevier.</p>
+</dd>
+<dt class="bibtex label" id="wagner-acceleration-1997"><span class="brackets"><a class="fn-backref" href="#id1">Wag97</a></span></dt>
+<dd><p>John C. Wagner. <em>Acceleration of Monte Carlo shielding calculations with an automated variance reduction technique and parallel processing</em>. PhD thesis, Pennsylvania State University, 1997.</p>
+</dd>
+<dt class="bibtex label" id="wagner-automated-2002"><span class="brackets"><a class="fn-backref" href="#id3">Wag02</a></span></dt>
+<dd><p>John C. Wagner. An automated deterministic variance reduction generator for Monte Carlo shielding applications. In <em>Proceedings of the American Nuclear Society 12th Biennial RPSD Topical Meeting</em>, 14–18. Citeseer, 2002.</p>
+</dd>
+<dt class="bibtex label" id="wagner-forward-weighted-2007"><span class="brackets"><a class="fn-backref" href="#id5">WBP07</a></span></dt>
+<dd><p>John C. Wagner, Edward D. Blakeman, and Douglas E. Peplow. Forward-weighted CADIS method for global variance reduction. <em>Transactions-American Nuclear Society</em>, 97:630, 2007. Publisher: American Nuclear Society.</p>
+</dd>
+<dt class="bibtex label" id="wagner-automated-1998"><span class="brackets"><a class="fn-backref" href="#id2">WH98</a></span></dt>
+<dd><p>John C. Wagner and Alireza Haghighat. Automated variance reduction of Monte Carlo shielding calculations using the discrete ordinates adjoint function. <em>Nuclear Science and Engineering</em>, 128(2):186–208, 1998. Publisher: Taylor &amp; Francis.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SCALE test documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, John Batson
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
