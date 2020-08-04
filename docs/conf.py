@@ -18,8 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'SCALE test documentation'
-copyright = '2020, John Batson'
+copyright = '2020, SCALE developers'
 author = 'John Batson'
+
+pygments_style = "default"
+highlight_language = "python"
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
@@ -59,3 +62,7 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_css_files = [
+    'custom.css',
+]

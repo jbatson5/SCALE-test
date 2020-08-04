@@ -8,6 +8,6 @@ Welcome to SCALE test documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Radiation Shielding
 
    MAVRIC
