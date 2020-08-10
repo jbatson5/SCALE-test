@@ -356,6 +356,7 @@ quantity is to be optimized, is listed below.
 
 .. list-table::
   :header-rows: 1
+  :widths: 50 100 200
 
   * - For the calculation of
     -
@@ -381,12 +382,12 @@ discrete-ordinates calculation to properly weight the adjoint source.
 After that, the standard CADIS approach is used.
 
 MAVRIC Implementation of CADIS
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With MAVRIC, as with other shielding codes, the user defines the problem as a set of physical models—the material compositions, the geometry, the source, and the detectors (locations and response functions)—as well as some mathematical parameters on how to solve the problem (number of histories, etc.). For the variance reduction portion of MAVRIC, the only additional inputs required are (1) the mesh planes to use in the discrete-ordinates calculation(s) and (2) the adjoint source description—basically the location and the response of each tally to optimize in the forward Monte Carlo calculation. MAVRIC takes this information and constructs a Denovo adjoint problem. (The adjoint source is weighted by a Denovo forward flux or response estimate for FW-CADIS applications.)  MAVRIC then uses the CADIS methodology: it combines the adjoint flux from the Denovo calculation with the source description and creates the importance map (weight window targets) and the mesh-based biased source. Monaco is then run using the CADIS biased source distribution and the weight window targets.
 
 Denovo
-~~~~~~
+^^^^^^
 
 Denovo is a parallel three-dimensional SN code that is used to generate adjoint (and, for FW-CADIS, forward) scalar fluxes for the CADIS methods in MAVRIC. For use in MAVRIC/CADIS, it is highly desirable that the SN code be fast, positive, and robust. The phase-space shape of the forward and adjoint fluxes, as opposed to a highly accurate solution, is the most important quality for Monte Carlo weight-window generation. Accordingly, Denovo provides a step-characteristics spatial differencing option that produces positive scalar fluxes as long as the source (volume plus in-scatter) is positive. Denovo uses an orthogonal, nonuniform mesh that is ideal for CADIS applications because of the speed and robustness of calculations on this mesh type.
 
@@ -426,7 +427,7 @@ the rest of the MAVRIC sequence has not yet been parallelized, Denovo is
 currently used only in serial mode within MAVRIC.
 
 Monaco
-~~~~~~
+^^^^^^
 
 The forward Monte Carlo transport is performed using Monaco, a
 fixed-source, shielding code that uses the SCALE General Geometry
@@ -441,7 +442,7 @@ Much of the input to MAVRIC is the same as Monaco. More details can be
 found in the Monaco chapter of the SCALE manual.
 
 Running MAVRIC
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The objective of a SCALE sequence is to execute several codes, passing
 the output from one to the input of the next, in order to perform some
@@ -874,6 +875,8 @@ was defined in the definitions block. The material assigned to each
 voxel of the mesh is determined by testing the center point in the SGGP
 geometry (unless the macro-material option is used – see below).
 
+.. _macromaterials:
+
 Macromaterials for S\ :sub:`N` geometries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1072,18 +1075,16 @@ where outputName is the name the user chose for his or her output file. This fil
 Viewer to display the macromaterials as mixtures of the actual materials, as seen in the lower row of :numref:`cask-geom`.
 See the Mesh File Viewer help pages for more information on how to use colormap files and macromaterial tables.
 
-.. list-table::
-  :widths: 200 200
 
-  * - .. image:: figs/fig4.1.05a_keno3dtop.bmp
 
-    - .. image:: figs/fig4.1.05b_macroMat1.geom.png
+.. image:: figs/fig4.1.05a_keno3dtop.bmp
+  :width: 49 %
+.. image:: figs/fig4.1.05b_macroMat1.geom.png
+  :width: 49 %
 
-  * - .. image:: figs/fig4.1.05c_macroMat2.geom.png
-
-    - .. _cask-geom:
-
-      .. figure:: figs/fig4.1.05d_macroMat3.geom.png
+.. _cask-geom:
+.. figure:: figs/fig4.1.05cd.jpg
+  :width: 99 %
 
 .. centered:: *Fig. 5 Cask geometry model (upper left) and the Denovo representation using cell center testing (upper right). Representations using macromaterials determined by ray tracing are shown for mmSubCell=1/mmTolerance=0.1 (lower left) and mmSubCell=3/mmTolerance=0.01 (lower right).*
 
@@ -1536,8 +1537,10 @@ group, the user-given source distributions are used to sample the
 specific starting location and specific energy of the source particle.
 This way, the CE-Monaco calculation samples the true CE distributions.
 
-.. list-table::
+.. _keywords-importance:
+.. list-table:: Keywords for the importance map block
   :header-rows: 1
+  :name:
 
   * - block
     - keyword
@@ -2498,7 +2501,7 @@ its hundreds of fission products.
 .. centered:: Fig. 7 Cask geometry and detector locations.
 
 Sources and responses
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 Spent fuel from a typical mid-sized PWR was used to determine the source
 term. ORIGEN was used to deplete a full core (46.1 metric tonnes of
@@ -2514,27 +2517,1750 @@ source strength was 7.155 × 10\ :sup:`16` photons/s.
 Two cases will be done for this example: one for calculating the neutron
 dose rates from the spent fuel neutrons and the other for calculating
 the photon dose rates from the spent fuel photons. The source spectra
-and response functions are shown in Figure 4.1.8 through Figure 4.1.11
-and listed in Table 4.1.9. Note that in this example, the neutron source
-shown in Figure 4.1.8 and Table 4.1.9 is considered the final neutron
-source—no further neutron multiplication is considered.
+and response functions are shown in :numref:`spent-neutron` through :numref:`ANSI-photon`
+and listed in :numref:`source-and-response`. Note that in this example, the neutron source
+shown in :numref:`spent-neutron` and :numref:`source-and-response` is considered the final neutron
+source—-no further neutron multiplication is considered.
+
+.. _spent-neutron:
+.. figure:: figs/fig4.1.08_caskSrcRespn.dist1.png
+  :align: center
+
+  Spent fuel neutron source spectrum, with strength 8.577 × 10\ :sup:`9`/second.
+
+.. _ANSI-neutron:
+.. figure:: figs/fig4.1.09_caskSrcRespn.resp1.png
+  :align: center
+
+  ANSI-1977/ flux-to-dose-rate factors (rem/hr)/(neutrons/\cm :sup:`2`/sec).
+
+.. _spent-photon:
+.. figure:: figs/fig4.1.10_caskSrcRespp.dist1.png
+  :align: center
+
+  Spent fuel photon source spectrum, with strength 7.155×10\ :sup:`16`/second
+
+.. _ANSI-photon:
+.. figure:: figs/fig4.1.11_caskSrcRespp.resp1.png
+  :align: center
+
+  ANSI-1977 photon flux-to-dose-rate factors (rem/hr)/(photons/\cm :sup:`2`/sec)
+
+.. csv-table:: Source and response data using the SCALE 27-group energy structure for neutrons and the 19 group energy structure for photons
+  :file: csv-tables/table4.1.09_sourceResp.csv
+  :header-rows: 1
+  :name: source-and-response
+
+Energies listed are the bin upper energies. Source units are
+particles/s, normalized to a total of 1 particle/s. Response units are
+(rem/hr)/(particle/cm\ :sup:`2`/s).
+
+Analog calculation
+^^^^^^^^^^^^^^^^^^
+
+The analog model for this problem starts with the problem title and the cross-section library name, which in this example is the ENDF/B-VII.0 27 neutron group/19 photon group library. This is in the SCALE ``samples\input`` directory as ``mavric.caskAnalogn.inp`` and ``mavric.caskAnalogp.inp``.
+
+::
+
+  =mavric
+  Simplified cask model
+  v7-27n19g
+
+Then the material compositions are listed for fresh fuel, concrete, and steel.
+
+::
+
+  read composition
+      wtptFuel   1 0.913717475 18         6000  0.00939719    7014  0.00528993
+                      8016  9.73397641   13000  0.00715715   14000  0.01031670
+                     15000  0.02227505   22000  0.00780567   24000  0.36655141
+                     25000  0.01716839   26000  0.72041451   27000  0.00523824
+                     28000  0.68955526   40000 15.78990702   41000  0.05130153
+                     42000  0.02844690   50118  0.25877903   92235  3.03560962
+                     92238 69.24080999
+                   1.0 293.0 end
+      orconcrete 2 1.0 293.0 end
+      ss304      3 1.0 293.0 end
+  end composition
+
+Then SGGP geometry is listed, with the origin of the coordinate system at the center of the cask.
+
+::
+
+  read geometry
+      global unit  1
+          zcylinder  1   95.0  228.6 -228.6
+          zcylinder  2  170.0  255.2 -255.2
+          zcylinder  3   90.0  240.6 -240.6
+          zcylinder  4   90.0  280.6 -280.6
+          zcylinder  5  170.0  280.6 -280.6
+          zcylinder  6  170.0  285.6 -285.6
+          zcylinder  7   95.0  255.2 -255.2
+          zcylinder  8  100.0  255.2 -255.2
+          zcylinder  9  168.0  255.2 -255.2
+          sphere    10  999.0
+          media  1 1   1          vol=1.29629E+07
+          media  3 1   8 -7       vol=1.56338E+06
+          media  2 1   9 -8       vol=2.92216E+07
+          media  3 1   2 -9       vol=1.08394E+06
+          media  3 1   3 -1       vol=6.10726E+05
+          media  2 1   4 -3       vol=2.03575E+06
+          media  3 1   6 -5       vol=9.07920E+05
+          media  0 1   5 -4 -2    vol=3.31953E+06
+          media  0 1   7 -4 -1    vol=1.54598E+05
+          media  0 1   10 -6      vol=4.12429E+09
+      boundary 10
+  end geometry
+
+The definitions block contains locations, response functions, grid geometries, and a distribution used by the source input block. For the neutron source/neutron dose problem, the definitions block is listed below.
+
+::
+
+  read definitions
+      location 1   position 180.0 0.0   0.0    end location
+      location 2   position   0.0 0.0 295.6    end location
+      location 3   position 180.0 0.0 267.9    end location
+      location 4   position 270.0 0.0   0.0    end location
+      location 5   position   0.0 0.0 385.6    end location
+      location 6   position 270.0 0.0 385.6    end location
+      response 1  specialDose=9029  end response
+      distribution 1
+          title="kewaunee core, 3 cycles and then 10 years"
+          neutronGroups
+          truePDF  2.040E-02 2.147E-01 2.365E-01 1.267E-01 1.586E-01
+                   1.587E-01 7.281E-02 1.073E-02 7.688E-04 5.694E-05
+                   4.479E-06 3.148E-07 4.983E-08 9.864E-09 1.117E-09
+                   3.286E-10 1.060E-10 9.203E-11 9.135E-11 1.755E-10
+                   2.590E-11 3.024E-11 3.451E-11 3.269E-12 5.447E-12
+                   4.089E-14 4.916E-14 end
+      end distribution
+  end definitions
+
+The neutron source from the spent fuel is then listed.
+
+::
+
+  read sources
+      src 1
+          title="1/6 of kewaunee core, ~ 0.25 Ci"
+          strength=8.577E+09
+          neutrons
+          zCylinder 95.0  228.6 -228.6
+          eDistributionID=1
+      end src
+  end sources
+
+Six point detectors are used to evaluate dose rates radially, axially, and near the vent port.
+
+::
+
+  read tallies
+      pointDetector 1  locationID=1  responseID=1  end pointDetector
+      pointDetector 2  locationID=2  responseID=1  end pointDetector
+      pointDetector 3  locationID=3  responseID=1  end pointDetector
+      pointDetector 4  locationID=4  responseID=1  end pointDetector
+      pointDetector 5  locationID=5  responseID=1  end pointDetector
+      pointDetector 6  locationID=6  responseID=1  end pointDetector
+  end tallies
+
+The Monte Carlo parameters were tailored for the neutron problem to be 1 minute batches on a 2 GHz Linux computer. For the photon problem, the number per batch would be 91000 for 1 minute batches.
+
+::
+
+  read parameters
+      randomSeed=8655745280030001
+      perBatch=25400 batches=600
+      fissionMult=0    noPhotons
+  end parameters
+
+No biasing is specified, which will use the default weight window target value of 1 for every energy group in every region. In order to allow the neutrons to penetrate into the cask wall before being rouletted, a larger window ratio is used, making the lower weight window bound to be 0.01.
+
+::
+
+  read biasing
+      windowRatio=199.0
+  end biasing
+
+The Monaco input is then ended.
+
+::
+
+  end data
+  end
+
+For the photon source/photon dose rate problem, the definitions block would instead contain a photon flux-to-dose-rate response function and the energy distribution for the source.
+
+::
+
+  read definitions
+      response 1
+          specialDose=9504
+      end response
+      …
+      distribution 1
+          title="kewaunee core, 3 cycles and then 10 years"
+          photonGroups
+          truePDF 1.320E-12 7.185E-11 3.281E-10 1.672E-09 4.167E-09
+                  8.086E-08 7.937E-07 1.164E-05 3.331E-05 8.160E-03
+                  3.511E-02 2.478E-02 4.827E-01 4.641E-02 9.736E-03
+                  1.514E-02 5.182E-02 7.015E-02 2.560E-01       end
+      end distribution
+  end definitions
+
+The sources block would contain the photon source information.
+
+::
+
+  read sources
+      src 1
+          title="1/6 of kewaunee core, ~ 2e6 Ci"
+          strength=7.155e+16
+          photons
+          zCylinder 95.0  228.6 -228.6
+          eDistributionID=1
+      end src
+  end sources
+
+Each of the two analog problems in the ``samples\input`` directory run for
+about 10 minutes. In this time, no meaningful results will be generated
+due to the difficulty of the problem. Analog results for each case
+running 110 hr are listed in :numref:`analog-neutron` for the neutron source/neutron
+dose problem, while results for the photon problem are listed in
+:numref:`analog-photon`. Note that after 110 hr, some of the relative uncertainties
+in the point detector tallies are still quite high and only one of the
+six tallies in each problem passed all of the statistical checks.
+:numref:`neutron-dose-plot` is the convergence plot for the neutron dose rate at point
+detector 1, showing that the tally is not well converged and that some
+batches contain rare events that change the tally value a great deal.
+
+.. csv-table:: Analog Monaco results for the simplified cask model—neutron source/neutron dose rate.
+  :file: csv-tables/table1.10.csv
+  :header-rows: 1
+  :name: analog-neutron
+  :align: center
+
+.. csv-table:: Analog Monaco results for the simplified cask model—photon source/photon dose rate.
+  :file: csv-tables/table1.11.csv
+  :header-rows: 1
+  :name: analog-photon
+  :align: center
+
+.. _neutron-dose-plot:
+.. figure:: figs/fig4.1.12_mavric.caskAnalogn.pd1.png
+  :align: center
+  :width: 500
+
+  Convergence plot for the neutron dose rate at point detector 1. Error bars show the 1-sigma tally uncertainties.
+
+SAS4 calculations
+^^^^^^^^^^^^^^^^^
+
+Calculations for these two problems were also done using the SAS4
+sequence in SCALE 5.1. SAS4 was specifically designed for cask
+geometries and used a one-dimensional discrete-ordinates calculation
+(either radially or axially) to determine weight windows. Results for
+the neutron problem are shown in :numref:`neutron-problem`, and results for the
+photon problem are shown in :numref:`photon-problem`. Note that SAS4 using radial
+biasing is only expected to do well for the two radial point detector
+locations. Similarly, only the two axial point detectors are expected to
+do well when using axial biasing. SAS4 was not intended to do well for
+the points near the vent port, but the results using the axial biasing
+seem reasonable.
+
+.. csv-table:: SAS4 results, using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—neutron source/neutron dose rate
+  :file: csv-tables/table1.12.csv
+  :header-rows: 1
+  :align: center
+  :name: neutron-problem
+
+.. csv-table:: SAS4 results, using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—photon source/photon dose rate
+  :file: csv-tables/table1.13.csv
+  :name: photon-problem
+  :align: center
+  :header-rows: 1
+
+Calculations using CADIS
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the analog calculations, the dose rates at all six points could be
+calculated at the same time. With MAVRIC, using CADIS, the importance
+map will optimize the transport of particles towards only the selected
+detector. Hence, each detector will have a separate calculation with an
+importance map tailored to reduce the variance for just that detector.
+Close detectors could be done at the same time. For example, detectors 1
+and 4 both need to push particles out of the cask in the positive
+*x* direction, towards the *z*\ =0 plane. In this example, all six
+detectors will use separate importance maps.
+
+For the importance map, the user lists in the input what planes to use
+for the adjoint discrete-ordinates calculation. These planes define
+cells, which are treated as homogenous parallelpipeds by Denovo, made of
+a macro material corresponding to a mixture of materials that are in the
+cell in the true geometry. Users should try to bound as many materials
+as possible with their selection of mesh planes. More mesh planes should
+be used where the importance (adjoint flux) varies quickly, for example
+near the adjoint sources (the detector positions). It is also important
+to have planes on the true source bounding box.
+
+In this example problem, different sets of mesh planes will be used for
+the different detector positions. For detector positions 1 and 4, the
+mesh planes are shown in :numref:`importance-1` and :numref:`importance-2`. Note that
+there are more planes closer to the detectors. Also note that in the
+*z* dimension, it is quite easy to place mesh planes at every material
+boundary, but it is a bit harder to do so in the *x* and *y* dimensions
+due to the curved surfaces. Users need not worry about getting things
+perfect—an approximate importance map can still reduce Monte Carlo
+variances a great deal. The meshes used for detector positions 2/5 and
+positions 3/6 are also shown in :numref:`importance-1` and :numref:`importance-2`. Mesh
+parameters are listed in :numref:`mesh-param-xyz`, and the mesh planes are listed in
+:numref:`mesh-planes`.
+
+.. _importance-1:
+
+.. figure:: figs/fig1.13.jpg
+  :width: 99 %
+  :align: center
+
+  Importance map mesh planes in the x and z dimensions for detector positions 1/4, 2/5, and 3/6.
+
+.. _importance-2:
+
+.. figure:: figs/fig1.14.jpg
+  :width: 99 %
+  :align: center
+
+  Importance map mesh planes in the x and y dimensions for detector positions 1/4, 2/5, and 3/6.
+
+.. list-table:: Mesh parameters
+  :name: mesh-param-xyz
+  :header-rows: 1
+  :align: center
+
+  * - Detector position
+    - Number
+    - of
+    - cells
+    - Total cells
+  * -
+    - x
+    - y
+    - z
+    -
+  * - 1/4
+    - 46
+    - 35
+    - 35
+    - 56350
+  * - 2/5
+    - 35
+    - 35
+    - 49
+    - 60025
+  * - 3/6
+    - 46
+    - 35
+    - 49
+    - 78890
+
+.. csv-table:: Listing of the various sets of mesh planes used for the importance calculations for six different point detectors
+  :name: mesh-planes
+  :align: center
+  :header-rows: 1
+  :file: csv-tables/table4.1.15_caskPlanes.csv
+
+MAVRIC input files
+^^^^^^^^^^^^^^^^^^
+
+With two sources and six detectors, this example problem will require 12
+separate input files. Starting with the two input files for the analog
+calculations, these 12 input files will share most of the same features
+and differ only in blocks related to the importance map calculation: the
+location of the adjoint source and the planes used in the grid geometry.
+
+To change the input for the neutron problem from an analog calculation
+to one using CADIS, the user first adds the mesh planes for the
+discrete-ordinates calculation as a grid geometry to the definitions
+block. This set of planes is tailored for the vent port direction,
+towards detectors 3 and 6.
+
+::
+
+  gridGeometry 3
+          title="for importance map for detectors 3,6"
+          xplanes -170 -168 -146 -122 -100
+                  -95 -90 -60 -40 -20 -5
+                  5 15 25 35 45 55 65 75 85 90 95 100
+                  104 108 112 116 120 124 128 132 136 140 144 148 152
+                  156 158 160 162
+                  164 165 166 167
+                  168 169 170  end
+          yplanes -170 -168 -155 -141 -127 -113 -100
+                  -95 -90 -85 -75 -65 -55 -45 -35 -25 -15 -5
+                  5 15 25 35 45 55 65 75 85 90 95 100
+                  113 127 141 155 168 170  end
+          zplanes -285.6 -280.6 -255.2 -240.6 -228.6 -210
+                  -190 -170 -150 -130 -110 -90 -70 -50 -30 -10
+                  10 30 50 70 90 110 130 150 170 190
+                  210    216.2 222.4
+                  228.6  232.6 236.6
+                  240.6  245.1 249.7 254.2
+                  255.2  256.2 260.1 264 267.9 271.8 275.7 279.6
+                  280.6  281.6 282.6 283.6 284.6 285.6  end
+  end gridGeometry
+
+To help the mesh-based biased source represent the true source,
+“mixture=1” can be added to the source definition. This will ensure that
+particles sampled from the mesh source that are not in the fuel are
+rejected. Then an importance map block replaces the standard biasing
+block. In this case, the importance map will optimize the flow of
+particles to location 3 (where point detector 3 is defined).
+
+::
+
+  read importanceMap
+      adjointSource 1
+          locationID=3
+          responseID=1
+      end adjointSource
+      gridGeometryID=3
+      macromaterial
+          mmTolerance=0.01
+      end macromaterial
+  end importanceMap
+
+A mesh tally could be added with the following in the tallies block.
+
+::
+
+  meshTally 1
+        title="Shows how importance map changes the transport of particles"
+        gridGeometryID=3
+        responseID=1
+  end meshTally
+
+The above mesh tally uses the same grid geometry as the CADIS
+calculations, but a different grid (or grids) could be used. The files
+``mavric.caskCADISn.inp`` and ``mavric.caskCADISp.inp`` are available in the
+SCALE ``samples\input`` directory. These are for calculating the dose rates
+at detector position 3 but can be modified for the other five positions
+(by changing the geometry grid planes and the adjoint source location).
+
+Neutron source/neutron response results
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The above MAVRIC input file first performed the discrete-ordinates
+calculation to determine the adjoint flux from detector position 3. The
+adjoint Denovo flux file (*.adjoint.dff) produced can be viewed using
+the Mesh File Viewer and is shown in :numref:`adjoint-denovo` for several of the
+neutron energy groups.
+
+MAVRIC then combined a mesh representation of the true source (space and
+energy) with the adjoint fluxes to create the importance map and
+mesh-based biased source. These are shown in :numref:`fifth-neutron` for the fifth
+neutron group, covering the energy range of 0.9 to 1.4 MeV. Notice how
+the most important region (lowest target weights) is right around the
+vent port near detector position 3. This is something we know
+qualitatively, but quantitative values for exactly how the importance
+changes with space and energy are difficult to guess. Also notice the
+“consistent” part of CADIS—the source particles are born with a weight
+that matches the target weight for the position they are born into. The
+biased source sampling distribution is shown in :numref:`biased-source`, showing
+how the source particles nearest to detector 3 will be sampled more
+often.
+
+The biased source distribution and the importance map were then used by
+Monaco to compute the dose equivalent rate response at detector 3.
+
+.. image:: figs/fig4.1.15g_caskn.adjoint.scale.png
+  :align: center
+.. _adjoint-denovo:
+.. figure:: figs/1.15.jpg
+  :align: center
+  :width: 100 %
+
+  Adjoint neutron fluxes (/cm :sup:`2`/s) for groups 5 (0.9–1.4 MeV), 10 (0.58–3.0 keV), and 19 (0.8–1 eV) calculated by Denovo.
 
 
+.. image:: figs/fig4.1.16e_caskn.targets.scale.png
+  :align: center
+
+.. _fifth-neutron:
+.. figure:: figs/1.16.jpg
+  :align: center
+  :width: 80 %
+
+  Neutron target weights from the importance map and source weights (at birth) for neutron group 5 (0.9 to 1.4 MeV).
+
+.. image:: figs/fig4.1.17g_caskn.prob.scale.png
+  :align: center
+
+.. _biased-source:
+.. figure:: figs/1.17.jpg
+  :align: center
+  :width: 100 %
+
+  Biased source sampling probability (neutrons/cm3) for neutron groups 5 (0.9‑1.4 MeV), 10 (0.58–3.0 keV), and 19 (0.8–1 eV).
+
+The results for all six neutron cases, each using their own importance
+map and biased source, are shown in :numref:`MAVRIC-final`.
+
+The point of this example is to show that MAVRIC using CADIS gets the
+right answer much faster than the analog calculations. This is shown
+with a comparison to the results from the analog Monaco and SAS4
+calculations, all of which are listed in :numref:`MAVRIC-CADIS-results`.
+
+To account for the time it takes to achieve a given level of
+uncertainties, the calculation figure-of-merit (FOM=1/time/(relative
+uncertainty)\ :sup:`2`) can be calculated for each of the codes. The
+ratios of each code FOM to the FOM of analog Monaco (speedup) are listed
+in :numref:`figure-of-merit` to show how much faster MAVRIC and SAS4 are compared to
+analog Monaco. The FOMs for MAVRIC include the Denovo calculation times.
+The FOMs for analog Monaco and SAS4 were modified to account for
+calculating all six detectors at once.
 
 
+.. csv-table:: Final MAVRIC results (rem/hr) for each point detector in the neutron source/neutron dose rate problem
+  :header-rows: 1
+  :align: center
+  :name: MAVRIC-final
+  :file: csv-tables/4.16.csv
+
+.. list-table:: Comparison of neutron dose rates (rem/hr) to other SCALE codes
+  :align: center
+  :name: MAVRIC-CADIS-results
+
+  * -
+    - Analog Monaco
+    - SAS4 radial
+    - SAS4 axial
+    - MAVRIC
+  * - detector
+    - 6595 min
+    - 360 min
+    - 361 min
+    - 556 min
+  * - 1
+    - 8.78E-04 ± 19%
+    - 7.67E-04 ± 0.8%
+    - 1.32E-05 ± 45%
+    - 7.65E-04 ± 0.8%
+  * - 2
+    - 7.35E-03 ± 4.1%
+    - 2.67E-02 ± 86%
+    - 7.80E-03 ± 0.4%
+    - 7.83E-03 ± 0.3%
+  * - 3
+    - 1.54E-02 ± 1.2%
+    - 1.27E-02 ± 14%
+    - 1.53E-02 ± 0.8%
+    - 1.54E-02 ± 0.3%
+  * - 4
+    - 4.47E-04 ± 3.1%
+    - 4.54E-04 ± 0.8%
+    - 2.34E-04 ± 68%
+    - 4.57E-04 ± 0.3%
+  * - 5
+    - 1.36E-02 ± 0.6%
+    - 1.43E-02 ± 13%
+    - 1.35E-02 ± 0.4%
+    - 1.36E-02 ± 0.3%
+  * - 6
+    - 2.92E-03 ± 0.7%
+    - 2.81E-03 ± 12.7%
+    - 2.86E-03 ± 0.5%
+    - 2.93E-03 ± 0.2%
 
 
+.. csv-table:: Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco
+  :header-rows:m
+  :align: center
+  :name: figure-of-merit
+  :file: csv-tables/4.18.csv
+
+Photon source/photon response results
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The results for the photon source/photon response are similar to the
+results of the neutron source/neutron response. For the MAVRIC
+calculation using the photon importance map made from an adjoint source
+located at detector position 3, :numref:`fig4-18` details the adjoint photon
+flux. :numref:`fig4-19` compares the target weights from the importance map
+and the source birth weights. :numref:`fig4-20` shows the distribution of
+the sampled source positions from the biased source.
+
+:numref:`tab4-19` shows the results from all six photon MAVRIC runs, each
+using their own importance map and biased source.
+
+The MAVRIC results of the photon problem compare well against SAS4 and
+analog Monaco, as shown in :numref:`tab4-20` and :numref:`tab4-21`.
+
+.. image:: figs/fig4.1.18g_caskp.adjoint.scale.png
+  :align: center
+
+.. _fig4-18:
+
+.. figure:: figs/4.18.jpg
+  :align: center
+
+  Adjoint photon fluxes (/cm: sup:`2`/s) for groups 2 (8–10 MeV), 2 (0.8–1.0 MeV), and 18 (45–100 keV) calculated by Denovo.
+
+.. csv-table:: Final MAVRIC results (rem/hr) for each point detectorin the photon source/photon dose rate problem
+  :align: center
+  :file: csv-tables/4.19.csv
+  :name: tab4-19
+
+.. image:: figs/fig4.1.19e_caskp.targets.scale.png
+  :align: center
+
+.. _fig4-19:
+
+.. figure:: figs/4.19.jpg
+  :align: center
+  :width: 80 %
+
+  Photon target weights from the importance map and source weights (at birth) for photon group 12 (0.8–1.0 MeV).
+
+.. csv-table:: Comparison of the photon dose rates (rem/hr) to other SCALE codes
+  :file: csv-tables/4.20.csv
+  :align: center
+  :name: tab4-20
+
+.. _fig4-20:
+
+.. figure:: figs/fig4-20.png
+  :align: center
+
+  Biased source sampling probability (photons/cm3) for groups 2 (8–10 MeV), 12 (0.8–1.0 MeV), and 18 (45–100 keV).
+
+.. csv-table:: Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco
+  :file: csv-tables/4.21.csv
+  :align: center
+  :name: tab4-21
+
+Gamma-ray litho-density logging tool using FW-CADIS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consider a simple model of a gamma-ray litho-density
+tool :cite:`gardner_monte_1991,wagner_automated_1998` used in well-logging studies, shown in
+:numref:`fig4-21`. This model uses a 10 cm diameter tool made of iron (with
+a tungsten density) in a 20 cm borehole filled with water. The near
+detector is a 2 cm diameter cylinder, 2 cm in length, located 20 cm from
+the source. The far detector is a 4 cm by 4 cm cylinder located 40 cm
+from the source. Each detector is made of NaI and collimated to look out
+into the formation. The source is contained in an angled collimator,
+aiming upward and into the formation. The collimators are filled with
+oxygen. The extent of the modeled formation is 100 × 100 × 140 cm. The
+source is an isotropic :sup:`137`\ Cs source emitting
+10\ :sup:`11` photons/s (661.7 keV). For these calculations, no response
+function is used—the goal of this example is to calculate the total
+photon flux within each detector volume.
+
+.. _fig4-21:
+
+.. figure:: figs/fig4.1.21_photonTool.bmp
+  :align: center
+  :width: 50 %
+
+  Cutaway view of the litho-density tool in a rock formation.
+
+.. _fig4-22:
+
+.. figure:: figs/fig4.1.22_photFWmesh1.bmp
+  :align: center
+  :width: 50 %
+
+  Denovo mesh, y=0 plane.
+
+.. _fig4-23:
+
+.. figure:: figs/fig4.1.23_photFWmesh2.bmp
+  :align: center
+  :width: 50 %
+
+  Denovo mesh, z=20 plane (through near detector).
 
 
+Input file
+^^^^^^^^^^
+
+The following input file represents the simple model of the litho-density tool.
+The following is a listing of the file ``mavric.lithoFW.inp`` located in the SCALE ``samples\input`` directory.
+The 27 neutron group/19 photon group library based on ENDF/B-VII.0 data was used for the discrete-ordinates
+calculations, while the final Monte Carlo calculation used the 200 neutron group/47 photon group library.
+
+The input file starts with the problem title, the library for the importance calculations, and the materials.
+
+::
+
+  =mavric
+  Photon lithodensity logging tool - using FW-CADIS
+  v7-27n19g
+
+  read composition
+      o           1 den=1.0               1.0 293.0 end
+      wtptNaI     2 3.67  2 11000 15.337
+                            53129 84.663  1.0 293.0 end
+      iron        3 den=19.3              1.0 293.0 end
+      h2o         4                       1.0 293.0 end
+      wtptCaCO3   5 2.36  4  1000  1.0
+                             6000 11.0
+                             8016 51.4
+                            20000 36.6    1.0 293.0 end
+  end composition
+
+The geometry is fairly simple. Volumes are only needed for the regions where tallies will be made.
+
+::
+
+  read geometry
+      global unit  1
+          zcylinder  2 1.0 10.0  0.0  origin x=5.0 rotate a1=90 a2=45
+          zcylinder  3 1.0 21.0 19.0  origin x=5.0
+          xcylinder  4 1.0 10.0  5.0  origin z=20.0
+          zcylinder  5 2.0 42.0 38.0  origin x=5.0
+          xcylinder  6 2.0 10.0  5.0  origin z=40.0
+
+          zcylinder  7  5.0 100 -40 origin x=5.0
+          zcylinder 11 10.0 100 -40
+          cuboid    12 50 -50  50 -50   100 -40
+
+          media   1 1   2 7
+          media   2 1   3          vol=6.2831853072
+          media   1 1   4 -3 7
+          media   2 1   5          vol=50.265482456
+          media   1 1   6 -5 7
+          media   3 1   7 -2 -3 -4 -5 -6
+          media   4 1   11 -7
+          media   5 1   12 -11
+      boundary 12
+  end geometry
+
+The definitions block lists the response (total photon flux) in a way
+that can be understood by both libraries used in the problem. The mesh
+grid for the importance calculations used 49 × 43 × 59 = 124,313 mesh
+cells, with particular emphasis on geometric representation of the
+collimators to ensure accurate importance maps. This mesh grid is shown
+in :numref:`fig4-22` and :numref:`fig4-23`. The source is represented by a
+distribution in which the most probable bin is located right near the
+661.7 keV line, which can be translated into one photon group in either
+library (from 600 to 800 keV in the 27/19 library or from 600 to 700 keV
+in the 200/47 library).
+
+::
+
+  read definitions
+      response 1
+          title="for computing total photon flux"
+          photonBounds 1.0e4 2.0e7 end
+          values         1.0   1.0 end
+      end response
+      gridgeometry 1
+          title="entire formation"
+          xplanes -50 -40 -35 -30 -25 -20 -15
+                  -10 -9 -8 -7 -6 -5 -4 -3 -2 -1
+                  0 1 2 3 3.5 4 4.5 5 5.5 6 6.5 7 8 9
+                  10 11 12 13 14 15 16 17 18 19 20
+                  22 24 26 28 30 35 40 50 end
+          yplanes -50 -40 -35 -30 -25 -20 -18 -16 -14 -12
+                  -10 -9 -8 -7 -6 -5 -4 -3 -2 -1.5 -1 -0.5
+                  0 0.5 1 1.5 2 3 4 5 6 7 8 9
+                  10 12 14 16 18 20 25 35 40 50 end
+          zplanes -40 -30 -20 -15 -10 -5
+                  -4 -3 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+                  12   14 16 17 18 18.5
+                  19   19.5 20 20.5
+                  21   21.5 22 23 24 26 28 30 32 34 36 37
+                  38   39 40 41
+                  42   43 44 46 48 50 55 60 65 70 80 90 100 end
+      end gridgeometry
+      gridgeometry 2
+          title="y=0 plane in detail"
+          xLinear 100  -50.0  50.0
+          yLinear   1   -1.0   1.0
+          zLinear 140  -40.0 100.0
+      end gridgeometry
+      distribution 1
+          	title="cesium-137 gammas/decay"
+          discrete 31817  32194  36304   36378   37255   283500    661657 end
+          truepdf  0.0199 0.0364 0.00348 0.00672 0.00213 0.0000058 0.851  end
+      end distribution
+  end definitions
+
+The source is a simple point source. For more realistic calculations,
+the source strength could be modified so that the total energy emitted
+is preserved,
+:math:`S' = S\left( \frac{661.7}{0.5}\left( 700 + 600 \right) \right)`,
+which uses the ratio of the line energy to the energy at the center of
+the group in the 200/47 library.
+
+::
+
+  read sources
+      src 1
+          title="Cs-137 Source: 661.7 keV"
+          strength=1.0e11
+          photons
+          sphere  0.0 origin  x=5.0
+          eDistributionID=1
+      end src
+  end sources
+
+Each detector is represented by a region tally. A mesh tally is made for one slice in *y* for visualization.
+
+::
+
+  read tallies
+      regionTally 1
+          photon  unit=1 region=2
+      end regionTally
+      regionTally 2
+          photon  unit=1 region=4
+      end regionTally
+      meshTally 1
+          title="mesh tally in just the y=0 plane"
+          photon
+          gridGeometryID=2
+          noGroupFluxes
+      end meshTally
+  end tallies
+  read parameters
+      library="v7-200n47g"
+      randomSeed=00003ecd7b4e3e8b
+      perBatch=466000 batches=24
+      noNeutrons
+  end parameters
+
+The importance map defines two adjoint sources, corresponding to the two
+tallies. Forward weighting, based on the response integrated over energy
+(“respWeighting”), is used. Because the true source is a point source,
+the subcell method of making a mesh source will fail, so the number of
+source trials is input. This number is small since the source is a
+monoenergetic point source. The Denovo calculations used the default
+S\ :sub:`8` quadrature and P\ :sub:`3` Legendre order.
+
+::
+
+  read importanceMap
+      gridGeometryID=1
+
+  '   near detector
+      adjointSource 1
+          boundingBox 6 4  1 -1  21 19
+          unit=1 region=2
+          responseID=1
+      end adjointSource
+
+  '   far detector
+      adjointSource 2
+          boundingBox 7 3  2 -2  42 38
+          unit=1 region=4
+          responseID=1
+      end adjointSource
+      respWeighting
+      sourceTrials=100
+  end importanceMap
+
+  end data
+  end
+
+Output
+^^^^^^
+
+The results for the two region tallies, the first for the near detector and the second for the far detector after 60 minutes of computations (3 forward Denovo, 4 adjoint Denovo and 52 Monaco), were as follows.
+
+::
+
+  Photon Region Tally 1.
+                           average      standard     relat      FOM    stat checks
+      tally/quantity        value       deviation    uncert   (/min)   1 2 3 4 5 6
+      ------------------  -----------  -----------  -------  --------  -----------
+      total flux (tl)     1.47918E+03  1.57461E+01  0.01065  1.70E+02  X - X X X X
+      total flux (cd)     1.47936E+03  1.56963E+01  0.01061  1.71E+02  X - X - X X
+      ------------------  -----------  -----------  -------  --------  -----------
+
+   Photon Region Tally 2.
+                           average      standard     relat      FOM    stat checks
+      tally/quantity        value       deviation    uncert   (/min)   1 2 3 4 5 6
+      ------------------  -----------  -----------  -------  --------  -----------
+      total flux (tl)     4.57691E+01  2.81778E-01  0.00616  5.07E+02  X X X X X X
+      total flux (cd)     4.57825E+01  2.80714E-01  0.00613  5.11E+02  X X X X X X
+      ------------------  -----------  -----------  -------  --------  -----------
+
+Note that both detectors have similarly low relative uncertainties
+(about 1%) even though the tally values differ by a factor of 30. These
+results should be compared to analog results (no biasing at all) and
+optimizations of each detector in separate input files, as shown in
+:numref:`tab4-22`. The CADIS calculations for each detector (near or far) do
+exactly what they were supposed to do – optimize the Monte Carlo
+calculation for one tally or the other. The FOMs for the FW-CADIS
+calculation were about half of the FOMs for the single-detector CADIS
+calculations. Hence, for this two-detector problem, two CADIS
+calculations are just as efficient as one FW-CADIS calculation. For
+modern well-logging tools with up to a dozen detectors, a single
+FW-CADIS would be much more efficient and manageable. Note that the near
+detector still needs more time to pass the second (uncertainty fit) and
+the fourth (VOV fit) statistical checks. Neither of the single-detector
+CADIS calculations passed the fourth statistical check within an hour.
+
+:numref:`fig4-24` shows a mesh tally of total photon flux in the y=0 plane
+for all four of the simulations: analog, CADIS for the near detector,
+CADIS for the far detector, and the FW-CADIS calculation for both.
+
+.. csv-table:: Comparison of different CADIS techniques for the litho-density problem
+  :file: csv-tables/4.22.csv
+  :name: tab4-22
+  :align: center
+
+.. _fig4-24:
+
+.. figure:: figs/4.22.png
+  :align: center
+  :width: 800
+
+  Mesh tallies showing total photon flux in cm\ :sup:`2`/s (left column) and its relative error (right column) in the y=0 plane.
+
+AOS-100 using FW-CADIS and continuous-energy transport
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The advanced variance reduction in MAVRIC can also be used when the
+final Monaco Monte Carlo transport calculation is performed using a CE
+cross section library. Simulations involving discrete-energy photon
+sources are best handled with CE. Consider the AOS-100, one of several
+radioactive material transport packaging systems developed by Alpha
+Omega Services Inc., and a cobalt-60 source. (International Isotopes
+Inc. of Idaho Falls, Idaho, distributes the AOS Radioactive Material
+Transport Packaging Systems.)
+
+A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
+:numref:`fig4-25`. The diameter is 71.12 cm and the height is 91.44 cm.
+The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
+but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of cobalt-60.
+This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.
+
+.. _fig4-25:
+.. figure:: figs/fig4.1.25_aos100geom.bmp
+  :align: center
+  :width: 30 %
+
+  Simple AOS-100 cask geometry showing tungsten (brown) and steel (gray).
+
+The objective in this study is to compute the dose rates around the cask.
+This can be done via using a mesh tally. Note that the dose rates inside the package are not of
+concern—only the dose rates outside the package are.
+
+The results of a 15-hour analog calculation (using only implicit capture with a lower weight limit of 10\ :sup:`-7`)
+are shown in :numref:`fig4-26`. Note that this calculation does not show many photons that have escaped the package
+into the air, which is similar to reality for this heavily shielded cask. In order to compute dose rates outside
+the package, variance reduction is needed.
+
+.. _fig4-26:
+.. figure:: figs/4.26.png
+  :align: center
+
+  Dose rates (mrem/hr/Ci) and relative uncertainties along the *y* = 0 midplane of the cask as calculated by an analog calculation.
 
 
+Input file
+^^^^^^^^^^
+
+The sample problem file ``mavric.aos100.inp`` is located in the ``samples\input`` directory.
+For this demonstration, a very simplified geometry is used, with a few tungsten regions inside a steel
+cylinder. The library given at the beginning of the input is the MG library for the importance calculations.
+The final Monaco Monte Carlo calculation will use the CE library, which is specified in the parameters block.
+About 1 meter of air is modeled around the cask.
+
+::
+
+  =mavric
+  AOS-100: Demonstrate use of MG importance maps with final MC using CE transport
+  v7-200n47g
+  read composition
+      ss304           1   end
+      wtptTungsten    2  17.8 4  74182 26 74183 14 74184 31 74186 29 end
+      dry-air         3   end
+  end composition
+
+  read geometry
+      global unit 1
+          cylinder 1  8.255   25.40 -25.40
+          cylinder 2 10.795   27.94 -27.94
+          cylinder 3 20.955   27.94 -27.94
+          cylinder 4 13.335   40.64  30.48
+          cylinder 5 13.335  -30.48 -40.64
+          cylinder 6 35.56    45.72 -45.72
+
+          cuboid  99  139.7 -139.7   139.7 -139.7  152.4 -152.4
+
+          media 3 1  1
+          media 1 1  2 -1
+          media 2 1  3 -2
+          media 2 1  4
+          media 2 1  5
+          media 1 1  6 -3 -4 -5
+
+          media 3 1  99 -6
+      boundary 99
+  end geometry
+
+In the definitions block, the photon dose response function, the
+cobalt-60 line spectrum, two grid geometries, and an energy boundaries
+structure are all defined. The first grid geometry is used for the
+deterministic calculation, the importance map, and biased source. The
+second grid geometry is for the high-resolution (1 in.) mesh tally. The
+energyBounds defined here has a base structure of 30 bins that are 50
+keV wide, with three bins that are 2 keV wide at the dominant cobalt
+line energies and the 511-keV annihilation gamma energy.
+
+::
+
+  read definitions
+      response 5
+          title="ANSI standard (1977) neutron flux-to-dose-rate factors"
+          doseData=9504
+      end response
+
+      distribution 1
+          title="cobalt-60 gammas/decay"
+          discrete   347140   826100 1173228 1332492  2158570    2505692 end
+          truepdf  0.000075 0.000076 0.9985 0.999826 0.000012 0.00000002 end
+      end distribution
+
+
+      gridGeometry 7
+          title="mesh for discrete ordinates/importance map/biased source"
+          xLinear 28   -35.56  35.56
+          yLinear 28   -35.56  35.56
+          zLinear 36   -45.72  45.72
+
+          xLinear 22  -139.7  139.7
+          yLinear 22  -139.7  139.7
+          zLinear 24  -152.4  152.4
+      end gridGeometry
+
+      gridGeometry 8
+          title="mesh for mesh tally - 1 inch voxels"
+          xLinear  110  -139.7   139.7
+          yLinear  110  -139.7   139.7
+          zLinear  120  -152.4   152.4
+      end gridGeometry
+
+      energyBounds 1
+          linear 30 0.00e6 1.50e6
+          bounds  0.510e+6 0.512e+6   1.172e6 1.174e6   1.331e6 1.333e6 end
+      end energyBounds
+  end definitions
+
+The source is modeled as a uniform volumetric source in the center
+region of the cask. Because the distribution of cobalt gamma rays was
+entered as gammas per decay, the keyword “useNormConst” will set the
+source strength to be the total of the energy distribution—about 2
+photons/decay. The “multiplier” keyword is used to multiply that
+strength by 37e9 decays/sec to get 1 Ci.
+
+::
+
+  read sources
+      src 1
+          title="one Ci of cobalt-60"
+          useNormConst
+          multiplier=37e9
+          cylinder  8.255   25.40 -25.40
+          photons
+          eDistributionID=1
+      end src
+  end sources
+
+A single mesh tally is defined and is limited to the air region outside of the cask. A multiplier of 1000 is used to convert the response values from rem/hr to mrem/hr.
+
+::
+
+  read tallies
+      meshTally 1
+          photon
+          gridGeometryID=8
+          responseID=5
+          unit=1 region=7
+          energyBoundsID=1
+      end meshTally
+
+      multiplier=1000.0
+  end tallies
+
+In this problem, the importance calculations will use the 200/47 MG
+library, which will transport all particles contained in the library by
+default. The keyword “noNeutrons” is used to turn off neutron transport
+during the Denovo calculations, saving time. The final Monaco
+calculation will use the CE library (“ceLibrary=”), which only
+transports the particles specifically requested by the user (to avoid
+loading large amounts of cross section from disk to memory). Thus, the
+keyword “photons” is included to specifically tell the CE Monaco to
+transport photons.
+
+::
+
+  read parameters
+      randomSeed=00003ecd7b4e3e8b
+      ceLibrary="ce_v7np_endf.xml"
+      perBatch=2000000 batches=233
+      photons   noNeutrons
+  end parameters
+
+The importance map uses FW-CADIS to construct a map and biased source
+that will optimize the photon dose rate in the air outside the cask.
+Since photon scatter is typically forward peaked, an S\ :sub:`12`
+quadrature and P\ :sub:`5` Legendre scattering expansion are used.
+
+::
+
+  read importanceMap
+      adjointSource 1
+          boundingBox 139.7 -139.7   139.7 -139.7  152.4 -152.4
+          unit=1 region=7
+          responseID=5
+      end adjointSource
+      respWeighting
+
+      gridGeometryID=7
+      macromaterial
+          mmTolerance=0.01
+      end macromaterial
+
+      quadrature=12
+      legendre=5
+  end importanceMap
+
+Output file
+^^^^^^^^^^^
+
+Results for the mesh tally after 958 minutes (27 forward Denovo, 31
+adjoint Denovo, and 900 CE-Monaco) are shown in :numref:`fig4-27`. Note that
+since dose rates inside the package are not of concern, that region was
+excluded from the mesh tally. Due to the optimization that focused the
+Monte Carlo calculation on dose rates outside the cask, values of the
+dose rate inside the cask are underestimated and should not be used.
+Also note that voxels along the outer cylindrical edge of the package
+could show low dose rates, since the voxel value is an average and only
+part of the voxel is actually outside the package. The resolution of the
+mesh tally is 2.54 cm.
+
+.. _fig4-27:
+.. figure:: figs/4.27.png
+  :align: center
+
+  Dose rates (mrem/hr/Ci) and relative uncertainties from the CE, FW-CADIS calculation, showing the midplane views of the cask (*z* = 0 above and *y* = 0 below).
+
+The flux using the user-defined energy bin boundaries for a point 10 cm above the top of the package
+(along the axis) is shown in :numref:`fig4-28`. Note that since the importance map was made to optimize
+the photon dose rate, some of the low-energy bins (that do not contribute to dose much) may have
+larger uncertainties.
+
+.. _fig4-28:
+.. figure:: figs/fig4.1.28_mavric.aos100.eflux.png
+  :align: center
+  :width: 70 %
+
+  Flux 10 cm above the cask.
+
+:numref:`fig4-29` and :numref:`fig4-30` show the ratios of the dose rates computed using a MG calculation to the
+CE calculation. Dose rates inside the cask should not be compared because the importance map is focused on
+dose outside the cask, so low-energy photons are not simulated inside. The 47 group MG calculation is fairly
+close to the CE-calculation in dose rate (10% high axially, 20% high radially), but the 19 group MG dose rates
+are much higher than the CE. Neither of the MG calculations shows the 1.17 and 1.33 MeV lines in the energy spectra.
+
+.. _fig4-29:
+.. figure:: figs/4.29.png
+  :align: center
+
+  Ratio of the 47 group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
+
+.. _fig4-30:
+.. figure:: figs/4.30.png
+  :align: center
+
+  Ratio of the 19 group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
+
+Independent spent fuel storage installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+A good example of a problem where the dose rate needs to be known well
+everywhere—in low dose areas and high dose areas—is an independent spent
+fuel storage installation. The dose rates around these arrays of spent
+fuel casks need to be evaluated over a large area of ground in order to
+determine the boundary of the controlled area. This sample problem uses
+a simplified model of a cask array, shown in :numref:`fig4-31` and
+:numref:`fig4-32`, to demonstrate the FW-CADIS method for obtaining the dose
+rates with reasonably low relative uncertainties over a mesh tally which
+covers a very large area.
+
+.. _fig4-31:
+.. figure:: figs/fig4.1.31_isfsi.array.bmp
+  :align: center
+  :width: 80 %
+
+  Array of eight casks.
+
+.. _fig4-32:
+.. figure:: figs/fig4.1.32_isfsi.newcask07.bmp
+  :align: center
+  :width: 30 %
+
+  Cask detail.
+
+Source term
+^^^^^^^^^^^
+
+The calculation of the spent fuel source term using data from the
+Kewaunee nuclear power plant is described in the cask example problem
+and is modeled in the first part of ``mavric.isfsi.inp`` with ORIGEN. The
+result of this calculation is a binary concentration (ft71f001) file.
+This file also contains a listing of the group-wise neutron source term
+(“total neutron spectra, neutrons/sec/basis”) and photon source term
+(“gamma spectra, photons/sec/basis”) for each time step. In this example
+problem, the source term for the MAVRIC calculation will be read
+directly from the binary concentration file. The file contains the
+concentration and source-term data at each of 64 time steps. For this
+analysis the photon source at the last time step will be used.
+
+Input file
+^^^^^^^^^^
+
+The following is a listing of the second part (the MAVRIC input) of the
+file ``mavric.isfsi.inp`` located in the SCALE ``samples\input`` directory. Note
+that soil and air are included in the model to properly account for dose
+near the ground. The mesh tally does not extend into the air above 2
+meters since we are only concerned about the area near the ground where
+people could be. For MAVRIC to read the ORIGEN binary concentration
+file, it must be named as a Fortran unit file with a number matching the
+distribution input. In this example, unit 71 is used in both the ORIGEN
+input and MAVRIC input.
+
+::
+
+  =mavric
+  ISFSI - forward-weighted adjoint using photon dose response
+  v7-27n19g
+
+The materials include the fresh fuel (with a density representing homogenization), concrete, steel, air, and ordinary soil.
+
+::
+
+  read composition
+      wtptFuel   1 0.913717475 18         6000  0.00939719    7014  0.00528993
+                      8016  9.73397641   13000  0.00715715   14000  0.01031670
+                     15000  0.02227505   22000  0.00780567   24000  0.36655141
+                     25000  0.01716839   26000  0.72041451   27000  0.00523824
+                     28000  0.68955526   40000 15.78990702   41000  0.05130153
+                     42000  0.02844690   50118  0.25877903   92235  3.03560962
+                     92238 69.24080999
+                   1.0 293.0 end
+      orconcrete 2 1.0 293.0 end
+      ss304      3 1.0 293.0 end
+      dry-air    4 1.0 293.0 end
+      wtptSoil   5 1.685 12  1000 3.498   6000  2.138   8016 60.826  11000 0.579
+                            13000 7.489  14000 18.841  17000  0.026  19000 0.582
+                            20000 0.896  22000  0.488  25000  0.097  26000 4.540
+                   1.0 293.0 end
+  end composition
+
+The geometry models one cask and then repeats it eight times using an array.
+
+::
+
+  read geometry
+    unit  1
+      zcylinder  1   90.0  228.6 -228.6
+      zcylinder  2   90.0  240.6 -240.6
+      zcylinder  3   90.0  280.6 -280.6
+      zcylinder  4   95.0  280.6 -280.6
+      zcylinder  5  100.0  280.6 -280.6
+      zcylinder  6  168.0  280.6 -280.6
+      zcylinder  7  170.0  280.6 -280.6
+      zcylinder  8  170.0  285.6 -285.6
+      cuboid    11  170  90 30 -30   280.6 255.6
+      cuboid    12  30 -30 170 90    280.6 255.6
+      cuboid    13  -90 -170 30 -30  280.6 255.6
+      cuboid    14  30 -30 -90 -170  280.6 255.6
+      cuboid    21  170  90 30 -30   -255.6 -280.6
+      cuboid    22  30 -30 170 90    -255.6 -280.6
+      cuboid    23  -90 -170 30 -30  -255.6 -280.6
+      cuboid    24  30 -30 -90 -170  -255.6 -280.6
+      cuboid    99  340.0 -340.0   340.0 -340.0   285.6 -285.6
+
+      media  1    1   1
+      media  3    1   2 -1
+      media  2    1   3 -2
+      media  4    1   4 -3
+      media  3    1   5 -4  -11 -12 -13 -14  -21 -22 -23 -24
+      media  2    1   6 -5  -11 -12 -13 -14  -21 -22 -23 -24
+      media  3    1   7 -6  -11 -12 -13 -14  -21 -22 -23 -24
+      media  3    1   8 -7
+      media  4    1   11 -4 7
+      media  4    1   12 -4 7
+      media  4    1   13 -4 7
+      media  4    1   14 -4 7
+      media  4    1   21 -4 7
+      media  4    1   22 -4 7
+      media  4    1   23 -4 7
+      media  4    1   24 -4 7
+      media  4    1   99 -8
+    boundary 99
+    global unit 2
+      cuboid 1   1360 -1360      680 -680       571.2    0.0
+      cuboid 2   2040 -2040     1360 -1360        0.0  -60.0
+      cuboid 3  12000 -12000   12000 -12000       0.0 -100.0
+      cuboid 4  12000 -12000   12000 -12000   10000.0 -100.0
+      array 10 1 place 1 1 1  -1020 -340 285.6
+      media  2  1   2
+      media  5  1   3 -2
+      media  4  1   4 -3 -1
+    boundary 4
+  end geometry
+
+  read array
+      ara=10 nux=4 nuy=2 nuz=1  fill 1 1 1 1   1 1 1 1   end fill
+  end array
+
+The definitions block contains the photon dose response, a mesh geometry for the discrete-ordinates calculations,
+a uniform mesh for the mesh tally, and the photon energy distribution read from the binary concentration
+file (located on unit 71, the last time step case 64).
+
+::
+
+  read definitions
+      response 6
+          specialDose=9504
+      end response
+      gridGeometry 3
+          title="exercise geometry 68x44x24 = 71808"
+          xplanes -12000 -10000 -8000 -6000 -4000 -3000
+                  -2040 -1870 -1700 -1530
+                  -1360 -1275 -1190 -1150 -1110 -1070 -1020 -970 -930 -890 -850 -765
+                  -680 -595 -510 -470 -430 -390 -340 -290 -250 -210 -170 -85
+                  0 85 170 210 250 290 340 390 430 470 510 595 680
+                  765 850 890 930 970 1020 1070 1110 1150 1190 1275 1360
+                  1530 1700 1870 2040
+                  3000 4000 6000 8000 10000 12000 end
+          yplanes -12000 -10000 -8000 -6000 -4000 -2000
+                  -1360 -1190 -1020 -850
+                  -680 -595 -510 -470 -430 -390 -340 -290 -250 -210 -170 -85
+                  0 85 170 210 250 290 340 390 430 470 510 595 680
+                  850 1020 1190 1360
+                  2000 4000 6000 8000 10000 12000 end
+          zplanes -100 -50 -30 -15 0 25 50 75 100 200 300 400 500 570 600 800
+                  900 1000 1500 2000 3000 4000 6000 8000 10000 end
+      end gridGeometry
+      gridGeometry 4
+          title="large voxels for mesh tally"
+          xLinear 24 -12000.0 12000.0
+          yLinear 24 -12000.0 12000.0
+          zLinear  1      0.0   200.0
+      end gridGeometry
+
+      distribution 1
+  '       use result from kewaunee.origen.inp, case 64, master photon library
+          special="origensBinaryConcentrationFile"
+          filename=”ft71f001”
+          parameters 71 64 4 end
+      end distribution
+  end definitions
+
+The source can be done in two ways. Since there are eight casks, eight
+sources could be defined, each over a cylinder with a strength of
+7.155×10\ :sup:`16` photon/s. In this example of eight identical
+sources, one source region can be defined and then limited to only exist
+in the spent fuel material (the first material) but with a strength for
+all the casks of 5.724×10\ :sup:`17` photon/s.
+
+::
+
+  read sources
+      src 1
+          title="each cask holds 1/6 of kewaunee core"
+          strength=5.724e17
+          cuboid -1115 1115  435 -435  514.2  57
+          mixture=1
+          photons
+          eDistributionID=1
+      end src
+  end sources
+
+The mesh tally covers only the first 2 meters above the ground, since the dose rate above that would not impact a person.
+
+::
+
+  read tallies
+      meshTally 1
+          title="120m from cask array center"
+          photon
+          gridGeometryID=4
+          responseID=6
+      end meshTally
+  end tallies
+
+  '-------------------------------------------------------------------------------
+  ' Parameters Block
+  '-------------------------------------------------------------------------------
+  read parameters
+      randomSeed=8655740521000041
+      perBatch=940000  batches=60
+  end parameters
+
+The adjoint source is placed everywhere that the dose rate is desired—near the ground but not very close to or in between the casks (where people will not be). The macro material option is used here to help the discrete-ordinates calculation be more representative of the problem.
+
+::
+
+  read importanceMap
+      gridGeometryID=3
+      adjointSource 1
+          boundingBox 12000 -12000   12000 -12000  600.0 0.0
+          responseID=6
+          unit=2 region=3
+      end adjointSource
+      respWeighting
+      macromaterial
+          mmTolerance=0.001
+      end macromaterial
+      saveExtraMaps
+  end importanceMap
+
+  end data
+  end
+
+Output
+^^^^^^
+
+The MAVRIC calculational times were 3 minutes for the forward Denovo, 3.5 minutes for the adjoint Denovo,
+and 60 minutes for the Monaco forward Monte Carlo. Results for the mesh tally of dose rates are shown in
+:numref:`fig4-33`. For a longer Monaco calculation (64 hr), the mesh tally results are shown in :numref:`fig4-34`.
+Note that the scale for the dose rate has been adjusted to only show the values outside of the cask array.
+
+Using the Mesh File Viewer, the distribution of relative uncertainty in a mesh tally can be plotted.
+For this 1 hr calculation, 50% of the voxels in the mesh tally had less than 20% relative uncertainty.
+:numref:`fig4-35` shows how the distribution of relative errors changes with longer run times.
+For the 64 hr run, 90% of the voxels had less than 10% relative uncertainty.
+
+.. _fig4-33:
+.. figure:: figs/4.33.png
+  :align: center
+
+  Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (1 hr Monaco).
+
+.. _fig4-34:
+.. figure:: figs/4.34.png
+  :align: center
+
+  Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (64 hr Monaco). For the uncertainty plot, purple represents <=5%.
+
+.. _fig4-35:
+.. figure:: figs/fig4.1.35_isfsiCompare.png
+  :align: center
+
+  Distribution of relative uncertainties for different run times of mavric.isfsi.inp. This plot shows what fraction of the mesh tally voxels had less than a given amount of relative uncertainty.
+
+TN24-P spent fuel cask
+~~~~~~~~~~~~~~~~~~~~~~
+
+As an example that uses multiple sources, user-defined distributions in
+those sources, macromaterials for improved S\ :sub:`N` calculations, and
+the automated variance reduction capabilities in MAVRIC, consider the
+model for the TN-24P cask, as used in previous SCALE shielding
+reports :cite:`wiarda_development_2009` and shown in :numref:`fig4-36`. This model contains two types
+of PWR spent fuel assemblies (Types V and W, both Westinghouse 15×15
+assemblies of different starting enrichments and burnups), each with
+specified neutron and photon sources, in an aluminum/boron fuel basket.
+The cask is made of forged steel for photon shielding with a resin layer
+for neutron shielding. Also included in the model are three activated
+hardware regions (bottom nozzle, top nozzle, and top plenum), which
+consist of specified amounts of :sup:`60`\ Co (a photon source). The
+task for this example is to calculate the total dose rate within 2
+meters of the cask surface.
+
+.. _fig4-36:
+.. figure:: figs/4.36.png
+  :align: center
+
+  MAVRIC model of the TN24-P cask. Materials: spent fuel (light and dark yellow), steels (blues), resin (green), and other metals (gray).
+
+For MAVRIC, this means the calculation of a dose rate mesh tally using
+FW-CADIS to ensure that each voxel has low relative uncertainty,
+independent of the dose rate. Without MAVRIC, the calculation of dose
+rate everywhere in three dimensions would be too challenging. Most
+likely, the dose rate would be evaluated with reasonable uncertainty at
+only a few locations. In fact, with analog calculations, this example
+would be a very difficult problem since most source particles never
+leave the cask, just as in the real-life situation. This type of problem
+really benefits from the CADIS-biased source distribution, in which
+source particles deep inside the cask are sampled very rarely since they
+do not contribute significantly to the response.
+
+Input file
+^^^^^^^^^^
+
+The following is a partial listing of the file ``mavric.tn24p.inp`` located
+in the SCALE ``samples\input`` directory. This calculation will use the
+coarse-group shielding library for all of the importance map
+calculations but then use the fine-group library for the final Monaco
+step. The full geometry and source distributions are not printed here
+due to their length.
+
+::
+
+  =mavric
+  Monaco/MAVRIC Training - Exercise 3. Graphite Shielding Measurements Revisited
+  v7-27n19g
+  read composition
+      …
+  end composition
+
+  read geometry
+      …
+  end geometry
+
+  read array
+      …
+  end array
+
+The definitions block includes three responses (neutron, photon,
+total), two grid geometries (one for the importance map calculations
+and one for a mesh tally), one cylindrical mesh for a mesh tally,
+five distributions for the energy spectra of the sources, and two
+distributions for the spatial distributions of the fuel assembly
+sources.
+
+::
+
+  read definitions
+      response 1  specialDose=9029  end response
+      response 2  specialDose=9504  end response
+      response 3  specialDose=9729  end response
+
+      gridGeometry 1
+          title="for discrete ordinates calculations  48 x 48 x 61"
+          …
+      end gridGeometry
+      gridGeometry 2
+          title="for mesh tallies"
+          xLinear 66 -330 330
+          yLinear 66 -330 330
+          zLinear 90 -435 465
+      end gridGeometry
+      cylGeometry 3
+          radiusLinear 66 0 330
+          degreeLinear 72 0 360
+          zLinear 90 -435 465
+      end cylGeometry
+
+      distribution 1
+          title="neutron energy distribution for W assembly"
+          abscissa … end
+          truePDF … end
+      end distribution
+      distribution 2
+          title="photon energy distribution for W assembly"
+          abscissa … end
+          truePDF … end
+      end distribution
 
 
+      distribution 3
+          title="neutron energy distribution for V assembly"
+          abscissa … end
+          truePDF … end
+      end distribution
+      distribution 4
+          title="photon energy distribution for V assembly"
+          abscissa … end
+          truePDF … end
+      end distribution
+      distribution 5
+          title="cobalt-60 gammas/decay"
+          special="origensDiscreteGammas"
+          parameters 27 60 end
+      end distribution
 
+      distribution 101  special="pwrNeutronAxialProfile"  end distribution
+      distribution 102  special="pwrGammaAxialProfile"   end distribution
 
+      runSampleTests   makeCharts
+  end definitions
 
+Seven sources are defined—a neutron and photon source for each type of fuel assembly and three activated hardware regions.
+
+::
+
+  read sources
+      src 1
+          title="W assembly, neutron source"
+          neutrons
+          strength=1.6472e9
+          zCylinder 71.0  182.9 -182.9
+          zDistributionID=101  zScaleDist
+          mixture=2
+          eDistributionID=1
+      end src
+      src 2
+          title="W assembly, photon source"
+          photons
+          strength=5.3638e16
+          zCylinder 71.0  182.9 -182.9
+          zDistributionID=102  zScaleDist
+          mixture=2
+          eDistributionID=2
+      end src
+
+      src 3
+          title="V assembly, neutron source"
+          neutrons
+          strength=7.1927e8
+          zCylinder 63.0  182.9 -182.9
+          zDistributionID=101  zScaleDist
+          mixture=12
+          eDistributionID=3
+      end src
+      src 4
+          title="V assembly, photon source"
+          photons
+          strength=1.8234e16
+          zCylinder 63.0  182.9 -182.9
+          zDistributionID=102  zScaleDist
+          mixture=12
+          eDistributionID=4
+      end src
+       src 6
+          title="bottom nozzel Co-60 source"
+          photons
+          strength=1.7960e14
+          zCylinder 71.0 -186 -193
+          mixture=9
+          eDistributionID=5
+      end src
+
+      src 7
+          title="top nozzle Co-60 source"
+          photons
+          strength=1.0103e14
+          zCylinder 71.0 212.8 203.9
+          mixture=10
+          eDistributionID=5
+      end src
+
+      src 8
+          title="plenum Co-60 source"
+          photons
+          strength=6.3137e13
+          zCylinder 71.0 201.0 182.9
+          mixture=11
+          eDistributionID=5
+      end src
+  end sources
+
+Four mesh tallies are used to collect the neutron dose rate, the photon dose rate, and the total dose rate.
+
+::
+
+   read tallies
+    meshTally 1
+        neutron
+        gridGeometryID=2
+        responseID=1
+        noGroupFluxes
+    end meshTally
+    meshTally 2
+        photon
+        gridGeometryID=2
+        responseID=2
+        noGroupFluxes
+    end meshTally
+    meshTally 11
+        neutron
+        cylGeometryID=3
+        responseID=1
+        noGroupFluxes
+    end meshTally
+    meshTally 12
+        photon
+        cylGeometryID=3
+        responseID=2
+        noGroupFluxes
+    end meshTally
+   end tallies
+
+The goal of this example is to calculate the total dose outside the
+cask. Hence, the adjoint source uses the total dose rate response
+function for its energy component, while for the spatial component, it
+uses a large block around the cask. Note the “mixture=” keyword, which
+restricts the adjoint source to only exist where the material is air
+(13). There is no need to put adjoint source deep in the cask since the
+dose rates inside the cask are not of interest. Response weighting is
+used to put more adjoint source in the low dose areas outside the cask.
+Note that since this area is air, not many interactions/scatter take
+place, so we should not expect a great balance in relative uncertainties
+near and far from the cask. Macromaterials are used to improve the
+results from the discrete-ordinates calculations, which should improve
+the FOM of the final Monaco calculation. The geometry images in :ref:`macromaterials` are taken from this problem.
+
+::
+
+  read importanceMap
+      gridGeometryID=1
+      adjointSource 1
+          boundingBox  330 -330   330 -330  465 -435
+          responseID=3
+          mixture=13
+      end adjointSource
+      respWeighting
+      reduce
+      subCells=3
+      macromaterial
+          mmTolerance=0.001
+      end macromaterial
+  end importanceMap
+
+  end data
+  end
+
+Output
+^^^^^^
+
+The distributions used by the source descriptions of the TN24-P model
+are shown in :numref:`fig4-38`, and the responses used in this problem are
+shown in :numref:`fig4-37`. :numref:`fig4-39` and :numref:`fig4-40` show the total
+(neutron + photon) dose rate outside the TN24-P cask, up to 2 meters
+from each surface using a rectilinear and a cylindrical mesh tallies
+with 10 cm voxels. Uncertainties in the computed dose rates were 3–4%
+after this 16 hr calculation. The scale of the figure was adjusted to
+only show the dose rate outside the cask; dose rates inside the cask
+went as high as 6×10\ :sup:`5` rem/hr. Likewise, the scale of the
+uncertainties ranged from 0 to 10% to highlight the uncertainties
+outside the cask. Relative uncertainties inside the cask were much
+higher (white areas) since those areas were deemed unimportant by the
+chosen adjoint source. Obtaining dose rates on a 10 cm mesh would not be
+achievable without the variance reduction capabilities of MAVRIC.
+
+.. _fig4-37:
+.. figure:: figs/4.37.png
+  :align: center
+
+  Neutron (left) and photon (right) dose rate response functions.
+
+.. _fig4-38:
+.. figure:: figs/4.38.png
+  :align: center
+
+  Distributions in the TN24-P model.
+
+.. _fig4-39:
+.. figure:: figs/4.39.png
+  :align: center
+
+  Rectilinear mesh tally of total dose rate (rem/hr) and its relative uncertainty along the x=0 plane.
+
+.. _fig4-40:
+.. figure:: figs/4.40.png
+  :align: center
+
+  Cylindrical mesh tally of total dose rate (rem/hr) and its relative uncertainty along the θ=0° plane.
 
 
 

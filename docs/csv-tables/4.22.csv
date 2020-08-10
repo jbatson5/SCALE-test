@@ -1,0 +1,8 @@
+,,,,,,,,,
+,,Time,,Near Detector,,,Far Detector,,
+,,(min),,flux,relative,FOM,flux,relative,FOM
+,For,Adj,MC,(/cm2/s),uncert.,(/min),(/cm2/s),uncert.,(/min)
+Analog,,,60.1,1.19E+03,0.3765,0.12,1.17E+02,0.7098,0.03
+CADIS - Near,,4.8,57.2,1.49E+03,0.0064,390,0.00E+00,0.0000,----
+CADIS - Far,,4.7,57.0,8.28E+02,0.4162,0.09,4.56E+01,0.0048,703
+FW-CADIS,2.8,4.4,52.1,1.48E+03,0.0107,149,4.58E+01,0.0062,444
