@@ -961,7 +961,7 @@ contains a fuel pin is illustrated in :numref:`ray-vox`.
 .. _ray-vox:
 
 .. figure:: figs/fig4.1.03_rayTrace.png
-  :width: 500
+  :width: 300
   :align: center
 
   Ray tracing (in two dimensions) through a voxel.
@@ -1556,7 +1556,9 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -
     -
-  * - *Perform an adjoint* S\ :math:`_N` *calculation using one (or more) adjoint source(s) and a gridGeometry*
+  * - *Perform an adjoint* S\ :math:`_N`
+      *calculation using one (or more) adjoint source(s)
+      and a gridGeometry*
     -
     -
     -
@@ -1590,8 +1592,11 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     - 6
     -
     - b*
-    - parameters: x\ :sub:`max` x\ :sub:`min` y\ :sub:`max` y\ :sub:`min` z\ :sub:`max` z\ :sub:`min`.
-      *required: either (a) locationID= or (b) boundingBox
+    - parameters: x\ :sub:`max`
+      x\ :sub:`min` y\ :sub:`max`
+      y\ :sub:`min` z\ :sub:`max` z\ :sub:`min`.
+      *required: either (a)
+      locationID= or (b) boundingBox
   * -
     - responseID=
     - integer
@@ -1605,7 +1610,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     - any
     - none
     - d*
-    - list of id numbers from responses. *required either (c) locationID= or (d) responseIDs
+    - list of id numbers from responses.
+      *required either (c) locationID= or (d) responseIDs
   * -
     - weight =
     - real
@@ -1626,7 +1632,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     - -1
     - no
-    - limit adjointSource in boundingBox to a region of a unit
+    - limit adjointSource in
+      boundingBox to a region of a unit
   * -
     - mixture=
     - integer
@@ -1648,7 +1655,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -
     -
-  * - *Constructing the Denovo geometry using macro materials*
+  * - *Constructing the Denovo geometry using macro
+      materials*
     -
     -
     -
@@ -1753,7 +1761,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -
     -
-  * - *Perform a forward* S\ :sub:`N` *calculation and weight the adjoint source*
+  * - *Perform a forward* S\ :sub:`N`
+      *calculation and weight the adjoint source*
     -
     -
     -
@@ -1774,7 +1783,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -
     -
-  * - *Use existing adjoint flux file to create importance map*
+  * - *Use existing adjoint flux*
+      *file to create importance map*
     -
     -
     -
@@ -1856,7 +1866,11 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     - 4
     - no
-    - 0-diamond difference, 1-DD with flux fix-up:lin0, 2-theta-weighted DD, 3-linear discontinuous finite element, 4-step characteristics, 5-trilinear discontinuous finite element
+    - 0-diamond difference, 1-DD with flux fix-up:lin0,
+      2-theta-weighted DD,
+      3-linear discontinuous finite element,
+      4-step characteristics,
+      5-trilinear discontinuous finite element
   * -
     - quadType=
     - integer
@@ -1870,14 +1884,17 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     - 3*
     - no
-    - PL, L=highest Legendre polynomial, L=0,1,2,3,… *default is to use min(the highest available in the data,3)
+    - PL, L=highest Legendre polynomial,
+      L=0,1,2,3,… *default is to use min
+      (the highest available in the data,3)
   * -
     - tportcorrection=
     - integer
     -
     - 1
     - no
-    - transport correction: 0-none, 1-diagonal, 2-Cesaro *P\ :sub:`2` or higher is required for Cesaro
+    - transport correction: 0-none, 1-diagonal,
+      2-Cesaro *P\ :sub:`2` or higher is required for Cesaro
   * -
     - upScatter=
     - integer
@@ -2017,7 +2034,9 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -	0
     - no
-    - 0-same as within-group solver, 1-Krylov, 2-residual Krylov, 3-source iteration, 4-single source iteration
+    - 0-same as within-group solver, 1-Krylov,
+      2-residual Krylov, 3-source iteration,
+      4-single source iteration
   * -
     - acceleration=
     - integer
@@ -2219,7 +2238,9 @@ SCALE functional modules.
   * - *outputName*.mtid.respxx.txt
     -
     - detailed results for response xx of meshTally *id*
-  * - :sup:`a` \V – can be displayed with the Mesh File Viewer capabilities of Fulcrum. P – can be displayed with the 2D plotting capabilities of Fulcrum.
+  * - :sup:`a` \V – can be displayed with the
+      Mesh File Viewer capabilities of Fulcrum.
+      P – can be displayed with the 2D plotting capabilities of Fulcrum.
     -
     -
 

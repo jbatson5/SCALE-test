@@ -1,0 +1,85 @@
+
+@article{peplow_criticality_2009,
+	title = {Criticality {Accident} {Alarm} {System} {Modeling} with {SCALE}},
+	url = {http://inis.iaea.org/Search/search.aspx?orig_q=RN:40080894},
+	language = {English},
+	urldate = {2020-08-10},
+	journal = {Proceedings of the 2009 International Conference on Advances in Mathematics, Computational Methods, and Reactor Physics},
+	author = {Peplow, Douglas E. and Petrie Jr, Lester M.},
+	month = may,
+	year = {2009},
+	file = {Snapshot:/Users/john/Zotero/storage/65LTH9EY/search.html:text/html}
+}
+
+@article{peplow_criticality_2010,
+	title = {Criticality {Accident} {Alarm} {System} {Modeling} {Made} {Easy} with {SCALE} 6.1},
+	volume = {102},
+	url = {http://epubs.ans.org/?a=10467},
+	number = {1},
+	urldate = {2020-08-10},
+	journal = {Transactions of the American Nuclear Society},
+	author = {Peplow, Douglas E. and Lester M. Petrie, Jr},
+	month = jun,
+	year = {2010},
+	note = {Publisher: American Nuclear Society},
+	pages = {297--299},
+	file = {Snapshot:/Users/john/Zotero/storage/AKCXPLQA/a_10467.html:text/html;4abib.bib:/Users/john/Zotero/storage/RF7QMQIX/4abib.bib:text/plain;4abib.bib:/Users/john/Zotero/storage/TRTSWRKW/4abib.bib:text/plain}
+}
+
+@article{peplow_methods_2012,
+	title = {Methods for {Detector} {Placement} and {Analysis} of {Criticality} {Accident} {Alarm} {Systems}},
+	volume = {106},
+	abstract = {Determining the optimum placement to minimize the number of detectors for a criticality accident alarm system (CAAS) in a large manufacturing facility is a complex problem. There is typically a target for the number of detectors that can be used over a given zone of the facility. A study to optimize detector placement typically begins with some initial guess at the placement of the detectors and is followed by either predictive calculations of accidents at specific locations or adjoint calculations based on preferred detector locations. Within an area of a facility, there may be a large number of potential criticality accident sites. For any given placement of the detectors, the list of accident sites can be reduced to a smaller number of locations at which accidents may be difficult for detectors to detect. Developing the initial detector placement and determining the list of difficult accident locations are both based on the practitioner's experience. Simulations following fission particles released from an accident location are called 'forward calculations.' These calculations can be used to answer the question 'where would an alarm be triggered?' by an accident at a specified location. Conversely, 'adjoint calculations' start at a detector site using the detector response function as a source and essentially run in reverse. These calculations can be used to answer the question 'where would an accident be detected?' by a specified detector location. If the number of accidents, P, is much less than the number of detectors, Q, then forward simulations may be more convenient and less time-consuming. If Q is large or the detectors are not placed yet, then a mesh tally of dose observed by a detector at any location must be computed over the entire zone. If Q is much less than P, then adjoint calculations may be more efficient. Adjoint calculations employing a mesh tally can be even more advantageous because they do not rely on a list of specific difficult-to-detect accident sites, which may not have included every possible accident location. Analog calculations (no biasing) simply follow particles naturally. For sparse buildings and line-of-sight calculations, analog Monte Carlo (MC) may be adequate. For buildings with internal walls or large amounts of heavy equipment (dense geometry), variance reduction may be required. Calculations employing the CADIS method use a deterministic calculation to create an importance map and a matching biased source distribution that optimize the final MC to quickly calculate one specific tally. Calculations employing the FW-CADIS method use two deterministic calculations (one forward and one adjoint) to create an importance map and a matching biased source distribution that are designed to make the MC calculate a mesh tally with more uniform uncertainties in both high-dose and low-dose areas. Depending on the geometry of the problem, the number of detectors, and the number of accident sites, different approaches to CAAS placement studies can be taken. These are summarized in Table I. SCALE 6.1 contains the MAVRIC sequence, which can be used to perform any of the forward-based approaches outlined in Table I. For analog calculations, MAVRIC simply calls the Monaco MC code. For CADIS and FW-CADIS, MAVRIC uses the Denovo discrete ordinates (SN) deterministic code to generate the importance map and biased source used by Monaco. An adjoint capability is currently being added to Monaco and should be available in the next release of SCALE. An adjoint-based approach could be performed with Denovo alone - although fine meshes, large amounts of memory, and long computation times may be required to obtain accurate solutions. Coarse-mesh SN simulations could be employed for adjoint-based scoping studies until the adjoint capability in Monaco is complete. CAAS placement studies, especially those dealing with mesh tallies, require some extra utilities to aid in the analysis. Detectors must receive a minimum dose rate in order to alarm; therefore, a simple yes/no plot could be more useful to the analyst than a standard dose rate contour plot. Alarm systems that require several detectors to alarm simultaneously for a given accident would need to combine several yes/no plots in order to show accident sites where multiple detectors would be triggered. This could require a plot of 'areas of coverage' that is mapped over the building geometry. Several new utilities (which will be part of SCALE 6.2) were created to help with CAAS analysis.},
+	journal = {Transactions of the American Nuclear Society},
+	author = {Peplow, Douglas and Wetzel, Larry},
+	month = jan,
+	year = {2012}
+}
+
+@article{wetzel_caas_2012,
+	title = {{CAAS} detector placement using {MAVRIC}},
+	volume = {107},
+	journal = {Transactions of the American Nuclear Society},
+	author = {Wetzel, L.L. and O'Donnell, B. and Newmyer, W.D.},
+	month = jan,
+	year = {2012},
+	pages = {644--647}
+}
+
+@techreport{miller_guidance_2013,
+	title = {Guidance {Detailing} {Methods} to {Calculate} {Criticality} {Accident} {Alarm} {Detector} {Response} and {Coverage}},
+	url = {https://www.osti.gov/biblio/1095654},
+	abstract = {The U.S. Department of Energy's Office of Scientific and Technical Information},
+	language = {English},
+	urldate = {2020-08-10},
+	institution = {Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States)},
+	author = {Miller, Thomas Martin and Peplow, Douglas E.},
+	month = jan,
+	year = {2013},
+	file = {Snapshot:/Users/john/Zotero/storage/FLUXQL76/1095654.html:text/html}
+}
+
+@techreport{miller_guide_2013,
+	title = {Guide to {Performing} {Computational} {Analysis} of {Criticality} {Accident} {Alarm} {Systems}},
+	url = {https://www.osti.gov/biblio/1136788},
+	abstract = {The U.S. Department of Energy's Office of Scientific and Technical Information},
+	language = {English},
+	number = {ORNL/TM-2013/211},
+	urldate = {2020-08-10},
+	institution = {Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States)},
+	author = {Miller, Thomas Martin and Peplow, Douglas E.},
+	month = sep,
+	year = {2013},
+	doi = {10.2172/1136788},
+	file = {Full Text PDF:/Users/john/Zotero/storage/NS52QJB2/Miller and Peplow - 2013 - Guide to Performing Computational Analysis of Crit.pdf:application/pdf;Snapshot:/Users/john/Zotero/storage/JSB77GKG/1136788.html:text/html}
+}
+
+@article{miller_corrected_2013,
+	title = {Corrected user guidance to perform three-dimensional criticality accident alarm system modeling with {SCALE}},
+	volume = {108},
+	journal = {Transactions of the American Nuclear Society},
+	author = {Miller, T.M. and Peplow, D.E.},
+	month = jan,
+	year = {2013},
+	pages = {498--501}
+}

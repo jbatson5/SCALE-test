@@ -39,11 +39,13 @@ div.math {
 /* Make responsive */
 .MathJax_Display {
     max-width: 100%;
-    overflow-x: auto;
+    overflow-x: visible;
     overflow-y: hidden;
 }
 
 /* override table width restrictions */
+
+
 @media screen and (min-width: 767px) {
 
    .wy-table-responsive table td {

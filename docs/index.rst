@@ -11,3 +11,6 @@ Welcome to SCALE test documentation!
    :caption: Radiation Shielding
 
    MAVRIC
+   CAAScapability
+   appendixb
+   appendixc

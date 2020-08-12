@@ -19,7 +19,7 @@
 
 project = 'SCALE test documentation'
 copyright = '2020, SCALE developers'
-author = 'John Batson'
+author = 'SCALE developers'
 
 pygments_style = "default"
 highlight_language = "python"
