@@ -104,7 +104,7 @@ formulation would be the following:
 
 .. list-table::
   :header-rows: 1
-  :align: center
+  :align: left
 
   * - True source:
     - .. math:: q\left( \overrightarrow{r},E,\widehat{\Omega} \right)
@@ -255,7 +255,7 @@ distributions, and the weight windows are computed using
 
 
 .. list-table::
-  :align: center
+  :align: left
 
 
 
@@ -1375,10 +1375,10 @@ describing the angular scattering. The default quadrature order that
 MAVRIC uses is S\ :sub:`8`, and for the order of Legendre polynomials,
 the default is P\ :sub:`3` (or the maximum number of coefficients
 contained in the cross section library, if less than 3).
-S\ :sub:`8`/P:sub:`3` should be a good choice for many applications, but
+S\ :sub:`8`/P :sub:`3` should be a good choice for many applications, but
 the user is free to changes these. For complex ducts or transport over
 large distance at small angles, S\ :sub:`12` may be required.
-S\ :sub:`4`/P:sub:`1` would be useful in doing a very cursory run just
+S\ :sub:`4`/P :sub:`1` would be useful in doing a very cursory run just
 to check if the problem was input correctly. Other parameters that can
 be set by the user in the importance map block for Denovo calculations
 are listed in :numref:`tab4c4`.

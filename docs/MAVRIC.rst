@@ -420,7 +420,7 @@ solver uses the well-known Koch-Baker-Alcouffe (KBA) algorithm, which is
 a two-dimensional block‑spatial decomposition of a three-dimensional
 orthogonal mesh :cite:`baker_sn_1998`. The Trilinos package is used for the GMRES
 implementation :cite:`willenbring_trilinos_2003` Denovo stores the mesh-based scalar fluxes in a
-double precision binary file (*.dff) called a Denovo flux file. Past
+double precision binary file (\*.dff) called a Denovo flux file. Past
 versions of SCALE/Denovo used the TORT :cite:`rhoades_tort_1997` \*.varscl file format
 (DOORS package :cite:`rhoades_doors_1998`), but this was limited to single precision. Since
 the rest of the MAVRIC sequence has not yet been parallelized, Denovo is
@@ -788,10 +788,11 @@ To use a CE cross section in the final Monaco step, use the keyword “ceLibrary
 
 When using two different cross section libraries, be sure that the responses and distributions are defined in ways that do not depend on the cross section library. For example, any response that is just a list of n values (corresponding to a cross section library of n groups) needs to have the group energies specifically listed so that it can be evaluated properly on the other group structure.
 
-.. csv-table:: Extra keywords for the parameters block
-  :file: csv-tables/table4.1.04.csv
-  :header-rows: 1
+.. list-table:: Extra keywords for the parameters block
+  :align: center
   :name: extra-keywords
+
+  * - .. image:: figs/table4.4.png
 
 Importance map block
 ~~~~~~~~~~~~~~~~~~~~
@@ -1029,19 +1030,8 @@ stopped. This is illustrated in :numref:`rec-macro`.
 
 
 
-
-.. image:: figs/fig4.1.04a_mcBrdr.bmp
-  :width: 49 %
-.. image:: figs/fig4.1.04b_grayBrdr1.bmp
-  :width: 49 %
-
-.. image:: figs/fig4.1.04c_grayBrdr2.bmp
-  :width: 49 %
-.. image:: figs/fig4.1.04d_grayBrdr3.bmp
-  :width: 49 %
-
 .. _rec-macro:
-.. figure:: figs/fig4.1.04ef.jpg
+.. figure:: figs/rec-macro.png
   :width: 99 %
 
 
@@ -1076,17 +1066,10 @@ Viewer to display the macromaterials as mixtures of the actual materials, as see
 See the Mesh File Viewer help pages for more information on how to use colormap files and macromaterial tables.
 
 
-
-.. image:: figs/fig4.1.05a_keno3dtop.bmp
-  :width: 49 %
-.. image:: figs/fig4.1.05b_macroMat1.geom.png
-  :width: 49 %
-
 .. _cask-geom:
-.. figure:: figs/fig4.1.05cd.jpg
-  :width: 99 %
+.. figure:: figs/cask-geom.png
 
-.. centered:: *Fig. 5 Cask geometry model (upper left) and the Denovo representation using cell center testing (upper right). Representations using macromaterials determined by ray tracing are shown for mmSubCell=1/mmTolerance=0.1 (lower left) and mmSubCell=3/mmTolerance=0.01 (lower right).*
+  Cask geometry model (upper left) and the Denovo representation using cell center testing (upper right). Representations using macromaterials determined by ray tracing are shown for mmSubCell=1/mmTolerance=0.1 (lower left) and mmSubCell=3/mmTolerance=0.01 (lower right).*
 
 Optimizing source/detector problems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1537,10 +1520,10 @@ group, the user-given source distributions are used to sample the
 specific starting location and specific energy of the source particle.
 This way, the CE-Monaco calculation samples the true CE distributions.
 
-.. _keywords-importance:
+
 .. list-table:: Keywords for the importance map block
   :header-rows: 1
-  :name:
+  :name: keywords-importance
 
   * - block
     - keyword
@@ -1611,7 +1594,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     - none
     - d*
     - list of id numbers from responses.
-      *required either (c) locationID= or (d) responseIDs
+      *required either (c) locationID=
+      or (d) responseIDs
   * -
     - weight =
     - real
@@ -1690,7 +1674,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     - 6
     -
     - no
-    - rays per dimension to throw (x:ny, nz; y:nx, nz; z:nx, ny)
+    - rays per dimension to throw
+      (x:ny, nz; y:nx, nz; z:nx, ny)
   * -
     - mmPointTest
     -
@@ -1718,7 +1703,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -
     - no
-    - optimize ray-tracing method for memory conservation
+    - optimize ray-tracing method
+      for memory conservation
   * -
     - *end macromaterial*
     -
@@ -1726,7 +1712,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     -
     -
-  * - *Constructing the mesh version of the true source*
+  * - *Constructing the mesh version
+      of the true source*
     -
     -
     -
@@ -1753,7 +1740,8 @@ This way, the CE-Monaco calculation samples the true CE distributions.
     -
     - not present
     - no
-    - store the smallest cuboid around the voxels with source
+    - store the smallest cuboid
+      around the voxels with source
   * -
     -
     -
