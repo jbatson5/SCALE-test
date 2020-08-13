@@ -1522,537 +1522,18 @@ This way, the CE-Monaco calculation samples the true CE distributions.
 
 
 .. list-table:: Keywords for the importance map block
-  :header-rows: 1
   :name: keywords-importance
 
-  * - block
-    - keyword
-    - type
-    - length
-    - default
-    - required
-    - restrictions/comments
-  * - importance Map
-    -
-    -
-    -
-    -
-    -
-    -
-  * - *Perform an adjoint* S\ :math:`_N`
-      *calculation using one (or more) adjoint source(s)
-      and a gridGeometry*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - gridGeometryID=
-    - integer
-    -
-    -
-    - yes
-    - matches one of the id numbers from gridGeometries
-  * -
-    - *adjointSource id*
-    - integer
-    -
-    -
-    - yes
-    - non-negative integer, unique among adjointSources
-  * -
-    - locationID=
-    - integer
-    -
-    -
-    - a*
-    - matches one of the id numbers from locations
-  * -
-    - boundingBox
-    - real
-    - 6
-    -
-    - b*
-    - parameters: x\ :sub:`max`
-      x\ :sub:`min` y\ :sub:`max`
-      y\ :sub:`min` z\ :sub:`max` z\ :sub:`min`.
-      *required: either (a)
-      locationID= or (b) boundingBox
-  * -
-    - responseID=
-    - integer
-    -
-    -
-    - c*
-    - single id number from responses
-  * -
-    - responseIDs
-    - integer
-    - any
-    - none
-    - d*
-    - list of id numbers from responses.
-      *required either (c) locationID=
-      or (d) responseIDs
-  * -
-    - weight =
-    - real
-    -
-    - 1.0
-    - no
-    - positive real number
-  * -
-    - unit=
-    - integer
-    -
-    - 1.0
-    - no
-    - limit adjointSource in boundingBox to a unit
-  * -
-    - region=
-    - integer
-    -
-    - -1
-    - no
-    - limit adjointSource in
-      boundingBox to a region of a unit
-  * -
-    - mixture=
-    - integer
-    -
-    - -1
-    - no
-    - limit adjointSource in boundingBox to a mixture
-  * -
-    - *end adjointSource*
-    -
-    -
-    -
-    -
-    -
-  * -
-    -
-    -
-    -
-    -
-    -
-    -
-  * - *Constructing the Denovo geometry using macro
-      materials*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - *macromaterial*
-    -
-    -
-    -
-    -
-    -
-  * -
-    - mmSubCell=
-    -
-    - integer
-    - 1
-    - no
-    - rays per dimension to throw at each voxel
-  * -
-    - mmTolerance=
-    - real
-    -
-    - 0.01
-    - no
-    - smallest volume fraction for macromatrial
-  * -
-    - mmSubCells
-    - integer
-    - 6
-    -
-    - no
-    - rays per dimension to throw
-      (x:ny, nz; y:nx, nz; z:nx, ny)
-  * -
-    - mmPointTest
-    -
-    -
-    -
-    - no
-    - use recursive bisection point testing method
-  * -
-    - mmRayTest
-    -
-    -
-    -
-    - no
-    - use ray tracing method
-  * -
-    - mmRTSpeed
-    -
-    -
-    -
-    - no
-    - optimize ray-tracing method for speed
-  * -
-    - mmRTMemory
-    -
-    -
-    -
-    - no
-    - optimize ray-tracing method
-      for memory conservation
-  * -
-    - *end macromaterial*
-    -
-    -
-    -
-    -
-    -
-  * - *Constructing the mesh version
-      of the true source*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - subCells=
-    - integer
-    -
-    - 2
-    - no
-    - subcells per cell (each dimension)
-  * -
-    - sourceTrials=
-    - integer
-    -
-    - 1000
-    - no
-    - how many source particles to sample
-  * -
-    - reduce
-    -
-    -
-    - not present
-    - no
-    - store the smallest cuboid
-      around the voxels with source
-  * -
-    -
-    -
-    -
-    -
-    -
-    -
-  * - *Perform a forward* S\ :sub:`N`
-      *calculation and weight the adjoint source*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - forwardFluxes=
-    - string
-    -
-    - not present
-    - no
-    - legal file name for current system, in quotes
-  * -
-    -
-    -
-    -
-    -
-    -
-    -
-  * - *Use existing adjoint flux*
-      *file to create importance map*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - adjointFluxes=
-    - string
-    -
-    - not present
-    - no
-    - legal file name for current system, in quotes
-  * -
-    -
-    -
-    -
-    -
-    -
-    -
-  * - *While using the importance map*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - windowRatio=
-    - real
-    -
-    - 5.0
-    - no
-    - real number greater than 1
-  * -
-    - mapMultiplier=
-    - real
-    -
-    - 1.0
-    - no
-    - Multiply targetWeights in imp. map
-  * - end importance map
-    -
-    -
-    -
-    -
-    -
-    -
+  * - .. image:: figs/table4-5.png
 
-.. _denovo-op:
+
 
 .. list-table:: Denovo options for the importance map block
-  :header-rows: 1
+  :name: denovo-op
 
-  * - block
-    - keyword
-    - type
-    - length
-    - default
-    - required
-    - restrictions/comments
-  * - importance map
-    -
-    -
-    -
-    -
-    -
-    -
-  * - *Optional Denovo* S\ :sub:`N` *code parameters*
-    -
-    -
-    -
-    -
-    -
-    -
-  * -
-    - discretization=
-    - integer
-    -
-    - 4
-    - no
-    - 0-diamond difference, 1-DD with flux fix-up:lin0,
-      2-theta-weighted DD,
-      3-linear discontinuous finite element,
-      4-step characteristics,
-      5-trilinear discontinuous finite element
-  * -
-    - quadType=
-    - integer
-    -
-    - 2
-    - no
-    - 0-level symmetric, 1-Gauss-Legendre product, 2-QR
-  * -
-    - legendre=
-    - integer
-    -
-    - 3*
-    - no
-    - PL, L=highest Legendre polynomial,
-      L=0,1,2,3,… *default is to use min
-      (the highest available in the data,3)
-  * -
-    - tportcorrection=
-    - integer
-    -
-    - 1
-    - no
-    - transport correction: 0-none, 1-diagonal,
-      2-Cesaro *P\ :sub:`2` or higher is required for Cesaro
-  * -
-    - upScatter=
-    - integer
-    -
-    - 0
-    - no
-    - upscatter iterations: 0-none, 1-yes, 2-ignore
-  * -
-    - xblocks=
-    - integer
-    -
-    - 1
-    - no
-    - parallel stuff
-  * -
-    - yblocks=
-    - integer
-    -
-    - 1
-    - no
-    - parallel stuff
-  * -
-    - zblocks=
-    - integer
-    -
-    - 1
-    - no
-    - parallel stuff
-  * -
-    - numSets=
-    - integer
-    -
-    - 1
-    - no
-    - ?
-  * -
-    - partUpscatter=
-    - integer
-    -
-    - 1
-    - no
-    - partition upscatter (0-no, 1-yes)
-  * -
-    - quadrature=
-    - integer
-    -
-    - 8
-    - no
-    - level symmetric SN quadrature, N=2, 4, 6, 8, 10, 12, 14, 16
-  * -
-    - polarsPerOct=
-    -	integer
-    -
-    - 3
-    - no
-    - Gauss-Legendre product quadrature or QR
-  * -
-    - azimuthsPerOct=
-    -	integer
-    -
-    - 3
-    - no
-    - Gauss-Legendre product quadrature or QR
-  * -
-    - maxIters=
-    - integer
-    -
-    - 100
-    - no
-    - maximum number of iterations
-  * -
-    - diagnostics=
-    - integer
-    -
-    - 0
-    - no
-    - 0-no diganostics, 1-all diagnostics
-  * -
-    - output=
-    - integer
-    -
-    - 0
-    - no
-    - 0-no ouput, 1-all output
-  * -
-    - krylovSpaceSize=
-    - integer
-    -
-    - 10
-    - no
-    - size in memory for Krylov space
-  * -
-    - tolerance=
-    - double
-    -
-    - 1.E-03
-    - no
-    - tolerance used in convergence test
-  * -
-    - krylovType=
-    - integer
-    -
-    - 0
-    - no
-    - 0-GMRES, 1-BiCGStab
-  * -
-    - eigenSolver=
-    - integer
-    -
-    -	0
-    - no
-    - 0-power iteration, 1-Arnoldi, 2-shifted inverse
-  * -
-    - multiGSolover=
-    -	integer
-    -
-    - 0
-    - no
-    - 0-Gauss-Seidel, 1-Krylov
-  * -
-    - withinGSolver=
-    -	integer
-    -
-    - 0
-    -	no
-    - 0-Krylov, 1-residual Krylov, 2-source iteration
-  * -
-    - mgSettings=
-    - integer
-    -
-    - 1
-    - no
-    - 0-user supplied, 1-automatic
-  * -
-    - upGroupSolver=
-    -	integer
-    -
-    -	0
-    - no
-    - 0-same as within-group solver, 1-Krylov,
-      2-residual Krylov, 3-source iteration,
-      4-single source iteration
-  * -
-    - acceleration=
-    - integer
-    -
-    - 0
-    - no
-    - 0-none, 1-two grid
-  * -
-    - maxItersMG=
-    - integer
-    -
-    - 20
-    - no
-    - maximum number of iterations
-  * -
-    - toleranceMG=
-    - double
-    -
-    - 0.001
-    - no
-    - tolerance used in convergence test
-  * - end importanceMap
-    -
-    -
-    -
-    -
-    -
-    -
+  * - .. image:: figs/table4-6.png
+
+
 
 MAVRIC output
 -------------
@@ -2119,121 +1600,86 @@ command. Curious users may also be interested in viewing the various
 input files (i_*) that the MAVRIC sequence writes in order to run the
 SCALE functional modules.
 
+
+
+
 .. _output-files:
+.. table:: Output files that are copied back to user’s area when the sequence finishes\ :sup:`a`
 
-.. list-table:: Output files that are copied back to user’s area when the sequence finishes\ :sup:`a`
-  :header-rows: 1
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | Filename                       | Viewer | Description                                                                                          |
+  +================================+========+======================================================================================================+
+  | Output Summary                 |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.out               |        | main text output file, contains results summary                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | Diagnostic files               |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.respid.chart      | P      | response input and MG representation for response *id*                                               |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.gridid.3dmap      | V      | mesh version of geometry using grid geometry *id*                                                    |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.cylid.3dmap       | V      | mesh version of geometry using cylindrical geometry *id*                                             |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.distid.chart      | P      | distribution input and sampling test for distribution *id*                                           |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  |                                |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | Mesh Source Saver              |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *filename*.msm                 | V      | mesh representation of a single source or total source                                               |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *filename*.id.msm              | V      | mesh representation of multiple sources                                                              |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *filename*.sampling.msm        | V      | biased representation of a single source or total source                                             |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *filename*.sampling.id.msm     | V      | biased representation of multiple sources                                                            |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  |                                |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | Importance Map Generation      |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.geometry.3dmap    | V      | voxelized geometry (cell-center testing only)                                                        |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.forward.dff       | V      | scalar forward flux estimate,  :math:`\phi\left(x,y,z,E \right)`                                     |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.adjoint.dff       | V      | scalar adjoint flux estimate,  :math:`\phi^{+} \left( x,y,z,E \right)`                               |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mim               | V      | Monaco mesh importance map, :math:`\overline{w}\left(x,y,z,E \right)`                                |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.msm               | V      | Monaco mesh source, :math:`\widehat{q}\left(x,y,z,E \right)`                                         |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mmt               | V      | macro-material table                                                                                 |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  |                                |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | Tally Files                    |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.pdid.txt          |        | detailed results for point detector tally *id*                                                       |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.pdid.chart        | P      | batch convergence data for point detector tally *id*                                                 |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.rtid.txt          |        | detailed results for region tally *id*                                                               |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.rtid.chart        | P      | batch convergence data for region tally *id*                                                         |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mtid.3dmap        | V      | mesh tally for meshTally *id*                                                                        |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mtid.respxx.3dmap | V      | mesh tally of response by group for meshTally *id* response xx                                       |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mtid.flux.txt     |        | detailed results for the group-wise flux of meshTally *id*                                           |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mtid.tfluxtxt     |        | detailed results for total flux of meshTally *id*                                                    |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  | *outputName*.mtid.respxx.txt   |        | detailed results for response xx of meshTally *id*                                                   |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
+  |                                |        |                                                                                                      |
+  +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
 
-  * - Filename
-    - Viewer
-    - Description
-  * - Output Summary
-    -
-    -
-  * - *outputName*.out
-    -
-    - main text output file, contains results summary
-  * -
-    -
-    -
-  * - Diagnostic files
-    -
-    -
-  * - *outputName*.respid.chart
-    - P
-    - response input and MG representation for response *id*
-  * - *outputName*.gridid.3dmap
-    - V
-    - mesh version of geometry using grid geometry *id*
-  * - *outputName*.cylid.3dmap
-    - V
-    - mesh version of geometry using cylindrical geometry *id*
-  * - *outputName*.distid.chart
-    - P
-    - distribution input and sampling test for distribution *id*
-  * -
-    -
-    -
-  * - Mesh Source Saver
-    -
-    -
-  * - *filename*.msm
-    - V
-    - mesh representation of a single source or total source
-  * - *filename*.id.msm
-    - V
-    - mesh representation of multiple sources
-  * - *filename*.sampling.msm
-    - V
-    - biased representation of a single source or total source
-  * - *filename*.sampling.id.msm
-    - V
-    - biased representation of multiple sources
-  * -
-    -
-    -
-  * - Importance Map Generation
-    -
-    -
-  * - *outputName*.geometry.3dmap
-    - V
-    - voxelized geometry (cell-center testing only)
-  * - *outputName*.forward.dff
-    - V
-    - scalar forward flux estimate,  :math:`\phi\left(x,y,z,E \right)`
-  * - *outputName*.adjoint.dff
-    - V
-    - scalar adjoint flux estimate,  :math:`\phi^{+} \left( x,y,z,E \right)`
-  * - *outputName*.mim
-    - V
-    - Monaco mesh importance map, :math:`\overline{w}\left(x,y,z,E \right)`
-  * - *outputName*.msm
-    - V
-    - Monaco mesh source, :math:`\widehat{q}\left(x,y,z,E \right)`
-  * - *outputName*.mmt
-    - V
-    - macro-material table
-  * -
-    -
-    -
-  * - Tally Files
-    -
-    -
-  * - outputName.pdid.txt
-    -
-    - detailed results for point detector tally *id*
-  * - *outputName*.pdid.chart
-    - P
-    - batch convergence data for point detector tally *id*
-  * - *outputName*.rtid.txt
-    -
-    - detailed results for region tally *id*
-  * - *outputName*.rtid.chart
-    - P
-    - batch convergence data for region tally *id*
-  * - *outputName*.mtid.3dmap
-    - V
-    - mesh tally for meshTally *id*
-  * - *outputName*.mtid.respxx.3dmap
-    - V
-    - mesh tally of response by group for meshTally *id* response xx
-  * - outputName.mtid.flux.txt
-    -
-    - detailed results for the group-wise flux of meshTally *id*
-  * - *outputName*.mtid.tfluxtxt
-    -
-    - detailed results for total flux of meshTally *id*
-  * - *outputName*.mtid.respxx.txt
-    -
-    - detailed results for response xx of meshTally *id*
-  * - :sup:`a` \V – can be displayed with the
-      Mesh File Viewer capabilities of Fulcrum.
-      P – can be displayed with the 2D plotting capabilities of Fulcrum.
-    -
-    -
+:sup:`a` \V – can be displayed with the Mesh File Viewer capabilities of Fulcrum. P – can be displayed with the 2D plotting capabilities of Fulcrum.
+
 
 .. _intermediate-files:
-
 .. table:: Other intermediate files—available in the temporary directory. These may be useful for testing and debugging
 
   +-----------------------+-----------------------+
