@@ -102,31 +102,34 @@ In MAVRIC, the CADIS method is implemented in space and energy, but in
 general, it could also include particle direction as well. This
 formulation would be the following:
 
-.. list-table::
-  :header-rows: 1
-  :align: left
 
-  * - True source:
-    - .. math:: q\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-  * - Desired response:
-    - .. math:: \sigma\left( \overrightarrow{r},E,\widehat{\Omega}\right)
-  * - Adjoint flux using  :math:`q^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \ \sigma \left( \overrightarrow{r},E,\widehat{\Omega} \right)`:
-    - .. math:: \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-  * - Estimate of detector response
-    - .. math::
-        :label: eq4c1
 
-        R = \iiint_{}^{}{q\left( \overrightarrow{r},E,\widehat{\Omega} \right)\ \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega}\right)}d\text{Ω } dE \ dV
-  * - Biased source:
-    - .. math::
-        :label: eq4c2
+  True source:
+    .. math:: q\left( \overrightarrow{r},E,\widehat{\Omega} \right)
 
-        \widehat{q}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \frac{1}{R}q\left( \overrightarrow{r},E,\widehat{\Omega} \right)\ \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-  * - Target weight windows:
-    - .. math::
-        :label: eq4c3
+  Desired response:
+    .. math:: \sigma\left( \overrightarrow{r},E,\widehat{\Omega}\right)
 
-        \overline{w}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \frac{R}{\psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)}
+  Adjoint flux using  :math:`q^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \ \sigma \left( \overrightarrow{r},E,\widehat{\Omega} \right)`:
+    .. math:: \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
+
+  Estimate of detector response
+    .. math::
+      :label: eq4c1
+
+      R = \iiint_{}^{}{q\left( \overrightarrow{r},E,\widehat{\Omega} \right)\ \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega}\right)}d\text{Ω } dE \ dV
+
+  Biased source:
+    .. math::
+      :label: eq4c2
+
+      \widehat{q}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \frac{1}{R}q\left( \overrightarrow{r},E,\widehat{\Omega} \right)\ \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
+
+  Target weight windows:
+    .. math::
+      :label: eq4c3
+
+      \overline{w}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \frac{R}{\psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)}
 
 For a system using a deterministic method to compute the adjoint fluxes,
 this completely general, space/energy/angle, approach presents many
@@ -254,23 +257,13 @@ distributions, and the weight windows are computed using
 
 
 
-.. list-table::
-  :align: left
+:math:`R_{i} =  \iint_{}^{}{q_{i}\left( \overrightarrow{r},E\right)\ \phi^{+}\left( \overrightarrow{r},E \right)} dE \ dr \ \ \ \ \ \ \ \ \  \text{(estimated response from source} \ i)`
 
+:math:`\widehat{p}\left( i \right) = \frac{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}{\sum_{}^{}{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}} \ \ \ \ \ \ \ \text{(biased sampling of source} \ i)`
 
+:math:`{\widehat{q}}_{i}\left(\overrightarrow{r},E,\widehat{\Omega} \right) \ =  \ \frac{1}{R_{i}}q_{i}\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)\ \frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right) \ = \ {\widehat{q}}_{i}\left( \overrightarrow{r},E\right)\ \frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right)`
 
-  * - .. math:: R_{i} =
-    - .. math:: \iint_{}^{}{q_{i}\left( \overrightarrow{r},E\right)\ \phi^{+}\left( \overrightarrow{r},E \right)} dE \ dr
-    - estimated response from source *i*
-  * - .. math:: \widehat{p}\left( i \right) =
-    - .. math:: \frac{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}{\sum_{}^{}{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}}
-    - biased sampling of source *i*
-  * - .. math:: {\widehat{q}}_{i}\left(\overrightarrow{r},E,\widehat{\Omega} \right) =
-    - .. math:: \frac{1}{R_{i}}q_{i}\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)\ \frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right) =
-    - .. math:: {\widehat{q}}_{i}\left( \overrightarrow{r},E\right)\ \frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right)
-  * - .. math:: \overline{w}\left( \overrightarrow{r},E,\widehat{\Omega} \right) =
-    - .. math:: \frac{\sum_{}^{}{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}}{S\phi^{+}\left( \overrightarrow{r},E \right)}\frac{1}{\ f\left( \widehat{\Omega} \bullet \widehat{n} \right)} =
-    - .. math:: \frac{\sum_{}^{}{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}}{\sum_{}^{}{S_{i}R}_{i}}\overline{w}\left( \overrightarrow{r},E \right)\frac{1}{f\left( \widehat{\Omega} \bullet \widehat{n} \right)}
+:math:`\overline{w}\left( \overrightarrow{r},E,\widehat{\Omega} \right) \ \ \ =  \ \ \ \frac{\sum_{}^{}{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}}{S\phi^{+}\left( \overrightarrow{r},E \right)}\frac{1}{\ f\left( \widehat{\Omega} \bullet \widehat{n} \right)} \ \ \ = \ \ \  \frac{\sum_{}^{}{{S_{i}R}_{i}\ f\left( {\widehat{\Omega}}_{i} \bullet {\widehat{n}}_{i} \right)}}{\sum_{}^{}{S_{i}R}_{i}}\overline{w}\left( \overrightarrow{r},E \right)\frac{1}{f\left( \widehat{\Omega} \bullet \widehat{n} \right)}`
 
 Directionally dependent weight windows with directional source biasing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -284,16 +277,14 @@ evaluated at a specific location and energy, which represents the
 adjoint current direction over that source. The biased source then looks
 like
 
-.. list-table::
-  :align: left
-  :widths: 10 2 100
 
-  * - .. math:: \widehat{q}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-    - .. math:: =
-    - .. math:: \frac{1}{\text{Rc}}q\left( \overrightarrow{r},E,\widehat{\Omega} \right)\\psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-  * -
-    - .. math:: =
-    - .. math:: \frac{1}{\text{Rc}}\left\lbrack q\left( \overrightarrow{r},E \right)\ \frac{1}{2\pi}q\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right) \right\rbrack\ \left\lbrack \phi^{+}\left( \overrightarrow{r},E \right)\ \frac{1}{2\pi}\ f\left( \widehat{\Omega} \bullet {\widehat{n}}_{0} \right) \right\rbrack\ ,
+.. math::
+
+     \widehat{q}\left( \overrightarrow{r},E,\widehat{\Omega} \right) & = \frac{1}{\text{Rc}} q\left( \overrightarrow{r},E,\widehat{\Omega} \right) \ \psi^{+}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
+
+   & = \frac{1}{\text{Rc}}\left\lbrack q\left( \overrightarrow{r},E \right)\ \frac{1}{2\pi}q\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right) \right\rbrack\ \left\lbrack \phi^{+}\left( \overrightarrow{r},E \right)\ \frac{1}{2\pi}\ f\left( \widehat{\Omega} \bullet {\widehat{n}}_{0} \right) \right\rbrack\ ,
+
+
 
 where the constant :math:`\text{Rc}` is used to make :math:`\widehat{q}`
 a pdf. Note that if either the original source directional distribution
@@ -304,34 +295,25 @@ distribution at the source is isotropic, then
 For the general case of multiple sources, the biased source sampling
 distribution, the biased source distributions and the weight windows are
 
-.. list-table::
-  :align: center
 
-  * - .. math:: R_{i}
-    - =
-    - .. math:: \iint_{}^{}{q_{i}\left( \overrightarrow{r},E\right)\ \phi^{+}\left( \overrightarrow{r},E \right)}\text{dE}\ \text{dr}
-    -
-    -
-  * - .. math:: c_{i}
-    - =
-    - .. math:: \int_{}^{}{\frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right)\ \frac{1}{2\pi}f\left( \widehat{\Omega} \bullet {\widehat{n}}_{i} \right)}d\widehat{\Omega}
-    -
-    -
-  * - .. math:: \widehat{p}\left( i \right)
-    - =
-    - .. math:: \frac{{S_{i}R}_{i}c_{i}}{\sum_{}^{}{{S_{i}R}_{i}c_{i}}}
-    -
-    -
-  * - .. math:: {\widehat{q}}_{i}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-    - =
-    - .. math:: \left\lbrack \frac{1}{R_{i}}\ q_{i}\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right) \right\rbrack\ \left\lbrack \frac{1}{c_{i}}\ q_{i}\left( \widehat{\Omega} \right)\ f\left( \widehat{\Omega} \right) \right\rbrack
-    - =
-    - .. math:: {\widehat{q}}_{i}\left( \overrightarrow{r},E \right)\ \frac{1}{c_{i}}\ \frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right)\ \frac{1}{2\pi}f\left( \widehat{\Omega} \bullet {\widehat{n}}_{i} \right)
-  * - .. math:: \overline{w}\left( \overrightarrow{r},E,\widehat{\Omega} \right)
-    - =
-    - .. math:: \frac{\sum_{}^{}{{S_{i}R}_{i}c_{i}}}{S\phi^{+}\left( \overrightarrow{r},E \right)} \ \ \frac{2\pi}{\ f\left( \widehat{\Omega} \bullet \widehat{n} \right)}
-    - =
-    - .. math:: \frac{\sum_{}^{}{{S_{i}R}_{i}c_{i}}}{\sum_{}^{}{S_{i}R}_{i}} \ \ \overline{w}\left( \overrightarrow{r},E \right)\ \frac{2\pi}{f\left( \widehat{\Omega} \bullet \widehat{n} \right)} \ .
+.. math::
+
+  R_{i} = \iint_{}^{}{q_{i}\left( \overrightarrow{r},E\right)\ \phi^{+}\left( \overrightarrow{r},E \right)}\text{dE}\ \text{dr}
+
+.. math::
+
+  c_{i} = \int_{}^{}{\frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right)\ \frac{1}{2\pi}f\left( \widehat{\Omega} \bullet {\widehat{n}}_{i} \right)}d\widehat{\Omega}
+
+.. math::
+
+  \widehat{p}\left( i \right) = \frac{{S_{i}R}_{i}c_{i}}{\sum_{}^{}{{S_{i}R}_{i}c_{i}}}
+
+.. math::
+  {\widehat{q}}_{i}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \left\lbrack \frac{1}{R_{i}}\ q_{i}\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right) \right\rbrack\ \left\lbrack \frac{1}{c_{i}}\ q_{i}\left( \widehat{\Omega} \right)\ f\left( \widehat{\Omega} \right) \right\rbrack = {\widehat{q}}_{i}\left( \overrightarrow{r},E \right)\ \frac{1}{c_{i}}\ \frac{1}{2\pi}q_{i}\left( \widehat{\Omega} \bullet {\widehat{d}}_{i} \right)\ \frac{1}{2\pi}f\left( \widehat{\Omega} \bullet {\widehat{n}}_{i} \right)
+
+.. math::
+
+  \overline{w}\left( \overrightarrow{r},E,\widehat{\Omega} \right) = \frac{\sum_{}^{}{{S_{i}R}_{i}c_{i}}}{S\phi^{+}\left( \overrightarrow{r},E \right)} \ \ \frac{2\pi}{\ f\left( \widehat{\Omega} \bullet \widehat{n} \right)} = \frac{\sum_{}^{}{{S_{i}R}_{i}c_{i}}}{\sum_{}^{}{S_{i}R}_{i}} \ \ \overline{w}\left( \overrightarrow{r},E \right)\ \frac{2\pi}{f\left( \widehat{\Omega} \bullet \widehat{n} \right)} \ .
 
 More details on the development of these methods and their application
 for several problems have been presented :cite:`peplow_hybrid_2010,peplow_consistent_2012`.
