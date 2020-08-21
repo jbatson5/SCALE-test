@@ -678,7 +678,7 @@ the SCALE manual. The Standard Composition Library chapter (SECTIONREFERENCE) li
 different cross section libraries and the names of standard materials.
 An example is as follows:
 
-.. code:: rest
+.. code:: scale
 
    read composition
 
@@ -705,7 +705,7 @@ present in both libraries.
 
    * - input file
      - Comment
-   * - .. code:: rest
+   * - .. code:: scale
 
          =mavric
          Some title for this problem
@@ -844,7 +844,7 @@ example, the following input file would use a coarse-group library for
 the importance calculations and a fine-group library for the final
 Monaco, each with CENTRM processing.
 
-.. code:: rest
+.. code:: scale
 
     =mavric parm=centrm
     v7-27n19g
@@ -1197,7 +1197,7 @@ source spectrum equal to the response function that the tally is
 computing. Note that the grid geometry 1 and response function 3 must
 already be defined in the definitions block.
 
-.. code:: rest
+.. code:: scale
 
   read importanceMap
      gridGeometryID=1
@@ -1211,7 +1211,7 @@ already be defined in the definitions block.
 For optimizing a point detector for the calculation of total photon flux,
 the importance map block would look like the following:
 
-.. code:: rest
+.. code:: scale
 
   read importanceMap
      adjointSource 21
@@ -1223,7 +1223,7 @@ the importance map block would look like the following:
 
 where location 4 is the same location used by the point detector. To calculate total photon flux, response function 1 must be defined in the definitions block similar to this response:
 
-.. code:: rest
+.. code:: scale
 
   read definitions
       response 1
@@ -1235,7 +1235,7 @@ where location 4 is the same location used by the point detector. To calculate t
 
 This response is used for computing total photon flux for the 27 neutron/19 photon group coupled cross section library or like this response
 
-.. code:: rest
+.. code:: scale
 
   read definitions
       response 1
@@ -1253,7 +1253,7 @@ Multiple adjoint sources
 
 If there are several tallies in very close proximity and/or several different responses being calculated by the tallies, multiple adjoint sources can be used.
 
-.. code:: rest
+.. code:: scale
 
   read importanceMap
      gridGeometryID=1
@@ -1321,7 +1321,7 @@ MAVRIC input file). Instead of performing an adjoint calculation, the
 fluxes read from the file will be used to create both the mesh-based
 importance map and the biased mesh source.
 
-.. code:: rest
+.. code:: scale
 
   read importanceMap
       adjointFluxes=”c:\mydocu~1\previousRun.adjoint.dff”
@@ -1399,7 +1399,7 @@ separate simulations:
 
     - To optimize the response in the far detector
 
-  * - .. code:: rest
+  * - .. code:: scale
 
         read importanceMap
             gridGeometryID=1
@@ -1409,7 +1409,7 @@ separate simulations:
             end adjointSource
         end importanceMap
 
-    - .. code:: rest
+    - .. code:: scale
 
         read importanceMap
             gridGeometryID=1
@@ -1436,7 +1436,7 @@ total integrated response of each tally.
 
     - To optimize a total response :math:`\int_{}^{}{\sigma_{d}\left ( E \right) \phi \left( \overrightarrow{r},E \right)} dE` (either total flux or total dose)
 
-  * - .. code:: rest
+  * - .. code:: scale
 
           read importanceMap
             gridGeometryID=1
@@ -1453,7 +1453,7 @@ total integrated response of each tally.
             fluxWeighting
         end importanceMap
 
-    - .. code:: rest
+    - .. code:: scale
 
         read importanceMap
             gridGeometryID=1
@@ -1522,9 +1522,8 @@ in the MAVRIC cross section library (i.e., the library entered on the
 third line of the MAVRIC input file).
 
 
-.. highlight:: none
 
-.. code::
+.. code:: scale
 
     read importanceMap
          forwardFluxes=”c:\mydocu~1\previousRun.forward.dff”
@@ -1837,7 +1836,7 @@ grid geometry for the Denovo computational mesh, a mesh tally to better
 visualize the particle flow, and the importance map block to optimize
 the Monte Carlo calculation of the point detector.
 
-::
+.. code:: scale
 
   =mavric
   Monaco/MAVRIC Training - Exercise 3. Graphite Shielding Measurements Revisited
@@ -1959,7 +1958,7 @@ Output
 
 MAVRIC results for the point detector response for the 20 cm case are shown below and in :numref:`mesh-tally`.
 
-::
+.. code:: scale
 
   Neutron Point Detector 1. center of detector
                            average      standard     relat      FOM    stat checks
@@ -2090,7 +2089,7 @@ The analog model for this problem starts with the problem title and the cross se
 which in this example is the ENDF/B-VII.0 27 neutron group / 19 photon group library.
 This is in the SCALE ``samples\input`` directory as ``mavric.caskAnalogn.inp`` and ``mavric.caskAnalogp.inp``.
 
-::
+.. code:: scale
 
   =mavric
   Simplified cask model
@@ -2098,7 +2097,7 @@ This is in the SCALE ``samples\input`` directory as ``mavric.caskAnalogn.inp`` a
 
 Then the material compositions are listed for fresh fuel, concrete, and steel.
 
-::
+.. code:: scale
 
   read composition
       wtptFuel   1 0.913717475 18         6000  0.00939719    7014  0.00528993
@@ -2115,7 +2114,7 @@ Then the material compositions are listed for fresh fuel, concrete, and steel.
 
 Then the SGGP geometry is listed, with the origin of the coordinate system at the center of the cask.
 
-::
+.. code:: scale
 
   read geometry
       global unit  1
@@ -2144,7 +2143,7 @@ Then the SGGP geometry is listed, with the origin of the coordinate system at th
 
 The definitions block contains locations, response functions, grid geometries, and a distribution used by the source input block. For the neutron source/neutron dose problem, the definitions block is listed below.
 
-::
+.. code:: scale
 
   read definitions
       location 1   position 180.0 0.0   0.0    end location
@@ -2168,7 +2167,7 @@ The definitions block contains locations, response functions, grid geometries, a
 
 The neutron source from the spent fuel is then listed.
 
-::
+.. code:: scale
 
   read sources
       src 1
@@ -2182,7 +2181,7 @@ The neutron source from the spent fuel is then listed.
 
 Six point detectors are used to evaluate dose rates radially, axially, and near the vent port.
 
-::
+.. code:: scale
 
   read tallies
       pointDetector 1  locationID=1  responseID=1  end pointDetector
@@ -2196,7 +2195,7 @@ Six point detectors are used to evaluate dose rates radially, axially, and near 
 The Monte Carlo parameters were tailored for the neutron problem to be 1-minute batches
 on a 2 GHz Linux computer. For the photon problem, the number per batch would be 91,000 for 1-minute batches.
 
-::
+.. code:: scale
 
   read parameters
       randomSeed=8655745280030001
@@ -2208,7 +2207,7 @@ No biasing is specified, which will use the default weight window target value o
 group in every region. To allow the neutrons to penetrate into the cask wall before being rouletted,
 a larger window ratio is used, making the lower weight window bound 0.01.
 
-::
+.. code:: scale
 
   read biasing
       windowRatio=199.0
@@ -2216,14 +2215,14 @@ a larger window ratio is used, making the lower weight window bound 0.01.
 
 The Monaco input is then ended.
 
-::
+.. code:: scale
 
   end data
   end
 
 For the photon source/photon dose rate problem, the definitions block would instead contain a photon flux-to-dose-rate response function and the energy distribution for the source.
 
-::
+.. code:: scale
 
   read definitions
       response 1
@@ -2242,7 +2241,7 @@ For the photon source/photon dose rate problem, the definitions block would inst
 
 The sources block would contain the photon source information.
 
-::
+.. code:: scale
 
   read sources
       src 1
@@ -2416,7 +2415,7 @@ discrete-ordinates calculation as a grid geometry to the definitions
 block. This set of planes is tailored for the vent port direction
 toward detectors 3 and 6.
 
-::
+.. code:: scale
 
   gridGeometry 3
           title="for importance map for detectors 3,6"
@@ -2448,7 +2447,7 @@ rejected. Then an importance map block replaces the standard biasing
 block. In this case, the importance map will optimize the flow of
 particles to location 3 (where point detector 3 is defined).
 
-::
+.. code:: scale
 
   read importanceMap
       adjointSource 1
@@ -2723,7 +2722,7 @@ calculations, whereas the final Monte Carlo calculation used the 200 neutron gro
 
 The input file starts with the problem title, the library for the importance calculations, and the materials.
 
-::
+.. code:: scale
 
   =mavric
   Photon lithodensity logging tool - using FW-CADIS
@@ -2743,7 +2742,7 @@ The input file starts with the problem title, the library for the importance cal
 
 The geometry is relatively simple. Volumes are only needed for the regions where tallies will be made.
 
-::
+.. code:: scale
 
   read geometry
       global unit  1
@@ -2779,7 +2778,7 @@ distribution in which the most probable bin is located right near the
 library (from 600 to 800 keV in the 27/19 library or from 600 to 700 keV
 in the 200/47 library).
 
-::
+.. code:: scale
 
   read definitions
       response 1
@@ -2826,7 +2825,7 @@ is preserved,
 which uses the ratio of the line energy to the energy at the center of
 the group in the 200/47 library.
 
-::
+.. code:: scale
 
   read sources
       src 1
@@ -2840,7 +2839,7 @@ the group in the 200/47 library.
 
 Each detector is represented by a region tally. A mesh tally is made for one slice in *y* for visualization.
 
-::
+.. code:: scale
 
   read tallies
       regionTally 1
@@ -2871,7 +2870,7 @@ source trials is input. This number is small since the source is a
 monoenergetic point source. The Denovo calculations used the default
 S\ :sub:`8` quadrature and the P\ :sub:`3` Legendre order.
 
-::
+.. code:: scale
 
   read importanceMap
       gridGeometryID=1
@@ -3002,7 +3001,7 @@ cylinder. The library given at the beginning of the input is the MG library for 
 The final Monaco Monte Carlo calculation will use the CE library, which is specified in the parameters block.
 About 1 meter of air is modeled around the cask.
 
-::
+.. code:: scale
 
   =mavric
   AOS-100: Demonstrate use of MG importance maps with final MC using CE transport
@@ -3044,7 +3043,7 @@ energyBounds defined here has a base structure of 30 bins that are 50
 keV wide, with three bins that are 2 keV wide at the dominant cobalt
 line energies and the 511-keV annihilation gamma energy.
 
-::
+.. code:: scale
 
   read definitions
       response 5
@@ -3090,7 +3089,7 @@ source strength to be the total of the energy distribution—about 2
 photons/decay. The “multiplier” keyword is used to multiply that
 strength by 37e9 decays/sec to get 1 Ci.
 
-::
+.. code:: scale
 
   read sources
       src 1
@@ -3106,7 +3105,7 @@ strength by 37e9 decays/sec to get 1 Ci.
 A single mesh tally is defined and is limited to the air region outside of the cask. A multiplier of 1,000 is
 used to convert the response values from rem/hr to mrem/hr.
 
-::
+.. code:: scale
 
   read tallies
       meshTally 1
@@ -3130,7 +3129,7 @@ loading large amounts of cross section from disk to memory). Thus, the
 keyword “photons” is included to specifically tell the CE Monaco to
 transport photons.
 
-::
+.. code:: scale
 
   read parameters
       randomSeed=00003ecd7b4e3e8b
@@ -3144,7 +3143,7 @@ that will optimize the photon dose rate in the air outside the cask.
 Since photon scatter is typically forward peaked, an S\ :sub:`12`
 quadrature and P\ :sub:`5` Legendre scattering expansion are used.
 
-::
+.. code:: scale
 
   read importanceMap
       adjointSource 1
@@ -3269,7 +3268,7 @@ file, it must be named as a Fortran unit file with a number matching the
 distribution input. In this example, unit 71 is used in both the ORIGEN
 input and MAVRIC input.
 
-::
+.. code:: scale
 
   =mavric
   ISFSI - forward-weighted adjoint using photon dose response
@@ -3277,7 +3276,7 @@ input and MAVRIC input.
 
 The materials include the fresh fuel (with a density representing homogenization), concrete, steel, air, and ordinary soil.
 
-::
+.. code:: scale
 
   read composition
       wtptFuel   1 0.913717475 18         6000  0.00939719    7014  0.00528993
@@ -3299,7 +3298,7 @@ The materials include the fresh fuel (with a density representing homogenization
 
 The geometry models one cask and then repeats the cask model eight times using an array.
 
-::
+.. code:: scale
 
   read geometry
     unit  1
@@ -3359,7 +3358,7 @@ The definitions block contains the photon dose response, a mesh geometry for the
 a uniform mesh for the mesh tally, and the photon energy distribution read from the binary concentration
 file (located on unit 71, the last time step case 64).
 
-::
+.. code:: scale
 
   read definitions
       response 6
@@ -3406,7 +3405,7 @@ sources, one source region can be defined and then limited to only exist
 in the spent fuel material (the first material) but with a strength for
 all the casks of 5.724×10\ :sup:`17` photon/s.
 
-::
+.. code:: scale
 
   read sources
       src 1
@@ -3421,7 +3420,7 @@ all the casks of 5.724×10\ :sup:`17` photon/s.
 
 The mesh tally covers only the first 2 meters above the ground since the dose rate above that would not impact a person.
 
-::
+.. code:: scale
 
   read tallies
       meshTally 1
@@ -3444,7 +3443,7 @@ The adjoint source is placed everywhere that the dose rate is desired—--near t
 not very close to or in between the casks (where people will not be).
 The macro material option is used here to ensure that the discrete-ordinates calculation is more representative of the problem.
 
-::
+.. code:: scale
 
   read importanceMap
       gridGeometryID=3
@@ -3540,7 +3539,7 @@ calculations but then will use the fine-group library for the final Monaco
 step. The full geometry and source distributions are not printed here
 due to their length.
 
-::
+.. code:: scale
 
   =mavric
   Monaco/MAVRIC Training - Exercise 3. Graphite Shielding Measurements Revisited
@@ -3564,7 +3563,7 @@ five distributions for the energy spectra of the sources, and two
 distributions for the spatial distributions of the fuel assembly
 sources.
 
-::
+.. code:: scale
 
   read definitions
       response 1  specialDose=9029  end response
@@ -3623,7 +3622,7 @@ sources.
 
 Seven sources are defined—--a neutron and photon source for each type of fuel assembly, and three activated hardware regions.
 
-::
+.. code:: scale
 
   read sources
       src 1
@@ -3693,7 +3692,7 @@ Seven sources are defined—--a neutron and photon source for each type of fuel 
 
 Four mesh tallies are used to collect the neutron dose rate, the photon dose rate, and the total dose rate.
 
-::
+.. code:: scale
 
    read tallies
     meshTally 1
@@ -3736,7 +3735,7 @@ near and far from the cask should not be expected. Macromaterials are used to im
 results from the discrete-ordinates calculations, which should improve
 the FOM of the final Monaco calculation. The geometry images in :ref:`macromaterials` are taken from this problem.
 
-::
+.. code:: scale
 
   read importanceMap
       gridGeometryID=1

@@ -110,9 +110,8 @@ are used for the *y*- and *z*-dimensions. An example CSAS6 input file
 that collects the fission distribution information would be as
 follows:
 
-.. highlight:: none
 
-::
+.. code:: scale
 
   =csas6
   CAAS Example
@@ -156,7 +155,7 @@ A utility program is used to convert the Monaco mesh tally file into a
 Monaco mesh source file. It can be part of the CSAS6 input file. The
 user then needs to copy the resulting \*.msm file back to his home area.
 
-::
+.. code:: scale
 
   =csas6
   …
@@ -229,7 +228,7 @@ For example, using a KENO-VI fission distribution, placing it somewhere
 in the MAVRIC model and setting the source strength (in neutrons/s) to
 correspond to 10\ :sup:`17` fission/s would look like
 
-::
+.. code:: scale
 
 
   =shell
@@ -321,7 +320,7 @@ extending 7 cm in each direction, with a 1×1×1 cm voxel size. The first
 portion of the input files ``mavric.caasA.inp`` and ``mavric.caasB.inp`` looks
 like the following:
 
-::
+.. code-block:: scale
 
   =csas6
   Dose Rates from a Jezebel Accident in a Block Building
@@ -435,7 +434,7 @@ a 30 cm diameter sphere located at position (1145, 55, 285).
 
 If the MAVRIC transport calculation is not in the same file as the CSAS6 calculation, the MAVRIC input would start by moving the KENO-VI results into the SCALE temporary area:
 
-::
+.. code:: scale
 
   =shell
       copy %RTNDIR%\caas.kenovi.fissionSource.msm  fissionSource.msm
@@ -445,7 +444,7 @@ If the MAVRIC transport calculation is not in the same file as the CSAS6 calcula
 The materials and geometry blocks of the two MAVRIC input files for each of the two calculations,
 ``smplprbs/caas.mavricA.inp`` and ``smplprbs/caas.mavricB.inp``, look like the following:
 
-::
+.. code:: scale
 
   '-------------------------------------------------------------------------------
   ' Composition Block
@@ -515,7 +514,7 @@ flux-to-dose rate conversion factors for neutrons and photons. These are
 defined in the definitions block. Note that these responses have units
 of (rem/hr)/(/cm :sup:`2`/s).
 
-::
+.. code:: scale
 
   '-------------------------------------------------------------------------------
   ' Definitions Block
@@ -539,7 +538,7 @@ MAVRIC will determine the total source strength, including the fission
 photons, from the value of saved by KENO-VI and the multiplicity data
 from the fission photon data file.
 
-::
+.. code:: scale
 
   '-------------------------------------------------------------------------------
   ' Sources Block
@@ -611,7 +610,7 @@ The grid geometry for this calculation should also include planes that bound the
 which is the detector area (these values are shown in brackets [] below). The definitions block in
 ``smplprbs/caas.mavricA.inp`` also includes the location of the center of the detector, which is used in the adjoint source description.
 
-::
+.. code:: scale
 
    location 1
         position 1145 55 285
@@ -658,7 +657,7 @@ towards the detectors, optimizing the calculation of the total dose (by
 listing both response functions together, the total response will be
 used in the adjoint source).
 
-::
+.. code:: scale
 
   '-------------------------------------------------------------------------------
   ' Tallies Block
@@ -735,7 +734,7 @@ Dose map using FW-CADIS
 The grid geometry for this calculation does not need extra planes around the detector. The grid geometry in
 ``smplprbs/caas.mavricB.inp`` looks like the following:
 
-::
+.. code:: scale
 
   gridGeometry 1
           title="mesh for discrete ordinates 46x36x23 = 38088"
@@ -769,7 +768,7 @@ The grid geometry for this calculation does not need extra planes around the det
 
 A second grid geometry also needs to be added to the definitions block for the mesh tally to use.
 
-::
+.. code:: scale
 
     gridGeometry 2
         title="mesh for uniform mesh tally - 40x40x30 cm voxels"
@@ -780,7 +779,7 @@ A second grid geometry also needs to be added to the definitions block for the m
 
 The mesh tallies for each particle type are listed, along with the appropriate response function. The importance map uses FW-CADIS to better spread the particles out over the entire geometry, optimized for the calculation of total dose in the void regions.
 
-::
+.. code:: scale
 
   '-------------------------------------------------------------------------------
   ' Tallies Block

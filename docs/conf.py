@@ -40,6 +40,12 @@ import sphinx_rtd_theme
 
 extensions = ['sphinxcontrib.bibtex', "sphinx_rtd_theme"]
 
+from SCALE_highlighting import ScaleLexer, ScaleStyle, set_pygments_style
+from sphinx.highlighting import lexers
+lexers['scale'] = ScaleLexer()
+set_pygments_style("scale", ScaleStyle)
+pygments_style = "scale"
+
 numfig = True
 
 # Add any paths that contain templates here, relative to this directory.

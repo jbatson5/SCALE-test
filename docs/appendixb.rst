@@ -150,7 +150,7 @@ Output: An ASCII formatted file
 
 Example:
 
-.. highlight:: none
+.. highlight:: scale 
 
 ::
 

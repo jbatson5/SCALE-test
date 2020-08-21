@@ -57,7 +57,7 @@ biased source and importance map are developed. For the Monaco Monte
 Carlo calculation, the source is returned to its normal position. The
 source input for the above problem would then be
 
-.. highlight:: none
+.. highlight:: scale
 
 ::
 
@@ -810,7 +810,7 @@ is used:
          B\left( \vec{r} \right) =
          \begin{cases}
 
-            \tilde{\phi^{c}}\left(\vec{r}\right) & \vec{r} \in V_{D} 
+            \tilde{\phi^{c}}\left(\vec{r}\right) & \vec{r} \in V_{D}
 
             \alpha\left(\vec{r}\right)\tilde{\phi^{c}}\left(\vec{r}\right) + 1 - \alpha\left(\vec{r}\right) & \text{otherwise}
 
