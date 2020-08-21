@@ -8,25 +8,60 @@ MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations
 Introduction
 ------------
 
-Monte Carlo particle transport calculations for deep penetration problems can require very long run times in order to achieve an acceptable level of statistical uncertainty in the final answers. Discrete-ordinates codes can be faster but have limitations relative to the discretization of space, energy, and direction. Monte Carlo calculations can be modified (biased) to produce results with the same variance in less time if an approximate answer or some other additional information is already known about the problem. If an importance can be assigned to different particles based on how much they will contribute to the final answer, more time can be spent on important particles with less time devoted to unimportant particles. One of the best ways to bias a Monte Carlo code for a particular tally is to form an importance map from the adjoint flux based on that tally. Unfortunately, determining the exact adjoint flux could be just as difficult as computing the original problem itself. However, an approximate adjoint can still be very useful in biasing the Monte Carlo solution :cite:`wagner_acceleration_1997`. Discrete ordinates can be used to quickly compute that approximate adjoint. Together, Monte Carlo and discrete ordinates can be used to find solutions to thick shielding problems in reasonable times.
+Monte Carlo particle transport calculations for deep penetration problems can require very long run
+times in order to achieve an acceptable level of statistical uncertainty in the final answers.
+Discrete-ordinates codes can be faster but have limitations relative to the discretization of space, energy,
+and direction. Monte Carlo calculations can be modified (biased) to produce results with the same variance in
+less time if an approximate answer or some other additional information is already known about the problem.
+If importances can be assigned to different particles based on how much they will contribute to the final answer,
+then more time can be spent on important particles, with less time devoted to unimportant particles. One of the best
+ways to bias a Monte Carlo code for a particular tally is to form an importance map from the adjoint flux based on
+that tally. Unfortunately, determining the exact adjoint flux could be just as difficult as computing the original
+problem itself.  However, an approximate adjoint can still be very useful in biasing the Monte Carlo
+solution :cite:`wagner_acceleration_1997`. Discrete ordinates can be used to quickly compute that approximate adjoint. Together, Monte Carlo and discrete ordinates can be used to find solutions to thick shielding problems in reasonable times.
 
-The MAVRIC (Monaco with Automated Variance Reduction using Importance Calculations) sequence is based on the CADIS (Consistent Adjoint Driven Importance Sampling) and FW-CADIS (Forward-Weighted CADIS) methodologies :cite:`wagner_automated_1998` :cite:`wagner_automated_2002` :cite:`haghighat_monte_2003` :cite:`wagner_forward-weighted_2007` MAVRIC automatically performs a three-dimensional, discrete-ordinates calculation using Denovo to compute the adjoint flux as a function of position and energy. This adjoint flux information is then used to construct an importance map (i.e., target weights for weight windows) and a biased source distribution that work together—particles are born with a weight matching the target weight of the cell into which they are born. The fixed-source Monte Carlo radiation transport Monaco then uses the importance map for biasing during particle transport and the biased source distribution as its source. During transport, the particle weight is compared with the importance map after each particle interaction and whenever a particle crosses into a new importance cell in the map.
+The MAVRIC (Monaco with Automated Variance Reduction using Importance Calculations) sequence is based on the
+CADIS (Consistent Adjoint Driven Importance Sampling) and FW-CADIS (Forward-Weighted CADIS)
+methodologies :cite:`wagner_automated_1998` :cite:`wagner_automated_2002` :cite:`haghighat_monte_2003`
+:cite:`wagner_forward-weighted_2007` MAVRIC automatically performs a three-dimensional, discrete-ordinates
+calculation using Denovo to compute the adjoint flux as a function of position and energy. This adjoint flux
+information is then used to construct an importance map (i.e., target weights for weight windows) and a biased
+source distribution that work together—particles are born with a weight matching the target weight of the cell
+into which they are born. The fixed-source Monte Carlo radiation transport Monaco :cite:`peplow_monte_2011`
+then uses the importance map for biasing during particle transport, and it uses the biased source distribution
+as its source. During transport, the particle weight is compared with the importance map after each particle
+interaction and whenever a particle crosses into a new importance cell in the map.
 
-For problems that do not require variance reduction to complete in a reasonable time, execution of MAVRIC without the importance map calculation provides an easy way to run Monaco. For problems that do require variance reduction to complete in a reasonable time, MAVRIC removes the burden of setting weight windows from the user and performs it automatically with a minimal amount of additional input. Note that the MAVRIC sequence can be used with the final Monaco calculation as either a multigroup (MG) or a continuous-energy (CE) calculation.
 
-Monaco has a wide variety of tally options: it can calculate fluxes (by group) at a point in space, over any geometrical region, or for a user-defined, three-dimensional, rectangular grid. These tallies can also integrate the fluxes with either standard response functions from the cross section library or user-defined response functions. All of these tallies are available in the MAVRIC sequence.
+For problems that do not require variance reduction to complete in a reasonable time,
+execution of MAVRIC without the importance map calculation provides an easy way to run Monaco.
+For problems that do require variance reduction to complete in a reasonable time, MAVRIC removes the burden of setting weight windows from the user and performs it automatically with a minimal amount of additional input. Note that the MAVRIC sequence can be used with the final Monaco calculation as either a multigroup (MG) or a continuous-energy (CE) calculation.
 
-While originally designed for CADIS, the MAVRIC sequence is also capable of creating importance maps using both forward and adjoint deterministic estimates. The FW-CADIS method can be used for optimizing several tallies at once, a mesh tally over a large region, or a mesh tally over the entire problem. Several other methods for producing importance maps are also available in MAVRIC and are explored in Appendix C.
+Monaco has a wide variety of tally options: it can calculate fluxes (by group) at a point in space,
+over any geometrical region, or for a user-defined, three-dimensional, rectangular grid.
+These tallies can also integrate the fluxes with either standard response functions from the cross
+section library or user-defined response functions. All of these tallies are available in the MAVRIC sequence.
+
+Although it was originally designed for CADIS, the MAVRIC sequence is also capable of
+creating importance maps using both forward and adjoint deterministic estimates.
+The FW-CADIS method :cite:`wagner_fw-cadis_2014` can be used for optimizing several tallies at once,
+a mesh tally over a large region, or a mesh tally over the entire problem. Several other methods for
+producing importance maps are also available in MAVRIC and are explored in :ref:`appendixc`.
 
 CADIS Methodology
 -----------------
 
-MAVRIC is an implementation of CADIS (Consistent Adjoint Driven Importance Sampling) using the Denovo SN and Monaco Monte Carlo functional modules. Source biasing and a mesh-based importance map, overlaying the physical geometry, are the basic methods of variance reduction. In order to make the best use of an importance map, the map must be made consistent with the source biasing. If the source biasing is inconsistent with the weight windows that will be used during the transport process, source particles will undergo Russian roulette or splitting immediately, wasting computational time and negating the intent of the biasing.
+MAVRIC is an implementation of CADIS (Consistent Adjoint Driven Importance Sampling) using the Denovo
+SN and Monaco Monte Carlo functional modules. Source biasing and a mesh-based importance map, overlaying
+the physical geometry, are the basic methods of variance reduction. To make the best use of an
+importance map, the map must be made consistent with the source biasing. If the source biasing is inconsistent
+with the weight windows that will be used during the transport process, then source particles will undergo Russian
+roulette or splitting immediately, wasting computational time and negating the intent of the biasing.
 
 Overview of CADIS
 ~~~~~~~~~~~~~~~~~
 
-CADIS has been well described in the literature, so only a
+CADIS is well described in the literature, so only a
 brief overview is given here. Consider a class source-detector problem
 described by a unit source with emission probability distribution
 function :math:`q\left(\overrightarrow{r},E \right)` and a detector
@@ -34,7 +69,7 @@ response function :math:`\sigma_{d}\left(\overrightarrow{r},E \right)`.
 To determine the total detector response, *R*, the forward scalar flux
 :math:`\phi\left(\overrightarrow{r},E \right)` must be known. The
 response is found by integrating the product of the detector response
-function and the flux over the detector volume :math:`V_{d}`.
+function and the flux over the detector volume :math:`V_{d}`:
 
 
 .. math::
@@ -49,7 +84,7 @@ corresponding adjoint problem with adjoint source
 :math:`q^{+}\left(\overrightarrow{r},E \right) = \sigma_{d}\left(\overrightarrow{r},E \right)`,
 then the total detector response could be found by integrating the
 product of the forward source and the adjoint flux over the source
-volume, :math:`V_{s}`.
+volume, :math:`V_{s}`:
 
 
 .. math::
@@ -62,15 +97,15 @@ determine as the forward flux, but an approximation of the adjoint flux
 can still be used to form an importance map and a biased source
 distribution for use in the forward Monte Carlo calculation.
 
-Wagner\ :sup:`1` showed that if an estimate of the adjoint scalar flux
-for the corresponding adjoint problem could be found, then an estimate
-of the response *R* could be made using Eq. . The adjoint source for the
+Wagner :cite:`wagner_acceleration_1997` showed that if an estimate of the adjoint scalar flux
+for the corresponding adjoint problem can be found, then an estimate
+of the response *R* can be made using :eq:`mavric-2`. The adjoint source for the
 adjoint problem is typically separable and corresponds to the detector
-response and spatial area of tally to be optimized:
+response and spatial area of the tally to be optimized:
 :math:`q^{+}\left(\overrightarrow{r},E \right) = \sigma_{d}\left(E \right)g\left( \overrightarrow{r} \right)`,
 where :math:`\sigma_{d}\left( E \right)` is a flux-to-dose conversion
 factor and :math:`g\left( \overrightarrow{r} \right)` is 1 in the tally
-volume and 0 otherwise. Then, from the adjoint flux
+volume and is 0 otherwise. Then, from the adjoint flux
 :math:`\phi^{+}\left( \overrightarrow{r},E \right)` and response
 estimate *R*, a biased source distribution,
 :math:`\widehat{q}\left( \overrightarrow{r},E \right)`, for source
@@ -94,7 +129,7 @@ transport of the form
   \overline{w}\left( \overrightarrow{r},E \right) = \frac{R}{\phi^{+}\left( \overrightarrow{r},E \right)}
 
 
-could be constructed, which minimize the variance in the forward Monte
+can be constructed, which minimizes the variance in the forward Monte
 Carlo calculation of *R*.
 
 When a particle is sampled from the biased source distribution
@@ -110,8 +145,8 @@ fair game, its initial weight is set to
 
 which exactly matches the target weight for that particle’s position and
 energy. This is the “consistent” part of CADIS—source particles are born
-with a weight matching the weight window of the region/energy they are
-born into. The source biasing and the weight windows work together.
+with a weight matching the weight window of the region/energy into which they are
+born. The source biasing and the weight windows work together.
 
 CADIS has been applied to many problems—including reactor ex-core
 detectors, well-logging instruments, cask shielding studies, and
@@ -122,18 +157,18 @@ simulations.
 Multiple sources with CADIS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For a typical Monte Carlo calculation with multiple sources (each with a
+For a typical Monte Carlo calculation with multiple sources---each with a
 probability distribution function
 :math:`q_{i}\left( \overrightarrow{r},E \right)` and a strength
 :math:`S_{i}`, giving a total source strength of
-:math:`S = \sum_{}^{}S_{i}`), the source is sampled in two steps. First,
+:math:`S = \sum_{}^{}S_{i}`---the source is sampled in two steps. First,
 the specific source *i* is sampled with probability
 :math:`p\left( i \right) = \ S_{i}/S`, and then the particle is sampled
 from the specific source distribution
 :math:`q_{i}\left( \overrightarrow{r},E \right)`.
 
-The source sampling can be biased at both levels: which source to sample
-from and how to sample each source. For example, the specific source can
+The source sampling can be biased at both levels: from which source to sample
+and how to sample each source. For example, the specific source can
 be sampled using some arbitrary distribution,
 :math:`\widehat{p}\left( i \right)`, and then the individual sources can
 be sampled using distributions
@@ -149,12 +184,12 @@ would then have a birth weight of
 
 For CADIS, a biased multiple source needs to be developed so that the
 birth weights of sampled particles still match the target weights of the
-importance map. For a problem with multiple sources (each with a
+importance map. For a problem with multiple sources---each with a
 distribution :math:`q_{i}\left( \overrightarrow{r},E \right)` and a
-strength :math:`S_{i}`), the goal of the Monte Carlo calculation is to
+strength :math:`S_{i}`---the goal of the Monte Carlo calculation is to
 compute some response :math:`R` for a response function
 :math:`\sigma_{d}\left( \overrightarrow{r},E \right)` at a given
-detector.
+detector,
 
 
 .. math::
@@ -190,7 +225,7 @@ the response :math:`R` can also be calculated as
   R = \ \int_{V}^{}{\int_{E}^{}{\left\lbrack \sum_{i}^{}{S_{i}q_{i}\left( \overrightarrow{r},E \right)} \right\rbrack\ \phi^{+}\left( \overrightarrow{r},E \right)\textit{dE dV}}},
 
 
-with response contribution from each specific source being
+with the response contribution from each specific source being
 
 
 .. math::
@@ -245,29 +280,54 @@ which matches the target weight,
 Multiple tallies with CADIS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The CADIS methodology works quite well for classic source/detector problems. The statistical uncertainty of the tally that serves as the adjoint source is greatly reduced since the Monte Carlo transport is optimized to spend more simulation time on those particles that contribute to the tally, at the expense of tracking particles in other parts of phase space. However, more recently, Monte Carlo has been applied to problems where multiple tallies need to all be found with low statistical uncertainties. The extension of this idea is the mesh tally—where each voxel is a tally where the user desires low statistical uncertainties. For these problems, the user must accept a total simulation time that is controlled by the tally with the slowest convergence and simulation results where the tallies have a wide range of relative uncertainties.
+The CADIS methodology works quite well for classic source/detector problems.
+The statistical uncertainty of the tally that serves as the adjoint source is greatly reduced since the
+Monte Carlo transport is optimized to spend more simulation time on those particles that contribute to the
+tally, at the expense of tracking particles in other parts of phase space. However, more recently,
+Monte Carlo has been applied to problems in which multiple tallies need to all be found with low statistical
+uncertainties. The extension of this idea is the mesh tally—where each voxel is a tally for which the user desires
+low statistical uncertainties. For these problems, the user must accept a total simulation time that is controlled
+by the tally with the slowest convergence and simulation results where the tallies have a wide range of relative
+uncertainties.
 
-The obvious way around this problem is to create a separate problem for each tally and use CADIS to optimize each. Each simulation can then be run until the tally reaches the level of acceptable uncertainty. For more than a few tallies, this approach becomes complicated and time-consuming for the user. For large mesh tallies, this approach is not reasonable.
+The obvious way around this problem is to create a separate problem for each tally and use CADIS to optimize each.
+Each simulation can then be run until the tally reaches the level of acceptable uncertainty.
+For more than a few tallies, this approach becomes complicated and time-consuming for the user.
+For large mesh tallies, this approach is not reasonable.
 
-Another approach to treat several tallies, if they are in close proximity to each other, or a mesh tally covering a small portion of the physical problem is to use the CADIS methodology with the adjoint source near the middle of the tallies to be optimized. Since particles in the forward Monte Carlo simulation are optimized to reach the location of the adjoint source, all the tallies surrounding that adjoint source should converge quickly. The drawback to this approach is the difficult question of “how close.” If the tallies are too far apart, certain energies or regions that are needed for one tally may be of low importance for getting particles to the central adjoint source. This may under-predict the flux or dose at the tally sites far from the adjoint source.
+Another approach to treat several tallies, if they are in close proximity to each other,
+or a mesh tally covering a small portion of the physical problem, is to use the CADIS methodology
+with the adjoint source near the middle of the tallies to be optimized. Since particles in the
+forward Monte Carlo simulation are optimized to reach the location of the adjoint source, all the
+tallies surrounding that adjoint source should converge quickly. This approach requires the
+difficult question of “how close.” If the tallies are too far apart, then certain energies or regions that are
+needed for one tally may be of low importance for getting particles to the central adjoint source. This may
+under-predict the flux or dose at the tally sites far from the adjoint source.
 
-MAVRIC has the capability to have multiple adjoint sources with this problem in mind. For several tallies that are far from each other, multiple adjoint sources could be used. In the forward Monte Carlo, particles would be drawn to one of those adjoint sources. The difficulty with this approach is that typically the tally that is closest to the true physical source converges faster than the other tallies—showing the closest adjoint source seems to attract more particles than the others. Assigning more strength to the adjoint source further from the true physical source helps, but finding the correct strengths so that all of the tallies converge to the same relative uncertainty in one simulation is an iterative process for the user.
+MAVRIC has the capability to have multiple adjoint sources with this problem in mind.
+For several tallies that are far from each other, multiple adjoint sources could be used.
+In the forward Monte Carlo, particles would be drawn to one of those adjoint sources.
+The difficulty with this approach is that typically the tally that is closest to the true
+physical source converges faster than the other tallies—--showing that the closest adjoint source
+seems to attract more particles than the others. Assigning more strength to the adjoint
+source further from the true physical source helps to address this issue, but finding the correct strengths so
+that all of the tallies converge to the same relative uncertainty in one simulation is an iterative process for the user.
 
 Forward-weighted CADIS
 ~~~~~~~~~~~~~~~~~~~~~~
 
-In order to converge several tallies to the same relative uncertainty in
+To converge several tallies to the same relative uncertainty in
 one simulation, the adjoint source corresponding to each of those
-tallies needs to be weighted inversely by the expected tally value. In
-order to calculate the dose rate at two points—say one near a reactor
-and one far from a reactor—in one simulation, then the total adjoint
-source used to develop the weight windows and biased source needs to
-have two parts. The adjoint source far from the reactor needs to have
+tallies must be weighted inversely by the expected tally value. To calculate the
+dose rate at two points—--say one near a reactor
+and one far from a reactor—--in one simulation, then the total adjoint
+source used to develop the weight windows and biased source must
+have two parts. The adjoint source far from the reactor must have
 more strength than the adjoint source near the reactor by a factor equal
 to the ratio of the expected near dose rate to the expected far dose
 rate.
 
-This concept can be extended to mesh tallies as well. Instead of using a
+This concept can be extended to mesh tallies, as well. Instead of using a
 uniform adjoint source strength over the entire mesh tally volume, each
 voxel of the adjoint source should be weighted inversely by the expected
 forward tally value for that voxel. Areas of low flux or low dose rate
@@ -276,10 +336,9 @@ dose rate.
 
 An estimate of the expected tally results can be found by using a quick
 discrete-ordinates calculation. This leads to an extension of the CADIS
-method: forward-weighted CADIS (FW-CADIS).**Error! Bookmark not
-defined.** First, a forward S\ :sub:`N` calculation is performed to
+method: forward-weighted CADIS (FW-CADIS). First, a forward S\ :sub:`N` calculation is performed to
 estimate the expected tally results. A total adjoint source is
-constructed where the adjoint source corresponding to each tally is
+constructed so that the adjoint source corresponding to each tally is
 weighted inversely by those forward tally estimates. Then the standard
 CADIS approach is used—an importance map (target weight windows) and a
 biased source are made using the adjoint flux computed from the adjoint
@@ -300,13 +359,13 @@ the adjoint source would be
    q^{+}\left( \overrightarrow{r},E \right) = \frac{\sigma_{d}\left( E \right)\text{g}\left( \overrightarrow{r} \right)}{\int_{}^{}{\sigma_{d}\left( E \right)\phi\left( \overrightarrow{r},E \right)}\textit{dE}}\ ,
 
 where :math:`\phi\left( \overrightarrow{r},E \right)` is an estimate of
-the forward flux and the energy integral is over the voxel at :math:`\overrightarrow{r}`.
+the forward flux, and the energy integral is over the voxel at :math:`\overrightarrow{r}`.
 The adjoint source is nonzero only where the mesh tally is defined
 (:math:`g\left( \overrightarrow{r} \right)`), and its strength is
 inversely proportional to the forward estimate of dose rate.
 
 The relative uncertainty of a tally is controlled by two components:
-first, the number of tracks contributing to the tally and, second, the
+(1) the number of tracks contributing to the tally and (2) the
 shape of the distribution of scores contributing to that tally. In the
 Monte Carlo game, the number of simulated particles,
 :math:`m\left( \overrightarrow{r},E \right)`, can be related to the true
@@ -327,8 +386,8 @@ calculate a similar quantity related to the Monte Carlo particle density
 would be very close to calculating any other quantity but without
 including the particle weight. The goal of FW-CADIS is to make the Monte
 Carlo particle density, :math:`m\left( \overrightarrow{r},E \right)`,
-uniform over the tally areas, so an importance map needs to be developed
-that represents the importance to achieving uniform Monte Carlo particle
+uniform over the tally areas, so an importance map must be developed
+that represents the importance of achieving uniform Monte Carlo particle
 density. By attempting to keep the Monte Carlo particle density more
 uniform, more uniform relative errors for the tallies should be
 realized.
@@ -337,15 +396,15 @@ Two options for forward weighting are possible. For tallies over some
 area where the entire group-wise flux is needed with low relative
 uncertainties, the adjoint source should be weighted inversely by the
 forward flux, :math:`\phi\left( \overrightarrow{r},E \right)`. The other
-option, for a tally where only an energy-integrated quantity is desired,
+option, for a tally in which only an energy-integrated quantity is desired,
 is to weight the adjoint inversely by that energy-integrated
 quantity,\ :math:`\int_{}^{}{\sigma_{d}\left( E \right)\phi\left( \overrightarrow{r},E \right)}\text{\ dE}`.
-For a tally where the total flux is desired, then the response in the
+For a tally in which the total flux is desired, then the response in the
 adjoint source is simply :math:`\sigma_{d}\left( E \right) = 1`.
 
 To optimize the forward Monte Carlo simulation for the calculation of
 some quantity at multiple tally locations or across a mesh tally, the
-adjoint source needs to be weighted by the estimate of that quantity.
+adjoint source must be weighted by the estimate of that quantity.
 For a tally defined by its spatial location
 :math:`g\left( \overrightarrow{r} \right)` and its optional response
 :math:`\sigma_{d}\left( E \right)`, the standard adjoint source would be
@@ -374,7 +433,7 @@ quantity is to be optimized, is listed below.
 
 The bottom line of FW-CADIS is that in order to calculate a quantity at
 multiple tally locations (or across a mesh tally) with more uniform
-relative uncertainties, an adjoint source needs to be developed for an
+relative uncertainties, an adjoint source must be developed for an
 objective function that keeps some non-physical quantity—related to the
 Monte Carlo particle density and similar in form to the desired
 quantity—constant. FW-CADIS uses the solution of a forward
@@ -384,12 +443,29 @@ After that, the standard CADIS approach is used.
 MAVRIC Implementation of CADIS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With MAVRIC, as with other shielding codes, the user defines the problem as a set of physical models—the material compositions, the geometry, the source, and the detectors (locations and response functions)—as well as some mathematical parameters on how to solve the problem (number of histories, etc.). For the variance reduction portion of MAVRIC, the only additional inputs required are (1) the mesh planes to use in the discrete-ordinates calculation(s) and (2) the adjoint source description—basically the location and the response of each tally to optimize in the forward Monte Carlo calculation. MAVRIC takes this information and constructs a Denovo adjoint problem. (The adjoint source is weighted by a Denovo forward flux or response estimate for FW-CADIS applications.)  MAVRIC then uses the CADIS methodology: it combines the adjoint flux from the Denovo calculation with the source description and creates the importance map (weight window targets) and the mesh-based biased source. Monaco is then run using the CADIS biased source distribution and the weight window targets.
+With MAVRIC, as with other shielding codes, the user defines the problem as a set of
+physical models—the material compositions, the geometry, the source, and the detectors
+(locations and response functions)—as well as some mathematical parameters on how to solve
+the problem (number of histories, etc.). For the variance reduction portion of MAVRIC, the
+only additional inputs required are (1) the mesh planes to use in the discrete-ordinates
+calculation(s) and (2) the adjoint source description—--basically the location and the response
+of each tally to optimize in the forward Monte Carlo calculation. MAVRIC uses this information
+to construct a Denovo adjoint problem. (The adjoint source is weighted by a Denovo forward flux
+or response estimate for FW-CADIS applications.)  MAVRIC then uses the CADIS methodology: it combines
+the adjoint flux from the Denovo calculation with the source description and creates the importance map
+(weight window targets) and the mesh-based biased source. Monaco is then run using the CADIS biased source
+distribution and the weight window targets.
 
 Denovo
 ^^^^^^
 
-Denovo is a parallel three-dimensional SN code that is used to generate adjoint (and, for FW-CADIS, forward) scalar fluxes for the CADIS methods in MAVRIC. For use in MAVRIC/CADIS, it is highly desirable that the SN code be fast, positive, and robust. The phase-space shape of the forward and adjoint fluxes, as opposed to a highly accurate solution, is the most important quality for Monte Carlo weight-window generation. Accordingly, Denovo provides a step-characteristics spatial differencing option that produces positive scalar fluxes as long as the source (volume plus in-scatter) is positive. Denovo uses an orthogonal, nonuniform mesh that is ideal for CADIS applications because of the speed and robustness of calculations on this mesh type.
+Denovo is a parallel three-dimensional SN code that is used to generate adjoint (and, for FW-CADIS, forward)
+scalar fluxes for the CADIS methods in MAVRIC. For use in MAVRIC/CADIS, it is highly desirable that the SN code be fast,
+positive, and robust. The phase-space shape of the forward and adjoint fluxes, as opposed to a highly accurate solution,
+is the most important quality for Monte Carlo weight-window generation. Accordingly,
+Denovo provides a step-characteristics spatial differencing option that produces positive scalar fluxes as
+long as the source (volume plus in-scatter) is positive. Denovo uses an orthogonal, nonuniform mesh that is
+ideal for CADIS applications because of the speed and robustness of calculations on this mesh type.
 
 Denovo uses the highly robust GMRES (Generalized Minimum Residual) Krylov method to solve the SN equations in each group. GMRES has been shown to be more robust and efficient than traditional source (fixed-point) iteration. The in-group discrete SN equations are defined as
 
@@ -401,10 +477,10 @@ Denovo uses the highly robust GMRES (Generalized Minimum Residual) Krylov method
 
 where **L** is the differential transport operator, **M** is the
 moment-to-discrete operator, **S** is the matrix of scattering
-cross-section moments, *q* is the external and in-scatter source,
+cross section moments, *q* is the external and in-scatter source,
 :math:`\phi` is the vector of angular flux moments, and :math:`\psi` is
 the vector of angular fluxes at discrete angles. Applying the operator
-**D**, where :math:`\phi = \mathbf{D}\psi`, and rearranging terms casts
+**D**, where :math:`\phi = \mathbf{D}\psi`, and rearranging terms, casts
 the in-group equations in the form of a traditional linear system,
 :math:`\mathbf{A}x = b`,
 
@@ -420,7 +496,7 @@ solver uses the well-known Koch-Baker-Alcouffe (KBA) algorithm, which is
 a two-dimensional block‑spatial decomposition of a three-dimensional
 orthogonal mesh :cite:`baker_sn_1998`. The Trilinos package is used for the GMRES
 implementation :cite:`willenbring_trilinos_2003` Denovo stores the mesh-based scalar fluxes in a
-double precision binary file (\*.dff) called a Denovo flux file. Past
+double precision binary file (\*.dff) called a *Denovo flux file*. Past
 versions of SCALE/Denovo used the TORT :cite:`rhoades_tort_1997` \*.varscl file format
 (DOORS package :cite:`rhoades_doors_1998`), but this was limited to single precision. Since
 the rest of the MAVRIC sequence has not yet been parallelized, Denovo is
@@ -430,7 +506,7 @@ Monaco
 ^^^^^^
 
 The forward Monte Carlo transport is performed using Monaco, a
-fixed-source, shielding code that uses the SCALE General Geometry
+fixed-source shielding code that uses the SCALE General Geometry
 Package (SGGP, the same as used by the criticality code KENO-VI) and the
 standard SCALE material information processor. Monaco can use either MG
 or CE cross section libraries. Monaco was originally based on the MORSE
@@ -439,14 +515,14 @@ coding, incorporate more flexibility in terms of sources/tallies, and
 read a user-friendly block/keyword style input.
 
 Much of the input to MAVRIC is the same as Monaco. More details can be
-found in the Monaco chapter of the SCALE manual.
+found in the Monaco chapter of the SCALE manual (SECTIONREFERENCE).
 
 Running MAVRIC
 ^^^^^^^^^^^^^^
 
 The objective of a SCALE sequence is to execute several codes, passing
 the output from one to the input of the next, in order to perform some
-analysis—things that users typically had to do in the past. MAVRIC does
+analysis—--tasks that users typically had to do in the past. MAVRIC does
 this for difficult shielding problems by running approximate
 discrete-ordinates calculations, constructing an importance map and
 biased source for one or more tallies that the user wants to optimize in
@@ -454,7 +530,7 @@ the Monte Carlo calculation, and then using those in a forward Monaco
 Monte Carlo calculation. MAVRIC also prepares the forward and adjoint
 cross sections when needed. The steps of a MAVRIC sequence are listed in
 :numref:`Mavric-sequence`. The user can instruct MAVRIC to run this whole sequence of
-steps or just some subset of the steps—in order to verify the
+steps or just some subset of the steps to verify the
 intermediate steps or to reuse previously calculated quantities in a new
 analyses.
 
@@ -466,14 +542,14 @@ changes to the importance map calculation before the actual Monte Carlo
 calculation in Monaco.
 
 MAVRIC also allows the sequence to start at several different points. If
-an importance map and biased source have already been computed, they can
+an importance map and biased source have already been computed, they can then
 be used directly. If the adjoint scalar fluxes are known, they can
 quickly be used to create the importance map and biased source and then
-begin the forward Monte Carlo. All of the different combinations of
+begin the forward Monte Carlo calculation. All of the different combinations of
 starting MAVRIC with some previously calculated quantities are listed in
 the following section detailing the input options.
 
-When using MG cross-section libraries that do not have flux-to-dose-rate
+When using MG cross section libraries that do not have flux-to-dose-rate
 conversion factors, use “parm=nodose” to prevent the cross section
 processing codes from trying to move these values into the working
 library.
@@ -554,7 +630,7 @@ Blocks (must be in this order):
 
 -  Plot – create 2D slices of the SGGP geometry
 
-Other Blocks (any order, following the blocks listed above):
+Other Blocks (in any order, following the blocks listed above):
 
 -  Definitions – defines locations, response functions, and grid geometries used by other blocks
 
@@ -586,8 +662,8 @@ filenames), SCALE is case insensitive.
 
 After all input blocks are listed, a single line with “end data” should be listed.
 A final “end” should also be listed, to signify the end of all MAVRIC input.
-Nine of the blocks are the same input blocks used by the functional module Monaco,
-with a few extra keywords only for use with MAVRIC. These extra keywords are highlighted here,
+Nine of the blocks are the same input blocks as those used by the functional module Monaco,
+with a few extra keywords only for use with MAVRIC. These extra keywords are highlighted here, but
 without relisting all of the standard Monaco keywords for those blocks.
 See :numref:`input-format` for an overview of MAVRIC input file structure.
 
@@ -597,8 +673,8 @@ Composition block
 Material information input follows the standard SCALE format for
 material input. Basic materials known to the SCALE library may be used
 as well as completely user-defined materials (using isotopes with known
-cross sections). Input instructions are located in the XSProc chapter in
-the SCALE manual. The Standard Composition Library chapter lists the
+cross sections). Input instructions are located in the XSProc chapter (SECTIONREFERENCE) in
+the SCALE manual. The Standard Composition Library chapter (SECTIONREFERENCE) lists the
 different cross section libraries and the names of standard materials.
 An example is as follows:
 
@@ -614,7 +690,7 @@ An example is as follows:
 
    end composition
 
-Details on the cell data block are also included in the XSProc chapter.
+Details on the cell data block are also included in the XSProc chapter (SECTIONREFERENCE).
 When using different libraries for the importance map production (listed
 at the top of the input) and the final Monte Carlo calculation (listed
 in the parameters block, if different), make sure that the materials are
@@ -719,9 +795,14 @@ present in both libraries.
 SGGP geometry blocks
 ~~~~~~~~~~~~~~~~~~~~
 
-MAVRIC uses the functional module Monaco for the forward Monte Carlo calculation. Monaco tracks particles through the physical geometry described by the SGGP input blocks as well as through the mesh importance map and any mesh tallies, which are defined in the global coordinates and overlay the physical geometry. Because Monaco must track through all of these geometries at the same time, users should not use the reflective boundary capability in the SGGP geometry.
+MAVRIC uses the functional module Monaco for the forward Monte Carlo calculation.
+Monaco tracks particles through the physical geometry described by the SGGP input
+blocks, as well as through the mesh importance map and any mesh tallies, which are
+defined in the global coordinates and overlay the physical geometry. Because Monaco
+must track through all of these geometries at the same time, users should not use the
+reflective boundary capability in the SGGP geometry.
 
-For more details on each SGGP Geometry block, see the following sections of the KENO-VI chapter of the SCALE Manual.
+For more details on each SGGP geometry block, see the following sections of the KENO-VI chapter (SECTIONREFERENCE) of the SCALE Manual.
 
     Geometry – *Geometry Data*
 
@@ -735,7 +816,7 @@ Other blocks shared with Monaco
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The definitions, sources, tallies, and biasing blocks are all the same
-as Monaco. They are all fully described in the Monaco chapter of the
+as Monaco. They are all fully described in the Monaco chapter (SECTIONREFERENCE) of the
 SCALE Manual.
 
    Definitions – *Definitions Block*
@@ -746,10 +827,10 @@ SCALE Manual.
 
    Biasing – *Biasing Block*
 
-In the parameters block, there are several extra keywords compared to
-Monaco (see the *Parameter Block* section of the Monaco chapter) which
+The parameters block includes several keywords that are not included in
+Monaco (see the *Parameter Block* section of the Monaco chapter (SECTIONREFERENCE)) which
 are used when the cross section library used in the importance
-calculations is different from the library used in the final forward
+calculations differs from the library used in the final forward
 Monaco Monte Carlo calculation. The library listed at the beginning of
 the MAVRIC input file will be used for the importance calculations
 (forward and adjoint Denovo calculation, formation of the importance
@@ -784,9 +865,14 @@ Monaco, each with CENTRM processing.
     end
 
 
-To use a CE cross section in the final Monaco step, use the keyword “ceLibrary=” with the cross section library name in quotes. When using the “library=” or “ceLibrary=” keywords, they should precede the “neutron”, “photon”, “noNeutron”, and “noPhoton” keywords. :numref:`extra-keywords` summarizes all of the keywords in the MAVRIC parameter block.
+To use a CE cross section in the final Monaco step, use the keyword “ceLibrary=” with the cross section
+library name in quotes. When the “library=” or “ceLibrary=” keywords are used, they should precede the “neutron”, “photon”,
+“noNeutron”, and “noPhoton” keywords. :numref:`extra-keywords` summarizes all of the keywords in the MAVRIC parameter block.
 
-When using two different cross section libraries, be sure that the responses and distributions are defined in ways that do not depend on the cross section library. For example, any response that is just a list of n values (corresponding to a cross section library of n groups) needs to have the group energies specifically listed so that it can be evaluated properly on the other group structure.
+When using two different cross section libraries, be sure that the responses and distributions are
+defined in ways that do not depend on the cross section library. For example, any response that is
+just a list of n values (corresponding to a cross section library of n groups) needs to have the
+group energies specifically listed so that it can be evaluated properly on the other group structure.
 
 .. list-table:: Extra keywords for the parameters block
   :align: center
@@ -797,13 +883,18 @@ When using two different cross section libraries, be sure that the responses and
 Importance map block
 ~~~~~~~~~~~~~~~~~~~~
 
-The importance map block is the “heart and soul” of MAVRIC. This block lists the parameters for creating an importance map and biased source from one (adjoint) or two (forward, followed by adjoint) Denovo discrete-ordinates calculations. Without an importance map block, MAVRIC can be used to run Monaco and use its conventional types of variance reduction. If both the importance map and biasing blocks are specified, only the importance map block will be used. There are a variety of ways to use the importance map block, as explained in the subsections below. Keywords for this block are summarized at the end of this section, in
-:numref:``
+The importance map block is the “heart and soul” of MAVRIC. This block lists the parameters for creating an
+importance map and biased source from one (adjoint) or two (forward, followed by adjoint) Denovo
+discrete-ordinates calculations. Without an importance map block, MAVRIC can be used to run Monaco
+and use its conventional types of variance reduction. If both the importance map and biasing blocks
+are specified, then only the importance map block will be used. The various ways to use the importance map block
+are explained in the subsections below. Keywords for this block are summarized at the end of this section, in
+:numref:`keywords-importance`.
 
 Constructing a mesh for the S\ :sub:`N` calculation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All of the uses of the importance map block that run the
+All uses of the importance map block that run the
 discrete-ordinates code require the use of a grid geometry that overlays
 the physical geometry. Grid geometries are defined in the definitions
 block of the MAVRIC input. The extent and level of detail needed in a
@@ -811,7 +902,7 @@ grid geometry are discussed in the following paragraphs.
 
 When using S\ :sub:`N` methods alone for solving radiation transport in
 shielding problems, a good rule of thumb is to use mesh cell sizes on
-the order of a meanfree path of the particle. For complex shielding
+the order of a meanfree path of the particle. In complex shielding
 problems, this could lead to an extremely large number of mesh cells,
 especially when considering the size of the meanfree path of the lowest
 energy neutrons and photons in common shielding materials.
@@ -822,9 +913,9 @@ the overall shape of the true importance map will help accelerate the
 convergence of the forward Monte Carlo calculation. The more accurate
 the importance map, the better the forward Monte Carlo acceleration will
 be. At some point there is a time trade-off when the computational time
-for calculating the importance map followed by the Monte Carlo
+for calculating the importance map followed by the time to perform the Monte Carlo
 calculation exceeds that of a standard analog Monte Carlo calculation.
-Large numbers of mesh cells, coming from using very small mesh sizes,
+Large numbers of mesh cells that result from using very small mesh sizes
 for S\ :sub:`N` calculations also use a great deal of computer memory.
 
 Because the deterministic solution(s) for CADIS and FW-CADIS can have
@@ -834,13 +925,12 @@ MAVRIC applications can be larger than what most S\ :sub:`N` practioners
 would typically use. The use of relatively coarse mesh reduces memory
 requirements and the run time of the deterministic solution(s). Some
 general guidelines to keep in mind when creating a mesh for the
-importance map/biased source are:
+importance map/biased source are as follows:
 
 -  The true source regions should be included in the mesh with mesh
    planes at their boundaries.
 
--  For point or very small sources, place them in the center of a mesh
-   cell, not on the mesh planes.
+-  Place point or very small sources in the center of a mesh cell, not on the mesh planes.
 
 -  Any region of the geometry where particles could eventually
    contribute to the tallies (the “important” areas) should be included
@@ -859,11 +949,11 @@ importance map/biased source are:
 -  Neighboring cell sizes should not be drastically different.
 
 -  Smaller cell sizes should be used where the adjoint flux is changing
-   rapidly, for example, toward the surfaces of adjoint sources and
-   shields (rather than their interiors).
+   rapidly, such as toward the surfaces of adjoint sources and
+   shields (rather than in their interiors).
 
 Another aspect to keep in mind is that the source in the forward Monaco
-Monte Carlo calculation will be a biased, mesh-based source. Source
+Monte Carlo calculation will be a biased mesh-based source. Source
 particles will be selected by first sampling which mesh cell to use and
 then sampling a position uniformly within that mesh cell that meets the
 user criteria of “unit=”, “region=”, or “mixture=” if specified. The
@@ -872,9 +962,9 @@ accurate representation of the true source.
 
 The geometry for the Denovo calculation is specified using the keyword
 “gridGeometryID=” and the identification number of a grid geometry that
-was defined in the definitions block. The material assigned to each
-voxel of the mesh is determined by testing the center point in the SGGP
-geometry (unless the macro-material option is used – see below).
+was defined in the definitions block. The material assigned to each voxel of the mesh is determined by
+testing the center point in the SGGP geometry (unless the macro-material option is used—see below).
+
 
 .. _macromaterials:
 
@@ -889,26 +979,26 @@ the problem were to be solved only with a discrete-ordinates code. This
 coarse mesh may miss significant details (especially curves) in the
 geometry and produce a less-than-optimal importance map.
 
-In order to get more accurate solutions from a coarse-mesh
+To get more accurate solutions from a coarse-mesh
 discrete-ordinates calculation, Denovo can represent the material in
 each voxel of the mesh as a volume-weighted mixture of the real
-materials, called macromaterials, in the problem. When constructing the
+materials, called *macromaterials*, in the problem. When constructing the
 Denovo input, the Denovo EigenValue Calculation (DEVC, see section SECTIONREFERENCE)
-sequence can estimate the volume fraction occupied by each real
+sequence can estimate the volume fraction occupied by using each real
 material in each voxel by a sampling method. The user can specify
 parameters for how to sample the geometry. Note that finer sampling
 makes more accurate estimates of the material fraction but requires more
 setup time to create the Denovo input. Users should understand how the
-macromaterials are sampled and consider that when constructing a mesh
+macromaterials are sampled and should consider this when constructing a mesh
 grid. This is especially important for geometries that contain arrays.
 Careful consideration should be given when overlaying a mesh on a
 geometry that contains arrays of arrays.
 
 Because the list of macromaterials could become large, the user can also
-specify a tolerance for how close two different macromaterials can be to
+specify a tolerance for how close two different macromaterials can be in order to
 be considered the same, thereby reducing the total number of
 macromaterials. The macromaterial tolerance, “``mmTolerance=``”, is used for
-creating a different macromaterial from the ones already created by
+creating a different macromaterial from the those already created by
 looking at the infinity norm between two macromaterials.
 The number of macromaterials does not appreciably impact Denovo run time
 or memory requirements.
@@ -920,7 +1010,15 @@ the keyword ``mmPointTest`` and ray tracing :cite:`johnson_fast_2013` with the k
 Ray Tracing
 '''''''''''
 
-This method estimates the volume of different materials in the Denovo mesh grid elements by tracing rays through the SGGP geometry and computing the average track lengths through the each material. Rays are traced in all three dimensions to better estimate the volume fractions of materials within each voxel. The mmSubCell parameter controls how many rays to trace in each voxel in each dimension. For example, if mmSubCell= n, then when tracing rays in the z dimension, each column of voxels uses a set of n×n rays starting uniformly spaced in the x  and y  dimensions. With rays being cast from all three orthogonal directions, a total of 3n2 rays are used to sample each voxel. One can think of subcells as an equally spaced sub-mesh with a single ray positioned at each center. The number of subcells in each direction, and hence the number of rays, can be explicitly given with mmSubCells ny nz nx nz nx ny end keyword for rays parallel to the x axis, y axis, and z axis.
+This method estimates the volume of different materials in the Denovo mesh grid elements by
+tracing rays through the SGGP geometry and computing the average track lengths through each material.
+Rays are traced in all three dimensions to better estimate the volume fractions of materials within each voxel.
+The mmSubCell parameter controls how many rays will be traced in each voxel in each dimension. For example, if mmSubCell= n,
+then when tracing rays in the z dimension, each column of voxels uses a set of n×n rays
+starting uniformly spaced in the x  and y  dimensions. With rays being cast from all three orthogonal directions,
+a total of 3n2 rays are used to sample each voxel. One can think of subcells as an equally spaced sub-mesh with a
+single ray positioned at each center. The number of subcells in each direction, and hence the number of rays, can
+be explicitly given with mmSubCells ny nz nx nz nx ny end keyword for rays parallel to the x axis, y axis, and z axis.
 :numref:`ray-positions` shows different subcell configurations (in two dimensions) for a given voxel.
 
 .. _ray-positions:
@@ -937,11 +1035,11 @@ more memory than point testing. Ray tracing gives more accurate
 estimates of volume fractions because track lengths across a voxel give
 more information than a series of test points. Ray tracing is also much
 faster than point testing because the particle tracking routines are
-optimized for quickly determining lists of materials and distance along
+optimized to quickly determine lists of materials and distance along
 a given ray.
 
 Ray tracing operates on the grid geometry supplied by the user and
-shoots rays in all three directions starting from the lower bounds of
+shoots rays in all three directions, starting from the lower bounds of
 the mesh grid. An example of an arbitrary assembly geometry is shown in
 :numref:`geom-model`. A ray consists of a number of steps that each correspond
 to crossing a material boundary along the path of the ray. Ratios of
@@ -975,7 +1073,7 @@ result is a new macromaterial consisting of the volume weighted
 fractions of each original material.
 
 After the rays are shot in all three directions, the material volume
-fractions are updated and macromaterials are created by using these
+fractions are updated, and macromaterials are created by using these
 material volume fractions. Material volume fraction calculations for a
 single voxel, as shown in :numref:`ray-vox`, are given by
 
@@ -1019,8 +1117,8 @@ Point Testing
 The recursive bisection method is utilized in point testing and uses a
 series of point tests to determine the macromaterial fractions. For a
 given voxel, the material at the center is compared to the material at
-the eight corners. If they are all the same, the entire volume is
-considered to be made of that material. If different, the volume is
+the eight corners. If they are all the same, then the entire volume is
+considered to be made of that material. If they are different, then the volume is
 divided into two in each dimension. Each subvolume is tested, and the
 method is then applied to the subvolumes that are not of a single
 material. When the ratio of the volume of the tested region to the
@@ -1038,14 +1136,14 @@ stopped. This is illustrated in :numref:`rec-macro`.
 
 
 
-.. centered:: *Fig. 4 Successive steps in the recursive macro-material method*
+.. centered:: *Fig. 4 Successive steps in the recursive macromaterial method*
 
-In point testing, the keyword “mmTolerance=f” is interpreted to be where f is the smallest
+In point testing, the keyword “mmTolerance=f” is interpreted to be where *f* is the smallest
 fraction of the voxel volume that can be achieved by bisection method and hence the limiting
-factor for dividing the voxel. This same tolerance f is also used to limit the number of macromaterials.
+factor for dividing the voxel. This same tolerance *f* is also used to limit the number of macromaterials.
 Before a new macromaterial is created, if one already exists where the fraction of each actual
 material matches to within the given tolerance, then the existing material will be used. If
-using only a single point at the center of each voxel, use “mmTolerance=1”.
+using only a single point at the center of each voxel, then use “mmTolerance=1”.
 The mmSubCell keyword is not used in point testing.
 
 Example
@@ -1074,19 +1172,19 @@ See the Mesh File Viewer help pages for more information on how to use colormap 
 Optimizing source/detector problems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For standard source/detector problems where one tally is to be optimized
+For standard source/detector problems in which one tally is to be optimized
 in the forward Monte Carlo calculation, an adjoint source based on that
-tally needs to be constructed. An adjoint source requires a unique and
+tally must be constructed. An adjoint source requires a unique and
 positive identification number, a physical location, and an energy
 spectrum. The adjoint source location can be specified either by (1) a
 point location (“locationID=” keyword) or (2) a volume described by a
 box (“boundingBox” array). A bounding box is specified by maximum and
 minimum extent in each dimension—\ :math:`x_{max}` :math:`x_{min}` :math:`y_{max}` :math:`y_{min}` :math:`z_{max}`
-:math:`z_{min}` in global coordinates. The boundingBox should not be degenerate
+:math:`z_{min}`—in global coordinates. The boundingBox should not be degenerate
 (should have volume>0) but can be optionally limited to areas matching a
 given unit number (“unit=”), a given region number (“region=”), or a
 given material mixture number (“mixture=”). A mixture and a region
-cannot both be specified since that would either be redundant or
+cannot both be specified, since that would either be redundant or
 mutually exclusive. The energy spectrum of an adjoint source is a
 response function (“responseID=”) listing one of the ID numbers of the
 responses defined in the definitions block. An optional weight can be
@@ -1096,7 +1194,7 @@ given, the default weight is 1.0.
 For example, to optimize a region tally, the user would construct an
 adjoint source located in the same place as the tally, with an adjoint
 source spectrum equal to the response function that the tally is
-computing. Note that the grid geometry 1 and response function 3 need to
+computing. Note that the grid geometry 1 and response function 3 must
 already be defined in the definitions block.
 
 .. code:: rest
@@ -1123,7 +1221,7 @@ the importance map block would look like the following:
      gridGeometryID=1
   end importanceMap
 
-where location 4 is the same location used by the point detector. Response function 1, to calculate total photon flux, must be defined in the definitions block similar to this response
+where location 4 is the same location used by the point detector. To calculate total photon flux, response function 1 must be defined in the definitions block similar to this response:
 
 .. code:: rest
 
@@ -1135,7 +1233,7 @@ where location 4 is the same location used by the point detector. Response funct
   end definitions
 
 
-used for computing total photon flux for the 27-neutron/19-photon group coupled cross section library or like this response
+This response is used for computing total photon flux for the 27 neutron/19 photon group coupled cross section library or like this response
 
 .. code:: rest
 
@@ -1148,12 +1246,12 @@ used for computing total photon flux for the 27-neutron/19-photon group coupled 
       …
   end definitions
 
-which is independent of cross section library.
+which is independent of the cross section library.
 
 Multiple adjoint sources
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-In cases where there are several tallies in very close proximity and/or several different responses being calculated by the tallies, multiple adjoint sources can be used.
+If there are several tallies in very close proximity and/or several different responses being calculated by the tallies, multiple adjoint sources can be used.
 
 .. code:: rest
 
@@ -1182,18 +1280,17 @@ default scattering order is :math:`P_3` (or the maximum number of coefficients c
 cross-section library if less than 3). :math:`S_8`/ :math:`P_3` is an adequate choice for many applications,
 but the user is free to changes these. For complex ducts or transport over large distances at small angles,
 :math:`S_{12}` may be required. :math:`S_4`/ :math:`P_1` or even :math:`S_2`/ :math:`P_0` would be useful in doing a very cursory run to confirm that the
-problem was input correctly, but would likely not be adequate for weight window generation for a problem
+problem was input correctly, but this would likely be inadequate for weight window generation in a problem
 that is complex enough to require advanced variance reduction.
 
-
-These options, as well as the other Denovo options, are applied to both
+These and other Denovo options are applied to both
 the forward and the adjoint calculations that are required from the
 inputs given in the importance map block.
 
 In problems with small sources or media that are not highly scattering,
 discrete ordinates can suffer from "ray effects" :cite:`lathrop_ray_1968,lathrop_remedies_1971`
 where artifacts of the discrete quadrature directions can be seen in the
-computed fluxes. To help alleviate the ray effects problem, Denovo has a
+computed fluxes. Denovo has a
 first-collision capability to help alleviate ray effects. This method
 computes the uncollided flux in each mesh cell from a point source. The
 uncollided fluxes are then used as a distributed source in the main
@@ -1241,12 +1338,12 @@ Forward-weighting the adjoint source
 To optimize a mesh tally or multiple region tallies/point detector
 tallies over a large region, instead of a uniform weighting of the
 adjoint source, a weighting based on the inverse of the forward response
-can be done. This requires an extra discrete-ordinates calculation but
+can be performed. This requires an extra discrete-ordinates calculation but
 can help the forward Monte Carlo calculation compute the mesh tally or
 group of tallies with more uniform statistical uncertainties.
 
 The same grid geometry will be used in both the forward calculation and
-the adjoint calculation, so the user needs to ensure that the mesh
+the adjoint calculation, so the user must ensure that the mesh
 covers all of the forward sources and all of the adjoint sources, even
 if they are point sources.
 
@@ -1325,10 +1422,10 @@ separate simulations:
 where response 1 was defined as :math:`\sigma_{1}\left( E \right) = 1`
 and response 6 was defined as :math:`\sigma_{6}\left( E \right) =`
 flux-to-response conversion factors. The two options for
-forward-weighting allow the tallies for both detectors to be calculated
+forward weighting allow the tallies for both detectors to be calculated
 in the same MAVRIC simulation. Using “fluxWeighting”, the importance map
 and biased source will be made to help distribute Monte Carlo particles
-evenly through each energy group and every voxel in each both detectors,
+evenly through each energy group and every voxel in both detectors,
 making the relative uncertainties close to uniform. With
 “respWeighting”, the importance map and biased source will optimize the
 total integrated response of each tally.
@@ -1400,10 +1497,10 @@ then MAVRIC will convert these source voxels to point sources and Denovo
 will automatically use its first-collision capability to help reduce ray
 effects in the forward calculation. The user can easily override the
 MAVRIC defaults—to force the calculation of a first-collision source no
-matter how many voxels contain source—by using the keyword
+matter how many voxels contain source; this can be done by using the keyword
 “firstCollision”. To prevent the calculation of a first-collision
 source, the keyword “noFirstCollision” can be used. If the keywords
-“firstCollision” or “noFirstCollision” are used, they will only apply to
+“firstCollision” or “noFirstCollision” are used, then they will only apply to
 the forward calculation, not the subsequent adjoint calculation.
 
 The keyword “saveExtraMaps” will save extra files that can be viewed by
@@ -1411,7 +1508,7 @@ the Mesh File Viewer. The source used by the forward Denovo calculation
 is stored in “\ *outputName.*\ dofs.3dmap”, where *outputName* is the
 name the user chose for his output file.
 
-Forward-weighting with an existing forward flux file
+Forward weighting with an existing forward flux file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Similar to the capability of using pre-existing adjoint flux files,
@@ -1443,7 +1540,11 @@ When using a pre-existing forward flux file, either “respWeighting” or “fl
 Using the importance map
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-An importance map produced by the importance map block consists of the target weight values as a function of position and energy. The upper weight window used for splitting and the lower weight window used for Russian roulette are set by the window ratio. The window ratio is simply the ratio of the weight window upper bound to the weight window lower bound, with the target weight being the average of the upper and lower.
+An importance map produced by the importance map block consists of the target
+weight values as a function of position and energy. The upper weight window used
+for splitting and the lower weight window used for Russian roulette are set by the
+window ratio. The window ratio is simply the ratio of the weight window's upper bound to
+the weight window lower bound, with the target weight being the average of the upper and lower bounds.
 
 The keyword “windowRatio=” can be used within the importance map block to specify what
 window ratio will be used with the importance map that is passed to the Monaco forward
@@ -1483,7 +1584,7 @@ importance map block to change the default settings for constructing the
 mesh representation of the forward source.
 
 If macromaterials are used (“mmTolerance<1”) and the adjoint source is
-limited to a particular material, the amount of adjoint source in a mesh
+limited to a particular material, then the amount of adjoint source in a mesh
 voxel will be weighted by the material amount in that voxel.
 
 In SCALE/MAVRIC, Denovo is called as a fixed-source S\ :sub:`N` solver
@@ -1494,16 +1595,16 @@ the parameters block of the MAVRIC input (using “fissionMult=0”), a
 warning will be generated to remind the user of this limitation.
 
 By default, MAVRIC instructs Denovo not to perform outer iterations for
-neutron problems if the cross-section library contains upscatter groups.
+neutron problems if the cross section library contains upscatter groups.
 This is because the time required calculating the fluxes using upscatter
-can be significantly longer than without. For problems where thermal
+can be significantly longer than without. For problems in which thermal
 neutrons are an important part of the transport or tallies, the user
 should specify the keyword “upScatter=1” in the importance map block.
 This will instruct Denovo to perform the outer iterations for the
 upscatter groups, giving more accurate results but taking a much longer
 time for the discrete-ordinates calculation.
 
-When doing a MAVRIC calculation using a coarse-group energy structure
+When performing a MAVRIC calculation using a coarse-group energy structure
 for Denovo (for example with the 27/19 library) but a fine-group energy
 structure (with the 200/47 library) for the final Monaco calculation,
 the source biasing parameters are determined on the coarse-group
@@ -1544,20 +1645,20 @@ Main text output file
 Similar to other SCALE sequences, MAVRIC returns a text output file
 containing the output from the SCALE driver, the sequence itself, and
 all of the functional modules called. The SCALE driver output first
-displays the problem input file then the first reading of the input file
+displays the problem input file, and then the first reading of the input file
 by the MAVRIC sequence is shown (which includes some material processing
 information). If there are any errors or warnings about the input file,
 they will be shown next. Next in the output file are the different
-passes through the MAVRIC sequence, up to 10 parts. If any errors or
+passes through the MAVRIC sequence---up to 10 parts. If any errors or
 warning messages (such as lack of memory) are generated during
 processing, they will be displayed here. Finally, the output files from
 each functional module are concatenated to the above output and shows
 the files returned to the user.
 
-The Monaco section of output first reviews the input it received. First
-is a review of the geometry—showing which materials are used in each
-region and the volume of that region, if input or calculated. Then there
-is a detailed list of other Monaco input: cross section parameters, data
+First, the Monaco section of output first reviews the input it received. First
+the geometry is reviewed, showing which materials are used in each
+region and the volume of that region, if input or calculated. Then a
+detailed list of other Monaco input is reviewed: cross section parameters, data
 definitions, the source description, the tallies, the Monte Carlo
 parameters, and the biasing parameters. For MAVRIC calculations, if an
 importance map is used, then its summary is also given. The “Mesh
@@ -1566,9 +1667,9 @@ changing too rapidly and may require more refinement.
 
 For each Monaco batch, the output file lists the batch time and the
 starting random number for the next batch, which may be useful in
-rerunning just a portion of a problem. Once all of the batches are
+rerunning only a portion of a problem. Once all of the batches are
 completed, a list of the various tally files that have been created is
-given. Finally, the tallies are summarized in a section titled “Final
+given. Finally, the tallies are summarized in a section entitled “Final
 Tally Results Summary.” For each point detector, the total neutron and
 photon fluxes (uncollided and total) are given as well as the final
 response values for each response function. For each region tally, the
@@ -1590,7 +1691,7 @@ Viewer from SCALE 6.1.) :numref:`output-files` lists the other output files, bas
 on the name of the main output file (here called *outputName)*, that are
 available to the user. These files will be copied back to the directory
 where the input file was located. Many of the files come from Monaco and
-are discussed in the Monaco chapter of the SCALE manual.
+are discussed in the Monaco chapter of the SCALE manual (SECTIONREFERENCE).
 
 Other files that the user may be interested in are listed in
 :numref:`intermediate-files`. These files are kept in the temporary directory where SCALE
@@ -1676,11 +1777,11 @@ SCALE functional modules.
   |                                |        |                                                                                                      |
   +--------------------------------+--------+------------------------------------------------------------------------------------------------------+
 
-:sup:`a` \V – can be displayed with the Mesh File Viewer capabilities of Fulcrum. P – can be displayed with the 2D plotting capabilities of Fulcrum.
+:sup:`a` \V – can be displayed with the Mesh File Viewer capabilities of Fulcrum. *P* – can be displayed with the 2D plotting capabilities of Fulcrum.
 
 
 .. _intermediate-files:
-.. table:: Other intermediate files—available in the temporary directory. These may be useful for testing and debugging
+.. table:: Other intermediate files—available in the temporary directory (may be useful for testing and debugging)
 
   +-----------------------+-----------------------+
   | **Filename**          | **Description**       |
@@ -1717,7 +1818,7 @@ Graphite shielding measurements with CADIS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As shown in the Monaco sample problem for simulating the Ueki shielding experiments
-(Monaco chapter Graphite Shielding Measurements),
+(Monaco chapter Graphite Shielding Measurements) (SECTIONREFERENCE),
 as the amount of shielding material between a source and detector increases,
 the time required to reach a certain level of relative uncertainty increases quickly.
 This example will use the MAVRIC automated variance reduction capability to optimize the
@@ -1870,12 +1971,12 @@ MAVRIC results for the point detector response for the 20 cm case are shown belo
       ------------------  -----------  -----------  -------  --------  -----------
 
 This problem took only ~2.5 minutes (0.2 in Denovo and 2.3 minutes in
-Monaco) on the same processor as the 20 minute analog case. [The figure
-of merit (FOM) is 15 times higher than the analog.] Note that the point
+Monaco) on the same processor as the 20 minute analog case. (The figure
+of merit [FOM] is 15 times higher than the analog.) Note that the point
 detector dose rate is the same as the Monaco analog sample problem, but
 the relative uncertainty is smaller with less computation time. CADIS
 has optimized the calculation by focusing on neutrons that contribute to
-the dose rate at the detector location, at the expense of neutrons in
+the dose rate at the detector location at the expense of neutrons in
 the paraffin block. This is demonstrated by the mesh tally of dose rates
 where the values for the dose rate are lower in the paraffin block and
 the relative uncertainties are higher. Since the calculation was
@@ -1883,77 +1984,49 @@ optimized for the position of the detector, dose rates in other parts of
 the problem are underestimated and should not be believed.
 
 The mesh tally shows that the CADIS calculation did not follow as many
-particles deep into the paraffin block, so the uncertainties are larger
+particles deep into the paraffin block, so the uncertainties are greater
 there, but that is what this problem was supposed to do—reduce the
 uncertainty at the point detector at the expense of the other portions
 of the problem.
 
-.. list-table::
+.. _mesh-tally:
 
-  * - .. image:: figs/fig4.1.06a_graphite.dose.values.png
-    - .. image:: figs/fig4.1.06b_graphite.dose.relunc.png
-  * - .. image:: figs/fig4.1.06c_graphiteCADIS.dose.values.png
-    - .. _mesh-tally:
+.. figure:: figs/mesh-tally.png
 
-      .. figure:: figs/fig4.1.06d_graphiteCADIS.dose.relunc.png
-
-.. centered:: Fig. 6 Mesh tally showing neutron dose rate (rem/hr) and uncertainties for the analog case and the CADIS case.
+    Mesh tally showing neutron dose rate (rem/hr) and uncertainties for the analog case and the CADIS case.
 
 Dose rates outside of a simple cask
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example problem is a full-size cylindrical cask model, which consists of an inner steel liner, a thick section of concrete, and an outer steel cover. This problem is intended to be used as a tool to teach users how to build MAVRIC input files. This is not a completely realistic shipping cask but has been simplified greatly for this purpose. The goal of this example it to show how to quickly calculate neutron and photon does rates at six points outside of the cask, including in front of the vent port.
+This example problem is a full-size cylindrical cask model, which consists of an inner steel liner,
+a thick section of concrete, and an outer steel cover. This problem is intended to be used as a tool to
+teach users how to build MAVRIC input files. This is not a completely realistic shipping cask; it has been
+simplified greatly for this purpose. The goal of this example it to show how to quickly calculate neutron
+and photon does rates at six points outside of the cask, including in front of the vent port.
 
 Geometry and materials
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The simple model of a cask is shown in :numref:`cask-geom2`.
 Vent ports at the top and bottom of the cask are modeled as void all of the way around the cask.
-The interior of the cask was modeled using materials from about 20 typical pressurized-water reactor
+The interior of the cask was modeled using materials from about 20 typical pressurized water reactor
 (PWR) fuel assemblies (including the UO2, Zr, Fe, Ni, Cr, Sn, and other constituents),
 homogenized over the interior volume. The total mass of the fuel/assembly hardware in this
 region is 10.6 metric tonnes. Separate end regions of the assemblies are not modeled in this
 simple example. Also note that the fuel material is based on fresh fuel, not spent fuel with
 its hundreds of fission products.
 
-.. list-table::
-  :widths: 300
+.. _cask-geom2:
+.. figure:: figs/cask-geom2.png
   :align: center
 
-  * - .. _cask-geom2:
+  Cask geometry and detector locations.
 
-      .. figure:: figs/fig4.1.07_mcgeom2.jpg
 
-  * - Model Specifics:
 
-      ::
 
-        Materials:
-        fuel - UO2, Zr, others, ρ=0.9137 g/cm3
-        stainless steel - SCALE ss304, ρ=7.94 g/cm3
-        concrete - SCALE orconcrete, ρ=2.2994 g/cm3
 
-        Regions: (rmin, rmax, zmin, zmax, all in cm)
-        yellow – 0, 95, -228.6, 228.6; fuel
-        blue – 95, 100, -255.2 255.2; inner steel liner
-        blue – 0, 90, 228.6, 240.6; inner steel liner
-        blue – 0, 90, -240.6, -228.6; inner steel liner
-        gray – 100,168, -255.2, 255.2; concrete
-        gray –0, 90, 240.6, 280.6; concrete
-        gray –0, 90, -280.6, -240.6; concrete
-        blue – 168, 170, -255.2 255.2; outer steel liner
-        blue – 0, 170, 280.6.2, 285.6; outer steel liner
-        blue – 0, 170, -285.6, -280.6.2; outer steel liner
 
-        Detector locations: (coordinates in cm)
-        1 – 180, 0, 0; midplane, 10 cm from surface
-        2 – 0, 0, 295.6; on axis, 10 cm from surface
-        3 – 180, 0, 267.9; center of gap, 10 cm from rmax
-        4 – 270, 0, 0; midplane, 100 cm from surface
-        5 – 0, 0, 385.6; on axis, 100 cm from surface
-        6 – 270, 0, 385.6; 100 cm from each surface
-
-.. centered:: Fig. 7 Cask geometry and detector locations.
 
 Sources and responses
 ^^^^^^^^^^^^^^^^^^^^^
@@ -1963,9 +2036,9 @@ term. ORIGEN was used to deplete a full core (46.1 metric tonnes of
 uranium, 4.2% enriched, with O, Zr, Fe, Ni, Cr, Sn, and other
 constituents) to 55,000 MWdays/MTU. The contents of the modeled fuel
 represent typical values for PWR fuel. ORIGEN then computed the neutron
-and photon spectra in 27 group and 19 group energy structures for the
-fuel following a 10 year cooling period after the last irradiation. The
-total neutron source strength for the cask (1/6 of a full core – about
+and photon spectra in 27-group and 19-group energy structures for the
+fuel following a 10-year cooling period after the last irradiation. The
+total neutron source strength for the cask (1/6 of a full core, or about
 20 assemblies) was 8.577×10\ :sup:`9` neutrons/s. The total photon
 source strength was 7.155 × 10\ :sup:`16` photons/s.
 
@@ -1975,13 +2048,13 @@ the photon dose rates from the spent fuel photons. The source spectra
 and response functions are shown in :numref:`spent-neutron` through :numref:`ANSI-photon`
 and listed in :numref:`source-and-response`. Note that in this example, the neutron source
 shown in :numref:`spent-neutron` and :numref:`source-and-response` is considered the final neutron
-source—-no further neutron multiplication is considered.
+source: no further neutron multiplication is considered.
 
 .. _spent-neutron:
 .. figure:: figs/fig4.1.08_caskSrcRespn.dist1.png
   :align: center
 
-  Spent fuel neutron source spectrum, with strength 8.577 × 10\ :sup:`9`/second.
+  Spent fuel neutron source spectrum with strength 8.577 × 10\ :sup:`9`/second.
 
 .. _ANSI-neutron:
 .. figure:: figs/fig4.1.09_caskSrcRespn.resp1.png
@@ -1993,7 +2066,7 @@ source—-no further neutron multiplication is considered.
 .. figure:: figs/fig4.1.10_caskSrcRespp.dist1.png
   :align: center
 
-  Spent fuel photon source spectrum, with strength 7.155×10\ :sup:`16`/second
+  Spent fuel photon source spectrum with strength 7.155×10\ :sup:`16`/second
 
 .. _ANSI-photon:
 .. figure:: figs/fig4.1.11_caskSrcRespp.resp1.png
@@ -2001,19 +2074,21 @@ source—-no further neutron multiplication is considered.
 
   ANSI-1977 photon flux-to-dose-rate factors (rem/hr)/(photons/\cm :sup:`2`/sec)
 
-.. csv-table:: Source and response data using the SCALE 27-group energy structure for neutrons and the 19 group energy structure for photons
+.. csv-table:: Source and response data using the SCALE 27-group energy structure for neutrons and the 19-group energy structure for photons
   :file: csv-tables/table4.1.09_sourceResp.csv
   :header-rows: 1
   :name: source-and-response
 
 Energies listed are the bin upper energies. Source units are
-particles/s, normalized to a total of 1 particle/s. Response units are
+particles/s normalized to a total of 1 particle/s. Response units are
 (rem/hr)/(particle/cm\ :sup:`2`/s).
 
 Analog calculation
 ^^^^^^^^^^^^^^^^^^
 
-The analog model for this problem starts with the problem title and the cross-section library name, which in this example is the ENDF/B-VII.0 27 neutron group/19 photon group library. This is in the SCALE ``samples\input`` directory as ``mavric.caskAnalogn.inp`` and ``mavric.caskAnalogp.inp``.
+The analog model for this problem starts with the problem title and the cross section library name,
+which in this example is the ENDF/B-VII.0 27 neutron group / 19 photon group library.
+This is in the SCALE ``samples\input`` directory as ``mavric.caskAnalogn.inp`` and ``mavric.caskAnalogp.inp``.
 
 ::
 
@@ -2038,7 +2113,7 @@ Then the material compositions are listed for fresh fuel, concrete, and steel.
       ss304      3 1.0 293.0 end
   end composition
 
-Then SGGP geometry is listed, with the origin of the coordinate system at the center of the cask.
+Then the SGGP geometry is listed, with the origin of the coordinate system at the center of the cask.
 
 ::
 
@@ -2118,7 +2193,8 @@ Six point detectors are used to evaluate dose rates radially, axially, and near 
       pointDetector 6  locationID=6  responseID=1  end pointDetector
   end tallies
 
-The Monte Carlo parameters were tailored for the neutron problem to be 1 minute batches on a 2 GHz Linux computer. For the photon problem, the number per batch would be 91000 for 1 minute batches.
+The Monte Carlo parameters were tailored for the neutron problem to be 1-minute batches
+on a 2 GHz Linux computer. For the photon problem, the number per batch would be 91,000 for 1-minute batches.
 
 ::
 
@@ -2128,7 +2204,9 @@ The Monte Carlo parameters were tailored for the neutron problem to be 1 minute 
       fissionMult=0    noPhotons
   end parameters
 
-No biasing is specified, which will use the default weight window target value of 1 for every energy group in every region. In order to allow the neutrons to penetrate into the cask wall before being rouletted, a larger window ratio is used, making the lower weight window bound to be 0.01.
+No biasing is specified, which will use the default weight window target value of 1 for every energy
+group in every region. To allow the neutrons to penetrate into the cask wall before being rouletted,
+a larger window ratio is used, making the lower weight window bound 0.01.
 
 ::
 
@@ -2176,13 +2254,13 @@ The sources block would contain the photon source information.
       end src
   end sources
 
-Each of the two analog problems in the ``samples\input`` directory run for
+Each of the two analog problems in the ``samples\input`` directory will run for
 about 10 minutes. In this time, no meaningful results will be generated
 due to the difficulty of the problem. Analog results for each case
 running 110 hr are listed in :numref:`analog-neutron` for the neutron source/neutron
 dose problem, while results for the photon problem are listed in
 :numref:`analog-photon`. Note that after 110 hr, some of the relative uncertainties
-in the point detector tallies are still quite high and only one of the
+in the point detector tallies are still quite high, and only one of the
 six tallies in each problem passed all of the statistical checks.
 :numref:`neutron-dose-plot` is the convergence plot for the neutron dose rate at point
 detector 1, showing that the tally is not well converged and that some
@@ -2205,7 +2283,7 @@ batches contain rare events that change the tally value a great deal.
   :align: center
   :width: 500
 
-  Convergence plot for the neutron dose rate at point detector 1. Error bars show the 1-sigma tally uncertainties.
+  Convergence plot for the neutron dose rate at point detector 1 (error bars show the 1-sigma tally uncertainties).
 
 SAS4 calculations
 ^^^^^^^^^^^^^^^^^
@@ -2222,13 +2300,13 @@ do well when using axial biasing. SAS4 was not intended to do well for
 the points near the vent port, but the results using the axial biasing
 seem reasonable.
 
-.. csv-table:: SAS4 results, using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—neutron source/neutron dose rate
+.. csv-table:: SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—neutron source/neutron dose rate
   :file: csv-tables/table1.12.csv
   :header-rows: 1
   :align: center
   :name: neutron-problem
 
-.. csv-table:: SAS4 results, using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—photon source/photon dose rate
+.. csv-table:: SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—photon source/photon dose rate
   :file: csv-tables/table1.13.csv
   :name: photon-problem
   :align: center
@@ -2238,22 +2316,22 @@ Calculations using CADIS
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the analog calculations, the dose rates at all six points could be
-calculated at the same time. With MAVRIC, using CADIS, the importance
+calculated at the same time. With MAVRIC and using CADIS, the importance
 map will optimize the transport of particles towards only the selected
 detector. Hence, each detector will have a separate calculation with an
-importance map tailored to reduce the variance for just that detector.
-Close detectors could be done at the same time. For example, detectors 1
+importance map tailored to reduce the variance for only that detector.
+Calculations for close detectors could be performed at the same time. For example, detectors 1
 and 4 both need to push particles out of the cask in the positive
 *x* direction, towards the *z*\ =0 plane. In this example, all six
 detectors will use separate importance maps.
 
-For the importance map, the user lists in the input what planes to use
+For the importance map, in the input, the user lists what planes to use
 for the adjoint discrete-ordinates calculation. These planes define
 cells, which are treated as homogenous parallelpipeds by Denovo, made of
 a macro material corresponding to a mixture of materials that are in the
 cell in the true geometry. Users should try to bound as many materials
 as possible with their selection of mesh planes. More mesh planes should
-be used where the importance (adjoint flux) varies quickly, for example
+be used where the importance (adjoint flux) varies quickly, such as
 near the adjoint sources (the detector positions). It is also important
 to have planes on the true source bounding box.
 
@@ -2262,7 +2340,7 @@ the different detector positions. For detector positions 1 and 4, the
 mesh planes are shown in :numref:`importance-1` and :numref:`importance-2`. Note that
 there are more planes closer to the detectors. Also note that in the
 *z* dimension, it is quite easy to place mesh planes at every material
-boundary, but it is a bit harder to do so in the *x* and *y* dimensions
+boundary, but it is a bit more difficult to do so in the *x* and *y* dimensions
 due to the curved surfaces. Users need not worry about getting things
 perfect—an approximate importance map can still reduce Monte Carlo
 variances a great deal. The meshes used for detector positions 2/5 and
@@ -2317,7 +2395,7 @@ parameters are listed in :numref:`mesh-param-xyz`, and the mesh planes are liste
     - 49
     - 78890
 
-.. csv-table:: Listing of the various sets of mesh planes used for the importance calculations for six different point detectors
+.. csv-table:: List of the various sets of mesh planes used for the importance calculations for six different point detectors
   :name: mesh-planes
   :align: center
   :header-rows: 1
@@ -2329,14 +2407,14 @@ MAVRIC input files
 With two sources and six detectors, this example problem will require 12
 separate input files. Starting with the two input files for the analog
 calculations, these 12 input files will share most of the same features
-and differ only in blocks related to the importance map calculation: the
+and will differ only in blocks related to the importance map calculation: the
 location of the adjoint source and the planes used in the grid geometry.
 
 To change the input for the neutron problem from an analog calculation
 to one using CADIS, the user first adds the mesh planes for the
 discrete-ordinates calculation as a grid geometry to the definitions
-block. This set of planes is tailored for the vent port direction,
-towards detectors 3 and 6.
+block. This set of planes is tailored for the vent port direction
+toward detectors 3 and 6.
 
 ::
 
@@ -2397,7 +2475,7 @@ The above mesh tally uses the same grid geometry as the CADIS
 calculations, but a different grid (or grids) could be used. The files
 ``mavric.caskCADISn.inp`` and ``mavric.caskCADISp.inp`` are available in the
 SCALE ``samples\input`` directory. These are for calculating the dose rates
-at detector position 3 but can be modified for the other five positions
+at detector position 3, but they can be modified for the other five positions
 (by changing the geometry grid planes and the adjoint source location).
 
 Neutron source/neutron response results
@@ -2405,7 +2483,7 @@ Neutron source/neutron response results
 
 The above MAVRIC input file first performed the discrete-ordinates
 calculation to determine the adjoint flux from detector position 3. The
-adjoint Denovo flux file (*.adjoint.dff) produced can be viewed using
+adjoint Denovo flux file (\*.adjoint.dff) produced can be viewed using
 the Mesh File Viewer and is shown in :numref:`adjoint-denovo` for several of the
 neutron energy groups.
 
@@ -2417,13 +2495,13 @@ the most important region (lowest target weights) is right around the
 vent port near detector position 3. This is something we know
 qualitatively, but quantitative values for exactly how the importance
 changes with space and energy are difficult to guess. Also notice the
-“consistent” part of CADIS—the source particles are born with a weight
+“consistent” part of CADIS—--the source particles---are born with a weight
 that matches the target weight for the position they are born into. The
-biased source sampling distribution is shown in :numref:`biased-source`, showing
+biased source sampling distribution is depicted in :numref:`biased-source`, showing
 how the source particles nearest to detector 3 will be sampled more
 often.
 
-The biased source distribution and the importance map were then used by
+The biased source distribution and the importance map are then used by
 Monaco to compute the dose equivalent rate response at detector 3.
 
 .. image:: figs/fig4.1.15g_caskn.adjoint.scale.png
@@ -2459,14 +2537,14 @@ Monaco to compute the dose equivalent rate response at detector 3.
 The results for all six neutron cases, each using their own importance
 map and biased source, are shown in :numref:`MAVRIC-final`.
 
-The point of this example is to show that MAVRIC using CADIS gets the
-right answer much faster than the analog calculations. This is shown
+This example shows that MAVRIC using CADIS obtains the
+correct answer much faster than the analog calculations. This is shown
 with a comparison to the results from the analog Monaco and SAS4
 calculations, all of which are listed in :numref:`MAVRIC-CADIS-results`.
 
 To account for the time it takes to achieve a given level of
-uncertainties, the calculation figure-of-merit (FOM=1/time/(relative
-uncertainty)\ :sup:`2`) can be calculated for each of the codes. The
+uncertainties, the calculation figure-of-merit---FOM=1/time/(relative
+uncertainty)\ :sup:`2`---can be calculated for each of the codes. The
 ratios of each code FOM to the FOM of analog Monaco (speedup) are listed
 in :numref:`figure-of-merit` to show how much faster MAVRIC and SAS4 are compared to
 analog Monaco. The FOMs for MAVRIC include the Denovo calculation times.
@@ -2544,7 +2622,7 @@ and the source birth weights. :numref:`fig4-20` shows the distribution of
 the sampled source positions from the biased source.
 
 :numref:`tab4-19` shows the results from all six photon MAVRIC runs, each
-using their own importance map and biased source.
+using its own importance map and biased source.
 
 The MAVRIC results of the photon problem compare well against SAS4 and
 analog Monaco, as shown in :numref:`tab4-20` and :numref:`tab4-21`.
@@ -2587,7 +2665,7 @@ analog Monaco, as shown in :numref:`tab4-20` and :numref:`tab4-21`.
 
   Biased source sampling probability (photons/cm3) for groups 2 (8–10 MeV), 12 (0.8–1.0 MeV), and 18 (45–100 keV).
 
-.. csv-table:: Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco
+.. csv-table:: Ratio of the FOM (speed-up) of MAVRIC and SAS4 compared to analog Monaco
   :file: csv-tables/4.21.csv
   :align: center
   :name: tab4-21
@@ -2639,9 +2717,9 @@ Input file
 ^^^^^^^^^^
 
 The following input file represents the simple model of the litho-density tool.
-The following is a listing of the file ``mavric.lithoFW.inp`` located in the SCALE ``samples\input`` directory.
+It lists of the file ``mavric.lithoFW.inp`` located in the SCALE ``samples\input`` directory.
 The 27 neutron group/19 photon group library based on ENDF/B-VII.0 data was used for the discrete-ordinates
-calculations, while the final Monte Carlo calculation used the 200 neutron group/47 photon group library.
+calculations, whereas the final Monte Carlo calculation used the 200 neutron group / 47 photon group library.
 
 The input file starts with the problem title, the library for the importance calculations, and the materials.
 
@@ -2663,7 +2741,7 @@ The input file starts with the problem title, the library for the importance cal
                             20000 36.6    1.0 293.0 end
   end composition
 
-The geometry is fairly simple. Volumes are only needed for the regions where tallies will be made.
+The geometry is relatively simple. Volumes are only needed for the regions where tallies will be made.
 
 ::
 
@@ -2690,8 +2768,8 @@ The geometry is fairly simple. Volumes are only needed for the regions where tal
       boundary 12
   end geometry
 
-The definitions block lists the response (total photon flux) in a way
-that can be understood by both libraries used in the problem. The mesh
+The definitions block lists the response (total photon flux) so
+that it can be understood by both libraries used in the problem. The mesh
 grid for the importance calculations used 49 × 43 × 59 = 124,313 mesh
 cells, with particular emphasis on geometric representation of the
 collimators to ensure accurate importance maps. This mesh grid is shown
@@ -2785,13 +2863,13 @@ Each detector is represented by a region tally. A mesh tally is made for one sli
       noNeutrons
   end parameters
 
-The importance map defines two adjoint sources, corresponding to the two
+The importance map defines two adjoint sources that correspond to the two
 tallies. Forward weighting, based on the response integrated over energy
 (“respWeighting”), is used. Because the true source is a point source,
 the subcell method of making a mesh source will fail, so the number of
 source trials is input. This number is small since the source is a
 monoenergetic point source. The Denovo calculations used the default
-S\ :sub:`8` quadrature and P\ :sub:`3` Legendre order.
+S\ :sub:`8` quadrature and the P\ :sub:`3` Legendre order.
 
 ::
 
@@ -2846,7 +2924,7 @@ Note that both detectors have similarly low relative uncertainties
 results should be compared to analog results (no biasing at all) and
 optimizations of each detector in separate input files, as shown in
 :numref:`tab4-22`. The CADIS calculations for each detector (near or far) do
-exactly what they were supposed to do – optimize the Monte Carlo
+exactly what they were supposed to do---optimize the Monte Carlo
 calculation for one tally or the other. The FOMs for the FW-CADIS
 calculation were about half of the FOMs for the single-detector CADIS
 calculations. Hence, for this two-detector problem, two CADIS
@@ -2882,14 +2960,14 @@ final Monaco Monte Carlo transport calculation is performed using a CE
 cross section library. Simulations involving discrete-energy photon
 sources are best handled with CE. Consider the AOS-100, one of several
 radioactive material transport packaging systems developed by Alpha
-Omega Services Inc., and a cobalt-60 source. (International Isotopes
+Omega Services, Inc., and a :sup:`60`\Co source. (International Isotopes
 Inc. of Idaho Falls, Idaho, distributes the AOS Radioactive Material
 Transport Packaging Systems.)
 
 A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
-:numref:`fig4-25`. The diameter is 71.12 cm and the height is 91.44 cm.
+:numref:`fig4-25`. The diameter is 71.12 cm, and the height is 91.44 cm.
 The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
-but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of cobalt-60.
+but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of :sup:`60`\Co.
 This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.
 
 .. _fig4-25:
@@ -2900,12 +2978,12 @@ This is conservative—it assumes the radioactive material containing the cobalt
   Simple AOS-100 cask geometry showing tungsten (brown) and steel (gray).
 
 The objective in this study is to compute the dose rates around the cask.
-This can be done via using a mesh tally. Note that the dose rates inside the package are not of
+This can be done using a mesh tally. Note that the dose rates inside the package are not of
 concern—only the dose rates outside the package are.
 
 The results of a 15-hour analog calculation (using only implicit capture with a lower weight limit of 10\ :sup:`-7`)
-are shown in :numref:`fig4-26`. Note that this calculation does not show many photons that have escaped the package
-into the air, which is similar to reality for this heavily shielded cask. In order to compute dose rates outside
+are shown in :numref:`fig4-26`. This calculation does not show many photons that have escaped the package
+into the air, which is similar to reality for this heavily shielded cask. To compute dose rates outside
 the package, variance reduction is needed.
 
 .. _fig4-26:
@@ -2960,7 +3038,7 @@ About 1 meter of air is modeled around the cask.
 In the definitions block, the photon dose response function, the
 cobalt-60 line spectrum, two grid geometries, and an energy boundaries
 structure are all defined. The first grid geometry is used for the
-deterministic calculation, the importance map, and biased source. The
+deterministic calculation, the importance map, and the biased source. The
 second grid geometry is for the high-resolution (1 in.) mesh tally. The
 energyBounds defined here has a base structure of 30 bins that are 50
 keV wide, with three bins that are 2 keV wide at the dominant cobalt
@@ -3025,7 +3103,8 @@ strength by 37e9 decays/sec to get 1 Ci.
       end src
   end sources
 
-A single mesh tally is defined and is limited to the air region outside of the cask. A multiplier of 1000 is used to convert the response values from rem/hr to mrem/hr.
+A single mesh tally is defined and is limited to the air region outside of the cask. A multiplier of 1,000 is
+used to convert the response values from rem/hr to mrem/hr.
 
 ::
 
@@ -3044,7 +3123,7 @@ A single mesh tally is defined and is limited to the air region outside of the c
 In this problem, the importance calculations will use the 200/47 MG
 library, which will transport all particles contained in the library by
 default. The keyword “noNeutrons” is used to turn off neutron transport
-during the Denovo calculations, saving time. The final Monaco
+during the Denovo calculations, thereby saving time. The final Monaco
 calculation will use the CE library (“ceLibrary=”), which only
 transports the particles specifically requested by the user (to avoid
 loading large amounts of cross section from disk to memory). Thus, the
@@ -3088,8 +3167,8 @@ Output file
 ^^^^^^^^^^^
 
 Results for the mesh tally after 958 minutes (27 forward Denovo, 31
-adjoint Denovo, and 900 CE-Monaco) are shown in :numref:`fig4-27`. Note that
-since dose rates inside the package are not of concern, that region was
+adjoint Denovo, and 900 CE-Monaco) are shown in :numref:`fig4-27`.
+Since dose rates inside the package are not of concern, that region was
 excluded from the mesh tally. Due to the optimization that focused the
 Monte Carlo calculation on dose rates outside the cask, values of the
 dose rate inside the cask are underestimated and should not be used.
@@ -3102,11 +3181,11 @@ mesh tally is 2.54 cm.
 .. figure:: figs/4.27.png
   :align: center
 
-  Dose rates (mrem/hr/Ci) and relative uncertainties from the CE, FW-CADIS calculation, showing the midplane views of the cask (*z* = 0 above and *y* = 0 below).
+  Dose rates (mrem/hr/Ci) and relative uncertainties from the CE FW-CADIS calculation showing the midplane views of the cask (*z* = 0 above and *y* = 0 below).
 
 The flux using the user-defined energy bin boundaries for a point 10 cm above the top of the package
 (along the axis) is shown in :numref:`fig4-28`. Note that since the importance map was made to optimize
-the photon dose rate, some of the low-energy bins (that do not contribute to dose much) may have
+the photon dose rate, some of the low-energy bins that do not contribute much to dose  may have
 larger uncertainties.
 
 .. _fig4-28:
@@ -3118,30 +3197,30 @@ larger uncertainties.
 
 :numref:`fig4-29` and :numref:`fig4-30` show the ratios of the dose rates computed using a MG calculation to the
 CE calculation. Dose rates inside the cask should not be compared because the importance map is focused on
-dose outside the cask, so low-energy photons are not simulated inside. The 47 group MG calculation is fairly
-close to the CE-calculation in dose rate (10% high axially, 20% high radially), but the 19 group MG dose rates
+dose outside the cask, so low-energy photons are not simulated inside. The 47-group MG calculation is fairly
+close to the CE-calculation in dose rate (10% high axially, 20% high radially), but the 19-group MG dose rates
 are much higher than the CE. Neither of the MG calculations shows the 1.17 and 1.33 MeV lines in the energy spectra.
 
 .. _fig4-29:
 .. figure:: figs/4.29.png
   :align: center
 
-  Ratio of the 47 group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
+  Ratio of the 47-group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
 
 .. _fig4-30:
 .. figure:: figs/4.30.png
   :align: center
 
-  Ratio of the 19 group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
+  Ratio of the 19-group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
 
 Independent spent fuel storage installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-A good example of a problem where the dose rate needs to be known well
-everywhere—in low dose areas and high dose areas—is an independent spent
+A good example of a problem in which the dose rate needs to be known well
+everywhere—--in low dose areas and high dose areas—--is an independent spent
 fuel storage installation. The dose rates around these arrays of spent
-fuel casks need to be evaluated over a large area of ground in order to
+fuel casks need to be evaluated over a large area of ground to
 determine the boundary of the controlled area. This sample problem uses
 a simplified model of a cask array, shown in :numref:`fig4-31` and
 :numref:`fig4-32`, to demonstrate the FW-CADIS method for obtaining the dose
@@ -3169,13 +3248,13 @@ The calculation of the spent fuel source term using data from the
 Kewaunee nuclear power plant is described in the cask example problem
 and is modeled in the first part of ``mavric.isfsi.inp`` with ORIGEN. The
 result of this calculation is a binary concentration (ft71f001) file.
-This file also contains a listing of the group-wise neutron source term
+This file also contains a list of the group-wise neutron source term
 (“total neutron spectra, neutrons/sec/basis”) and photon source term
 (“gamma spectra, photons/sec/basis”) for each time step. In this example
 problem, the source term for the MAVRIC calculation will be read
 directly from the binary concentration file. The file contains the
 concentration and source-term data at each of 64 time steps. For this
-analysis the photon source at the last time step will be used.
+analysis, the photon source at the last time step will be used.
 
 Input file
 ^^^^^^^^^^
@@ -3184,7 +3263,7 @@ The following is a listing of the second part (the MAVRIC input) of the
 file ``mavric.isfsi.inp`` located in the SCALE ``samples\input`` directory. Note
 that soil and air are included in the model to properly account for dose
 near the ground. The mesh tally does not extend into the air above 2
-meters since we are only concerned about the area near the ground where
+meters since this problem is only concerned with the area near the ground where
 people could be. For MAVRIC to read the ORIGEN binary concentration
 file, it must be named as a Fortran unit file with a number matching the
 distribution input. In this example, unit 71 is used in both the ORIGEN
@@ -3218,7 +3297,7 @@ The materials include the fresh fuel (with a density representing homogenization
                    1.0 293.0 end
   end composition
 
-The geometry models one cask and then repeats it eight times using an array.
+The geometry models one cask and then repeats the cask model eight times using an array.
 
 ::
 
@@ -3320,7 +3399,7 @@ file (located on unit 71, the last time step case 64).
       end distribution
   end definitions
 
-The source can be done in two ways. Since there are eight casks, eight
+The source can be defined in two ways. Since there are eight casks, eight
 sources could be defined, each over a cylinder with a strength of
 7.155×10\ :sup:`16` photon/s. In this example of eight identical
 sources, one source region can be defined and then limited to only exist
@@ -3340,7 +3419,7 @@ all the casks of 5.724×10\ :sup:`17` photon/s.
       end src
   end sources
 
-The mesh tally covers only the first 2 meters above the ground, since the dose rate above that would not impact a person.
+The mesh tally covers only the first 2 meters above the ground since the dose rate above that would not impact a person.
 
 ::
 
@@ -3361,7 +3440,9 @@ The mesh tally covers only the first 2 meters above the ground, since the dose r
       perBatch=940000  batches=60
   end parameters
 
-The adjoint source is placed everywhere that the dose rate is desired—near the ground but not very close to or in between the casks (where people will not be). The macro material option is used here to help the discrete-ordinates calculation be more representative of the problem.
+The adjoint source is placed everywhere that the dose rate is desired—--near the ground but
+not very close to or in between the casks (where people will not be).
+The macro material option is used here to ensure that the discrete-ordinates calculation is more representative of the problem.
 
 ::
 
@@ -3411,12 +3492,12 @@ For the 64 hr run, 90% of the voxels had less than 10% relative uncertainty.
 .. figure:: figs/fig4.1.35_isfsiCompare.png
   :align: center
 
-  Distribution of relative uncertainties for different run times of mavric.isfsi.inp. This plot shows what fraction of the mesh tally voxels had less than a given amount of relative uncertainty.
+  Distribution of relative uncertainties for different run times of ``mavric.isfsi.inp`` showing the fraction of the mesh tally voxels that had less than a given amount of relative uncertainty.
 
 TN24-P spent fuel cask
 ~~~~~~~~~~~~~~~~~~~~~~
 
-As an example that uses multiple sources, user-defined distributions in
+For an example that uses multiple sources, user-defined distributions in
 those sources, macromaterials for improved S\ :sub:`N` calculations, and
 the automated variance reduction capabilities in MAVRIC, consider the
 model for the TN-24P cask, as used in previous SCALE shielding
@@ -3425,7 +3506,7 @@ of PWR spent fuel assemblies (Types V and W, both Westinghouse 15×15
 assemblies of different starting enrichments and burnups), each with
 specified neutron and photon sources, in an aluminum/boron fuel basket.
 The cask is made of forged steel for photon shielding with a resin layer
-for neutron shielding. Also included in the model are three activated
+for neutron shielding. The model also includes three activated
 hardware regions (bottom nozzle, top nozzle, and top plenum), which
 consist of specified amounts of :sup:`60`\ Co (a photon source). The
 task for this example is to calculate the total dose rate within 2
@@ -3437,7 +3518,7 @@ meters of the cask surface.
 
   MAVRIC model of the TN24-P cask. Materials: spent fuel (light and dark yellow), steels (blues), resin (green), and other metals (gray).
 
-For MAVRIC, this means the calculation of a dose rate mesh tally using
+For MAVRIC, this means that the calculation of a dose rate mesh tally is calculated using
 FW-CADIS to ensure that each voxel has low relative uncertainty,
 independent of the dose rate. Without MAVRIC, the calculation of dose
 rate everywhere in three dimensions would be too challenging. Most
@@ -3452,10 +3533,10 @@ do not contribute significantly to the response.
 Input file
 ^^^^^^^^^^
 
-The following is a partial listing of the file ``mavric.tn24p.inp`` located
+The following is a partial list of the file ``mavric.tn24p.inp`` located
 in the SCALE ``samples\input`` directory. This calculation will use the
 coarse-group shielding library for all of the importance map
-calculations but then use the fine-group library for the final Monaco
+calculations but then will use the fine-group library for the final Monaco
 step. The full geometry and source distributions are not printed here
 due to their length.
 
@@ -3540,7 +3621,7 @@ sources.
       runSampleTests   makeCharts
   end definitions
 
-Seven sources are defined—a neutron and photon source for each type of fuel assembly and three activated hardware regions.
+Seven sources are defined—--a neutron and photon source for each type of fuel assembly, and three activated hardware regions.
 
 ::
 
@@ -3642,16 +3723,16 @@ Four mesh tallies are used to collect the neutron dose rate, the photon dose rat
    end tallies
 
 The goal of this example is to calculate the total dose outside the
-cask. Hence, the adjoint source uses the total dose rate response
-function for its energy component, while for the spatial component, it
+cask. Therefore, the adjoint source uses the total dose rate response
+function for its energy component, whereas for the spatial component, it
 uses a large block around the cask. Note the “mixture=” keyword, which
 restricts the adjoint source to only exist where the material is air
 (13). There is no need to put adjoint source deep in the cask since the
 dose rates inside the cask are not of interest. Response weighting is
 used to put more adjoint source in the low dose areas outside the cask.
 Note that since this area is air, not many interactions/scatter take
-place, so we should not expect a great balance in relative uncertainties
-near and far from the cask. Macromaterials are used to improve the
+place, so a great balance in relative uncertainties
+near and far from the cask should not be expected. Macromaterials are used to improve the
 results from the discrete-ordinates calculations, which should improve
 the FOM of the final Monaco calculation. The geometry images in :ref:`macromaterials` are taken from this problem.
 
@@ -3682,7 +3763,7 @@ The distributions used by the source descriptions of the TN24-P model
 are shown in :numref:`fig4-38`, and the responses used in this problem are
 shown in :numref:`fig4-37`. :numref:`fig4-39` and :numref:`fig4-40` show the total
 (neutron + photon) dose rate outside the TN24-P cask, up to 2 meters
-from each surface using a rectilinear and a cylindrical mesh tallies
+from each surface using rectilinear and cylindrical mesh tallies
 with 10 cm voxels. Uncertainties in the computed dose rates were 3–4%
 after this 16 hr calculation. The scale of the figure was adjusted to
 only show the dose rate outside the cask; dose rates inside the cask

@@ -667,12 +667,16 @@ the multiple source CADIS routines. Each biased source,
 :math:`{\widehat{q}}_{i}\left( \overrightarrow{r},E \right)`, is
 developed as
 
+
 .. math::
 
-   {\widehat{q}}_{i}\left( \overrightarrow{r},E \right) = \left\{ \begin{matrix}
-   \frac{1}{c_{i}}\frac{q_{i}\left( \overrightarrow{r},E \right)}{\phi\left( \overrightarrow{r},E \right)} & \text{global\ flux\ weight\ windows} \\
-   \frac{1}{c_{i}}\ \frac{q_{i}\left( \overrightarrow{r},E \right)\ \sigma_{d}\left( \overrightarrow{r},E \right)} {D\left( \overrightarrow{r} \right)} & \text{global\ response\ weight\ windows} \\
-   \end{matrix} \ \ , \right.\
+   \widehat{q}_{i}\left( \vec{r},E \right) =
+   \begin{cases}
+
+      \frac{1}{c_{i}} \frac{q_{i}\left( \vec{r},E \right)}{\phi\left( \vec{r},E \right)}   \ \ \ \ \ & \text{global flux weight windows} \\
+      \frac{1}{c_{i}} \frac{q_{i}\left( \vec{r},E \right) \sigma_{d} \left( \vec{r},E \right)}{D \left( \vec{r}\right)} \ \ \ & \text{global response weight windows}
+
+   \end{cases}
 
 where :math:`c_{i}` is a normalization constant. The weight windows are
 then set to
@@ -721,35 +725,43 @@ the MC calculation of the detector response
 or optimize for the energy dependent flux at the detector, the following
 is used:
 
-.. list-table::
-  :align: center
 
-  * - forward flux
-      estimate
-    - .. math::
+
+    forward flux estimate
+      .. math::
         :label: eq4c5
 
         \phi\left( \overrightarrow{r},E \right)
-  * - adjoint source
-      for flux
-    - .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{1}{\phi\left( \overrightarrow{r},E \right)}
-  * - or for response
-    - .. math:: q^{+}\left( \overrightarrow{r},E \right) = \sigma\left( \overrightarrow{r},E \right)
-  * - adjoint flux
-    - .. math:: \phi^{+}\left( \overrightarrow{r},E \right)
-  * - contributon flux
-    - .. math:: \phi^{c}\left( \overrightarrow{r},E \right) = \phi\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)
-  * - normalization constant
-    - .. math:: C_{\mathrm{\text{norm}}} = \frac{V_{D}}{\int_{V_{D}}^{}{\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE} \ dV}
-  * - space-only
-      contributon flux
-    - .. math:: {\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) = \ C_{\mathrm{\text{norm}}}\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE
-  * - spatial parameter
-    - .. math:: \alpha\left( \overrightarrow{r} \right) = \left\lbrack 1 + exp\left( \frac{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}}{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)} - \frac{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)}{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}} \right) \right\rbrack^{- 1}
-  * - spatial parameter
-    - .. math:: B\left( \overrightarrow{r} \right) = \ \alpha\left( \overrightarrow{r} \right){\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) + \ 1 - \ \alpha\left( \overrightarrow{r} \right)
-  * - weight windows
-    - .. math:: \overline{w}\left( \overrightarrow{r},E \right) = \frac{B\left( \overrightarrow{r} \right)}{\phi^{+}\left( \overrightarrow{r},E \right)}
+
+    adjoint source for flux
+      .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{1}{\phi\left( \overrightarrow{r},E \right)}
+
+    or for response
+      .. math:: q^{+}\left( \overrightarrow{r},E \right) = \sigma\left( \overrightarrow{r},E \right)
+
+    adjoint flux
+      .. math:: \phi^{+}\left( \overrightarrow{r},E \right)
+
+    contributon flux
+      .. math:: \phi^{c}\left( \overrightarrow{r},E \right) = \phi\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)
+
+    normalization constant
+      .. math:: C_{\mathrm{\text{norm}}} = \frac{V_{D}}{\int_{V_{D}}^{}{\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE} \ dV}
+
+    space-only contributon flux
+      .. math:: {\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) = \ C_{\mathrm{\text{norm}}}\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE
+
+    spatial parameter
+      .. math:: \alpha\left( \overrightarrow{r} \right) = \left\lbrack 1 + exp\left( \frac{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}}{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)} - \frac{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)}{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}} \right) \right\rbrack^{- 1}
+
+    spatial parameter
+      .. math:: B\left( \overrightarrow{r} \right) = \ \alpha\left( \overrightarrow{r} \right){\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) + \ 1 - \ \alpha\left( \overrightarrow{r} \right)
+
+    weight windows
+      .. math::
+        :label: eq4c6
+
+        \overline{w}\left( \overrightarrow{r},E \right) = \frac{B\left( \overrightarrow{r} \right)}{\phi^{+}\left( \overrightarrow{r},E \right)}
 
 Source-region problems
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -763,41 +775,49 @@ calculation of the detector response
 or optimize for the energy dependent flux in the region, the following
 is used:
 
-.. list-table::
-  :align: left
 
-  * - forward flux
-      estimate
-    - .. math::
-        :label: eq4c6
-
-        \phi\left( \overrightarrow{r},E \right)
-  * - adjoint source for flux
-    - .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{1}{\phi\left( \overrightarrow{r},E \right)}
-  * - adjoint source for response
-    - .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{\sigma\left( \overrightarrow{r},E \right)}{\int_{0}^{\infty}{\sigma\left( \overrightarrow{r},E \right)\ \phi\left( \overrightarrow{r},E \right)} dE}
-  * - adjoint flux estimate
-    - .. math:: \phi^{+}\left( \overrightarrow{r},E \right)
-  * - contributon flux
-    - .. math:: \phi^{c}\left( \overrightarrow{r},E \right) = \phi\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)
-  * - normalization constant
-    - .. math:: C_{\mathrm{\text{norm}}} = \frac{A_{D}}{\int_{A_{D}}^{}{\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE} \ dA}
-  * - space-only
-      contributon flux
-    - .. math:: {\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) = \ C_{\mathrm{\text{norm}}}\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE
-  * - spatial parameter
-    - .. math:: \alpha\left( \overrightarrow{r} \right) = \left\lbrack 1 + exp\left( \frac{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}}{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)} - \frac{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)}{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}} \right) \right\rbrack^{- 1}
-  * - spatial parameter
-    - .. math::
+    forward flux estimate
+      .. math::
         :label: eq4c7
 
-         B\left( \overrightarrow{r} \right) = \ \left\{ \begin{matrix}
-         {\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) & \overrightarrow{r} \in V_{D} \\
-                       \alpha\left( \overrightarrow{r} \right){\widetilde{\phi}}^{c}
-                       \left( \overrightarrow{r} \right) + \ 1 - \ \alpha\left( \overrightarrow{r} \right)
-                       &  \mathrm{\text{otherwise}} \\     \end{matrix} \right.\
-  * - weight windows
-    - .. math:: \overline{w}\left( \overrightarrow{r},E \right) = \frac{B\left( \overrightarrow{r} \right)}{\phi^{+}\left( \overrightarrow{r},E \right)}
+        \phi\left( \overrightarrow{r},E \right)
+
+    adjoint source for flux
+      .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{1}{\phi\left( \overrightarrow{r},E \right)}
+
+    adjoint source for response
+      .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{\sigma\left( \overrightarrow{r},E \right)}{\int_{0}^{\infty}{\sigma\left( \overrightarrow{r},E \right)\ \phi\left( \overrightarrow{r},E \right)} dE}
+
+    adjoint flux estimate
+      .. math:: \phi^{+}\left( \overrightarrow{r},E \right)
+
+    contributon flux
+      .. math:: \phi^{c}\left( \overrightarrow{r},E \right) = \phi\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)
+
+    normalization constant
+      .. math:: C_{\mathrm{\text{norm}}} = \frac{A_{D}}{\int_{A_{D}}^{}{\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE} \ dA}
+
+    space-only contributon flux
+      .. math:: {\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right) = \ C_{\mathrm{\text{norm}}}\int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE
+
+    spatial parameter
+      .. math:: \alpha\left( \overrightarrow{r} \right) = \left\lbrack 1 + exp\left( \frac{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}}{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)} - \frac{{\widetilde{\phi}}^{c}\left( \overrightarrow{r} \right)}{{\widetilde{\phi}}_{\mathrm{\max} \in V_{D}}^{c}} \right) \right\rbrack^{- 1}
+
+    spatial parameter
+      .. math::
+        :label: eq4c8
+
+         B\left( \vec{r} \right) =
+         \begin{cases}
+
+            \tilde{\phi^{c}}\left(\vec{r}\right) & \vec{r} \in V_{D} 
+
+            \alpha\left(\vec{r}\right)\tilde{\phi^{c}}\left(\vec{r}\right) + 1 - \alpha\left(\vec{r}\right) & \text{otherwise}
+
+         \end{cases}
+
+    weight windows
+      .. math:: \overline{w}\left( \overrightarrow{r},E \right) = \frac{B\left( \overrightarrow{r} \right)}{\phi^{+}\left( \overrightarrow{r},E \right)}
 
 Note that :math:`A_{D}` does not include surfaces of :math:`V_{D}` which
 are on the boundary of the problem.
@@ -813,30 +833,34 @@ everywhere in phase space
 or optimizing for the energy-dependent flux everywhere, the following is
 used:
 
-.. list-table::
-  :align: center
 
-  * - forward flux
-      estimate
-    - .. math::
-        :label: eq4c8
+
+    forward flux estimate
+      .. math::
+        :label: eq4c9
 
         \phi\left( \overrightarrow{r},E \right)
-  * - adjoint source for flux
-    - .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{1}{\phi\left( \overrightarrow{r},E \right)}
-  * - adjoint source for response
-    - .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{\sigma\left( \overrightarrow{r},E \right)}{\int_{0}^{\infty}{\sigma\left( \overrightarrow{r},E \right)\ \phi\left( \overrightarrow{r},E \right)} dE }
-  * - adjoint flux estimate
-    - .. math:: \phi^{+}\left( \overrightarrow{r},E \right)
-  * - contributon flux
-    - .. math:: \phi^{c}\left( \overrightarrow{r},E \right) = \phi\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)
-  * - space-only
-      contributon flux
-    - .. math:: \phi^{c}\left( \overrightarrow{r} \right) = \int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE
-  * - spatial parameter
-    - .. math:: B\left( \overrightarrow{r} \right) = \phi^{c}\left( \overrightarrow{r} \right)
-  * - weight windows
-    - .. math:: \overline{w}\left( \overrightarrow{r},E \right) = \frac{B\left( \overrightarrow{r} \right)}{\phi^{+}\left( \overrightarrow{r},E \right)}
+
+    adjoint source for flux
+      .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{1}{\phi\left( \overrightarrow{r},E \right)}
+
+    adjoint source for response
+      .. math:: q^{+}\left( \overrightarrow{r},E \right) = \frac{\sigma\left( \overrightarrow{r},E \right)}{\int_{0}^{\infty}{\sigma\left( \overrightarrow{r},E \right)\ \phi\left( \overrightarrow{r},E \right)} dE }
+
+    adjoint flux estimate
+      .. math:: \phi^{+}\left( \overrightarrow{r},E \right)
+
+    contributon flux
+      .. math:: \phi^{c}\left( \overrightarrow{r},E \right) = \phi\left( \overrightarrow{r},E \right)\ \phi^{+}\left( \overrightarrow{r},E \right)
+
+    space-only contributon flux
+      .. math:: \phi^{c}\left( \overrightarrow{r} \right) = \int_{0}^{\infty}{\phi^{c}\left( \overrightarrow{r},E \right)} dE
+
+    spatial parameter
+      .. math:: B\left( \overrightarrow{r} \right) = \phi^{c}\left( \overrightarrow{r} \right)
+
+    weight windows
+      .. math:: \overline{w}\left( \overrightarrow{r},E \right) = \frac{B\left( \overrightarrow{r} \right)}{\phi^{+}\left( \overrightarrow{r},E \right)}
 
 Implementation in MAVRIC
 ~~~~~~~~~~~~~~~~~~~~~~~~
