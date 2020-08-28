@@ -14,3 +14,9 @@ Welcome to SCALE test documentation!
    CAAScapability
    appendixb
    appendixc
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Placeholder Section
+
+  Monaco 
