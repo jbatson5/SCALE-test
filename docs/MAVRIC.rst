@@ -2964,12 +2964,21 @@ Omega Services, Inc., and a :sup:`60`\Co source. (International Isotopes
 Inc. of Idaho Falls, Idaho, distributes the AOS Radioactive Material
 Transport Packaging Systems.)
 
+<<<<<<< HEAD
 A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
 :numref:`fig4-25`. The diameter is 71.12 cm, and the height is 91.44 cm.
 The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
 but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of :sup:`60`\Co.
 This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.
 
+=======
+A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
+:numref:`fig4-25`. The diameter is 71.12 cm, and the height is 91.44 cm.
+The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
+but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of :sup:`60`\Co.
+This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.
+
+>>>>>>> 976035f4c8ffba8420e067d938fa541e86781544
 .. _fig4-25:
 .. figure:: figs/fig4.1.25_aos100geom.bmp
   :align: center

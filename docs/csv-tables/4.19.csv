@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ,,,,
 ,Time (minutes),,Dose Rate,relative
 detector,Denovo,Monaco,(rem/hr),uncertainty
@@ -6,4 +7,14 @@ detector,Denovo,Monaco,(rem/hr),uncertainty
 3,3.6,64,2.89E+00,0.0105
 4,2.6,130,3.18E-02,0.0024
 5,3.1,59,3.07E+00,0.0156
+=======
+,,,,
+,Time (minutes),,Dose Rate,relative
+detector,Denovo,Monaco,(rem/hr),uncertainty
+1,2.6,121,5.02E-02,0.0024
+2,3.1,65,3.03E-01,0.0177
+3,3.6,64,2.89E+00,0.0105
+4,2.6,130,3.18E-02,0.0024
+5,3.1,59,3.07E+00,0.0156
+>>>>>>> 976035f4c8ffba8420e067d938fa541e86781544
 6,3.8,63,3.14E-01,0.0137

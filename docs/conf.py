@@ -17,7 +17,11 @@
 
 # -- Project information -----------------------------------------------------
 
+<<<<<<< HEAD
+project = 'SCALE Manual'
+=======
 project = 'SCALE test documentation'
+>>>>>>> 976035f4c8ffba8420e067d938fa541e86781544
 copyright = '2020, SCALE developers'
 author = 'SCALE developers'
 
