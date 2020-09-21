@@ -1,0 +1,291 @@
+.. _K5C5:
+
+K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS
+===================================================================
+
+Introduction
+------------
+
+Program K5TOK6 can be used to automatically convert a KENO V.a input
+file to a KENO-VI input file. Program C5TOC6 can be used to
+automatically convert a CSAS5 input file to a CSAS6 input file. This
+functionality can be useful when converting a KENO V.a validation
+sequence to a KENO-VI validation sequence. It removes the problem of
+introducing a mistake or inadvertently changing the data when remodeling
+a geometry to the KENO-VI format. For some cases, however, the converted
+model may be a very inefficient KENO-VI model.
+
+Description and Input Guide
+---------------------------
+
+Program K5TOK6 is a utility program that can be used to automatically
+convert a KENO V.a input file to a KENO-VI input file. Program C5TOC6 is
+a utility program that can be used to automatically convert a CSAS5
+input file to a CSAS6 input file. For program K5TOK6, the “=KENOVA”
+record in the input stream is replaced by “=K5TOK6”. The output file is
+then named \_geom\ *nnnnnnn* where *nnnnnnn* is a unique 7-digit number.
+This allows a string of KENO V.a problems to be converted in one job.
+For program C5TOC6 the “=CSAS\ *BB*\ ” record in the input stream (where
+the *BB* is 5, 25, or 2x) is replaced by “=C5TOC6 PARM=CSAS5.” The
+output file is named \_geom\ *nnnnnnn* where *nnnnnnn* is a unique
+7‑digit number.
+
+For large problems, the output file may need to be edited to specify an
+increased value for parameter *NB8* in KENO-VI and also an increased
+value for parameter *DAB* in CSAS6. **The conversion makes no attempt to
+optimize the output file, so it almost surely will be inefficient in its
+use of storage, and in its use of bodies. This can lead to models that
+are very inefficient in their running time also.**
+
+The input/output (I/O) units for K6TOK6 and C5TOC6 are given below. Note
+that K5TOK6 requires the cross-section library designated by the “LIB=”
+parameter in the KENO V.a input file.
+
++-------------+---------------------------------------------+
+| Unit Number | Function                                    |
++-------------+---------------------------------------------+
+| 5           | KENO V.a (or CSAS5) input file              |
+|             |                                             |
+| 6           | Output                                      |
+|             |                                             |
+| 7           | Input file generated for KENO-VI (or CSAS6) |
++-------------+---------------------------------------------+
+
+Sample K5TOK6 input file is shown in :numref:`list2-6-1` and the
+corresponding converted KENO-VI input file is shown in :numref:`list2-6-2`.
+Likewise, a C5TOC6 sample input file and corresponding converted CSAS6
+input file are shown in :numref:`list2-6-3` and :numref:`list2-6-4`, respectively.
+
+.. code-block:: scale
+  :name: list2-6-1
+  :caption: Sample K5TOK6 problem.
+
+  =k5tok6
+  93.2% uo2f2 h/u-235=337
+  read param    npg=600 fdn=yes nub=yes  lib=4  end param
+  read geom
+  cuboid      1 1 2p3.81 2p60.325 25.50 0
+  reflector   2 1 4r.318 0 .318 1
+  cuboid      0 1 2p4.128 2p65. 150. -1.
+  core 0  1 -12.384 -65. -29.
+  cylinder  0 1 142.8 212. -60.
+  cylinder  3 1 144.8 212. -62.
+  cuboid    0 1 275.5 -638.9 475. -744.2 588. -62.
+  reflector 4 1 5r0 .32 1
+  reflector 5 1 5r0 1.27 1
+  reflector 3 1 5r0 .64 1
+  reflector 0 1 5r0 365 1
+  reflector 6 2 6r5 6
+  reflector 6 8 0 5 4r0 6
+  end geom
+  read bias id=301 2 13 end bias
+  read array nux=3 nuy=1 nuz=1 end array
+  end data
+  end
+
+.. code-block:: scale
+  :name: list2-6-2
+  :caption: Sample converted KENO-VI input file.
+
+  =kenovi
+  93.2% uo2f2 h/u-235=337
+  read param    npg=600 fdn=yes nub=yes  lib=4  end param
+  read geometry
+  unit          1
+  cuboid     1
+                3.810000E+00 -3.810000E+00  6.032500E+01
+               -6.032500E+01  2.550000E+01  0.000000E+00
+  media     1    1       1
+                      vol=  7.033051E+04
+  cuboid     2
+                4.128000E+00 -4.128000E+00  6.064300E+01
+               -6.064300E+01  2.550000E+01 -3.180000E-01
+  media     2    1       2  -1
+                      vol=  7.227070E+03
+  cuboid     3
+                4.128000E+00 -4.128000E+00  6.500000E+01
+               -6.500000E+01  1.500000E+02 -1.000000E+00
+  media     0    1       3  -2  -1
+                      vol=  4.086382E+05
+  boundary     3
+  global
+  unit          2
+  cuboid     1
+                1.238400E+01 -1.238400E+01  6.500000E+01
+               -6.500000E+01  1.220000E+02 -2.900000E+01
+  array     1       1
+                 place 1 1 1   -1.23840E+01  -6.50000E+01  -2.90000E+01
+  cylinder   2
+                1.428000E+02  2.120000E+02 -6.000000E+01
+              origin   x=  0.000000E+00   y=  0.000000E+00
+  media     0    1       2  -1
+                      vol=  1.693890E+07
+  cylinder   3
+                1.448000E+02  2.120000E+02 -6.200000E+01
+              origin   x=  0.000000E+00   y=  0.000000E+00
+  media     3    1       3  -2  -1
+                      vol=  6.232560E+05
+  cuboid     4
+                2.755000E+02 -6.389000E+02  4.750000E+02
+               -7.442000E+02  5.880000E+02 -6.200000E+01
+  media     0    1       4  -3  -2  -1
+                      vol=  7.065953E+08
+  cuboid     5
+                2.755000E+02 -6.389000E+02  4.750000E+02
+               -7.442000E+02  5.880000E+02 -6.232000E+01
+  media     4    1       5  -4  -3  -2  -1
+                      vol=  3.568000E+05
+  cuboid     6
+                2.755000E+02 -6.389000E+02  4.750000E+02
+               -7.442000E+02  5.880000E+02 -6.359000E+01
+  media     5    1       6  -5  -4  -3  -2  -1
+                      vol=  1.415808E+06
+  cuboid     7
+                2.755000E+02 -6.389000E+02  4.750000E+02
+               -7.442000E+02  5.880000E+02 -6.423000E+01
+  media     3    1       7  -6  -5  -4  -3  -2  -1
+                      vol=  7.134720E+05
+  cuboid     8
+                2.755000E+02 -6.389000E+02  4.750000E+02
+               -7.442000E+02  5.880000E+02 -4.292300E+02
+  media     0    1       8  -7  -6  -5  -4  -3  -2  -1
+                      vol=  4.069153E+08
+  cuboid     9
+                2.805000E+02 -6.439000E+02  4.800000E+02
+               -7.492000E+02  5.930000E+02 -4.342300E+02
+  media     6    2       9  -8  -7  -6  -5  -4  -3  -2  -1
+                      vol=  3.316813E+07
+  cuboid    10
+                2.855000E+02 -6.489000E+02  4.850000E+02
+               -7.542000E+02  5.980000E+02 -4.392300E+02
+  media     6    3      10  -9  -8  -7  -6  -5  -4  -3  -2  -1
+                      vol=  3.380429E+07
+  cuboid    11
+                2.905000E+02 -6.539000E+02  4.900000E+02
+               -7.592000E+02  6.030000E+02 -4.442300E+02
+  media     6    4      11 -10  -9  -8  -7  -6  -5  -4  -3  -2  -1
+                      vol=  3.444634E+07
+  cuboid    12
+                2.955000E+02 -6.589000E+02  4.950000E+02
+               -7.642000E+02  6.080000E+02 -4.492300E+02
+  media     6    5      12 -11 -10  -9  -8  -7  -6  -5  -4  -3  -2  -1
+                      vol=  3.509453E+07
+  cuboid    13              3.005000E+02 -6.639000E+02  5.000000E+02
+               -7.692000E+02  6.130000E+02 -4.542300E+02
+  media     6    6      13 -12 -11 -10  -9  -8  -7  -6  -5  -4  -3  -2  -1
+
+                      vol=  3.574874E+07
+  cuboid    14
+                3.055000E+02 -6.689000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6    7      14 -13 -12 -11 -10  -9  -8  -7  -6  -5  -4  -3  -2
+                        -1
+                      vol=  3.640896E+07
+  cuboid    15
+                3.055000E+02 -6.739000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6    8      15 -14 -13 -12 -11 -10  -9  -8  -7  -6  -5  -4  -3
+                        -2  -1
+                      vol=  6.889984E+06
+  cuboid    16
+                3.055000E+02 -6.789000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6    9      16 -15 -14 -13 -12 -11 -10  -9  -8  -7  -6  -5  -4
+                        -3  -2  -1
+                      vol=  6.889856E+06
+  cuboid    17
+                3.055000E+02 -6.839000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6   10      17 -16 -15 -14 -13 -12 -11 -10  -9  -8  -7  -6  -5
+                        -4  -3  -2  -1
+                      vol=  6.889984E+06
+  cuboid    18
+                3.055000E+02 -6.889000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6   11      18 -17 -16 -15 -14 -13 -12 -11 -10  -9  -8  -7  -6
+                        -5  -4  -3  -2  -1
+                      vol=  6.889984E+06
+  cuboid    19
+                3.055000E+02 -6.939000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6   12      19 -18 -17 -16 -15 -14 -13 -12 -11 -10  -9  -8  -7
+                        -6  -5  -4  -3  -2  -1
+                      vol=  6.889984E+06
+  cuboid    20
+                3.055000E+02 -6.989000E+02  5.050000E+02
+               -7.742000E+02  6.180000E+02 -4.592300E+02
+  media     6   13      20 -19 -18 -17 -16 -15 -14 -13 -12 -11 -10  -9  -8
+                        -7  -6  -5  -4  -3  -2  -1
+                      vol=  6.889984E+06
+  boundary    20
+  end geometry
+  read bias id=301 2 13 end bias
+  read array nux=3 nuy=1 nuz=1 end array
+  end data
+  end
+
+
+
+.. code-block:: scale
+  :name: list2-6-3
+  :caption: Sample C5TOC6 problem.
+
+  =c5toc6    parm=csas5
+  sample problem 1  case 2c8 bare
+  v7-238
+  read composition
+     uranium  1 den=18.76 1 293 92235 93.2 92238 5.6 92234 1.0 92236 0.2 end
+  end composition
+  read parameters
+     flx=yes fdn=yes far=yes htm=no
+  end parameters
+  read geometry
+     unit 1
+       cylinder 1 1 5.748 5.3825 -5.3825
+       cuboid  0 1 6.87 -6.87 6.87 -6.87 6.505 -6.505
+  end geometry
+  read array
+     nux=2 nuy=2 nuz=2  fill f1 end fill
+  end array
+  end data
+  end
+
+.. code-block:: scale
+  :name: list2-6-4
+  :caption: Sample converted CSAS6 output file.
+
+  =csas26
+  sample problem 1  case 2c8 bare
+  v7-238
+  read composition
+     uranium  1 den=18.76 1 293 92235 93.2 92238 5.6 92234 1.0 92236 0.2 end
+  end composition
+  read parameters
+  flx=yes fdn=yes far=yes htm=no
+  end parameters
+  read geometry
+  unit          1
+  cylinder   1
+                5.748000E+00  5.382500E+00 -5.382500E+00
+              origin   x=  0.000000E+00   y=  0.000000E+00
+  media     1    1       1
+                      vol=  8.938970E+03
+  cuboid     2
+                6.870000E+00 -6.870000E+00  6.870000E+00
+               -6.870000E+00  6.505000E+00 -6.505000E+00
+  media     0    1       2  -1
+                      vol=  1.071004E+04
+  boundary     2
+  global unit         2
+  cuboid 1
+                2.748000E+01  0.000000E+00  2.748000E+01
+                0.000000E+00  2.602000E+01  0.000000E+00
+  array      1  1
+                 place 1 1 1    6.87000E+00   6.87000E+00   6.50500E+00
+  boundary 1
+  end geometry
+  read array
+  nux=2 nuy=2 nuz=2  fill f1 end fill
+  end array
+  end data
+  end

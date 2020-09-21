@@ -712,8 +712,7 @@ in the specified order. Other blocks may be listed in any order.
 
 Blocks (must be in this order):
 
--  Cross Sections – (required) lists the cross-section file and the
-      mixing table information
+-  Cross Sections – (required) lists the cross-section file and the mixing table information
 
 -  Geometry – (required) SCALE general geometry description
 
@@ -725,19 +724,13 @@ Blocks (must be in this order):
 
 Other Blocks (any order, following the blocks listed above):
 
--  Definitions – defines locations, response functions, grid geometries,
-      cylindrical mesh geometries, energy bin boundaries, time bin
-      boundaries and various distributions used by other blocks
+-  Definitions – defines locations, response functions, grid geometries, cylindrical mesh geometries, energy bin boundaries, time bin boundaries and various distributions used by other blocks
 
--  Source – (required) description of multiple sources; with the
-      spatial, energy, and directional distributions and particle type
-      for each
+-  Source – (required) description of multiple sources; with the spatial, energy, and directional distributions and particle type for each
 
--  Tallies – description of what to calculate: point detector tallies,
-      region tallies, or mesh tallies
+-  Tallies – description of what to calculate: point detector tallies, region tallies, or mesh tallies
 
--  Parameters – how to perform the simulation (random number seed, how
-      many histories, etc.)
+-  Parameters – how to perform the simulation (random number seed, how many histories, etc.)
 
 -  Biasing – data for reducing the variance of the simulation
 
@@ -1229,6 +1222,7 @@ Type 3.
   .. list-table:: Energy ranges of the original Flux-to-Dose responses
     :align: center
     :name: tab8-6
+    :width: 70 %
 
     * - .. image:: figs/Monaco/tab8-6.png
 
@@ -3592,12 +3586,14 @@ structure seen in the experiments over the energy range from 0.01 MeV to
 .. _fig8-17:
 .. figure:: figs/Monaco/8-17.png
   :align: center
+  :width: 500
 
   Comparison of Monaco results using the ENDF/B-VII.0 27n/19g library and the measured values.
 
 .. _fig8-18:
 .. figure:: figs/Monaco/8-18.png
   :align: center
+  :width: 500
 
   Comparison of Monaco results using the new ENDF/B-VII.0 200n/47g library and the measured values.
 
@@ -3610,6 +3606,7 @@ structure seen in the experiments over the energy range from 0.01 MeV to
 .. _fig8-20:
 .. figure:: figs/Monaco/8-20.png
   :align: center
+  :width: 500
 
   Comparison of Monaco results using the ENDF/B-VII 252n library and the measured values.
 
@@ -4183,8 +4180,8 @@ plot) for different thicknesses of graphite are shown in :numref:`tab8-24`.
 
   +-------------+---------------------+
   |**Thickness**| **Dose equivalent** |
-  |  **(cm)**   |                     |
-  |             |   **attenuation**   |
+  |**(cm)**     |                     |
+  |             | **attenuation**     |
   +-------------+---------------------+
   | 2           | 0.828810            |
   +-------------+---------------------+
@@ -4508,6 +4505,7 @@ The geometry is a simple slab of tungsten, with a small air region on one side f
 .. _fig8-33:
 .. figure:: figs/Monaco/8-33.png
   :align: center
+  :width: 50 %
 
   Simple slab geometry with a source (S) on the left and a tally region (T) on the right.
 

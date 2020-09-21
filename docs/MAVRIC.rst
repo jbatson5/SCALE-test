@@ -2943,8 +2943,9 @@ CADIS for the far detector, and the FW-CADIS calculation for both.
   :name: tab4-22
   :align: center
 
-.. _fig4-24:
+/
 
+.. _fig4-24:
 .. figure:: figs/4.22.png
   :align: center
   :width: 800
