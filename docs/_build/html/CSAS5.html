@@ -1,0 +1,2345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CSAS5: Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Additional Example Applications of CSAS5" href="CSAS5App.html" />
+    <link rel="prev" title="Criticality Safety Overview" href="Criticality%20Safety%20Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-capabilities">Sequence Capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#optimum-minimum-maximum-search">Optimum (minimum/maximum) search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#critical-search">Critical search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multigroup-csas5-limitations">Multigroup CSAS5 limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-energy-csas5-limitations">Continuous energy CSAS5 limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data-guide">Input Data Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xsproc-data">XSProc data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keno-v-a-data">KENO V.a data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-data">Search data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#search-type-specification">Search type specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auxiliary-search-commands-and-constraints">Auxiliary search commands and constraints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-problems">Example problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-1-keff-calculation">Sample problem 1: <em>k</em><sub>eff</sub> calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-2-optimum-pitch-search-using-detailed-geometry">Sample problem 2: optimum pitch search using detailed geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-3-optimum-pitch-search-using-homogenized-geometry">Sample problem 3: optimum pitch search using homogenized geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-4-search-for-a-specified-value-of-keff">Sample problem 4: search for a specified value of <em>k</em><sub>eff</sub></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-5-solution-conc-search-for-a-specified-keff">Sample problem 5: solution conc. search for a specified <em>k</em><sub>eff</sub></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-6-dimension-chord-search-for-a-specified-keff">Sample problem 6: dimension chord search for a specified <em>k</em><sub>eff</sub></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-7-two-material-conc-search-for-a-specified-keff">Sample problem 7 two material conc. search for a specified <em>k</em><sub>eff</sub></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-problem-8-k-for-a-pebble-bed-fuel">Sample problem 8: k<sub>∞</sub> for a pebble bed fuel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#warning-and-error-messages">Warning and error messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CSAS5.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="csas5-control-module-for-enhanced-criticality-safety-analysis-sequences-with-keno-v-a">
+<span id="csas5"></span><h1>CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a<a class="headerlink" href="#csas5-control-module-for-enhanced-criticality-safety-analysis-sequences-with-keno-v-a" title="Permalink to this headline">¶</a></h1>
+<p><em>L. M. Petrie, K. B. Bekar, S. Goluoglu,</em><sup>*</sup> <em>D. F. Hollenbach,</em><sup>*</sup> <em>N. F. Landers</em></p>
+<p>The <strong>C</strong>riticality <strong>S</strong>afety <strong>A</strong>nalysis <strong>S</strong>equences with
+KENO V.a (CSAS5) provides reliable and efficient means of performing
+<em>k</em><sub>eff</sub> calculations for systems that are routinely encountered in
+engineering practice. In the multigroup calculation mode, CSAS5 uses
+XSProc to process the cross sections for temperature corrections and
+problem-dependent resonance self-shielding and calculates the <em>k</em><sub>eff</sub>
+of a three-dimensional (3-D) system model. If the continuous energy
+calculation mode is selected no resonance processing is needed and the
+continuous energy cross sections are used directly in KENO V.a, with
+temperature corrections provided as the cross sections are loaded. The
+geometric modeling capabilities available in KENO V.a coupled with the
+automated cross-section processing within the control sequences allow
+complex, 3-D systems to be easily analyzed. A search capability is
+achieved by repeatedly activating the control module MODIFY, to alter
+either the system dimensions or densities, and the functional module
+KENO V.a to calculate the <em>k</em><sub>eff</sub> for the modified dimensions or
+densities.</p>
+<p>*Formerly with Oak Ridge National Laboratory.</p>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>CSAS5 and its related Criticality Safety Analysis Sequences are based on the old CSAS2 control
+module (no longer in SCALE) and the KENO V.a functional module described in the KENO V.a chapter.
+Therefore, special acknowledgment is made to J. A. Bucholz, R. M. Westfall, and J. R. Knight who developed CSAS2.
+G. E. Whitesides is acknowledged for his contributions through early versions of KENO.
+Appreciation is expressed to C. V. Parks and S. M. Bowman for their guidance in developing CSAS5.</p>
+<p>Special appreciation is expressed to S. J. Poarch and S. Y. Walker for their efforts in formatting this document.</p>
+</div>
+<div class="section" id="introduction">
+<span id="csas5-intro"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Criticality Safety Analysis Sequence with KENO V.a (CSAS5) provides
+reliable and efficient means of performing <em>k</em><sub>eff</sub> calculations for
+systems that are routinely encountered in engineering practice,
+especially in the calculation of <em>k</em><sub>eff</sub> of three-dimensional (3-D)
+system models. CSAS5 implements XSProc to process material input and
+provide a temperature and resonance-corrected cross-section library
+based on the physical characteristics of the problem being analyzed. If
+a continuous energy cross-section library is specified, no resonance
+processing is needed and the continuous energy cross sections are used
+directly in KENO V.a, with temperature corrections provided as the cross
+sections are loaded. A search capability is available to find a desired
+values of <em>k</em><sub>eff</sub> as a function of dimensions or densities. The two
+basic search options offered are (1) an optimum search seeking a maximum
+or minimum value of <em>k</em><sub>eff</sub> and (2) a critical search seeking a fixed
+value of <em>k</em><sub>eff</sub>.</p>
+<p>All the control sequences in the CSAS5 control module are listed in
+<a class="reference internal" href="#tab2-1"><span class="std std-numref">Table 58</span></a> with the modules they invoke. The first four sequences are
+subsets of the CSAS5 sequence.</p>
+<span id="tab2-1"></span><table class="docutils align-center" id="id8">
+<caption><span class="caption-number">Table 58 </span><span class="caption-text">CSAS5 sequences for criticality safety</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+<col style="width: 10%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Control sequence</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Functional modules
+executed by the
+control sequence
+for multigroup libraries</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSAS5</p></td>
+<td><p><span class="math notranslate nohighlight">\(k_{eff}\)</span> (3-D)</p></td>
+<td><p>XSProc</p></td>
+<td><p>KENO V.a</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CSAS5S</p></td>
+<td><p><span class="math notranslate nohighlight">\(k_{eff}\)</span> (3-D) search</p></td>
+<td><p>XSProc</p></td>
+<td><p>KENO V.a</p></td>
+<td><p>MODIFY</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sequence-capabilities">
+<h2>Sequence Capabilities<a class="headerlink" href="#sequence-capabilities" title="Permalink to this headline">¶</a></h2>
+<p>In order to minimize human error, the SCALE data handling is automated
+as much as possible. CSAS5 and many other SCALE sequences apply a
+standardized procedure to provide appropriate number densities and
+cross sections for the calculation. XSProc is responsible for reading
+the standard composition data and other engineering-type specifications,
+including volume fraction or percent theoretical density, temperature,
+and isotopic distribution as well as the unit cell data. XSProc then
+generates number densities and related information, prepares geometry
+data for resonance self-shielding and flux-weighting cell calculations,
+if needed, and (if needed) provides problem-dependent multigroup
+cross-section processing. Sequences that execute KENO V.a include a
+KENO V.a Data Processor to read and check the KENO V.a data. Sequences
+that execute a search use a Search Data Processor to read and check the
+search data. When the data checking has been completed, the control
+sequence executes XSProc to prepare a resonance-corrected microscopic
+cross-section library in the AMPX working library format if a multigroup
+library has been selected.</p>
+<p>For each unit cell specified as being cell-weighted, XSProc performs the
+necessary calculations and produces a cell-weighted microscopic
+cross-section library. KENO V.a may be executed to calculate the
+<em>k</em><sub>eff</sub> or neutron multiplication factor using the cross-section
+library that was prepared by the control sequence. MODIFY may be invoked
+to perform a search <a class="bibtex reference internal" href="#lorek-improved-1979" id="id1">[LDPW79]</a> by repeatedly altering the unit cell
+(multigroup mode only) and KENO V.a data prior to executing the next
+pass through the calculation. Cross sections are updated at the
+beginning of each search pass with the modified data. If unit cell data
+is altered as part of the search, i.e., pitch or material search, the
+cross-sections are correctly processed with the updated data.</p>
+<p>The search capability is implemented by the control module MODIFY. It
+performs operations according to the specified search data to determine
+(1) the maximum or minimum value of <span class="math notranslate nohighlight">\(k_{eff}\)</span> as a function of pitch,
+dimensions or densities or (2) the pitch, dimensions, or densities
+corresponding to a specified value of <span class="math notranslate nohighlight">\(k_{eff}\)</span>. An iterative procedure
+is used, making use of all previous information to modify the dimensions
+or densities to achieve the desired result. The procedures for
+conducting optimum and critical searches are summarized in the following
+sections.</p>
+<div class="section" id="optimum-minimum-maximum-search">
+<h3>Optimum (minimum/maximum) search<a class="headerlink" href="#optimum-minimum-maximum-search" title="Permalink to this headline">¶</a></h3>
+<p>Because only an initial value of <span class="math notranslate nohighlight">\(k_{eff}\)</span> and a set of boundary
+constraints are available, four initial points are generated spanning
+the range defined by the constraints. The search package identifies the
+type of cubic equation [i.e., a cubic with no local extrema (type A) or
+a cubic with two local extrema (type B)] and utilizes this knowledge in
+determining the pitch, dimensions, or material densities corresponding
+to the maximum (or minimum) value of <span class="math notranslate nohighlight">\(k_{eff}\)</span>. The optimum search
+procedure is summarized as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Calculate <span class="math notranslate nohighlight">\(k_{eff}\)</span> for the specified problem.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(k_{eff}\)</span> for the minimum constraint.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(k_{eff}\)</span> for the maximum constraint.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(k_{eff}\)</span> for a fourth point that lies approximately
+equidistant between the initial guess and the constraint that is
+farthest from it.</p></li>
+<li><p>Utilize a weighted least-squares fit to a cubic polynomial on the
+data points.</p></li>
+<li><p>Determine the type of cubic. For a type A cubic, go to step 11.</p></li>
+<li><p>Take the first derivative of the least-squares cubic.</p></li>
+<li><p>Solve the quadratic for its roots.</p></li>
+<li><p>Take the second derivative of the least-squares cubic to determine
+which root is the maximum (or minimum), and if it falls within
+the constraints, use this root as the next guess. Otherwise,
+convergence has been defined as occurring at the constraint with
+the maximum (or minimum) <span class="math notranslate nohighlight">\(k_{eff}\)</span>.</p></li>
+<li><p>Calculate the <span class="math notranslate nohighlight">\(k_{eff}\)</span> corresponding to the next guess. Go to
+step 5. Repeat this procedure until convergence is achieved.</p></li>
+<li><p>If the cubic equation is a type A cubic, the optimum lies on one of
+the boundaries. If the fit shows that the cubic is actually a
+type B cubic, go to step 7 and continue.</p></li>
+</ol>
+</div></blockquote>
+<p>Convergence is defined as occurring when a <em>k</em><sub>eff</sub> has been calculated
+for a point on the curve where the value of the curve is within epsilon
+of the maximum (or minimum) of the curve. Additionally, the calculated
+<em>k</em><sub>eff</sub> must be within two standard deviations of the value of the
+curve at that point. The search is terminated when convergence is
+achieved, when the code determines there is no local maximum within the
+constraints, or the maximum number of search iterations is reached.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the beginning of each search pass, the cross sections are
+updated using the updated values of pitch, dimensions, or material
+densities. Also, the unit or material being modified can be directly
+tied to a unit cell, so that unit cell is updated during the search.
+Therefore, the final result should be consistent with the results
+obtained by running a non-search problem using the data from the last
+pass.</p>
+</div>
+</div>
+<div class="section" id="critical-search">
+<h3>Critical search<a class="headerlink" href="#critical-search" title="Permalink to this headline">¶</a></h3>
+<p>The critical search option searches for the pitch, dimensions, or
+material densities corresponding to a specified value of <em>k</em><sub>eff</sub>. If
+the calculated value of <em>k</em><sub>eff</sub> is within the specified search
+tolerance (EPS) of the desired <em>k</em><sub>eff</sub>, the search is considered to be
+complete. The critical search procedure is summarized as follows:</p>
+<blockquote>
+<div><p>1. Calculate <em>k</em><sub>eff</sub> for the specified problem. If it is within EPS of
+the specified <em>k</em><sub>eff</sub>, convergence has been achieved.</p>
+<p>2. Calculate <em>k</em><sub>eff</sub> for one of the constraints. If the specified
+<em>k</em><sub>eff</sub> of the system does not fall between the initial value and
+the <em>k</em><sub>eff</sub> of the constraint, calculate the <em>k</em><sub>eff</sub> of the other
+constraint. If the calculated <em>k</em><sub>eff</sub> is within EPS of the specified
+<em>k</em><sub>eff</sub>, convergence has been achieved.</p>
+<p>3. Calculate <em>k</em><sub>eff</sub> for a point chosen from a linear fit of the two
+existing points closest to the specified <em>k</em><sub>eff</sub>.</p>
+<p>4. Repeat step 3 until convergence has been achieved, the program
+determines that the specified value lies outside the constraints, or
+the maximum number of search iterations is reached. Convergence has
+been achieved when the calculated **k*<sub>eff</sub> is within EPS of the
+specified <em>k</em><sub>eff</sub>.</p>
+<p>5. If convergence is achieved, calculate <em>k</em><sub>eff</sub> for a point determined
+from fitting the previous points to a cubic and solving the cubic for
+the point closest to the desired <em>k</em><sub>eff</sub>. If all roots lie outside
+the constraints, the problem is terminated and an appropriate message
+is written. If the maximum number of iterations is reached without
+the problem converging, the problem is terminated and an appropriate
+message is written.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the beginning of each search pass, the cross sections are
+updated using the updated values of pitch, dimensions, or material
+densities. Also, the unit or material being modified can be directly
+tied to a unit cell, so that unit cell is updated during the search.
+Therefore, the final result should be consistent with the results
+obtained by running a non-search problem using the data from the last
+pass.</p>
+</div>
+</div>
+<div class="section" id="multigroup-csas5-limitations">
+<h3>Multigroup CSAS5 limitations<a class="headerlink" href="#multigroup-csas5-limitations" title="Permalink to this headline">¶</a></h3>
+<p>The CSAS5 control module was developed to use simple input data and
+prepare problem-dependent cross sections for use in calculating the
+effective neutron multiplication factor of a 3-D system using KENO V.a.
+An attempt was made to make the system as general as possible within the
+constraints of the standardized methods chosen to be used in SCALE.
+Standardized methods of data input were adopted to allow easy data entry
+and for quality assurance purposes. Some of the limitations of the CSAS5
+multigroup sequences are a result of using preprocessed multigroup
+cross sections. Inherent limitations in multigroup CSAS5 calculations
+are as follows:</p>
+<blockquote>
+<div><p>1. Two-dimensional (2-D) effects such as fuel rods in assemblies where
+some positions are filled with control rod guide tubes, burnable
+poison rods and/or fuel rods of different enrichments. The
+cross sections are processed as if the rods are in an infinite
+lattice of identical rods. If the user inputs a Dancoff factor for
+the cell (such as one computed by MCDancoff), XSProc can produce an
+infinite lattice cell, which reproduces that Dancoff. This can
+mitigate some two dimensional lattice effects</p>
+</div></blockquote>
+</div>
+<div class="section" id="continuous-energy-csas5-limitations">
+<h3>Continuous energy CSAS5 limitations<a class="headerlink" href="#continuous-energy-csas5-limitations" title="Permalink to this headline">¶</a></h3>
+<p>When continuous energy KENO calculations are desired, none of the
+resonance processing capabilities of XSProc are applicable or needed.
+The continuous energy cross sections are directly used in KENO. An
+existing multigroup input file can easily be converted to a continuous
+energy input file by simply specifying the continuous energy library. In
+this case, all cell data is ignored. However, the following limitations
+exist:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>If CELLMIX is defined in the cell data, the problem will not run in
+the continuous energy mode. CELLMIX implies new mixture cross
+sections are generated using XSDRNPM-calculated cell fluxes and
+therefore is not applicable in the continuous energy mode.</p></li>
+<li><p>Only VACUUM, MIRROR, PERIODIC, and WHITE boundary conditions are
+allowed. Other albedos, e.g., WATER, CARBON, POLY, etc. are for
+multigroup only.</p></li>
+<li><p>Problems with DOUBLEHET cell data are not allowed as they inherently
+utilize CELLMIX feature.</p></li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="input-data-guide">
+<h2>Input Data Guide<a class="headerlink" href="#input-data-guide" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the input data required for CSAS5. Several
+subsets of the CSAS5 sequences listed in <a class="reference internal" href="#tab2-1"><span class="std std-numref">Table 58</span></a> are available to
+achieve several different levels of processing.</p>
+<p>The input data for these CSAS5 sequences are composed of three broad
+categories of data. The first is XSProc, including Standard Composition
+Specification Data and Unit Cell Geometry Specification. This first
+category specifies the cross-section library and defines the composition
+of each mixture and optionally unit cell geometry that may be used to
+process the cross sections. This data block is necessary for all CSAS5
+sequences. The second category of data, the KENO V.a input data, is used
+to specify the geometric and boundary conditions that represent the
+physical 3-D configuration of a KENO V.a problem. Both data blocks are
+necessary for CSAS5 and CSAS5S. The last category of data is the search
+data and is required only for CSAS5S.</p>
+<p>All data are entered in free form, allowing alphanumeric data,
+floating-point data, and integer data to be entered in an unstructured
+manner. Up to 252 columns of data entry per line are allowed. Data can
+usually start or end in any column with a few exceptions. As an example,
+the word END beginning in column 1 and followed by two blank spaces or a
+new line will end the problem and any data following will be ignored.
+Each data entry must be followed by one or more blanks to terminate the
+data entry. For numeric data, either a comma or a blank can be used to
+terminate each data entry. Integers may be entered for floating-point
+values. For example, 10 will be interpreted as 10.0. Imbedded blanks are
+not allowed within a data entry unless an E precedes a single blank as
+in an unsigned exponent in a floating-point number. For example, 1.0E 4
+would be correctly interpreted as 1.0 × 10<sup>4</sup>.</p>
+<p>The word “END” is a special data item. An “END” may have a name or label
+associated with it (e.g., “END DATA”). The name or label associated with
+an “END” is separated from the “END” by a single blank and is a maximum
+of 12 characters long. <em>At least two blanks or a new line MUST follow
+every labeled and unlabeled “END.” It is the user’s responsibility to
+ensure compliance with this restriction. Failure to observe this
+restriction can result in the use of incorrect or incomplete data
+without the benefit of warning or error messages.</em></p>
+<p>Multiple entries of the same data value can be achieved by specifying
+the number of times the data value is to be entered, followed by either
+R, *, or $, followed by the data value to be repeated. Imbedded blanks
+are not allowed between the number of repeats and the repeat flag. For
+example, 5R12, 5*12, 5$12, or 5R 12, etc., will enter five successive
+12s in the input data. Multiple zeros can be specified as nZ where n is
+the number of zeroes to be entered.</p>
+<p>The purpose of this section is to define the input data in discrete
+subsections relating to a particular type of data. Tables of the input
+data are included in each subsection, and the entries are described in
+more detail in the appropriate sections.</p>
+<p>Resonance-corrected cross sections are generated using the appropriate
+boundary conditions for the unit cell description (i.e., void for the
+outer surface of a single unit, white for the outer surface of an
+infinite array of cylinders). As many unit cells as needed may be
+specified in a problem. A unit cell is cell-weighted by using the
+keyword “CELLMIX=” followed by a unique user specified mixture number in
+the unit cell data.</p>
+<p>To check the input data without actually processing the cross sections,
+the words “PARM=CHECK” or “PARM=CHK” should be entered, as shown below.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">=CSAS5 PARM=CHK</div>
+<div class="line">or</div>
+<div class="line">#CSAS5 PARM=CHK</div>
+</div>
+</div></blockquote>
+<p>This will cause the input data for CSAS5 to be checked and appropriate
+error messages to be printed. If plots are specified in the data, they
+will be printed. This feature allows the user to debug and verify the
+input data while using a minimum of computer time.</p>
+<div class="section" id="xsproc-data">
+<h3>XSProc data<a class="headerlink" href="#xsproc-data" title="Permalink to this headline">¶</a></h3>
+<p>The XSProc reads the standard composition specification data and the
+unit cell geometry specifications. It then produces the mixing table and
+unit cell information necessary for processing the cross sections if
+needed. The XSProc section of this manual provides a detailed
+description of the input data and processing options.</p>
+</div>
+<div class="section" id="keno-v-a-data">
+<h3>KENO V.a data<a class="headerlink" href="#keno-v-a-data" title="Permalink to this headline">¶</a></h3>
+<p>If the problem utilizes a sequence that contains KENO V.a as a
+functional module, the input to KENO V.a comes after the XSProc input.
+<a class="reference internal" href="#tab2-2"><span class="std std-numref">Table 59</span></a> contains the outline for the KENO V.a input and the SEARCH
+input, which is required for a search case (i.e., CSAS5S). The KENO V.a
+input is divided into 13 data blocks and CSAS5S includes an additional
+block of search data. A brief outline of commonly used data blocks is
+shown in <a class="reference internal" href="#tab2-2"><span class="std std-numref">Table 59</span></a>. Note that parameter data must precede all other
+KENO data blocks. Information on all KENO V.a input is provided in the
+KENO chapter of this document and will not be repeated here.</p>
+<span id="tab2-2"></span><table class="docutils align-center" id="id9">
+<caption><span class="caption-number">Table 59 </span><span class="caption-text">Outline of KENO data</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Type of
+data</strong></p></td>
+<td><p><strong>Starting
+flag</strong></p></td>
+<td><p><strong>Comments</strong></p></td>
+<td><p><strong>Termination
+flag</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Parameters*</p></td>
+<td><p>READ PARAMETER</p></td>
+<td><p>Enter
+desired
+parameter
+data</p></td>
+<td><p>END PARAMETER</p></td>
+</tr>
+<tr class="row-odd"><td><p>Geometry</p></td>
+<td><p>READ GEOMETRY</p></td>
+<td><p>Enter
+desired
+geometry
+data</p></td>
+<td><p>END GEOMETRY</p></td>
+</tr>
+<tr class="row-even"><td><p>Array data</p></td>
+<td><p>READ ARRAY</p></td>
+<td><p>Enter
+desired
+array data</p></td>
+<td><p>END ARRAY</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boundary
+conditions</p></td>
+<td><p>READ BOUNDS</p></td>
+<td><p>Enter
+desired
+boundary
+conditions</p></td>
+<td><p>END BOUNDS</p></td>
+</tr>
+<tr class="row-even"><td><p>Energy group
+boundaries</p></td>
+<td><p>READ ENERGY</p></td>
+<td><p>Enter
+desired
+neutron
+energy group
+boundaries</p></td>
+<td><p>END ENERGY</p></td>
+</tr>
+<tr class="row-odd"><td><p>Start data
+or initial
+source</p></td>
+<td><p>READ START</p></td>
+<td><p>Enter
+desired
+start data</p></td>
+<td><p>END START</p></td>
+</tr>
+<tr class="row-even"><td><p>Plot data</p></td>
+<td><p>READ PLOT</p></td>
+<td><p>Enter
+desired plot
+data</p></td>
+<td><p>END PLOT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Grid
+geometry
+data</p></td>
+<td><p>READ GRID</p></td>
+<td><p>Enter
+desired mesh
+data</p></td>
+<td><p>END GRID</p></td>
+</tr>
+<tr class="row-even"><td><p>Reaction</p></td>
+<td><p>READ REACTION</p></td>
+<td><p>Enter desire
+reaction
+tallies (CE
+mode only)</p></td>
+<td><p>END REACTION</p></td>
+</tr>
+<tr class="row-odd"><td><p>KENO V.a
+data
+terminus</p></td>
+<td><p>END DATA</p></td>
+<td><div class="line-block">
+<div class="line">Enter to
+signal the
+end of all</div>
+<div class="line">KENO V.a
+data</div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Search data</p></td>
+<td><p>READ SEARCH</p></td>
+<td><p>Enter for
+CSAS5</p></td>
+<td><p>END SEARCH</p></td>
+</tr>
+<tr class="row-odd"><td><p>*Must precede
+all other data
+blocks in this
+table.</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="search-data">
+<h3>Search data<a class="headerlink" href="#search-data" title="Permalink to this headline">¶</a></h3>
+<p>Search data must be entered for CSAS5S. The search data enable the code
+to perform a search according to the instructions specified by the user.
+The code begins reading search data when it encounters the words READ
+SEARCH and continues reading search data until it encounters the words
+END SEARCH. Search data consist of the search type specification and
+auxiliary search commands.</p>
+<div class="section" id="search-type-specification">
+<h4>Search type specification<a class="headerlink" href="#search-type-specification" title="Permalink to this headline">¶</a></h4>
+<p>These data are used to define the type of search and to set the
+parameters that provide limits for the search. The search type
+specification data consist of (a) a search descriptor, (b) the search
+type, and (c) optional search parameters as described below.</p>
+<p>SEARCH DESCRIPTOR is used to define the search mode.</p>
+<blockquote>
+<div><p>Use OPTIMUM if the maximum value of <em>k</em><sub>eff</sub> is to be determined.</p>
+<p>Use CRITICAL if a specified value of <em>k</em><sub>eff</sub> is to be obtained.</p>
+<p>Use MINIMUM if the minimum value of <em>k</em><sub>eff</sub> is to be determined.</p>
+</div></blockquote>
+<p>SEARCH TYPE is used to specify the variable that is to be changed during the search procedure.</p>
+<blockquote>
+<div><p>Use PITCH to alter the center-to-center spacing between the units at
+the lowest array level. By default only the spacing in the X and
+Y directions will be altered. Use DIMENSION to alter the dimensions
+of one or more geometry regions in one or more units. Use
+CONCENTRATION to alter the concentration of one or more standard
+compositions in one or more mixtures.</p>
+</div></blockquote>
+<p>The combination of the search descriptor and the search type defines the
+search method. Each search type has a set of predefined defaults and the
+ability to change the default settings and expand the scope of the
+search. Only one SEARCH DESCRIPTOR and one SEARCH TYPE are allowed in a
+problem.</p>
+<p>An OPTIMUM PITCH search determines the pitch that gives the maximum
+value of <em>k</em><sub>eff</sub>.* By default the X spacing will be altered for slab
+arrays, the X and Y spacing will be altered for arrays of cylinders, and
+the X, Y, and Z spacing will be altered for spherical arrays. Auxiliary
+search commands can be used to instruct the code to change any of these
+defaults.</p>
+<p>An OPTIMUM DIMENSION search determines the maximum value of <em>k</em><sub>eff</sub> by
+altering the dimensions of one or more geometry regions in one or more
+units in accordance with the specified auxiliary search commands. Only
+the dimensions specified in the search commands will be modified. The
+relative variations in dimensions are determined by the search constants
+specified for each dimension.</p>
+<p>An OPTIMUM CONCENTRATION search determines the maximum value of <em>k</em><sub>eff</sub>
+by altering the concentration of standard compositions in mixtures in
+accordance with specified search commands. Only the standard
+compositions in the materials specified are altered. The relative
+variations in concentrations are determined by the search constants
+specified for each composition.</p>
+<p>A CRITICAL PITCH search alters the spacing between units in the same
+manner as an optimum pitch search to achieve the specified value of
+<em>k</em><sub>eff</sub>. By default the X spacing will be altered for slab arrays, the
+X and Y spacing will be altered for arrays of cylinders, and the X, Y,
+and Z spacing will be altered for spherical arrays. Auxiliary search
+commands can be used to instruct the code to change any of these
+defaults.</p>
+<p>A CRITICAL DIMENSION search alters the dimensions of one or more
+geometry regions in accordance with the specified auxiliary search
+commands to achieve the specified value of <em>k</em><sub>eff</sub>.* Only the dimensions
+specified in the search commands will be modified. The relative
+variations in dimensions are determined by the search constants
+specified for each dimension.</p>
+<p>A CRITICAL CONCENTRATION search alters the concentration of standard
+compositions in mixtures in accordance with the specified auxiliary
+search commands to achieve the specified value of <em>k</em><sub>eff</sub>. Only the
+standard compositions in the materials specified are altered. The
+relative variations in concentrations are determined by the search
+constants specified for each composition.</p>
+<p>A MINIMUM PITCH search determines the pitch that gives the minimum value
+of <em>k</em><sub>eff</sub>. By default the X spacing will be altered for slab arrays,
+the X and Y spacing will be altered for arrays of cylinders, and the X,
+Y, and Z spacing will be altered for spherical arrays. Auxiliary search
+commands can be used to instruct the code to change any of these
+defaults.</p>
+<p>A MINIMUM DIMENSION search determines the minimum value of <em>k</em><sub>eff</sub> by
+altering the dimensions of one or more geometry regions in one or more
+units in accordance with the specified auxiliary search commands. Only
+the dimensions specified in the search commands will be modified. The
+relative variations in dimensions are determined by the search constants
+specified for each dimension.</p>
+<p>A MINIMUM CONCENTRATION search determines the minimum value of <em>k</em><sub>eff</sub>
+by altering the concentration of standard compositions in mixtures in
+accordance with specified search commands. Only the standard
+compositions in the materials specified are altered. The relative
+variations in concentrations are determined by the search constants
+specified for each composition.</p>
+<p>OPTIONAL SEARCH PARAMETERS are entered after the SEARCH DESCRIPTOR AND
+SEARCH TYPE and are used to alter the default values of the optional
+search parameters. Only one set of optional search parameters can be
+entered for a problem. The optional search parameters are listed below.</p>
+<dl class="simple">
+<dt>PAS=nn</dt><dd><p>is used to set the maximum number of times the search will
+calculate <em>k</em><sub>eff</sub>.* The first pass calculates the <em>k</em><sub>eff</sub> corresponding
+to the initial geometry dimensions. The second pass calculates the
+<em>k</em><sub>eff</sub> corresponding to one of the constraints, and the third pass
+often corresponds to the other constraint. After the third pass, the
+search dimensions or concentrations are changed based on a fit to a
+quadratic or cubic equation. The default value of nn is 10.</p>
+</dd>
+<dt>NPM=nn</dt><dd><p>is used to set the number of search parameters. The default value
+of nn is 1 and should not be overridden.</p>
+</dd>
+<dt>EPS=ff</dt><dd><p>is used to set the search convergence tolerance (the amount by
+which <em>k</em><sub>eff</sub> is allowed to vary from the desired <em>k</em><sub>eff</sub>)<em>.</em> An
+optimum or minimum search is terminated when the calculated <em>k</em><sub>eff</sub> is
+within EPS of the optimum or minimum value as indicated by the
+mathematical fit to the calculated points. A critical search is
+terminated when the calculated <em>k</em><sub>eff</sub> is within EPS of the specified
+<em>k</em><sub>eff</sub>. The default value of ff is 0.005.</p>
+</dd>
+<dt>KEF=ff</dt><dd><p>is used only for a CRITICAL search. The default value of ff is
+1.000.</p>
+</dd>
+<dt>MINPITCH=ff</dt><dd><p>is allowed ONLY for a PITCH search. It is used to specify
+the minimum allowed pitch (center-to-center spacing in the X; X,Y; or
+X,Y,Z directions depending on array type) between the units in an array.
+The search will terminate if the pitch becomes smaller than the
+specified minimum pitch. The default value of ff is the pitch at which
+the region immediately inside the outer most region of the unit touches
+the same region in an adjacent unit. It is much easier to specify the
+minimum allowed pitch than to calculate the appropriate value of the
+minimum constraint.</p>
+</dd>
+<dt>MAXPITCH=ff</dt><dd><p>is allowed ONLY for a PITCH search. It is used to specify
+the maximum allowed pitch (center-to-center spacing in the X; X, Y; or
+X, Y, Z directions depending on array type) between units in an array.
+The search will terminate if the specified pitch is exceeded. The
+default value of ff is the pitch corresponding to −5 times the parameter
+that corresponds to the minimum pitch. It is much easier to specify a
+maximum allowed pitch than to calculate the appropriate value of the
+maximum constraint.</p>
+</dd>
+<dt>MORE</dt><dd><p>is used to terminate the optional search parameters and initiate
+the auxiliary search commands. Do not enter MORE unless auxiliary search
+commands are to be entered. This command may only be entered once,
+immediately prior to the auxiliary search commands.</p>
+</dd>
+</dl>
+<span id="tab2-3"></span><table class="docutils align-center" id="id10">
+<caption><span class="caption-number">Table 60 </span><span class="caption-text">Outline of search type specification</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Entry</strong></p>
+<p><strong>No.</strong></p>
+</td>
+<td><p><strong>Type of
+data</strong></p></td>
+<td><p><strong>Data entry</strong></p></td>
+<td><p><strong>Comments</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Search
+descriptor</p></td>
+<td><p>OPTIMUM</p></td>
+<td><p>Initiates a
+search for the
+maximum value
+of <em>keff</em>.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>CRITICAL</p></td>
+<td><p>Initiates a
+search for a
+specified value
+of <em>keff</em>.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>MINIMUM</p></td>
+<td><p>Initiates a
+search for the
+minimum value
+of <em>keff</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Search type</p></td>
+<td><p>PITCH</p></td>
+<td><p>Vary the pitch
+of an array.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DIMENSION</p></td>
+<td><p>Vary one or
+more dimensions
+in one or more
+regions of one
+or more units.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>CONCENTRATION</p></td>
+<td><p>Vary the
+concentration
+of one or more
+standard
+compositions in
+one or more
+mixtures.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Optional search
+parameters</p></td>
+<td></td>
+<td><p>Optional search
+parameters
+allow changing
+default values.
+Any or all may
+be entered in
+any order.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3a</p></td>
+<td><p>No. of search
+passes</p></td>
+<td><p>PAS=</p></td>
+<td><p>Enter the
+keyword PAS=
+followed by the
+desired number
+of search
+passes.
+Default=10.</p></td>
+</tr>
+<tr class="row-even"><td><p>3b</p></td>
+<td><p>No. of search
+parameters</p></td>
+<td><p>NPM=</p></td>
+<td><p>Enter the
+keyword NPM=
+followed by the
+number of
+search
+parameters.
+Present
+capability is
+limited to 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3c</p></td>
+<td><p>Search
+convergence
+tolerance</p></td>
+<td><p>EPS=</p></td>
+<td><p>Enter the
+keyword EPS=
+followed by the
+desired
+convergence
+tolerance.
+Default=0.005.</p></td>
+</tr>
+<tr class="row-even"><td><p>3d</p></td>
+<td><p>Desired value
+of <em>keff</em></p></td>
+<td><p>KEF=</p></td>
+<td><p>Enter the
+keyword KEF=
+followed by the
+desired value
+of <em>keff</em>.
+The default
+value is 1.000.</p>
+<p>DO NOT ENTER
+FOR OPTIMUM OR
+MINIMUM
+SEARCHES.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>3e</p></td>
+<td><p>Maximum allowed
+pitch</p></td>
+<td><p>MAXPITCH=</p></td>
+<td><p>Enter the
+keyword
+MAXPITCH=
+followed by the
+maximum allowed
+pitch for a
+search whose
+search type,
+entry 2 above,
+is PITCH. The
+default value
+is the pitch
+corresponding
+to −5.0 times
+the parameter
+at the minimum
+possible pitch.</p></td>
+</tr>
+<tr class="row-even"><td><p>3f</p></td>
+<td><p>Minimum allowed
+pitch</p></td>
+<td><p>MINPITCH=</p></td>
+<td><p>Enter the
+keyword
+MINPITCH=
+followed by the
+minimum allowed
+pitch for a
+search whose
+search type,
+entry 2 above,
+is PITCH. The
+default value
+is the minimum
+possible pitch
+(i.e., the
+pitch at which
+the shapes in
+the array
+touch).</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Additional
+search data</p></td>
+<td><p>MORE</p></td>
+<td><p>Enter the
+delimiter MORE.
+This delimiter
+ends the
+optional search
+commands and
+initiates the
+auxiliary
+search commands
+found in
+Table 2.1.4.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="auxiliary-search-commands-and-constraints">
+<h4>Auxiliary search commands and constraints<a class="headerlink" href="#auxiliary-search-commands-and-constraints" title="Permalink to this headline">¶</a></h4>
+<p>Auxiliary search commands are entered <strong>only</strong> if MORE, item 4, of the
+search type specification data is entered (see :numref`tab2-3`). Individual
+search commands are used to specify search constraints and to
+communicate to the search program. Searches can alter geometric
+dimensions (PITCH or DIMENSION Search) or alter standard composition
+number densities (CONCENTRATION Search).</p>
+<p>A PITCH or DIMENSION search may require the user to specify the units
+that will be altered, the regions that will be altered within those
+units, and the faces or surfaces of those regions that will be altered.
+For a PITCH search, the program automatically assigns the units in the
+arrays to a unit cell if possible. If multiple units are contained in
+the array, each unit could be assigned a unit cell if the data in the
+unit cells match the geometry data of the units in the array. This data
+may be overridden in the MORE section of the search data. For a
+DIMENSION search, if the user wishes to tie a unit to unit cell this
+must be explicitly done in the MORE section of the search data. Several
+examples of search problems are provided in <a class="reference internal" href="#csas5-intro"><span class="std std-ref">Introduction</span></a>.</p>
+<p>A CONCENTRATION search requires the user to specify the mixture,
+standard composition name, and the search constant for the component
+being altered. For a CONCENTRATION search, the program automatically
+assigns the material being changed to a unit cell. This data may be
+overridden in the MORE section of the search data. Several examples of
+search problems are provided in <a class="reference internal" href="#csas5-intro"><span class="std std-ref">Introduction</span></a>.</p>
+<p>The data comprising the auxiliary search commands are listed in
+<a class="reference internal" href="#tab2-4"><span class="std std-numref">Table 61</span></a>. All data except items 1a, 1b, and 1c are keyworded (i.e.,
+the data are entered by specifying a keyword, followed by a value).
+An explanation of each individual search command follows the table.</p>
+<dl>
+<dt>1 Command Definition</dt><dd><p>A command definition tells the code what action is to be taken.  A new search command is
+initiated whenever an item 1a through 1c is encountered.  The code will vary the geometry
+according to subsequent commands.</p>
+</dd>
+<dt>1a. ALTER CHANGE MODIFY</dt><dd><p>Alter geometry regions. These words specify that modifications will be made to the geometry
+according to subsequent commands.</p>
+</dd>
+<dt>1b. MAINTAIN</dt><dd><p>Maintain the thickness.  The thickness of the specified geometry region(s) will be maintained
+when the interior regions grow or shrink (i.e., the specified region will grow or shrink in
+conjunction with the interior region in such a way as to maintain the original distance between the two regions).
+This means that the original thickness of the region is preserved.  For instance, the inner radius of a pipe
+can be altered and the wall thickness can be preserved by applying the MAINTAIN command to the region defining
+the outer radius of the pipe.</p>
+</dd>
+<dt>1c. KEEP HOLD</dt><dd><p>Keep the original specification.  This command causes the specified geometry region(s)
+to be reset to their original input value for every search pass.  Therefore they go
+through the entire search process unchanged.</p>
+</dd>
+<dt>2 PAR=</dt><dd><p>Parameter number.  The search parameter number is not functional.  The default number is 1 and should not be overridden.</p>
+</dd>
+<dt>3 +CON=</dt><dd><p>Maximum constraint.  Enter the maximum value you wish to allow the search parameter to obtain.
+The maximum constraint must be larger than the minimum constraint.  For a DIMENSION or PITCH
+search the default value of the maximum constraint is 1011.  For a CONCENTRATION search the default
+value of the maximum constraint is as follows:</p>
+<blockquote>
+<div><p>+CON= min(−1/FACTOR ), if any FACTOR &lt; 0</p>
+<p>+CON= −5*(−CON ), if all FACTOR &gt; 0</p>
+</div></blockquote>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a PITCH search, the maximum constraint is redefined and is calculated from the data entered for MAXPITCH.
++CON should not be entered if a value was entered for MAXPITCH.  If constraints, +CON= and/or −CON= are
+not entered as data, the code computes the minimum constraint corresponding to the pins touching,
+and the maximum constraint is then negative five times the magnitude of the minimum constraint.</p>
+</div>
+<dl>
+<dt>4 −CON=</dt><dd><p>Minimum constraint.  Enter the minimum value you wish to allow the search parameter to obtain.
+The minimum constraint must be smaller than the maximum constraint but need not be a negative number.
+The default value of the minimum constraint for a dimension search is −1011.
+The default value of the minimum constraint for a pitch search is redefined to correspond to the pins
+in the lattice touching.  For a CONCENTRATION search the default value of the minimum constraint is as follows:</p>
+<blockquote>
+<div><p>−CON= −5(+CON ), if all FACTOR &lt; 0</p>
+<p>−CON= max(−1/FACTOR ), if any FACTOR &gt; 0</p>
+</div></blockquote>
+</dd>
+<dt>5 CELL=</dt><dd><p>Unit Cell Number.  This is the unit cell to which the unit or mixture will be tied.
+It needs to follow either the UNIT= or MIX= keyword data.  Tying a unit cell to a unit or mixture
+ensures the unit cell data gets changed as the geometry or mixture data gets changed thus ensuring the
+cross sections are properly processed.</p>
+</dd>
+<dt>6 UNIT=</dt><dd><p>Geometry unit number.  This is the geometry unit to which the previously entered command definition
+(item 1a, 1b, or 1c) is applied.  Items 7, 8, and 9 specify the region(s) within the unit and the surfaces of
+the region(s) to be altered.</p>
+</dd>
+<dt>7 REGION=</dt><dd><p>First region to be altered.  This is used to specify the first or only region in the unit (specified by item 6)
+that is to be altered according to the search command (item 1a, 1b, or 1c).  The region(s) are altered according
+to the search constants (items 9a, 9b, 9c, and/or 9d).</p>
+</dd>
+<dt>8 TO</dt><dd><p>Last region to be altered.  This item is entered to specify the last region to be altered,
+starting with the region specified by REG=.  For example, assume unit 3 contains eight regions and you
+wish to make changes to regions 4, 5, 6, 7, and 8.  These regions are identified by entering the following data.
+UNIT=3  REG=4 TO 8.</p>
+</dd>
+</dl>
+<p>Geometric search constants.  A search constant is the proportionality factor utilized to alter a geometry region.
+A search constant must be entered for each surface of a region that is to be altered.
+A nonzero search constant will cause the region dimension for that surface to be changed.
+A search constant of 0.0 will cause the region dimension to remain unchanged.
+The default value of the search constant is 0.0.</p>
+<dl class="simple">
+<dt>9 ALL=</dt><dd><p>Search constant for all surfaces.  All of the surfaces in a region are altered simultaneously by using this search command.</p>
+</dd>
+<dt>9a. +X=</dt><dd><p>Search constant for +X face.  This parameter is used to specify the value of the search constant for the +X face of a cuboid.</p>
+</dd>
+<dt>9a. -X=</dt><dd><p>Search constant for −X face.  This parameter is used to specify the value of the search constant for the −X face of a cuboid.</p>
+</dd>
+<dt>9a. +Y=</dt><dd><p>Search constant for +Y face.  This parameter is used to specify the value of the search constant for the +Y face of a cuboid.</p>
+</dd>
+<dt>9a. -Y=</dt><dd><p>Search constant for −Y face.  This parameter is used to specify the value of the search constant for the −Y face of a cuboid.</p>
+</dd>
+<dt>9a. +Z=</dt><dd><p>Search constant for +Z face.  This parameter is used to specify the value of the search constant for the +Z face of a cuboid.</p>
+</dd>
+<dt>9a. -Z=</dt><dd><p>Search constant for −Z face.  This parameter is used to specify the value of the search constant for the −Z face of a cuboid.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If it is desirable to change all the faces of a cuboid except the −Z face by some amount
+(search constant of 1.0), items 9a and 9b can be used together as follows:  ALL=1.0 −Z=0.0.
+This is the same as entering +X=1.0 −X=1.0 +Y=1.0 −Y=1.0 +Z=1.0.  If both Z faces are to remain unchanged,
+items 8a and 8b can be entered as:  ALL=1.0 +Z=0.0 −Z=0.0 or as +X=1.0 −X=1.0 +Y=1.0 −Y=1.0.</p>
+</div>
+<dl class="simple">
+<dt>9b. RADIUS=</dt><dd><p>Search constant for radius.  This parameter is used to specify the value of the search constant for the radius of a
+sphere, hemisphere, cylinder, or hemicylinder.</p>
+</dd>
+<dt>9c. +HEIGHT=</dt><dd><p>Search constant for +height.  This parameter is used to specify the value of the search constant for the
++height of a cylinder or hemicylinder.</p>
+</dd>
+<dt>9c. -HEIGHT=</dt><dd><p>Search constant for −height.  This parameter is used to specify the value of the search constant for the −height of
+a cylinder or hemicylinder.</p>
+</dd>
+<dt>9d. CHORD=</dt><dd><p>Search constant for chord.  This parameter is used to specify the value of the search constant for the
+chord of a hemisphere or hemicylinder.</p>
+</dd>
+<dt>10 MIX=</dt><dd><p>Search constant for mixture.  This parameter is the mixture number containing the standard composition that
+is to be changed during the search.</p>
+</dd>
+<dt>11 SCNAME=</dt><dd><p>Search constant for the standard composition name.  This parameter is the standard composition name associated with
+the material that is to be changed during the search.  Only compositions listed in the
+<em>Standard Composition Library</em> section of the Standard Composition Library chapter are allowed (SECTIONREFERENCE).
+Standard compositions beginning with SOLN cannot be altered directly.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the standard composition name specified in the Material Information Data
+begins with SOLN and the Concentration Search Data specifies SCNAME=UO2(NO3)2, the amount of UO2(NO3)2
+in the solution is altered but the amount of H2O and nitric acid is not altered during the search.
+The resulting mixture, when the search is finished, may no longer meet the criteria associated with the SOLN
+specification.</p>
+</div>
+<dl class="simple">
+<dt>12 FACTOR=</dt><dd><p>Concentration search factor used to specify the value of the search constant used in the concentration search.
+It is a proportionality factor used to alter the specified mixture standard composition.  A search constant must
+be entered for each standard composition that is altered.  A non-zero search constant will cause the concentration
+of the associated standard composition to be altered.  The default value of the search constant is 1.0.
+A set of concentration search data consists of the mixture to be altered, the standard composition to be
+altered in the mixture, and the search factor.  Keywords are used to enter the data.  Each set of data consists of
+items 10, 11, and 12.  The keywords used in this data may be entered using terse notation.</p>
+</dd>
+</dl>
+<span id="tab2-4"></span><table class="docutils align-center" id="id11">
+<caption><span class="caption-number">Table 61 </span><span class="caption-text">Outline of auxiliary search commands and constraints</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Entry</strong></p>
+<p><strong>no.</strong></p>
+</td>
+<td><p><strong>Keyword</strong></p>
+<p><strong>name</strong></p>
+</td>
+<td><p><strong>Type of
+data</strong></p></td>
+<td><p><strong>Comments</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>GENERIC SEARCH
+DATA — May be
+used with all
+Search Types —</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1a</p></td>
+<td><p>ALTER</p>
+<p>CHANGE MODIFY</p>
+</td>
+<td><p>Begin a new
+search command</p></td>
+<td><p>These words are
+used to specify
+that
+modifications
+will be made to
+the geometry or
+concentration
+according to
+subsequent
+commands
+(entries 3
+through 12 as
+required to
+specify the
+desired
+changes).</p></td>
+</tr>
+<tr class="row-even"><td><p>1b</p></td>
+<td><p>MAINTAIN</p></td>
+<td><p>Begin a new
+search command</p></td>
+<td><p>The spacing
+(thickness) of
+the specified
+geometry
+regions will be
+maintained when
+the interior
+regions grow or
+shrink.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1c</p></td>
+<td><p>KEEP</p>
+<p>HOLD</p>
+</td>
+<td><p>Begin a new
+search command</p></td>
+<td><p>This command
+resets the
+specified
+geometry to the
+original input
+specifications.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>PAR=</p></td>
+<td><p>Parameter
+number</p></td>
+<td><p>Enter the
+parameter
+number that the
+current command
+(ALTER,
+MAINTAIN, KEEP)
+applies to.
+Default=1 and
+should not be
+changed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>+CON=</p></td>
+<td><p>Maximum
+constraint</p></td>
+<td><p>Enter the
+maximum
+constraint for
+the current
+parameter.
+Default =
++10E10.</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>−CON=</p></td>
+<td><p>Minimum
+constraint</p></td>
+<td><p>Enter the
+minimum
+constraint for
+the current
+parameter.
+Default =
+−10E10.</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>CELL=</p></td>
+<td><p>Unit Cell
+Associated with
+search data</p></td>
+<td><p>Default values
+are assigned
+for PITCH and
+CONCENTRATION
+searches.
+Associated Unit
+Cells must be
+entered for a
+DIMENSION
+search if
+desired.</p></td>
+</tr>
+<tr class="row-even"><td><p>PITCH &amp;
+DIMENSION
+SEARCH DATA —
+Defines
+Geometric
+Changes —</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>UNIT=</p></td>
+<td><p>Unit to which
+the current
+command applies</p></td>
+<td><p>Enter the unit
+in which
+regions are to
+be altered.</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>REGION=</p></td>
+<td><p>First region to
+be altered in
+the unit</p></td>
+<td><p>Enter the first
+or only region
+in the unit
+that the search
+constants
+(entry 9a, b, c
+and/or d) apply
+to. Default is
+the first
+region.</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>TO</p></td>
+<td><p>Last region to
+be altered in
+the unit</p></td>
+<td><p>Enter the last
+region in the
+unit to which
+the search
+constants apply
+(entry 9a, b, c
+and/or d).</p>
+<blockquote>
+<div><p>Default is
+the first
+region.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>NOTE:</strong>
+Entry 7 must be
+entered in
+order to alter
+a single region
+in a unit.
+Entries 7 and 8
+must both be
+entered in
+order to alter
+more than one
+region in a
+unit.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Table 2.1.4.
+Outline of
+auxiliary
+search commands
+and constraints
+(continued)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Entry</strong></p>
+<p><strong>no.</strong></p>
+</td>
+<td><p><strong>Keyword</strong></p>
+<p><strong>name</strong></p>
+</td>
+<td><p><strong>Type of
+data</strong></p></td>
+<td><p><strong>Comments</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>ALL=</p></td>
+<td><p>Search constant
+for all
+surfaces
+(faces) of the
+region(s)</p></td>
+<td><p>Enter a value
+for the search
+constants for
+the specified
+regions.
+This value will
+be applied to
+all surfaces of
+the region(s).</p></td>
+</tr>
+<tr class="row-even"><td><p>9a</p></td>
+<td><p>+X=</p></td>
+<td><p>Search constant
+for +X face of
+cuboid</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the +X face
+of a cuboid.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>−X=</p></td>
+<td><p>Search constant
+for −X face of
+cuboid</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the −X face
+of a cuboid.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>+Y=</p></td>
+<td><p>Search constant
+for +Y face of
+cuboid</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the +Y face
+of a cuboid.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>−Y=</p></td>
+<td><p>Search constant
+for −Y face of
+cuboid</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the −Y face
+of a cuboid.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>+Z=</p></td>
+<td><p>Search constant
+for +Z face of
+cuboid</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the +Z face
+of a cuboid.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>−Z=</p></td>
+<td><p>Search constant
+for −Z face of
+cuboid</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the −Z face
+of a cuboid.</p></td>
+</tr>
+<tr class="row-even"><td><p>9b</p></td>
+<td><p>RADIUS=</p></td>
+<td><p>Search constant
+for radius</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the radius
+of a sphere or
+a cylinder.</p></td>
+</tr>
+<tr class="row-odd"><td><p>9c</p></td>
+<td><p>+HEIGHT=</p></td>
+<td><p>Search constant
+for +height</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the +height
+of a cylinder.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>−HEIGHT=</p></td>
+<td><p>Search constant
+for −height</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the −height
+of a cylinder.</p></td>
+</tr>
+<tr class="row-odd"><td><p>9d</p></td>
+<td><p>CHORD=</p></td>
+<td><p>Search constant
+for chord</p></td>
+<td><p>Enter a value
+for the search
+constant for
+the chord face
+of a hemisphere
+or
+hemicylinder.</p></td>
+</tr>
+<tr class="row-even"><td><p>CONCENTRATION
+SEARCH DATA —
+Defines
+concentration
+changes —</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>MIX=</p></td>
+<td><p>Search constant
+for mixture</p></td>
+<td><p>Enter the
+mixture number
+containing the
+standard
+composition to
+be changed.</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>SCNAME=</p></td>
+<td><p>Search constant
+for Standard
+Composition</p></td>
+<td><p>Enter the
+standard
+composition
+name whose
+density is to
+be changed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>FACTOR=</p></td>
+<td><p>Search
+proportionality
+constant</p></td>
+<td><p>Enter the value
+of the search
+constant for
+the
+concentration
+search.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="example-problems">
+<h2>Example problems<a class="headerlink" href="#example-problems" title="Permalink to this headline">¶</a></h2>
+<p>This section contains example problems to demonstrate some of the options available in CSAS5 and its
+associated sequences.  A brief problem description and the associated input data for multigroup mode of
+calculation are included for each problem.  The same sample problems may be executed in the continuous
+energy mode by changing the library name from “v7-238” to “ce_v7”.  The sample problems can also be
+executed with the multigroup or continuous energy libraries based on ENDF/B-VII.1. The complete list
+of libraries distributed with SCALE is provided in the Nuclear Data Libraries (SECTIONREFERENCE) section of the SCALE manual.
+Note that sample problems 3, 7, and 8 do not run in the continuous energy mode because they use CELLMIX or
+DOUBLEHET cell type.  See Appendix A (CSAS5App) for additional and historical examples.</p>
+<div class="section" id="sample-problem-1-keff-calculation">
+<h3>Sample problem 1: <em>k</em><sub>eff</sub> calculation<a class="headerlink" href="#sample-problem-1-keff-calculation" title="Permalink to this headline">¶</a></h3>
+<p>The purpose of this problem is to calculate the k-effective of a
+system. This problem is the same as the KENO V.a sample problem 12 in
+Appendix B (SECTIONREFERENCE) except the cross-section library and KENO V.a mixing table
+are prepared by CSAS. The problem represents a critical experiment
+consisting of a composite array <a class="bibtex reference internal" href="#thomas-critical-1973" id="id2">[Tho73]</a><a class="bibtex reference internal" href="#thomas-critical-1964" id="id3">[Tho64]</a> of four
+highly-enriched (93.2%) uranium metal cylinders having a density of
+18.76 g/cc and four 5.0677-L Plexiglas containers filled with uranyl
+nitrate solution. The uranium metal cylinders have a radius of
+5.748 cm and a height of 10.765 cm. The uranyl nitrate solution has a
+specific gravity of 1.555 and contains 415 g of uranium per liter. The
+ID of the Plexiglas bottle is 19.05 cm and the inside height is
+17.78 cm. The Plexiglas is 0.635 cm thick. The center-to-center
+spacing between the metal units is 13.18 cm in the Y direction and
+13.45 cm in the Z direction. The center-to-center spacing between the
+solution units is 21.75 cm in the Y direction and 20.48 cm in the
+Z direction. The spacing between the Y-Z plane that passes through the centers of the metal units and the
+Y-Z plane that passes through the centers of the solution units is
+17.465 cm in the X direction.</p>
+<p>The metal units in this experiment are designated in Table II of Ref. 2
+as cylinder index 11 and reflector index 1. A photograph of the
+experiment, Fig. 9 in Ref. 3, is given in <a class="reference internal" href="#fig2-1-1"><span class="std std-numref">Fig. 89</span></a>.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5   parm=(centrm)</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">1</span>  <span class="err">set</span> <span class="err">up</span> <span class="m">4</span><span class="err">aqueous</span> <span class="m">4</span> <span class="err">metal</span> <span class="err">in</span> <span class="err">csas</span><span class="m">5</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">composition</span>
+  <span class="err">uranium</span>        <span class="m">1</span> <span class="m">0</span><span class="err">.</span><span class="m">985</span> <span class="m">300</span><span class="err">.</span>  <span class="m">92235</span> <span class="m">93</span><span class="err">.</span><span class="m">2</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">6</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="n">end</span>
+  <span class="err">solution</span>
+     <span class="err">mix=</span><span class="m">2</span>
+     <span class="err">rho[uo</span><span class="m">2</span><span class="err">(no</span><span class="m">3</span><span class="err">)</span><span class="m">2</span><span class="err">]=</span> <span class="m">415</span><span class="err">.</span> <span class="m">92235</span> <span class="m">92</span><span class="err">.</span><span class="m">6</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">9</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">5</span>
+     <span class="err">molar[hno</span><span class="m">3</span><span class="err">]=</span><span class="m">9</span><span class="err">.</span><span class="m">783</span><span class="err">-</span><span class="m">3</span>
+     <span class="err">temperature=</span><span class="m">300</span>
+  <span class="n">end</span><span class="err"> </span><span class="n">solution</span>
+  <span class="err">plexiglass</span>     <span class="m">3</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">composition</span>
+<span class="n">read</span><span class="err"> </span><span class="n">param</span>
+  <span class="err">flx=yes</span> <span class="err">fdn=yes</span> <span class="err">nub=yes</span>
+<span class="n">end</span><span class="err"> </span><span class="n">param</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">com=</span><span class="s">&#39;uranyl nitrate solution in a plexiglas container&#39;</span>
+    <span class="err">cylinder</span>  <span class="m">2</span> <span class="m">1</span> <span class="m">9</span><span class="err">.</span><span class="m">525</span> <span class="m">2</span><span class="err">p</span><span class="m">8</span><span class="err">.</span><span class="m">89</span>
+    <span class="err">cylinder</span>  <span class="m">3</span> <span class="m">1</span> <span class="m">10</span><span class="err">.</span><span class="m">16</span> <span class="m">2</span><span class="err">p</span><span class="m">9</span><span class="err">.</span><span class="m">525</span>
+    <span class="err">cuboid</span>  <span class="m">0</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">10</span><span class="err">.</span><span class="m">875</span> <span class="m">2</span><span class="err">p</span><span class="m">10</span><span class="err">.</span><span class="m">24</span>
+  <span class="err">unit</span> <span class="m">2</span>
+    <span class="err">com=</span><span class="s">&#39;uranium metal cylinder&#39;</span>
+    <span class="err">cylinder</span>  <span class="m">1</span> <span class="m">1</span> <span class="m">5</span><span class="err">.</span><span class="m">748</span> <span class="m">2</span><span class="err">p</span><span class="m">5</span><span class="err">.</span><span class="m">3825</span>
+    <span class="err">cuboid</span>  <span class="m">0</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">6</span><span class="err">.</span><span class="m">59</span> <span class="m">2</span><span class="err">p</span><span class="m">6</span><span class="err">.</span><span class="m">225</span>
+  <span class="err">unit</span> <span class="m">3</span>
+    <span class="err">com=</span><span class="s">&#39;1x2x2 array of solution units&#39;</span>
+    <span class="err">array</span> <span class="m">1</span> <span class="m">3</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">0</span>
+  <span class="err">unit</span> <span class="m">4</span>
+    <span class="err">com=</span><span class="s">&#39;1x2x2 array of metal units padded to match solution array&#39;</span>
+    <span class="err">array</span> <span class="m">2</span> <span class="m">3</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">replicate</span> <span class="m">0</span> <span class="m">1</span> <span class="m">2</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">0</span> <span class="m">2</span><span class="err">*</span><span class="m">8</span><span class="err">.</span><span class="m">57</span> <span class="m">2</span><span class="err">*</span><span class="m">8</span><span class="err">.</span><span class="m">03</span> <span class="m">1</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">5</span>
+    <span class="err">array</span> <span class="m">3</span> <span class="m">3</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">0</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">read</span><span class="err"> </span><span class="n">array</span>
+  <span class="err">ara=</span><span class="m">1</span> <span class="err">nux=</span><span class="m">1</span> <span class="err">nuy=</span><span class="m">2</span> <span class="err">nuz=</span><span class="m">2</span> <span class="err">fill</span> <span class="err">f</span><span class="m">1</span> <span class="n">end</span><span class="err"> </span><span class="n">fill</span>
+  <span class="err">ara=</span><span class="m">2</span> <span class="err">nux=</span><span class="m">1</span> <span class="err">nuy=</span><span class="m">2</span> <span class="err">nuz=</span><span class="m">2</span> <span class="err">fill</span> <span class="err">f</span><span class="m">2</span> <span class="n">end</span><span class="err"> </span><span class="n">fill</span>
+  <span class="err">gbl=</span><span class="m">3</span> <span class="err">ara=</span><span class="m">3</span> <span class="err">nux=</span><span class="m">2</span> <span class="err">nuy=</span><span class="m">1</span> <span class="err">nuz=</span><span class="m">1</span>
+  <span class="err">com=</span><span class="s">&#39;composite array of solution and metal units&#39;</span>
+  <span class="err">fill</span> <span class="m">4</span> <span class="m">3</span> <span class="n">end</span><span class="err"> </span><span class="n">fill</span>
+<span class="n">end</span><span class="err"> </span><span class="n">array</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id12">
+<span id="fig2-1-1"></span><a class="reference internal image-reference" href="_images/fig1.png"><img alt="_images/fig1.png" src="_images/fig1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">Critical assembly of four solution units and four metal units.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="sample-problem-2-optimum-pitch-search-using-detailed-geometry">
+<h3>Sample problem 2: optimum pitch search using detailed geometry<a class="headerlink" href="#sample-problem-2-optimum-pitch-search-using-detailed-geometry" title="Permalink to this headline">¶</a></h3>
+<p>This problem represents an attempt to optimize the reactivity of
+PWR-like fuel bundles in a storage pool. The storage array is an
+infinite planar array of flooded fuel bundles. Each bundle consists of a
+17 × 17 × 1 array of 2.35%-enriched UO<sub>2</sub> pins, density
+9.21 g/cc, clad with Zircaloy-2. The fuel is 0.823 cm in diameter, the
+clad diameter is 0.9627 cm, and the length of each pin is 366 cm. Each
+fuel bundle is encased in a Boral sheath. There is a 1/4-in. gap flooded
+with water between the bundle and the sheath. The Boral sheath is
+3/8 in. thick. One inch of water separates the fuel bundle sheaths in
+the horizontal plane, and 15 cm of water is present on the top and
+bottom of the array.</p>
+<p>The KENO V.a geometry represents each fuel pin in the bundle discretely.
+The search should determine the optimum pitch within the fuel bundle.
+The gap between the bundle and the Boral remains fixed, as does the
+thickness of the sheath and the spacing between sheaths.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5s</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">2</span>  <span class="err">storage</span> <span class="err">array</span> <span class="err">of</span> <span class="err">pwr-like</span> <span class="err">fuel</span> <span class="err">bundles</span> <span class="err">in</span> <span class="err">poison</span> <span class="err">sheaths</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">composition</span>
+  <span class="err">uo</span><span class="m">2</span>    <span class="m">1</span> <span class="err">.</span><span class="m">84</span> <span class="m">300</span><span class="err">..</span> <span class="m">92235</span> <span class="m">2</span><span class="err">.</span><span class="m">35</span> <span class="m">92238</span> <span class="m">97</span><span class="err">.</span><span class="m">65</span> <span class="n">end</span>
+  <span class="err">zirc</span><span class="m">2</span>  <span class="m">2</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">h</span><span class="m">2</span><span class="err">o</span>    <span class="m">3</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">b</span><span class="m">4</span><span class="err">c</span>    <span class="m">4</span> <span class="err">den=</span><span class="m">2</span><span class="err">.</span><span class="m">65</span> <span class="m">0</span><span class="err">.</span><span class="m">3517</span> <span class="n">end</span>
+  <span class="err">al</span>     <span class="m">4</span> <span class="err">den=</span><span class="m">2</span><span class="err">.</span><span class="m">65</span> <span class="m">0</span><span class="err">.</span><span class="m">6483</span> <span class="n">end</span>
+  <span class="err">h</span><span class="m">2</span><span class="err">o</span>    <span class="m">5</span> <span class="m">1</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">composition</span>
+<span class="n">read</span><span class="err"> </span><span class="n">celldata</span>
+  <span class="err">latticecell</span>  <span class="err">squarepitch</span>  <span class="err">pitch=</span><span class="m">1</span><span class="err">.</span><span class="m">2751</span> <span class="m">3</span> <span class="err">fueld=.</span><span class="m">823</span> <span class="m">1</span> <span class="err">cladd=.</span><span class="m">9627</span> <span class="m">2</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">celldata</span>
+<span class="n">read</span><span class="err"> </span><span class="n">param</span>
+  <span class="err">nub=yes</span> <span class="err">far=yes</span> <span class="err">gen=</span><span class="m">103</span> <span class="err">npg=</span><span class="m">500</span> <span class="err">gas=no</span> <span class="err">fdn=yes</span>
+<span class="n">end</span><span class="err"> </span><span class="n">param</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">cylinder</span>  <span class="m">1</span> <span class="m">1</span> <span class="err">.</span><span class="m">4115</span> <span class="m">183</span><span class="err">.</span><span class="m">0</span> <span class="err">-</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">cylinder</span>  <span class="m">2</span> <span class="m">1</span> <span class="err">.</span><span class="m">48135</span> <span class="m">183</span><span class="err">.</span><span class="m">1</span> <span class="err">-</span><span class="m">183</span><span class="err">.</span><span class="m">1</span>
+    <span class="err">cuboid</span>    <span class="m">3</span> <span class="m">1</span> <span class="err">.</span><span class="m">63755</span> <span class="err">-.</span><span class="m">63755</span> <span class="err">.</span><span class="m">63755</span> <span class="err">-.</span><span class="m">63755</span> <span class="m">183</span><span class="err">.</span><span class="m">1</span> <span class="err">-</span><span class="m">183</span><span class="err">.</span><span class="m">1</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">2</span>
+    <span class="err">array</span>     <span class="m">1</span> <span class="m">3</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">reflector</span> <span class="m">5</span> <span class="m">1</span> <span class="m">4</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">635</span>  <span class="m">2</span><span class="err">z</span>    <span class="m">1</span>
+    <span class="err">reflector</span> <span class="m">4</span> <span class="m">1</span> <span class="m">4</span><span class="err">*</span><span class="m">0</span><span class="err">.</span><span class="m">9525</span> <span class="m">2</span><span class="err">z</span>    <span class="m">1</span>
+    <span class="err">reflector</span> <span class="m">5</span> <span class="m">1</span> <span class="m">4</span><span class="err">*</span><span class="m">1</span><span class="err">.</span><span class="m">27</span>   <span class="m">2</span><span class="err">z</span>    <span class="m">1</span>
+    <span class="err">reflector</span> <span class="m">5</span> <span class="m">2</span> <span class="m">4</span><span class="err">z</span>       <span class="m">2</span><span class="err">*</span><span class="m">3</span><span class="err">.</span><span class="m">0</span> <span class="m">5</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">read</span><span class="err"> </span><span class="n">array</span>
+  <span class="err">ara=</span><span class="m">1</span> <span class="err">nux=</span><span class="m">17</span> <span class="err">nuy=</span><span class="m">17</span> <span class="err">nuz=</span><span class="m">1</span> <span class="err">fill</span> <span class="err">f</span><span class="m">1</span> <span class="n">end</span><span class="err"> </span><span class="n">fill</span>
+<span class="n">end</span><span class="err"> </span><span class="n">array</span>
+<span class="n">read</span><span class="err"> </span><span class="n">bounds</span>
+  <span class="err">xyf=mirror</span>
+<span class="n">end</span><span class="err"> </span><span class="n">bounds</span>
+<span class="n">read</span><span class="err"> </span><span class="n">bias</span>
+  <span class="err">id=</span><span class="m">500</span> <span class="m">2</span> <span class="m">6</span>
+<span class="n">end</span><span class="err"> </span><span class="n">bias</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">read</span><span class="err"> </span><span class="n">search</span>
+  <span class="err">optimum</span> <span class="err">pitch</span>
+<span class="n">end</span><span class="err"> </span><span class="n">search</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-problem-3-optimum-pitch-search-using-homogenized-geometry">
+<h3>Sample problem 3: optimum pitch search using homogenized geometry<a class="headerlink" href="#sample-problem-3-optimum-pitch-search-using-homogenized-geometry" title="Permalink to this headline">¶</a></h3>
+<p>This problem illustrates the use of a cell-weighted mixture to represent
+a PWR-like fuel bundle. The cask contains a 2 × 2 × 1 array of fuel
+bundles. Each fuel bundle consists of a 17 × 17 × 1 array of Zircaloy-2
+clad, 2.35%-enriched UO<sub>2</sub> fuel pins with a density of 9.21 g/cc
+arranged in a square pitch. The pin diameter is 0.823 cm, and its length
+is 366 cm. The clad is 0.06985 cm thick, and the pitch is 1.275 cm. Each
+fuel bundle is contained in a 0.6625-cm-thick Boral sheath. The bundles
+are separated by 1 cm of water, representing a flooded cask. The square
+aluminum cask is 10-cm thick on all faces and is reflected by 15 cm of
+water.</p>
+<p>By using CELLMIX=, a cell-weighted cross section is created to represent
+the fuel bundle. The KENO V.a geometry utilizes the cell-weighted
+mixture (500) and the overall dimensions of the fuel bundle to represent
+the entire fuel bundle as a single homogeneous region. The first
+reflector entry represents the fuel cask, and the second reflector entry
+represents the 15-cm reflector. Because this problem utilizes a
+cell-weighted mixture, which is not applicable in the continuous energy
+mode, the problem will end with an error message in the continuous
+energy mode.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5s</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">3</span>  <span class="err">sample</span> <span class="err">square</span> <span class="err">fuel</span> <span class="err">cask</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">composition</span>
+  <span class="err">uo</span><span class="m">2</span>    <span class="m">1</span> <span class="err">.</span><span class="m">84</span> <span class="m">300</span><span class="err">.</span> <span class="m">92235</span> <span class="m">2</span><span class="err">.</span><span class="m">35</span> <span class="m">92238</span> <span class="m">97</span><span class="err">.</span><span class="m">65</span> <span class="n">end</span>
+  <span class="err">zirc</span><span class="m">2</span>  <span class="m">2</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">h</span><span class="m">2</span><span class="err">o</span>    <span class="m">3</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">b</span><span class="m">4</span><span class="err">c</span>    <span class="m">4</span> <span class="err">den=</span><span class="m">2</span><span class="err">.</span><span class="m">65</span> <span class="m">0</span><span class="err">.</span><span class="m">3517</span> <span class="n">end</span>
+  <span class="err">al</span>     <span class="m">4</span> <span class="err">den=</span><span class="m">2</span><span class="err">.</span><span class="m">65</span> <span class="m">0</span><span class="err">.</span><span class="m">6483</span> <span class="n">end</span>
+  <span class="err">h</span><span class="m">2</span><span class="err">o</span>    <span class="m">5</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">al</span>     <span class="m">6</span> <span class="m">1</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">composition</span>
+<span class="n">read</span><span class="err"> </span><span class="n">celldata</span>
+  <span class="err">latticecell</span>
+  <span class="err">squarepitch</span>  <span class="err">pitch=</span><span class="m">1</span><span class="err">.</span><span class="m">275</span> <span class="m">3</span> <span class="err">fueld=.</span><span class="m">823</span> <span class="m">1</span> <span class="err">cladd=.</span><span class="m">9627</span> <span class="m">2</span> <span class="err">cellmix=</span><span class="m">500</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">celldata</span>
+<span class="n">read</span><span class="err"> </span><span class="n">param</span>
+  <span class="err">nub=yes</span> <span class="err">far=yes</span> <span class="err">gen=</span><span class="m">103</span> <span class="err">npg=</span><span class="m">500</span> <span class="err">gas=no</span> <span class="err">fdn=yes</span>
+<span class="n">end</span><span class="err"> </span><span class="n">param</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">cuboid</span>  <span class="m">500</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">10</span><span class="err">.</span><span class="m">8375</span> <span class="m">2</span><span class="err">p</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">cuboid</span>    <span class="m">4</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">11</span><span class="err">.</span><span class="m">5</span>    <span class="m">2</span><span class="err">p</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">cuboid</span>    <span class="m">5</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">12</span><span class="err">.</span><span class="m">0</span>    <span class="m">2</span><span class="err">p</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">2</span>
+    <span class="err">array</span>     <span class="m">1</span> <span class="m">3</span><span class="err">*</span><span class="m">0</span>
+    <span class="err">reflector</span> <span class="m">6</span> <span class="m">1</span> <span class="m">6</span><span class="err">*</span><span class="m">10</span><span class="err">.</span><span class="m">0</span> <span class="m">1</span>
+    <span class="err">reflector</span> <span class="m">5</span> <span class="m">2</span> <span class="m">6</span><span class="err">*</span><span class="m">3</span> <span class="m">5</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">read</span><span class="err"> </span><span class="n">array</span>
+  <span class="err">ara=</span><span class="m">1</span>  <span class="err">nux=</span><span class="m">2</span>  <span class="err">nuy=</span><span class="m">2</span>  <span class="err">nuz=</span><span class="m">1</span> <span class="err">fill</span> <span class="err">f</span><span class="m">1</span> <span class="n">end</span><span class="err"> </span><span class="n">fill</span>
+<span class="n">end</span><span class="err"> </span><span class="n">array</span>
+<span class="n">read</span><span class="err"> </span><span class="n">bias</span>
+  <span class="err">id=</span><span class="m">500</span> <span class="m">2</span> <span class="m">6</span>
+<span class="n">end</span><span class="err"> </span><span class="n">bias</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">read</span><span class="err"> </span><span class="n">search</span>
+  <span class="err">optimum</span> <span class="err">pitch</span>
+<span class="n">end</span><span class="err"> </span><span class="n">search</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-problem-4-search-for-a-specified-value-of-keff">
+<h3>Sample problem 4: search for a specified value of <em>k</em><sub>eff</sub><a class="headerlink" href="#sample-problem-4-search-for-a-specified-value-of-keff" title="Permalink to this headline">¶</a></h3>
+<p>Find the pitch at which a 2 × 2 × 2 array of cylinders of highly
+enriched (93.2%) uranium metal with a density of 18.76 g/cc are
+critical. Each cylinder has a radius of 5.748 cm and a height of
+10.765 cm. The surface-to-surface spacing between the units is the same
+in all directions. The initial guess for the critical surface-to-surface
+spacing was 3.0 cm. The experimentally critical surface-to-surface
+separation for this system is 2.248 cm. The input data for this problem
+are given below.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5s</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">4</span>  <span class="err">critical</span> <span class="err">pitch</span> <span class="err">search</span> <span class="err">for</span> <span class="err">case</span> <span class="m">2</span><span class="err">c</span><span class="m">8</span> <span class="err">bare</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">comp</span>
+<span class="err">uranium</span>  <span class="m">1</span> <span class="m">0</span><span class="err">.</span><span class="m">985</span> <span class="m">300</span><span class="err">.</span>  <span class="m">92235</span> <span class="m">93</span><span class="err">.</span><span class="m">2</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">6</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">comp</span>
+<span class="n">read</span><span class="err"> </span><span class="n">parameters</span><span class="err">  </span><span class="n">flx</span><span class="err">=</span><span class="n">yes</span><span class="err"> </span><span class="n">fdn</span><span class="err">=</span><span class="n">yes</span><span class="err"> </span><span class="n">far</span><span class="err">=</span><span class="n">yes</span><span class="err"> </span><span class="n">gas</span><span class="err">=</span><span class="n">no</span><span class="err"> </span><span class="n">rnd</span><span class="err">=656651</span><span class="n">ed</span><span class="err">24</span><span class="n">de</span>
+<span class="n">end</span><span class="err"> </span><span class="n">parameters</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geometry</span>
+<span class="err">unit</span> <span class="m">1</span>
+<span class="err">cylinder</span> <span class="m">1</span> <span class="m">1</span> <span class="m">5</span><span class="err">.</span><span class="m">748</span> <span class="m">5</span><span class="err">.</span><span class="m">3825</span> <span class="err">-</span><span class="m">5</span><span class="err">.</span><span class="m">3825</span>
+<span class="err">cuboid</span>  <span class="m">0</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">7</span><span class="err">.</span><span class="m">248</span> <span class="m">2</span><span class="err">p</span><span class="m">6</span><span class="err">.</span><span class="m">8825</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geometry</span>
+<span class="n">read</span><span class="err"> </span><span class="n">array</span>
+<span class="err">com=</span><span class="s">&#39;single unit problem with 1 array is filled with unit 1&#39;</span>
+<span class="err">ara=</span><span class="m">1</span>  <span class="err">gbl=</span><span class="m">1</span> <span class="err">nux=</span><span class="m">2</span> <span class="err">nuy=</span><span class="m">2</span> <span class="err">nuz=</span><span class="m">2</span> <span class="err">fill</span> <span class="err">f</span><span class="m">1</span> <span class="n">end</span><span class="err"> </span><span class="n">fill</span>
+<span class="n">end</span><span class="err"> </span><span class="n">array</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">read</span><span class="err"> </span><span class="n">search</span><span class="err">   </span><span class="n">critical</span><span class="err"> </span><span class="n">pitch</span><span class="err">   </span><span class="n">maxpitch</span><span class="err">=15.5  </span><span class="n">more</span>
+<span class="err">alter</span>  <span class="err">unit=</span><span class="m">1</span> <span class="err">reg=</span><span class="m">2</span> <span class="err">+z=</span><span class="m">1</span><span class="err">.</span><span class="m">0531</span> <span class="err">-z=</span><span class="m">1</span><span class="err">.</span><span class="m">0531</span>
+<span class="n">end</span><span class="err"> </span><span class="n">search</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-problem-5-solution-conc-search-for-a-specified-keff">
+<h3>Sample problem 5: solution conc. search for a specified <em>k</em><sub>eff</sub><a class="headerlink" href="#sample-problem-5-solution-conc-search-for-a-specified-keff" title="Permalink to this headline">¶</a></h3>
+<p>Consider a large spherical tank partially filled with
+UO<sub>2</sub>F<sub>2</sub> solution. The tank has a radius of 34.6 cm and
+is filled with solution to a height of 30.0 cm above the midpoint. The
+tank is composed of a 0.759 cm thick Al shell. The
+UO<sub>2</sub>F<sub>2</sub> solution is composed of three standard
+compositions: UO2F2, HF acid, and H2O. The code combines these using a
+set algorithm. This may or may not produce a solution at the desired
+density. If the density of the solution is known it should be entered.
+Also, extra acid can be added to the solution by specifying a non-zero
+acid molarity.</p>
+<p>A critical concentration search is performed on the solution yielding
+system <em>k</em><sub>eff</sub> = 1.0 for various densities of UO<sub>2</sub>F<sub>2</sub>
+in the solution. In the MORE search data, MIX=1 and SCNAME=UO2F2 specify
+that the UO<sub>2</sub>F<sub>2</sub> component of the mixture 1 solution
+is to be altered during the search. The code calculates the density of
+the solution. The initial uranium fuel density is 300 gm/liter. The
+maximum allowed uranium density is 600 gm/liter. The minimum allowed
+uranium density is 150 gm/liter.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5s</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">5</span> <span class="err">soln</span> <span class="err">tank</span> <span class="err">-</span> <span class="err">crit.</span> <span class="err">conc.</span> <span class="err">search</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">composition</span>
+  <span class="err">solution</span>
+    <span class="err">mix=</span><span class="m">1</span>
+    <span class="err">rho[uo</span><span class="m">2</span><span class="err">f</span><span class="m">2</span><span class="err">]=</span> <span class="m">300</span>  <span class="m">92235</span> <span class="m">80</span> <span class="m">92238</span> <span class="m">19</span><span class="err">.</span><span class="m">98</span> <span class="m">92234</span> <span class="m">0</span><span class="err">.</span><span class="m">02</span>
+    <span class="err">temp=</span> <span class="m">300</span>
+  <span class="n">end</span><span class="err"> </span><span class="n">solution</span>
+  <span class="err">al</span>         <span class="m">2</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">300</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">composition</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">hemisphe-z</span>  <span class="m">1</span> <span class="m">1</span> <span class="m">16</span>   <span class="err">chord</span> <span class="m">15</span><span class="err">.</span><span class="m">5</span>
+    <span class="err">sphere</span>      <span class="m">0</span> <span class="m">1</span> <span class="m">16</span>
+    <span class="err">sphere</span>      <span class="m">2</span> <span class="m">1</span> <span class="m">16</span><span class="err">.</span><span class="m">1</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">read</span><span class="err"> </span><span class="n">search</span>
+  <span class="err">critical</span>  <span class="err">concentration</span> <span class="err">kef=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+  <span class="err">more</span>
+    <span class="err">alter</span>  <span class="err">mix=</span><span class="m">1</span>  <span class="err">scname=uo</span><span class="m">2</span><span class="err">f</span><span class="m">2</span>  <span class="err">factor=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">-con=-</span><span class="m">0</span><span class="err">.</span><span class="m">5</span>  <span class="err">+con=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+<span class="n">end</span><span class="err"> </span><span class="n">search</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-problem-6-dimension-chord-search-for-a-specified-keff">
+<h3>Sample problem 6: dimension chord search for a specified <em>k</em><sub>eff</sub><a class="headerlink" href="#sample-problem-6-dimension-chord-search-for-a-specified-keff" title="Permalink to this headline">¶</a></h3>
+<p>Consider a large spherical tank partially filled with
+UO<sub>2</sub>F<sub>2</sub> solution. The tank has a radius of 34.6 cm and
+is filled with solution to an initial height of 10.0 cm above the
+midpoint. The tank is composed of a 0.759 cm thick Al shell. The
+UO<sub>2</sub>F<sub>2</sub> solution is composed of three standard
+compositions: UO2F2, HF acid, and H2O. The code combines these using a
+set algorithm. This may or may not produce a solution at the desired
+density. If the density of the solution is known it should be entered.
+Also, extra acid can be added to the solution by specifying a non-zero
+acid molarity.</p>
+<p>A critical dimension search is performed on the chord length yielding
+system <em>keff</em> = 0.98. In the MORE search data, UNIT=1 REG=1 CHORD=1.0
+specify that the chord length in region 1 of unit 1 is to be altered
+during the search. The constraints are set so the chord length varies
+from −10.0 cm to just under 34.6 cm.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5s</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">6</span> <span class="err">soln</span> <span class="err">tank</span> <span class="err">-</span> <span class="err">crit.</span> <span class="err">dim.</span> <span class="err">search</span> <span class="err">on</span> <span class="err">chord</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">comp</span>
+  <span class="err">solution</span>
+    <span class="err">mix=</span><span class="m">1</span>
+    <span class="err">rho[uo</span><span class="m">2</span><span class="err">f</span><span class="m">2</span><span class="err">]=</span> <span class="m">300</span>  <span class="m">92235</span> <span class="m">80</span> <span class="m">92238</span> <span class="m">19</span><span class="err">.</span><span class="m">98</span> <span class="m">92234</span> <span class="m">0</span><span class="err">.</span><span class="m">02</span>
+    <span class="err">temp=</span> <span class="m">300</span>
+  <span class="n">end</span><span class="err"> </span><span class="n">solution</span>
+  <span class="err">al</span>         <span class="m">2</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">300</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">comp</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">hemisphe-z</span>  <span class="m">1</span> <span class="m">1</span> <span class="m">16</span>   <span class="err">chord</span> <span class="m">10</span><span class="err">.</span>
+    <span class="err">sphere</span>      <span class="m">0</span> <span class="m">1</span> <span class="m">16</span>
+    <span class="err">sphere</span>      <span class="m">2</span> <span class="m">1</span> <span class="m">16</span><span class="err">.</span><span class="m">1</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">read</span><span class="err"> </span><span class="n">search</span>
+  <span class="err">critical</span>  <span class="err">dimension</span> <span class="err">kef=</span><span class="m">0</span><span class="err">.</span><span class="m">98</span>
+  <span class="err">more</span>
+    <span class="err">alter</span>  <span class="err">unit=</span><span class="m">1</span>  <span class="err">reg=</span><span class="m">1</span>  <span class="err">chord=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">-con=-</span><span class="m">0</span><span class="err">.</span><span class="m">23</span>  <span class="err">+con=</span><span class="m">0</span><span class="err">.</span><span class="m">23</span>
+<span class="n">end</span><span class="err"> </span><span class="n">search</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-problem-7-two-material-conc-search-for-a-specified-keff">
+<h3>Sample problem 7 two material conc. search for a specified <em>k</em><sub>eff</sub><a class="headerlink" href="#sample-problem-7-two-material-conc-search-for-a-specified-keff" title="Permalink to this headline">¶</a></h3>
+<p>The fuel bundles in this problem represent 17 × 17 PWR fuel assemblies.
+The fuel pin lattice is homogenized, making a cell-weighted mixture 100.
+Because this problem utilizes a cell-weighted mixture, which is not
+applicable in the continuous energy mode, the problem will end with an
+error message in the continuous energy mode. The fuel pins consist of
+4.35 wt % <sup>235</sup>U having a diameter of 0.823 cm, zirconium
+cladding having an outer diameter of 0.9627 cm, and a pitch of 1.275 cm.
+The fuel bundle is represented as a 10.8375 cm × 10.8375 cm × 366 cm
+cuboid of mixture 100 surrounded by Boral and then water. The Boral has
+a density of 2.61 g/cm<sup>3</sup> and has an initial composed of
+50.0 wt % B<sub>4</sub>C and 50.0 wt % Al. The fuel bundles are at a
+fixed pitch of 13.0 cm. Boral plates surrounding the X and Y sides of
+each fuel assembly are 0.1625 cm thick. Full density water is between
+the Boral plates.</p>
+<p>A critical concentration search is performed on the Boral plates
+searching for a system <em>keff</em> = 0.95. The Boral plates are at a fixed
+density of 2.61 gm/cc. As the density of the B<sub>4</sub>C changes, the
+density of the Al changes in the opposite direction maintaining a
+constant Boral density. There are two entries in the MORE search data.
+The first entry, MIX=4 SCNAME=b4c factor=1.0 specifies that the
+B<sub>4</sub>C of mixture 4 is to be altered during the search. The
+second entry, MIX=4 SCNAME=al factor=−1.0 specifies that aluminum is to
+be changed in the opposite direction and proportionally to
+B<sub>4</sub>C during the search. Both B<sub>4</sub>C and Al have the
+same initial density of 0.5 * 2.61 = 1.305 gm/cc.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5s</span>
+<span class="err">sample</span> <span class="err">problem</span> <span class="m">7</span> <span class="err">flux</span> <span class="err">trap</span> <span class="err">between</span> <span class="err">fuel</span> <span class="err">bundles</span> <span class="err">-</span> <span class="err">crit.</span> <span class="err">conc.</span> <span class="err">srch</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">composition</span>
+  <span class="err">uo</span><span class="m">2</span>    <span class="m">1</span> <span class="err">.</span><span class="m">84</span> <span class="m">300</span><span class="err">.</span> <span class="m">92235</span> <span class="m">4</span><span class="err">.</span><span class="m">35</span> <span class="m">92238</span> <span class="m">95</span><span class="err">.</span><span class="m">65</span> <span class="n">end</span>
+  <span class="err">zr</span>     <span class="m">2</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">h</span><span class="m">2</span><span class="err">o</span>    <span class="m">3</span> <span class="m">1</span> <span class="n">end</span>
+  <span class="err">arbmb</span><span class="m">4</span><span class="err">c</span>  <span class="m">2</span><span class="err">.</span><span class="m">61</span>  <span class="m">2</span>  <span class="m">0</span>  <span class="m">1</span>  <span class="m">0</span>  <span class="m">5000</span> <span class="m">4</span>  <span class="m">6000</span>  <span class="m">1</span>  <span class="m">4</span>  <span class="m">0</span><span class="err">.</span><span class="m">5</span>  <span class="m">300</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+  <span class="err">al</span>     <span class="m">4</span> <span class="err">den=</span><span class="m">2</span><span class="err">.</span><span class="m">61</span> <span class="m">0</span><span class="err">.</span><span class="m">5</span> <span class="n">end</span>
+  <span class="err">h</span><span class="m">2</span><span class="err">o</span>    <span class="m">5</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">composition</span>
+<span class="n">read</span><span class="err"> </span><span class="n">celldata</span>
+  <span class="err">latticecell</span>  <span class="err">squarepitch</span>  <span class="err">pitch=</span><span class="m">1</span><span class="err">.</span><span class="m">275</span> <span class="m">3</span> <span class="err">fueld=.</span><span class="m">823</span> <span class="m">1</span>
+    <span class="err">cladd=.</span><span class="m">9627</span> <span class="m">2</span> <span class="err">cellmix=</span><span class="m">100</span>  <span class="n">end</span>
+  <span class="err">more</span> <span class="err">data</span>
+     <span class="err">bal=none</span>
+  <span class="n">end</span><span class="err"> </span><span class="n">more</span>
+<span class="n">end</span><span class="err"> </span><span class="n">celldata</span>
+<span class="n">read</span><span class="err"> </span><span class="n">param</span>
+  <span class="err">far=no</span> <span class="err">gen=</span><span class="m">203</span> <span class="err">npg=</span><span class="m">1000</span>
+<span class="n">end</span><span class="err"> </span><span class="n">param</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">cuboid</span> <span class="m">100</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">10</span><span class="err">.</span><span class="m">8375</span> <span class="m">2</span><span class="err">p</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">cuboid</span>   <span class="m">4</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">11</span><span class="err">.</span><span class="m">0</span>    <span class="m">2</span><span class="err">p</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">cuboid</span>   <span class="m">5</span> <span class="m">1</span> <span class="m">4</span><span class="err">p</span><span class="m">13</span><span class="err">.</span><span class="m">0</span>    <span class="m">2</span><span class="err">p</span><span class="m">183</span><span class="err">.</span><span class="m">0</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">read</span><span class="err"> </span><span class="n">bounds</span>
+  <span class="err">xfc=mirror</span> <span class="err">yfc=mirror</span>
+<span class="n">end</span><span class="err"> </span><span class="n">bounds</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">read</span><span class="err"> </span><span class="n">search</span>
+   <span class="err">critical</span> <span class="err">concentration</span>  <span class="err">kef=</span><span class="m">0</span><span class="err">.</span><span class="m">95</span>
+   <span class="err">more</span>
+     <span class="err">alter</span> <span class="err">mix=</span><span class="m">4</span>  <span class="err">scname=arbmb</span><span class="m">4</span><span class="err">c</span>   <span class="err">factor=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+     <span class="err">alter</span> <span class="err">mix=</span><span class="m">4</span>  <span class="err">scname=al</span>        <span class="err">factor=-</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+     <span class="err">-con=-</span><span class="m">0</span><span class="err">.</span><span class="m">9</span>  <span class="err">+con=</span><span class="m">0</span><span class="err">.</span><span class="m">99</span>
+<span class="n">end</span><span class="err"> </span><span class="n">search</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-problem-8-k-for-a-pebble-bed-fuel">
+<h3>Sample problem 8: k<sub>∞</sub> for a pebble bed fuel<a class="headerlink" href="#sample-problem-8-k-for-a-pebble-bed-fuel" title="Permalink to this headline">¶</a></h3>
+<p>This problem demonstrates setting up a fuel pebble from a pebble bed
+reactor, and calculating its k<strong>∞</strong>. The pebble consists of a fuel
+grain of UO<sub>2</sub> 0.025 cm in radius, coated with 0.003 cm of
+pyrolitic carbon, a further coat of 0.0035 cm thick silicon carbide,
+with a final coat of 0.004 cm thick pyrolitic carbon. 15000 grains are
+packed with graphite into an internal fuel sphere of 2.5 cm radius clad
+with a 0.5 cm thick covering of carbon and surrounded by helium. The
+fuel is 8.2% enriched <sup>235</sup>U. The pebbles are stacked into an
+infinite square pitched array with a pitch of 6 cm.</p>
+<p>This problem uses DOUBLEHET cell type, which is applicable only in the
+multigroup mode of KENO calculations. Therefore, the continuous energy
+version of this problem will end with an error message.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas5             parm=(centrm)</span>
+<span class="err">infinite</span> <span class="err">array</span> <span class="err">of</span> <span class="err">pebbles</span> <span class="err">on</span> <span class="err">a</span> <span class="err">square</span> <span class="err">pitch</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
+<span class="n">read</span><span class="err"> </span><span class="n">composition</span>
+<span class="c">&#39; fuel kernel</span>
+  <span class="err">u-</span><span class="m">238</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">12877</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+  <span class="err">u-</span><span class="m">235</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">92585</span><span class="err">e-</span><span class="m">3</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+  <span class="err">o</span>      <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">64272</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; inner pyro carbon</span>
+  <span class="err">c</span>      <span class="m">3</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">52621</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; silicon carbide</span>
+  <span class="err">c</span>      <span class="m">4</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">77240</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+  <span class="err">si</span>     <span class="m">4</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">77240</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; outer pyro carbon</span>
+  <span class="err">c</span>      <span class="m">5</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">52621</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; graphite matrix</span>
+  <span class="err">c</span>      <span class="m">6</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; carbon pebble outer coating</span>
+  <span class="err">c</span>      <span class="m">7</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+  <span class="err">he-</span><span class="m">3</span>    <span class="m">8</span> <span class="m">0</span> <span class="m">3</span><span class="err">.</span><span class="m">71220</span><span class="err">e-</span><span class="m">11</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+  <span class="err">he-</span><span class="m">4</span>    <span class="m">8</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">65156</span><span class="err">e-</span><span class="m">5</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">composition</span>
+<span class="n">read</span><span class="err"> </span><span class="n">celldata</span>
+  <span class="err">doublehet</span>  <span class="err">right_bdy=white</span> <span class="err">fuelmix=</span><span class="m">10</span> <span class="n">end</span>
+   <span class="err">gfr=</span><span class="m">0</span><span class="err">.</span><span class="m">025</span>  <span class="m">1</span> <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">004</span> <span class="m">3</span> <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">0035</span> <span class="m">4</span> <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">004</span> <span class="m">5</span>
+   <span class="err">matrix=</span><span class="m">6</span> <span class="err">numpar=</span><span class="m">15000</span> <span class="n">end</span><span class="err"> </span><span class="n">grain</span>
+  <span class="err">pebble</span> <span class="err">sphsquarep</span> <span class="err">right_bdy=white</span> <span class="err">hpitch=</span><span class="m">3</span><span class="err">.</span><span class="m">0</span> <span class="m">8</span> <span class="err">fuelr=</span><span class="m">2</span><span class="err">.</span><span class="m">5</span> <span class="err">cladr=</span><span class="m">3</span><span class="err">.</span><span class="m">0</span> <span class="m">7</span> <span class="n">end</span>
+  <span class="err">centrm</span> <span class="err">data</span>
+    <span class="err">ixprt=</span><span class="m">1</span> <span class="err">isn=</span><span class="m">8</span> <span class="err">nprt=</span><span class="m">2</span>
+  <span class="n">end</span><span class="err"> </span><span class="n">centrm</span>
+<span class="n">end</span><span class="err"> </span><span class="n">celldata</span>
+<span class="n">read</span><span class="err"> </span><span class="n">param</span>
+  <span class="err">gen=</span><span class="m">210</span> <span class="err">npg=</span><span class="m">1000</span>
+<span class="n">end</span><span class="err"> </span><span class="n">param</span>
+<span class="n">read</span><span class="err"> </span><span class="n">bounds</span>
+  <span class="err">all=mirror</span>
+<span class="n">end</span><span class="err"> </span><span class="n">bounds</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geom</span>
+  <span class="err">global</span> <span class="err">unit</span> <span class="m">1</span>
+    <span class="err">sphere</span>   <span class="m">10</span> <span class="m">1</span> <span class="m">2</span><span class="err">.</span><span class="m">5</span>
+    <span class="err">sphere</span>    <span class="m">7</span> <span class="m">1</span> <span class="m">3</span><span class="err">.</span><span class="m">0</span>
+    <span class="err">cuboid</span>    <span class="m">8</span> <span class="m">1</span> <span class="m">6</span><span class="err">p</span><span class="m">3</span><span class="err">.</span><span class="m">0</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geom</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="warning-and-error-messages">
+<h2>Warning and error messages<a class="headerlink" href="#warning-and-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>CSAS5 contains two types of warning and error messages. Warning messages
+appear when a possible error is encountered. It is the responsibility of
+the user to verify whether the data are correct when a warning message
+is encountered. The functional modules activated by CSAS5 sequences will
+be executed if no error messages are generated and a warning message has
+been generated.</p>
+<p>When an error is recognized, an error message is written and an error
+flag is set so the functional modules will not be activated. The code
+stops immediately if the error is too severe to allow continuation of
+input. However, it will continue to read and check the data if it is
+able. When the data reading is completed, execution is terminated if an
+error flag was set when the data were being processed. If the error flag
+has not been set, execution continues. When error messages are present
+in the output, the user should focus on the first error message, because
+subsequent messages may have been caused by the error that generated the
+first message.</p>
+<p>The following messages originate in the part of CSAS5 that reads,
+checks, and prepares data for KENO V.a and the search module MODIFY.</p>
+<dl class="simple">
+<dt>CS-10   *** ERROR *** CONCENTRATION SEARCH MATERIAL WAS NOT SPECIFIED IN THE STANDARD COMPOSITION.</dt><dd><p>This self-explanatory message from subroutine CNCN indicates that the
+indicated material is not in the standard composition data. Recheck the
+standard composition data and the search data, correct the input, and
+resubmit the problem.</p>
+</dd>
+<dt>CS-11   *** ERROR *** CONCENTRATION SEARCH DATA HAS BEEN DESTROYED. I= ______      ICMND= ______     IPNUM= ______     MIXUR= ______      SCNAME= ______</dt><dd><p>This message from subroutine CNCSRH indicates that the search data could
+not be read properly. This usually indicates either: search data that is
+required for the specified search type is missing or search data
+inappropriate for the specified search type is present. Recheck the
+search data, correct the input, and resubmit the problem.</p>
+</dd>
+<dt>CS-16   ***WARNING*** READ FLAG NOT FOUND.  ASSUME KENO V PARAMETER DATA FOLLOWS.</dt><dd><p>This message from subroutine CPARAM indicates that the word READ is not
+the first word of KENO V.a data following the Material Information
+Processor input data. If parameter data is to be entered, the code
+expects the words READ PARAMETERS to precede the parameter input data.
+If the word READ is not the first word, the code assumes the data are
+parameter input data.</p>
+</dd>
+<dt>CS-21 A UNIT NUMBER WAS ENTERED FOR THE CROSS-SECTION LIBRARY. (LIB= IN PARAMETER DATA.) THE DEFAULT VALUE SHOULD BE USED IN ORDER TO UTILIZE THE CROSS SECTIONS GENERATED BY CSAS5. MAKE CERTAIN THE CORRECT CROSS-SECTION LIBRARY IS BEING USED.</dt><dd><p>This message is from subroutine CPARAM. It indicates that a value has
+been entered for the cross-section library in the KENO V.a parameter
+data. The cross-section library created by the analytical sequence
+should be used. MAKE CERTAIN THAT THE CORRECT CROSS SECTIONS ARE BEING
+USED.</p>
+</dd>
+<dt>CS-50   *** ERROR *** SEARCH COMMAND NUMBER ______ IS UNABLE TO PERFORM A PITCH SEARCH BECAUSE THE DIMENSIONS OF REGION ______ OF UNIT ______ ARE NOT EXPLICITLY DEFINED.</dt><dd><p>This message from subroutine PCHSRH indicates that the specified search
+command is not valid for the specified region. An ARRAY or CORE region
+cannot be altered; nor can a REPLICATE or REFLECTOR region immediately
+following an ARRAY or CORE region.</p>
+</dd>
+<dt>CS-55   *** ERRORS WERE ENCOUNTERED IN PROCESSING THE CSAS-KENO5 DATA.  EXECUTION IS IMPOSSIBLE.  ***</dt><dd><p>This message from subroutine SASSY is printed if errors were found in
+the KENO V.a input data for CSAS5. If a search is being made, data
+reading will continue until all the data have been entered or a fatal
+error terminates the data reading. When the data reading and checking
+have been completed, the problem will terminate without executing. Check
+the printout to locate the errors responsible for this message.</p>
+</dd>
+<dt>CS-62   *** ERROR *** MIXTURE ______ IN THE GEOMETRY WAS NOT CREATED IN THE STANDARD COMPOSITIONS SPECIFICATION DATA.</dt><dd><p>This message from subroutine MIXCHK indicates that a mixture specified
+in the KENO V.a geometry was not created in the standard composition
+data.</p>
+</dd>
+<dt>CS-68   *** ERROR *** AN INPUT DATA ERROR HAS BEEN ENCOUNTERED IN THE ______ DATA ENTERED FOR THIS PROBLEM.</dt><dd><p>This message from the main program, CSAS5, is printed if the subroutine
+library routine LRDERR returns a value of “TRUE,” indicating that a
+reading error has been encountered in the “KENO PARAMETER” data or the
+CSAS5 “SEARCH” data. The appropriate data type is printed in the
+message. Locate the unnumbered message stating “<a href="#id4"><span class="problematic" id="id5">**</span></a><strong>* ERROR IN INPUT.
+CARD IMAGE PRINTED ON NEXT LINE ***</strong>.” Correct the data and resubmit
+the problem.</p>
+</dd>
+<dt>CS-69   ***ERROR*** MIXTURE ______ IS AN INAPPROPRIATE MIXTURE NUMBER FOR USE IN THE KENO GEOMETRY DATA BECAUSE IT IS A COMPONENT OF THE CELL-WEIGHTED MIXTURE CREATED BY XSDRNPM.</dt><dd><p>This message from subroutine CMXCHK indicates that a mixture that is a
+component of a cell-weighted mixture has been used in the KENO V.a
+geometry data.</p>
+</dd>
+<dt>CS-70   ***** ERROR ***** SEARCH OR OPTIMIZATION DATA MUST BE ENTERED FOR CSAS5.  NO SEARCH DATA WAS ENTERED.</dt><dd><p>This message from subroutine RDOPT is self-explanatory. If the user does
+not desire to run a search, another sequence such as CSAS5 should be
+chosen.</p>
+</dd>
+<dt>CS-71   *** ERROR *** ______ IS NOT A VALID SEARCH TYPE.</dt><dd><p>This message is from subroutine RDOPT. The allowed search types include
+PITCH, DIMENSION, and CONCENTRATION. The first four characters of the
+search data after the words READ SEARCH must be PIT, PITC, DIM, DIME,
+DMSN, CON, or CONC. The data may be misspelled or out of order.</p>
+</dd>
+<dt>CS-72   *** ERROR *** THE SEARCH TYPE IS INVALID.  I= ______.</dt><dd><p>This message is from subroutine RDOPT. The numerical index, I, should be
+1 for an optimum pitch search, 2 for a dimension search, and 3 for a
+concentration search. If it is none of these, the search type has been
+incorrectly specified or a code error has been introduced.</p>
+</dd>
+<dt>CS-73   ***** AN END OF FILE WAS ENCOUNTERED BEFORE ALL THE SEARCH DATA WAS READ.</dt><dd><p>This self-explanatory message is from subroutine RDOPT. Check the input
+data to be sure nothing was omitted or misspelled.</p>
+</dd>
+<dt>CS-74   ***** AN END SEARCH FLAG WAS READ BEFORE ALL THE SEARCH DATA WAS READ.</dt><dd><p>This self-explanatory message is from subroutine RDOPT. Check the input
+data for omissions and correct order.</p>
+</dd>
+<dt>CS-75   *** ERROR *** READ SEARCH FLAG WAS NOT FOUND. ______ WAS READ INSTEAD.</dt><dd><p>This self-explanatory message is from subroutine RDOPT. READ SEARCH was
+expected but was not found. Check the input data for omissions and
+correct order.</p>
+</dd>
+<dt>CS-76   *** ERROR *** END SEARCH FLAG WAS NOT FOUND. ______ WAS READ INSTEAD.</dt><dd><p>This self-explanatory message from subroutine RDOPT indicates that an
+end of file was encountered when looking for READ SEARCH. Check the
+input data for omissions, correct order, and spelling.</p>
+</dd>
+<dt>CS-77   *** ERROR *** AN END OF FILE WAS FOUND WHEN THE READ SEARCH FLAG WAS EXPECTED.</dt><dd><p>This self-explanatory message is from subroutine RDOPT. Check the input
+data for omissions, correct order, and spelling.</p>
+</dd>
+<dt>CS-78   *** ERROR *** ______ IS NOT A VALID SEARCH TYPE.</dt><dd><p>This message is from subroutines SRCHTYP. It indicates that an invalid
+search type was read. The valid search names include PITCH,
+CONCENTRATION, and DIMENSION. Either the data was entered improperly or
+a code error has been introduced. A STOP 215 is executed when this
+message is printed.</p>
+</dd>
+<dt>CS-80   *** ERROR *** SEARCH DATA HAS BEEN DESTROYED.  I= ______ ICMND= ______  IPNUM= ______ II= ______  IGEOM= ______</dt><dd><p>This message from subroutines DIMSRH indicates that the search data
+cannot be interpreted. This usually indicates either: search data that
+is required for the specified search type is missing or search data
+inappropriate for the specified search type is present. Recheck the
+search data, correct the input, and resubmit the problem.</p>
+</dd>
+<dt>CS-82 *** AN ERROR WAS ENCOUNTERED IN ONE OF THE FUNCTIONAL MODULES.</dt><dd><p>This message from CSAS5 or MODIFY indicates that an error was
+encountered during execution of one of the functional modules such as
+CRAWDAD, BONAMI, CENTRM, PMC, XSDRNPM, or KENO V.a. Check the printout
+to locate and correct the error.</p>
+</dd>
+<dt>CS-83 ***** NO FEASIBLE SOLUTION WAS FOUND IN THE SEARCH PACKAGE. EXECUTION IS TERMINATED.</dt><dd><p>This message comes from the MODIFY search package, and indicates that it
+is unable to find a solution to the problem as presented. This usually
+occurs when a solution is not within the range specified. For this case
+the user must decide what to change to improve the possibility of a
+solution. Fairly rarely, for an optimum problem, there may be 2 maximums
+within the range specified, and the package has found the wrong one. For
+this case, the user would tighten the range to be searched to eliminate
+the unwanted peak. The package uses least mean square fitted cubic
+polynomials to make guesses as to where a solution is. If the
+Keffectives have too much variance, the polynomials may not be a good
+representation of the actual behavior of the system. For this case the
+user could rerun the problem using more histories per pass to reduce the
+variance.</p>
+</dd>
+<dt>CS-85 *** ERROR *** ALL OF THE ROOTS FOR K=_____ LIE OUTSIDE THE PARAMETER CONSTRAINTS</dt><dd><p>This message from MODIFY indicates that the polynomial fit to the
+Keffectives already calculated only has solutions for the Keffective
+asked for outside the parameter constraints specified. Keffectives with
+large variances can lead to polynomials which fit the actual behavior of
+a system poorly. The user could rerun the case with more histories to
+reduce the variance, if this is the problem. If the variance is not the
+problem, then extending the parameter range, or making some other change
+to the problem definition to change the Keffective range will be
+necessary.</p>
+</dd>
+<dt>CS-89 *** ERROR *** ______ IS AN INVALID DIMENSION SEARCH COMMAND.</dt><dd><p>This message from subroutine DMSN indicates that the dimension search
+data are out of order, a search command is spelled incorrectly, or the
+search data are specified incorrectly.</p>
+</dd>
+<dt>CS-90 *** ERROR *** ______ IS AN INVALID SEARCH PARAMETER.</dt><dd><p>This message printed from subroutines CNCTYP, DIMTYP, and PCHTYP
+indicates that a parameter entered in the search type specification data
+is not valid. The data could be misspelled or out of order. Omission of
+the keyword MORE before entering the individual search commands can
+cause this error.</p>
+</dd>
+<dt>CS-91 *** ERROR *** ______ IS AN INVALID CONCENTRATION SEARCH COMMAND.</dt><dd><p>This message from subroutine CNCN is caused by a misspelled or illegal
+search command when attempting to do a concentration search.</p>
+</dd>
+<dt>CS-94 *** ERROR *** REG= ______ IS AN INVALID SEARCH DATA ENTRY. THE REGION NUMBER MUST BE GREATER THAN ZERO AND NO LARGER THAN THE NUMBER OF REGIONS IN THE UNIT.</dt><dd><p>This message from subroutine DMSN indicates that the region to be
+altered is incorrectly specified. For example, if the unit being altered
+contains five geometry regions, the value specified for REG= can be as
+small as 1 and as large as 5.</p>
+</dd>
+<dt>CS-95 *** ERROR *** AN ERROR WAS ENCOUNTERED IN THE SEARCH DATA. THE LAST REGION NUMBER MUST BE AT LEAST AS LARGE AS THE FIRST REGION NUMBER. CHECK THE SEARCH DATA PRINTED BELOW. keyword UNIT ______ REGIONS ______ TO ______ PARAMETER= SEARCH CONSTANTS ARE ______</dt><dd><p>This message from subroutine DMSN indicates that the search data
+specified an invalid region number for the final region to be altered.
+Check the printed data and correct as appropriate.</p>
+</dd>
+<dt>CS-96 *** ERROR *** AN ERROR WAS ENCOUNTERED IN THE SEARCH DATA. THE REGION NUMBERS MUST BE GREATER THAN ZERO AND NO LARGER THAN THE NUMBER OF REGIONS IN THE UNIT. CHECK THE SEARCH DATA PRINTED BELOW. keyword UNIT ______ REGIONS ______ TO ______ PARAMETER= ______ SEARCH CONSTANTS ARE ______</dt><dd><p>This message from subroutine DMSN indicates that one of the specified
+region numbers is incorrect. Check the printed data and correct as
+appropriate.</p>
+</dd>
+<dt>CS-97 *** ERROR *** NO VALID SEARCH COMMANDS WERE FOUND IN THE DATA.</dt><dd><p>This message is accompanied by a STOP 235 and is printed from
+subroutines PCHSRH, CNCSRH, and DIMSRH. A common cause of this error is
+the omission of the MORE command before the individual search commands
+are entered.</p>
+</dd>
+<dt>CS-99 *** ERROR *** THIS PROBLEM WILL NOT BE RUN BECAUSE PARM=CHECK WAS ENTERED IN THE ANALYTICAL SEQUENCE SPECIFICATION.</dt><dd><p>This message from subroutine CSAS5 indicates that the problem data were
+read and checked and no errors were found. To execute the problem,
+remove the PARM=CHECK or PARM=CHK from the analytical sequence indicator
+data entry.</p>
+</dd>
+<dt>CS-100 *** ERROR *** THIS PROBLEM WILL NOT BE RUN BECAUSE ERRORS WERE ENCOUNTERED IN THE INPUT DATA.</dt><dd><p>This message from subroutine CSAS5 is self-explanatory. Examine the
+printout to locate the error or errors in the input data. Correct them
+and resubmit the problem.</p>
+</dd>
+<dt>CS-101  *** ERROR <a href="#id6"><span class="problematic" id="id7">**</span></a>* THE CONSTRAINTS ARE NOT VALID FOR PARAMETER SET. −CON= ______  +CON= ______</dt><dd><p>This message is printed from either subroutine CNCN or DMSN if the
+parameter set is invalid. For a parameter set to be valid, −CON must be
+less than 0.0 and +CON must be greater than 0.0. They can be explicitly
+set or calculated using default or provided data.</p>
+</dd>
+<dt>CS-102 *** ERROR *** THE UNIT CELL SPECIFICATION FOR UNIT ______ IS OUT OF BOUNDS. CELL NUMBER ______ WAS SPECIFIED. THE SPECIFIED CELL MUST BE BETWEEN 1 AND THE NUMBER OF CELLS ______.</dt><dd><p>This self-explanatory message from subroutine DMSN indicates that the
+unit cell specified is not between 1 and the number of unit cells
+present in the problem. Recheck the unit cell number specified in the
+search data, correct the input, and resubmit the problem.</p>
+</dd>
+<dt>CS-103 *** ERROR *** THE UNIT CELL SPECIFICATION FOR MIXTURE ______  IS OUT OF BOUNDS. CELL NUMBER ______ WAS SPECIFIED. THE SPECIFIED CELL MUST BE BETWEEN 1 AND THE NUMBER OF UNIT CELLS ______ .</dt><dd><p>This self-explanatory message from subroutine CNCN indicates that the
+unit cell specified for the indicated mixture is not between 1 and the
+number of unit cells present in the problem. Recheck the unit cell
+number specified in the search data, correct the input, and resubmit the
+problem.</p>
+</dd>
+</dl>
+<p id="bibtex-bibliography-CSAS5-0"><dl class="citation">
+<dt class="bibtex label" id="lorek-improved-1979"><span class="brackets"><a class="fn-backref" href="#id1">LDPW79</a></span></dt>
+<dd><p>M. J. Lorek, H. L. Dodds, L. M. Petrie, and R. M. Westfall. Improved criticality search techniques for low and high enriched systems. Technical Report, Tennessee Univ., 1979.</p>
+</dd>
+<dt class="bibtex label" id="thomas-critical-1964"><span class="brackets"><a class="fn-backref" href="#id3">Tho64</a></span></dt>
+<dd><p>J. T. Thomas. CRITICAL THREE-DIMENSIONAL ARRAYS OF NEUTRON-INTERACTING UNITS. PART II. U (93.2) METAL. Technical Report, Oak Ridge National Lab., Tenn., 1964.</p>
+</dd>
+<dt class="bibtex label" id="thomas-critical-1973"><span class="brackets"><a class="fn-backref" href="#id2">Tho73</a></span></dt>
+<dd><p>Joseph T. Thomas. Critical three-dimensional arrays of U (93.2)-metal cylinders. <em>Nuclear Science and Engineering</em>, 52(3):350–359, 1973. Publisher: Taylor &amp; Francis.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CSAS5App.html" class="btn btn-neutral float-right" title="Additional Example Applications of CSAS5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Criticality%20Safety%20Overview.html" class="btn btn-neutral float-left" title="Criticality Safety Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

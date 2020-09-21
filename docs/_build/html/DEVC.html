@@ -1,0 +1,1040 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DEVC: Denovo EigenValue Calculation &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI" href="KMART.html" />
+    <link rel="prev" title="Sourcerer: Deterministic Starting Source for Criticality Calculations" href="Sourcerer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DEVC: Denovo EigenValue Calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-input">Sequence input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-block">Parameters block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grid-geometry-block">Grid geometry block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macromaterial-block">Macromaterial block</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ray-tracing">Ray tracing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#point-testing">Point testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-sources-block">Starting sources block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-output">Sequence Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-mesh-file-viewer">Using the mesh file viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-the-starting-source">Viewing the starting source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-problems">Sample Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DEVC: Denovo EigenValue Calculation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/DEVC.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="devc-denovo-eigenvalue-calculation">
+<span id="devc"></span><h1>DEVC: Denovo EigenValue Calculation<a class="headerlink" href="#devc-denovo-eigenvalue-calculation" title="Permalink to this headline">¶</a></h1>
+<p><em>Douglas E. Peplow and Cihangir Celik</em></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The DEVC (Denovo EigenValue Calculation) sequence is an interface to the
+Denovo discrete-ordinates package <a class="bibtex reference internal" href="MAVRIC.html#evans-denovo-2010" id="id1">[ESSC10]</a> for calculating criticality
+eigenvalue problems. This sequence reads an input file very similar to a
+CSAS6 input file <a class="bibtex reference internal" href="#goluoglu-monte-2011" id="id2">[GPJD+11]</a> that contains an extra block of input for
+describing the Denovo mesh grid and calculational parameters. Many of
+the subroutines are shared from the MAVRIC routines that interface with
+Denovo for fixed-source calculations.</p>
+<p>This manual assumes that the user is familiar with the
+discrete-ordinates method for radiation transport and the Denovo
+package. DEVC provides an easy way for users to modify existing CSAS6
+inputs and use them to run Denovo. The DEVC sequence also provides a way
+to create mesh geometry for Denovo from the combinatorial solid geometry
+description used by KENO-VI.</p>
+<p>The steps in the DEVC sequence are listed in <a class="reference internal" href="#tab2-4a-1"><span class="std std-numref">Table 78</span></a>.</p>
+<span id="tab2-4a-1"></span><table class="docutils align-center" id="id5">
+<caption><span class="caption-number">Table 78 </span><span class="caption-text">Steps in DEVC for an input file named <em>input</em>.inp</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Module/Task</p></th>
+<th class="head"><p>Creates file</p></th>
+<th class="head"><p>To stop after</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Check user
+input</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Self-shielding
+(celldata/cellm
+ix)
+calculations</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Produces
+optional *.png
+plots</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Produces
+optional
+*.3mdap files
+(to visualize
+grid in
+MeshFileViewer)</p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">parm=check</span></code></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Creates AMPX
+cross sections
+for the “real”
+materials</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ft02f001</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">parm=cross</span></code></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Creates Denovo
+binary stream
+input file and
+the</p>
+<p>macromaterial
+table file</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">xkba_b.inp</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">input.mmt</span></code></p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">parm=input</span></code></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Runs Denovo to
+compute
+<span class="math notranslate nohighlight">\(k_{
+\text{eff}}\)</span>
+and
+either the
+fluxes or the
+fission source</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input.dff</span></code> or</p>
+<p><code class="docutils literal notranslate"><span class="pre">input.dso</span></code></p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The DEVC sequence uses KENO-VI geometry. Users can specify what output
+Denovo will generate: fluxes by space and energy in a binary *.dff
+(Denovo flux file) file or the space-only fission source distribution in
+a binary *.dso (Denovo spatial output) file. The eigenvalue is printed
+in the main output text file.</p>
+<p>Some of the more common KENO starting source types are supported. Other
+starting source types may be added or extended to all of the different
+array types in the future. Currently, starting sources are not sent to
+Denovo because the Arnoldi solver does not use it. This may change in
+the future.</p>
+</div>
+<div class="section" id="sequence-input">
+<h2>Sequence input<a class="headerlink" href="#sequence-input" title="Permalink to this headline">¶</a></h2>
+<p>The input file for a DEVC calculation looks similar to a CSAS6 input
+file, as shown in <a class="reference internal" href="#tab2-4a-2"><span class="std std-numref">Table 79</span></a>. The major difference is that the
+parameter block contains information for the Denovo calculation, not the
+KENO Monte Carlo calculation. A macromaterial block is used to describe
+how the KENO-VI materials are mapped onto the Denovo mesh grid. Only
+multi-group cross-section libraries can be used with Denovo.</p>
+<table class="docutils align-center" id="tab2-4a-2">
+<caption><span class="caption-number">Table 79 </span><span class="caption-text">Input file for a DEVC calculation (and differences with a CSAS6 input file, where black text is the same as CSAS6 and green text is new for DEVC sequence)</span><a class="headerlink" href="#tab2-4a-2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab21.png" src="_images/tab21.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="parameters-block">
+<h3>Parameters block<a class="headerlink" href="#parameters-block" title="Permalink to this headline">¶</a></h3>
+<p>This block contains the parameters for the Denovo eigenvalue
+calculation, the grid geometry, and the macromaterials. Boundary
+conditions listed in the parameters block will override those listed in
+the bounds block (using CSAS6 syntax). <a class="reference internal" href="#tab2-4a-3"><span class="std std-numref">Table 80</span></a> lists the Denovo
+calculation parameters and their default values, and <a class="reference internal" href="#tab2-4a-4"><span class="std std-numref">Table 81</span></a> lists
+the keywords for the setting the boundary conditions and file saving
+options. The grid geometry is defined in a sub-block in the parameters
+block, or the keyword <code class="docutils literal notranslate"><span class="pre">“gridGeometryID=\</span> <span class="pre">*n*\</span> <span class="pre">”</span></code> can be used to point to a
+grid geometry defined in its own input block.</p>
+<table class="docutils align-center" id="tab2-4a-3">
+<caption><span class="caption-number">Table 80 </span><span class="caption-text">Denovo parameters in the parameters block</span><a class="headerlink" href="#tab2-4a-3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab31.png" src="_images/tab31.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab2-4a-4">
+<caption><span class="caption-number">Table 81 </span><span class="caption-text">Boundary conditions and what type of file to save</span><a class="headerlink" href="#tab2-4a-4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab41.png" src="_images/tab41.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="grid-geometry-block">
+<h3>Grid geometry block<a class="headerlink" href="#grid-geometry-block" title="Permalink to this headline">¶</a></h3>
+<p>Grid geometries (“<code class="docutils literal notranslate"><span class="pre">gridGeometry</span></code> <em>id</em>”) require an identification number
+and then a description of a three-dimensional rectangular mesh by
+specifying the bounding planes of the cells in each of the <em>x</em>, <em>y</em>, and
+<em>z</em> dimensions. The keyword <code class="docutils literal notranslate"><span class="pre">“xPlanes</span> <span class="pre">…</span> <span class="pre">end”</span></code> can be used to list plane
+values (in any order). The keyword “<code class="docutils literal notranslate"><span class="pre">xLinear</span></code> <em>n</em> <em>a</em> <em>b</em>” can be used
+to specify <em>n</em> cells between <em>a</em> and <em>b</em>. The keywords “<code class="docutils literal notranslate"><span class="pre">xPlanes</span></code>” and
+<code class="docutils literal notranslate"><span class="pre">“xLinear”</span></code> can be used together and multiple times – they will simply add
+planes to any already defined for that dimension. Any duplicate planes
+will be removed. Similar keywords are used for the <em>y</em> and <em>z</em>
+dimensions.</p>
+<p>When using multiple instances of the keywords *``Linear`` and *``Planes`` for
+a given dimension, duplicates should be removed from the final list. In
+some cases, double precision math will leave two planes that are nearly
+identical but not removed (e.g., 6.0 and 5.9999999). To prevent this, a
+default tolerance is set to remove planes that are within 10<sup>-6</sup>
+cm of each other. The user is free to change this by using the keyword
+<code class="docutils literal notranslate"><span class="pre">“tolerance=”</span></code> and specifying something else. Note that the tolerance can
+be reset to a different value in between each use of *``Linear`` or
+*``Planes``.</p>
+<p>The keyword “<code class="docutils literal notranslate"><span class="pre">make3dmap</span></code>” for a particular grid geometry definition will
+create a file called “<em>outputName</em>.grid<em>id</em>.3dmap”, which can be
+visualized using the Java Mesh File Viewer. These files will contain
+crude geometry information (unit, region, material) that corresponds to
+the center of each voxel.</p>
+<p>Keywords for the grid geometry block are listed in <a class="reference internal" href="#tab2-4a-5"><span class="std std-numref">Table 82</span></a>.</p>
+<table class="docutils align-center" id="tab2-4a-5">
+<caption><span class="caption-number">Table 82 </span><span class="caption-text">Grid geometry input keywords</span><a class="headerlink" href="#tab2-4a-5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab51.png" src="_images/tab51.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="macromaterial-block">
+<h3>Macromaterial block<a class="headerlink" href="#macromaterial-block" title="Permalink to this headline">¶</a></h3>
+<p>In order to get more accurate solutions from a coarse-mesh
+discrete-ordinates calculation, Denovo can represent the material in
+each voxel of the mesh as a volume-weighted mixture of the real
+materials in the problem. When constructing the Denovo input, DEVC can
+estimate the volume fraction taken by each real material in each voxel
+by a sampling method. The user can specify parameters for how to sample
+the geometry. Note that finer sampling makes more accurate estimates of
+the material fraction but requires more setup time to create the Denovo
+input. Users should understand how the macromaterials are sampled and
+consider that when constructing a mesh grid. This is especially
+important for geometries that contain arrays. Careful consideration
+should be given when overlaying a mesh on a geometry that contains
+arrays of arrays.</p>
+<p>Because the list of macromaterials could become large, the user can also
+specify a tolerance for how close two different macromaterials can be to
+be considered the same, thereby reducing the total number of
+macromaterials. The macromaterial tolerance, <code class="docutils literal notranslate"><span class="pre">“mmTolerance=”</span></code>, is used for
+creating a different macromaterial from the ones already created by
+looking at the infinity norm between two macromaterials.</p>
+<p>The number of macromaterials does not appreciably impact Denovo run time
+or memory requirements.</p>
+<p>Keywords for the macromaterial block are listed <a class="reference internal" href="#tab2-4a-6"><span class="std std-numref">Table 83</span></a>. Two
+different sampling methods are available – ray tracing <a class="bibtex reference internal" href="MAVRIC.html#ibrahim-improving-2009" id="id3">[IPE+09]</a> with the
+keyword <code class="docutils literal notranslate"><span class="pre">mmRayTest</span></code> and point testing <a class="bibtex reference internal" href="MAVRIC.html#johnson-fast-2013" id="id4">[Joh13]</a> with the keyword <code class="docutils literal notranslate"><span class="pre">mmPointTest</span></code>.</p>
+<table class="docutils align-center" id="tab2-4a-6">
+<caption><span class="caption-number">Table 83 </span><span class="caption-text">Macromaterial block input</span><a class="headerlink" href="#tab2-4a-6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab61.png" src="_images/tab61.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="ray-tracing">
+<h4>Ray tracing<a class="headerlink" href="#ray-tracing" title="Permalink to this headline">¶</a></h4>
+<p>This method estimates the volume of different materials in the Denovo
+mesh grid elements by throwing rays through the KENO-VI geometry and
+computing the average track lengths through the each material. Rays are
+traced in all three dimensions to better estimate the volume fractions
+of materials within each voxel. The <code class="docutils literal notranslate"><span class="pre">mmSubCell</span></code> parameter controls how
+many rays to trace in each voxel in each dimension. For example, if
+<code class="docutils literal notranslate"><span class="pre">mmSubCell=</span></code><span class="math notranslate nohighlight">\(\text{\ n}\)</span>, then when tracing rays in the
+<em>z</em> dimension, each column of voxels uses a set of <span class="math notranslate nohighlight">\(n \times n\)</span>
+rays starting uniformly spaced in the <em>x</em> and <em>y</em> dimensions. With rays
+being cast from all three orthogonal directions, then a total of
+<span class="math notranslate nohighlight">\(3n^{2}\)</span> rays are used to sample each voxel. One can think of
+subcells as an equally spaced sub-mesh with a single ray positioned at
+each center. The number of subcells in each direction, and hence the
+number of rays, can be explicitly given with <code class="docutils literal notranslate"><span class="pre">mmSubCells</span> <span class="pre">ny</span> <span class="pre">nz</span> <span class="pre">nx</span> <span class="pre">nz</span> <span class="pre">nx</span>
+<span class="pre">ny</span> <span class="pre">end</span></code> keyword for rays parallel to the <span class="math notranslate nohighlight">\(x\)</span> axis, <span class="math notranslate nohighlight">\(y\)</span> axis,
+and <span class="math notranslate nohighlight">\(z\)</span> axis. <a class="reference internal" href="#fig2-4a-1"><span class="std std-numref">Fig. 105</span></a> shows different subcell
+configurations (in two dimensions) for a given voxel.</p>
+<div class="figure align-center" id="id6">
+<span id="fig2-4a-1"></span><a class="reference internal image-reference" href="_images/fig14.png"><img alt="_images/fig14.png" src="_images/fig14.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 105 </span><span class="caption-text">Ray positions within a voxel with different mmSubCells parameters.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Ray tracing is a more robust method compared to the simple point testing
+method used in previous versions of SCALE/MAVRIC; however, it requires
+more memory than point testing. Ray tracing gives more accurate
+estimates of volume fractions because track lengths across a voxel give
+more information than a series of test points. Ray tracing is also much
+faster than point testing because the particle tracking routines are
+optimized for quickly determining lists of materials and distance along
+a given ray.</p>
+<p>Ray tracing operates on the grid geometry supplied by the user and
+shoots rays in all three directions starting from the lower bounds of
+the mesh grid. An example of arbitrary assembly geometry is shown in
+<a class="reference internal" href="#fig2-4a-2"><span class="std std-numref">Fig. 106</span></a>. A ray consists of a number of steps that corresponds to
+crossing a different material along the path of the ray. Ratios of each
+step’s length to the voxel length in the ray’s direction determine the
+material volume fraction of that step in that voxel, and summation of
+the same material volume fractions gives the material volume fraction of
+that material in that voxel. Ray tracing through a single voxel that
+contains a fuel pin is illustrated in <a class="reference internal" href="#fig2-4a-3"><span class="std std-numref">Fig. 107</span></a>.</p>
+<div class="figure align-center" id="id7">
+<span id="fig2-4a-2"></span><a class="reference internal image-reference" href="_images/fig23.png"><img alt="_images/fig23.png" src="_images/fig23.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 106 </span><span class="caption-text">Geometry model (left) and the Denovo representation (right) of an assembly using macromaterials determined by ray tracing.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>The final constructed macromaterials for this model are also shown in
+<a class="reference internal" href="#fig2-4a-2"><span class="std std-numref">Fig. 106</span></a>. Voxels that contain only a single material are assigned
+that original material number in the constructed macromaterials. For the
+voxels that contain a fuel pin with three different materials, the
+result is a new macromaterial consisting of the volume weighted
+fractions of each original material.</p>
+<p>After the rays are shot in all three directions, the material volume
+fractions are updated and macromaterials are created by using these
+material volume fractions. Material volume fraction calculations for a
+single voxel, as shown in <a class="reference internal" href="#fig2-4a-3"><span class="std std-numref">Fig. 107</span></a>, are given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_{m} = \ \sum_{d = x,y,z}^{}{\sum_{r = 1}^{N_{r}}{\sum_{s = 1}^{N_{s}}\left\{ \begin{matrix}
+\frac{L_{d,r,s}}{L_{d}},\ \ \ &amp; m_{s} = = m \\
+0,\ \ \ &amp; \mathrm{\text{otherwise}} \\
+\end{matrix} \right.\ }} \ \ \ \ \ \  \mathrm{\text{ and  }} \ \ \ \ \ \ \ V_{m} = \frac{F_{m}}{\sum_{n = 1}^{N_{m}}F_{n}}\ ,\end{split}\]</div>
+<p>where <em>F</em><sub>m</sub> = sampled fraction of material <em>m</em> in the voxel,</p>
+<p><em>d</em> = direction of the rays (<em>x</em>, <em>y</em>, <em>z</em>),</p>
+<p><em>r</em> = ray number,</p>
+<p><em>N</em><sub>r</sub> = total number of rays in the voxel for direction of <em>d,</em></p>
+<p><em>s</em> = step number,</p>
+<p><em>N</em><sub>s</sub> = total number of steps for ray <em>r</em> in the voxel for direction of
+<em>d,</em></p>
+<p><em>L</em><sub>d,r,s</sub> = length of the steps <em>s</em> for ray <em>r</em> in the voxel for
+direction of <em>d,</em></p>
+<p><em>L</em><sub>d,</sub> = length of the voxel along direction of <em>d,</em></p>
+<p><em>m</em><sub>s</sub> = material of step <em>s,</em></p>
+<p><em>m</em> = material number,</p>
+<p><em>N</em><sub>m</sub> = total number of materials in the voxel, and</p>
+<p><em>V</em><sub>m</sub> = volume fraction of material <em>m</em> in the voxel.</p>
+<div class="figure align-center" id="id8">
+<span id="fig2-4a-3"></span><a class="reference internal image-reference" href="_images/fig32.png"><img alt="_images/fig32.png" src="_images/fig32.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 107 </span><span class="caption-text">Ray tracing (in two dimensions) through a voxel.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="point-testing">
+<h4>Point testing<a class="headerlink" href="#point-testing" title="Permalink to this headline">¶</a></h4>
+<p>The recursive bisection method uses a series of point tests to determine
+the macromaterial fractions. For a given voxel, the material at the
+center is compared to the material at the eight corners. If they are all
+the same, the entire volume is considered to be made of that material.
+If different, the volume is divided into two in each dimension. Each
+subvolume is tested, and the method is then applied to the subvolumes
+that are not of a single material. When the ratio of the volume of the
+tested region to the original voxel becomes less than a user-specified
+tolerance (in the range of 10<sup>-1</sup> to 10<sup>-4</sup>), then further
+subdivision and testing are stopped. This is illustrated in
+<a class="reference internal" href="#fig2-4a-4"><span class="std std-numref">Fig. 108</span></a>.</p>
+<div class="figure align-center" id="id9">
+<span id="fig2-4a-4"></span><a class="reference internal image-reference" href="_images/fig42.png"><img alt="_images/fig42.png" src="_images/fig42.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 108 </span><span class="caption-text">Progression of the recursive bisection method (from upper left to lower right).</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p>In point testing, the keyword “<code class="docutils literal notranslate"><span class="pre">mmTolerance=</span></code><em>f</em>” is interpreted to be
+where <em>f</em> is the smallest fraction of the voxel volume to consider. This
+same tolerance <em>f</em> is also used to limit the number of macromaterials.
+Before a new macromaterial is created, if one already exists where the
+fraction of each actual material matches to within the given tolerance,
+then the existing material will be used. If using only a single point at
+the center of each voxel, use <code class="docutils literal notranslate"><span class="pre">“mmTolerance=1”</span></code>. The <code class="docutils literal notranslate"><span class="pre">mmSubCell</span></code> keyword is
+not used in point testing.</p>
+</div>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference internal" href="#fig2-4a-5"><span class="std std-numref">Fig. 109</span></a> shows an example of a cask geometry with two types of
+spent fuel (yellows), steel (blue), resin (green), and other metals
+(gray). When the Denovo geometry is set up by testing only the center of
+each mesh cell, the curved surfaces are not well represented (upper
+right). By applying the ray-tracing method and defining a new material
+made of partial fractions of the original materials, an improved Denovo
+model can be made. In the lower left of the figure, the Denovo model was
+constructed using one ray (in each dimension) per voxel and a tolerance
+of 0.1. This gives 20 new materials that are a mixture of the original
+13 actual materials and void. With <code class="docutils literal notranslate"><span class="pre">mmSubCells=3</span></code> and an <code class="docutils literal notranslate"><span class="pre">mmTolerance=0.01</span></code>,
+139 macromaterials are created.</p>
+<p>A macromaterial table listing the fractions of each macromaterial is
+saved to a file called “<em>outputName</em>.mmt”, where <em>outputName</em> is the
+name the user chose for his or her output file. This file can be used by
+the Mesh File Viewer to display the macromaterials as mixtures of the
+actual materials, as seen in lower row of <a class="reference internal" href="#fig2-4a-5"><span class="std std-numref">Fig. 109</span></a>. See the Mesh
+File Viewer help pages for more information on how to use colormap files
+and macromaterial tables.</p>
+<div class="figure align-center" id="id10">
+<span id="fig2-4a-5"></span><a class="reference internal image-reference" href="_images/fig52.png"><img alt="_images/fig52.png" src="_images/fig52.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 109 </span><span class="caption-text">Cask geometry model (upper left) and the Denovo representation using (upper right) cell center testing. Representations using macromaterials determined by ray tracing are shown for (lower left) mmSubCell=1/mmTolerance=0.1 and (lower right) mmSubCell=3/mmTolerance=0.01.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="starting-sources-block">
+<h3>Starting sources block<a class="headerlink" href="#starting-sources-block" title="Permalink to this headline">¶</a></h3>
+<p>The default KENO-VI starting source is “flat over the volume specified
+by the unrotated, untranslated geometry record specified in the first
+position of the global unit boundary record in fissile material only”.
+For DEVC, the default starting source strength is uniform in the fissile
+voxels contained within the bounding box of the global unit (uniform
+density). If macromaterials are used, the amounts in each voxel are
+volume averaged between fissile and non-fissile materials. <a class="reference internal" href="#tab2-4a-7"><span class="std std-numref">Table 84</span></a>
+and <a class="reference internal" href="#tab2-4a-8"><span class="std std-numref">Table 85</span></a> describe the starting sources available in the DEVC
+interface to Denovo.</p>
+<span id="tab2-4a-7"></span><table class="docutils align-center" id="id11">
+<caption><span class="caption-number">Table 84 </span><span class="caption-text">Starting source types (within the fissile areas of the listed shape)</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>KENO-VI start type</p></th>
+<th class="head"><p>DEVC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>nst=0</p></td>
+<td><p>the first surface of
+boundary (default)</p></td>
+<td><p>The bounding box of
+global unit</p></td>
+</tr>
+<tr class="row-odd"><td><p>nst=0</p></td>
+<td><p>Within boundary of
+global array having a
+reflector key set to
+false</p></td>
+<td><p>Not supported</p></td>
+</tr>
+<tr class="row-even"><td><p>nst=0</p></td>
+<td><p>A cuboid defined by
+XSM, XSP, YSM, YSP,
+ZSM, and ZSP</p></td>
+<td><p>Supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>nst=1</p></td>
+<td><p>A cuboid defined by
+XSM, XSP, YSM, YSP,
+ZSM, and ZSP with
+cosine distributions</p></td>
+<td><p>Supported</p></td>
+</tr>
+<tr class="row-even"><td><p>nst=2</p></td>
+<td><p>Arbitrary fraction
+(FCT) in element NXS,
+NYS, NZS of the
+global array with the
+remainder in a cuboid
+defined by XSM, XSP,
+YSM, YSP, ZSM, and
+ZSP with cosine
+distributions</p></td>
+<td><p>Supported for some
+array types (see
+<a class="reference internal" href="#tab2-4a-8"><span class="std std-numref">Table 85</span></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>nst=3</p></td>
+<td><p>At the location TFX,
+TFY, TFZ in the
+element NXS, NYS, NZS
+of the global array</p></td>
+<td><p>Supported for some
+array types (see
+<a class="reference internal" href="#tab2-4a-8"><span class="std std-numref">Table 85</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>nst=4</p></td>
+<td><p>At the location TFX,
+TFY, TFZ in units NBX
+of the global array</p></td>
+<td><p>Supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>nst=5</p></td>
+<td><p>Across units NBX in
+the global array</p></td>
+<td><p>Not supported</p></td>
+</tr>
+<tr class="row-even"><td><p>nst=6</p></td>
+<td><p>List of points TFX,
+TFY, TFZ in global
+coordinates</p></td>
+<td><p>Limited to 1 point</p></td>
+</tr>
+<tr class="row-odd"><td><p>nst=6</p></td>
+<td><p>List of points TFX,
+TFY, TFZ in element
+NXS, NYS, NZS of the
+global array</p></td>
+<td><p>Limited to 1 point
+and only for some
+array types (see
+<a class="reference internal" href="#tab2-4a-8"><span class="std std-numref">Table 85</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>nst=7</p></td>
+<td><p>Flat distributions in
+X and Y with
+[1-cos<sup>2</sup>(z)]
+in Z for a cuboid
+defined by XSM, XSP,
+YSM, YSP, ZSM, and
+ZSP</p></td>
+<td><p>Supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>nst=8</p></td>
+<td><p>Flat distributions in
+X and Y with a
+segmented
+distribution in Z for
+a cuboid defined by
+XSM, XSP, YSM, YSP,
+ZSM, and ZSP</p></td>
+<td><p>Not supported</p></td>
+</tr>
+<tr class="row-even"><td><p>nst=9</p></td>
+<td><p>Use a mesh source
+lite file</p></td>
+<td><p>Not supported</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab2-4a-8"></span><table class="docutils align-center" id="id12">
+<caption><span class="caption-number">Table 85 </span><span class="caption-text">Supported array types for starting sources</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 56%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>no arrays</p></th>
+<th class="head"><p>supported</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cuboid</p></td>
+<td><p>supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>hexagonal</p></td>
+<td><p>supported</p></td>
+</tr>
+<tr class="row-even"><td><p>shexagonal</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>rhexagonal</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>dodecahedral</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p>The starting source initialized in Denovo is always a volumetric source—DEVC does not create point sources (which would activate the first
+collision option in Denovo).</p>
+</div>
+</div>
+<div class="section" id="sequence-output">
+<h2>Sequence Output<a class="headerlink" href="#sequence-output" title="Permalink to this headline">¶</a></h2>
+<p>The main text output file consists of the output from the cross-section
+processing codes and Denovo. The user should examine the output and pay
+attention to any warnings or errors. <a class="reference internal" href="#tab2-4a-9"><span class="std std-numref">Table 86</span></a> lists the files
+generated during the DEVC sequence.</p>
+<span id="tab2-4a-9"></span><table class="docutils align-center" id="id13">
+<caption><span class="caption-number">Table 86 </span><span class="caption-text">Files created by DEVC for an input file named <em>input</em>.inp</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Filename</strong></p></th>
+<th class="head"></th>
+<th class="head"><p><strong>Viewer</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Output Summary</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><em>input</em>.out</p></td>
+<td></td>
+<td><p>main text
+output file,
+contains
+<span class="math notranslate nohighlight">\(k_{\math
+rm{\text{eff}}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><em>input</em>.msg</p></td>
+<td></td>
+<td><p>messages file</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Denovo</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xkba_b.inp</p></td>
+<td><p>V<sup>a</sup></p></td>
+<td><p>input file for
+Denovo – if
+this file is
+renamed to have</p>
+<p>a *.dsi
+extension
+(Denovo simple
+input), it is
+viewable</p>
+<p>in the Mesh
+File Viewer</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ft02f001</p></td>
+<td></td>
+<td><p>AMPX formatted
+cross sections
+for Denovo</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><em>input</em>.mmt</p></td>
+<td><p>V</p></td>
+<td><p>macromaterial
+table, use with
+*.dso or
+*.dsi file</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><em>input</em>.dff</p></td>
+<td><p>V</p></td>
+<td><p>Denovo fission
+fluxes</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><em>input</em>.dso</p></td>
+<td><p>V</p></td>
+<td><p>Denovo fission
+source
+distribution</p></td>
+</tr>
+<tr class="row-odd"><td><p><sup>a</sup>V – can be displayed
+with the Mesh File Viewer.</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="using-the-mesh-file-viewer">
+<h3>Using the mesh file viewer<a class="headerlink" href="#using-the-mesh-file-viewer" title="Permalink to this headline">¶</a></h3>
+<p>The Mesh File Viewer is a Java utility shipped with SCALE that is used
+for viewing mesh tallies from Monaco, as well as importance maps and
+mesh-based sources in MAVRIC. The Mesh File Viewer can be used with DEVC
+to view the Denovo input file (*.dsi, showing the starting source), the
+Denovo output fission source distribution (*.dso) file, or the Denovo
+output flux (*.dff) file.</p>
+<p>With any Denovo file, material information for each voxel can be
+displayed. Users can use the graphical user interface to select colors
+for each material in the DEVC input and save them to a colormap text
+file (*.cmp) for later use. For example, <a class="reference internal" href="#fig2-4a-6"><span class="std std-numref">Fig. 110</span></a> shows a cask
+model that has 13 materials with the default colors assigned by the
+viewer. A better color map (uranium is yellow, steel is blue, etc.) and
+an image using that color map are also shown in <a class="reference internal" href="#fig2-4a-6"><span class="std std-numref">Fig. 110</span></a>.</p>
+<div class="figure align-center" id="id14">
+<span id="fig2-4a-6"></span><a class="reference internal image-reference" href="_images/fig61.png"><img alt="_images/fig61.png" src="_images/fig61.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 110 </span><span class="caption-text">Viewing material information with the Mesh File Viewer.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the Denovo input was made using the mixed macromaterials, that can
+also be shown with the Mesh File Viewer. When one of the mesh files is
+loaded and the geometry is displayed (e.g., the materials for a cask
+model shown in <a class="reference internal" href="#fig2-4a-7"><span class="std std-numref">Fig. 111</span></a>), there will be many values since each
+macromaterial is treated by the Java viewer as a separate material.
+Redefining the color map using the GUI is not realistic.</p>
+<p>A colormap needs to be defined for the original materials of the
+problem. For this example, there are 13 original materials, but when
+using macromaterials, 73 macromaterials are used in the
+discrete-ordinates model (as listed in the *.mmt file). The colormap
+file should only contain values for the 13 original materials. When
+loading the colormap, a corresponding *.mmt file can also be loaded.
+This will display mixed colors for the macromaterials, as shown in
+<a class="reference internal" href="#fig2-4a-7"><span class="std std-numref">Fig. 111</span></a>.</p>
+<p>The final result is an image where the colors for the different values
+of the geometry attribute (which in the above example is material) are
+mixed in the ratio of the macromaterial definition.</p>
+<div class="figure align-center" id="id15">
+<span id="fig2-4a-7"></span><a class="reference internal image-reference" href="_images/fig71.png"><img alt="_images/fig71.png" src="_images/fig71.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 111 </span><span class="caption-text">Viewing material information from a Denovo input file.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="viewing-the-starting-source">
+<h3>Viewing the starting source<a class="headerlink" href="#viewing-the-starting-source" title="Permalink to this headline">¶</a></h3>
+<p>The Java MeshFileViewer (scale/cmds/meshview) can be used to visualize
+the Denovo binary stream input file to show materials and starting
+source strengths. An example is shown in <a class="reference internal" href="#fig2-4a-8"><span class="std std-numref">Fig. 112</span></a>.</p>
+<p><strong>Material Numbering</strong></p>
+<p>The cross sections produced by the SCALE cross-section mixing module ICE
+typically have a number of materials equal to the maximum material ID
+specified by the user in the “read composition” block. For a user input
+that contains materials 1, 3, and 5, the GIP-formatted cross-section
+file will contain five entries. For each lattice cell calculation that
+uses a cellmix= parameter, one more entry is contained in the GIP file.
+Hence, the GIP file does not contain the user’s value from the
+“cellmix=” parameter but instead numbers the cellmix materials
+sequentially starting from 1+maximum(material ID). The Denovo geometry
+input and macroMixTable file produced by DEVC are modified to match the
+GIP cross-section file. When viewing the Denovo binary input file with
+the Mesh File Viewer, the GIP numbering for materials will be seen.</p>
+<div class="figure align-center" id="id16">
+<span id="fig2-4a-8"></span><a class="reference internal image-reference" href="_images/fig81.png"><img alt="_images/fig81.png" src="_images/fig81.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Fine-mesh version of sample problem 8, showing the materials using macromaterial blending of UO<sub>2</sub>, MOX, clad, and water (left) and the starting source strength limited to cells with fissionable material (right).</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="sample-problems">
+<h2>Sample Problems<a class="headerlink" href="#sample-problems" title="Permalink to this headline">¶</a></h2>
+<p>Sample problems have been made that correspond to the eight CSAS6 sample
+problems. In each problem, the KENO parameters block was commented out,
+a parameters block containing Denovo calculation parameters was added,
+and a grid geometry block was added. These sample problems use a coarse
+discretization and loose tolerances to obtain a short runtime. Users
+will typically use much finer discretization (mesh, quadrature) and
+higher fidelity parameter settings for real eigenvalue calculations. The
+voxelized geometry and starting source distribution are shown below in
+<a class="reference internal" href="#fig2-4a-9"><span class="std std-numref">Fig. 113</span></a>.</p>
+<p>Results for the sample problems are displayed in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab2-4a-10</span></code>. The
+sample problems used QR 1/1, a P<sub>0</sub> scattering expansion, a k
+tolerance of 0.001 and coarse meshes for speed. The higher fidelity runs
+used finer spatial meshes, default parameters of QR 2/2, <em>P</em><sub>0</sub>
+scattering expansion, and the default <em>k</em> tolerance (10:sup:<cite>-5</cite>).
+Results for the longer-time CSAS6 and higher fidelity Denovo
+calculations are shown in <a class="reference internal" href="#fig2-4a-10"><span class="std std-numref">Fig. 114</span></a>.</p>
+<div class="figure align-center" id="id17">
+<span id="fig2-4a-9"></span><a class="reference internal image-reference" href="_images/fig9.png"><img alt="_images/fig9.png" src="_images/fig9.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Denovo geometry (left) and starting source distribution (right) for the sample problems.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id18">
+<span id="fig2-4a-10"></span><a class="reference internal image-reference" href="_images/fig10.png"><img alt="_images/fig10.png" src="_images/fig10.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Fission source distributions computed by CSAS6 (left) and Denovo (right).</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils align-center" id="tab2-4a-10">
+<caption><span class="caption-number">Table 87 </span><span class="caption-text">Sample problem results</span><a class="headerlink" href="#tab2-4a-10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab10.png" src="_images/tab10.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<p id="bibtex-bibliography-DEVC-0"><dl class="citation">
+<dt class="bibtex label" id="evans-denovo-2010"><span class="brackets"><a class="fn-backref" href="#id1">ESSC10</a></span></dt>
+<dd><p>Thomas M. Evans, Alissa S. Stafford, Rachel N. Slaybaugh, and Kevin T. Clarno. Denovo: A new three-dimensional parallel discrete ordinates code in SCALE. <em>Nuclear technology</em>, 171(2):171–200, 2010. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="goluoglu-monte-2011"><span class="brackets"><a class="fn-backref" href="#id2">GPJD+11</a></span></dt>
+<dd><p>Sedat Goluoglu, Lester M. Petrie Jr, Michael E. Dunn, Daniel F. Hollenbach, and Bradley T. Rearden. Monte Carlo criticality methods and analysis capabilities in SCALE. <em>Nuclear Technology</em>, 174(2):214–235, 2011. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="ibrahim-improving-2009"><span class="brackets"><a class="fn-backref" href="#id3">IPE+09</a></span></dt>
+<dd><p>Ahmad M. Ibrahim, Douglas E. Peplow, Thomas M. Evans, John C. Wagner, and Paul PH Wilson. Improving the Mesh Generation Capabilities in the SCALE Hybrid Shielding Analysis Sequence. <em>Trans. Am. Nucl. Soc</em>, 100:302, 2009.</p>
+</dd>
+<dt class="bibtex label" id="johnson-fast-2013"><span class="brackets"><a class="fn-backref" href="#id4">Joh13</a></span></dt>
+<dd><p>Seth R. Johnson. Fast mix table construction for material discretization. In <em>Proceedings of the 2013 International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering-M and C 2013</em>. 2013.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="KMART.html" class="btn btn-neutral float-right" title="KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Sourcerer.html" class="btn btn-neutral float-left" title="Sourcerer: Deterministic Starting Source for Criticality Calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

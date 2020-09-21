@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to SCALE test documentation! &mdash; SCALE test documentation 0.0.1 documentation</title>
+  <title>Welcome to the SCALE manual! &mdash; SCALE Manual 0.0.1 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -25,15 +31,11 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations" href="MAVRIC.html" /> 
@@ -50,7 +52,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> SCALE test documentation
+            <a href="#" class="icon icon-home" alt="Documentation Home"> SCALE Manual
           
 
           
@@ -73,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -80,14 +83,35 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Radiation Shielding</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -97,7 +121,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">SCALE test documentation</a>
+          <a href="#">SCALE Manual</a>
         
       </nav>
 
@@ -126,9 +150,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to SCALE test documentation!</li>
+      <li>Welcome to the SCALE manual!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -147,14 +171,134 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-scale-test-documentation">
-<h1>Welcome to SCALE test documentation!<a class="headerlink" href="#welcome-to-scale-test-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-the-scale-manual">
+<h1>Welcome to the SCALE manual!<a class="headerlink" href="#welcome-to-the-scale-manual" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="MAVRIC.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MAVRIC.html#cadis-methodology">CADIS Methodology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MAVRIC.html#mavric-input">MAVRIC input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MAVRIC.html#mavric-output">MAVRIC output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MAVRIC.html#sample-problems">Sample problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CAAScapability.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAAScapability.html#methods">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAAScapability.html#user-input">User Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAAScapability.html#example-problem">Example problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAAScapability.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendixb.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixb.html#utilities-working-with-monaco-mesh-tally-3dmap-files">Utilities working with Monaco mesh tally (*.3DMAP) files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixb.html#utilities-for-working-with-denovo-binary-flux-dff-files">Utilities for working with DENOVO binary flux (*.dff) files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixb.html#utilities-for-working-with-denovo-varscl-a-tort-format-files">Utilities for working with DENOVO *.varscl (a TORT format) files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixb.html#miscellaneous-utilities">Miscellaneous utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendixc.html#alternate-normalization-of-the-importance-map-and-biased-source">Alternate normalization of the importance map and biased source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixc.html#importance-maps-with-directional-information">Importance maps with directional information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixc.html#university-of-michigan-methods-for-global-variance-reduction">University of Michigan methods for global variance reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixc.html#using-mavric-to-run-fixed-source-denovo-calculations">Using MAVRIC to run fixed-source Denovo calculations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Monaco.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monaco.html#monaco-capabilities">Monaco Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monaco.html#monaco-input-files">Monaco Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monaco.html#monaco-output">Monaco Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monaco.html#example-problems">Example Problems</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5.html#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5.html#sequence-capabilities">Sequence Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5.html#input-data-guide">Input Data Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5.html#example-problems">Example problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5.html#warning-and-error-messages">Warning and error messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#typical-search">Typical search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#auxiliary-search-commands">Auxiliary search commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#search-constraints-for-dimension-or-pitch-searches">Search constraints for dimension or pitch searches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#search-constraints-for-concentration-searches">Search constraints for concentration searches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#search-considerations">Search considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#optimum-pitch-search">Optimum pitch search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#minimum-pitch-search">Minimum pitch search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#critical-pitch-search">Critical pitch search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#optimum-dimension-search">Optimum dimension search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#minimum-dimension-search">Minimum dimension search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#critical-dimension-search">Critical dimension search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#optimum-concentration-search">Optimum concentration search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#minimum-concentration-search">Minimum concentration search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS5App.html#critical-concentration-search">Critical concentration search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6.html#sequence-capabilities">Sequence Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6.html#multigroup-csas6-limitations">Multigroup CSAS6 limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6.html#input-data-guide">Input Data Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6.html#sample-problems">Sample Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6.html#warning-and-error-messages">Warning and Error Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6App.html#run-keno-vi-using-csas6">Run KENO-VI using CSAS6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6App.html#run-keno-vi-containing-cell-weighted-mixtures">Run KENO-VI containing cell-weighted mixtures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSAS6App.html#run-keno-vi-containing-multiple-unit-cells">Run KENO-VI containing multiple unit cells</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="STARBUCS.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="STARBUCS.html#methodology">Methodology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="STARBUCS.html#capabilities-and-limitations">Capabilities and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="STARBUCS.html#input-description">Input Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="STARBUCS.html#sample-problems">Sample problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Sourcerer.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sourcerer.html#capabilities">Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sourcerer.html#sequence-input">Sequence Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sourcerer.html#sequence-output">Sequence Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sourcerer.html#sample-problems">Sample problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DEVC.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DEVC.html#sequence-input">Sequence input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DEVC.html#sequence-output">Sequence Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DEVC.html#sample-problems">Sample Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="KMART.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KMART.html#kmart-input-data">KMART Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KMART.html#kmart-sample-input">KMART Sample Input</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="K5C5.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="K5C5.html#description-and-input-guide">Description and Input Guide</a></li>
 </ul>
 </li>
 </ul>
@@ -179,11 +323,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, John Batson
+        
+        &copy; Copyright 2020, SCALE developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -194,7 +346,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
