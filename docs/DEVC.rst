@@ -681,7 +681,7 @@ calculations are shown in :numref:`fig2-4a-10`.
 
 
 .. list-table:: Sample problem results
-  :name: tab2-4a-10:
+  :name: tab2-4a-10
   :align: center
 
   * - .. image:: figs/DEVC/tab10.png

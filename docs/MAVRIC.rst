@@ -878,7 +878,7 @@ group energies specifically listed so that it can be evaluated properly on the o
   :align: center
   :name: extra-keywords
 
-  * - .. image:: figs/table4.4.png
+  * - .. image:: figs/MAVRIC/table4.4.png
 
 Importance map block
 ~~~~~~~~~~~~~~~~~~~~
@@ -1023,7 +1023,7 @@ be explicitly given with mmSubCells ny nz nx nz nx ny end keyword for rays paral
 
 .. _ray-positions:
 
-.. figure:: figs/fig4.1.01_rayTrace6.png
+.. figure:: figs/MAVRIC/fig4.1.01_rayTrace6.png
   :width: 500
   :align: center
 
@@ -1051,7 +1051,7 @@ contains a fuel pin is illustrated in :numref:`ray-vox`.
 
 .. _geom-model:
 
-.. figure:: figs/fig4.1.02_kenoDenovo.png
+.. figure:: figs/MAVRIC/fig4.1.02_kenoDenovo.png
   :width: 600
   :align: center
 
@@ -1059,7 +1059,7 @@ contains a fuel pin is illustrated in :numref:`ray-vox`.
 
 .. _ray-vox:
 
-.. figure:: figs/fig4.1.03_rayTrace.png
+.. figure:: figs/MAVRIC/fig4.1.03_rayTrace.png
   :width: 300
   :align: center
 
@@ -1129,7 +1129,7 @@ stopped. This is illustrated in :numref:`rec-macro`.
 
 
 .. _rec-macro:
-.. figure:: figs/rec-macro.png
+.. figure:: figs/MAVRIC/rec-macro.png
   :width: 99 %
 
 
@@ -1165,7 +1165,7 @@ See the Mesh File Viewer help pages for more information on how to use colormap 
 
 
 .. _cask-geom:
-.. figure:: figs/cask-geom.png
+.. figure:: figs/MAVRIC/cask-geom.png
 
   Cask geometry model (upper left) and the Denovo representation using cell center testing (upper right). Representations using macromaterials determined by ray tracing are shown for mmSubCell=1/mmTolerance=0.1 (lower left) and mmSubCell=3/mmTolerance=0.01 (lower right).*
 
@@ -1623,15 +1623,17 @@ This way, the CE-Monaco calculation samples the true CE distributions.
 
 .. list-table:: Keywords for the importance map block
   :name: keywords-importance
+  :align: center
 
-  * - .. image:: figs/table4-5.png
+  * - .. image:: figs/MAVRIC/table4-5.png
 
 
 
 .. list-table:: Denovo options for the importance map block
   :name: denovo-op
+  :align: center
 
-  * - .. image:: figs/table4-6.png
+  * - .. image:: figs/MAVRIC/table4-6.png
 
 
 
@@ -1990,7 +1992,7 @@ of the problem.
 
 .. _mesh-tally:
 
-.. figure:: figs/mesh-tally.png
+.. figure:: figs/MAVRIC/mesh-tally.png
 
     Mesh tally showing neutron dose rate (rem/hr) and uncertainties for the analog case and the CADIS case.
 
@@ -2016,7 +2018,7 @@ simple example. Also note that the fuel material is based on fresh fuel, not spe
 its hundreds of fission products.
 
 .. _cask-geom2:
-.. figure:: figs/cask-geom2.png
+.. figure:: figs/MAVRIC/cask-geom2.png
   :align: center
 
   Cask geometry and detector locations.
@@ -2050,33 +2052,33 @@ shown in :numref:`spent-neutron` and :numref:`source-and-response` is considered
 source: no further neutron multiplication is considered.
 
 .. _spent-neutron:
-.. figure:: figs/fig4.1.08_caskSrcRespn.dist1.png
+.. figure:: figs/MAVRIC/fig4.1.08_caskSrcRespn.dist1.png
   :align: center
 
   Spent fuel neutron source spectrum with strength 8.577 × 10\ :sup:`9`/second.
 
 .. _ANSI-neutron:
-.. figure:: figs/fig4.1.09_caskSrcRespn.resp1.png
+.. figure:: figs/MAVRIC/fig4.1.09_caskSrcRespn.resp1.png
   :align: center
 
   ANSI-1977/ flux-to-dose-rate factors (rem/hr)/(neutrons/\cm :sup:`2`/sec).
 
 .. _spent-photon:
-.. figure:: figs/fig4.1.10_caskSrcRespp.dist1.png
+.. figure:: figs/MAVRIC/fig4.1.10_caskSrcRespp.dist1.png
   :align: center
 
   Spent fuel photon source spectrum with strength 7.155×10\ :sup:`16`/second
 
 .. _ANSI-photon:
-.. figure:: figs/fig4.1.11_caskSrcRespp.resp1.png
+.. figure:: figs/MAVRIC/fig4.1.11_caskSrcRespp.resp1.png
   :align: center
 
   ANSI-1977 photon flux-to-dose-rate factors (rem/hr)/(photons/\cm :sup:`2`/sec)
 
-.. csv-table:: Source and response data using the SCALE 27-group energy structure for neutrons and the 19-group energy structure for photons
-  :file: csv-tables/table4.1.09_sourceResp.csv
-  :header-rows: 1
+.. list-table:: Source and response data using the SCALE 27-group energy structure for neutrons and the 19-group energy structure for photons
   :name: source-and-response
+
+  * - .. image:: figs/MAVRIC/tab9.png
 
 Energies listed are the bin upper energies. Source units are
 particles/s normalized to a total of 1 particle/s. Response units are
@@ -2265,20 +2267,21 @@ six tallies in each problem passed all of the statistical checks.
 detector 1, showing that the tally is not well converged and that some
 batches contain rare events that change the tally value a great deal.
 
-.. csv-table:: Analog Monaco results for the simplified cask model—neutron source/neutron dose rate.
-  :file: csv-tables/table1.10.csv
-  :header-rows: 1
+.. list-table:: Analog Monaco results for the simplified cask model—neutron source/neutron dose rate.
   :name: analog-neutron
   :align: center
 
-.. csv-table:: Analog Monaco results for the simplified cask model—photon source/photon dose rate.
-  :file: csv-tables/table1.11.csv
-  :header-rows: 1
+  * - .. image:: figs/MAVRIC/tab10.png
+
+
+.. list-table:: Analog Monaco results for the simplified cask model—photon source/photon dose rate.
   :name: analog-photon
   :align: center
 
+  * - .. image:: figs/MAVRIC/tab11.png
+
 .. _neutron-dose-plot:
-.. figure:: figs/fig4.1.12_mavric.caskAnalogn.pd1.png
+.. figure:: figs/MAVRIC/fig4.1.12_mavric.caskAnalogn.pd1.png
   :align: center
   :width: 500
 
@@ -2299,17 +2302,18 @@ do well when using axial biasing. SAS4 was not intended to do well for
 the points near the vent port, but the results using the axial biasing
 seem reasonable.
 
-.. csv-table:: SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—neutron source/neutron dose rate
-  :file: csv-tables/table1.12.csv
-  :header-rows: 1
+.. list-table:: SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—neutron source/neutron dose rate
   :align: center
   :name: neutron-problem
 
-.. csv-table:: SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—photon source/photon dose rate
-  :file: csv-tables/table1.13.csv
+  * - .. image:: figs/MAVRIC/tab12.png
+
+.. list-table:: SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—photon source/photon dose rate
   :name: photon-problem
   :align: center
-  :header-rows: 1
+
+  * - .. image:: figs/MAVRIC/tab13.png
+
 
 Calculations using CADIS
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2349,7 +2353,7 @@ parameters are listed in :numref:`mesh-param-xyz`, and the mesh planes are liste
 
 .. _importance-1:
 
-.. figure:: figs/fig1.13.jpg
+.. figure:: figs/MAVRIC/fig1.13.jpg
   :width: 99 %
   :align: center
 
@@ -2357,7 +2361,7 @@ parameters are listed in :numref:`mesh-param-xyz`, and the mesh planes are liste
 
 .. _importance-2:
 
-.. figure:: figs/fig1.14.jpg
+.. figure:: figs/MAVRIC/fig1.14.jpg
   :width: 99 %
   :align: center
 
@@ -2394,11 +2398,13 @@ parameters are listed in :numref:`mesh-param-xyz`, and the mesh planes are liste
     - 49
     - 78890
 
-.. csv-table:: List of the various sets of mesh planes used for the importance calculations for six different point detectors
+.. list-table:: List of the various sets of mesh planes used for the importance calculations for six different point detectors
   :name: mesh-planes
   :align: center
-  :header-rows: 1
-  :file: csv-tables/table4.1.15_caskPlanes.csv
+
+  * - .. image:: figs/MAVRIC/tab15.png
+
+
 
 MAVRIC input files
 ^^^^^^^^^^^^^^^^^^
@@ -2503,31 +2509,31 @@ often.
 The biased source distribution and the importance map are then used by
 Monaco to compute the dose equivalent rate response at detector 3.
 
-.. image:: figs/fig4.1.15g_caskn.adjoint.scale.png
+.. figure:: figs/MAVRIC/fig4.1.15g_caskn.adjoint.scale.png
   :align: center
 .. _adjoint-denovo:
-.. figure:: figs/1.15.jpg
+.. figure:: figs/MAVRIC/1.15.jpg
   :align: center
   :width: 100 %
 
   Adjoint neutron fluxes (/cm :sup:`2`/s) for groups 5 (0.9–1.4 MeV), 10 (0.58–3.0 keV), and 19 (0.8–1 eV) calculated by Denovo.
 
 
-.. image:: figs/fig4.1.16e_caskn.targets.scale.png
+.. figure:: figs/MAVRIC/fig4.1.16e_caskn.targets.scale.png
   :align: center
 
 .. _fifth-neutron:
-.. figure:: figs/1.16.jpg
+.. figure:: figs/MAVRIC/1.16.jpg
   :align: center
   :width: 80 %
 
   Neutron target weights from the importance map and source weights (at birth) for neutron group 5 (0.9 to 1.4 MeV).
 
-.. image:: figs/fig4.1.17g_caskn.prob.scale.png
+.. figure:: figs/MAVRIC/fig4.1.17g_caskn.prob.scale.png
   :align: center
 
 .. _biased-source:
-.. figure:: figs/1.17.jpg
+.. figure:: figs/MAVRIC/1.17.jpg
   :align: center
   :width: 100 %
 
@@ -2551,11 +2557,11 @@ The FOMs for analog Monaco and SAS4 were modified to account for
 calculating all six detectors at once.
 
 
-.. csv-table:: Final MAVRIC results (rem/hr) for each point detector in the neutron source/neutron dose rate problem
-  :header-rows: 1
+.. list-table:: Final MAVRIC results (rem/hr) for each point detector in the neutron source/neutron dose rate problem
   :align: center
   :name: MAVRIC-final
-  :file: csv-tables/4.16.csv
+
+  * - .. image:: figs/MAVRIC/tab16.png
 
 .. list-table:: Comparison of neutron dose rates (rem/hr) to other SCALE codes
   :align: center
@@ -2603,11 +2609,12 @@ calculating all six detectors at once.
     - 2.93E-03 ± 0.2%
 
 
-.. csv-table:: Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco
-  :header-rows:m
+.. list-table:: Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco
   :align: center
   :name: figure-of-merit
-  :file: csv-tables/4.18.csv
+
+  * - .. image:: figs/MAVRIC/tab18.png
+
 
 Photon source/photon response results
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2626,48 +2633,51 @@ using its own importance map and biased source.
 The MAVRIC results of the photon problem compare well against SAS4 and
 analog Monaco, as shown in :numref:`tab4-20` and :numref:`tab4-21`.
 
-.. image:: figs/fig4.1.18g_caskp.adjoint.scale.png
+.. figure:: figs/MAVRIC/fig4.1.18g_caskp.adjoint.scale.png
   :align: center
 
 .. _fig4-18:
 
-.. figure:: figs/4.18.jpg
+.. figure:: figs/MAVRIC/4.18.jpg
   :align: center
 
   Adjoint photon fluxes (/cm: sup:`2`/s) for groups 2 (8–10 MeV), 2 (0.8–1.0 MeV), and 18 (45–100 keV) calculated by Denovo.
 
-.. csv-table:: Final MAVRIC results (rem/hr) for each point detectorin the photon source/photon dose rate problem
+.. list-table:: Final MAVRIC results (rem/hr) for each point detectorin the photon source/photon dose rate problem
   :align: center
-  :file: csv-tables/4.19.csv
   :name: tab4-19
 
-.. image:: figs/fig4.1.19e_caskp.targets.scale.png
+  * - .. image:: figs/MAVRIC/tab18.png
+
+.. figure:: figs/MAVRIC/fig4.1.19e_caskp.targets.scale.png
   :align: center
 
 .. _fig4-19:
 
-.. figure:: figs/4.19.jpg
+.. figure:: figs/MAVRIC/4.19.jpg
   :align: center
   :width: 80 %
 
   Photon target weights from the importance map and source weights (at birth) for photon group 12 (0.8–1.0 MeV).
 
-.. csv-table:: Comparison of the photon dose rates (rem/hr) to other SCALE codes
-  :file: csv-tables/4.20.csv
+.. list-table:: Comparison of the photon dose rates (rem/hr) to other SCALE codes
   :align: center
   :name: tab4-20
 
+  * - .. image:: figs/MAVRIC/tab20.png
+
 .. _fig4-20:
 
-.. figure:: figs/fig4-20.png
+.. figure:: figs/MAVRIC/fig4-20.png
   :align: center
 
   Biased source sampling probability (photons/cm3) for groups 2 (8–10 MeV), 12 (0.8–1.0 MeV), and 18 (45–100 keV).
 
-.. csv-table:: Ratio of the FOM (speed-up) of MAVRIC and SAS4 compared to analog Monaco
-  :file: csv-tables/4.21.csv
+.. list-table:: Ratio of the FOM (speed-up) of MAVRIC and SAS4 compared to analog Monaco
   :align: center
   :name: tab4-21
+
+  * - .. image:: figs/MAVRIC/tab21.png
 
 Gamma-ray litho-density logging tool using FW-CADIS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2689,7 +2699,7 @@ photon flux within each detector volume.
 
 .. _fig4-21:
 
-.. figure:: figs/fig4.1.21_photonTool.bmp
+.. figure:: figs/MAVRIC/fig4.1.21_photonTool.bmp
   :align: center
   :width: 50 %
 
@@ -2697,7 +2707,7 @@ photon flux within each detector volume.
 
 .. _fig4-22:
 
-.. figure:: figs/fig4.1.22_photFWmesh1.bmp
+.. figure:: figs/MAVRIC/fig4.1.22_photFWmesh1.bmp
   :align: center
   :width: 50 %
 
@@ -2705,7 +2715,7 @@ photon flux within each detector volume.
 
 .. _fig4-23:
 
-.. figure:: figs/fig4.1.23_photFWmesh2.bmp
+.. figure:: figs/MAVRIC/fig4.1.23_photFWmesh2.bmp
   :align: center
   :width: 50 %
 
@@ -2938,15 +2948,16 @@ CADIS calculations passed the fourth statistical check within an hour.
 for all four of the simulations: analog, CADIS for the near detector,
 CADIS for the far detector, and the FW-CADIS calculation for both.
 
-.. csv-table:: Comparison of different CADIS techniques for the litho-density problem
-  :file: csv-tables/4.22.csv
+.. list-table:: Comparison of different CADIS techniques for the litho-density problem
   :name: tab4-22
   :align: center
+
+  * - .. image:: figs/MAVRIC/tab22.png
 
 /
 
 .. _fig4-24:
-.. figure:: figs/4.22.png
+.. figure:: figs/MAVRIC/4.22.png
   :align: center
   :width: 800
 
@@ -2964,23 +2975,14 @@ Omega Services, Inc., and a :sup:`60`\Co source. (International Isotopes
 Inc. of Idaho Falls, Idaho, distributes the AOS Radioactive Material
 Transport Packaging Systems.)
 
-<<<<<<< HEAD
-A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
+A simple model of the AOS-100 package,  which is constructed primarily of steel and tungsten, is shown in
 :numref:`fig4-25`. The diameter is 71.12 cm, and the height is 91.44 cm.
 The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
 but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of :sup:`60`\Co.
 This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.
 
-=======
-A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
-:numref:`fig4-25`. The diameter is 71.12 cm, and the height is 91.44 cm.
-The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
-but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of :sup:`60`\Co.
-This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.
-
->>>>>>> 976035f4c8ffba8420e067d938fa541e86781544
 .. _fig4-25:
-.. figure:: figs/fig4.1.25_aos100geom.bmp
+.. figure:: figs/MAVRIC/fig4.1.25_aos100geom.bmp
   :align: center
   :width: 30 %
 
@@ -2996,7 +2998,7 @@ into the air, which is similar to reality for this heavily shielded cask. To com
 the package, variance reduction is needed.
 
 .. _fig4-26:
-.. figure:: figs/4.26.png
+.. figure:: figs/MAVRIC/4.26.png
   :align: center
 
   Dose rates (mrem/hr/Ci) and relative uncertainties along the *y* = 0 midplane of the cask as calculated by an analog calculation.
@@ -3187,7 +3189,7 @@ part of the voxel is actually outside the package. The resolution of the
 mesh tally is 2.54 cm.
 
 .. _fig4-27:
-.. figure:: figs/4.27.png
+.. figure:: figs/MAVRIC/4.27.png
   :align: center
 
   Dose rates (mrem/hr/Ci) and relative uncertainties from the CE FW-CADIS calculation showing the midplane views of the cask (*z* = 0 above and *y* = 0 below).
@@ -3198,7 +3200,7 @@ the photon dose rate, some of the low-energy bins that do not contribute much to
 larger uncertainties.
 
 .. _fig4-28:
-.. figure:: figs/fig4.1.28_mavric.aos100.eflux.png
+.. figure:: figs/MAVRIC/fig4.1.28_mavric.aos100.eflux.png
   :align: center
   :width: 70 %
 
@@ -3211,13 +3213,13 @@ close to the CE-calculation in dose rate (10% high axially, 20% high radially), 
 are much higher than the CE. Neither of the MG calculations shows the 1.17 and 1.33 MeV lines in the energy spectra.
 
 .. _fig4-29:
-.. figure:: figs/4.29.png
+.. figure:: figs/MAVRIC/4.29.png
   :align: center
 
   Ratio of the 47-group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
 
 .. _fig4-30:
-.. figure:: figs/4.30.png
+.. figure:: figs/MAVRIC/4.30.png
   :align: center
 
   Ratio of the 19-group MG computed dose rates to the CE dose rates (*y* = 0 left and *z* = 0 right).
@@ -3237,14 +3239,14 @@ rates with reasonably low relative uncertainties over a mesh tally which
 covers a very large area.
 
 .. _fig4-31:
-.. figure:: figs/fig4.1.31_isfsi.array.bmp
+.. figure:: figs/MAVRIC/fig4.1.31_isfsi.array.bmp
   :align: center
   :width: 80 %
 
   Array of eight casks.
 
 .. _fig4-32:
-.. figure:: figs/fig4.1.32_isfsi.newcask07.bmp
+.. figure:: figs/MAVRIC/fig4.1.32_isfsi.newcask07.bmp
   :align: center
   :width: 30 %
 
@@ -3486,19 +3488,19 @@ For this 1 hr calculation, 50% of the voxels in the mesh tally had less than 20
 For the 64 hr run, 90% of the voxels had less than 10% relative uncertainty.
 
 .. _fig4-33:
-.. figure:: figs/4.33.png
+.. figure:: figs/MAVRIC/4.33.png
   :align: center
 
   Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (1 hr Monaco).
 
 .. _fig4-34:
-.. figure:: figs/4.34.png
+.. figure:: figs/MAVRIC/4.34.png
   :align: center
 
   Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (64 hr Monaco). For the uncertainty plot, purple represents <=5%.
 
 .. _fig4-35:
-.. figure:: figs/fig4.1.35_isfsiCompare.png
+.. figure:: figs/MAVRIC/fig4.1.35_isfsiCompare.png
   :align: center
 
   Distribution of relative uncertainties for different run times of ``mavric.isfsi.inp`` showing the fraction of the mesh tally voxels that had less than a given amount of relative uncertainty.
@@ -3522,7 +3524,7 @@ task for this example is to calculate the total dose rate within 2
 meters of the cask surface.
 
 .. _fig4-36:
-.. figure:: figs/4.36.png
+.. figure:: figs/MAVRIC/4.36.png
   :align: center
 
   MAVRIC model of the TN24-P cask. Materials: spent fuel (light and dark yellow), steels (blues), resin (green), and other metals (gray).
@@ -3784,25 +3786,25 @@ chosen adjoint source. Obtaining dose rates on a 10 cm mesh would not be
 achievable without the variance reduction capabilities of MAVRIC.
 
 .. _fig4-37:
-.. figure:: figs/4.37.png
+.. figure:: figs/MAVRIC/4.37.png
   :align: center
 
   Neutron (left) and photon (right) dose rate response functions.
 
 .. _fig4-38:
-.. figure:: figs/4.38.png
+.. figure:: figs/MAVRIC/4.38.png
   :align: center
 
   Distributions in the TN24-P model.
 
 .. _fig4-39:
-.. figure:: figs/4.39.png
+.. figure:: figs/MAVRIC/4.39.png
   :align: center
 
   Rectilinear mesh tally of total dose rate (rem/hr) and its relative uncertainty along the x=0 plane.
 
 .. _fig4-40:
-.. figure:: figs/4.40.png
+.. figure:: figs/MAVRIC/4.40.png
   :align: center
 
   Cylindrical mesh tally of total dose rate (rem/hr) and its relative uncertainty along the θ=0° plane.

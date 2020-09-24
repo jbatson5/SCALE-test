@@ -19,7 +19,10 @@ Welcome to the SCALE manual!
   :maxdepth: 2
   :caption: Monte Carlo Transport
 
+  Monte Carlo Transport Overview
+  Keno
   Monaco
+
 
 .. toctree::
   :maxdepth: 2
@@ -34,4 +37,4 @@ Welcome to the SCALE manual!
   Sourcerer
   DEVC
   KMART
-  K5C5 
+  K5C5
