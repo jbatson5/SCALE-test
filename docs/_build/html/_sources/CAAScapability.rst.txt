@@ -294,14 +294,14 @@ calculate a dose map for the entire building.
 
 .. _fig4a1:
 
-.. figure:: figs/fig4a1.png
+.. figure:: figs/MAVRIC/fig4a1.png
   :align: center
   :width: 60 %
 
   Cutaway view of Jezebel.
 
 .. _fig4a2:
-.. figure:: figs/fig4a2.png
+.. figure:: figs/MAVRIC/fig4a2.png
   :align: center
   :width: 60 %
 
@@ -390,14 +390,14 @@ and details about the calculated fission distribution are shown in
   +-----------------+----------------------------+-----------------+-------------+
 
 .. _fig4a3:
-.. figure:: figs/fig4a3.png
+.. figure:: figs/MAVRIC/fig4a3.png
   :align: center
   :width: 60 %
 
   Fission source spatial distribution for the center horizontal slice.
 
 .. _fig4a4:
-.. figure:: figs/fig4a4.png
+.. figure:: figs/MAVRIC/fig4a4.png
   :align: center
   :width: 60 %
 
@@ -427,7 +427,7 @@ room, 100 cm above the floor. Assume the detector in the control room is
 a 30 cm diameter sphere located at position (1145, 55, 285).
 
 .. _fig4a5:
-.. figure:: figs/fig4a5.png
+.. figure:: figs/MAVRIC/fig4a5.png
   :align: center
 
   Coordinates of the floor, walls, ceiling, and door of the simple block building model (in cm).
@@ -842,13 +842,13 @@ and forward weighting to help calculate each component of dose with more
 uniform relative uncertainties.
 
 .. _fig4a6:
-.. figure:: figs/4a6.png
+.. figure:: figs/MAVRIC/4a6.png
   :align: center
 
   Dose (rem) results for the z=100 cm plane (containing the source).
 
 .. _fig4a7:
-.. figure:: figs/fig4a7.png
+.. figure:: figs/MAVRIC/fig4a7.png
   :align: center
 
   Relative uncertainties in the dose, most less than 1%, for the z=100 cm plane.

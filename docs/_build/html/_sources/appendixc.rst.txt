@@ -29,7 +29,7 @@ neutron will interact with the air before striking the ship.
 
 .. _fig4c1:
 
-.. figure:: figs/fig41c.png
+.. figure:: figs/MAVRIC/fig41c.png
   :align: center
 
   Importance map computed using standard CADIS.
@@ -81,7 +81,7 @@ until the particle crosses into the hull, where the target weight is
 1.0.
 
 .. _fig4c2:
-.. figure:: figs/fig4c2.png
+.. figure:: figs/MAVRIC/fig4c2.png
   :align: center
 
   Targets weights using the “shiftNormPos” keyword.
@@ -1146,13 +1146,13 @@ A more detailed comparison of the different hybrid methods for
 representative shielding problems can be found in :cite:`peplow_comparison_2013`.
 
 .. _fig4c3:
-.. figure:: figs/fig4c3.png
+.. figure:: figs/MAVRIC/fig4c3.png
   :align: center
 
   Mesh tally results for the photon dose over the entire building use five different methods.
 
 .. _fig4c4:
-.. figure:: figs/fig4c4.png
+.. figure:: figs/MAVRIC/fig4c4.png
   :align: center
   :width: 80 %
 
@@ -1393,7 +1393,7 @@ are listed in :numref:`tab4c4`.
   :align: center
   :name: tab4c4
 
-  * - .. image:: figs/tab4c4.png
+  * - .. image:: figs/MAVRIC/tab4c4.png
 
 In problems with small sources or media that are not highly scattering,
 discrete ordinates can suffer from “ray effects”—where artifacts of the
@@ -1670,7 +1670,7 @@ The ``denovo1.xkba.dsi`` file (the Denovo simple input) contains both the source
 geometry that MAVRIC prepared for Denovo, as shown in :numref:`fig4c5`.
 
 .. _fig4c5:
-.. figure:: figs/fig4c5.png
+.. figure:: figs/MAVRIC/fig4c5.png
   :align: center
 
   Forward Denovo source (left) and mesh geometry (right).
@@ -1680,7 +1680,7 @@ The result of the Denovo-only MAVRIC calculation is a file,
 The Mesh File Viewer can be used to display each group or the total scalar flux, which is shown in :numref:`fig4c6`.
 
 .. _fig4c6:
-.. figure:: figs/fig4c6.png
+.. figure:: figs/MAVRIC/fig4c6.png
   :align: center
 
   Total forward fluxes.
@@ -1780,7 +1780,7 @@ The result of this Denovo-only MAVRIC calculation is a file,
 energy group, as shown in :numref:`fig4c7`.
 
 .. _fig4c7:
-.. figure:: figs/fig4c7.png
+.. figure:: figs/MAVRIC/fig4c7.png
   :align: center
 
   Total adjoint fluxes.

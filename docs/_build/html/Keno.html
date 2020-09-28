@@ -1,0 +1,1635 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Keno: A Monte Carlo Criticality Program &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications" href="Monaco.html" />
+    <link rel="prev" title="Monte Carlo Transport Overview" href="Monte%20Carlo%20Transport%20Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Keno: A Monte Carlo Criticality Program</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-keno">Introduction to KENO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keno-data-guide">KENO Data Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keno-input-outline">Keno input outline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#procedure-for-data-input">Procedure for data input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#title-and-parameter-data">Title and parameter data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geometry-data">Geometry data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#units">UNITS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Keno: A Monte Carlo Criticality Program</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Keno.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keno-a-monte-carlo-criticality-program">
+<span id="keno"></span><h1>Keno: A Monte Carlo Criticality Program<a class="headerlink" href="#keno-a-monte-carlo-criticality-program" title="Permalink to this headline">¶</a></h1>
+<p><em>L. M. Petrie, K. B. Bekar, C. Celik, D. F. Hollenbach</em>,<sup>1</sup> <em>C. M.</em>
+<em>Perfetti, S. Goluoglu,</em><sup>1</sup> <em>N. F. Landers,</em><sup>1</sup> <em>M. E. Dunn, B.</em>
+<em>T. Rearden</em></p>
+<p>KENO is a three-dimensional (3D) Monte Carlo criticality transport
+program developed and maintained for use as part of the SCALE Code
+System. It can be used as part of a sequence or as a standalone program.
+There are two versions of the code currently supported in SCALE.
+KENO V.a is the older of the two. KENO-VI contains all current KENO V.a
+features plus a more flexible geometry package known as the SCALE
+Generalized Geometry Package. The geometry package in KENO-VI is capable
+of modeling any volume that can be constructed using quadratic
+equations. In addition, such features as geometry intersections, body
+rotations, hexagonal and dodecahedral arrays, and array boundaries have
+been included to make the code more flexible.</p>
+<p>The simpler geometry features supported by KENO V.a allow for
+significantly shorter execution times than KENO-VI, while the additional
+geometry features supported in KENO-VI make the code appropriate for
+cases where geometry modeling is not possible with KENO V.a. In
+particular, KENO-VI allows intersections, body truncations with planes,
+and a much wider variety of geometrical bodies. KENO-VI also has the
+ability to rotate bodies so that volumes no longer must be positioned
+parallel to a major axis. Hexagonal arrays are available in KENO-VI and
+dohecahedral arrays enable the code to model pebble bed reactors and
+other systems composed of close packed spheres. The use of array
+boundaries makes it possible to fill a non-cuboidal volume with an
+array, specifying the boundary where a particle leaves and enters the
+array.</p>
+<p>Except for geometry capabilities, the two versions of KENO share most of
+the computational capabilities and the input flexibility specific to
+most SCALE modules. They can both operate in multigroup or continuous
+energy mode, run as standalone codes, or integrated in computational
+sequences such as CSAS, TSUNAMI-3D, or TRITON. Both versions of the code
+are continually updated and are written in FORTRAN 90.</p>
+<p>Computational capabilities shared by the two versions of KENO include
+the determination of k‑effective, neutron lifetime, generation time,
+energy-dependent leakages, energy- and region-dependent absorptions,
+fissions, the system mean-free-path, the region-dependent
+mean-free-path, average neutron energy, flux densities, fission
+densities, reaction rate tallies, mesh tallies, source convergence
+diagnostics, problem-dependent continuous energy temperature treatments,
+parallel calculations, restart capabilities, and many more.</p>
+<p><sup>1</sup>Formerly with Oak Ridge National Laboratory</p>
+<p>ACKNOWLEDGMENTS</p>
+<p>Many individuals have contributed significantly to the development of
+KENO. Special recognition is given to G. E. Whitesides, former Director
+of the Computing Applications Division, who was responsible for the
+concept and development of the original KENO code. He has also
+contributed significantly to some of the techniques used in both KENO
+versions. The late J. T. Thomas offered many ideas that have been
+implemented in the code. R. M. Westfall, retired from ORNL, provided
+early consultation, encouragement, and benchmarks for validating the
+code. The special abilities of J. R. Knight, retired from ORNL,
+contributed substantially to debugging early versions of the code. S. W.
+D. Hart was instrumental in implementing continuous energy temperature
+treatments. W. J. Marshall has provided substantial validation and
+quality assurance reviews. Appreciation is expressed to C. V. Parks and
+S. M. Bowman for their support of KENO and the KENO3D visualization
+tool. The late P. B. Fox provided many of the figures in this document.
+D. Ilas, B. J. Marshall, and D. E. Mueller consolidated the previous
+KENO V.a and KENO-VI manuals into this present form. The efforts of
+L. F. Norris (retired), W. C. Carter (retired), S. J. Poarch, D. J.
+Weaver (retired), S. Y. Walker and R. B. Raney in preparing this
+document are gratefully acknowledged.</p>
+<p>The authors thank the U. S. Nuclear Regulatory Commission and the DOE
+Nuclear Criticality Safety Program for sponsorship of the continuous
+energy, source convergence diagnostics, and grid geometry features in
+the current version.</p>
+<div class="section" id="introduction-to-keno">
+<h2>Introduction to KENO<a class="headerlink" href="#introduction-to-keno" title="Permalink to this headline">¶</a></h2>
+<p>KENO, a functional module in the SCALE system, is a Monte Carlo
+criticality program used to calculate <span class="math notranslate nohighlight">\(k_{eff}\)</span>, fluxes, reaction rates,
+and other data for three-dimensional (3-D) systems. Special features
+include multigroup or continuous energy mode, simplified data input, the
+ability to specify origins for spherical and cylindrical geometry
+regions, a P<sub>n</sub> scattering treatment, and restart capability.</p>
+<p>The KENO data input features flexibility in the order of input. The only
+restrictions are that the sequence identifier, title, and cross section
+library must be entered first. A large portion of the data has been
+assigned default values found to be adequate for many
+problems. This feature enables the user to run a problem with a minimum
+of input data.</p>
+<p>In addition to the features listed above, KENO-VI uses the SCALE
+Generalized Geometry Package (SGGP), which contains a much larger set of
+geometrical bodies, including cuboids, cylinders, spheres, cones,
+dodecahedrons, elliptical cylinders, ellipsoids, hoppers,
+parallelepipeds, planes, rhomboids, and wedges. The code’s flexibility
+is increased by allowing: intersecting geometry regions; hexagonal,
+dodecahedral, and cuboidal arrays; bodies and holes rotated to any angle
+and translated to any position; and a specified array boundary that
+contains only that portion of the array located inside the boundary.
+Users should be aware that the added geometry features in KENO‑VI can
+result in significantly longer run times than KENO V.a. A KENO-VI
+problem that can be modeled in KENO V.a will typically run about four
+times as long with KENO-VI as it does with KENO V.a. Therefore KENO-VI
+is not a replacement for KENO V.a, but rather an additional version for
+more complex geometries that could not be modeled previously.</p>
+<p>Blocks of input data are entered in the form</p>
+<p><strong>READ XXXX</strong> <em>input_data</em> <strong>END XXXX,</strong></p>
+<p>where <strong>XXXX</strong> is the keyword for the type of data being entered. The
+types of data entered include parameters, geometry region data, array
+definition data, biasing or weighting data, albedo boundary conditions,
+starting distribution information, the cross section mixing table, extra
+one-dimensional (1-D) (reaction rate) cross section IDs for special
+applications, energy group boundaries for tallying in the continuous
+energy mode, a mesh grid for collecting flux moments, and printer plot
+information.</p>
+<p>A block of data can be omitted unless it is needed or desired for the
+problem. Within the blocks of data, most of the input is activated by
+using keywords to override default values.</p>
+<p>The treatment of the energy variable can be either multigroup or
+continuous. Changing the calculation mode from multigroup to continuous
+energy or vice versa is established by simply changing the cross section
+library used. All available calculated entities in the multigroup mode
+can also be calculated in the continuous energy mode. If the calculated
+entity is energy or group dependent, it is automatically tallied into
+the appropriate group structure in the continuous energy mode.</p>
+<p>The KENO V.a geometry input consists of spheres, hemispheres, cylinders,
+hemicylinders, and cuboids. Although the origin of the cylinders,
+hemicylinders, spheres, and hemispheres is zero by default, they may be
+specified to any value that will allow the geometry to fit in the
+problem. This feature allows the use of nonconcentric cylindrical and
+spherical shapes and provides a great deal of freedom in positioning
+them. Another feature that expands the generality of the code is the
+ability to place the cut surface of the hemicylinders and hemispheres at
+any distance between the radius and the origin.</p>
+<p>An additional convenience is the availability of an alternative method
+for specifying the array definition unit-location data. This method uses
+FIDO-like options for filling the array.</p>
+<p>As mentioned above, KENO-VI uses the SGGP, which contains a much more
+flexible geometry package than the one in KENO V.a. In KENO-VI, geometry
+regions are constructed and processed as sets of quadratic equations. A
+set of geometric shapes (including all of those used in KENO V.a plus
+others) is available in KENO-VI, as well as the ability to build more
+complex geometric shapes using sets of quadratic equations. Unlike
+KENO V.a, KENO-VI allows intersections between geometry regions within a
+unit, and it provides the ability to specify an array boundary that
+intersects the array.</p>
+<p>The most flexible KENO V.a geometry features are the
+“<strong>ARRAY</strong>-of-<strong>ARRAY</strong>s” and “<strong>HOLE</strong>s” capabilities. The
+<strong>ARRAY</strong>-of-<strong>ARRAY</strong>s option allows the construction of <strong>ARRAY</strong>s
+from other <strong>ARRAY</strong>s. The depth of nesting is limited only by
+computer space restrictions. This option greatly simplifies the setup
+for <strong>ARRAY</strong>s involving different <strong>UNIT</strong>s at different spacings.
+The <strong>HOLE</strong> option allows a <strong>UNIT</strong> or an <strong>ARRAY</strong> to be placed at
+any desired location within a geometry region. The emplaced <strong>UNIT</strong> or
+<strong>ARRAY</strong> cannot intersect any geometry region and must be wholly
+contained within a region. As many <strong>HOLE</strong>s as will snugly fit
+without intersecting can be placed in a region. This option is
+especially useful for describing shipping casks and reflectors that have
+gaps or other geometrical features. Any number of <strong>HOLE</strong>s can be
+described in a problem, and <strong>HOLE</strong>s can be nested to any depth.</p>
+<p>The primary difference between the KENO V.a and KENO-VI geometry input
+is the methodology used to represent the geometry/material regions in a
+unit. KENO-VI uses two geometry records (cards) to describe a region.
+The first record, called the GEOMETRY record, contains the geometry
+(<strong>shape</strong>) keyword, region boundary definitions, and any geometry
+modification data. Using geometry modification data, regions can be
+rotated and translated to any angle and position within a unit. The
+second record, the <strong>CONTENT</strong> record, contains the <strong>MEDIA</strong> keyword;
+the material, <strong>HOLE</strong>, or <strong>ARRAY</strong> ID number; the bias ID number; and
+the region definition vector. KENO-VI requires that a <strong>GLOBAL UNIT</strong> be
+specified in all problems, including single unit problems.</p>
+<p>In addition to the <em>cuboidal</em> <strong>ARRAY</strong>s available in KENO V.a,
+<em>hexagonal</em> <strong>ARRAY</strong>s and <em>dodecahedral</em> <strong>ARRAY</strong>s can be directly
+constructed in KENO-VI. Also, the ability to specify an <strong>ARRAY</strong>
+boundary that intersects the <strong>ARRAY</strong> makes it possible to construct a
+lattice in a cylinder using one <strong>ARRAY</strong> in KENO-VI instead of multiple
+<strong>ARRAY</strong>s and <strong>HOLE</strong>s as would be required in KENO V.a.</p>
+<p>Anisotropic scattering is treated by using discrete scattering angles.
+The angles and associated probabilities are generated in a manner that
+preserves the moments of the angular scattering distribution for the
+selected group-to-group transfer. These moments can be derived from the
+coefficients of a P<sub>n</sub> Legendre polynomial expansion. All moments
+through the 2n − 1 moment are preserved for n discrete scattering
+angles. A one-to-one correspondence exists such that n Legendre
+coefficients yield n moments. The cases of zero and one scattering angle
+are treated in a special manner. Even when the user specifies multiple
+scattering angles, KENO can recognize that the distribution is
+isotropic, and therefore KENO selects from a continuous isotropic
+distribution. If the user specifies one scattering angle, the code
+selects the scattering angle from a linear function if it is positive
+between -1 and +1, and otherwise it performs semicontinuous scattering
+by picking scattering angle cosines uniformly over some range between –1
+and +1. The probability is zero over the rest of the range.</p>
+<p>The KENO restart option is easy to activate. Certain changes can be made
+when a problem is restarted, including using a different random sequence
+or turning off certain print options such as fluxes or the fissions and
+absorptions by region.</p>
+<p>KENO can also compute angular fluxes and flux moments in multigroup
+calculations, which are required to compute scattering terms for
+generation of sensitivity coefficients with the SAMS module or the
+TSUNAMI-3D control module. Fluxes can also be accumulated in a Cartesian
+mesh that is superimposed over the user-defined geometry in an automated
+manner.</p>
+<p>KENO can perform Monte Carlo transport calculations concurrently on a
+number of computational nodes. By introducing a simple master-slave
+approach via MPI, KENO runs different random walks concurrently on the
+replicated geometry within the same generation. Fission source and other
+tallied quantities are gathered at the end of each generation by the
+master process and are then processed either for final edits or
+subsequent generations. Code parallel performance is strongly dependent
+on the size of the problem simulated and the size of the tallied
+quantities.</p>
+</div>
+<div class="section" id="keno-data-guide">
+<h2>KENO Data Guide<a class="headerlink" href="#keno-data-guide" title="Permalink to this headline">¶</a></h2>
+<p>KENO may be run stand alone or as part of a SCALE criticality safety or
+sensitivity and uncertainty analysis sequence. If KENO is run stand
+alone in the multigroup mode, cross section data can be used from an
+AMPX <a href="#id15"><span class="problematic" id="id1">[2]_</span></a> working format library or from a Monte Carlo format cross
+section library. If KENO uses an AMPX working format library, a mixing
+table data block must be entered. If a Monte Carlo format library is
+used, a mixing table data block is not entered, and the mixtures
+specified in the KENO geometry description must be consistent with the
+mixtures created on the Monte Carlo format library file.</p>
+<p>If KENO is run stand alone in the continuous energy mode, a mixing table
+data block must be provided unless the restart option is used.</p>
+<p>If KENO is run as part of a SCALE criticality safety or sensitivity and
+uncertainty analysis sequence, the mixtures are defined in the CSAS or
+TSUNAMI-3D input, and a mixing table data block cannot be entered in
+KENO. Furthermore, the mixture numbers used in the KENO geometry
+description must correspond to those defined in the composition data
+block of the CSAS or TSUNAMI-3D input. To use a cell-weighted mixture in
+KENO, the keyword “<strong>CELLMIX</strong>=,” followed by a unique mixture
+number, must be specified in the unit cell data of the CSAS or
+TSUNAMI‑3D sequence. Unit cell data are applicable only in the
+multigroup mode. The mixture number used in the KENO input is the unique
+mixture number immediately following the keyword “<strong>CELLMIX</strong>=.” A
+cell‑weighted mixture is available only in SCALE sequences that use
+XSDRN to perform a cell-weighting calculation using a multigroup cross
+section library. <a class="reference internal" href="#tab8-1-1"><span class="std std-numref">Table 30</span></a> through <a class="reference internal" href="#tab8-1-14"><span class="std std-numref">Table 43</span></a> summarize the KENO
+input data blocks. These input data blocks are discussed in detail in
+the following sections.</p>
+<p>In order to run KENO parallel (standalone execution), the user must
+provide a name with the “%” prefix in the input file (=%kenovi). Control
+modules like CSAS, TRITON, and TSUNAMI-3D automatically initiate
+parallel KENO execution if the user provides the required arguments
+while running this code.</p>
+<table class="docutils align-center" id="tab8-1-1">
+<caption><span class="caption-number">Table 30 </span><span class="caption-text">Summary of parameter data.</span><a class="headerlink" href="#tab8-1-1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab1.png" src="_images/tab1.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-2">
+<caption><span class="caption-number">Table 31 </span><span class="caption-text">Summary of array data.</span><a class="headerlink" href="#tab8-1-2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab23.png" src="_images/tab23.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-3">
+<caption><span class="caption-number">Table 32 </span><span class="caption-text">Summary of biasing data.</span><a class="headerlink" href="#tab8-1-3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab32.png" src="_images/tab32.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-4">
+<caption><span class="caption-number">Table 33 </span><span class="caption-text">Summary of boundary condition data.</span><a class="headerlink" href="#tab8-1-4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab4.svg" src="_images/tab4.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-5">
+<caption><span class="caption-number">Table 34 </span><span class="caption-text">Summary of boundary condition data specific to KENO-VI.</span><a class="headerlink" href="#tab8-1-5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab5.svg" src="_images/tab5.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-6">
+<caption><span class="caption-number">Table 35 </span><span class="caption-text">Summary of geometry data in KENO V.a.</span><a class="headerlink" href="#tab8-1-6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab6.svg" src="_images/tab6.svg" /></td>
+</tr>
+<tr class="row-even"><td><img alt="_images/tab6cont.svg" src="_images/tab6cont.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-7">
+<caption><span class="caption-number">Table 36 </span><span class="caption-text">Summary of geometry data in KENO-VI.</span><a class="headerlink" href="#tab8-1-7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab7.svg" src="_images/tab7.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-8">
+<caption><span class="caption-number">Table 37 </span><span class="caption-text">Summary of mixing table data.</span><a class="headerlink" href="#tab8-1-8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab8.svg" src="_images/tab8.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-9">
+<caption><span class="caption-number">Table 38 </span><span class="caption-text">Summary of plot data.</span><a class="headerlink" href="#tab8-1-9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab9.svg" src="_images/tab9.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-10">
+<caption><span class="caption-number">Table 39 </span><span class="caption-text">Summary of starting data.</span><a class="headerlink" href="#tab8-1-10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab10.svg" src="_images/tab10.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-11">
+<caption><span class="caption-number">Table 40 </span><span class="caption-text">Summary of volume data (KENO-VI).</span><a class="headerlink" href="#tab8-1-11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab11.svg" src="_images/tab11.svg" /></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-12">
+<caption><span class="caption-number">Table 41 </span><span class="caption-text">Summary of grid geometry data.</span><a class="headerlink" href="#tab8-1-12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab12.svg" src="_images/tab12.svg" /></td>
+</tr>
+</tbody>
+</table>
+<span id="tab8-1-13"></span><table class="docutils align-center" id="id3">
+<caption><span class="caption-number">Table 42 </span><span class="caption-text">Summary of energy group boundary data.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ENERGY</p></td>
+<td><p>Format: READ ENERGY energy group
+boundaries END ENERGY</p>
+<p>Enter upper energy boundary for
+each group in eV. The last entry
+is the lower energy boundary of
+the last group. For N groups,
+there are N+1 entries. Entries
+must be in descending order and
+in units of eV.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="tab8-1-14">
+<caption><span class="caption-number">Table 43 </span><span class="caption-text">Summary of reaction data.</span><a class="headerlink" href="#tab8-1-14" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab14.svg" src="_images/tab14.svg" /></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="keno-input-outline">
+<h3>Keno input outline<a class="headerlink" href="#keno-input-outline" title="Permalink to this headline">¶</a></h3>
+<p>The data input for KENO is outlined below. Default data for KENO have
+been found to be adequate for many problems. These values should be
+carefully considered when entering data.</p>
+<p>Blocks of input data are entered in the form:</p>
+<p><strong>READ XXXX</strong> <em>input_data</em> <strong>END XXXX</strong></p>
+<p>where <strong>XXXX</strong> is the keyword for the type of data being entered. The
+keywords that can be used are listed in Table 8.1.15. A minimum of four
+characters is required for a keyword, and some keyword names may be as
+long as twelve characters (<strong>READ PARAMETER</strong>, <strong>READ GEOMETRY</strong>, etc.).
+Keyword inputs are not case sensitive. Data input is activated by
+entering the words <strong>READ XXXX</strong> followed by one or more blanks. All
+input data pertinent to <strong>XXXX</strong> are then entered. Data for <strong>XXXX</strong> are
+terminated by entering <strong>END XXXX</strong> followed by two or more blanks. Note
+that multiple <strong>READ GRID</strong> blocks are used if multiple grid definitions
+are needed.</p>
+<table class="docutils align-center" id="id4">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text">Types of input data.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type of data</p></td>
+<td><p>First four characters</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameters</p></td>
+<td><p>PARA or PARM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Geometry</p></td>
+<td><p>GEOM</p></td>
+</tr>
+<tr class="row-even"><td><p>Biasing</p></td>
+<td><p>BIAS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boundary conditions</p></td>
+<td><p>BOUN or BNDS</p></td>
+</tr>
+<tr class="row-even"><td><p>Start</p></td>
+<td><p>STAR or STRT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Energy</p></td>
+<td><p>ENER</p></td>
+</tr>
+<tr class="row-even"><td><p>Array (unit orientation)</p></td>
+<td><p>ARRA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Extra 1-D cross sections</p></td>
+<td><p>X1DS</p></td>
+</tr>
+<tr class="row-even"><td><p>Cross section mixing table<sup>a</sup></p></td>
+<td><p>MIXT or MIX</p></td>
+</tr>
+<tr class="row-odd"><td><p>Plot<sup>a</sup></p></td>
+<td><p>PLOT or PLT or PICT</p></td>
+</tr>
+<tr class="row-even"><td><p>Volumes</p></td>
+<td><p>VOLU</p></td>
+</tr>
+<tr class="row-odd"><td><p>Grid geometry</p></td>
+<td><p>GRID</p></td>
+</tr>
+<tr class="row-even"><td><p>Reactions</p></td>
+<td><p>REAC</p></td>
+</tr>
+<tr class="row-odd"><td><p><sup>a</sup> MIX and PLT must include
+a trailing blank, which is
+considered part of the keyword.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Three data records <strong>must</strong> be entered for every problem: first the
+SCALE sequence identifier, then the problem title, and then the <strong>END
+DATA</strong> to terminate the problem.</p>
+<p>(1) KENO is typically run using one of the SCALE CSAS or TSUNAMI
+sequences, but it may also be run stand alone using KENO V.a or KENO-VI.
+The sequence identifier is specified using one line similar to:</p>
+<p>=kenovi</p>
+<p>This line may also include additional runtime directives that are
+described throughout the SCALE manual. For example:</p>
+<p>=kenova parm=check</p>
+<p>The following guidance generally assumes the user is running KENO stand
+alone. If KENO is to be run using of the other sequences (e.g., CSAS5),
+see the appropriate manual section for additional guidance.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>problem title</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Enter a problem title (limit 80 characters, including blanks; extra
+characters will be discarded). A title <strong>must be entered</strong>.
+See Sect. 8.1.2.3.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p><strong>READ PARA</strong> <em>parameter_data</em> <strong>END PARA</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Enter parameter input as needed to describe a problem. If parameter
+data are desired in standalone KENO calculations (i.e., non-CSAS),
+they must immediately follow the problem title. Default values are
+assigned to all parameters. A problem <strong>can</strong> be run without entering
+any parameter data if the default values are acceptable.</p>
+<p>Parameter data must begin with the words <strong>READ PARA</strong>, <strong>READ
+PARM</strong>, or <strong>READ PARAMETER.</strong> Parameter data may be entered in any
+order. If a parameter is entered more than once, the last value is
+used. The words <strong>END PARA</strong> or <strong>END PARM</strong>, or <strong>END PARAMETER</strong>
+terminate the parameter data. See Sect. 8.1.2.3.</p>
+</div></blockquote>
+<p>(n<sub>1</sub>)…( n<sub>13</sub>) The following data may be entered in any
+order. Data not needed to describe the problem may be omitted.</p>
+<p>(n<sub>1</sub>) <strong>READ GEOM</strong> <em>all_geometry_region_data</em> <strong>END GEOM</strong></p>
+<p>Geometry region data must be entered for every problem that is not a
+restart problem. Geometry data must begin with the words <strong>READ GEOM</strong>
+or <strong>READ GEOMETRY</strong>. The words <strong>END GEOM</strong> or <strong>END GEOMETRY</strong>
+terminate the geometry region data. See Sect. 8.1.2.4.</p>
+<p>(n<sub>2</sub>) <strong>READ ARRA</strong> <em>array_definition_data</em> <strong>END ARRA</strong></p>
+<blockquote>
+<div><p>Enter array definition data as needed to describe the problem. Array
+definition data define the array size and position units (defined in
+the geometry data) in a 3-D lattice that represents the physical
+problem being analyzed. Array data must begin with the words <strong>READ
+ARRA</strong> or <strong>READ ARRAY</strong> and must terminate with the words <strong>END
+ARRA</strong> or <strong>END ARRAY</strong>. See Sect. 8.1.2.5.</p>
+</div></blockquote>
+<p>(n<sub>4</sub>) <strong>READ BOUN</strong> <em>albedo_boundary_conditions</em> <strong>END BOUN</strong></p>
+<blockquote>
+<div><p>Enter albedo boundary conditions as needed to describe the problem.
+Albedo data must begin with the words <strong>READ BOUN, READ BNDS</strong>,
+<strong>READ BOUND</strong>, or <strong>READ BOUNDS,</strong> and it must terminate with the
+words <strong>END BOUN</strong>, <strong>ENDS BNDS</strong>, <strong>END BOUND</strong>, or <strong>END BOUNDS</strong>.
+See Sect. 8.1.2.6.</p>
+</div></blockquote>
+<p>(n<sub>3</sub>) <strong>READ BIAS</strong> <em>biasing_information</em> <strong>END BIAS</strong></p>
+<blockquote>
+<div><p>The <em>biasing_information</em> is used to define the weight given to a
+neutron surviving Russian roulette. Biasing data must begin with the
+words <strong>READ BIAS</strong>. The words <strong>END BIAS</strong> terminate the biasing
+data. See Sect. 8.1.2.7.</p>
+</div></blockquote>
+<p>(n<sub>5</sub>) <strong>READ STAR</strong> <em>starting_distribution_information</em> <strong>END
+STAR</strong></p>
+<blockquote>
+<div><p>Enter starting information data for starting the initial source
+neutrons only if a uniform starting distribution is undesirable.
+Start data must begin with the words <strong>READ STAR, READ STRT</strong> or
+<strong>READ START</strong>, and it must terminate with the words <strong>END STAR</strong>,
+<strong>END STRT</strong> or <strong>END START</strong>. See Sect. 8.1.2.8.</p>
+</div></blockquote>
+<p>(n<sub>6</sub>) <strong>READ ENER</strong> <em>energy_group_boundaries</em> <strong>END ENER</strong></p>
+<blockquote>
+<div><p>Enter upper energy boundaries for each neutron energy group to be
+used for tallying in the continuous energy mode. Energy bin data
+begin with the words <strong>READ ENER</strong> or <strong>READ ENERGY</strong> and terminate
+with the words <strong>END ENER</strong> or <strong>END ENERGY</strong>. The last entry is the
+lower energy boundary of the last group. The values must be in
+descending order. This block is only applicable to continuous energy
+KENO calculations. See Sect. 8.1.2.12.</p>
+</div></blockquote>
+<p>(n<sub>7</sub>) <strong>READ MIXT</strong> <em>cross_section_mixing_table</em> <strong>END MIXT</strong></p>
+<blockquote>
+<div><p>Enter a mixing table to define all the mixtures to be used in the
+problem. The mixing table must begin with the words <strong>READ MIXT</strong> or
+<strong>READ MIX</strong> and must end with the words <strong>END MIXT</strong> or <strong>END MIX</strong>.
+Do not enter mixing table data if KENO is being executed as a part of
+a SCALE sequence. See Sect. 8.1.2.10.</p>
+</div></blockquote>
+<p>(n<sub>8</sub>) <strong>READ X1DS</strong> <em>extra_1-D_cross_section_IDs</em> <strong>END X1DS</strong></p>
+<blockquote>
+<div><p>Enter the IDs of any extra 1-D cross sections to be used in the
+problem. These must be available on the mixture cross section
+library. Extra 1-D cross section data must begin with the words
+<strong>READ X1DS</strong> and terminate with the words <strong>END X1DS</strong>. See
+Sect. 8.1.2.9.</p>
+</div></blockquote>
+<p>(n<sub>9</sub>) <strong>READ PLOT</strong> <em>plot_data</em> <strong>END PLOT</strong></p>
+<blockquote>
+<div><p>Enter the data needed to provide a 2-D character or color plot of a
+slice through a specified portion of the 3-D geometrical
+representation of the problem. Plot data must begin with the words
+<strong>READ PLOT</strong>, <strong>READ PLT</strong>, or <strong>READ PICT</strong> and terminate with the
+words <strong>END PLOT</strong>, <strong>END PLT</strong>, or <strong>END PICT</strong>. See Sect. 8.1.2.11.</p>
+</div></blockquote>
+<p>(n<sub>10</sub>) <strong>READ VOLU</strong> <em>volume_data</em> <strong>END VOLU</strong></p>
+<blockquote>
+<div><p>Enter the data needed to specify the volumes of the geometry data.
+Volume data must begin with the words <strong>READ VOLU</strong> or <strong>READ
+VOLUME</strong> and end with the words <strong>END VOLU</strong> or <strong>END VOLUME</strong>. See
+Sect.Volume data.</p>
+</div></blockquote>
+<p>(n<sub>11</sub>) <strong>READ GRID</strong> <em>mesh_grid_data</em> <strong>END GRID</strong></p>
+<blockquote>
+<div><p>Enter the data needed to specify a simple Cartesian grid over either
+the entire problem or part of the problem geometry for tallying
+fluxes, moments, fission sources, etc. Grid data may be entered using
+the keywords <strong>READ GRID</strong>, <strong>READ GRIDGEOM</strong>, or <strong>READ
+GRIDGEOMETRY</strong>, and they are terminated with either <strong>END GRID</strong>,
+<strong>END GRIDGEOM</strong>, or <strong>END GRIDGEOMETRY</strong>. Multiple grids may be
+defined by repeating the <strong>READ GRID</strong> block several times,
+specifying a different mesh grid identification number for each so
+defined grid. See Sect. Grid geometry data for further information.</p>
+</div></blockquote>
+<p>(n<sub>12</sub>) <strong>READ REAC</strong> <em>reaction_data</em> <strong>END REAC</strong></p>
+<blockquote>
+<div><p>Enter the data needed to specify filters for the reaction tally
+calculations. Reaction data must begin with the words <strong>READ REAC</strong>
+and terminate with <strong>END REAC</strong>. This block is only applicable to
+calculations in the continuous energy mode. See Sect.8.1.2.15.</p>
+</div></blockquote>
+<p>(n<sub>13</sub>) <strong>END DATA must be entered</strong></p>
+<blockquote>
+<div><p>Terminate the data for the problem.</p>
+</div></blockquote>
+</div>
+<div class="section" id="procedure-for-data-input">
+<h3>Procedure for data input<a class="headerlink" href="#procedure-for-data-input" title="Permalink to this headline">¶</a></h3>
+<p>For a standalone KENO problem, the first data records <strong>must</strong> be the
+sequence identifier (e.g., =kenovi or =kenova) and the title. The next
+block of data <strong>must</strong> be the parameters if they are to be entered. A
+problem can be run without entering the parameters, which causes KENO to
+use default values for input parameters. The remaining blocks of data
+can be entered in any order.</p>
+<blockquote>
+<div><p><strong>BOLD TYPE</strong> specifies keywords. A keyword is used to identify the
+data that follow it. When a keyword is used, it must be entered
+exactly as shown in the data guide. All keywords except those ending
+with an equal sign must be followed by at least one blank.</p>
+<p><em>small_italics</em> correlate data with a program variable name. The
+actual values are entered in place of the program variable name and
+are terminated by a blank or a comma.</p>
+<p><em>CAPITAL ITALICS</em> identify general data items. General data items are
+general classes of data including</p>
+<p>(1) geometry data such as <em>UNIT INITIALIZATION</em> and <em>UNIT NUMBER
+DEFINITION, GEOMETRY REGION DESCRIPTION, GEOMETRY WORD, MIXTURE
+NUMBER, BIAS ID,</em> and <em>REGION DIMENSIONS</em>,</p>
+<ol class="arabic simple" start="2">
+<li><p>albedo data such as <em>FACE CODES</em> and <em>ALBEDO NAMES</em>,</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>weighting data such as <em>BIAS ID NUMBERS</em>, etc.</p></li>
+</ol>
+<blockquote>
+<div><p>Square brackets The square brackets, [ and ], are used to show that
+an entry is optional.</p>
+<p>Broken line The broken line, |, is used as a logical “or” symbol to
+show that the entries to its left and right are alternatives that
+cannot be used simultaneously.</p>
+</div></blockquote>
+</div>
+<div class="section" id="title-and-parameter-data">
+<h3>Title and parameter data<a class="headerlink" href="#title-and-parameter-data" title="Permalink to this headline">¶</a></h3>
+<p>A <em>title</em>, a character string, must be entered at the top of the input
+file. The syntax is:</p>
+<p><em>title</em> a string of characters with a length of up to 80 characters,
+including blanks.</p>
+<p>The <strong>PARAMETER</strong> block may contain parameter initializations for those
+parameters that need to be changed from their default value. The syntax
+for the <strong>PARAMETER</strong> block is:</p>
+<p><strong>READ</strong> <strong>PARA</strong>[<strong>METER</strong>] <em>p1 … pN</em> <strong>END</strong>
+<strong>PARA</strong>[<strong>METER</strong>]</p>
+<p>or</p>
+<p><strong>READ</strong> <strong>PARM</strong> <em>p1 … pN</em> <strong>END</strong> <strong>PARM</strong></p>
+<p><em>p1 … pN</em> are <em>N</em> (<em>N</em> greater than or equal to zero) keyworded
+parameters that together make up the <em>PARAMETER DATA</em></p>
+<p>The commonly changed parameters are <strong>TME</strong><em>,</em> <strong>GEN</strong><em>,</em> <strong>NSK</strong>,
+and <strong>NPG</strong>. Seldom changed parameters are <strong>NBK</strong><em>,</em> <strong>NFB</strong><em>,</em>
+<strong>XNB</strong><em>,</em> <strong>XFB</strong><em>,</em> <strong>WTH</strong><em>,</em> <strong>WTL</strong><em>,</em> <strong>TBA</strong><em>,</em>
+<strong>BUG</strong><em>,</em> <strong>TRK</strong><em>,</em> and <strong>LNG</strong>.</p>
+<p>The <em>PARAMETER DATA</em>, <em>p1 … pN</em>, consists of one or more of the
+parameters described below.</p>
+<p>Floating point parameters</p>
+<blockquote>
+<div><p><strong>RND</strong> = <em>rndnum</em> input hexadecimal random number, a default value is
+provided.</p>
+<p><strong>TME</strong> = <em>tmax</em> execution time (in minutes) for the problem, default =
+0.0 (no limit).</p>
+<p><strong>TBA</strong> = <em>tbtch</em> time allotted for each generation (in minutes),
+default = 10 minutes. If <em>tbtch</em> is exceeded in any generation, the
+problem is assumed to be looping. Execution is terminated, and final
+edits are performed. The problem can loop indefinitely on a computer if
+the system-dependent routine to interrupt the problem (PULL) is not
+functional. <strong>TBA=</strong> is also used to set the amount of time available
+for generating the initial starting points.</p>
+<p><strong>SIG</strong> = <em>tsigma</em> if entered and &gt; 0.0, this is the standard deviation
+at which the problem will terminate, default = 0.0, which means do not
+check sigma.</p>
+<p><strong>WTA</strong> = <em>dwtav</em> the default average weight given a neutron that
+survives Russian roulette, <em>dwtav</em> default = 0.5.</p>
+<p><strong>WTH</strong> = <em>wthigh</em> the default value of <em>wthigh</em> is 3.0 and should be
+changed only if the user has a valid reason to do so. The weight at
+which splitting occurs is defined to be <em>wthigh x wtavg</em>, where <em>wtavg</em>
+is the weight given to a neutron that survives Russian roulette.</p>
+<p><strong>WTL</strong> = <em>wtlow</em> Russian roulette is played when the weight of a
+neutron is less than <em>wtlow x wtavg</em>. The <em>wtlow</em> default =
+1.0/<em>wthigh</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default values of <em>wthigh</em> and <em>wtlow</em> have been determined to minimize the deviation per unit running time for many problems.</p>
+</div>
+<p><strong>MSH</strong> = <em>mesh_size</em> Length (cm) of one side of a cubic mesh for
+tallying fluxes. Default = 0.0. A positive non-zero value must be
+entered if <strong>MFX</strong>=YES and <strong>READ GRID</strong> input is not entered.</p>
+<p><strong>TTL =</strong> <em>temperature_tolerance</em> The continuous energy cross sections
+must be within the <em>temperature_tolerance</em> (in degrees Kelvin) of the
+requested temperature for the problem to run. A negative value specifies
+the use of the closest temperature to that requested. TTL is ignored
+when <strong>DBX</strong> is nonzero. The default = -1.0.</p>
+<p><strong>DBH</strong> = <em>dbrc_high</em> the energy cutoff (in eV) up to which the Doppler
+Broadening Rejection Correction (DBRC) method will be used on nuclides
+for which DBRC is enabled, and cross section libraries are available.
+DBH is only used in CE simulations. Default = 210.0 eV.</p>
+<p><strong>DBL</strong> = <em>dbrc_low</em> the energy cutoff (in eV) down to which DBRC will
+be used on nuclides for which DBRC is enabled and cross section
+libraries are available. Only used in CE simulations. Default = 0.4 eV.</p>
+</div></blockquote>
+<p>Integer parameters</p>
+<blockquote>
+<div><p><strong>GEN</strong> = <em>nba</em> number of generations to be run, default = 203.</p>
+<p><strong>NPG</strong> = <em>npb</em> number of neutrons per generation, default = 1000.</p>
+<p><strong>NSK</strong> = <em>nskip</em> number of generations (1 through <em>nskip</em>) to be
+omitted when collecting results, default = 3.</p>
+<p><strong>RES</strong> = <em>nrstrt</em> number of generations between writing restart data,
+default = 0. If <strong>RES</strong> is zero, restart data are not written. When
+restarting a problem, <strong>RES</strong> is defaulted to the value that was used
+when the restart data block was written. Thus, it must be entered as
+zero to terminate writing restart data for a restarted problem.</p>
+<p><strong>NBK</strong> = <em>nbank</em> number of positions in the neutron bank, default =
+<em>npb</em> + 25.</p>
+<p><strong>XNB</strong> = <em>nxnbk</em> number of extra entries in the neutron bank, default =
+0.</p>
+<p><strong>NFB</strong> = <em>nfbnk</em> number of positions in the fission bank, default =
+<em>npb.</em></p>
+<p><strong>XFB</strong> = <em>nxfbk</em> number of extra entries in the fission bank, default =
+0.</p>
+<p><strong>X1D</strong> = <em>numx1d</em> number of extra 1-D cross sections, default = 0.</p>
+<p><strong>BEG</strong> = <em>nbas</em> beginning generation number, default = 1. If <strong>BEG</strong> is
+greater than 1, restart data must be available. <strong>BEG</strong> must be 1
+greater than the number of generations retrieved from the restart file.</p>
+<p><strong>NB8</strong> = <em>nb8</em> number of blocks allocated for the first direct-access
+unit, default = 1000.</p>
+<p><strong>NL8</strong> = <em>nl8</em> length of blocks allocated for the first direct-access
+unit, default = 512.</p>
+<p><strong>NQD</strong> = <em>nquad</em> quadrature order for angular flux tallies, default =
+0, which means do not collect. Angular fluxes are typically only needed
+for TSUNAMI-3D calculations.</p>
+<p><strong>NGP</strong> = <em>ngp</em> number of neutron energy groups to be used for tallying
+in the continuous energy mode. If <em>NGP</em> corresponds to a standard SCALE
+group structure, then the SCALE group structure will be used. If it does
+not correspond to a standard structure, an equally spaced in lethargy
+group structure will be used. If nothing is specified for a continuous
+energy problem, the SCALE 238 group structure will be used.</p>
+<p><strong>PNM</strong> = <em>isctr</em> highest order of flux moment tallies, default = 0.
+Flux moments are typically only tallied for TSUNAMI-3D calculations.</p>
+<p><strong>CET</strong> = <em>ce_tsunami_mode</em>.
+mode for CE TSUNAMI (See TSUNAMI-3D manual).</p>
+<blockquote>
+<div><p>0 = No sensitivity calculations</p>
+<p>1 = CLUTCH sensitivity calculation</p>
+<p>2 = IFP sensitivity calculation</p>
+<p>4 = GEAR-MC calculation (with CLUTCH only)</p>
+<p>5 = GEAR-MC calculation (with CLUTCH+IFP)</p>
+<p>7 = Undersampling metric calculation</p>
+</div></blockquote>
+<p><strong>CFP</strong> = <em>number_of_latent_generations</em></p>
+<blockquote>
+<div><p>number of latent generations used for IFP sensitivity or
+<span class="math notranslate nohighlight">\(F^{*}\left( r \right)\)</span> calculations. Note:</p>
+<ul class="simple">
+<li><p>If CET=1 and CFP= -1 then <span class="math notranslate nohighlight">\(F^{*}\left( r \right)\)</span> is assumed to
+equal one everywhere.</p></li>
+<li><p>If CET=4 and CFP= -1 then <span class="math notranslate nohighlight">\(F^{*}\left( r \right)\)</span> is assumed to
+equal zero everywhere.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>DBR</strong> = <em>lusedbrc</em> use Doppler Broadening Rejection Correction method.
+See Sect. 8.1.6.2.9 for more details. Only used in CE simulations.
+Default = 2.</p>
+<blockquote>
+<div><p>0 = No DBRC</p>
+<p>1 = DBRC for <sup>238</sup>U only</p>
+<p>2 = DBRC for all available nuclides (<sup>232</sup>Th, <sup>234</sup>U,
+<sup>235</sup>U, <sup>236</sup>U, <sup>238</sup>U, <sup>237</sup>Np,
+<sup>239</sup>Pu, <sup>240</sup>Pu)</p>
+</div></blockquote>
+<p><strong>DBX</strong> = <em>db_xs_mode</em></p>
+<p>option for performing problem-dependent or on-the-fly Doppler
+Broadening. See Sect. 8.1.6.2.10 for more details. Default = 2.</p>
+<blockquote>
+<div><p>0 = No problem-dependent or on-the-fly Doppler Broadening</p>
+<p>1 = Perform problem-dependent Doppler Broadening for 1D cross
+sections only.</p>
+<p>2 = Perform problem-dependent Doppler Broadening for both 1D and 2D
+(thermal scattering data) cross sections.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Alphanumeric parameter data</p>
+<blockquote>
+<div><p><strong>CEP</strong> = <em>lcep</em> key for choosing the calculation mode in stand alone
+KENO calculations. The parameter is set to the appropriate value by the
+calling sequence if not stand alone KENO. For stand alone KENO, enter NO
+for multigroup mode, or enter the continuous energy directory filename
+for the continuous energy mode. The directory file is the file
+containing pointers to files significant for the continuous energy run.</p>
+<p><strong>FNI</strong> = <em>mode_in</em> extra field in the input restart file name
+[restart_*mode_in*.keno_input] and
+[restart_*mode_in*.keno_calculated]. The default is an empty field.</p>
+<p><strong>FNO</strong> = <em>mode_out</em> extra field in the output restart filename
+[restart_*mode_out*.keno_input] and
+[restart_*mode_out*.keno_calculated]. The default is an empty field.</p>
+</div></blockquote>
+<p>Logical parameter data … enter <em>YES</em> or <em>NO</em></p>
+<blockquote>
+<div><p><strong>APP</strong> = <em>lappend</em> key for appending the restart data, default = NO.</p>
+<p><strong>FLX</strong> = <em>nflx</em> key for collecting and printing fluxes, default = NO.</p>
+<p><strong>FDN</strong> = <em>nfden</em> key for collecting and printing fission densities,
+default = YES.</p>
+<p><strong>ADJ</strong> = <em>nadj</em> key for running adjoint calculation, default = NO.
+Adjoint cross sections must be available to run an adjoint problem. If
+LIB= is specified, the cross sections will be adjointed by the code. If
+XSC= is specified, the cross sections must already be in adjoint order.</p>
+<p><strong>PTB</strong> = <em>ptb</em> key for using probability tables in the continuous
+energy mode, default = YES</p>
+<p><strong>PNU =</strong> <em>lpromptnu</em> key for using delayed or prompt ν in the
+continuous energy mode, default = NO – use total.</p>
+<p><strong>FRE</strong> = <em>lfree_analytic</em> key for using free analytic gas treatment,
+default = YES.</p>
+<p><strong>AMX</strong> = <em>amx</em> key for printing all mixture cross section data. This is
+the same as activating <em>XAP, XS1, XS2, PKI</em>, and <em>P1D</em>. If any of these
+are entered in addition to <em>AMX</em>, that portion of <em>AMX</em> will be
+overridden, default = NO.</p>
+<p><strong>XAP</strong> = <em>prtap</em> key for printing discrete scattering angles and
+probabilities for the mixture cross sections, default = NO.</p>
+<p><strong>XS1</strong> = <em>prtp0</em> key for printing mixture 1-D cross sections, default =
+NO.</p>
+<p><strong>XS2</strong> = <em>prt1</em> key for printing mixture 2-D cross sections, default =
+NO.</p>
+<p><strong>XSL</strong> = <em>prtl</em> key for printing mixture 2-D P<sub>L</sub> cross
+sections, default = NO. The Legendre expansion order L is automatically
+read from the cross section library.</p>
+<p><strong>PKI</strong> = <em>prtchi</em> print input fission spectrum, default = NO.</p>
+<p><strong>P1D</strong> = <em>prtex</em> print extra 1-D cross sections, default = NO.</p>
+<p><strong>FAR</strong> = <em>lfa</em> key for generating region-dependent fissions and
+absorptions for each energy group, default = NO.</p>
+<p><strong>GAS</strong> = <em>lgas</em> key for printing region-dependent fissions and
+absorptions by energy group, applicable only if FAR = YES. Default =
+FAR. GAS = YES prints region-dependent data by energy group. GAS = NO
+suppresses region-dependent data by energy group.</p>
+<p><strong>MKP</strong> = <em>larpos</em> calculate and print matrix k-effective by unit
+location, default = NO. Unit location may also be referred to as array
+position or position index.</p>
+<p><strong>CKP</strong> = <em>lckp</em> calculate and print cofactor k-effective by unit
+location, default = NO. Unit location may also be referred to as array
+position or position index.</p>
+<p><strong>FMP</strong> = <em>pmapos</em> print fission production matrix by array position,
+default = NO.</p>
+<p><strong>MKU</strong> = <em>lunit</em> calculate and print matrix k-effective by unit type,
+default = NO.</p>
+<p><strong>CKU</strong> = <em>lcku</em> calculate and print cofactor k-effective by unit type,
+default = NO.</p>
+<p><strong>FMU</strong> = <em>pmunit</em> print fission production matrix by unit type, default
+= NO.</p>
+<p><strong>MKH</strong> = <em>lmhole</em> calculate and print matrix k-effective by hole
+number, default = NO.</p>
+<p><strong>CKH</strong> = <em>lckh</em> calculate and print cofactor k-effective by hole
+number, default = NO.</p>
+<p><strong>FMH</strong> = <em>pmhole</em> print fission production matrix by hole number,
+default = NO.</p>
+<p><strong>HHL</strong> = <em>lhhgh</em> collect matrix information by hole number at the
+highest hole nesting level, default = NO.</p>
+<p><strong>MKA</strong> = <em>lmarry</em> calculate and print matrix k-effective by array
+number, default = NO.</p>
+<p><strong>CKA</strong> = <em>lcka</em> calculate and print cofactor k-effective by array
+number, default = NO.</p>
+<p><strong>FMA</strong> = <em>pmarry</em> print fission production matrix by array number,
+default = NO.</p>
+<p><strong>HAL</strong> = <em>langh</em> collect matrix information by array number at the
+highest array nesting level, default = NO.</p>
+<p><strong>BUG</strong> = <em>ldbug</em> print debug information, default = NO. Enter <em>YES</em> for
+code debug purposes only.</p>
+<p><strong>TRK</strong> = <em>ltrk</em> print tracking information, default = NO. Enter <em>YES</em>
+for code debug purposes only.</p>
+<p><strong>PWT</strong> = <em>lpwt</em> print weight average array, default = NO.</p>
+<p><strong>PGM</strong> = <em>lgeom</em> print unprocessed geometry as it is read, default =
+NO.</p>
+<p><strong>SMU</strong> = <em>lmult</em> calculate the average self-multiplication of a unit,
+default = NO.</p>
+<p><strong>NUB</strong> = <em>nubar</em> calculate the average number of neutrons per fission
+and the average energy group at which fission occurred, default = YES.</p>
+<p><strong>PAX</strong> = <em>lcorsp</em> print the arrays defining the correspondence between
+the cross section energy group structure and the albedo energy group
+structure, default = NO.</p>
+<p><strong>TFM</strong> = <em>ltfm</em> perform coordinate transform for flux moments and
+angular flux calculations, default = NO.</p>
+<p><strong>PMF</strong> = <em>prtmore</em> print angular fluxes or flux moments if calculated,
+default = NO.</p>
+<p><strong>CFX</strong> = <em>nflx</em> collect fluxes, default = NO.</p>
+<p><strong>UUM</strong> = <em>lUnionizedMix</em> use unionized mixture cross section,
+default=NO. Only used in CE simulations. See Sect. 8.1.6.2.3 for further
+details.</p>
+<p><strong>M2U =</strong> <em>luseMap2Union</em> store cross sections for each nuclide on a
+unionized energy grid, default=NO. Only used in CE simulations. See
+Sect. 8.1.6.2.3 for further details.</p>
+<p><strong>SCX</strong> = <em>lxsecSave</em> save CE cross sections to restart file,
+default=NO.</p>
+<p><strong>MFX</strong> = <em>make_mesh_flux</em> compute mesh fluxes on intervals defined by
+<strong>MSH</strong> above or by READ GRID data block, default = NO.</p>
+<p><strong>PMS</strong> = <em>print_mesh_flux</em> print mesh fluxes if computed, default = NO.</p>
+<p><strong>MFP</strong> = <em>mean-free-path</em> compute and print the mean-free-path of a
+neutron by region, default = NO.</p>
+<p><strong>HTM</strong> = <em>html_output</em> produce HTML formatted output for interactive
+browsing, sorting, and plotting of results, default = YES.</p>
+<p><strong>PMM</strong> = <em>print_mesh_moments</em> print the angular moments of the mesh
+flux, if computed, default = NO.</p>
+<p><strong>PMV</strong> = <em>print_mesh_volumes</em> print the volume of each mesh interval,
+if computed. Default = NO.</p>
+<p><strong>FST</strong> = <em>lprint_FStar</em> Create a .3dmap file that contains the
+<em>F</em><sup>*</sup>(r) mesh used by a CE-TSUNAMI CLUTCH sensitivity
+calculation.</p>
+<p><strong>RUN</strong> = <em>lrun</em> key for determining if the problem is to be executed
+when data checking is complete, default = YES.</p>
+<p><strong>PLT</strong> = <em>lplot</em> key for drawing specified plots of the problem
+geometry, default = YES.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameters RUN and PLOT can also be entered in the PLOT
+data. See Sect. 8.1.2.11. It is recommended that these parameters be
+entered only in the parameter data in order to ensure that the data
+printed in the Logical Parameters table is actually performed. If RUN
+and/or PLT are entered in both the parameter data and plot data, the
+results vary depending on whether the problem is run (1) stand alone,
+(2) as a restarted problem, (3) as CSAS with parm=check, or (4) as CSAS
+without parm=check. These conditions are detailed below.</p>
+</div>
+<dl class="simple">
+<dt>KENO standalone and CSAS with PARM=CHECK</dt><dd><p>The values of RUN and/or PLT entered in KENO parameter data are printed in the Logical Parameters table of the problem output. However, values for RUN and/or PLT entered in the <strong>KENO plot data</strong> will override the values entered in the parameter data.</p>
+</dd>
+<dt>Restarted KENO</dt><dd><p>The values of RUN and/or PLT printed in the Logical Parameters table of the problem output are the final values from the parent problem unless those values are overridden by values entered in the <strong>KENO parameter data</strong> of the restarted problem. If the problem is restarted at generation 1, <strong>KENO plot data</strong> can be entered, and the values for RUN and/or PLT will override the values printed in the Logical Parameters table.</p>
+</dd>
+<dt>CSAS Without PARM=CHECK</dt><dd><p>The values of RUN and/or PLT entered in the KENO parameter data override values entered in the KENO plot data. The values printed in the Logical Parameters table control whether the problem is to be executed and whether a plot is performed.</p>
+</dd>
+</dl>
+<p>Parameters that are either Integer or Logical</p>
+<p><strong>SCD</strong>= <em>lScnvgDiag</em> enable fission source convergence diagnostics
+(ScnvgDiag), default=YES. See Sect. 8.1.6.7for further details.</p>
+<p><strong>CDS</strong> = <em>lcadis/lGridFissions</em> accumulate neutron fissions to use as
+fission source in subsequent MAVRIC/Monaco shielding calculation or for
+visualization, default = NO</p>
+<p><strong>GFX</strong> = <em>lGridFlux</em> compute grid fluxes averaged over the volume of
+the mesh on intervals defined by a READ GRID data block, default = NO.</p>
+<p><strong>MFX</strong> = <em>lMeshFlux</em> compute mesh fluxes averaged over the volume of
+mixtures/materials in a mesh on intervals defined by <strong>MSH</strong> above or by
+READ GRID data block, default = NO.</p>
+<p><strong>CGD</strong> = <em>lStarMesh</em> grid ID for the <em>F</em><sup>*</sup>(r) mesh for
+continuous energy CLUTCH sensitivity calculations. This mesh is defined
+in the <strong>READ GRID</strong> data block, default = NO.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The KENO codes in previous SCALE versions allowed for only one
+mesh definition in the user input with either MSH parameter or <strong>READ
+GRID</strong> data block, and (2) calculation of a single mesh-based quantity,
+such as <strong>MFX</strong> (mesh fluxes) or <strong>CDS</strong> (fission source accumulation on
+a mesh), per KENO simulation.</p>
+<p>The option to define multiple spatial meshes during a single simulation
+has been implemented in the KENO codes to add flexibility to mesh-based
+quantity calculations. The new implementation requires that each mesh
+definition in the <strong>READ GRID</strong> block should have a unique NUMBER (grid
+ID), which is used for mesh assignment. Users can assign any number of
+mesh-based quantities by setting the mesh parameters <strong>SCD</strong>, <strong>CDS</strong>,
+<strong>GFX</strong>, <strong>MFX</strong> and <strong>CGD</strong> to this grid NUMBER.</p>
+<p>To support these former and new definition formats, the parameters
+<strong>SCD</strong>, <strong>CDS</strong>, <strong>GFX</strong>, <strong>MFX</strong> and <strong>CGD</strong> have been redesigned to
+allow either integer or logical entries. Integer entries are required if
+multiple mesh-based quantities are requested by the user. In this case,
+each integer entry must point to a grid ID specified in any <strong>READ
+GRID</strong> data block. See Sect. 8.1.2.14. for several examples for the use
+of these parameter definitions. These entries are detailed below.</p>
+<blockquote>
+<div><p><strong>SCD</strong>=yes Enable source convergence diagnostics using the fission
+source accumulation on the default mesh, which is 5 × 5 × 5 Cartesian
+mesh overlaying the whole problem geometry, generated automatically.
+See Sect. 8.1.6.7.</p>
+<p><strong>SCD</strong>=<em>id</em> Enable source convergence diagnostics using the
+fission source accumulation on the mesh defined with <strong>READ GRID</strong>
+data block with grid ID, <em>id</em>.</p>
+<p><strong>MFX</strong>=yes Compute mesh fluxes (fluxes averaged over each region
+volume in a voxel) on intervals defined by <strong>MSH</strong> above or by the
+first specified <strong>READ GRID</strong> data block.</p>
+<p><strong>MFX</strong>=<em>id</em> Compute mesh fluxes on intervals defined by the
+<strong>READ GRID</strong> data block with grid ID, <em>id</em>.</p>
+<p><strong>CDS</strong>=yes Accumulate fission sources on intervals defined by the
+first specified <strong>READ GRID</strong> data block.</p>
+<p><strong>CDS</strong>=<em>id</em> Accumulate fission source on intervals defined by
+the specified <strong>READ GRID</strong> data block with grid ID, <em>id</em>.</p>
+<p><strong>GFX</strong>=<em>id</em> Compute grid fluxes (fluxes averaged over a voxel
+volume) on intervals defined by the READ GRID data block with grid
+ID, <em>id</em>.</p>
+<p><strong>CGD</strong>=<em>id</em> Enable a mesh grid defined by the READ GRID data
+block with grid ID, id for CLUTCH <span class="math notranslate nohighlight">\(F^{*}\left( r \right)\)</span>
+calculations.</p>
+<p>All of the above quantities may be requested in a single input using
+either the same or different grids. See Sect. 8.1.2.14 for further
+details.</p>
+</div></blockquote>
+</div>
+<p>I/O Unit Numbers</p>
+<blockquote>
+<div><p><strong>XSC</strong> = <em>xsecs</em> I/O unit number for a Monte Carlo format mixed cross
+section library. When LIB≠0, default = 14. To read a mixed cross section
+library from a Monte Carlo format library file or CSASI, XSC must be
+specified.</p>
+<p><strong>ALB</strong> = <em>albdo</em> I/O unit number for albedo data, default = 79.</p>
+<p><strong>WTS</strong> = <em>wts</em> I/O unit number for weights, default = 80.</p>
+<p><strong>LIB</strong> = <em>lib</em> I/O unit number for <em>AMPX</em> working format cross section
+library, default = 0.</p>
+<p><strong>SKT</strong> = <em>skrt</em> I/O unit number for scratch space, default = 16.</p>
+<p><strong>RST</strong> = <em>rstrt</em> I/O unit number for reading restart data, default = 0.</p>
+<p>Enter a logical unit number to restart if <em>BEG</em> &gt; 1.</p>
+<p><strong>WRS</strong> = <em>wstrt</em> I/O unit number for writing restart data, default = 0.</p>
+<blockquote>
+<div><p>A non-zero value must be entered if <em>RES</em> &gt; 0.</p>
+</div></blockquote>
+<p><strong>GRP</strong> = <em>grpbs</em> I/O unit number for an energy group boundary library,
+default = 77.</p>
+<p>Example: <strong>READ PARAM</strong> <strong>NPG</strong>=203 <strong>FLX</strong>=YES <strong>END PARAM</strong></p>
+</div></blockquote>
+</div>
+<div class="section" id="geometry-data">
+<span id="id2"></span><h3>Geometry data<a class="headerlink" href="#geometry-data" title="Permalink to this headline">¶</a></h3>
+<p>The <em>GEOMETRY_ DATA</em> consists of a series of <strong>UNIT</strong> descriptions, one
+of which may be the <strong>GLOBAL UNIT</strong>. The <strong>UNIT</strong> is the basic geometry
+piece in KENO and often corresponds to a well-defined physical entity
+(e.g., a fuel pin). A <strong>UNIT</strong>, therefore, may consist of multiple
+<em>material regions</em>. Each <strong>UNIT</strong> has its own, local coordinate system.
+The <strong>UNIT</strong>s are assembled to construct the problem’s global geometry
+for KENO. The <em>GEOMETRY_ DATA</em> must be entered unless the problem is
+being restarted. See <span class="xref std std-ref">8-1-3-6</span> for detailed examples.</p>
+<div class="section" id="units">
+<h4>UNITS<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h4>
+<p>Geometric arrangements in KENO are achieved in a manner similar to using
+a child’s building blocks. Each building block is called a <strong>UNIT</strong>. An
+<strong>ARRAY</strong> or lattice is constructed by stacking these <strong>UNIT</strong>s. Once
+an <strong>ARRAY</strong> or lattice has been constructed, it can be placed in a
+<strong>UNIT</strong> by using an <strong>ARRAY</strong> specification.</p>
+<p>Each <strong>UNIT</strong> in an <strong>ARRAY</strong> or lattice has its own coordinate system.
+In KENO V.a, all coordinate systems in all <strong>UNIT</strong>s must have the
+same orientation. This restriction is removed in KENO-VI. All geometry
+data used in a problem are correlated to the absolute coordinate system
+by specifying a <strong>GLOBAL UNIT</strong>. <strong>UNIT</strong>s are constructed of
+combinations from several allowed <strong>shape</strong>s or geometric regions.
+These regions can be placed anywhere within a <strong>UNIT</strong>. In KENO V.a the
+regions are oriented along the coordinate system of the <strong>UNIT</strong> and do
+not intersect other regions. This means, for example, that a
+<strong>CYLINDER</strong> must have its axis parallel to one of the coordinate axes,
+while a rectangular parallelepiped must have its faces perpendicular to
+a coordinate axis. The most stringent KENO V.a geometry restriction is
+that none of the options allow geometry regions to intersect. In KENO
+V.a, each region in a unit must entirely contain each preceding region.
+The orientation, intersection, and containment restrictions are
+eliminated in KENO-VI. <a class="reference internal" href="#fig8-1-1"><span class="std std-numref">Fig. 55</span></a> shows some situations that are not
+allowed in KENO V.a, but are allowed in KENO-VI.</p>
+<div class="figure align-center" id="id5">
+<span id="fig8-1-1"></span><img alt="_images/fig15.png" src="_images/fig15.png" />
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Examples of geometry allowed in KENO-VI but not allowed in KENO V.a.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>For KENO V.a, unless special options are invoked, each geometric region
+in a <strong>UNIT</strong> must completely enclose each interior region. Regions may
+touch at points of tangency and may share faces. See <a class="reference internal" href="#fig8-1-2"><span class="std std-numref">Fig. 56</span></a> for
+examples of allowable situations.</p>
+<div class="figure align-center" id="id6">
+<span id="fig8-1-2"></span><img alt="_images/fig24.png" src="_images/fig24.png" />
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Examples of correct KENO V.a units.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Special options are provided to circumvent the complete enclosure
+restriction in KENO V.a or to enhance the basic geometry package in
+KENO-VI. These options include <strong>ARRAY</strong> and <strong>HOLE</strong> descriptions. The
+<strong>HOLE</strong> option is the simplest of these and allows placing a <strong>UNIT</strong>
+anywhere within a region of another <strong>UNIT.</strong> In KENO V.a, <strong>HOLE</strong>s
+are not allowed to intersect the region into which they are placed; this
+restriction does not apply in KENO-VI (see <a class="reference internal" href="#fig8-1-3"><span class="std std-numref">Fig. 57</span></a>). In both geometry
+packages, a <strong>HOLE</strong> cannot intersect the <strong>UNIT</strong> boundary. It is
+recommended that the outer boundary of a <strong>UNIT</strong> used as a <strong>HOLE</strong>
+should not be tangent to or share a boundary with another <strong>HOLE</strong> or a
+region of the <strong>UNIT</strong> containing the <strong>HOLE</strong> because the code may find
+that the regions are intersecting due to precision and round-off. Since
+a particle must check every region to determine its location within a
+<strong>UNIT</strong>, using <strong>HOLE</strong>s to contain complex sections of a problem may
+decrease the CPU time needed for the problem in KENO-VI. Inclusion of
+<strong>HOLE</strong>s increases run-time in KENO V.a, but in many cases cannot be
+avoided. An arbitrary number of <strong>HOLE</strong>s can be placed in a region in
+combination with a series of surrounding regions. The only restrictions
+on <strong>HOLE</strong>s are (1) when they are placed in a <strong>UNIT,</strong> they must be
+entirely contained within the <strong>UNIT</strong>, and (2) they cannot intersect
+other <strong>HOLE</strong>s or nested <strong>ARRAY</strong>s. <strong>HOLE</strong>s in KENO V.a cannot
+intersect an <strong>ARRAY</strong>; in KENO-VI, the <strong>HOLE</strong> cannot intersect the
+<strong>ARRAY</strong> boundary.</p>
+<div class="figure align-center" id="id7">
+<span id="fig8-1-3"></span><img alt="_images/fig33.png" src="_images/fig33.png" />
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Example demonstrating HOLE capability in KENO.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>Lattices or arrays are created by stacking <strong>UNIT</strong>s. In KENO V.a,
+only rectangular parallelepipeds can be organized in an <strong>ARRAY</strong>.
+<strong>HEXPRISM</strong>s and <strong>DODECAHEDRON</strong>s are allowed in KENO-VI to
+construct triangular pitched or closed-packed dodecahedral <strong>ARRAY</strong>s,
+respectively. The adjacent faces of adjacent <strong>UNIT</strong>s stacked in this
+manner must match exactly. See <span class="xref std std-ref">8-1-3-6-4</span> for additional
+clarification and <a class="reference internal" href="#fig8-1-4"><span class="std std-numref">Fig. 58</span></a> and <a class="reference internal" href="#fig8-1-5"><span class="std std-numref">Fig. 59</span></a> for typical examples.</p>
+<div class="figure align-center" id="id8">
+<span id="fig8-1-4"></span><a class="reference internal image-reference" href="_images/fig43.png"><img alt="_images/fig43.png" src="_images/fig43.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Example of triangular pitched ARRAY construction.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id9">
+<span id="fig8-1-5"></span><img alt="_images/fig53.png" src="_images/fig53.png" />
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Example of ARRAY construction.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p>The <strong>ARRAY</strong> option is provided to allow for placing an <strong>ARRAY</strong> or
+lattice within a <strong>UNIT</strong>. In KENO-VI, an <strong>ARRAY</strong> is placed in a
+<strong>UNIT</strong> by inserting it directly into a geometry/material region as a
+content record. In KENO V.a, the <strong>ARRAY</strong> is placed directly in the
+unit like a <strong>CUBOID</strong>: it must be the first region in the <strong>UNIT</strong>, or
+the <strong>ARRAY</strong> elements must intersect with the smaller region.
+Subsequent regions in the <strong>UNIT</strong> containing the <strong>ARRAY</strong> must contain
+it entirely. In KENO-VI, the reverse is true: the region boundary
+containing the <strong>ARRAY</strong> must coincide with or be contained within the
+<strong>ARRAY</strong> boundary. Therefore, in KENO-VI the region boundary becomes
+the <strong>ARRAY</strong> boundary, with the problem ignoring any part of the
+<strong>ARRAY</strong> outside the boundary. A particle enters or leaves the
+<strong>ARRAY</strong> when the region boundary is crossed. In KENO V.a, only one
+<strong>ARRAY</strong> can be placed directly in a UNIT. However, multiple
+<strong>ARRAY</strong>s can be placed within a <strong>UNIT</strong> by using <strong>HOLE</strong>s. When
+an <strong>ARRAY</strong> is placed in a <strong>UNIT</strong> via a <strong>HOLE</strong>, the <strong>UNIT</strong> that
+contains the <strong>ARRAY</strong> (rather than the <strong>ARRAY</strong> itself) is placed in
+the <strong>UNIT</strong>. <strong>ARRAY</strong>s of dissimilar <strong>ARRAY</strong>s can be created by
+stacking <strong>UNIT</strong>s that contain <strong>ARRAY</strong>s. In KENO-VI, it is
+possible to place multiple <strong>ARRAY</strong>s in a <strong>UNIT</strong> by placing them in
+separate regions. Also in KENO-VI, using <strong>HOLE</strong>s to insert
+<strong>ARRAY</strong>s allows the <strong>ARRAY</strong>s to be rotated when placed. See
+<a class="reference internal" href="#fig8-1-6"><span class="std std-numref">Fig. 60</span></a> for an example of an <strong>ARRAY</strong> composed of <strong>UNIT</strong>s
+containing <strong>HOLE</strong>s and <strong>ARRAY</strong>s.</p>
+<div class="figure align-center" id="id10">
+<span id="fig8-1-6"></span><img alt="_images/fig62.png" src="_images/fig62.png" />
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Example of an ARRAY composed of UNITs containing ARRAYs and HOLEs.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p>The method of entering <em>GEOMETRY_DATA</em> in the geometry data block
+follows:</p>
+<p><strong>READ GEOM</strong> <em>GEOMETRY_ DATA</em> <strong>END GEOM</strong></p>
+<div class="section" id="unit-initialization">
+<h5>UNIT initialization<a class="headerlink" href="#unit-initialization" title="Permalink to this headline">¶</a></h5>
+<p>The description of a <strong>UNIT</strong> starts out with the <strong>UNIT</strong>
+<em>INITIALIZATION</em> and is terminated by encountering another <strong>UNIT</strong>
+<em>INITIALIZATION</em> or <strong>END GEOM</strong>.</p>
+<p>The <strong>UNIT</strong> <em>INITIALIZATION</em> has the following format:</p>
+<p>[<strong>GLOBAL</strong>] <strong>UNIT</strong> <em>u</em></p>
+<p><em>u</em> is the identification number (positive integer) assigned to the
+particular <strong>UNIT</strong>. It may be used later to reference a <strong>UNIT</strong>
+previously constructed that the user wishes to place in a <strong>HOLE</strong>, or
+it may be used in an <strong>ARRAY</strong> (see below for more details).</p>
+<p><strong>GLOBAL</strong> is an attribute that specifies that the respective <strong>UNIT</strong>
+is the most comprehensive <strong>UNIT</strong> in the KENO problem to be solved, the
+<strong>UNIT</strong> that includes all the other <strong>UNIT</strong>s and defines the overall
+geometric boundaries of the problem. In general, a <strong>GLOBAL UNIT</strong>
+must be entered for each problem.</p>
+<blockquote>
+<div><p>In KENO V.a, the <strong>GLOBAL</strong> specification is optional. If it is used,
+it can precede either a <strong>UNIT</strong> command or an <strong>ARRAY</strong>
+<em>PLACEMENT_DESCRIPTION</em>. If it is not entered and the problem does
+not contain <strong>ARRAY</strong> data, <strong>UNIT</strong> 1 is the default <strong>GLOBAL
+UNIT</strong>. If there is no <strong>GLOBAL UNIT</strong> specified and <strong>UNIT</strong> 1 is
+absent from the geometry description, an error message is printed. If
+the geometry description contains an <strong>ARRAY</strong>, KENO V.a defaults the
+global array to the array referenced by the last <strong>ARRAY</strong>
+<em>PLACEMENT_DESCRIPTION</em> that is not immediately preceded by a unit
+description. Otherwise, it is the largest array number specified in
+the array data (<span class="xref std std-ref">8-1-2-5</span>).</p>
+</div></blockquote>
+<p>Examples of initiating a <strong>UNIT</strong>:</p>
+<ol class="arabic simple">
+<li><p>Initiate input data for <strong>UNIT</strong> No. 6.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>UNIT</strong> 6</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Initiate input data for the <strong>GLOBAL UNIT</strong> which is <strong>UNIT</strong> No. 4.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>GLOBAL UNIT</strong> 4</p>
+</div></blockquote>
+<p>For each <strong>UNIT</strong>, the <strong>UNIT</strong>’s <em>DESCRIPTION</em> follows the
+<strong>UNIT</strong>’s <em>INITIALIZATION</em>. The <em>DESCRIPTION</em> is realized by
+combining the commands listed below. The basic principles for
+constructing a <strong>UNIT</strong> are different between KENO V.a and KENO-VI. A
+brief discussion of these principles, together with a few examples, is
+presented at the end of this section following the description of the
+basic input used to build the geometry of a <strong>UNIT</strong>. The keywords that
+may be used to define a <strong>UNIT</strong> in KENO are as follows:</p>
+<p><strong>shape</strong></p>
+<p><strong>COM=</strong></p>
+<p><strong>HOLE</strong></p>
+<p><strong>ARRAY</strong></p>
+<p><strong>REPLICATE</strong> (KENO V.a only)</p>
+<p><strong>REFLECTOR</strong> (KENO V.a only)</p>
+<p><strong>MEDIA</strong> (KENO-VI only)</p>
+<p><strong>BOUNDARY</strong> (KENO-VI only)</p>
+</div>
+<div class="section" id="shape">
+<h5>Shape<a class="headerlink" href="#shape" title="Permalink to this headline">¶</a></h5>
+<p><strong>Shape</strong> is a generic keyword used to describe a basic geometric shape
+that may be used in building the geometry of a particular <strong>UNIT</strong>. The
+general format varies between KENO V.a and KENO-VI. In KENO V.a, the
+<strong>shape</strong> defines a region containing a material, so the user is
+required to provide both a material and a <em>bias ID</em>. In KENO-VI the
+<strong>shape</strong> is used strictly as a surface, which is later used to define
+the mono-material regions (using the <strong>MEDIA</strong> card). The user is
+therefore required to enter a label for this surface so that the
+<strong>shape</strong> can be referenced later.</p>
+<p>KENO V.a:</p>
+<p><strong>shape</strong> <em>m</em> <em>b</em> <em>d</em><sub>1</sub> … <em>d</em><sub>N</sub> [<em>a</em><sub>1</sub> …* [<em>a</em><sub>M</sub> ]…]</p>
+<p>KENO-VI:</p>
+<p><strong>shape</strong> <em>l</em> <em>d</em><sub>1</sub> … <em>d</em><sub>N</sub> [<em>a</em><sub>1</sub> …* [<em>a</em><sub>M</sub> ]…]</p>
+<p><strong>shape</strong> is a generic keyword that describes a basic predefined KENO
+shape (e.g., <strong>CUBOID</strong>, <strong>CYLINDER</strong>) that is used to build the
+geometry of the <strong>UNIT</strong>. The predefined shapes differ between KENO V.a
+and KENO-VI. See Appendix A for a description of the KENO V.a basic
+shapes and Appendix B for the KENO-VI shapes.</p>
+<p><em>m</em> is the mixture number of the material (positive integer) that fills
+the particular shape in KENO V.a <strong>UNIT</strong> description. A material number
+of zero indicates a void region (i.e., no material is present in the
+volume defined by the <strong>shape</strong>).</p>
+<p><em>b</em> is the bias identification number (<em>bias ID</em>, a positive integer)
+assigned to the particular region defined by the <strong>shape</strong> in the KENO
+V.a <strong>UNIT</strong> description.</p>
+<p><em>l</em> is the label (positive integer) assigned to the particular <strong>shape</strong>
+in the KENO-VI <strong>UNIT</strong> description. This label is used later to define
+a certain mono-material region within the <strong>UNIT</strong>.</p>
+<p><em>d</em><sub>1</sub> … <em>d</em><sub>N</sub> represent the <em>N</em> dimensions (floating point numbers) that
+define the particular <strong>shape</strong> (e.g., radius of a sphere or cylinder).
+See Appendixes A and B for the particular value of <em>N</em> and how each
+<strong>shape</strong> is described.</p>
+<p><em>a</em><sub>1</sub> … <em>a</em><sub>M</sub> are <em>M</em> optional <em>ATTRIBUTES</em> for the <strong>shape</strong>. The
+attributes provide additional flexibility in the <strong>shape</strong> description.
+The attributes that may be used with either KENO V.a or KENO-VI are
+described below (see shape ATTRIBUTES).</p>
+<p>shape ATTRIBUTES</p>
+<p>The <em>ATTRIBUTES</em> that can be used to enhance the <strong>shape</strong> description
+are <strong>CHORD</strong>, <strong>ORIG</strong>[<strong>IN</strong>], <strong>CENTER</strong>, and <strong>ROTATE</strong> (KENO-VI
+only).</p>
+<p>The CHORD attribute</p>
+<p>This attribute has different formats in KENO V.a and KENO-VI. The user
+will notice that it is more restrictive in KENO V.a. Only the
+<strong>HEMISPHERE and HEMICYLINDER shape</strong>s can be <strong>CHORD</strong>ed in KENO
+V.a, but all 3-D shapes may be <strong>CHORD</strong>ed in KENO-VI.</p>
+<p>KENO V.a:
+<strong>CHORD</strong> <em>ρ</em></p>
+<p>KENO-VI:
+<strong>CHORD</strong> [<strong>+X</strong>=<em>x+</em>] [-<strong>X</strong>=<em>x-</em>] [<strong>+Y</strong>=<em>y+</em>]
+[-<strong>Y</strong>=<em>y-</em>] [<strong>+Z</strong>=<em>z+</em>] [-<strong>Z</strong>=<em>z-</em>]</p>
+<dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p\)</span></dt><dd><p>is the distance <em>ρ</em> from the cut surface to the center of the sphere
+or the axis of a hemicylinder. See <a class="reference internal" href="#fig8-1-7"><span class="std std-numref">Fig. 61</span></a> and <a class="reference internal" href="#fig8-1-8"><span class="std std-numref">Fig. 62</span></a>. Negative
+values of <em>ρ</em> indicate that less than half of the <strong>shape</strong> is retained,
+while positive values indicate that more than half of the <strong>shape</strong> will
+be retained.</p>
+</dd>
+<dt><strong>+X=</strong>, -<strong>X=</strong>, <strong>+Y=</strong>, -<strong>Y=</strong>, <strong>+Z=</strong>, -<strong>Z=</strong></dt><dd><p>are subordinate
+keywords that define the axis parallel to the chord. The “+” and “-”
+signs are used to define the side of the chord which is included in the
+volume. A “+” in the keyword indicates that the more positive side of
+the chord is included in the volume. A “-” in the keyword indicates that
+the more negative side of the chord is included in the volume.</p>
+</dd>
+<dt><em>x+, x-, y+, y-, z+, z-</em></dt><dd><p>are the coordinates of the plane
+perpendicular to the chord. For each chord added to a body, the keyword
+<strong>CHORD</strong> must be used, followed by one of the subordinate keywords and
+its dimension.</p>
+</dd>
+</dl>
+<p>In KENO V.a, the CHORD attribute is applicable for only hemispherical
+and hemicylindrical shapes, <em>not</em> for SPHERE, XCYLINDER, YCYLINDER,
+CYLINDER, ZCYLINDER, CUBE, or CUBOID.</p>
+<div class="figure align-center" id="id11">
+<span id="fig8-1-7"></span><img alt="_images/fig72.png" src="_images/fig72.png" />
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Partial hemisphere or hemicylinder; less than half exists (less than half is defined by ρ &lt; 0).</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id12">
+<span id="fig8-1-8"></span><img alt="_images/fig82.png" src="_images/fig82.png" />
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Partial hemisphere of hemicylinder; more than half exists (more than half is defined by ρ &gt; 0).</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig8-1-9"><span class="std std-numref">Fig. 63</span></a> provides two examples of the use of the CHORD option in
+KENO-VI.</p>
+<div class="figure align-center" id="id13">
+<span id="fig8-1-9"></span><img alt="_images/fig91.png" src="_images/fig91.png" />
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Examples of the CHORD option in KENO-VI.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+<p>The ORIG[IN] attribute</p>
+<p>The format is slightly different between KENO V.a and KENO-VI. Since the
+entries in KENO-VI are key worded, the user has more flexibility in
+choosing the order of these entries or in using default values. Only
+non-zero values must be entered in KENO-VI, but all applicable values,
+whether zero or non-zero, must be entered in KENO V.a.</p>
+<p>KENO V.a:
+<strong>ORIG</strong>[<strong>IN</strong>] <em>a b</em> [<em>c</em>]</p>
+<p>KENO-VI:
+<strong>ORIGIN</strong> [<strong>X</strong>=<em>x</em><sub>0</sub>] [<strong>Y</strong>=<em>y</em><sub>0</sub>] [<strong>Z</strong>=<em>z</em><sub>0</sub>]</p>
+<dl class="simple">
+<dt><span class="math notranslate nohighlight">\(a\)</span></dt><dd><p>is the X coordinate of the origin of a sphere or hemisphere; the X
+coordinate of the centerline of a Z or Y cylinder or hemicylinder; the Y
+coordinate of the centerline of an X cylinder or hemicylinder.</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(b\)</span></dt><dd><p>is the Y coordinate of the origin of a sphere or hemisphere; the Y
+coordinate of the centerline of a Z cylinder or hemicylinder; the Z
+coordinate of the centerline of an X or Y cylinder or hemicylinder.</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(c\)</span></dt><dd><p>is the Z coordinate of the origin of a sphere or hemisphere; it must
+be omitted for all cylinders or hemicylinders.</p>
+</dd>
+<dt><strong>X=</strong>, <strong>Y=</strong>, <strong>Z=</strong></dt><dd><p>are the subordinate keywords used to define the
+new position of the origin of the <strong>shape</strong>. If the a subordinate
+keyword appears more than once after the <strong>ORIGIN</strong> keyword, the values
+are summed. If the new value is zero, the particular coordinate does not
+need to be specified.</p>
+</dd>
+<dt><em>x</em><sub>0</sub>, <em>y</em><sub>0</sub>, <em>z</em><sub>0</sub></dt><dd><p>are the values for the new coordinates where the
+origin of the <strong>shape</strong> is to be translated.</p>
+</dd>
+</dl>
+<p>The CENTER attribute</p>
+<p>This attribute establishes the reference center for the flux moment
+calculations, which can be useful in TSUNAMI calculations. The syntax
+for this attribute is:</p>
+<p><strong>CENTER</strong> <em>center_type</em> [<em>u</em>] [<em>x y z</em>]</p>
+<dl class="simple">
+<dt><em>center_type</em></dt><dd><p>is the reference center value, as described in
+<a class="reference internal" href="#tab8-1-16"><span class="std std-numref">Table 45</span></a>. The default value is <strong>global</strong>.</p>
+</dd>
+<dt><em>u</em></dt><dd><p>is the <strong>UNIT</strong> number to be used as a reference center for this
+region when the <em>center_type</em> is <strong>unit</strong>.</p>
+</dd>
+<dt><em>x</em>, <em>y</em>, <em>z</em></dt><dd><p>are the offset from the point specified by the
+<em>center_type</em>. The default is 0.0 for all three entries.</p>
+</dd>
+</dl>
+<span id="tab8-1-16"></span><table class="docutils align-center" id="id14">
+<caption><span class="caption-number">Table 45 </span><span class="caption-text">Reference center values</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>center_type</strong></p></td>
+<td><p><strong>Reference point</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>unit</strong></p></td>
+<td><p>Reference is defined as the
+origin of <strong>UNIT</strong> <em>unit_number</em>
+plus the offset defined by
+<em>x</em>, <em>y</em>, and <em>z</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>global</strong></p></td>
+<td><p>Reference is defined as system
+origin—i.e., (0,0,0) point of the
+<strong>GLOBAL UNIT</strong>—plus the offset
+defined by <em>x</em>, <em>y</em>, and <em>z</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>local</strong></p></td>
+<td><p>Reference is defined as the
+origin of the current <strong>UNIT</strong>
+plus the offset defined by <em>x</em>,
+<em>y</em>, and <em>z</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>fuelcenter</strong></p></td>
+<td><p>Reference is defined as the
+center of all fissile material in
+the system plus the offset
+defined by <em>x</em>, <em>y</em>, and <em>z</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>wholeunit</strong></p></td>
+<td><p>When entered for the first region
+in a unit, the reference for all
+regions in the unit are defined
+as the origin of the current unit
+plus the offset defined by
+<em>x</em>, <em>y</em>, and <em>z</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Monaco.html" class="btn btn-neutral float-right" title="Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Monte%20Carlo%20Transport%20Overview.html" class="btn btn-neutral float-left" title="Monte Carlo Transport Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

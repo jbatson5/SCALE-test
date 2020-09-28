@@ -113,6 +113,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Criticality Safety</span></p>
@@ -198,7 +199,7 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Modeling criticality accident alarm systems (CAAS) presents challenges
 since the analysis consists of both a criticality problem and a
-deep-penetration shielding problem <a class="bibtex reference internal" href="Criticality%20Safety%20Overview.html#peplow-criticality-2009" id="id1">[PPJ09]</a><a class="bibtex reference internal" href="#peplow-criticality-2010" id="id2">[PLMP10]</a>. Modern codes
+deep-penetration shielding problem <a class="bibtex reference internal" href="#peplow-criticality-2009" id="id1">[PPJ09]</a><a class="bibtex reference internal" href="#peplow-criticality-2010" id="id2">[PLMP10]</a>. Modern codes
 are typically optimized to handle one of those types of problems but
 usually not both. The two problems also differ in scale—the criticality
 problem depends on materials relatively close to the fissionable
@@ -449,8 +450,8 @@ original resolution of the fission distribution.</p>
 <div class="section" id="example-problem">
 <h2>Example problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">¶</a></h2>
 <p>Consider the Jezebel critical plutonium sphere experiment, shown in
-<a class="reference internal" href="#fig4a1"><span class="std std-numref">Fig. 40</span></a>, taking place inside a simple fictitious building, shown
-in <a class="reference internal" href="#fig4a2"><span class="std std-numref">Fig. 41</span></a>. The building has two rooms: an experiment room and a
+<a class="reference internal" href="#fig4a1"><span class="std std-numref">Fig. 41</span></a>, taking place inside a simple fictitious building, shown
+in <a class="reference internal" href="#fig4a2"><span class="std std-numref">Fig. 42</span></a>. The building has two rooms: an experiment room and a
 control room. In the control room there is a criticality alarm detector,
 and it is positioned furthest from the entry to the experiment room. For
 this example, assume that a criticality excursion results in a total of
@@ -459,11 +460,11 @@ photon doses seen by a detector in the control room, as well as
 calculate a dose map for the entire building.</p>
 <div class="figure align-center" id="id8">
 <span id="fig4a1"></span><a class="reference internal image-reference" href="_images/fig4a1.png"><img alt="_images/fig4a1.png" src="_images/fig4a1.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Cutaway view of Jezebel.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Cutaway view of Jezebel.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id9">
 <span id="fig4a2"></span><a class="reference internal image-reference" href="_images/fig4a2.png"><img alt="_images/fig4a2.png" src="_images/fig4a2.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Simple two-room building.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Simple two-room building.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="keno-vi-criticality-and-fission-source-distribution">
 <h3>KENO-VI criticality and fission source distribution<a class="headerlink" href="#keno-vi-criticality-and-fission-source-distribution" title="Permalink to this headline">¶</a></h3>
@@ -530,7 +531,7 @@ like the following:</p>
 </div>
 <p>The results of this 26 minute calculation are shown in <a class="reference internal" href="#tab4a1"><span class="std std-numref">Table 23</span></a>,
 and details about the calculated fission distribution are shown in
-<a class="reference internal" href="#fig4a3"><span class="std std-numref">Fig. 42</span></a> and <a class="reference internal" href="#fig4a4"><span class="std std-numref">Fig. 43</span></a>.</p>
+<a class="reference internal" href="#fig4a3"><span class="std std-numref">Fig. 43</span></a> and <a class="reference internal" href="#fig4a4"><span class="std std-numref">Fig. 44</span></a>.</p>
 <span id="tab4a1"></span><table class="docutils align-default" id="id10">
 <caption><span class="caption-number">Table 23 </span><span class="caption-text">Results of the CSAS6 calculation</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -561,11 +562,11 @@ and details about the calculated fission distribution are shown in
 </table>
 <div class="figure align-center" id="id11">
 <span id="fig4a3"></span><a class="reference internal image-reference" href="_images/fig4a3.png"><img alt="_images/fig4a3.png" src="_images/fig4a3.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Fission source spatial distribution for the center horizontal slice.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Fission source spatial distribution for the center horizontal slice.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id12">
 <span id="fig4a4"></span><a class="reference internal image-reference" href="_images/fig4a4.png"><img alt="_images/fig4a4.png" src="_images/fig4a4.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Fission source energy distribution for the center voxel.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Fission source energy distribution for the center voxel.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="mavric-transport-calculations">
@@ -576,7 +577,7 @@ entire building. They will share the same materials, geometry, and
 source but will have different tally and variance reduction options.</p>
 <p>The two-room building will be a simple model using concrete-block walls,
 a concrete floor, and a steel roof, with dimensions shown in
-<a class="reference internal" href="#fig4a5"><span class="std std-numref">Fig. 44</span></a>. The building exterior dimensions are 1200 cm long,
+<a class="reference internal" href="#fig4a5"><span class="std std-numref">Fig. 45</span></a>. The building exterior dimensions are 1200 cm long,
 600 cm wide, and 300 cm high above the ground. The exterior and interior
 walls are all made of a double layer of typical concrete blocks (total
 of 40 cm thick.) Concrete blocks are typically 39×19×19 cm and weigh
@@ -590,7 +591,7 @@ room, 100 cm above the floor. Assume the detector in the control room is
 a 30 cm diameter sphere located at position (1145, 55, 285).</p>
 <div class="figure align-center" id="id13">
 <span id="fig4a5"></span><img alt="_images/fig4a5.png" src="_images/fig4a5.png" />
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Coordinates of the floor, walls, ceiling, and door of the simple block building model (in cm).</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Coordinates of the floor, walls, ceiling, and door of the simple block building model (in cm).</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <p>If the MAVRIC transport calculation is not in the same file as the CSAS6 calculation, the MAVRIC input would start by moving the KENO-VI results into the SCALE temporary area:</p>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=shell</span>
@@ -1003,8 +1004,8 @@ uncertainties.</p>
 <p>This calculation used 5 minutes for the forward Denovo S<sub>N</sub>
 calculation, 6 minutes for the adjoint Denovo, and 120 minutes for the
 Monaco Monte Carlo. The resulting mesh tally is shown in
-<a class="reference internal" href="#fig4a6"><span class="std std-numref">Fig. 45</span></a>. The uncertainties for each voxel are shown in
-<a class="reference internal" href="#fig4a7"><span class="std std-numref">Fig. 46</span></a>. Note that the dose in the voxel containing the
+<a class="reference internal" href="#fig4a6"><span class="std std-numref">Fig. 46</span></a>. The uncertainties for each voxel are shown in
+<a class="reference internal" href="#fig4a7"><span class="std std-numref">Fig. 47</span></a>. Note that the dose in the voxel containing the
 detector (not shown in the figures) is 1.552×10<sup>3</sup> rem with a
 relative uncertainty of 3.8%, closely matching the value calculated
 with the first MAVRIC simulation.</p>
@@ -1015,11 +1016,11 @@ and forward weighting to help calculate each component of dose with more
 uniform relative uncertainties.</p>
 <div class="figure align-center" id="id16">
 <span id="fig4a6"></span><img alt="_images/4a6.png" src="_images/4a6.png" />
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Dose (rem) results for the z=100 cm plane (containing the source).</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Dose (rem) results for the z=100 cm plane (containing the source).</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id17">
 <span id="fig4a7"></span><img alt="_images/fig4a7.png" src="_images/fig4a7.png" />
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Relative uncertainties in the dose, most less than 1%, for the z=100 cm plane.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Relative uncertainties in the dose, most less than 1%, for the z=100 cm plane.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

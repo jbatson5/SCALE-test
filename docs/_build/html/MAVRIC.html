@@ -173,6 +173,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Criticality Safety</span></p>
@@ -1630,7 +1631,7 @@ source particle’s voxel and energy group. From that voxel and energy
 group, the user-given source distributions are used to sample the
 specific starting location and specific energy of the source particle.
 This way, the CE-Monaco calculation samples the true CE distributions.</p>
-<table class="docutils align-default" id="keywords-importance">
+<table class="docutils align-center" id="keywords-importance">
 <caption><span class="caption-number">Table 5 </span><span class="caption-text">Keywords for the importance map block</span><a class="headerlink" href="#keywords-importance" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
@@ -1641,7 +1642,7 @@ This way, the CE-Monaco calculation samples the true CE distributions.</p>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="denovo-op">
+<table class="docutils align-center" id="denovo-op">
 <caption><span class="caption-number">Table 6 </span><span class="caption-text">Denovo options for the importance map block</span><a class="headerlink" href="#denovo-op" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
@@ -2141,701 +2142,11 @@ source: no further neutron multiplication is considered.</p>
 <table class="docutils align-default" id="source-and-response">
 <caption><span class="caption-number">Table 9 </span><span class="caption-text">Source and response data using the SCALE 27-group energy structure for neutrons and the 19-group energy structure for photons</span><a class="headerlink" href="#source-and-response" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>Energy</p></td>
-<td><p>neutron</p></td>
-<td><p>response</p></td>
-<td></td>
-<td><p>Energy</p></td>
-<td><p>photon</p></td>
-<td><p>response</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>(eV)</p></td>
-<td><p>source</p></td>
-<td><p>9029</p></td>
-<td></td>
-<td><p>(eV)</p></td>
-<td><p>source</p></td>
-<td><p>9504</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2.0000E+07</p></td>
-<td><p>2.040E-02</p></td>
-<td><p>1.615E-04</p></td>
-<td></td>
-<td><p>2.00E+07</p></td>
-<td><p>1.320E-12</p></td>
-<td><p>1.162E-05</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6.3763E+06</p></td>
-<td><p>2.147E-01</p></td>
-<td><p>1.445E-04</p></td>
-<td></td>
-<td><p>1.00E+07</p></td>
-<td><p>7.185E-11</p></td>
-<td><p>8.745E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3.0119E+06</p></td>
-<td><p>2.365E-01</p></td>
-<td><p>1.270E-04</p></td>
-<td></td>
-<td><p>8.00E+06</p></td>
-<td><p>3.281E-10</p></td>
-<td><p>7.460E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.8268E+06</p></td>
-<td><p>1.267E-01</p></td>
-<td><p>1.281E-04</p></td>
-<td></td>
-<td><p>6.50E+06</p></td>
-<td><p>1.672E-09</p></td>
-<td><p>6.351E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.4227E+06</p></td>
-<td><p>1.586E-01</p></td>
-<td><p>1.298E-04</p></td>
-<td></td>
-<td><p>5.00E+06</p></td>
-<td><p>4.167E-09</p></td>
-<td><p>5.400E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>9.0718E+05</p></td>
-<td><p>1.587E-01</p></td>
-<td><p>1.034E-04</p></td>
-<td></td>
-<td><p>4.00E+06</p></td>
-<td><p>8.086E-08</p></td>
-<td><p>4.602E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>4.0762E+05</p></td>
-<td><p>7.281E-02</p></td>
-<td><p>5.266E-05</p></td>
-<td></td>
-<td><p>3.00E+06</p></td>
-<td><p>7.937E-07</p></td>
-<td><p>3.952E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.1109E+05</p></td>
-<td><p>1.073E-02</p></td>
-<td><p>1.286E-05</p></td>
-<td></td>
-<td><p>2.50E+06</p></td>
-<td><p>1.164E-05</p></td>
-<td><p>3.459E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.5034E+04</p></td>
-<td><p>7.688E-04</p></td>
-<td><p>3.736E-06</p></td>
-<td></td>
-<td><p>2.00E+06</p></td>
-<td><p>3.331E-05</p></td>
-<td><p>3.013E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3.0354E+03</p></td>
-<td><p>5.694E-05</p></td>
-<td><p>3.720E-06</p></td>
-<td></td>
-<td><p>1.66E+06</p></td>
-<td><p>8.160E-03</p></td>
-<td><p>2.620E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5.8295E+02</p></td>
-<td><p>4.479E-06</p></td>
-<td><p>4.009E-06</p></td>
-<td></td>
-<td><p>1.33E+06</p></td>
-<td><p>3.511E-02</p></td>
-<td><p>2.194E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.0130E+02</p></td>
-<td><p>3.148E-07</p></td>
-<td><p>4.295E-06</p></td>
-<td></td>
-<td><p>1.00E+06</p></td>
-<td><p>2.478E-02</p></td>
-<td><p>1.827E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2.9023E+01</p></td>
-<td><p>4.983E-08</p></td>
-<td><p>4.473E-06</p></td>
-<td></td>
-<td><p>8.00E+05</p></td>
-<td><p>4.827E-01</p></td>
-<td><p>1.515E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.0677E+01</p></td>
-<td><p>9.864E-09</p></td>
-<td><p>4.566E-06</p></td>
-<td></td>
-<td><p>6.00E+05</p></td>
-<td><p>4.641E-02</p></td>
-<td><p>1.160E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3.0590E+00</p></td>
-<td><p>1.117E-09</p></td>
-<td><p>4.560E-06</p></td>
-<td></td>
-<td><p>4.00E+05</p></td>
-<td><p>9.735E-03</p></td>
-<td><p>8.705E-07</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.8554E+00</p></td>
-<td><p>3.286E-10</p></td>
-<td><p>4.521E-06</p></td>
-<td></td>
-<td><p>3.00E+05</p></td>
-<td><p>1.514E-02</p></td>
-<td><p>6.219E-07</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.3000E+00</p></td>
-<td><p>1.060E-10</p></td>
-<td><p>4.487E-06</p></td>
-<td></td>
-<td><p>2.00E+05</p></td>
-<td><p>5.182E-02</p></td>
-<td><p>3.708E-07</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.1253E+00</p></td>
-<td><p>9.203E-11</p></td>
-<td><p>4.466E-06</p></td>
-<td></td>
-<td><p>1.00E+05</p></td>
-<td><p>7.015E-02</p></td>
-<td><p>2.688E-07</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.0000E+00</p></td>
-<td><p>9.135E-11</p></td>
-<td><p>4.434E-06</p></td>
-<td></td>
-<td><p>4.50E+04</p></td>
-<td><p>2.560E-01</p></td>
-<td><p>5.933E-07</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>8.0000E-01</p></td>
-<td><p>1.755E-10</p></td>
-<td><p>4.332E-06</p></td>
-<td></td>
-<td><p>1.00E+04</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>4.1399E-01</p></td>
-<td><p>2.590E-11</p></td>
-<td><p>4.203E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3.2500E-01</p></td>
-<td><p>3.024E-11</p></td>
-<td><p>4.097E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2.2500E-01</p></td>
-<td><p>3.451E-11</p></td>
-<td><p>3.840E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.0000E-01</p></td>
-<td><p>3.269E-12</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5.0000E-02</p></td>
-<td><p>5.447E-12</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3.0000E-02</p></td>
-<td><p>4.089E-14</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.0000E-02</p></td>
-<td><p>4.916E-14</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.0000E-05</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>Energy</p></td>
-<td><p>neutron</p></td>
-<td><p>response</p></td>
-<td></td>
-<td><p>Energy</p></td>
-<td><p>photon</p></td>
-<td><p>response</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>(eV)</p></td>
-<td><p>source</p></td>
-<td><p>9029</p></td>
-<td></td>
-<td><p>(eV)</p></td>
-<td><p>source</p></td>
-<td><p>9504</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2.0000E+07</p></td>
-<td><p>2.040E-02</p></td>
-<td><p>1.615E-04</p></td>
-<td></td>
-<td><p>2.00E+07</p></td>
-<td><p>1.320E-12</p></td>
-<td><p>1.162E-05</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>6.3763E+06</p></td>
-<td><p>2.147E-01</p></td>
-<td><p>1.445E-04</p></td>
-<td></td>
-<td><p>1.00E+07</p></td>
-<td><p>7.185E-11</p></td>
-<td><p>8.745E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3.0119E+06</p></td>
-<td><p>2.365E-01</p></td>
-<td><p>1.270E-04</p></td>
-<td></td>
-<td><p>8.00E+06</p></td>
-<td><p>3.281E-10</p></td>
-<td><p>7.460E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.8268E+06</p></td>
-<td><p>1.267E-01</p></td>
-<td><p>1.281E-04</p></td>
-<td></td>
-<td><p>6.50E+06</p></td>
-<td><p>1.672E-09</p></td>
-<td><p>6.351E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.4227E+06</p></td>
-<td><p>1.586E-01</p></td>
-<td><p>1.298E-04</p></td>
-<td></td>
-<td><p>5.00E+06</p></td>
-<td><p>4.167E-09</p></td>
-<td><p>5.400E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>9.0718E+05</p></td>
-<td><p>1.587E-01</p></td>
-<td><p>1.034E-04</p></td>
-<td></td>
-<td><p>4.00E+06</p></td>
-<td><p>8.086E-08</p></td>
-<td><p>4.602E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4.0762E+05</p></td>
-<td><p>7.281E-02</p></td>
-<td><p>5.266E-05</p></td>
-<td></td>
-<td><p>3.00E+06</p></td>
-<td><p>7.937E-07</p></td>
-<td><p>3.952E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.1109E+05</p></td>
-<td><p>1.073E-02</p></td>
-<td><p>1.286E-05</p></td>
-<td></td>
-<td><p>2.50E+06</p></td>
-<td><p>1.164E-05</p></td>
-<td><p>3.459E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.5034E+04</p></td>
-<td><p>7.688E-04</p></td>
-<td><p>3.736E-06</p></td>
-<td></td>
-<td><p>2.00E+06</p></td>
-<td><p>3.331E-05</p></td>
-<td><p>3.013E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3.0354E+03</p></td>
-<td><p>5.694E-05</p></td>
-<td><p>3.720E-06</p></td>
-<td></td>
-<td><p>1.66E+06</p></td>
-<td><p>8.160E-03</p></td>
-<td><p>2.620E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>5.8295E+02</p></td>
-<td><p>4.479E-06</p></td>
-<td><p>4.009E-06</p></td>
-<td></td>
-<td><p>1.33E+06</p></td>
-<td><p>3.511E-02</p></td>
-<td><p>2.194E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.0130E+02</p></td>
-<td><p>3.148E-07</p></td>
-<td><p>4.295E-06</p></td>
-<td></td>
-<td><p>1.00E+06</p></td>
-<td><p>2.478E-02</p></td>
-<td><p>1.827E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2.9023E+01</p></td>
-<td><p>4.983E-08</p></td>
-<td><p>4.473E-06</p></td>
-<td></td>
-<td><p>8.00E+05</p></td>
-<td><p>4.827E-01</p></td>
-<td><p>1.515E-06</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.0677E+01</p></td>
-<td><p>9.864E-09</p></td>
-<td><p>4.566E-06</p></td>
-<td></td>
-<td><p>6.00E+05</p></td>
-<td><p>4.641E-02</p></td>
-<td><p>1.160E-06</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3.0590E+00</p></td>
-<td><p>1.117E-09</p></td>
-<td><p>4.560E-06</p></td>
-<td></td>
-<td><p>4.00E+05</p></td>
-<td><p>9.735E-03</p></td>
-<td><p>8.705E-07</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.8554E+00</p></td>
-<td><p>3.286E-10</p></td>
-<td><p>4.521E-06</p></td>
-<td></td>
-<td><p>3.00E+05</p></td>
-<td><p>1.514E-02</p></td>
-<td><p>6.219E-07</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.3000E+00</p></td>
-<td><p>1.060E-10</p></td>
-<td><p>4.487E-06</p></td>
-<td></td>
-<td><p>2.00E+05</p></td>
-<td><p>5.182E-02</p></td>
-<td><p>3.708E-07</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.1253E+00</p></td>
-<td><p>9.203E-11</p></td>
-<td><p>4.466E-06</p></td>
-<td></td>
-<td><p>1.00E+05</p></td>
-<td><p>7.015E-02</p></td>
-<td><p>2.688E-07</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.0000E+00</p></td>
-<td><p>9.135E-11</p></td>
-<td><p>4.434E-06</p></td>
-<td></td>
-<td><p>4.50E+04</p></td>
-<td><p>2.560E-01</p></td>
-<td><p>5.933E-07</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>8.0000E-01</p></td>
-<td><p>1.755E-10</p></td>
-<td><p>4.332E-06</p></td>
-<td></td>
-<td><p>1.00E+04</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4.1399E-01</p></td>
-<td><p>2.590E-11</p></td>
-<td><p>4.203E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3.2500E-01</p></td>
-<td><p>3.024E-11</p></td>
-<td><p>4.097E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2.2500E-01</p></td>
-<td><p>3.451E-11</p></td>
-<td><p>3.840E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.0000E-01</p></td>
-<td><p>3.269E-12</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>5.0000E-02</p></td>
-<td><p>5.447E-12</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3.0000E-02</p></td>
-<td><p>4.089E-14</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1.0000E-02</p></td>
-<td><p>4.916E-14</p></td>
-<td><p>3.675E-06</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1.0000E-05</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><img alt="_images/tab9.png" src="_images/tab9.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -3005,184 +2316,22 @@ batches contain rare events that change the tally value a great deal.</p>
 <table class="docutils align-center" id="analog-neutron">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Analog Monaco results for the simplified cask model—neutron source/neutron dose rate.</span><a class="headerlink" href="#analog-neutron" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-even"><td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>8.78E-04</p></td>
-<td><p>0.1853</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>7.35E-03</p></td>
-<td><p>0.0408</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>1.54E-02</p></td>
-<td><p>0.0124</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>4.47E-04</p></td>
-<td><p>0.0311</p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>1.36E-02</p></td>
-<td><p>0.0058</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-odd"><td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>8.78E-04</p></td>
-<td><p>0.1853</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>7.35E-03</p></td>
-<td><p>0.0408</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>1.54E-02</p></td>
-<td><p>0.0124</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>4.47E-04</p></td>
-<td><p>0.0311</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>1.36E-02</p></td>
-<td><p>0.0058</p></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>6</p></td>
-<td><p>2.92E-03</p></td>
-<td><p>0.0073</p></td>
+<tr class="row-odd"><td><img alt="_images/tab101.png" src="_images/tab101.png" />
+</td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-center" id="analog-photon">
 <caption><span class="caption-number">Table 11 </span><span class="caption-text">Analog Monaco results for the simplified cask model—photon source/photon dose rate.</span><a class="headerlink" href="#analog-photon" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-even"><td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>2.66E-02</p></td>
-<td><p>0.2713</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>3.05E-01</p></td>
-<td><p>0.0787</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>2.97E+00</p></td>
-<td><p>0.0199</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>2.65E-02</p></td>
-<td><p>0.1345</p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>3.26E+00</p></td>
-<td><p>0.0133</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-odd"><td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>2.66E-02</p></td>
-<td><p>0.2713</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>3.05E-01</p></td>
-<td><p>0.0787</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>2.97E+00</p></td>
-<td><p>0.0199</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>2.65E-02</p></td>
-<td><p>0.1345</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>3.26E+00</p></td>
-<td><p>0.0133</p></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>6</p></td>
-<td><p>3.30E-01</p></td>
-<td><p>0.0244</p></td>
+<tr class="row-odd"><td><img alt="_images/tab11.png" src="_images/tab11.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -3207,416 +2356,22 @@ seem reasonable.</p>
 <table class="docutils align-center" id="neutron-problem">
 <caption><span class="caption-number">Table 12 </span><span class="caption-text">SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—neutron source/neutron dose rate</span><a class="headerlink" href="#neutron-problem" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Radial Biasing</p></td>
-<td></td>
-<td><p>Axial Biasing</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1</p></td>
-<td><p>7.67E-04</p></td>
-<td><p>0.0081</p></td>
-<td><p>1.32E-05</p></td>
-<td><p>0.4453</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2</p></td>
-<td><p>2.67E-02</p></td>
-<td><p>0.8623</p></td>
-<td><p>7.80E-03</p></td>
-<td><p>0.0040</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3</p></td>
-<td><p>1.27E-02</p></td>
-<td><p>0.1425</p></td>
-<td><p>1.53E-02</p></td>
-<td><p>0.0079</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>4</p></td>
-<td><p>4.54E-04</p></td>
-<td><p>0.0079</p></td>
-<td><p>2.34E-04</p></td>
-<td><p>0.6780</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>5</p></td>
-<td><p>1.43E-02</p></td>
-<td><p>0.1349</p></td>
-<td><p>1.35E-02</p></td>
-<td><p>0.0044</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>6</p></td>
-<td><p>2.81E-03</p></td>
-<td><p>0.1274</p></td>
-<td><p>2.86E-03</p></td>
-<td><p>0.0052</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>Radial Biasing</p></td>
-<td></td>
-<td><p>Axial Biasing</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1</p></td>
-<td><p>7.67E-04</p></td>
-<td><p>0.0081</p></td>
-<td><p>1.32E-05</p></td>
-<td><p>0.4453</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2</p></td>
-<td><p>2.67E-02</p></td>
-<td><p>0.8623</p></td>
-<td><p>7.80E-03</p></td>
-<td><p>0.0040</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3</p></td>
-<td><p>1.27E-02</p></td>
-<td><p>0.1425</p></td>
-<td><p>1.53E-02</p></td>
-<td><p>0.0079</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4</p></td>
-<td><p>4.54E-04</p></td>
-<td><p>0.0079</p></td>
-<td><p>2.34E-04</p></td>
-<td><p>0.6780</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5</p></td>
-<td><p>1.43E-02</p></td>
-<td><p>0.1349</p></td>
-<td><p>1.35E-02</p></td>
-<td><p>0.0044</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6</p></td>
-<td><p>2.81E-03</p></td>
-<td><p>0.1274</p></td>
-<td><p>2.86E-03</p></td>
-<td><p>0.0052</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><img alt="_images/tab12.png" src="_images/tab12.png" />
+</td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-center" id="photon-problem">
 <caption><span class="caption-number">Table 13 </span><span class="caption-text">SAS4 results using radial biasing (361 minutes) and axial biasing (361 minutes), for the simplified cask model—photon source/photon dose rate</span><a class="headerlink" href="#photon-problem" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Radial Biasing</p></td>
-<td></td>
-<td><p>Axial Biasing</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1</p></td>
-<td><p>4.54E-02</p></td>
-<td><p>0.0118</p></td>
-<td><p>7.07E-04</p></td>
-<td><p>0.5375</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2</p></td>
-<td><p>6.74E-02</p></td>
-<td><p>0.3295</p></td>
-<td><p>2.45E-01</p></td>
-<td><p>0.0630</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3</p></td>
-<td><p>5.63E-01</p></td>
-<td><p>0.3818</p></td>
-<td><p>2.07E+00</p></td>
-<td><p>0.2289</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>4</p></td>
-<td><p>2.76E-02</p></td>
-<td><p>0.0039</p></td>
-<td><p>2.48E-03</p></td>
-<td><p>0.4570</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>5</p></td>
-<td><p>1.85E+00</p></td>
-<td><p>0.1699</p></td>
-<td><p>2.70E+00</p></td>
-<td><p>0.0664</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>6</p></td>
-<td><p>1.46E-01</p></td>
-<td><p>0.1493</p></td>
-<td><p>2.73E-01</p></td>
-<td><p>0.0838</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>Radial Biasing</p></td>
-<td></td>
-<td><p>Axial Biasing</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>detector</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1</p></td>
-<td><p>4.54E-02</p></td>
-<td><p>0.0118</p></td>
-<td><p>7.07E-04</p></td>
-<td><p>0.5375</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2</p></td>
-<td><p>6.74E-02</p></td>
-<td><p>0.3295</p></td>
-<td><p>2.45E-01</p></td>
-<td><p>0.0630</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3</p></td>
-<td><p>5.63E-01</p></td>
-<td><p>0.3818</p></td>
-<td><p>2.07E+00</p></td>
-<td><p>0.2289</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4</p></td>
-<td><p>2.76E-02</p></td>
-<td><p>0.0039</p></td>
-<td><p>2.48E-03</p></td>
-<td><p>0.4570</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5</p></td>
-<td><p>1.85E+00</p></td>
-<td><p>0.1699</p></td>
-<td><p>2.70E+00</p></td>
-<td><p>0.0664</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6</p></td>
-<td><p>1.46E-01</p></td>
-<td><p>0.1493</p></td>
-<td><p>2.73E-01</p></td>
-<td><p>0.0838</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><img alt="_images/tab13.png" src="_images/tab13.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -3708,657 +2463,11 @@ parameters are listed in <a class="reference internal" href="#mesh-param-xyz"><s
 <table class="docutils align-center" id="mesh-planes">
 <caption><span class="caption-number">Table 15 </span><span class="caption-text">List of the various sets of mesh planes used for the importance calculations for six different point detectors</span><a class="headerlink" href="#mesh-planes" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>x</p></td>
-<td></td>
-<td><p>x</p></td>
-<td></td>
-<td><p>y</p></td>
-<td></td>
-<td><p>z</p></td>
-<td></td>
-<td><p>z</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>1,3,4,6</p></td>
-<td></td>
-<td><p>2,5</p></td>
-<td></td>
-<td><p>1,2,3,4,5,6</p></td>
-<td></td>
-<td><p>1,4</p></td>
-<td></td>
-<td><p>2,3,5,6</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>-170</p></td>
-<td><p>108</p></td>
-<td><p>-170</p></td>
-<td><p>5</p></td>
-<td><p>-170</p></td>
-<td><p>5</p></td>
-<td><p>-285.6</p></td>
-<td><p>3</p></td>
-<td><p>-285.6</p></td>
-<td><p>190</p></td>
-</tr>
-<tr class="row-even"><td><p>-168</p></td>
-<td><p>112</p></td>
-<td><p>-168</p></td>
-<td><p>15</p></td>
-<td><p>-168</p></td>
-<td><p>15</p></td>
-<td><p>-280.6</p></td>
-<td><p>10</p></td>
-<td><p>-280.6</p></td>
-<td><p>210</p></td>
-</tr>
-<tr class="row-odd"><td><p>-146</p></td>
-<td><p>116</p></td>
-<td><p>-155</p></td>
-<td><p>25</p></td>
-<td><p>-155</p></td>
-<td><p>25</p></td>
-<td><p>-255.2</p></td>
-<td><p>20</p></td>
-<td><p>-255.2</p></td>
-<td><p>216.2</p></td>
-</tr>
-<tr class="row-even"><td><p>-122</p></td>
-<td><p>120</p></td>
-<td><p>-141</p></td>
-<td><p>35</p></td>
-<td><p>-141</p></td>
-<td><p>35</p></td>
-<td><p>-240.6</p></td>
-<td><p>30</p></td>
-<td><p>-240.6</p></td>
-<td><p>222.4</p></td>
-</tr>
-<tr class="row-odd"><td><p>-100</p></td>
-<td><p>124</p></td>
-<td><p>-127</p></td>
-<td><p>45</p></td>
-<td><p>-127</p></td>
-<td><p>45</p></td>
-<td><p>-228.6</p></td>
-<td><p>40</p></td>
-<td><p>-228.6</p></td>
-<td><p>228.6</p></td>
-</tr>
-<tr class="row-even"><td><p>-95</p></td>
-<td><p>128</p></td>
-<td><p>-113</p></td>
-<td><p>55</p></td>
-<td><p>-113</p></td>
-<td><p>55</p></td>
-<td><p>-200</p></td>
-<td><p>50</p></td>
-<td><p>-210</p></td>
-<td><p>232.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>-90</p></td>
-<td><p>132</p></td>
-<td><p>-100</p></td>
-<td><p>65</p></td>
-<td><p>-100</p></td>
-<td><p>65</p></td>
-<td><p>-160</p></td>
-<td><p>60</p></td>
-<td><p>-190</p></td>
-<td><p>236.6</p></td>
-</tr>
-<tr class="row-even"><td><p>-60</p></td>
-<td><p>136</p></td>
-<td><p>-95</p></td>
-<td><p>75</p></td>
-<td><p>-95</p></td>
-<td><p>75</p></td>
-<td><p>-120</p></td>
-<td><p>70</p></td>
-<td><p>-170</p></td>
-<td><p>240.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>-40</p></td>
-<td><p>140</p></td>
-<td><p>-90</p></td>
-<td><p>85</p></td>
-<td><p>-90</p></td>
-<td><p>85</p></td>
-<td><p>-100</p></td>
-<td><p>80</p></td>
-<td><p>-150</p></td>
-<td><p>245.1</p></td>
-</tr>
-<tr class="row-even"><td><p>-20</p></td>
-<td><p>144</p></td>
-<td><p>-85</p></td>
-<td><p>90</p></td>
-<td><p>-85</p></td>
-<td><p>90</p></td>
-<td><p>-80</p></td>
-<td><p>100</p></td>
-<td><p>-130</p></td>
-<td><p>249.7</p></td>
-</tr>
-<tr class="row-odd"><td><p>-5</p></td>
-<td><p>148</p></td>
-<td><p>-75</p></td>
-<td><p>95</p></td>
-<td><p>-75</p></td>
-<td><p>95</p></td>
-<td><p>-70</p></td>
-<td><p>120</p></td>
-<td><p>-110</p></td>
-<td><p>254.2</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>152</p></td>
-<td><p>-65</p></td>
-<td><p>100</p></td>
-<td><p>-65</p></td>
-<td><p>100</p></td>
-<td><p>-60</p></td>
-<td><p>160</p></td>
-<td><p>-90</p></td>
-<td><p>255.2</p></td>
-</tr>
-<tr class="row-odd"><td><p>15</p></td>
-<td><p>156</p></td>
-<td><p>-55</p></td>
-<td><p>113</p></td>
-<td><p>-55</p></td>
-<td><p>113</p></td>
-<td><p>-50</p></td>
-<td><p>200</p></td>
-<td><p>-70</p></td>
-<td><p>256.2</p></td>
-</tr>
-<tr class="row-even"><td><p>25</p></td>
-<td><p>158</p></td>
-<td><p>-45</p></td>
-<td><p>127</p></td>
-<td><p>-45</p></td>
-<td><p>127</p></td>
-<td><p>-40</p></td>
-<td><p>228.6</p></td>
-<td><p>-50</p></td>
-<td><p>260.1</p></td>
-</tr>
-<tr class="row-odd"><td><p>35</p></td>
-<td><p>160</p></td>
-<td><p>-35</p></td>
-<td><p>141</p></td>
-<td><p>-35</p></td>
-<td><p>141</p></td>
-<td><p>-30</p></td>
-<td><p>240.6</p></td>
-<td><p>-30</p></td>
-<td><p>264</p></td>
-</tr>
-<tr class="row-even"><td><p>45</p></td>
-<td><p>162</p></td>
-<td><p>-25</p></td>
-<td><p>155</p></td>
-<td><p>-25</p></td>
-<td><p>155</p></td>
-<td><p>-20</p></td>
-<td><p>255.2</p></td>
-<td><p>-10</p></td>
-<td><p>267.9</p></td>
-</tr>
-<tr class="row-odd"><td><p>55</p></td>
-<td><p>164</p></td>
-<td><p>-15</p></td>
-<td><p>168</p></td>
-<td><p>-15</p></td>
-<td><p>168</p></td>
-<td><p>-10</p></td>
-<td><p>280.6</p></td>
-<td><p>10</p></td>
-<td><p>271.8</p></td>
-</tr>
-<tr class="row-even"><td><p>65</p></td>
-<td><p>165</p></td>
-<td><p>-5</p></td>
-<td><p>170</p></td>
-<td><p>-5</p></td>
-<td><p>170</p></td>
-<td><p>-3</p></td>
-<td><p>285.6</p></td>
-<td><p>30</p></td>
-<td><p>275.7</p></td>
-</tr>
-<tr class="row-odd"><td><p>75</p></td>
-<td><p>166</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>50</p></td>
-<td><p>279.6</p></td>
-</tr>
-<tr class="row-even"><td><p>85</p></td>
-<td><p>167</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>70</p></td>
-<td><p>280.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>90</p></td>
-<td><p>168</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>90</p></td>
-<td><p>281.6</p></td>
-</tr>
-<tr class="row-even"><td><p>95</p></td>
-<td><p>169</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>110</p></td>
-<td><p>282.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>100</p></td>
-<td><p>170</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>130</p></td>
-<td><p>283.6</p></td>
-</tr>
-<tr class="row-even"><td><p>104</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>150</p></td>
-<td><p>284.6</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>x</p></td>
-<td></td>
-<td><p>x</p></td>
-<td></td>
-<td><p>y</p></td>
-<td></td>
-<td><p>z</p></td>
-<td></td>
-<td><p>z</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>1,3,4,6</p></td>
-<td></td>
-<td><p>2,5</p></td>
-<td></td>
-<td><p>1,2,3,4,5,6</p></td>
-<td></td>
-<td><p>1,4</p></td>
-<td></td>
-<td><p>2,3,5,6</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>-170</p></td>
-<td><p>108</p></td>
-<td><p>-170</p></td>
-<td><p>5</p></td>
-<td><p>-170</p></td>
-<td><p>5</p></td>
-<td><p>-285.6</p></td>
-<td><p>3</p></td>
-<td><p>-285.6</p></td>
-<td><p>190</p></td>
-</tr>
-<tr class="row-even"><td><p>-168</p></td>
-<td><p>112</p></td>
-<td><p>-168</p></td>
-<td><p>15</p></td>
-<td><p>-168</p></td>
-<td><p>15</p></td>
-<td><p>-280.6</p></td>
-<td><p>10</p></td>
-<td><p>-280.6</p></td>
-<td><p>210</p></td>
-</tr>
-<tr class="row-odd"><td><p>-146</p></td>
-<td><p>116</p></td>
-<td><p>-155</p></td>
-<td><p>25</p></td>
-<td><p>-155</p></td>
-<td><p>25</p></td>
-<td><p>-255.2</p></td>
-<td><p>20</p></td>
-<td><p>-255.2</p></td>
-<td><p>216.2</p></td>
-</tr>
-<tr class="row-even"><td><p>-122</p></td>
-<td><p>120</p></td>
-<td><p>-141</p></td>
-<td><p>35</p></td>
-<td><p>-141</p></td>
-<td><p>35</p></td>
-<td><p>-240.6</p></td>
-<td><p>30</p></td>
-<td><p>-240.6</p></td>
-<td><p>222.4</p></td>
-</tr>
-<tr class="row-odd"><td><p>-100</p></td>
-<td><p>124</p></td>
-<td><p>-127</p></td>
-<td><p>45</p></td>
-<td><p>-127</p></td>
-<td><p>45</p></td>
-<td><p>-228.6</p></td>
-<td><p>40</p></td>
-<td><p>-228.6</p></td>
-<td><p>228.6</p></td>
-</tr>
-<tr class="row-even"><td><p>-95</p></td>
-<td><p>128</p></td>
-<td><p>-113</p></td>
-<td><p>55</p></td>
-<td><p>-113</p></td>
-<td><p>55</p></td>
-<td><p>-200</p></td>
-<td><p>50</p></td>
-<td><p>-210</p></td>
-<td><p>232.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>-90</p></td>
-<td><p>132</p></td>
-<td><p>-100</p></td>
-<td><p>65</p></td>
-<td><p>-100</p></td>
-<td><p>65</p></td>
-<td><p>-160</p></td>
-<td><p>60</p></td>
-<td><p>-190</p></td>
-<td><p>236.6</p></td>
-</tr>
-<tr class="row-even"><td><p>-60</p></td>
-<td><p>136</p></td>
-<td><p>-95</p></td>
-<td><p>75</p></td>
-<td><p>-95</p></td>
-<td><p>75</p></td>
-<td><p>-120</p></td>
-<td><p>70</p></td>
-<td><p>-170</p></td>
-<td><p>240.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>-40</p></td>
-<td><p>140</p></td>
-<td><p>-90</p></td>
-<td><p>85</p></td>
-<td><p>-90</p></td>
-<td><p>85</p></td>
-<td><p>-100</p></td>
-<td><p>80</p></td>
-<td><p>-150</p></td>
-<td><p>245.1</p></td>
-</tr>
-<tr class="row-even"><td><p>-20</p></td>
-<td><p>144</p></td>
-<td><p>-85</p></td>
-<td><p>90</p></td>
-<td><p>-85</p></td>
-<td><p>90</p></td>
-<td><p>-80</p></td>
-<td><p>100</p></td>
-<td><p>-130</p></td>
-<td><p>249.7</p></td>
-</tr>
-<tr class="row-odd"><td><p>-5</p></td>
-<td><p>148</p></td>
-<td><p>-75</p></td>
-<td><p>95</p></td>
-<td><p>-75</p></td>
-<td><p>95</p></td>
-<td><p>-70</p></td>
-<td><p>120</p></td>
-<td><p>-110</p></td>
-<td><p>254.2</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>152</p></td>
-<td><p>-65</p></td>
-<td><p>100</p></td>
-<td><p>-65</p></td>
-<td><p>100</p></td>
-<td><p>-60</p></td>
-<td><p>160</p></td>
-<td><p>-90</p></td>
-<td><p>255.2</p></td>
-</tr>
-<tr class="row-odd"><td><p>15</p></td>
-<td><p>156</p></td>
-<td><p>-55</p></td>
-<td><p>113</p></td>
-<td><p>-55</p></td>
-<td><p>113</p></td>
-<td><p>-50</p></td>
-<td><p>200</p></td>
-<td><p>-70</p></td>
-<td><p>256.2</p></td>
-</tr>
-<tr class="row-even"><td><p>25</p></td>
-<td><p>158</p></td>
-<td><p>-45</p></td>
-<td><p>127</p></td>
-<td><p>-45</p></td>
-<td><p>127</p></td>
-<td><p>-40</p></td>
-<td><p>228.6</p></td>
-<td><p>-50</p></td>
-<td><p>260.1</p></td>
-</tr>
-<tr class="row-odd"><td><p>35</p></td>
-<td><p>160</p></td>
-<td><p>-35</p></td>
-<td><p>141</p></td>
-<td><p>-35</p></td>
-<td><p>141</p></td>
-<td><p>-30</p></td>
-<td><p>240.6</p></td>
-<td><p>-30</p></td>
-<td><p>264</p></td>
-</tr>
-<tr class="row-even"><td><p>45</p></td>
-<td><p>162</p></td>
-<td><p>-25</p></td>
-<td><p>155</p></td>
-<td><p>-25</p></td>
-<td><p>155</p></td>
-<td><p>-20</p></td>
-<td><p>255.2</p></td>
-<td><p>-10</p></td>
-<td><p>267.9</p></td>
-</tr>
-<tr class="row-odd"><td><p>55</p></td>
-<td><p>164</p></td>
-<td><p>-15</p></td>
-<td><p>168</p></td>
-<td><p>-15</p></td>
-<td><p>168</p></td>
-<td><p>-10</p></td>
-<td><p>280.6</p></td>
-<td><p>10</p></td>
-<td><p>271.8</p></td>
-</tr>
-<tr class="row-even"><td><p>65</p></td>
-<td><p>165</p></td>
-<td><p>-5</p></td>
-<td><p>170</p></td>
-<td><p>-5</p></td>
-<td><p>170</p></td>
-<td><p>-3</p></td>
-<td><p>285.6</p></td>
-<td><p>30</p></td>
-<td><p>275.7</p></td>
-</tr>
-<tr class="row-odd"><td><p>75</p></td>
-<td><p>166</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>50</p></td>
-<td><p>279.6</p></td>
-</tr>
-<tr class="row-even"><td><p>85</p></td>
-<td><p>167</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>70</p></td>
-<td><p>280.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>90</p></td>
-<td><p>168</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>90</p></td>
-<td><p>281.6</p></td>
-</tr>
-<tr class="row-even"><td><p>95</p></td>
-<td><p>169</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>110</p></td>
-<td><p>282.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>100</p></td>
-<td><p>170</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>130</p></td>
-<td><p>283.6</p></td>
-</tr>
-<tr class="row-even"><td><p>104</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>150</p></td>
-<td><p>284.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><p>170</p></td>
-<td><p>285.6</p></td>
+<tr class="row-odd"><td><img alt="_images/tab15.png" src="_images/tab15.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -4454,17 +2563,23 @@ how the source particles nearest to detector 3 will be sampled more
 often.</p>
 <p>The biased source distribution and the importance map are then used by
 Monaco to compute the dose equivalent rate response at detector 3.</p>
-<img alt="_images/fig4.1.15g_caskn.adjoint.scale.png" class="align-center" src="_images/fig4.1.15g_caskn.adjoint.scale.png" />
+<div class="figure align-center">
+<img alt="_images/fig4.1.15g_caskn.adjoint.scale.png" src="_images/fig4.1.15g_caskn.adjoint.scale.png" />
+</div>
 <div class="figure align-center" id="id42">
 <span id="adjoint-denovo"></span><a class="reference internal image-reference" href="_images/1.15.jpg"><img alt="_images/1.15.jpg" src="_images/1.15.jpg" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Adjoint neutron fluxes (/cm <sup>2</sup>/s) for groups 5 (0.9–1.4 MeV), 10 (0.58–3.0 keV), and 19 (0.8–1 eV) calculated by Denovo.</span><a class="headerlink" href="#id42" title="Permalink to this image">¶</a></p>
 </div>
-<img alt="_images/fig4.1.16e_caskn.targets.scale.png" class="align-center" src="_images/fig4.1.16e_caskn.targets.scale.png" />
+<div class="figure align-center">
+<img alt="_images/fig4.1.16e_caskn.targets.scale.png" src="_images/fig4.1.16e_caskn.targets.scale.png" />
+</div>
 <div class="figure align-center" id="id43">
 <span id="fifth-neutron"></span><a class="reference internal image-reference" href="_images/1.16.jpg"><img alt="_images/1.16.jpg" src="_images/1.16.jpg" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Neutron target weights from the importance map and source weights (at birth) for neutron group 5 (0.9 to 1.4 MeV).</span><a class="headerlink" href="#id43" title="Permalink to this image">¶</a></p>
 </div>
-<img alt="_images/fig4.1.17g_caskn.prob.scale.png" class="align-center" src="_images/fig4.1.17g_caskn.prob.scale.png" />
+<div class="figure align-center">
+<img alt="_images/fig4.1.17g_caskn.prob.scale.png" src="_images/fig4.1.17g_caskn.prob.scale.png" />
+</div>
 <div class="figure align-center" id="id44">
 <span id="biased-source"></span><a class="reference internal image-reference" href="_images/1.17.jpg"><img alt="_images/1.17.jpg" src="_images/1.17.jpg" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Biased source sampling probability (neutrons/cm3) for neutron groups 5 (0.9‑1.4 MeV), 10 (0.58–3.0 keV), and 19 (0.8–1 eV).</span><a class="headerlink" href="#id44" title="Permalink to this image">¶</a></p>
@@ -4486,134 +2601,11 @@ calculating all six detectors at once.</p>
 <table class="docutils align-center" id="mavric-final">
 <caption><span class="caption-number">Table 16 </span><span class="caption-text">Final MAVRIC results (rem/hr) for each point detector in the neutron source/neutron dose rate problem</span><a class="headerlink" href="#mavric-final" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 100%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>Time (minutes)</p></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-even"><td><p>detector</p></td>
-<td><p>Denovo</p></td>
-<td><p>Monaco</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>6.9</p></td>
-<td><p>131</p></td>
-<td><p>7.65E-04</p></td>
-<td><p>0.0081</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>7.8</p></td>
-<td><p>64</p></td>
-<td><p>7.83E-03</p></td>
-<td><p>0.0030</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>9.8</p></td>
-<td><p>65</p></td>
-<td><p>1.54E-02</p></td>
-<td><p>0.0029</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>6.4</p></td>
-<td><p>120</p></td>
-<td><p>4.57E-04</p></td>
-<td><p>0.0029</p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>7.3</p></td>
-<td><p>64</p></td>
-<td><p>1.36E-02</p></td>
-<td><p>0.0028</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>Time (minutes)</p></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-odd"><td><p>detector</p></td>
-<td><p>Denovo</p></td>
-<td><p>Monaco</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>6.9</p></td>
-<td><p>131</p></td>
-<td><p>7.65E-04</p></td>
-<td><p>0.0081</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>7.8</p></td>
-<td><p>64</p></td>
-<td><p>7.83E-03</p></td>
-<td><p>0.0030</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>9.8</p></td>
-<td><p>65</p></td>
-<td><p>1.54E-02</p></td>
-<td><p>0.0029</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>6.4</p></td>
-<td><p>120</p></td>
-<td><p>4.57E-04</p></td>
-<td><p>0.0029</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>7.3</p></td>
-<td><p>64</p></td>
-<td><p>1.36E-02</p></td>
-<td><p>0.0028</p></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>6</p></td>
-<td><p>9.5</p></td>
-<td><p>65</p></td>
-<td><p>2.93E-03</p></td>
-<td><p>0.0023</p></td>
+<tr class="row-odd"><td><img alt="_images/tab16.png" src="_images/tab16.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -4678,209 +2670,13 @@ calculating all six detectors at once.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="figure-of-merit">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text">Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco
-:header-rows:m</span><a class="headerlink" href="#figure-of-merit" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 18 </span><span class="caption-text">Ratio of the figure-of-merit (speed-up) of MAVRIC and SAS4 compared to analog Monaco</span><a class="headerlink" href="#figure-of-merit" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
+<col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td><p>SAS4</p></td>
-<td><p>SAS4</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>detector</p></td>
-<td><p>Monaco</p></td>
-<td><p>radial</p></td>
-<td><p>axial</p></td>
-<td><p>MAVRIC</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>9498</p></td>
-<td><p>3.2</p></td>
-<td><p>4178</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2</p></td>
-<td><p>1</p></td>
-<td><p>0.0</p></td>
-<td><p>1874</p></td>
-<td><p>2858</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>45</p></td>
-<td><p>270</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4</p></td>
-<td><p>1</p></td>
-<td><p>287</p></td>
-<td><p>0.0</p></td>
-<td><p>1002</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5</p></td>
-<td><p>1</p></td>
-<td><p>0.0</p></td>
-<td><p>32</p></td>
-<td><p>65</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>35.8</p></td>
-<td><p>146</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td><p>SAS4</p></td>
-<td><p>SAS4</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>detector</p></td>
-<td><p>Monaco</p></td>
-<td><p>radial</p></td>
-<td><p>axial</p></td>
-<td><p>MAVRIC</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>9498</p></td>
-<td><p>3.2</p></td>
-<td><p>4178</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2</p></td>
-<td><p>1</p></td>
-<td><p>0.0</p></td>
-<td><p>1874</p></td>
-<td><p>2858</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>45</p></td>
-<td><p>270</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>4</p></td>
-<td><p>1</p></td>
-<td><p>287</p></td>
-<td><p>0.0</p></td>
-<td><p>1002</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>5</p></td>
-<td><p>1</p></td>
-<td><p>0.0</p></td>
-<td><p>32</p></td>
-<td><p>65</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>6</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>35.8</p></td>
-<td><p>146</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><img alt="_images/tab18.png" src="_images/tab18.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -4898,7 +2694,9 @@ the sampled source positions from the biased source.</p>
 using its own importance map and biased source.</p>
 <p>The MAVRIC results of the photon problem compare well against SAS4 and
 analog Monaco, as shown in <a class="reference internal" href="#tab4-20"><span class="std std-numref">Table 20</span></a> and <a class="reference internal" href="#tab4-21"><span class="std std-numref">Table 21</span></a>.</p>
-<img alt="_images/fig4.1.18g_caskp.adjoint.scale.png" class="align-center" src="_images/fig4.1.18g_caskp.adjoint.scale.png" />
+<div class="figure align-center">
+<img alt="_images/fig4.1.18g_caskp.adjoint.scale.png" src="_images/fig4.1.18g_caskp.adjoint.scale.png" />
+</div>
 <div class="figure align-center" id="id45">
 <span id="fig4-18"></span><img alt="_images/4.18.jpg" src="_images/4.18.jpg" />
 <p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Adjoint photon fluxes (/cm: sup:<cite>2</cite>/s) for groups 2 (8–10 MeV), 2 (0.8–1.0 MeV), and 18 (45–100 keV) calculated by Denovo.</span><a class="headerlink" href="#id45" title="Permalink to this image">¶</a></p>
@@ -4906,136 +2704,17 @@ analog Monaco, as shown in <a class="reference internal" href="#tab4-20"><span c
 <table class="docutils align-center" id="tab4-19">
 <caption><span class="caption-number">Table 19 </span><span class="caption-text">Final MAVRIC results (rem/hr) for each point detectorin the photon source/photon dose rate problem</span><a class="headerlink" href="#tab4-19" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>Time (minutes)</p></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-even"><td><p>detector</p></td>
-<td><p>Denovo</p></td>
-<td><p>Monaco</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>2.6</p></td>
-<td><p>121</p></td>
-<td><p>5.02E-02</p></td>
-<td><p>0.0024</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>3.1</p></td>
-<td><p>65</p></td>
-<td><p>3.03E-01</p></td>
-<td><p>0.0177</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>3.6</p></td>
-<td><p>64</p></td>
-<td><p>2.89E+00</p></td>
-<td><p>0.0105</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>2.6</p></td>
-<td><p>130</p></td>
-<td><p>3.18E-02</p></td>
-<td><p>0.0024</p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>3.1</p></td>
-<td><p>59</p></td>
-<td><p>3.07E+00</p></td>
-<td><p>0.0156</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>Time (minutes)</p></td>
-<td></td>
-<td><p>Dose Rate</p></td>
-<td><p>relative</p></td>
-</tr>
-<tr class="row-odd"><td><p>detector</p></td>
-<td><p>Denovo</p></td>
-<td><p>Monaco</p></td>
-<td><p>(rem/hr)</p></td>
-<td><p>uncertainty</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>2.6</p></td>
-<td><p>121</p></td>
-<td><p>5.02E-02</p></td>
-<td><p>0.0024</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>3.1</p></td>
-<td><p>65</p></td>
-<td><p>3.03E-01</p></td>
-<td><p>0.0177</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>3.6</p></td>
-<td><p>64</p></td>
-<td><p>2.89E+00</p></td>
-<td><p>0.0105</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>2.6</p></td>
-<td><p>130</p></td>
-<td><p>3.18E-02</p></td>
-<td><p>0.0024</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>3.1</p></td>
-<td><p>59</p></td>
-<td><p>3.07E+00</p></td>
-<td><p>0.0156</p></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>6</p></td>
-<td><p>3.8</p></td>
-<td><p>63</p></td>
-<td><p>3.14E-01</p></td>
-<td><p>0.0137</p></td>
+<tr class="row-odd"><td><img alt="_images/tab18.png" src="_images/tab18.png" />
+</td>
 </tr>
 </tbody>
 </table>
-<img alt="_images/fig4.1.19e_caskp.targets.scale.png" class="align-center" src="_images/fig4.1.19e_caskp.targets.scale.png" />
+<div class="figure align-center">
+<img alt="_images/fig4.1.19e_caskp.targets.scale.png" src="_images/fig4.1.19e_caskp.targets.scale.png" />
+</div>
 <div class="figure align-center" id="id46">
 <span id="fig4-19"></span><a class="reference internal image-reference" href="_images/4.19.jpg"><img alt="_images/4.19.jpg" src="_images/4.19.jpg" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Photon target weights from the importance map and source weights (at birth) for photon group 12 (0.8–1.0 MeV).</span><a class="headerlink" href="#id46" title="Permalink to this image">¶</a></p>
@@ -5043,318 +2722,11 @@ analog Monaco, as shown in <a class="reference internal" href="#tab4-20"><span c
 <table class="docutils align-center" id="tab4-20">
 <caption><span class="caption-number">Table 20 </span><span class="caption-text">Comparison of the photon dose rates (rem/hr) to other SCALE codes</span><a class="headerlink" href="#tab4-20" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
+<col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Analog Monaco</p></td>
-<td></td>
-<td><p>SAS4 radial</p></td>
-<td></td>
-<td><p>SAS4 axial</p></td>
-<td></td>
-<td><p>MAVRIC</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>detector</p></td>
-<td><p>6678 min</p></td>
-<td></td>
-<td><p>361 min</p></td>
-<td></td>
-<td><p>361 min</p></td>
-<td></td>
-<td><p>520 min</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1</p></td>
-<td><p>2.66E-02</p></td>
-<td><p>±  27%</p></td>
-<td><p>4.54E-02</p></td>
-<td><p>±  1.2%</p></td>
-<td><p>7.07E-04</p></td>
-<td><p>±  54%</p></td>
-<td><p>5.02E-02</p></td>
-<td><p>±  0.2%</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2</p></td>
-<td><p>3.05E-01</p></td>
-<td><p>±  7.9%</p></td>
-<td><p>6.74E-02</p></td>
-<td><p>±  33%</p></td>
-<td><p>2.45E-01</p></td>
-<td><p>±  6.3%</p></td>
-<td><p>3.03E-01</p></td>
-<td><p>±  1.8%</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3</p></td>
-<td><p>2.97E+00</p></td>
-<td><p>±  2.0%</p></td>
-<td><p>5.63E-01</p></td>
-<td><p>±  38%</p></td>
-<td><p>2.07E+00</p></td>
-<td><p>±  22.9%</p></td>
-<td><p>2.89E+00</p></td>
-<td><p>±  1.0%</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4</p></td>
-<td><p>2.65E-02</p></td>
-<td><p>±  13.4%</p></td>
-<td><p>2.76E-02</p></td>
-<td><p>±  0.4%</p></td>
-<td><p>2.48E-03</p></td>
-<td><p>±  46%</p></td>
-<td><p>3.18E-02</p></td>
-<td><p>±  0.2%</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5</p></td>
-<td><p>3.26E+00</p></td>
-<td><p>±  1.3%</p></td>
-<td><p>1.85E+00</p></td>
-<td><p>±  17%</p></td>
-<td><p>2.70E+00</p></td>
-<td><p>±  6.6%</p></td>
-<td><p>3.07E+00</p></td>
-<td><p>±  1.6%</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6</p></td>
-<td><p>3.30E-01</p></td>
-<td><p>±  2.4%</p></td>
-<td><p>1.46E-01</p></td>
-<td><p>±  14.9%</p></td>
-<td><p>2.73E-01</p></td>
-<td><p>±  8.4%</p></td>
-<td><p>3.14E-01</p></td>
-<td><p>±  1.4%</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Analog Monaco</p></td>
-<td></td>
-<td><p>SAS4 radial</p></td>
-<td></td>
-<td><p>SAS4 axial</p></td>
-<td></td>
-<td><p>MAVRIC</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>detector</p></td>
-<td><p>6678 min</p></td>
-<td></td>
-<td><p>361 min</p></td>
-<td></td>
-<td><p>361 min</p></td>
-<td></td>
-<td><p>520 min</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1</p></td>
-<td><p>2.66E-02</p></td>
-<td><p>±  27%</p></td>
-<td><p>4.54E-02</p></td>
-<td><p>±  1.2%</p></td>
-<td><p>7.07E-04</p></td>
-<td><p>±  54%</p></td>
-<td><p>5.02E-02</p></td>
-<td><p>±  0.2%</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2</p></td>
-<td><p>3.05E-01</p></td>
-<td><p>±  7.9%</p></td>
-<td><p>6.74E-02</p></td>
-<td><p>±  33%</p></td>
-<td><p>2.45E-01</p></td>
-<td><p>±  6.3%</p></td>
-<td><p>3.03E-01</p></td>
-<td><p>±  1.8%</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3</p></td>
-<td><p>2.97E+00</p></td>
-<td><p>±  2.0%</p></td>
-<td><p>5.63E-01</p></td>
-<td><p>±  38%</p></td>
-<td><p>2.07E+00</p></td>
-<td><p>±  22.9%</p></td>
-<td><p>2.89E+00</p></td>
-<td><p>±  1.0%</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4</p></td>
-<td><p>2.65E-02</p></td>
-<td><p>±  13.4%</p></td>
-<td><p>2.76E-02</p></td>
-<td><p>±  0.4%</p></td>
-<td><p>2.48E-03</p></td>
-<td><p>±  46%</p></td>
-<td><p>3.18E-02</p></td>
-<td><p>±  0.2%</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5</p></td>
-<td><p>3.26E+00</p></td>
-<td><p>±  1.3%</p></td>
-<td><p>1.85E+00</p></td>
-<td><p>±  17%</p></td>
-<td><p>2.70E+00</p></td>
-<td><p>±  6.6%</p></td>
-<td><p>3.07E+00</p></td>
-<td><p>±  1.6%</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6</p></td>
-<td><p>3.30E-01</p></td>
-<td><p>±  2.4%</p></td>
-<td><p>1.46E-01</p></td>
-<td><p>±  14.9%</p></td>
-<td><p>2.73E-01</p></td>
-<td><p>±  8.4%</p></td>
-<td><p>3.14E-01</p></td>
-<td><p>±  1.4%</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><img alt="_images/tab20.png" src="_images/tab20.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -5365,206 +2737,11 @@ analog Monaco, as shown in <a class="reference internal" href="#tab4-20"><span c
 <table class="docutils align-center" id="tab4-21">
 <caption><span class="caption-number">Table 21 </span><span class="caption-text">Ratio of the FOM (speed-up) of MAVRIC and SAS4 compared to analog Monaco</span><a class="headerlink" href="#tab4-21" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
+<col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td><p>SAS4</p></td>
-<td><p>SAS4</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>detector</p></td>
-<td><p>Monaco</p></td>
-<td><p>radial</p></td>
-<td><p>axial</p></td>
-<td><p>MAVRIC</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>9759</p></td>
-<td><p>4.7</p></td>
-<td><p>114619</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>2</p></td>
-<td><p>1</p></td>
-<td><p>1.1</p></td>
-<td><p>29</p></td>
-<td><p>325</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>0</p></td>
-<td><p>60</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>4</p></td>
-<td><p>1</p></td>
-<td><p>21570</p></td>
-<td><p>1.6</p></td>
-<td><p>26329</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>5</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>1</p></td>
-<td><p>13</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>6</p></td>
-<td><p>1</p></td>
-<td><p>0.5</p></td>
-<td><p>1.6</p></td>
-<td><p>53</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td><p>SAS4</p></td>
-<td><p>SAS4</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>detector</p></td>
-<td><p>Monaco</p></td>
-<td><p>radial</p></td>
-<td><p>axial</p></td>
-<td><p>MAVRIC</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>9759</p></td>
-<td><p>4.7</p></td>
-<td><p>114619</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>2</p></td>
-<td><p>1</p></td>
-<td><p>1.1</p></td>
-<td><p>29</p></td>
-<td><p>325</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>0</p></td>
-<td><p>60</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>4</p></td>
-<td><p>1</p></td>
-<td><p>21570</p></td>
-<td><p>1.6</p></td>
-<td><p>26329</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>5</p></td>
-<td><p>1</p></td>
-<td><p>0.1</p></td>
-<td><p>1</p></td>
-<td><p>13</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>6</p></td>
-<td><p>1</p></td>
-<td><p>0.5</p></td>
-<td><p>1.6</p></td>
-<td><p>53</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><img alt="_images/tab211.png" src="_images/tab211.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -5809,215 +2986,11 @@ CADIS for the far detector, and the FW-CADIS calculation for both.</p>
 <table class="docutils align-center" id="tab4-22">
 <caption><span class="caption-number">Table 22 </span><span class="caption-text">Comparison of different CADIS techniques for the litho-density problem</span><a class="headerlink" href="#tab4-22" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
+<col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Time</p></td>
-<td></td>
-<td><p>Near Detector</p></td>
-<td></td>
-<td></td>
-<td><p>Far Detector</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>(min)</p></td>
-<td></td>
-<td><p>flux</p></td>
-<td><p>relative</p></td>
-<td><p>FOM</p></td>
-<td><p>flux</p></td>
-<td><p>relative</p></td>
-<td><p>FOM</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>For</p></td>
-<td><p>Adj</p></td>
-<td><p>MC</p></td>
-<td><p>(/cm2/s)</p></td>
-<td><p>uncert.</p></td>
-<td><p>(/min)</p></td>
-<td><p>(/cm2/s)</p></td>
-<td><p>uncert.</p></td>
-<td><p>(/min)</p></td>
-</tr>
-<tr class="row-even"><td><p>Analog</p></td>
-<td></td>
-<td></td>
-<td><p>60.1</p></td>
-<td><p>1.19E+03</p></td>
-<td><p>0.3765</p></td>
-<td><p>0.12</p></td>
-<td><p>1.17E+02</p></td>
-<td><p>0.7098</p></td>
-<td><p>0.03</p></td>
-</tr>
-<tr class="row-odd"><td><p>CADIS - Near</p></td>
-<td></td>
-<td><p>4.8</p></td>
-<td><p>57.2</p></td>
-<td><p>1.49E+03</p></td>
-<td><p>0.0064</p></td>
-<td><p>390</p></td>
-<td><p>0.00E+00</p></td>
-<td><p>0.0000</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>CADIS - Far</p></td>
-<td></td>
-<td><p>4.7</p></td>
-<td><p>57.0</p></td>
-<td><p>8.28E+02</p></td>
-<td><p>0.4162</p></td>
-<td><p>0.09</p></td>
-<td><p>4.56E+01</p></td>
-<td><p>0.0048</p></td>
-<td><p>703</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Time</p></td>
-<td></td>
-<td><p>Near Detector</p></td>
-<td></td>
-<td></td>
-<td><p>Far Detector</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>(min)</p></td>
-<td></td>
-<td><p>flux</p></td>
-<td><p>relative</p></td>
-<td><p>FOM</p></td>
-<td><p>flux</p></td>
-<td><p>relative</p></td>
-<td><p>FOM</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>For</p></td>
-<td><p>Adj</p></td>
-<td><p>MC</p></td>
-<td><p>(/cm2/s)</p></td>
-<td><p>uncert.</p></td>
-<td><p>(/min)</p></td>
-<td><p>(/cm2/s)</p></td>
-<td><p>uncert.</p></td>
-<td><p>(/min)</p></td>
-</tr>
-<tr class="row-even"><td><p>Analog</p></td>
-<td></td>
-<td></td>
-<td><p>60.1</p></td>
-<td><p>1.19E+03</p></td>
-<td><p>0.3765</p></td>
-<td><p>0.12</p></td>
-<td><p>1.17E+02</p></td>
-<td><p>0.7098</p></td>
-<td><p>0.03</p></td>
-</tr>
-<tr class="row-odd"><td><p>CADIS - Near</p></td>
-<td></td>
-<td><p>4.8</p></td>
-<td><p>57.2</p></td>
-<td><p>1.49E+03</p></td>
-<td><p>0.0064</p></td>
-<td><p>390</p></td>
-<td><p>0.00E+00</p></td>
-<td><p>0.0000</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>CADIS - Far</p></td>
-<td></td>
-<td><p>4.7</p></td>
-<td><p>57.0</p></td>
-<td><p>8.28E+02</p></td>
-<td><p>0.4162</p></td>
-<td><p>0.09</p></td>
-<td><p>4.56E+01</p></td>
-<td><p>0.0048</p></td>
-<td><p>703</p></td>
-</tr>
-<tr class="row-odd"><td><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>FW-CADIS</p></td>
-<td><p>2.8</p></td>
-<td><p>4.4</p></td>
-<td><p>52.1</p></td>
-<td><p>1.48E+03</p></td>
-<td><p>0.0107</p></td>
-<td><p>149</p></td>
-<td><p>4.58E+01</p></td>
-<td><p>0.0062</p></td>
-<td><p>444</p></td>
+<tr class="row-odd"><td><img alt="_images/tab22.png" src="_images/tab22.png" />
+</td>
 </tr>
 </tbody>
 </table>
@@ -6038,39 +3011,25 @@ radioactive material transport packaging systems developed by Alpha
 Omega Services, Inc., and a <sup>60</sup>Co source. (International Isotopes
 Inc. of Idaho Falls, Idaho, distributes the AOS Radioactive Material
 Transport Packaging Systems.)</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-A simple model of the AOS-100 package, which is constructed primarily of steel and tungsten, is shown in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">fig4-25</span></code>. The diameter is 71.12 cm, and the height is 91.44 cm.
+<p>A simple model of the AOS-100 package,  which is constructed primarily of steel and tungsten, is shown in
+<a class="reference internal" href="#fig4-25"><span class="std std-numref">Fig. 25</span></a>. The diameter is 71.12 cm, and the height is 91.44 cm.
 The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
 but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of <sup>60</sup>Co.
 This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.</p>
-<p>The innermost cylinder (16.51 cm diameter and 50.8 cm height) typically contains the material to be transported,
-but in this study, this region is simply modeled as an air region containing a uniform source of 1 Ci of <sup>60</sup>Co.
-This is conservative—it assumes the radioactive material containing the cobalt provides no self-shielding.</p>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 976035f4c8ffba8420e067d938fa541e86781544
-.. _fig4-25:
-.. figure:: figs/fig4.1.25_aos100geom.bmp</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">align</dt>
-<dd class="field-odd"><p>center</p>
-</dd>
-<dt class="field-even">width</dt>
-<dd class="field-even"><p>30 %</p>
-</dd>
-</dl>
-<p>Simple AOS-100 cask geometry showing tungsten (brown) and steel (gray).</p>
-</div></blockquote>
+<div class="figure align-center" id="id52">
+<span id="fig4-25"></span><a class="reference internal image-reference" href="_images/fig4.1.25_aos100geom.bmp"><img alt="_images/fig4.1.25_aos100geom.bmp" src="_images/fig4.1.25_aos100geom.bmp" style="width: 30%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Simple AOS-100 cask geometry showing tungsten (brown) and steel (gray).</span><a class="headerlink" href="#id52" title="Permalink to this image">¶</a></p>
+</div>
 <p>The objective in this study is to compute the dose rates around the cask.
 This can be done using a mesh tally. Note that the dose rates inside the package are not of
 concern—only the dose rates outside the package are.</p>
 <p>The results of a 15-hour analog calculation (using only implicit capture with a lower weight limit of 10<sup>-7</sup>)
-are shown in <a class="reference internal" href="#fig4-26"><span class="std std-numref">Fig. 25</span></a>. This calculation does not show many photons that have escaped the package
+are shown in <a class="reference internal" href="#fig4-26"><span class="std std-numref">Fig. 26</span></a>. This calculation does not show many photons that have escaped the package
 into the air, which is similar to reality for this heavily shielded cask. To compute dose rates outside
 the package, variance reduction is needed.</p>
-<div class="figure align-center" id="id52">
+<div class="figure align-center" id="id53">
 <span id="fig4-26"></span><img alt="_images/4.26.png" src="_images/4.26.png" />
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Dose rates (mrem/hr/Ci) and relative uncertainties along the <em>y</em> = 0 midplane of the cask as calculated by an analog calculation.</span><a class="headerlink" href="#id52" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Dose rates (mrem/hr/Ci) and relative uncertainties along the <em>y</em> = 0 midplane of the cask as calculated by an analog calculation.</span><a class="headerlink" href="#id53" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="id21">
 <h4>Input file<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
@@ -6233,7 +3192,7 @@ quadrature and P<sub>5</sub> Legendre scattering expansion are used.</p>
 <div class="section" id="output-file">
 <h4>Output file<a class="headerlink" href="#output-file" title="Permalink to this headline">¶</a></h4>
 <p>Results for the mesh tally after 958 minutes (27 forward Denovo, 31
-adjoint Denovo, and 900 CE-Monaco) are shown in <a class="reference internal" href="#fig4-27"><span class="std std-numref">Fig. 26</span></a>.
+adjoint Denovo, and 900 CE-Monaco) are shown in <a class="reference internal" href="#fig4-27"><span class="std std-numref">Fig. 27</span></a>.
 Since dose rates inside the package are not of concern, that region was
 excluded from the mesh tally. Due to the optimization that focused the
 Monte Carlo calculation on dose rates outside the cask, values of the
@@ -6242,30 +3201,30 @@ Also note that voxels along the outer cylindrical edge of the package
 could show low dose rates, since the voxel value is an average and only
 part of the voxel is actually outside the package. The resolution of the
 mesh tally is 2.54 cm.</p>
-<div class="figure align-center" id="id53">
+<div class="figure align-center" id="id54">
 <span id="fig4-27"></span><img alt="_images/4.27.png" src="_images/4.27.png" />
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Dose rates (mrem/hr/Ci) and relative uncertainties from the CE FW-CADIS calculation showing the midplane views of the cask (<em>z</em> = 0 above and <em>y</em> = 0 below).</span><a class="headerlink" href="#id53" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Dose rates (mrem/hr/Ci) and relative uncertainties from the CE FW-CADIS calculation showing the midplane views of the cask (<em>z</em> = 0 above and <em>y</em> = 0 below).</span><a class="headerlink" href="#id54" title="Permalink to this image">¶</a></p>
 </div>
 <p>The flux using the user-defined energy bin boundaries for a point 10 cm above the top of the package
-(along the axis) is shown in <a class="reference internal" href="#fig4-28"><span class="std std-numref">Fig. 27</span></a>. Note that since the importance map was made to optimize
+(along the axis) is shown in <a class="reference internal" href="#fig4-28"><span class="std std-numref">Fig. 28</span></a>. Note that since the importance map was made to optimize
 the photon dose rate, some of the low-energy bins that do not contribute much to dose  may have
 larger uncertainties.</p>
-<div class="figure align-center" id="id54">
+<div class="figure align-center" id="id55">
 <span id="fig4-28"></span><a class="reference internal image-reference" href="_images/fig4.1.28_mavric.aos100.eflux.png"><img alt="_images/fig4.1.28_mavric.aos100.eflux.png" src="_images/fig4.1.28_mavric.aos100.eflux.png" style="width: 70%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Flux 10 cm above the cask.</span><a class="headerlink" href="#id54" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Flux 10 cm above the cask.</span><a class="headerlink" href="#id55" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#fig4-29"><span class="std std-numref">Fig. 28</span></a> and <a class="reference internal" href="#fig4-30"><span class="std std-numref">Fig. 29</span></a> show the ratios of the dose rates computed using a MG calculation to the
+<p><a class="reference internal" href="#fig4-29"><span class="std std-numref">Fig. 29</span></a> and <a class="reference internal" href="#fig4-30"><span class="std std-numref">Fig. 30</span></a> show the ratios of the dose rates computed using a MG calculation to the
 CE calculation. Dose rates inside the cask should not be compared because the importance map is focused on
 dose outside the cask, so low-energy photons are not simulated inside. The 47-group MG calculation is fairly
 close to the CE-calculation in dose rate (10% high axially, 20% high radially), but the 19-group MG dose rates
 are much higher than the CE. Neither of the MG calculations shows the 1.17 and 1.33 MeV lines in the energy spectra.</p>
-<div class="figure align-center" id="id55">
-<span id="fig4-29"></span><img alt="_images/4.29.png" src="_images/4.29.png" />
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Ratio of the 47-group MG computed dose rates to the CE dose rates (<em>y</em> = 0 left and <em>z</em> = 0 right).</span><a class="headerlink" href="#id55" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-center" id="id56">
+<span id="fig4-29"></span><img alt="_images/4.29.png" src="_images/4.29.png" />
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Ratio of the 47-group MG computed dose rates to the CE dose rates (<em>y</em> = 0 left and <em>z</em> = 0 right).</span><a class="headerlink" href="#id56" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id57">
 <span id="fig4-30"></span><img alt="_images/4.30.png" src="_images/4.30.png" />
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Ratio of the 19-group MG computed dose rates to the CE dose rates (<em>y</em> = 0 left and <em>z</em> = 0 right).</span><a class="headerlink" href="#id56" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Ratio of the 19-group MG computed dose rates to the CE dose rates (<em>y</em> = 0 left and <em>z</em> = 0 right).</span><a class="headerlink" href="#id57" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -6276,17 +3235,17 @@ everywhere—–in low dose areas and high dose areas—–is an independent spe
 fuel storage installation. The dose rates around these arrays of spent
 fuel casks need to be evaluated over a large area of ground to
 determine the boundary of the controlled area. This sample problem uses
-a simplified model of a cask array, shown in <a class="reference internal" href="#fig4-31"><span class="std std-numref">Fig. 30</span></a> and
-<a class="reference internal" href="#fig4-32"><span class="std std-numref">Fig. 31</span></a>, to demonstrate the FW-CADIS method for obtaining the dose
+a simplified model of a cask array, shown in <a class="reference internal" href="#fig4-31"><span class="std std-numref">Fig. 31</span></a> and
+<a class="reference internal" href="#fig4-32"><span class="std std-numref">Fig. 32</span></a>, to demonstrate the FW-CADIS method for obtaining the dose
 rates with reasonably low relative uncertainties over a mesh tally which
 covers a very large area.</p>
-<div class="figure align-center" id="id57">
-<span id="fig4-31"></span><a class="reference internal image-reference" href="_images/fig4.1.31_isfsi.array.bmp"><img alt="_images/fig4.1.31_isfsi.array.bmp" src="_images/fig4.1.31_isfsi.array.bmp" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Array of eight casks.</span><a class="headerlink" href="#id57" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-center" id="id58">
+<span id="fig4-31"></span><a class="reference internal image-reference" href="_images/fig4.1.31_isfsi.array.bmp"><img alt="_images/fig4.1.31_isfsi.array.bmp" src="_images/fig4.1.31_isfsi.array.bmp" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Array of eight casks.</span><a class="headerlink" href="#id58" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id59">
 <span id="fig4-32"></span><a class="reference internal image-reference" href="_images/fig4.1.32_isfsi.newcask07.bmp"><img alt="_images/fig4.1.32_isfsi.newcask07.bmp" src="_images/fig4.1.32_isfsi.newcask07.bmp" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Cask detail.</span><a class="headerlink" href="#id58" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Cask detail.</span><a class="headerlink" href="#id59" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="source-term">
 <h4>Source term<a class="headerlink" href="#source-term" title="Permalink to this headline">¶</a></h4>
@@ -6499,23 +3458,23 @@ The macro material option is used here to ensure that the discrete-ordinates cal
 <h4>Output<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
 <p>The MAVRIC calculational times were 3 minutes for the forward Denovo, 3.5 minutes for the adjoint Denovo,
 and 60 minutes for the Monaco forward Monte Carlo. Results for the mesh tally of dose rates are shown in
-<a class="reference internal" href="#fig4-33"><span class="std std-numref">Fig. 32</span></a>. For a longer Monaco calculation (64 hr), the mesh tally results are shown in <a class="reference internal" href="#fig4-34"><span class="std std-numref">Fig. 33</span></a>.
+<a class="reference internal" href="#fig4-33"><span class="std std-numref">Fig. 33</span></a>. For a longer Monaco calculation (64 hr), the mesh tally results are shown in <a class="reference internal" href="#fig4-34"><span class="std std-numref">Fig. 34</span></a>.
 Note that the scale for the dose rate has been adjusted to only show the values outside of the cask array.</p>
 <p>Using the Mesh File Viewer, the distribution of relative uncertainty in a mesh tally can be plotted.
 For this 1 hr calculation, 50% of the voxels in the mesh tally had less than 20% relative uncertainty.
-<a class="reference internal" href="#fig4-35"><span class="std std-numref">Fig. 34</span></a> shows how the distribution of relative errors changes with longer run times.
+<a class="reference internal" href="#fig4-35"><span class="std std-numref">Fig. 35</span></a> shows how the distribution of relative errors changes with longer run times.
 For the 64 hr run, 90% of the voxels had less than 10% relative uncertainty.</p>
-<div class="figure align-center" id="id59">
-<span id="fig4-33"></span><img alt="_images/4.33.png" src="_images/4.33.png" />
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (1 hr Monaco).</span><a class="headerlink" href="#id59" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-center" id="id60">
-<span id="fig4-34"></span><img alt="_images/4.34.png" src="_images/4.34.png" />
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (64 hr Monaco). For the uncertainty plot, purple represents &lt;=5%.</span><a class="headerlink" href="#id60" title="Permalink to this image">¶</a></p>
+<span id="fig4-33"></span><img alt="_images/4.33.png" src="_images/4.33.png" />
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (1 hr Monaco).</span><a class="headerlink" href="#id60" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id61">
+<span id="fig4-34"></span><img alt="_images/4.34.png" src="_images/4.34.png" />
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Photon dose rate values in rem/hr (left) and the relative uncertainty (right) for the area around the cask array (64 hr Monaco). For the uncertainty plot, purple represents &lt;=5%.</span><a class="headerlink" href="#id61" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id62">
 <span id="fig4-35"></span><img alt="_images/fig4.1.35_isfsiCompare.png" src="_images/fig4.1.35_isfsiCompare.png" />
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Distribution of relative uncertainties for different run times of <code class="docutils literal notranslate"><span class="pre">mavric.isfsi.inp</span></code> showing the fraction of the mesh tally voxels that had less than a given amount of relative uncertainty.</span><a class="headerlink" href="#id61" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Distribution of relative uncertainties for different run times of <code class="docutils literal notranslate"><span class="pre">mavric.isfsi.inp</span></code> showing the fraction of the mesh tally voxels that had less than a given amount of relative uncertainty.</span><a class="headerlink" href="#id62" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -6525,7 +3484,7 @@ For the 64 hr run, 90% of the voxels had less than 10% relative uncertainty.</p>
 those sources, macromaterials for improved S<sub>N</sub> calculations, and
 the automated variance reduction capabilities in MAVRIC, consider the
 model for the TN-24P cask, as used in previous SCALE shielding
-reports <a class="bibtex reference internal" href="#wiarda-development-2009" id="id24">[WDP+09]</a> and shown in <a class="reference internal" href="#fig4-36"><span class="std std-numref">Fig. 35</span></a>. This model contains two types
+reports <a class="bibtex reference internal" href="#wiarda-development-2009" id="id24">[WDP+09]</a> and shown in <a class="reference internal" href="#fig4-36"><span class="std std-numref">Fig. 36</span></a>. This model contains two types
 of PWR spent fuel assemblies (Types V and W, both Westinghouse 15×15
 assemblies of different starting enrichments and burnups), each with
 specified neutron and photon sources, in an aluminum/boron fuel basket.
@@ -6535,9 +3494,9 @@ hardware regions (bottom nozzle, top nozzle, and top plenum), which
 consist of specified amounts of <sup>60</sup>Co (a photon source). The
 task for this example is to calculate the total dose rate within 2
 meters of the cask surface.</p>
-<div class="figure align-center" id="id62">
+<div class="figure align-center" id="id63">
 <span id="fig4-36"></span><img alt="_images/4.36.png" src="_images/4.36.png" />
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">MAVRIC model of the TN24-P cask. Materials: spent fuel (light and dark yellow), steels (blues), resin (green), and other metals (gray).</span><a class="headerlink" href="#id62" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">MAVRIC model of the TN24-P cask. Materials: spent fuel (light and dark yellow), steels (blues), resin (green), and other metals (gray).</span><a class="headerlink" href="#id63" title="Permalink to this image">¶</a></p>
 </div>
 <p>For MAVRIC, this means that the calculation of a dose rate mesh tally is calculated using
 FW-CADIS to ensure that each voxel has low relative uncertainty,
@@ -6769,8 +3728,8 @@ the FOM of the final Monaco calculation. The geometry images in <a class="refere
 <div class="section" id="id26">
 <h4>Output<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
 <p>The distributions used by the source descriptions of the TN24-P model
-are shown in <a class="reference internal" href="#fig4-38"><span class="std std-numref">Fig. 37</span></a>, and the responses used in this problem are
-shown in <a class="reference internal" href="#fig4-37"><span class="std std-numref">Fig. 36</span></a>. <a class="reference internal" href="#fig4-39"><span class="std std-numref">Fig. 38</span></a> and <a class="reference internal" href="#fig4-40"><span class="std std-numref">Fig. 39</span></a> show the total
+are shown in <a class="reference internal" href="#fig4-38"><span class="std std-numref">Fig. 38</span></a>, and the responses used in this problem are
+shown in <a class="reference internal" href="#fig4-37"><span class="std std-numref">Fig. 37</span></a>. <a class="reference internal" href="#fig4-39"><span class="std std-numref">Fig. 39</span></a> and <a class="reference internal" href="#fig4-40"><span class="std std-numref">Fig. 40</span></a> show the total
 (neutron + photon) dose rate outside the TN24-P cask, up to 2 meters
 from each surface using rectilinear and cylindrical mesh tallies
 with 10 cm voxels. Uncertainties in the computed dose rates were 3–4%
@@ -6782,21 +3741,21 @@ outside the cask. Relative uncertainties inside the cask were much
 higher (white areas) since those areas were deemed unimportant by the
 chosen adjoint source. Obtaining dose rates on a 10 cm mesh would not be
 achievable without the variance reduction capabilities of MAVRIC.</p>
-<div class="figure align-center" id="id63">
-<span id="fig4-37"></span><img alt="_images/4.37.png" src="_images/4.37.png" />
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Neutron (left) and photon (right) dose rate response functions.</span><a class="headerlink" href="#id63" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-center" id="id64">
-<span id="fig4-38"></span><img alt="_images/4.38.png" src="_images/4.38.png" />
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Distributions in the TN24-P model.</span><a class="headerlink" href="#id64" title="Permalink to this image">¶</a></p>
+<span id="fig4-37"></span><img alt="_images/4.37.png" src="_images/4.37.png" />
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Neutron (left) and photon (right) dose rate response functions.</span><a class="headerlink" href="#id64" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id65">
-<span id="fig4-39"></span><img alt="_images/4.39.png" src="_images/4.39.png" />
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Rectilinear mesh tally of total dose rate (rem/hr) and its relative uncertainty along the x=0 plane.</span><a class="headerlink" href="#id65" title="Permalink to this image">¶</a></p>
+<span id="fig4-38"></span><img alt="_images/4.38.png" src="_images/4.38.png" />
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Distributions in the TN24-P model.</span><a class="headerlink" href="#id65" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id66">
+<span id="fig4-39"></span><img alt="_images/4.39.png" src="_images/4.39.png" />
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Rectilinear mesh tally of total dose rate (rem/hr) and its relative uncertainty along the x=0 plane.</span><a class="headerlink" href="#id66" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id67">
 <span id="fig4-40"></span><img alt="_images/4.40.png" src="_images/4.40.png" />
-<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Cylindrical mesh tally of total dose rate (rem/hr) and its relative uncertainty along the θ=0° plane.</span><a class="headerlink" href="#id66" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Cylindrical mesh tally of total dose rate (rem/hr) and its relative uncertainty along the θ=0° plane.</span><a class="headerlink" href="#id67" title="Permalink to this image">¶</a></p>
 </div>
 <p id="bibtex-bibliography-MAVRIC-0"><dl class="citation">
 <dt class="bibtex label" id="baker-sn-1998"><span class="brackets"><a class="fn-backref" href="#id9">BK98</a></span></dt>

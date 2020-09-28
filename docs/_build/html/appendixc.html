@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications" href="Monaco.html" />
+    <link rel="next" title="Monte Carlo Transport Overview" href="Monte%20Carlo%20Transport%20Overview.html" />
     <link rel="prev" title="MAVRIC Appendix B: MAVRIC Utilities" href="appendixb.html" /> 
 </head>
 
@@ -138,6 +138,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Criticality Safety</span></p>
@@ -234,14 +235,14 @@ meter from a small spherical boat containing illicit nuclear material.
 The objective is to compute the fission rate in the nuclear material. To
 create the biasing parameters, an adjoint source is located within the
 nuclear material and the resulting importance map is shown in
-<a class="reference internal" href="#fig4c1"><span class="std std-numref">Fig. 47</span></a>. Note that in both the air and water, the importances
+<a class="reference internal" href="#fig4c1"><span class="std std-numref">Fig. 48</span></a>. Note that in both the air and water, the importances
 change with distance from the ship, but for the beam source, the
 importance (to causing a fission in the nuclear material) anywhere along
 the beam should be the same, since there is little chance a 14.1 MeV
 neutron will interact with the air before striking the ship.</p>
 <div class="figure align-center" id="id13">
 <span id="fig4c1"></span><img alt="_images/fig41c.png" src="_images/fig41c.png" />
-<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Importance map computed using standard CADIS.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Importance map computed using standard CADIS.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <p>The CADIS algorithm has done exactly what it was supposed to: it made a
 space/energy importance map and normalized it such that the target
@@ -279,13 +280,13 @@ source input for the above problem would then be</p>
 </div>
 <p>where the shift moves the source position from x = -195 to x = -87.3,
 just inside the hull. The resulting target weights are shown in
-<a class="reference internal" href="#fig4c2"><span class="std std-numref">Fig. 48</span></a> The source particles are born with weight 1 in a
+<a class="reference internal" href="#fig4c2"><span class="std std-numref">Fig. 49</span></a> The source particles are born with weight 1 in a
 location with a target weight 10.9. The particle weight is not checked
 until the particle crosses into the hull, where the target weight is
 1.0.</p>
 <div class="figure align-center" id="id14">
 <span id="fig4c2"></span><img alt="_images/fig4c2.png" src="_images/fig4c2.png" />
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Targets weights using the “shiftNormPos” keyword.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Targets weights using the “shiftNormPos” keyword.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 <p>Other options to manipulate the importance map for special situations
 include the “mapMultiplier=<em>f</em>” keyword (in the importanceMap block
@@ -1263,18 +1264,18 @@ demonstration on how to use it in MAVRIC. The bounding box of the
 adjoint source in this case is set slightly smaller than the extent of
 the entire problem.</p>
 <p>Results for the photon dose and its relative uncertainty using the five
-different methods of calculation are shown in <a class="reference internal" href="#fig4c3"><span class="std std-numref">Fig. 49</span></a>.
+different methods of calculation are shown in <a class="reference internal" href="#fig4c3"><span class="std std-numref">Fig. 50</span></a>.
 Information on the distribution of relative uncertainties is shown in
-<a class="reference internal" href="#fig4c4"><span class="std std-numref">Fig. 50</span></a> and listed in <a class="reference internal" href="#tab4c3"><span class="std std-numref">Table 28</span></a>.</p>
+<a class="reference internal" href="#fig4c4"><span class="std std-numref">Fig. 51</span></a> and listed in <a class="reference internal" href="#tab4c3"><span class="std std-numref">Table 28</span></a>.</p>
 <p>A more detailed comparison of the different hybrid methods for
 representative shielding problems can be found in <a class="bibtex reference internal" href="#peplow-comparison-2013" id="id8">[Pep13]</a>.</p>
 <div class="figure align-center" id="id15">
 <span id="fig4c3"></span><img alt="_images/fig4c3.png" src="_images/fig4c3.png" />
-<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Mesh tally results for the photon dose over the entire building use five different methods.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">Mesh tally results for the photon dose over the entire building use five different methods.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id16">
 <span id="fig4c4"></span><a class="reference internal image-reference" href="_images/fig4c4.png"><img alt="_images/fig4c4.png" src="_images/fig4c4.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">The fraction of mesh tally voxels with less than a given amount of relative uncertainty for the five different methods.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">The fraction of mesh tally voxels with less than a given amount of relative uncertainty for the five different methods.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 <table class="docutils align-center" id="tab4c3">
 <caption><span class="caption-number">Table 28 </span><span class="caption-text">Comparison of the five different methods</span><a class="headerlink" href="#tab4c3" title="Permalink to this table">¶</a></caption>
@@ -1416,7 +1417,7 @@ could benefit from them.</p>
 <div class="section" id="using-mavric-to-run-fixed-source-denovo-calculations">
 <h2>Using MAVRIC to run fixed-source Denovo calculations<a class="headerlink" href="#using-mavric-to-run-fixed-source-denovo-calculations" title="Permalink to this headline">¶</a></h2>
 <p>The MAVRIC sequence of SCALE can be used to run the new
-discrete-ordinates code Denovo <a class="bibtex reference internal" href="MAVRIC.html#evans-denovo-2010" id="id11">[ESSC10]</a> The sequence is designed to use
+discrete-ordinates code Denovo <a class="bibtex reference internal" href="#evans-denovo-2010" id="id11">[ESSC10]</a> The sequence is designed to use
 Denovo to compute an importance map for the Monte Carlo code Monaco but
 can be stopped without starting the final Monaco calculation. The full
 version of Denovo has a python-based user interface where the user must
@@ -1817,17 +1818,17 @@ graphite</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">denovo1.xkba.dsi</span></code> file (the Denovo simple input) contains both the source and mesh
-geometry that MAVRIC prepared for Denovo, as shown in <a class="reference internal" href="#fig4c5"><span class="std std-numref">Fig. 51</span></a>.</p>
+geometry that MAVRIC prepared for Denovo, as shown in <a class="reference internal" href="#fig4c5"><span class="std std-numref">Fig. 52</span></a>.</p>
 <div class="figure align-center" id="id17">
 <span id="fig4c5"></span><img alt="_images/fig4c5.png" src="_images/fig4c5.png" />
-<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">Forward Denovo source (left) and mesh geometry (right).</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Forward Denovo source (left) and mesh geometry (right).</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <p>The result of the Denovo-only MAVRIC calculation is a file,
 <code class="docutils literal notranslate"><span class="pre">denovo1.forward.dff</span></code>, containing the scalar fluxes for each energy group.
-The Mesh File Viewer can be used to display each group or the total scalar flux, which is shown in <a class="reference internal" href="#fig4c6"><span class="std std-numref">Fig. 52</span></a>.</p>
+The Mesh File Viewer can be used to display each group or the total scalar flux, which is shown in <a class="reference internal" href="#fig4c6"><span class="std std-numref">Fig. 53</span></a>.</p>
 <div class="figure align-center" id="id18">
 <span id="fig4c6"></span><img alt="_images/fig4c6.png" src="_images/fig4c6.png" />
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Total forward fluxes.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Total forward fluxes.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 <p>The MAVRIC utilities can be used to further process the Denovo flux into
 a detector response. The fluxes at the location of the detector need to
@@ -1923,10 +1924,10 @@ of the adjoint source</p>
 </div>
 <p>The result of this Denovo-only MAVRIC calculation is a file,
 <code class="docutils literal notranslate"><span class="pre">denovo2.adjoint.dff</span></code>, containing the scalar adjoint fluxes for each
-energy group, as shown in <a class="reference internal" href="#fig4c7"><span class="std std-numref">Fig. 53</span></a>.</p>
+energy group, as shown in <a class="reference internal" href="#fig4c7"><span class="std std-numref">Fig. 54</span></a>.</p>
 <div class="figure align-center" id="id19">
 <span id="fig4c7"></span><img alt="_images/fig4c7.png" src="_images/fig4c7.png" />
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Total adjoint fluxes.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Total adjoint fluxes.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 <p>As with the forward fluxes, the MAVRIC utilities can be used to further
 process the Denovo adjoint fluxes into a detector response. The adjoint
@@ -2054,7 +2055,7 @@ solution of
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Monaco.html" class="btn btn-neutral float-right" title="Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Monte%20Carlo%20Transport%20Overview.html" class="btn btn-neutral float-right" title="Monte Carlo Transport Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="appendixb.html" class="btn btn-neutral float-left" title="MAVRIC Appendix B: MAVRIC Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

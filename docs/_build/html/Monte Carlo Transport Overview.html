@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Monte Carlo Transport Overview &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Keno: A Monte Carlo Criticality Program" href="Keno.html" />
+    <link rel="prev" title="MAVRIC Appendix C: Advanced Features" href="appendixc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Monte Carlo Transport Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#multigroup-physics">Multigroup Physics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-energy-physics">Continuous-energy Physics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#geometry-packages">Geometry Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eigenvalue-analysis">Eigenvalue Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shielding-analysis">Shielding Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Keno.html">Keno: A Monte Carlo Criticality Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Monte Carlo Transport Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Monte Carlo Transport Overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="monte-carlo-transport-overview">
+<span id="mctoverview"></span><h1>Monte Carlo Transport Overview<a class="headerlink" href="#monte-carlo-transport-overview" title="Permalink to this headline">¶</a></h1>
+<p><em>Introduction by B. T. Rearden</em></p>
+<p>SCALE Monte Carlo transport capabilities enable criticality safety,
+shielding, depletion, and sensitivity and uncertainty analysis <a class="bibtex reference internal" href="#rearden-monte-2014" id="id1">[RPP+14]</a>.
+SCALE provides separate Monte Carlo capabilities for eigenvalue
+neutronics and fixed-source coupled neutron-gamma calculations, in the
+KENO code <a class="bibtex reference internal" href="#goluoglu-monte-2011" id="id2">[GPJD+11]</a> and fixed-source coupled neutron-gamma calculations in
+the Monaco code <a class="bibtex reference internal" href="#peplow-monte-2011" id="id3">[Pep11]</a> Although the eigenvalue and fixed-source
+capabilities are provided in separate codes, many capabilities are
+shared between them, including physics and geometry packages. The
+foundational features shared between the codes are described below, with
+specific implementations provided in subsequent sections. Generally, the
+use of the Monte Carlo transport solvers in SCALE are best accessed
+through the capability-specific sequences: CSAS and Sourcerer for
+criticality safety, MAVRIC for shielding, TRITON for depletion,
+TSUNAMI-3D for sensitivity and uncertainty analysis, and MCDancoff for
+three-dimensional Dancoff factor calculations.</p>
+<div class="section" id="multigroup-physics">
+<h2>Multigroup Physics<a class="headerlink" href="#multigroup-physics" title="Permalink to this headline">¶</a></h2>
+<p>The multigroup treatment implemented in SCALE has been in use since the
+1960s and provides efficient, effective solutions with superior runtime
+performance. Problem-dependent multigroup cross section data are
+temperature interpolated and resonance self-shielded by other SCALE
+modules before they are used in each Monte Carlo calculation. Without
+proper resonance self-shielding, accurate multigroup calculations would
+not be possible for thermal or intermediate energy spectrum systems.
+After self-shielding has been accomplished and the two-dimensional
+expansions have been summed into a Legendre expansion of the total
+group-to-group transfer arrays, individual nuclide cross sections are
+multiplied by their densities and summed into mixtures. These mixture
+cross sections can then be used by the deterministic transport codes for
+their calculations. The Monte Carlo codes convert the Legendre expansion
+of the transfer arrays into probability distributions for the
+group-to-group transfers and for the discrete scattering angles and
+probabilities that preserve the moments of the Legendre expansion of
+each group-to-group transfer. These transfer probabilities, angles, and
+angle probabilities are then transformed so that the new group and angle
+of scatter are efficiently selected through two random numbers with only
+one multiplication and one addition operation. If the selected new group
+is negative, it is reset to positive, and the new direction is chosen
+isotropically. If the problem is run with P<sub>1</sub> scattering, the
+scattering angle is chosen from a continuous distribution. For higher
+order scattering, the polar scatter angle is discrete, and the azimuthal
+angle is randomly selected from a uniform distribution. Multigroup
+physics is implemented for neutron, photon, and neutron-photon coupled
+particle transport modes.</p>
+<div class="section" id="continuous-energy-physics">
+<h3>Continuous-energy Physics<a class="headerlink" href="#continuous-energy-physics" title="Permalink to this headline">¶</a></h3>
+<p>The continuous energy treatment in SCALE provides high resolution
+solution strategies with explicit physics representation. The continuous
+energy data represent thermal scattering using free gas and s(α,β), with
+explicit point-to-point data provided through the thermal region. The
+resolved resonance region is represented by pointwise data where the
+energy point density is optimized for each reaction of each nuclide.
+Data in the unresolved resonance region are represented by probability
+tables, and data above the unresolved region implement pointwise data
+with explicit point-to-point representation for secondary particles.
+Photon yield data represent each discrete photon. Continuous energy
+physics contains non-transport data handling to support various flux,
+reaction rate, point detector tallies, and sensitivity analysis. In
+addition, continuous energy data are converted from a double
+differential data format to a lab format in a process where fast look-up
+tables are provided during library generation. In SCALE 6.0–6.1,
+calculations are performed only at temperatures available on the data
+libraries by selecting the library temperature nearest to the desired
+temperature for the calculation. Resonance upscattering techniques are
+implemented via the Doppler Broadened Rejection Correction method <a class="bibtex reference internal" href="#hart-implementation-2013" id="id4">[HMGR13]</a>.
+With SCALE 6.2, problem-dependent continuous energy cross sections at
+the user specified temperature are generated at the beginning of the
+calculation. Continuous energy physics is implemented for neutron,
+photon, and neutron-photon coupled particle transport modes.</p>
+</div>
+</div>
+<div class="section" id="geometry-packages">
+<h2>Geometry Packages<a class="headerlink" href="#geometry-packages" title="Permalink to this headline">¶</a></h2>
+<p>Two variants of KENO provide identical solution capabilities with
+different geometry packages. KENO V.a implements a simple and efficient
+geometry package sufficient for modeling many systems of interest to
+criticality safety and reactor physics analysts. KENO-VI implements the
+SCALE Generalized Geometry Package (SGGP), which provides a
+quadratic-based geometry system with much greater flexibility in
+solution modeling. Monaco implements only the SGGP geometry package.
+Both packages are based on solid bodies organized into reusable objects
+called <em>units</em> that are constructed of material <em>regions</em>. Units can be
+conveniently arranged in rectangular or hexagonal <em>arrays</em> of repeating
+units. Additionally, nesting is available so that one unit can contain
+another unit as a <em>hole</em>, or an array can be nested inside of a unit,
+which itself can be repeated in another array. There is no limit to the
+number of nesting levels available, so very complex systems can be
+quickly generated.</p>
+<p>KENO V.a models are constructed from regions of specific shapes
+following strict rules which provide great efficiency in geometry
+tracking. Allowed shapes are cubes, cuboids (rectangular
+parallelepipeds), spheres, cylinders, hemispheres, and hemicylinders.
+These shapes must be oriented along orthogonal axes, and they can be
+translated, but they cannot be rotated. A major restriction applied to
+KENO V.a geometry is that intersections are not allowed, and each region
+of a unit must fully enclose the preceding region. An exception to this
+rule is in the use of <em>holes</em> through which many units can be placed
+within an enclosing unit. However, there is a runtime penalty in
+geometry tracking for this flexibility, so this feature should be used
+judiciously. KENO V.a provides <em>rectangular</em> arrays where the outer body
+of each unit contained in the array must have a cuboidal shape, and
+adjacent faces must have the same dimensions. The entire array must be
+fully enclosed by the region in which it is placed.</p>
+<p>SGGP is a quadratic-based geometry system that provides predefined
+bodies including cone, cuboid, cylinder, dodecahedron, ecylinder
+(elliptical cylinders), ellipsoid, hexprism, hopper (truncated pyramid),
+parallelepiped, planes, rhombohedron, rhexprism (rotated hexprisms),
+sphere, and wedge. Bodies not directly provided with SGGP can be
+constructed from quadratic surfaces defined with coefficients entered by
+the user. All bodies and surfaces can be rotated and translated to any
+orientation and position within their respective unit. SGGP also
+provides intersecting regions.</p>
+<p>SGGP arrays may be composed of cuboids, hexprisms, rhexprisms, or
+dodecahedrons. Like KENO V.a, the faces of adjacent units in an array
+must have the same dimensions. An array boundary must be specified for
+each array, and only the portion of the array within the boundary is
+considered a part of the system. Also, the specified array must fill the
+entire volume in the specified array boundary. The array boundary may be
+any shape that can be specified using quadratic equations.</p>
+<p>The use of holes is more flexible in SGGP than in KENO V.a. Within a
+unit, holes cannot intersect other holes or the unit boundary, but they
+can intersect region boundaries. The use of holes is not necessary to
+build complex geometries; they are used primarily to more efficiently
+build complex geometries and improve the tracking efficiency of the
+simulation. In SGGP the distance to each surface in the unit must be
+calculated after each collision. By moving some of the surfaces in a
+unit into another unit that is included as a hole, all the surfaces in
+the hole unit except the outer boundary are removed from the containing
+unit. The judicious use of holes in SGGP can significantly speed up the
+calculation.</p>
+</div>
+<div class="section" id="eigenvalue-analysis">
+<h2>Eigenvalue Analysis<a class="headerlink" href="#eigenvalue-analysis" title="Permalink to this headline">¶</a></h2>
+<p>KENO performs eigenvalue calculations for neutron transport primarily to
+calculate multiplication factors and flux distributions of fissile
+systems in continuous energy and multigroup modes. Both codes allow
+explicit geometric representation with their respective geometry
+packages. KENO provides a multigroup adjoint capability which is
+especially useful for sensitivity analysis. KENO implements standard
+variance reduction techniques such as implicit capture, splitting, and
+Russian roulette.</p>
+<p>The initial fission source distribution in KENO can be specified with
+nine options. These options include the default option of a uniform
+distribution throughout the fissile material; an axially varying
+distribution input by the user or defined as cos(Z) or
+(1-cos(Z)):sup:<cite>2</cite>, where Z is the axial position; several options to
+initialize the source at a given position (within a given volume, a
+given unit, or a unit at a specified array index); or to specifically
+provide the coordinates of each starting point.</p>
+<p>KENO approximates the real <em>k­eff</em> variance using an iterative
+approach and lagging covariance data between generations <a class="bibtex reference internal" href="#ueki-error-1997" id="id5">[UMN97]</a>. KENO
+provides a χ<sup>2</sup> test for the normality of <em>k­eff</em> and provides
+plots of <span class="math notranslate nohighlight">\(k_{eff}\)</span> by active and inactive generations. KENO reports a
+<em>best estimate</em> of <span class="math notranslate nohighlight">\(k_{eff}\)</span> that is computed as the minimum variance of
+<span class="math notranslate nohighlight">\(k_{eff}\)</span> based on generations skipped and generations run.</p>
+<p>KENO provides track-length tallies for scalar flux and angular flux
+moments needed for sensitivity analysis. Additionally, tallies are
+provided for reaction rates, with isotopic tallies available only in CE
+calculations. KENO also provides mesh tallies based on a user-input
+orthogonal grid.</p>
+<p>Matrix <span class="math notranslate nohighlight">\(k_{eff}\)</span> calculations provide an additional method of calculating
+the <span class="math notranslate nohighlight">\(k_{eff}\)</span> of the system. Cofactor <span class="math notranslate nohighlight">\(k_{eff}\)</span> and source vectors, which
+describe the contribution to the system <span class="math notranslate nohighlight">\(k_{eff}\)</span>from each unit, hole,
+or array, are available.</p>
+<p>KENO provides plots of <em>k­eff­</em>by generation and average <span class="math notranslate nohighlight">\(k_{eff}\)</span>
+for visual inspection of source convergence, followed by a <em>χ2</em>
+statistical assessment of convergence. Fission source convergence
+diagnostic techniques are implemented in KENO to provide improved
+confidence in the computed results and to reduce the simulation time for
+some cases. Confirming the convergence of the fission source
+distribution is especially useful to avoid the false convergence of
+<span class="math notranslate nohighlight">\(k_{eff}\)</span> that can be caused by insufficient sampling of important
+portions of the system <a class="bibtex reference internal" href="#ueki-stationarity-2005" id="id6">[UB05]</a> KENO source convergence diagnostics rely on
+Shannon entropy statistics of the mesh-based fission source data.</p>
+<p>Parallel computation capabilities are available in both versions of KENO
+to provide reductions in wall clock time, especially for sensitivity
+analysis or Monte Carlo depletion on computer clusters. By introducing a
+simple master-slave approach via message passing interface (MPI), KENO
+runs different random walks concurrently on the replicated geometry
+within the same generation. The fission source and other tallied
+quantities are gathered at the end of each generation by the master
+process, and then they are processed either for final edits or next
+generations.</p>
+</div>
+<div class="section" id="shielding-analysis">
+<h2>Shielding Analysis<a class="headerlink" href="#shielding-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Monaco is a fixed-source Monte Carlo shielding code that calculates
+neutron and photon fluxes and response functions for specific geometry
+regions, point detectors, and mesh tallies. Monaco has variance
+reduction capabilities, such as source biasing and weight windows, which
+can be automated via the MAVRIC sequence. MAVRIC performs radiation
+transport on problems that are too challenging for standard, unbiased
+Monte Carlo methods. Monaco provides multiple methods to enter the
+radioactive source descriptions. Spatial distribution options include
+volumetric sources and mesh sources which can be generated by other
+codes such as KENO. Energy distributions can be entered by the user or
+imported directly from emission data provided by ORIGEN. Spent fuel
+analysis is simplified through direct coupling with the ORIGEN binary
+concentration files.</p>
+<p id="bibtex-bibliography-Monte Carlo Transport Overview-0"><dl class="citation">
+<dt class="bibtex label" id="goluoglu-monte-2011"><span class="brackets"><a class="fn-backref" href="#id2">GPJD+11</a></span></dt>
+<dd><p>Sedat Goluoglu, Lester M. Petrie Jr, Michael E. Dunn, Daniel F. Hollenbach, and Bradley T. Rearden. Monte Carlo criticality methods and analysis capabilities in SCALE. <em>Nuclear Technology</em>, 174(2):214–235, 2011. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="hart-implementation-2013"><span class="brackets"><a class="fn-backref" href="#id4">HMGR13</a></span></dt>
+<dd><p>S. Hart, G. Ivan Maldonado, Sedat Goluoglu, and Brad Rearden. Implementation of the Doppler broadening rejection correction in KENO. <em>Trans. Am. Nucl. Soc</em>, 108:423–426, 2013.</p>
+</dd>
+<dt class="bibtex label" id="peplow-monte-2011"><span class="brackets"><a class="fn-backref" href="#id3">Pep11</a></span></dt>
+<dd><p>Douglas E. Peplow. Monte Carlo shielding analysis capabilities with MAVRIC. <em>Nuclear Technology</em>, 174(2):289–313, 2011. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="rearden-monte-2014"><span class="brackets"><a class="fn-backref" href="#id1">RPP+14</a></span></dt>
+<dd><p>Bradley T. Rearden, L. M. Petrie, Douglas E. Peplow, Kursat B. Bekar, Dorothea Wiarda, Cihangir Celik, Christopher M. Perfetti, Ahmad M. Ibrahim, S. W. D. Hart, and Michael E. Dunn. Monte Carlo capabilities of the SCALE code system. In <em>SNA+ MC 2013-Joint International Conference on Supercomputing in Nuclear Applications+ Monte Carlo</em>, 06007. EDP Sciences, 2014.</p>
+</dd>
+<dt class="bibtex label" id="ueki-stationarity-2005"><span class="brackets"><a class="fn-backref" href="#id6">UB05</a></span></dt>
+<dd><p>Taro Ueki and Forrest B. Brown. Stationarity modeling and informatics-based diagnostics in Monte Carlo criticality calculations. <em>Nuclear science and engineering</em>, 149(1):38–50, 2005. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="ueki-error-1997"><span class="brackets"><a class="fn-backref" href="#id5">UMN97</a></span></dt>
+<dd><p>Taro Ueki, Takamasa Mori, and Masayuki Nakagawa. Error estimations and their biases in Monte Carlo eigenvalue calculations. <em>Nuclear science and engineering</em>, 125(1):1–11, 1997. Publisher: Taylor &amp; Francis.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Keno.html" class="btn btn-neutral float-right" title="Keno: A Monte Carlo Criticality Program" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="appendixc.html" class="btn btn-neutral float-left" title="MAVRIC Appendix C: Advanced Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
