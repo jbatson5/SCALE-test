@@ -299,7 +299,6 @@ while running this code.
 
 .. list-table:: Summary of boundary condition data specific to KENO-VI.
   :name: tab8-1-5
-  :align: center
 
   * - .. image:: figs/Keno/tab5.svg
 
