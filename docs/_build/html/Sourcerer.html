@@ -238,7 +238,7 @@ sufficiently converged – which is not necessarily as soon as the
 generational value of <span class="math notranslate nohighlight">\(k_{\mathrm{\text{eff}}}\)</span> has converged. To
 address this concern, tools such as Shannon entropy <a class="bibtex reference internal" href="#shannon-mathematical-1948" id="id1">[Sha48]</a> can be used to
 measure the convergence of the fission source distribution
-eigenfunction <a class="bibtex reference internal" href="#ueki-stationarity-2003" id="id2">[UB03]</a><a class="bibtex reference internal" href="Monte%20Carlo%20Transport%20Overview.html#ueki-stationarity-2005" id="id3">[UB05]</a>.</p>
+eigenfunction <a class="bibtex reference internal" href="#ueki-stationarity-2003" id="id2">[UB03]</a><a class="bibtex reference internal" href="#ueki-stationarity-2005" id="id3">[UB05]</a>.</p>
 <p>For the second question, the reliability in the final
 <span class="math notranslate nohighlight">\(k_{\mathrm{\text{eff}}}\)</span> eigenvalue depends on whether the
 fission source converges to the correct distribution. Because no tool
@@ -268,9 +268,9 @@ cycles. The number of clones that gave an incorrect result for
 that study, presented in Figure 2.4.1, show that using a deterministic
 starting source significantly increases the
 <span class="math notranslate nohighlight">\(k_{\mathrm{\text{eff}}}\)</span> reliability.</p>
-<p>The Sourcerer sequence in SCALE uses the solution from the Denovo <a class="bibtex reference internal" href="DEVC.html#evans-denovo-2010" id="id6">[ESSC10]</a>
+<p>The Sourcerer sequence in SCALE uses the solution from the Denovo <a class="bibtex reference internal" href="appendixc.html#evans-denovo-2010" id="id6">[ESSC10]</a>
 discrete-ordinates code (through the DEVC sequence) as that starting
-fission source distribution in a CSAS/KENO Monte Carlo <a class="bibtex reference internal" href="DEVC.html#goluoglu-monte-2011" id="id7">[GPJD+11]</a> calculation.
+fission source distribution in a CSAS/KENO Monte Carlo <a class="bibtex reference internal" href="#goluoglu-monte-2011" id="id7">[GPJD+11]</a> calculation.
 For challenging criticality safety analyses, such as as-loaded spent
 nuclear fuel transportation packages with a mixed loading of low- and
 high-burnup fuel, even a low-fidelity deterministic solution for the
@@ -280,7 +280,7 @@ sequence is fairly automated and uses an input very similar to standard
 CSAS (KENO V.a or KENO-VI) inputs, along with a short description of the
 mesh and other parameters for the Denovo calculation.</p>
 <div class="figure align-center" id="id9">
-<span id="fig2-4-1"></span><a class="reference internal image-reference" href="_images/fig14.png"><img alt="_images/fig14.png" src="_images/fig14.png" style="width: 500px;" /></a>
+<span id="fig2-4-1"></span><a class="reference internal image-reference" href="_images/fig15.png"><img alt="_images/fig15.png" src="_images/fig15.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Fraction of failure to agree with the reference <em>k</em><sub>eff</sub> value for KENO calculations with different starting sources (Figure 4 from Ref. 5).</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -509,7 +509,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 <col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><img alt="_images/tab21.png" src="_images/tab21.png" />
+<tr class="row-odd"><td><img alt="_images/tab23.png" src="_images/tab23.png" />
 </td>
 </tr>
 </tbody>
@@ -520,7 +520,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 <col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><img alt="_images/tab31.png" src="_images/tab31.png" />
+<tr class="row-odd"><td><img alt="_images/tab32.png" src="_images/tab32.png" />
 </td>
 </tr>
 </tbody>
@@ -994,7 +994,7 @@ continuous-energy cross sections.</p>
 similar to the actual fission source distribution computed by KENO
 (using <code class="docutils literal notranslate"><span class="pre">npg</span></code>=250000), as shown in <a class="reference internal" href="#fig2-4-2"><span class="std std-numref">Fig. 114</span></a>.</p>
 <div class="figure align-center" id="id13">
-<span id="fig2-4-2"></span><a class="reference internal image-reference" href="_images/fig23.png"><img alt="_images/fig23.png" src="_images/fig23.png" style="width: 700px;" /></a>
+<span id="fig2-4-2"></span><a class="reference internal image-reference" href="_images/fig24.png"><img alt="_images/fig24.png" src="_images/fig24.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Fission source distribution from Denovo (left) and KENO (right).</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 </div>

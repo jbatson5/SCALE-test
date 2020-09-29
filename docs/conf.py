@@ -41,6 +41,7 @@ import sphinx_rtd_theme
 
 extensions = ['sphinxcontrib.bibtex', "sphinx_rtd_theme", 'sphinxcontrib.cairosvgconverter']
 
+
 from SCALE_highlighting import ScaleLexer, ScaleStyle, set_pygments_style
 from sphinx.highlighting import lexers
 lexers['scale'] = ScaleLexer()
