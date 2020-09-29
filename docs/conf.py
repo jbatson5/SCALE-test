@@ -39,7 +39,7 @@ sys.path.append(os.path.abspath('extensions'))
 
 import sphinx_rtd_theme
 
-extensions = ['sphinxcontrib.bibtex', "sphinx_rtd_theme", 'sphinxcontrib.cairosvgconverter']
+extensions = ['sphinxcontrib.bibtex', "sphinx_rtd_theme", 'sphinxcontrib.rsvgconverter']
 
 
 from SCALE_highlighting import ScaleLexer, ScaleStyle, set_pygments_style
