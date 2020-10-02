@@ -281,7 +281,7 @@ CSAS (KENO V.a or KENO-VI) inputs, along with a short description of the
 mesh and other parameters for the Denovo calculation.</p>
 <div class="figure align-center" id="id9">
 <span id="fig2-4-1"></span><a class="reference internal image-reference" href="_images/fig15.png"><img alt="_images/fig15.png" src="_images/fig15.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Fraction of failure to agree with the reference <em>k</em><sub>eff</sub> value for KENO calculations with different starting sources (Figure 4 from Ref. 5).</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 115 </span><span class="caption-text">Fraction of failure to agree with the reference <em>k</em><sub>eff</sub> value for KENO calculations with different starting sources (Figure 4 from Ref. 5).</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="capabilities">
@@ -292,7 +292,7 @@ sequences. Because DEVC can only use KENO-VI geometry, the utility
 c5toc6 geometry converter is used for KENO V.a geometries. The utility
 dso2msl is used to convert the Denovo spatial output (*.dso file) into a
 mesh source lite (*.msl) file that can be read as a starting source in
-KENO. All of the steps in Sourcerer are described in <a class="reference internal" href="#tab2-4-1"><span class="std std-numref">Table 86</span></a>.</p>
+KENO. All of the steps in Sourcerer are described in <a class="reference internal" href="#tab2-4-1"><span class="std std-numref">Table 92</span></a>.</p>
 <p>The sequence can be terminated at several points throughout the
 calculation using the <code class="docutils literal notranslate"><span class="pre">“parm=”</span></code> control on the <code class="docutils literal notranslate"><span class="pre">“=sourcerer”</span></code> line that
 starts the sequence. This capability can be used to stop the sequence
@@ -314,7 +314,7 @@ For efficient calculations, the user should understand the basics of
 Denovo eigenvalue calculations, how to use macromaterials, and how to
 use the KENO convergence metrics.</p>
 <span id="tab2-4-1"></span><table class="docutils align-center" id="id10">
-<caption><span class="caption-number">Table 86 </span><span class="caption-text">Steps in Sourcerer for an input file named <em>input</em>.inp.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 92 </span><span class="caption-text">Steps in Sourcerer for an input file named <em>input</em>.inp.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -470,7 +470,7 @@ Entropy has converged before active generations begin.</p>
 <div class="section" id="sequence-input">
 <h2>Sequence Input<a class="headerlink" href="#sequence-input" title="Permalink to this headline">¶</a></h2>
 <p>The input file for a Sourcerer calculation is similar to a CSAS input,
-as shown in <a class="reference internal" href="#tab2-4-2"><span class="std std-numref">Table 87</span></a>. There are two major differences between
+as shown in <a class="reference internal" href="#tab2-4-2"><span class="std std-numref">Table 93</span></a>. There are two major differences between
 Sourcerer and CSAS: the beginning/end syntax of the CSAS input and the
 presence of the “read detSource” block for specifying the deterministic
 starting source. The CSAS input appears as one block in the Sourcerer
@@ -498,13 +498,13 @@ geometry defined in its own input block. The use of macromaterials to
 construct a more representative mesh model from the Monte Carlo geometry
 is controlled with the <code class="docutils literal notranslate"><span class="pre">“mmSubCell=”</span></code> and <code class="docutils literal notranslate"><span class="pre">“mmTolerance=”</span></code> parameters in the
 macromaterial sub-block.</p>
-<p>The overall layout of the detSource block is shown in <a class="reference internal" href="#tab2-4-3"><span class="std std-numref">Table 88</span></a>. The
+<p>The overall layout of the detSource block is shown in <a class="reference internal" href="#tab2-4-3"><span class="std std-numref">Table 94</span></a>. The
 more common keywords for the eigenValParams sub-block are shown in
-<a class="reference internal" href="#tab2-4-4"><span class="std std-numref">Table 89</span></a> and <a class="reference internal" href="#tab2-4-5"><span class="std std-numref">Table 90</span></a>. A full list of the Denovo parameters
+<a class="reference internal" href="#tab2-4-4"><span class="std std-numref">Table 95</span></a> and <a class="reference internal" href="#tab2-4-5"><span class="std std-numref">Table 96</span></a>. A full list of the Denovo parameters
 appears in Appendix A. Macromaterials are explained in detail in the
-DEVC manual, and a list of keywords is given in <a class="reference internal" href="#tab2-4-6"><span class="std std-numref">Table 91</span></a>.</p>
+DEVC manual, and a list of keywords is given in <a class="reference internal" href="#tab2-4-6"><span class="std std-numref">Table 97</span></a>.</p>
 <table class="docutils align-center" id="tab2-4-2">
-<caption><span class="caption-number">Table 87 </span><span class="caption-text">Input file for a Sourcerer calculation (and differences with a CSAS input file, where black text is the same as CSAS and green text is new for Sourcerer sequence).</span><a class="headerlink" href="#tab2-4-2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 93 </span><span class="caption-text">Input file for a Sourcerer calculation (and differences with a CSAS input file, where black text is the same as CSAS and green text is new for Sourcerer sequence).</span><a class="headerlink" href="#tab2-4-2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -515,7 +515,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 </tbody>
 </table>
 <table class="docutils align-center" id="tab2-4-3">
-<caption><span class="caption-number">Table 88 </span><span class="caption-text">The detSource block.</span><a class="headerlink" href="#tab2-4-3" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 94 </span><span class="caption-text">The detSource block.</span><a class="headerlink" href="#tab2-4-3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -526,7 +526,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 </tbody>
 </table>
 <table class="docutils align-center" id="tab2-4-4">
-<caption><span class="caption-number">Table 89 </span><span class="caption-text">Common Denovo parameters in the eigenValParams sub-block.</span><a class="headerlink" href="#tab2-4-4" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 95 </span><span class="caption-text">Common Denovo parameters in the eigenValParams sub-block.</span><a class="headerlink" href="#tab2-4-4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -537,7 +537,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 </tbody>
 </table>
 <table class="docutils align-center" id="tab2-4-5">
-<caption><span class="caption-number">Table 90 </span><span class="caption-text">Boundary conditions in the eigenValParams sub-block.</span><a class="headerlink" href="#tab2-4-5" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 96 </span><span class="caption-text">Boundary conditions in the eigenValParams sub-block.</span><a class="headerlink" href="#tab2-4-5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -548,7 +548,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 </tbody>
 </table>
 <table class="docutils align-center" id="tab2-4-6">
-<caption><span class="caption-number">Table 91 </span><span class="caption-text">Macromaterial sub-block input.</span><a class="headerlink" href="#tab2-4-6" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 97 </span><span class="caption-text">Macromaterial sub-block input.</span><a class="headerlink" href="#tab2-4-6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -563,7 +563,7 @@ DEVC manual, and a list of keywords is given in <a class="reference internal" hr
 <h2>Sequence Output<a class="headerlink" href="#sequence-output" title="Permalink to this headline">¶</a></h2>
 <p>In addition to the data contained in the main Sourcerer text output
 file, many other files are created containing the intermediate data used
-by the sequence. These files are listed in <a class="reference internal" href="#tab2-4-7"><span class="std std-numref">Table 92</span></a>. Some of the
+by the sequence. These files are listed in <a class="reference internal" href="#tab2-4-7"><span class="std std-numref">Table 98</span></a>. Some of the
 files produced can be viewed using the Java Mesh File Viewer, which is
 distributed with SCALE.</p>
 <p>Note that files that use the name of the input file (<em>input</em>.inp) will
@@ -572,11 +572,11 @@ sequence finishes. Files that do not use the input file name can be
 copied back to the user’s working area with an extra <code class="docutils literal notranslate"><span class="pre">“=shell”</span></code> directive
 in the <em>input</em>.inp input file.</p>
 <p>Instructions on how to use the Java Mesh File Viewer to view the various
-output files listed in <a class="reference internal" href="#tab2-4-7"><span class="std std-numref">Table 92</span></a> as well as how to use the
+output files listed in <a class="reference internal" href="#tab2-4-7"><span class="std std-numref">Table 98</span></a> as well as how to use the
 macromaterial table file are located in the DEVC manual and the Mesh
 File Viewer help file, which is accessible through the Help/Help menu.</p>
 <span id="tab2-4-7"></span><table class="docutils align-default" id="id11">
-<caption><span class="caption-number">Table 92 </span><span class="caption-text">Files created by Sourcerer for an input file named <em>input</em>.inp.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 98 </span><span class="caption-text">Files created by Sourcerer for an input file named <em>input</em>.inp.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -938,10 +938,10 @@ voxel.</p>
 <div class="section" id="output-file">
 <h4>Output file<a class="headerlink" href="#output-file" title="Permalink to this headline">¶</a></h4>
 <p>The results for the standard CSAS calculations and the Sourcerer results
-are shown in <a class="reference internal" href="#tab2-4-8"><span class="std std-numref">Table 93</span></a> for calculations with the 252-energy-group and
+are shown in <a class="reference internal" href="#tab2-4-8"><span class="std std-numref">Table 99</span></a> for calculations with the 252-energy-group and
 continuous-energy cross sections.</p>
 <span id="tab2-4-8"></span><table class="docutils align-center" id="id12">
-<caption><span class="caption-number">Table 93 </span><span class="caption-text">Eigenvalue results for the Jezebel problem.</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 99 </span><span class="caption-text">Eigenvalue results for the Jezebel problem.</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 6%" />
 <col style="width: 42%" />
@@ -992,10 +992,10 @@ continuous-energy cross sections.</p>
 </table>
 <p>The Denovo fission source provides a reliable starting source that is
 similar to the actual fission source distribution computed by KENO
-(using <code class="docutils literal notranslate"><span class="pre">npg</span></code>=250000), as shown in <a class="reference internal" href="#fig2-4-2"><span class="std std-numref">Fig. 114</span></a>.</p>
+(using <code class="docutils literal notranslate"><span class="pre">npg</span></code>=250000), as shown in <a class="reference internal" href="#fig2-4-2"><span class="std std-numref">Fig. 116</span></a>.</p>
 <div class="figure align-center" id="id13">
 <span id="fig2-4-2"></span><a class="reference internal image-reference" href="_images/fig24.png"><img alt="_images/fig24.png" src="_images/fig24.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Fission source distribution from Denovo (left) and KENO (right).</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 116 </span><span class="caption-text">Fission source distribution from Denovo (left) and KENO (right).</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="other-variations">

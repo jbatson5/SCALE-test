@@ -104,6 +104,21 @@
 <li class="toctree-l4"><a class="reference internal" href="#units">UNITS</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#array-data">ARRAY Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#array-parameters">ARRAY Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#array-orientation-data">ARRAY orientation data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#albedo-data">Albedo data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#biasing-or-weighting-data">Biasing or weighting data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-data">Start data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-1-d-xsecs-ids-data">Extra 1-D XSECS IDs data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mixing-table-data">Mixing table data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-data">Plot data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#energy-group-boundary-data">Energy group boundary data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-data">Volume data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grid-geometry-data">Grid geometry data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reaction-data">Reaction data</a></li>
 </ul>
 </li>
 </ul>
@@ -398,7 +413,7 @@ quantities.</p>
 <p>KENO may be run stand alone or as part of a SCALE criticality safety or
 sensitivity and uncertainty analysis sequence. If KENO is run stand
 alone in the multigroup mode, cross section data can be used from an
-AMPX <a href="#id15"><span class="problematic" id="id1">[2]_</span></a> working format library or from a Monte Carlo format cross
+AMPX <a href="#id39"><span class="problematic" id="id1">[2]_</span></a> working format library or from a Monte Carlo format cross
 section library. If KENO uses an AMPX working format library, a mixing
 table data block must be entered. If a Monte Carlo format library is
 used, a mixing table data block is not entered, and the mixtures
@@ -476,7 +491,8 @@ while running this code.</p>
 <col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><img alt="_images/tab5.svg" src="_images/tab5.svg" /></td>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab5.svg"><img alt="_images/tab5.svg" class="align-center" src="_images/tab5.svg" width="800" /></a>
+</td>
 </tr>
 </tbody>
 </table>
@@ -552,8 +568,8 @@ while running this code.</p>
 </tr>
 </tbody>
 </table>
-<span id="tab8-1-13"></span><table class="docutils align-center" id="id3">
-<caption><span class="caption-number">Table 42 </span><span class="caption-text">Summary of energy group boundary data.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<span id="tab8-1-13"></span><table class="docutils align-center" id="id20">
+<caption><span class="caption-number">Table 42 </span><span class="caption-text">Summary of energy group boundary data.</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -600,8 +616,8 @@ input data pertinent to <strong>XXXX</strong> are then entered. Data for <strong
 terminated by entering <strong>END XXXX</strong> followed by two or more blanks. Note
 that multiple <strong>READ GRID</strong> blocks are used if multiple grid definitions
 are needed.</p>
-<table class="docutils align-center" id="id4">
-<caption><span class="caption-number">Table 44 </span><span class="caption-text">Types of input data.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<span id="tab8-1-15"></span><table class="docutils align-center" id="id21">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text">Types of input data.</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -834,7 +850,7 @@ cannot be used simultaneously.</p>
 </div></blockquote>
 </div>
 <div class="section" id="title-and-parameter-data">
-<h3>Title and parameter data<a class="headerlink" href="#title-and-parameter-data" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Title and parameter data<a class="headerlink" href="#title-and-parameter-data" title="Permalink to this headline">¶</a></h3>
 <p>A <em>title</em>, a character string, must be entered at the top of the input
 file. The syntax is:</p>
 <p><em>title</em> a string of characters with a length of up to 80 characters,
@@ -1212,7 +1228,7 @@ default = 77.</p>
 </div></blockquote>
 </div>
 <div class="section" id="geometry-data">
-<span id="id2"></span><h3>Geometry data<a class="headerlink" href="#geometry-data" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Geometry data<a class="headerlink" href="#geometry-data" title="Permalink to this headline">¶</a></h3>
 <p>The <em>GEOMETRY_ DATA</em> consists of a series of <strong>UNIT</strong> descriptions, one
 of which may be the <strong>GLOBAL UNIT</strong>. The <strong>UNIT</strong> is the basic geometry
 piece in KENO and often corresponds to a well-defined physical entity
@@ -1245,17 +1261,17 @@ V.a, each region in a unit must entirely contain each preceding region.
 The orientation, intersection, and containment restrictions are
 eliminated in KENO-VI. <a class="reference internal" href="#fig8-1-1"><span class="std std-numref">Fig. 55</span></a> shows some situations that are not
 allowed in KENO V.a, but are allowed in KENO-VI.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id22">
 <span id="fig8-1-1"></span><img alt="_images/fig13.png" src="_images/fig13.png" />
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Examples of geometry allowed in KENO-VI but not allowed in KENO V.a.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Examples of geometry allowed in KENO-VI but not allowed in KENO V.a.</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
 </div>
 <p>For KENO V.a, unless special options are invoked, each geometric region
 in a <strong>UNIT</strong> must completely enclose each interior region. Regions may
 touch at points of tangency and may share faces. See <a class="reference internal" href="#fig8-1-2"><span class="std std-numref">Fig. 56</span></a> for
 examples of allowable situations.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id23">
 <span id="fig8-1-2"></span><img alt="_images/fig22.png" src="_images/fig22.png" />
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Examples of correct KENO V.a units.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Examples of correct KENO V.a units.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
 </div>
 <p>Special options are provided to circumvent the complete enclosure
 restriction in KENO V.a or to enhance the basic geometry package in
@@ -1280,9 +1296,9 @@ entirely contained within the <strong>UNIT</strong>, and (2) they cannot interse
 other <strong>HOLE</strong>s or nested <strong>ARRAY</strong>s. <strong>HOLE</strong>s in KENO V.a cannot
 intersect an <strong>ARRAY</strong>; in KENO-VI, the <strong>HOLE</strong> cannot intersect the
 <strong>ARRAY</strong> boundary.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id24">
 <span id="fig8-1-3"></span><img alt="_images/fig32.png" src="_images/fig32.png" />
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Example demonstrating HOLE capability in KENO.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Example demonstrating HOLE capability in KENO.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </div>
 <p>Lattices or arrays are created by stacking <strong>UNIT</strong>s. In KENO V.a,
 only rectangular parallelepipeds can be organized in an <strong>ARRAY</strong>.
@@ -1291,13 +1307,13 @@ construct triangular pitched or closed-packed dodecahedral <strong>ARRAY</strong
 respectively. The adjacent faces of adjacent <strong>UNIT</strong>s stacked in this
 manner must match exactly. See <span class="xref std std-ref">8-1-3-6-4</span> for additional
 clarification and <a class="reference internal" href="#fig8-1-4"><span class="std std-numref">Fig. 58</span></a> and <a class="reference internal" href="#fig8-1-5"><span class="std std-numref">Fig. 59</span></a> for typical examples.</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id25">
 <span id="fig8-1-4"></span><a class="reference internal image-reference" href="_images/fig42.png"><img alt="_images/fig42.png" src="_images/fig42.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Example of triangular pitched ARRAY construction.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Example of triangular pitched ARRAY construction.</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id26">
 <span id="fig8-1-5"></span><img alt="_images/fig52.png" src="_images/fig52.png" />
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Example of ARRAY construction.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Example of ARRAY construction.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
 </div>
 <p>The <strong>ARRAY</strong> option is provided to allow for placing an <strong>ARRAY</strong> or
 lattice within a <strong>UNIT</strong>. In KENO-VI, an <strong>ARRAY</strong> is placed in a
@@ -1323,9 +1339,9 @@ separate regions. Also in KENO-VI, using <strong>HOLE</strong>s to insert
 <strong>ARRAY</strong>s allows the <strong>ARRAY</strong>s to be rotated when placed. See
 <a class="reference internal" href="#fig8-1-6"><span class="std std-numref">Fig. 60</span></a> for an example of an <strong>ARRAY</strong> composed of <strong>UNIT</strong>s
 containing <strong>HOLE</strong>s and <strong>ARRAY</strong>s.</p>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id27">
 <span id="fig8-1-6"></span><img alt="_images/fig61.png" src="_images/fig61.png" />
-<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Example of an ARRAY composed of UNITs containing ARRAYs and HOLEs.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Example of an ARRAY composed of UNITs containing ARRAYs and HOLEs.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
 </div>
 <p>The method of entering <em>GEOMETRY_DATA</em> in the geometry data block
 follows:</p>
@@ -1357,7 +1373,7 @@ the geometry description contains an <strong>ARRAY</strong>, KENO V.a defaults t
 global array to the array referenced by the last <strong>ARRAY</strong>
 <em>PLACEMENT_DESCRIPTION</em> that is not immediately preceded by a unit
 description. Otherwise, it is the largest array number specified in
-the array data (<span class="xref std std-ref">8-1-2-5</span>).</p>
+the array data (<a class="reference internal" href="#id4"><span class="std std-ref">ARRAY Data</span></a>).</p>
 </div></blockquote>
 <p>Examples of initiating a <strong>UNIT</strong>:</p>
 <ol class="arabic simple">
@@ -1464,19 +1480,19 @@ its dimension.</p>
 <p>In KENO V.a, the CHORD attribute is applicable for only hemispherical
 and hemicylindrical shapes, <em>not</em> for SPHERE, XCYLINDER, YCYLINDER,
 CYLINDER, ZCYLINDER, CUBE, or CUBOID.</p>
-<div class="figure align-center" id="id11">
+<div class="figure align-center" id="id28">
 <span id="fig8-1-7"></span><img alt="_images/fig71.png" src="_images/fig71.png" />
-<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Partial hemisphere or hemicylinder; less than half exists (less than half is defined by ρ &lt; 0).</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Partial hemisphere or hemicylinder; less than half exists (less than half is defined by ρ &lt; 0).</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure align-center" id="id12">
+<div class="figure align-center" id="id29">
 <span id="fig8-1-8"></span><img alt="_images/fig81.png" src="_images/fig81.png" />
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Partial hemisphere of hemicylinder; more than half exists (more than half is defined by ρ &gt; 0).</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Partial hemisphere of hemicylinder; more than half exists (more than half is defined by ρ &gt; 0).</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference internal" href="#fig8-1-9"><span class="std std-numref">Fig. 63</span></a> provides two examples of the use of the CHORD option in
 KENO-VI.</p>
-<div class="figure align-center" id="id13">
+<div class="figure align-center" id="id30">
 <span id="fig8-1-9"></span><img alt="_images/fig91.png" src="_images/fig91.png" />
-<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Examples of the CHORD option in KENO-VI.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Examples of the CHORD option in KENO-VI.</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
 </div>
 <p>The ORIG[IN] attribute</p>
 <p>The format is slightly different between KENO V.a and KENO-VI. Since the
@@ -1526,8 +1542,8 @@ region when the <em>center_type</em> is <strong>unit</strong>.</p>
 <em>center_type</em>. The default is 0.0 for all three entries.</p>
 </dd>
 </dl>
-<span id="tab8-1-16"></span><table class="docutils align-center" id="id14">
-<caption><span class="caption-number">Table 45 </span><span class="caption-text">Reference center values</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<span id="tab8-1-16"></span><table class="docutils align-center" id="id31">
+<caption><span class="caption-number">Table 45 </span><span class="caption-text">Reference center values</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1570,9 +1586,3266 @@ plus the offset defined by
 </tr>
 </tbody>
 </table>
-<p>hello again hi hello</p>
+<p>The ROTATE attribute</p>
+<p>This attribute can only be used in the KENO-VI input. It allows for the
+rotation of the <strong>shape</strong> or <strong>HOLE</strong> to which it is applied. If
+<strong>ORIGIN</strong> and <strong>ROTATE</strong> data follow the same <strong>shape</strong> or <strong>HOLE</strong>
+record, the <strong>shape</strong> is always rotated prior to translation, regardless
+of the order in which the data appear. Fig. 8.1.10 provides an example
+of the use of the <strong>ROTATE</strong> option. Its syntax is:</p>
+<p><strong>ROTATE</strong> [<strong>A1</strong>=<em>a</em><sub>1</sub>] [<strong>A2</strong>=<em>a</em><sub>2</sub>] [<strong>A3</strong>=<em>a</em><sub>3</sub>]</p>
+<dl class="simple">
+<dt><strong>A1</strong>=, <strong>A2</strong>=, <strong>A3</strong>=</dt><dd><p>are subordinate keywords to specify the
+angles of rotation of the particular shape with respect to the origin of
+the coordinate system. The Euler X-convention is used for rotation.</p>
+</dd>
+<dt><em>a</em><sub>1</sub>, <em>a</em><sub>2`*, *a*:sub:`3</sub></dt><dd><p>are the values of the Euler rotation angles in
+degrees. The default is 0 degrees. If a subordinate keyword appears more
+than once following the ROTATE keyword, the values are summed.</p>
+</dd>
+</dl>
+<div class="figure align-center" id="id32">
+<span id="fig8-1-10"></span><a class="reference internal image-reference" href="_images/fig101.png"><img alt="_images/fig101.png" src="_images/fig101.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Explanation of the ROTATE option.</span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
+</div>
+<p>Examples of <strong>shape</strong>s:</p>
+<ol class="arabic">
+<li><p>Specify a hemisphere labeled 10, containing material 2 with a radius
+of 5.0 cm which contains only material where Z &gt; 2.0 within the
+sphere centered at the origin, and its origin translated to X=1.0,
+Y=1.5, and Z=3.0.
+KENO V.a (no label, but material and bias ID are the first two numerical entries):</p>
+<p><strong>HEMISPHERE</strong> 2 1 5.0 <strong>CHORD</strong> -2.0 <strong>ORIGIN</strong> 1.0 1.5 3.0</p>
+<p>or</p>
+<p><strong>HEMISPHE+Z</strong> 2 1 5.0 <strong>CHORD</strong> -2.0 <strong>ORIGIN</strong> 1.0 1.5 3.0</p>
+<p>KENO-VI (no material; this is to be specified with <strong>MEDIA</strong>):</p>
+<p><strong>SPHERE</strong> 10 5.0 <strong>CHORD</strong> <strong>+Z</strong>=2.0 <strong>ORIGIN</strong> <strong>X</strong>=1.0
+<strong>Y</strong>=1.5 <strong>Z</strong>=3.0</p>
+</li>
+<li><p>Specify a hemicylinder labeled 10, containing material 1, having a
+radius of 5.0 cm and a length extending from Z=2.0 cm to Z=7.0 cm.
+The hemicylinder has been truncated perpendicular to the X axis at
+X= −3 such that material 1 does not exist between X= −3 and X= −5.
+Position the origin of the truncated hemicylinder at X=10 cm and
+Y=15 cm with respect to the origin of the unit, and rotate it (in
+KENO-VI input) so it is in the YZ plane at X=10 and at a 45° angle
+with the Y plane.</p>
+<p>KENO V.a (no rotation possible, no label):</p>
+<p><strong>ZHEMICYL+X</strong> 1 1 5.0 7.0 2.0 <strong>CHORD</strong> 3.0 <strong>ORIGIN</strong> 10.0 15.0</p>
+<p>KENO-VI (no material; this is to be specified with <strong>MEDIA</strong> card):</p>
+<p><strong>CYLINDER</strong> 10 5.0 7.0 2.0 <strong>CHORD</strong> <strong>+X</strong>= −3.0 <strong>ORIGIN</strong>
+<strong>X</strong>=10.0 <strong>Y</strong>=15.0 <strong>ROTATE</strong> <strong>A2</strong>= −45</p>
+</li>
+</ol>
+</div>
+<div class="section" id="com">
+<h5>COM=<a class="headerlink" href="#com" title="Permalink to this headline">¶</a></h5>
+<p>The keyword <strong>COM</strong>= signals that a comment is to be read. The
+optional comment can be placed anywhere within a unit definition. Its
+syntax is:</p>
+<p><strong>COM</strong> = <em>delim comment delim</em></p>
+<dl class="simple">
+<dt><em>delim</em></dt><dd><p>is the delimiter, which may be any one of “ , ‘ , * , ^ , or !</p>
+</dd>
+<dt><em>comment</em></dt><dd><p>is the comment string, up to 132 characters long.</p>
+</dd>
+</dl>
+<p>Example of comment within a <strong>UNIT</strong>:</p>
+<p><strong>COM</strong>=“This is a fuel pin”</p>
+</div>
+<div class="section" id="hole">
+<h5>HOLE<a class="headerlink" href="#hole" title="Permalink to this headline">¶</a></h5>
+<p>This entry is used to position a <strong>UNIT</strong> within a surrounding <strong>UNIT</strong>
+relative to the origin of the surrounding <strong>UNIT</strong>. <strong>HOLE</strong>s may
+share surfaces with but may not intersect other <strong>HOLE</strong>s, the
+<strong>BOUNDARY</strong> of the <strong>UNIT</strong> which contains the <strong>HOLE</strong>, or an
+<strong>ARRAY</strong> boundary. In KENO-VI, the <strong>BOUNDARY</strong> record of a <strong>UNIT</strong>
+placed in a <strong>HOLE</strong> may contain more than one geometry label, but all
+labels must be positive, indicating inside the respective geometry
+bodies. The syntax for <strong>HOLE</strong> is:</p>
+<p>KENO V.a:
+<strong>HOLE</strong> <em>u x y z</em></p>
+<p>KENO-VI:
+<strong>HOLE</strong> <em>u</em> [<em>a</em><sub>1</sub> … [<em>a</em><sub>M</sub> ]…]</p>
+<dl class="simple">
+<dt><em>u</em></dt><dd><p>is the unit previously defined that is to be placed within the
+<strong>HOLE</strong>.</p>
+</dd>
+<dt><em>x y z</em></dt><dd><p>is the position of the <strong>HOLE</strong> in the KENO V.a host <strong>UNIT</strong>.</p>
+</dd>
+<dt><em>a1 … aM</em></dt><dd><p>are optional KENO-VI <em>ATTRIBUTES</em> for the <strong>HOLE</strong>. The
+<em>ATTRIBUTES</em> can be <strong>ORIGIN</strong> or <strong>ROTATE</strong> and follow the same syntax
+previously defined for KENO-VI <strong>shape</strong> <em>ATTRIBUTES</em>. These
+<em>ATTRIBUTES</em> allow for the translation and/or rotation of the <strong>HOLE</strong>
+within the host region.</p>
+</dd>
+</dl>
+<p>Examples of <strong>HOLE</strong> use:</p>
+<p>Place <strong>UNIT</strong> 2 in the surrounding <strong>UNIT</strong> such that the <strong>ORIGIN</strong> of
+<strong>UNIT</strong> 2 is at <strong>X</strong>=3, <strong>Y</strong>=3.5, <strong>Z</strong>=4 relative to the
+origin of the surrounding <strong>UNIT</strong>.</p>
+<p>KENO V.a:
+<strong>HOLE</strong> 2 3 3.5 4</p>
+<p>KENO-VI:
+<strong>HOLE</strong> 2 <strong>ORIGIN</strong> <strong>X</strong>=3.0 <strong>Y</strong>=3.5 <strong>Z</strong>=4.0</p>
+</div>
+<div class="section" id="array">
+<h5>ARRAY<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h5>
+<p>When used within a <strong>UNIT</strong> description, this entry provides an
+<strong>ARRAY</strong> placement description. In KENO V.a, it always starts a new
+<strong>UNIT</strong> and generates a rectangular parallelepiped that fits the outer
+boundaries of the specified <strong>ARRAY</strong>. The specified <strong>ARRAY</strong> is
+positioned in the <strong>UNIT</strong> according to the most negative point in the
+<strong>ARRAY</strong> with respect to the coordinate system of the surrounding
+<strong>UNIT</strong>. Thus, the location of the minimum x, minimum y, and minimum z
+point in the array is specified in the coordinate system of the <strong>UNIT</strong>
+into which the <strong>ARRAY</strong> is being placed.</p>
+<p>In KENO-VI, the <strong>ARRAY</strong> keyword is used to position an <strong>ARRAY</strong>
+within a region in a surrounding <strong>UNIT</strong> relative to the origin of the
+surrounding <strong>UNIT</strong>. When the subordinate keyword <strong>PLACE</strong> is entered,
+it is followed by six numbers that precisely locate the <strong>ARRAY</strong> within
+the surrounding <strong>UNIT</strong> as shown in the example below. The first three
+numbers consist of the element in the <strong>ARRAY</strong> of the <strong>UNIT</strong> selected
+to position the <strong>ARRAY</strong>. The next three numbers consist of the
+position of the origin of the selected <strong>UNIT</strong> in the surrounding
+<strong>UNIT</strong>. Higher level <strong>ARRAY</strong> boundaries may intersect lower level
+<strong>ARRAY</strong> boundaries as long as they do not intersect <strong>HOLE</strong>s in the
+<strong>UNIT</strong>s contained in the <strong>ARRAY</strong> or in <strong>UNIT</strong>s contained in
+lower level <strong>ARRAY</strong>s.</p>
+<p>The syntax for the <strong>ARRAY</strong> card is as follows:</p>
+<p>KENO V.a:
+<strong>ARRAY</strong> <em>array_id</em> <em>x y z</em></p>
+<p>KENO-VI:
+<strong>ARRAY</strong> <em>array_id</em> <em>l</em><sub>1</sub> … <em>l</em><sub>N</sub> [<strong>PLACE</strong> <em>N</em><sub>x</sub> <em>N</em><sub>y</sub> <em>N</em><sub>z</sub> <em>x y
+z</em>]</p>
+<dl>
+<dt><em>array_id</em></dt><dd><p>is the label that identifies the array to be placed.</p>
+</dd>
+<dt><em>l1</em> … <em>lN</em></dt><dd><p>is the <em>REGION DEFINITION VECTOR</em>. These are previously
+defined <strong>shape</strong> labels, and together they define the region in which
+the array <em>array_id</em> is to be placed. This is used only in KENO-VI.</p>
+</dd>
+<dt><em>Nx Ny Nz</em></dt><dd><p>are three integers that define the element in the
+<strong>ARRAY</strong> of the <strong>UNIT</strong> selected to position the <strong>ARRAY</strong>. This is
+used only in KENO-VI.</p>
+</dd>
+<dt><em>x y z</em></dt><dd><p>specify the position of the <strong>ARRAY</strong> in the <strong>UNIT</strong>.</p>
+<p>In KENO V.a, the x, y, and z values are the point where the most
+negative x, y, and z point of the <strong>ARRAY</strong> is to be located in the
+<strong>UNIT</strong>’s coordinates.</p>
+<p>In KENO-VI, the x, y, and z values are the point where the origin of the
+<strong>UNIT</strong> specified by <em>Nx</em>, <em>Ny</em>, and <em>Nz</em> is to be located in the
+<strong>shape</strong> specified by the <em>REGION DEFINITION VECTOR</em>.</p>
+</dd>
+</dl>
+<p>Example of <strong>ARRAY</strong> use:</p>
+<p>In KENO V.a, position the most negative point of <strong>ARRAY</strong> 6 at X = 2.0,
+Y = 3.0, Z = 4.0 relative to the origin of the containing <strong>UNIT</strong>.</p>
+<p><strong>ARRAY</strong> 6 2.0 3.0 4.0</p>
+<p>In KENO-VI, position instead the origin of <strong>UNIT</strong> (1,2,3) of <strong>ARRAY</strong>
+6 at X = 2.0, Y = 3.0, Z = 4.0 and specify the <strong>ARRAY</strong> boundary to be
+the region that is inside the geometry <strong>shape</strong>s labeled 10 and 20
+and outside the geometry <strong>shape</strong> labeled 30 used to describe the
+surrounding <strong>UNIT</strong>.</p>
+<p><strong>ARRAY</strong> 6 10 20 −30 <strong>PLACE</strong> 1 2 3 2.0 3.0 4.0</p>
+</div>
+<div class="section" id="replicate-and-reflector">
+<h5>REPLICATE and REFLECTOR<a class="headerlink" href="#replicate-and-reflector" title="Permalink to this headline">¶</a></h5>
+<p>These keywords specific to KENO V.a are used to generate additional
+geometry regions having the <strong>shape</strong> of the previous region. The
+geometry keyword <strong>REFLECTOR</strong> is a synonym for <strong>REPLICATE</strong>. The
+desired weighting functions can be applied to those regions by
+specifying biasing data as described in <a class="reference internal" href="#id11"><span class="std std-ref">Biasing or weighting data</span></a>. The total
+thickness generated for each surface is the thickness per region for
+that surface times the number of regions to be generated, <em>nreg</em>.</p>
+<p>The replicate specification is frequently used to generate weighting
+regions external to an <strong>ARRAY</strong> placement description. Thus an
+<strong>ARRAY</strong> placement description followed by a <strong>REPLICATE</strong> description
+would generate regions of a cuboidal shape. A cylindrical reflector
+could be generated by following the <strong>ARRAY</strong> placement description with
+a <strong>CYLINDER</strong> and then a <strong>REPLICATE</strong>. A <strong>HOLE</strong> cannot immediately
+follow a <strong>REPLICATE</strong>.</p>
+<p>Extra regions using default weights can be generated by specifying the
+first importance region, <em>imp</em>, to be one that was not defined in the
+<em>BIASING INFORMATION</em> provided in a <strong>READ BIAS</strong> block. This capability
+can be used to generate extra regions for collecting information such as
+fluxes, leakage, etc.</p>
+<p>Multiple replicate descriptions can be used in any problem. This
+capability can be used to model different reflector materials of
+different thicknesses on different faces.</p>
+<p>The number of appropriate region dimensions needed for specifying
+<strong>REPLICATE</strong> is determined by the preceding region. For example, if the
+previous region were a <strong>SPHERE</strong>, one entry (i.e., <em>t</em><sub>1</sub>) would be
+required. If the previous region were a <strong>CYLINDER</strong>, the first entry,
+<em>t</em><sub>1</sub>, would be the thickness/region in the radial direction, the
+second entry, <em>t</em><sub>2</sub>, would the thickness/region in the positive length
+direction, the third entry, <em>t</em><sub>3</sub>, would be the thickness/region in the
+negative length direction, etc. The <strong>REPLICATE</strong> specification
+requirements for a <strong>CUBE</strong> are the same as for a <strong>CUBOID</strong>.</p>
+<p>Syntax:</p>
+<p><strong>REPLICATE|REFLECTOR</strong> <em>m</em> <em>b</em> <em>t</em><sub>1</sub> … <em>t</em><sub>N</sub> <em>nreg</em></p>
+<dl class="simple">
+<dt><em>m</em></dt><dd><p>is the number of the material (non-negative integer) that fills the
+particular REPLICATE/REFLECTOR region in the <strong>UNIT</strong> description. A
+material of zero indicates a void region (i.e., no material is present
+in the volume defined by the <strong>shape</strong>).</p>
+</dd>
+<dt><em>b</em></dt><dd><p>is the bias identification number (positive integer) assigned to the
+particular region defined by the <strong>shape</strong> in the KENO V.a <strong>UNIT</strong>
+description. If the specified bias ID is defined in a <strong>READ BIAS</strong>
+block, the bias ID number will be incremented automatically, increasing
+one for each additional region up to <em>nreg</em>.</p>
+</dd>
+<dt><em>t</em><sub>1</sub> … <em>t</em><sub>N</sub></dt><dd><p>represent the thickness (floating point number) per region
+for each of the <em>N</em> surfaces that define the particular <strong>shape</strong>. If
+the specified bias ID is one that is defined in the READ BIAS block, the
+region thicknesses should be consistent with the thicknesses used to
+generate the bias data being used. See <span class="xref std std-ref">9-1-2-7</span>.</p>
+</dd>
+<dt><em>nreg</em></dt><dd><p>is the number of regions (integer) to be generated.</p>
+</dd>
+</dl>
+<p>Example:</p>
+<p>Create five regions of material 4, each being 3 cm thick, outside a
+cuboid region (a cuboid has six dimensions). The inner-most of the five
+generated regions has a <em>bias id</em> of 2. The following four regions have
+<em>bias id</em> of 3, 4, 5, and 6.</p>
+</div>
+<div class="section" id="media">
+<h5>MEDIA<a class="headerlink" href="#media" title="Permalink to this headline">¶</a></h5>
+<p>This card is used in the KENO-VI input file to define the location of a
+mixture relative to the geometric <strong>shape</strong>s in the <strong>UNIT</strong>.
+<a class="reference internal" href="#fig8-1-11"><span class="std std-numref">Fig. 65</span></a> shows the input for a set of three intersecting
+<strong>SPHERE</strong>s in a <strong>CUBOID</strong>. The total volume data for a region in the
+problem may be entered as the last entry on the <strong>MEDIA</strong> card by using
+the keyword “<strong>VOL</strong>=” keyword immediately followed by the volume in
+cm<sup>3</sup>. The volume entered is the volume of the region in the unit
+multiplied by the number of times the unit occurs in the problem minus
+any volume excluded from the problem by <strong>ARRAY</strong> boundaries and
+<strong>HOLE</strong>s. The volumes for any or all regions may be entered. If the
+volume is entered here, this value will be used even if volumes are also
+entered as a file or calculated (See <a class="reference internal" href="#id16"><span class="std std-ref">Volume data</span></a>). Volumes not
+entered will be determined by the input specified in the VOLUME DATA
+block. If no volume is supplied, the KENO-VI default volume of -1 will
+be used. This only affects volume-averaged quantities, i.e., not
+<em>k</em><sub>eff</sub>.</p>
+<p>Syntax:</p>
+<p><strong>MEDIA</strong> <em>m</em> <em>b</em> <em>l</em><sub>1</sub> … <em>l</em><sub>N</sub> [<strong>VOL</strong>=<em>v</em>]</p>
+<dl class="simple">
+<dt><em>m</em></dt><dd><p>is the material (positive integer or zero for vacuum) that fills the
+region defined by <strong>MEDIA</strong>.</p>
+</dd>
+<dt><em>b</em></dt><dd><p>is the <em>bias id</em> for the material sector being defined.</p>
+</dd>
+<dt><em>l</em><sub>1</sub> … <em>l</em><sub>N</sub></dt><dd><p>is the region definition vector (<em>N</em> integers). These
+are <em>N</em> previously defined <strong>shape</strong> labels that together define the
+material sector.</p>
+</dd>
+<dt><strong>VOL</strong>=</dt><dd><p>is an optional sub-keyword used to input the material sector
+volume.</p>
+</dd>
+<dt><em>v</em></dt><dd><p>is the volume in cm<sup>3</sup> of the material sector defined by the
+<strong>MEDIA</strong> card.</p>
+</dd>
+</dl>
+<div class="figure align-center" id="id33">
+<span id="fig8-1-11"></span><a class="reference internal image-reference" href="_images/fig111.png"><img alt="_images/fig111.png" src="_images/fig111.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">Example of the MEDIA record.</span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
 </div>
 </div>
+<div class="section" id="boundary">
+<h5>BOUNDARY<a class="headerlink" href="#boundary" title="Permalink to this headline">¶</a></h5>
+<p>This card is used in KENO-VI to define the outer boundary of the
+<strong>UNIT</strong>. In KENO V.a, the outer boundary of the <strong>UNIT</strong> is implicitly
+defined by the last <strong>shape</strong> in the <strong>UNIT</strong>. Each <strong>UNIT</strong> must have
+one and only one <strong>BOUNDARY</strong> card.</p>
+<p>Syntax:</p>
+<p><strong>BOUNDARY</strong> <em>l1</em> … <em>lN</em></p>
+<dl class="simple">
+<dt><em>l</em><sub>1</sub> … <em>l</em><sub>N</sub></dt><dd><p>is the <strong>UNIT</strong> <em>BOUNDARY DEFINITION VECTOR</em> (<em>N</em>
+integers). These are <em>N</em> previously defined <strong>shape</strong> labels that
+together define the outer boundary of the <strong>UNIT</strong>. All entries must be
+positive for the <strong>UNIT</strong> being defined to be used subsequently as a
+<strong>HOLE</strong>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="array-data">
+<span id="id4"></span><h3>ARRAY Data<a class="headerlink" href="#array-data" title="Permalink to this headline">¶</a></h3>
+<p>The array definition data block is used to define the size of an
+<strong>ARRAY</strong> and to position <strong>UNIT</strong>s (defined in the geometry data) in
+a 3-D lattice that represents the <strong>ARRAY</strong> being described. As many
+arrays as are necessary can be described in a problem, subject to
+computer storage limitations. In KENO V.a, only one <strong>ARRAY</strong> may be
+placed directly in a <strong>UNIT</strong>, but as many <strong>ARRAY</strong>s as are needed
+may be placed in the <strong>UNIT</strong> by using <strong>HOLE</strong>s. In KENO-VI,
+any number of arrays can be placed in any <strong>UNIT</strong> either directly or
+indirectly using <strong>HOLE</strong>s. There is no default global array. If a
+global array is desired it must be explicitly defined.</p>
+<p>The <strong>ARRAY</strong> definition data is entered as:</p>
+<p>READ ARRAY <a class="reference internal" href="#array">ARRAY</a> DATA END ARRAY</p>
+<p>The <em>ARRAY_ DATA</em> consists of <em>ARRAY_PARAMETERS</em> and
+<em>UNIT_ORIENTATION_DESCRIPTION</em>.</p>
+<div class="section" id="array-parameters">
+<span id="id5"></span><h4>ARRAY Parameters<a class="headerlink" href="#array-parameters" title="Permalink to this headline">¶</a></h4>
+<p>The ARRAY parameters that can be used in the definition of an ARRAY are:</p>
+<p><strong>ARA</strong>=</p>
+<p><strong>GBL</strong>=</p>
+<p><strong>NUX</strong>=, <strong>NUY</strong>=, <strong>NUZ</strong>=</p>
+<p><strong>PRT</strong>=</p>
+<p><strong>COM</strong>=</p>
+<p><strong>TYP</strong>= (KENO-VI only)</p>
+<div class="section" id="ara">
+<h5>ARA=<a class="headerlink" href="#ara" title="Permalink to this headline">¶</a></h5>
+<p>The <strong>ARA</strong>= parameter defines a reference number for an <strong>ARRAY</strong>. It
+has no default in KENO-VI. In KENO V.a, if is missing, the default is 1.</p>
+<p>Syntax:</p>
+<p><strong>ARA</strong>=<em>a</em></p>
+<dl class="simple">
+<dt><em>a</em></dt><dd><p>is the reference number for the <strong>ARRAY</strong>. It has no default in
+KENO-VI. In KENO V.a, if is missing, the default is 1.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="gbl">
+<h5>GBL=<a class="headerlink" href="#gbl" title="Permalink to this headline">¶</a></h5>
+<p>This is used to input the number of the global array.</p>
+<p>Syntax:</p>
+<p><strong>GBL</strong>=<em>g</em></p>
+<dl class="simple">
+<dt><em>g</em></dt><dd><p>is the reference number for the global <strong>ARRAY</strong>. In KENO V.a it
+must not be entered more than once. The default is the largest value for
+<em>a</em>, the reference number for the <strong>ARRAY</strong>. In KENO-VI it is no default
+value and if entered more than once, the last value is used.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="prt">
+<h5>PRT=<a class="headerlink" href="#prt" title="Permalink to this headline">¶</a></h5>
+<p>This entry is used to enable printing the <strong>ARRAY</strong> of <strong>UNIT</strong> numbers.</p>
+<p>Syntax:</p>
+<p><strong>PRT</strong>=<em>print</em></p>
+<dl class="simple">
+<dt><em>print</em></dt><dd><p>is a logical constant which defaults to YES, indicating that the
+<strong>ARRAY</strong> of <strong>UNIT</strong> numbers is printed. If the value is NO, then a
+summary table is printed instead containing the number of times each
+unit is used in each array.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="nux-nuy-nuz">
+<span id="id6"></span><h5>NUX=, NUY=, NUZ=<a class="headerlink" href="#nux-nuy-nuz" title="Permalink to this headline">¶</a></h5>
+<p>These entries are used to input the number of units in the X, Y, and Z
+directions, respectively.</p>
+<p>Syntax:</p>
+<p><strong>NUX</strong>=<em>n</em><sub>x</sub> <strong>NUY</strong>=<em>n</em><sub>y</sub> <strong>NUZ</strong>=<em>n</em><sub>z</sub></p>
+<dl class="simple">
+<dt><em>n</em><sub>x</sub> <em>n</em><sub>y</sub> <em>n</em><sub>z</sub></dt><dd><p>are the number of units in the X, Y, and Z directions,
+respectively. There is no default in KENO-VI. In KENO V.a, each of them
+defaults to 1.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="type">
+<h5>TYPE=<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h5>
+<p>This entry is used to specify the type of <strong>ARRAY</strong> and is specific to
+KENO-VI, where more than one type of arrays can be used. It cannot be
+used in KENO V.a.</p>
+<p>Syntax:</p>
+<p><strong>TYP</strong>=<em>atyp</em></p>
+<dl class="simple">
+<dt><em>atyp</em></dt><dd><p>type of array (<strong>cuboidal</strong> or <strong>square</strong>, <strong>hexagonal</strong> or
+<strong>triangular</strong>, <strong>rhexagonal</strong>, <strong>shexagonal</strong>, <strong>dodecahedral</strong>),
+default = <strong>cuboidal</strong></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<span id="id8"></span><h5>COM=<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>This keyword is used to enter a comment.</p>
+<p>Syntax:</p>
+<p><strong>COM</strong>=<em>delim comment delim</em></p>
+<dl class="simple">
+<dt><em>delim</em></dt><dd><p>is a delimiter. Acceptable delimiters are “, ‘, * , ^ , or !.</p>
+</dd>
+<dt><em>comment</em></dt><dd><p>is the comment string. Maximum <em>comment</em> length is
+132 characters.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="array-orientation-data">
+<span id="id9"></span><h4>ARRAY orientation data<a class="headerlink" href="#array-orientation-data" title="Permalink to this headline">¶</a></h4>
+<p>There are two methods to enter the <strong>UNIT</strong> numbers constituting an
+<strong>ARRAY</strong>: <strong>LOOP</strong> and <strong>FILL</strong>.</p>
+<div class="section" id="loop-construct">
+<h5>LOOP Construct<a class="headerlink" href="#loop-construct" title="Permalink to this headline">¶</a></h5>
+<p>The <strong>LOOP</strong> construct resembles a FORTRAN DO-loop construct.
+The arrangement of <strong>UNIT</strong>s may be considered as consisting of a 3-D
+matrix of <strong>UNIT</strong> numbers, with the <strong>UNIT</strong> position increasing in the
+positive X, Y, and Z directions, respectively.</p>
+<p>Syntax:</p>
+<p><strong>LOOP</strong> <em>u</em> <em>ix</em><sub>1</sub> <em>ix</em><sub>2</sub> incx <em>iy</em><sub>1</sub> <em>iy</em><sub>2</sub> incy <em>iz</em><sub>1</sub> <em>iz</em><sub>2</sub> <em>incz</em> <strong>END
+LOOP</strong></p>
+<dl class="simple">
+<dt><em>u</em></dt><dd><p>is the <strong>UNIT</strong> identification number (a positive integer).</p>
+</dd>
+<dt><em>ix</em><sub>1</sub></dt><dd><p>is the starting position in the X direction; <em>ix</em><sub>1</sub> must be at
+least 1 and less than or equal to <em>n</em><sub>x</sub> of <a class="reference internal" href="#id6"><span class="std std-ref">NUX=, NUY=, NUZ=</span></a>.</p>
+</dd>
+</dl>
+<p><em>ix</em><sub>2</sub> is the ending position in the X direction; <em>ix</em><sub>2</sub> must be at
+least 1 and less than or equal to <em>nx</em>.</p>
+<dl class="simple">
+<dt><em>incx</em></dt><dd><p>is the number of <strong>UNIT</strong>s by which increments are made in the
+positive X direction; <em>incx</em> must be greater than zero and less than or
+equal to <em>n</em><sub>x</sub>.</p>
+</dd>
+<dt><em>iy</em><sub>1</sub></dt><dd><p>is the starting position in the Y direction; <em>iy</em><sub>1</sub> must be at
+least 1 and less than or equal to <em>n</em><sub>y</sub>.</p>
+</dd>
+<dt><em>iy</em><sub>2</sub></dt><dd><p>is the ending position in the Y direction; <em>iy</em><sub>2</sub> must be at
+least 1 and less than or equal to <em>n</em><sub>y</sub>.</p>
+</dd>
+<dt><em>incy</em></dt><dd><p>is the number of <strong>UNIT</strong>s by which increments are made in the
+positive Y direction; <em>incy</em> must be greater than zero and less than or
+equal to <em>n</em>:sub`y`.</p>
+</dd>
+<dt><em>iz</em><sub>1</sub></dt><dd><p>is the starting position in the Z direction; <em>iz</em><sub>1</sub> must be at
+least 1 and less than or equal to <em>n</em><sub>z</sub>.</p>
+</dd>
+<dt><em>iz</em><sub>2</sub></dt><dd><p>is the ending position in the Z direction;, <em>iz</em><sub>2</sub> must be at
+least 1 and less than or equal to <em>n</em><sub>z</sub>.</p>
+</dd>
+<dt><em>incz</em></dt><dd><p>is the number of <strong>UNIT</strong>s by which increments are made in the
+positive Z direction; <em>incz</em> must be greater than zero and less than or
+equal to <em>n</em><sub>z</sub>.</p>
+</dd>
+</dl>
+<p>The syntax for ending the <strong>LOOP</strong> construct is:</p>
+<p><strong>END LOOP</strong></p>
+<p>The sequence <em>u</em> through <em>incz</em> is repeated until the entire <strong>ARRAY</strong>
+is described. If any portion of an <strong>ARRAY</strong> is defined in a conflicting
+manner, the last entry to define that portion will determine the
+<strong>ARRAY</strong>’s configuration. To use this feature, fill the entire
+<strong>ARRAY</strong> with the most relevant <strong>UNIT</strong> number and superimpose the
+other <strong>UNIT</strong> numbers in their proper places. An example showing the
+use of the <strong>LOOP</strong> option is given below. This 5 × 4 × 3 <strong>ARRAY</strong> of
+<strong>UNIT</strong>s is a matrix of <strong>UNIT</strong>s that has 5 <strong>UNIT</strong>s stacked
+in the X direction, 4 <strong>UNIT</strong>s in the Y direction, and
+3 <strong>UNIT</strong>s in the Z direction. X increases from left to right, and
+Y increases from bottom to top. Each Z layer is shown separately.</p>
+<p>Given:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span>         <span class="m">2</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span>       <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>
+<span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>         <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span>       <span class="m">1</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">1</span>
+<span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>         <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span>       <span class="m">1</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">1</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span>         <span class="m">2</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span>       <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>
+<span class="err">Z</span> <span class="err">Layer</span> <span class="m">1</span>         <span class="err">Z</span> <span class="err">Layer</span> <span class="m">2</span>       <span class="err">Z</span> <span class="err">Layer</span> <span class="m">3</span>
+</pre></div>
+</div>
+<p>The data for this array could be entered using the following entries.</p>
+<p>(1)  1  1 5 1  1 4 1  1 3 1
+This fills the entire array with 1s.</p>
+<p>(2)  2  2 5 2  1 4 3  1 1 1
+This loads the four 2s in the first Z layer.</p>
+<p>(3)  2  1 5 1  2 3 1  2 2 1
+This loads the second and third rows of 2s in the second Z layer.</p>
+<p>(4)  2  1 5 2  1 4 3  2 2 1
+This loads the desired 2s in the first and fourth rows of the second Z layer.</p>
+<p>(5)  3  2 4 1  2 3 1  3 3 1
+This loads the 3s in the third Z layer and completes the array data input.</p>
+<p>The second layer could have been defined by substituting the following data for entries (3) and (4):</p>
+<p>(3)  2  1 5 1  1 4 1  2 2 1
+This completely fills the second layer with 2s.</p>
+<p>(4)  1  2 4 2  1 4 3  2 2 1
+This loads the four 1s in the second layer.</p>
+<p>When using the <strong>LOOP</strong> option, there is no single correct method of
+entering the data. If a <strong>UNIT</strong> is improperly positioned in the
+<strong>ARRAY</strong> or if some positions in the <strong>ARRAY</strong> are left undefined, it
+is often easier to add data to correctly define the <strong>ARRAY</strong> than to
+try to correct the existing data.</p>
+</div>
+<div class="section" id="fill-construct">
+<h5>FILL Construct<a class="headerlink" href="#fill-construct" title="Permalink to this headline">¶</a></h5>
+<p>The <strong>FILL</strong> construct enters data by stringing in <strong>UNIT</strong> numbers
+starting at X=1, Y=1, Z=1, and varying X, then Y, and then Z to fill the
+<strong>ARRAY</strong>. <em>n</em><sub>x</sub> x <em>n</em><sub>y</sub> x <em>n</em><sub>z</sub> entries are required. FIDO-like
+input options specified in <a class="reference internal" href="#tab8-1-17"><span class="std std-numref">Table 46</span></a> are also available for filling
+the <strong>ARRAY</strong>.</p>
+<p>Syntax:</p>
+<p><strong>FILL</strong> <em>u</em><sub>1</sub> … <em>u</em><sub>N</sub> {<strong>END FILL}</strong>|<strong>T</strong></p>
+<p><em>u</em><sub>1</sub> … <em>u</em><sub>N</sub> are the <em>N</em>=<em>n</em><sub>x</sub> x <em>n</em><sub>y</sub> x <em>n</em><sub>z</sub> <strong>UNIT</strong> numbers
+that make up the <strong>ARRAY</strong></p>
+<p>The syntax for ending the <strong>FILL</strong> construct is</p>
+<p><strong>END FILL</strong></p>
+<p>An alternative to end the <strong>UNIT</strong> data in <strong>FILL</strong> is by entering the
+letter <strong>T</strong>.</p>
+<span id="tab8-1-17"></span><table class="docutils align-center" id="id34">
+<caption><span class="caption-number">Table 46 </span><span class="caption-text">FIDO-like input for mixed box orientation fill option.</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Count</p>
+<p>field</p>
+</td>
+<td><p>Option</p>
+<p>field</p>
+</td>
+<td><p>Operand</p>
+<p>field</p>
+</td>
+<td><p>Function</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p><em>j</em></p></td>
+<td><p>stores <em>j</em> at
+the current
+position in the
+array</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i</em></p></td>
+<td><p>R</p></td>
+<td><p><em>j</em></p></td>
+<td><p>stores <em>j</em> in
+the next <em>i</em>
+positions in
+the array</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i</em></p></td>
+<td><p>*</p></td>
+<td><p><em>j</em></p></td>
+<td><p>stores <em>j</em> in
+the next <em>i</em>
+positions in
+the array</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i</em></p></td>
+<td><p>$</p></td>
+<td><p><em>j</em></p></td>
+<td><p>stores <em>j</em> in
+the next <em>i</em>
+positions in
+the array</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>F</p></td>
+<td><p><em>j</em></p></td>
+<td><p>fills the
+remainder of
+the array with
+unit number
+<em>j</em>, starting
+with the
+current
+position in the
+array</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>A</p></td>
+<td><p><em>j</em></p></td>
+<td><p>sets the
+current
+position in the
+array to <em>j</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>i</em></p></td>
+<td><p>S</p></td>
+<td></td>
+<td><p>increments the
+current
+position in the
+array by <em>i</em>
+(This allows
+for skipping
+<em>i</em> positions;
+<em>i</em> may be
+positive or
+negative.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i</em></p></td>
+<td><p>Q</p></td>
+<td><p><em>j</em></p></td>
+<td><p>repeats the
+previous <em>j</em>
+entries <em>i</em>
+times (default
+value of <em>i</em> is
+1)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i</em></p></td>
+<td><p>N</p></td>
+<td><p><em>j</em></p></td>
+<td><p>repeats
+previous <em>j</em>
+entries <em>i</em>
+times,
+inverting the
+sequence each
+time. (default
+value of <em>i</em> is
+1)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i</em></p></td>
+<td><p>B</p></td>
+<td><p><em>j</em></p></td>
+<td><p>backs <em>i</em>
+entries. From
+that position,
+repeats the
+previous <em>j</em>
+entries in
+reverse order
+(default value
+of <em>i</em> is 1)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i</em></p></td>
+<td><p>I</p></td>
+<td><p><em>j k</em></p></td>
+<td><p>provides the
+end points j
+and k, with i
+entries
+linearly
+interpolated
+between them
+(i.e., a total
+of i+2 points).
+At least one
+blank must
+separate j and
+k. When used
+for an integer
+array, the
+I option should
+only be used to
+generate
+integer
+steps—i.e., (k−
+j)/(i+1)
+should be a
+whole number</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>T</p></td>
+<td></td>
+<td><p>terminates the
+data reading
+for the array</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When entering data using the options in this table, the <em>count
+field</em> and <em>option field</em> must be adjacent with no imbedded blanks.
+The operand field may be separated from the option field by one or
+more blanks.</p>
+</div>
+<p>Example: Consider a 3 × 3 × 1 <strong>ARRAY</strong> filled with 8 <strong>UNIT</strong> 1s and a
+<strong>UNIT</strong> 2, as shown below.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>     <span class="m">1</span>       <span class="m">1</span>
+<span class="m">1</span>     <span class="m">2</span>       <span class="m">1</span>
+<span class="m">1</span>     <span class="m">1</span>       <span class="m">1</span>
+</pre></div>
+</div>
+<p>The input data to describe this <strong>ARRAY</strong> could be entered as follows:</p>
+<ol class="arabic simple">
+<li><p>1 1 1 1 2 1 1 1 1 <strong>T</strong></p></li>
+</ol>
+<blockquote>
+<div><p>This fills the array one position at a time,
+starting at the lower left corner. The <strong>T</strong> terminates the data.</p>
+</div></blockquote>
+<p>or</p>
+<ol class="arabic simple" start="2">
+<li><p>F1 A5 2 <strong>END FILL</strong></p></li>
+</ol>
+<blockquote>
+<div><p>The F1 fills the entire array with 1s, the A5
+locates the fifth position in the array, and the 2 loads a 2 in that
+position. The <strong>END FILL</strong> terminates the data.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="albedo-data">
+<span id="id10"></span><h3>Albedo data<a class="headerlink" href="#albedo-data" title="Permalink to this headline">¶</a></h3>
+<p>Albedo boundary conditions are entered by assigning an albedo condition
+to each face of the outermost boundary. The <strong>default value for each
+face is vacuum</strong>. The default values are overridden only on faces for
+which other albedo names are specified. Albedo boundary conditions are
+applied <strong>only</strong> to <strong>the outermost region of a problem.</strong> In KENO V.a
+this geometry region must be a rectangular parallelepiped. The outer
+boundary can be any <strong>shape</strong> (or combination of <strong>shape</strong>s) in
+KENO-VI. Material-specific albedos (e.g., H2O and CONC) may not be used
+in continuous energy calculations.</p>
+<p>KENO-VI users need to be aware that when a neutron reaches a surface
+with a vacuum albedo, that neutron is lost. If a model contains features
+that are reentrant, that is a neutron could exit the model and reenter
+the model on the other side of an unmodeled region, all neutrons passing
+through the problem boundary are lost when they reach the unmodeled
+region. Neutrons are not “transported” across unmodeled areas between
+reentrant surfaces. It is not possible to create a KENO V.a model with
+reentrant problem outer boundary surfaces.</p>
+<p>The syntax for entering the albedo boundary conditions is:</p>
+<p><strong>READ BOUNDS</strong> <strong>fc</strong><sub>1</sub>=<em>a</em><sub>1</sub> [<strong>fc</strong><sub>2</sub>=<em>a</em><sub>2</sub>…
+[<strong>fc</strong><sub>N</sub>=<em>a</em><sub>N</sub> ]…] <strong>END BOUNDS</strong></p>
+<p><strong>fc</strong><sub>1</sub> … <strong>fc</strong><sub>N</sub> are <strong>N</strong> face codes as defined in <a class="reference internal" href="#tab8-1-18"><span class="std std-numref">Table 47</span></a>.</p>
+<p><em>a</em><sub>1</sub> … <em>a</em><sub>N</sub> are the albedo types as defined in <a class="reference internal" href="#tab8-1-19"><span class="std std-numref">Table 48</span></a></p>
+<p><a class="reference internal" href="#tab8-1-19"><span class="std std-numref">Table 48</span></a> lists some material-specific albedo sets. Care must be
+exercised when using material-specific albedo types. These data sets
+were generated using a real problem, and they implicitly reflect the
+neutron energy spectrum, materials, and geometry from that model. Where
+neutron energy spectra, materials, and geometry vary from that model,
+the material-specific albedos may give significantly incorrect results.
+This may be checked by comparing results from a sample of calculations
+performed with both explicitly modeled reflectors and material-specific
+albedos. In general, use of material-specific albedos is not
+recommended.</p>
+<span id="tab8-1-18"></span><table class="docutils align-center" id="id35">
+<caption><span class="caption-number">Table 47 </span><span class="caption-text">Face codes and surface numbers for entering boundary (albedo) conditions (continued in the next table).</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Face code</p></td>
+<td><p>Faces defined by face codes</p></td>
+</tr>
+<tr class="row-even"><td><p>+XB=</p></td>
+<td><p>Positive X face</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;XB=</p></td>
+<td><p>Positive X face</p></td>
+</tr>
+<tr class="row-even"><td><p>−XB=</p></td>
+<td><p>Negative X face</p></td>
+</tr>
+<tr class="row-odd"><td><p>+YB=</p></td>
+<td><p>Positive Y face</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;YB=</p></td>
+<td><p>Positive Y face</p></td>
+</tr>
+<tr class="row-odd"><td><p>−YB=</p></td>
+<td><p>Negative Y face</p></td>
+</tr>
+<tr class="row-even"><td><p>+ZB=</p></td>
+<td><p>Positive Z face</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;ZB=</p></td>
+<td><p>Positive Z face</p></td>
+</tr>
+<tr class="row-even"><td><p>−ZB=</p></td>
+<td><p>Negative Z face</p></td>
+</tr>
+<tr class="row-odd"><td><p>ALL=</p></td>
+<td><p>All six faces</p></td>
+</tr>
+<tr class="row-even"><td><p>XFC=</p></td>
+<td><p>Both positive and negative X
+faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>YFC=</p></td>
+<td><p>Both positive and negative Y
+faces</p></td>
+</tr>
+<tr class="row-even"><td><p>ZFC=</p></td>
+<td><p>Both positive and negative Z
+faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>+FC=</p></td>
+<td><p>Positive X, Y, and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;FC=</p></td>
+<td><p>Positive X, Y, and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>−FC=</p></td>
+<td><p>Negative X, Y, and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>XYF=</p></td>
+<td><p>Positive and negative X and Y
+faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>XZF=</p></td>
+<td><p>Positive and negative X and Z
+faces</p></td>
+</tr>
+<tr class="row-even"><td><p>YZF=</p></td>
+<td><p>Positive and negative Y and Z
+faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>+XY=</p></td>
+<td><p>Positive X and Y faces</p></td>
+</tr>
+<tr class="row-even"><td><p>+YX=</p></td>
+<td><p>Positive X and Y faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;XY=</p></td>
+<td><p>Positive X and Y faces</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;YZ=</p></td>
+<td><p>Positive X and Y faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>+XZ=</p></td>
+<td><p>Positive X and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>+ZX=</p></td>
+<td><p>Positive X and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;XZ=</p></td>
+<td><p>Positive X and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;ZX=</p></td>
+<td><p>Positive X and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>+YZ=</p></td>
+<td><p>Positive Y and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>+ZY=</p></td>
+<td><p>Positive Y and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;YZ=</p></td>
+<td><p>Positive Y and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;ZY=</p></td>
+<td><p>Positive Y and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>−XY=</p></td>
+<td><p>Negative X and Y faces</p></td>
+</tr>
+<tr class="row-even"><td><p>−XZ=</p></td>
+<td><p>Negative X and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>−YZ=</p></td>
+<td><p>Negative Y and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>YXF=</p></td>
+<td><p>Positive and negative X and Y
+faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZXF=</p></td>
+<td><p>Positive and negative X and Z
+faces</p></td>
+</tr>
+<tr class="row-even"><td><p>ZYF=</p></td>
+<td><p>Positive and negative Y and Z
+faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>−YX=</p></td>
+<td><p>Negative X and Y faces</p></td>
+</tr>
+<tr class="row-even"><td><p>−ZX=</p></td>
+<td><p>Negative X and Z faces</p></td>
+</tr>
+<tr class="row-odd"><td><p>−ZY=</p></td>
+<td><p>Negative Y and Z faces</p></td>
+</tr>
+<tr class="row-even"><td><p>BODY= x</p></td>
+<td><p>x is the body’s geometry label in
+the global unit (KENO-VI only)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SURFACE( ii )=</p></td>
+<td><p>Boundary condition for surface
+number ii of body x (KERNO-VI)
+only</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab18_Page_1.png" src="_images/tab18_Page_1.png" />
+</td>
+</tr>
+<tr class="row-even"><td><img alt="_images/tab18_Page_2.png" src="_images/tab18_Page_2.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/tab18_Page_3.png" src="_images/tab18_Page_3.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<span id="tab8-1-19"></span><table class="docutils align-center" id="id36">
+<caption><span class="caption-number">Table 48 </span><span class="caption-text">Albedo names available on the KENO albedo library for use with the face codes *</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DP0H2O</p>
+<p>DPOH2O</p>
+<p>DP0</p>
+<p>DPO</p>
+</td>
+<td><p>12 in. (30.48 cm) double
+P<sub>0</sub> water differential
+albedo with 4 incident angles</p></td>
+</tr>
+<tr class="row-even"><td><p>H2O</p>
+<p>WATER</p>
+</td>
+<td><p>12 in. (30.48 cm) water
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-odd"><td><p>PARAFFIN</p>
+<p>PARA</p>
+<p>WAX</p>
+</td>
+<td><p>12 in. (30.48 cm) paraffin
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-even"><td><p>CARBON</p>
+<p>GRAPHITE</p>
+<p>C</p>
+</td>
+<td><p>78.74 in. (200.00 cm) carbon
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETHYLENE</p>
+<p>POLY</p>
+<p>CH2</p>
+</td>
+<td><p>12 in. (30.48 cm) polyethylene
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-even"><td><p>CONC-4</p>
+<p>CON4</p>
+<p>CONC4</p>
+</td>
+<td><p>4 in. (10.16 cm) concrete
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONC-8</p>
+<p>CON8</p>
+<p>CONC8</p>
+</td>
+<td><p>8 in. (20.32 cm) concrete
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-even"><td><p>CONC-12</p>
+<p>CON12</p>
+<p>CONC12</p>
+</td>
+<td><p>12 in. (30.48 cm) concrete
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONC-16</p>
+<p>CON16</p>
+<p>CONC16</p>
+</td>
+<td><p>16 in. (40.64 cm) concrete
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-even"><td><p>CONC-24</p>
+<p>CON24</p>
+<p>CONC24</p>
+</td>
+<td><p>24 in. (60.96 cm) concrete
+differential albedo with
+4 incident angles</p></td>
+</tr>
+<tr class="row-odd"><td><p>VACUUM</p>
+<p>VOID</p>
+</td>
+<td><p>Vacuum condition</p></td>
+</tr>
+<tr class="row-even"><td><p>SPECULAR</p>
+<p>MIRROR</p>
+<p>REFLECT</p>
+</td>
+<td><p>Mirror image reflection</p></td>
+</tr>
+<tr class="row-odd"><td><p>PERIODIC</p></td>
+<td><p>Periodic boundary condition</p></td>
+</tr>
+<tr class="row-even"><td><p>WHITE</p></td>
+<td><p>White boundary condition</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>* Material-specific albedos may not be used in continuous energymode</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>BODY</strong> and <strong>SURFACE</strong> keywords are unique to KENO-VI. The face
+code <strong>BODY</strong>= refers to the body label in global unit input. For
+example, assume the <strong>GLOBAL UNIT</strong> boundary record in a KENO-VI input
+consisted of the following: <strong>BOUNDARY</strong> 10 −30 20. In this case
+<strong>BODY</strong>=10 would refer to the geometry record labeled 10,
+<strong>BODY</strong>=20 would refer to the geometry record labeled 20, and
+<strong>BODY</strong>=30 would refer to the geometry record labeled 30. All surface
+numbers following the <strong>BODY</strong> keyword apply to that body. The default
+value of <strong>BODY</strong> is the first geometry label listed in the <strong>GLOBAL
+UNIT</strong> boundary record.</p>
+<p>All the face codes, listed in the first part of <a class="reference internal" href="#tab8-1-18"><span class="std std-numref">Table 47</span></a>, except
+<strong>BODY</strong>= and <strong>SURFACE</strong>(ii)= were intended to apply only to
+cuboids (KENO V.a). However, when used with non-cuboidal surfaces
+(KENO-VI) they will fill in the first six surface positions of a body in
+the following order, +X, −X, +Y, −Y, +Z, −Z. The <strong>ALL</strong> face code will
+apply the listed boundary conditions to all surfaces of the body
+currently being considered.</p>
+<p>Albedo boundary conditions may be entered on each <strong>GLOBAL UNIT</strong>
+boundary surface multiple times. The boundary condition that applies to
+the surface is the last one entered. If no boundary data are entered or
+if no albedo boundary condition is applied to a <strong>GLOBAL UNIT</strong> boundary
+surface, then the boundary surface is assumed to have a void or vacuum
+boundary condition. Any <strong>CHORD</strong>ed surfaces that are <strong>GLOBAL UNIT</strong>
+boundaries will use the default (void) boundary condition, and it cannot
+be changed. This restriction may need to be considered when building the
+geometry of the <strong>GLOBAL UNIT</strong>.</p>
+<dl>
+<dt>Example:</dt><dd><p>Use a 24 in. concrete albedo boundary condition on the −Z face
+of a problem with a cuboidal boundary and use mirror image reflection on
+the +X and −X faces of the cuboid to represent an infinite linear array
+on a 2 ft. thick concrete pad.</p>
+<p><strong>READ BOUNDS</strong> <strong>−ZB</strong>=CON24 <strong>XFC</strong>=MIRROR <strong>END BOUNDS</strong></p>
+</dd>
+<dt>Example:</dt><dd><p>Use a 24 in. concrete albedo boundary condition on the −Z face
+of a problem with a hexagonal boundary, and use mirror image reflection
+on all side faces of the hexprism to represent an infinite planar array
+on a 2 ft. thick concrete pad.</p>
+<p><strong>READ BOUNDS</strong></p>
+<p><strong>SURFACE</strong>(1)=MIRROR <strong>SURFACE</strong>(2)=MIRROR <strong>SURFACE</strong>(3)=MIRROR</p>
+<p><strong>SURFACE</strong>(4)=MIRROR <strong>SURFACE</strong>(5)=MIRROR <strong>SURFACE</strong>(6)=MIRROR</p>
+<p><strong>SURFACE</strong>(7)=VACUUM <strong>SURFACE</strong>(8)=CONC24</p>
+<p><strong>END BOUNDS</strong></p>
+</dd>
+<dt>Example:</dt><dd><p>The outer boundary of the global unit consists of a cuboid
+(body label 10) and a sphere (body label 20). The sphere is large enough
+to cut the corners of the cuboid leaving most of the cuboid intact. Use
+a 24 in. concrete albedo boundary condition on the −Z face of the cuboid
+to represent a 2 ft. thick concrete pad. Use the DP0H2O on the other
+surfaces to represent an infinite water reflector.</p>
+<p><strong>READ BOUNDS</strong></p>
+<p><strong>BODY</strong>=10 <strong>ALL</strong>=DP0H2O <strong>−ZB</strong>=CON24</p>
+<p><strong>BODY</strong>=20 <strong>SURFACE</strong>(1)=DP0H2O</p>
+<p><strong>END BOUNDS</strong></p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The user should thoroughly understand material-specific
+albedos (e.g., DP0H2O, CON24, etc.) before attempting to use these
+reflectors. Missapplication of these problem-specific albedo data can
+cause the code to produce incorrect results without obvious symptoms.**</p>
+</div>
+</div>
+<div class="section" id="biasing-or-weighting-data">
+<span id="id11"></span><h3>Biasing or weighting data<a class="headerlink" href="#biasing-or-weighting-data" title="Permalink to this headline">¶</a></h3>
+<p>The biasing data block is used (in only multigroup mode) to define the
+weight that is given to a neutron surviving Russian roulette. The
+average weight of a neutron that survives Russian roulette, <em>wtavg</em>, is
+defaulted to <em>dwtav</em> (<strong>WTA</strong>= in the parameter data [see <a class="reference internal" href="#id2"><span class="std std-ref">Title and parameter data</span></a>])
+for all <em>BIAS IDs</em> and can be overridden by entering biasing
+information.</p>
+<p>The <em>biasing_information</em> is used to relate a <em>BIAS ID</em> to the desired
+energy-dependent values of <em>wtavg</em>. This concept is similar to the way
+the <em>MIXTURE ID, mat</em>, is related to the macroscopic cross section data.</p>
+<p>The weighting functions used in KENO  are energy-dependent values of
+<em>wtavg</em> that are applicable over a given thickness interval of a
+material. For example, the weighting function for water is composed of
+sets of energy-dependent values of <em>wtavg</em> for 11 intervals, each
+interval being 3 cm thick. The first set of <em>wtavg’s</em> is for the 0–3 cm
+interval of water, the second set of <em>wtavg’s</em> is for the 3–6 cm
+interval of water, etc. The eleventh set of <em>wtavg’s</em> is for the 30–33
+cm interval of water.</p>
+<p>To input biasing information, a <em>BIAS ID</em> must be assigned to correspond
+to a set of <em>wtavg</em>. Biasing data can specify a <em>MATERIAL ID</em> from the
+existing KENO V.a weighting library or from the <em>AUXILIARY DATA</em> input.
+The materials available from the KENO  weighting library are listed in
+<a class="reference internal" href="#tab8-1-20"><span class="std std-numref">Table 49</span></a>.</p>
+<p>The <em>biasing_information</em> is entered in one of the following two forms.
+The first set is said to input the <em>CORRELATION DATA</em>, while the second
+form is said to input the <em>AUXILIARY DATA</em>.</p>
+<p><strong>READ BIAS ID</strong>=<em>m ib ie</em> <strong>END BIAS</strong></p>
+<p>or</p>
+<p><strong>READ BIAS WT</strong>[<strong>S</strong>]=<em>wttitl id s</em> <em>t</em><sub>1</sub> <em>i</em><sub>1</sub> <em>g</em><sub>1</sub> <em>w</em><sub>1,1</sub> …
+<em>w</em><sub>1,i1xg1</sub> … <em>t</em><sub>s</sub> <em>i</em><sub>s</sub> <em>g</em><sub>s</sub> <em>w</em><sub>s,1</sub> … <em>w</em><sub>s,isxgs</sub>   <strong>END BIAS</strong></p>
+<p><strong>ID=</strong> specifies that <em>CORRELATION DATA</em> will be entered next.</p>
+<p><strong>WT=</strong> or <strong>WTS=</strong> specifies that <em>AUXILIARY DATA</em> will be entered
+next.</p>
+<dl class="simple">
+<dt><em>m</em></dt><dd><p>is the identification (material ID) for the material whose weighting
+function is to be used. A material ID can be chosen from the existing
+KENO weighting library (<a class="reference internal" href="#tab8-1-20"><span class="std std-numref">Table 49</span></a>) or from the <em>auxiliary data</em> input
+using the second form of the <strong>BIAS</strong> block as described later. If a
+material ID appears in both the KENO weighting library and the
+<em>auxiliary data</em>, the <em>weights</em> from the <em>auxiliary data</em> will be used.</p>
+</dd>
+<dt><em>ib</em></dt><dd><p>is the bias ID of the weighting function for the first interval of
+material <em>m</em>. The geometry record having the bias ID equal to <em>ib</em> will
+use the group-dependent <em>weights</em> from the first interval of material
+<em>m</em>.</p>
+</dd>
+<dt><em>ie</em></dt><dd><p>is the bias ID of the group-dependent <em>weights</em> from the (<em>ie</em> −
+<em>ib</em> + 1)<em>th</em> interval of material <em>m</em>.</p>
+</dd>
+<dt><em>wttitl</em></dt><dd><p>is an arbitrary title name (12 characters maximum), such as
+CONCRETE, WATER, SPECIALH2O, etc., to identify the material for which
+the user is entering data. Embedded blanks are not allowed.</p>
+</dd>
+<dt><em>id</em></dt><dd><p>is an identification number (material ID). The value is arbitrary.
+However, if the data are to be utilized in the problem, this ID must
+also be used at least once in the first form of the <strong>BIAS</strong> block.</p>
+</dd>
+<dt><em>s</em></dt><dd><p>is the number of sets of group structures for which <em>weights</em> will
+be read for this ID.</p>
+</dd>
+<dt><em>t</em><sub>1</sub>… <em>t</em><sub>s</sub></dt><dd><p>are <em>s</em> thicknesses of each increment for which <em>weights</em>
+will be read for this ID.</p>
+</dd>
+<dt><em>i</em><sub>1</sub>… <em>i</em><sub>s</sub></dt><dd><p>are <em>s</em> numbers of increments for which <em>weights</em> will be
+read for this ID.</p>
+</dd>
+<dt><em>g</em><sub>1</sub>… <em>g</em><sub>s</sub></dt><dd><p>are <em>s</em> numbers of energy groups for which <em>weights</em> will
+be read.</p>
+</dd>
+<dt><em>w</em><sub>1,i1xg1</sub>… <em>w</em><sub>s,isxgs</sub></dt><dd><p>are <em>s</em> sets of <em>weights</em>, each set containing
+a number of <em>weights</em> equal to the product of number of increments times
+the number of groups for that set. The group index varies the fastest.</p>
+</dd>
+</dl>
+<span id="tab8-1-20"></span><table class="docutils align-center" id="id37">
+<caption><span class="caption-number">Table 49 </span><span class="caption-text">IDs, group structure and incremental thickness for weighting data available on the KENO  weighting library.</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Material</p></td>
+<td><p>Material</p>
+<p>ID</p>
+</td>
+<td><p>Group
+structure</p>
+<p>for which
+weights</p>
+<p>are
+available</p>
+</td>
+<td><p>Increment<sup>a</sup></p>
+<p>thickness</p>
+<ol class="lowerroman simple" start="900">
+<li></li>
+</ol>
+</td>
+<td><p>Total</p>
+<p>number of</p>
+<p>increments
+available</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Concrete</p></td>
+<td><p>301</p></td>
+<td><p>27</p>
+<p>28</p>
+<p>56</p>
+<p>200</p>
+<p>238</p>
+<p>252</p>
+</td>
+<td><p>5</p>
+<p>5</p>
+<p>5</p>
+<p>5</p>
+<p>5</p>
+<p>5</p>
+</td>
+<td><p>20</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Paraffin</p></td>
+<td><p>400</p></td>
+<td><p>27</p>
+<p>28</p>
+<p>56</p>
+<p>200</p>
+<p>238</p>
+<p>252</p>
+</td>
+<td><p>3</p>
+<p>3</p>
+<p>3</p>
+<p>3</p>
+<p>3</p>
+<p>3</p>
+</td>
+<td><p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Water</p></td>
+<td><p>500</p></td>
+<td><p>27</p>
+<p>28</p>
+<p>56</p>
+<p>200</p>
+<p>238</p>
+<p>252</p>
+</td>
+<td><p>3</p>
+<p>3</p>
+<p>3</p>
+<p>3</p>
+<p>3</p>
+<p>3</p>
+</td>
+<td><p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Graphite</p></td>
+<td><p>6100</p></td>
+<td><p>27</p>
+<p>28</p>
+<p>56</p>
+<p>200</p>
+<p>238</p>
+<p>252</p>
+</td>
+<td><p>20</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+</td>
+<td><p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+<p>10</p>
+</td>
+</tr>
+<tr class="row-even"><td colspan="5"><p><sup>a</sup>Group-dependent weight averages are supplied for each
+increment of the specified incremental thickness (i.e., for any
+given material) the first ngp (number of energy groups) weights
+apply to the first increment of the thickness specified here, the
+next ngp weights apply to the next increment of that thickness, etc
+CAUTION–If bias IDs defined in the weighting information data are
+used in the geometry, the region thickness should be consistent with the incremental thickness of the weighting data in order to avoid overbiasing or underbiasing.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The user should thoroughly understand weighted tracking
+before attempting to generate and use auxiliary data for biasing. Incorrect
+weighting can cause the code to produce incorrect results without obvious symptoms.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>1. Each set of <em>AUXILIARY</em> or <em>CORRELATION</em> data must be completely
+described in conjunction with its keyword. Complete sets of these data
+can be interspersed in an arbitrary order but data within each set must
+be entered in the specified order.</p>
+<p>2. <em>AUXILIARY DATA</em>: If the same <em>m</em> is specified in more than one set
+of data, the last set having the group structure used in the problem is
+the set that will be utilized. When <em>AUXILIARY DATA</em> are entered,
+<em>CORRELATION DATA</em> must also be entered in order to use the <em>AUXILIARY
+DATA</em>.</p>
+<p>3. <em>CORRELATION DATA</em>: If biasing data define the same bias ID (from the
+geometry data) more than once, the value that is entered last supersedes
+previous entries. <em>Be well aware that multiple definitions for the same
+bias ID can cause erroneous answers due to overbiasing.</em></p>
+<ol class="arabic simple" start="4">
+<li><p>Bias data may not be used in continuous energy mode.</p></li>
+</ol>
+</div>
+<p class="centered">
+<strong>Examples</strong></p><ol class="arabic simple">
+<li><p>Use the first form of the <strong>BIAS</strong> block to utilize the water biasing
+factors in bias IDs 2 through 11. From <a class="reference internal" href="#tab8-1-20"><span class="std std-numref">Table 49</span></a>, water has
+material ID m=500 and has bias parameters for 10 intervals that are
+each 3 cm thick.</p></li>
+</ol>
+<p><strong>READ BIAS ID</strong>=500 2 11 <strong>END BIAS</strong></p>
+<ol class="arabic simple" start="2">
+<li><p>Use the second form of the <strong>BIAS</strong> block to specify biasing factors
+for SPECIALWATER to be used in bias IDs 6 and 7. The SPECIALWATER
+biasing factors have a value of 0.69 for BIAS ID 6 and 0.86 for bias
+ID 7 in each energy group. Sixteen-group cross sections are being
+used. Each weighting region is 3.048 cm thick. The material ID is
+arbitrarily chosen to be 510. Note that the first form of the
+<strong>BIAS</strong> block must be entered to allow the second form of the
+<strong>BIAS</strong> block to be used for BIAS IDs 6 and 7.</p></li>
+</ol>
+<p><strong>READ BIAS WT</strong>=SPECIALWATER 510 1 3.048 2 16 16*0.69 16*0.86
+<strong>ID</strong>=510 6 7 <strong>END BIAS</strong></p>
+<ol class="arabic simple" start="3">
+<li><p>An example of multiple definitions for the same bias ID follows:</p></li>
+</ol>
+<p><strong>READ BIAS ID</strong>=400 2 7 <strong>ID</strong>=500 5 7 <strong>END BIAS</strong> .</p>
+<p>The data for paraffin (<strong>ID</strong>=400) will be used for bias IDs 2, 3, and
+4, and the data for water (<strong>ID</strong>=500) will be used for bias IDs 5, 6,
+and 7. The paraffin data for bias IDs 5, 6, and 7 have been overwritten
+by water data.</p>
+<p>Multiple definitions for the same bias ID are not necessarily incorrect,
+but the user should be cautious about using multiple definitions and
+should ensure that the desired biasing or weighting functions are used
+in the desired geometry regions.</p>
+<ol class="arabic simple" start="4">
+<li><p>An example of how the <em>bias ID</em> relates to the energy-dependent
+values of <em>weights</em> is given below.</p></li>
+</ol>
+<p>Assume that a paraffin reflector is to be used, and it is desirable to
+use the weighting function from the KENO weighting library to minimize
+the running time for the problem. Also assume that these weighting
+functions are to be used in the volumes defined in the geometry records
+having the <em>bias ID</em> (defined on a <strong>shape</strong> or <strong>MEDIA</strong> card for KENO
+V.a and KENO-VI, respectively) equal to 6, 7, 8, and 9. <em>Correlation
+data</em> are then entered and <em>auxiliary data</em> will not be entered.</p>
+<p>The biasing data would be:</p>
+<p><strong>READ BIAS ID</strong>=400 6 9 <strong>END BIAS</strong>.</p>
+<p>The results of these data are</p>
+<p>(1) the group-dependent <em>weights</em> for the 0–3 cm interval of paraffin
+will be used in the volume defined by the geometry region having <em>bias
+ID</em>= 6.</p>
+<p>(2) the group-dependent <em>weights</em> for the 3–6 cm interval of paraffin
+will be used in the volume defined by the geometry region having <em>bias
+ID</em>= 7.</p>
+<p>(3) the group-dependent <em>weights</em> for the 6–9 cm interval of paraffin
+will be used in the volume defined by the geometry region having <em>bias
+ID</em>= 8.</p>
+<p>(4) the group-dependent <em>weights</em> for the 9–12 cm interval of paraffin
+will be used in the volume defined by the geometry region having <em>bias
+ID</em>= 9.</p>
+</div>
+<div class="section" id="start-data">
+<span id="id12"></span><h3>Start data<a class="headerlink" href="#start-data" title="Permalink to this headline">¶</a></h3>
+<p>Special start options are available for controlling the initial neutron
+distribution. The default starting distribution for an array is flat
+over the overall array dimensions, in fissile material only. The default
+starting distribution for a single unit is flat over the system, in
+fissile material only. See <a class="reference internal" href="#tab8-1-21"><span class="std std-numref">Table 50</span></a> for the starting distributions
+available in KENO. The syntax for the <strong>START</strong> block is:</p>
+<p><strong>READ START</strong> <em>p1</em> …<em>pN</em> <strong>END START</strong></p>
+<p><em>p</em><sub>1</sub> …<em>p</em><sub>N</sub> are <em>N</em> initializations for the parameters listed
+below.</p>
+<p>The starting information that can be entered is given below. Enter only
+the data necessary to describe the desired starting distribution.</p>
+<dl class="simple">
+<dt><strong>NST =</strong> <em>ntypst</em></dt><dd><p>start type, default = 0
+<a class="reference internal" href="#tab8-1-21"><span class="std std-numref">Table 50</span></a> lists the available options under the heading, “Start
+type.”</p>
+</dd>
+<dt><strong>TFX =</strong> <em>tfx</em></dt><dd><p>the X coordinate of the point at which neutrons are to
+be started. Default = 0.0. Use for start types 3, 4, and 6.</p>
+</dd>
+<dt><strong>TFY =</strong> <em>tfy</em></dt><dd><p>the Y coordinate of the point at which neutrons are to
+be started. Default = 0.0. Use for start types 3, 4, and 6.</p>
+</dd>
+<dt><strong>TFZ =</strong> <em>tfz</em></dt><dd><p>the Z coordinate of the point at which neutrons are to
+be started. Default = 0.0.
+Use for start types 3, 4, and 6.</p>
+</dd>
+<dt><strong>NXS =</strong> <em>nbxs</em></dt><dd><p>the x index of the unit’s position in the global array.
+Default = 0.
+Use for start types 2, 3, and 6.</p>
+</dd>
+<dt><strong>NYS =</strong> <em>nbys</em></dt><dd><p>the y index of the unit’s position in the global array.
+Default = 0.
+Use for start types 2, 3, and 6.</p>
+</dd>
+<dt><strong>NZS =</strong> <em>nbzs</em></dt><dd><p>the z index of the unit’s position in the global array.
+Default = 0.
+Use for start types 2, 3, and 6.</p>
+</dd>
+<dt><strong>KFS =</strong> <em>kfis</em></dt><dd><p>the mixture whose fission spectrum is to be used for
+starting neutrons that are not in a fissionable medium. Defaulted to the
+fissionable mixture having the smallest mixture number. Available for
+start types 3, 4, and 6.</p>
+</dd>
+<dt><strong>LNU =</strong> <em>lfin</em></dt><dd><p>the final neutron to be started at a point. Default =
+0. Each <em>lfin</em> should be greater than zero and less than or equal to
+NPG. Each successive <em>lfin</em> should be greater than the previous one. Use
+for start types 6 and 8.</p>
+</dd>
+<dt><strong>NBX =</strong> <em>nboxst</em></dt><dd><p>the unit in which neutrons will be started. Default =
+0.
+Use for start types 4 and 5.</p>
+</dd>
+<dt><strong>FCT =</strong> <em>fract</em></dt><dd><p>the fraction of neutrons that will be started as a
+spike. Default = 0.
+Use for start type 2.</p>
+</dd>
+<dt><strong>XSM =</strong> <em>xsm</em></dt><dd><p>the −X dimension of the cuboid in which the neutron will
+be started. For an array problem, <strong>XSM</strong> is defaulted to the minimum
+X coordinate of the global array. If the reflector key <strong>RFL</strong> is YES,
+then and the outer reflector region is a cube or cuboid, <strong>XSM</strong> is
+defaulted to the minimum X coordinate of the outer reflector region. If
+<strong>RFL</strong> is YES and the outer region of the reflector is not a cube or
+cuboid, then <strong>XSM</strong> must be entered in the start data and must fit
+inside the outer reflector region.
+Available for start types 0, 1, 2, and 8.</p>
+</dd>
+<dt><strong>XSP =</strong> <em>xsp</em></dt><dd><p>the +X dimension of the cuboid in which the neutrons
+will be started. For an array problem, <strong>XSP</strong> is defaulted to the
+maximum X coordinate of the global array. If the reflector key <strong>RFL</strong>
+is YES, then and the outer reflector region is a cube or cuboid, <strong>XSP</strong>
+is defaulted to the maximum X coordinate of the outer reflector region.
+If <strong>RFL</strong> is YES and the outer region of the reflector is not a cube or
+cuboid, then <strong>XSP</strong> must be entered in the data and must fit inside the
+outer reflector region.
+Available for start types 0, 1, 2, and 8.</p>
+</dd>
+<dt><strong>YSM =</strong> <em>ysm</em></dt><dd><p>the −Y dimension of the cuboid in which the neutron will
+be started. For an array problem, <strong>YSM</strong> is defaulted to the minimum
+Y coordinate of the global array. If the reflector key <strong>RFL</strong> is YES,
+then <strong>YSM</strong> is defaulted to the minimum Y coordinate of the outer
+reflector region, provided that region is a cube or cuboid. If <strong>RFL</strong>
+is YES and the outer region of the reflector is not a cube or cuboid,
+then <strong>YSM</strong> must be entered in the start data and must fit inside the
+outer reflector region.
+Available for start types 0, 1, 2, and 8.</p>
+</dd>
+<dt><strong>YSP =</strong> <em>ysp</em></dt><dd><p>the +Y dimension of the cuboid in which the neutrons
+will be started. For an array problem, <strong>YSP</strong> is defaulted to the
+maximum Y coordinate of the global array. If the reflector key <strong>RFL</strong>
+is YES, then <strong>YSP</strong> is defaulted to the maximum Y coordinate of the
+outer reflector region, provided that region is a cube or cuboid. If
+<strong>RFL</strong> is YES and the outer region of the reflector is not a cube or
+cuboid, then <strong>YSP</strong> must be entered in the start data and must fit
+inside the outer reflector region.
+Available for start types 0, 1, 2, and 8.</p>
+</dd>
+<dt><strong>ZSM =</strong> <em>zsm</em></dt><dd><p>the −Z dimension of the cuboid in which the neutrons
+will be started. For an array problem, <strong>ZSM</strong> is defaulted to the
+minimum Z coordinate of the global array. If the reflector key <strong>RFL</strong>
+is YES, then <strong>ZSM</strong> is defaulted to the minimum Z coordinate of the
+outer reflector region, provided that region is a cube or cuboid. If
+<strong>RFL</strong> is YES and the outer region of the reflector is not a cube or
+cuboid, then <strong>ZSM</strong> must be entered in the start data and must fit
+inside the outer reflector region.
+Available for start types 0, 1, 2, and 8.</p>
+</dd>
+<dt><strong>ZSP =</strong> <em>zsp</em></dt><dd><p>the +Z dimension of the cuboid in which the neutrons
+will be started. For an array problem, <strong>ZSP</strong> is defaulted to the
+maximum Z coordinate of the global array. If the reflector key <strong>RFL</strong>
+is YES, then <strong>ZSP</strong> is defaulted to the maximum Z coordinate of the
+outer reflector region, provided that region is a cube or cuboid. If
+<strong>RFL</strong> is YES and the outer region of the reflector is not a cube or
+cuboid, then <strong>ZSP</strong> must be entered in the start data and must fit
+inside the outer reflector region.
+Available for start types 0, 1, 2, and 8.</p>
+</dd>
+<dt><strong>RFL =</strong> <em>rflkey</em></dt><dd><p>the reflector key. If the reflector key is YES, then
+neutrons can be started in the reflector. If it is NO, then all the
+neutrons will be started in the array. Enter YES or NO. Default = NO.
+Available for start types 0, 1, and 2.</p>
+</dd>
+<dt><strong>PS6 =</strong> <em>lprt6</em></dt><dd><p>the key for printing start type 6 input data. If the
+key is YES, then start type 6 data are printed. If it is NO, then start
+type 6 data are not printed. Enter YES or NO. Default = NO.
+Available for start type 6.</p>
+</dd>
+<dt><strong>PSP =</strong> <em>lpstp</em></dt><dd><p>the key for printing the neutron starting points using
+the tracking format. If the key is YES, then print the neutron starting
+points. If it is NO, then do not print the starting points. Enter YES or
+NO. Default = NO.
+Available for all start types.</p>
+</dd>
+<dt><strong>RDU =</strong> <em>rdu</em></dt><dd><p>the file from which ASCII start data are to be read for
+start type 6.</p>
+</dd>
+<dt><strong>WS6</strong> = <em>ws6</em></dt><dd><p>the file to which ASCII start data are written.</p>
+</dd>
+<dt><strong>MSS</strong> = <em>filename.msl</em></dt><dd><p>the file from which ASCII start data are to be
+read. <em>filename</em> may include a valid pathname. Available for start type
+9.</p>
+</dd>
+</dl>
+<span id="tab8-1-21"></span><table class="docutils align-center" id="id38">
+<caption><span class="caption-number">Table 50 </span><span class="caption-text">Starting distributions available in KENO.</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Start</p>
+<p>type</p>
+</td>
+<td><p>Required</p>
+<p>data</p>
+</td>
+<td><p>Optional</p>
+<p>data</p>
+</td>
+<td><p>Starting
+distribution</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>None</p></td>
+<td><p>NST</p>
+<p>XSM</p>
+<p>XSP</p>
+<p>YSM</p>
+<p>YSP</p>
+<p>ZSM</p>
+<p>ZSP</p>
+<p>RFL</p>
+<p>PSP</p>
+</td>
+<td><p>Uniform
+throughout
+fissile
+material within
+the volume
+defined by
+(1) the outer
+region of a
+single unit,
+(2) the outer
+region of a
+reflected array
+having the
+reflector key
+set true,
+(3) the
+boundary of the
+global array,
+or (4) a cuboid
+specified by
+XSM, XSP, YSM,
+YSP, ZSM, and
+ZSP.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>NST</p></td>
+<td><p>XSM</p>
+<p>XSP</p>
+<p>YSM</p>
+<p>YSP</p>
+<p>ZSM</p>
+<p>ZSP</p>
+<p>RFL</p>
+<p>PSP</p>
+</td>
+<td><p>The starting
+points are
+chosen
+according to a
+cosine
+distribution
+throughout the
+volume of a
+cuboid defined
+by XSM, XSP,
+YSM, YSP, ZSM,
+and ZSP. Points
+that are not in
+fissile
+material are
+discarded.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>NST</p>
+<p>NXS</p>
+<p>NYS</p>
+<p>NZS</p>
+<p>FCT</p>
+</td>
+<td><p>XSM</p>
+<p>XSP</p>
+<p>YSM</p>
+<p>YSP</p>
+<p>ZSM</p>
+<p>ZSP</p>
+<p>RFL</p>
+<p>PSP</p>
+</td>
+<td><p>An arbitrary
+fraction (FCT)
+of neutrons are
+started
+uniformly in
+the unit
+located at
+position NXS,
+NYS, NZS in the
+global array.
+The remainder
+of the neutrons
+is started in
+fissile
+material, from
+points chosen
+from a cosine
+distribution
+throughout the
+volume of a
+cuboid defined
+by XSM, XSP,
+YSM, YSP, ZSM,
+ZSP.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>NST</p>
+<p>TFX</p>
+<p>TFY</p>
+<p>TFZ</p>
+<p>NXS</p>
+<p>NYS</p>
+<p>NZS</p>
+</td>
+<td><p>KFS</p>
+<p>PSP</p>
+</td>
+<td><p>All neutrons
+are started at
+position TFX,
+TFY, TFZ within
+the unit
+located at
+position NXS,
+NYS, NZS in the
+global array.</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>NST</p>
+<p>TFX</p>
+<p>TFY</p>
+<p>TFZ</p>
+<p>NBX</p>
+</td>
+<td><p>KFS</p>
+<p>PSP</p>
+</td>
+<td><p>All neutrons
+are started at
+position TFX,
+TFY, TFZ within
+units NBX in
+the global
+array.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Starting
+distributions
+available in
+KENO
+(continued)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Start</p>
+<p>type</p>
+</td>
+<td><p>Required</p>
+<p>data</p>
+</td>
+<td><p>Optional</p>
+<p>data</p>
+</td>
+<td><p>Starting
+distribution</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>NST</p>
+<p>NBX</p>
+</td>
+<td><p>PSP</p></td>
+<td><p>Neutrons are
+started
+uniformly in
+fissile
+material in
+units NBX in
+the global
+array.</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>NST</p>
+<p>TFX</p>
+<p>TFY</p>
+<p>TFZ</p>
+<p>LNU<em>a</em></p>
+</td>
+<td><p>NXS</p>
+<p>NYS</p>
+<p>NZS</p>
+<p>KFS</p>
+<p>PS6</p>
+<p>PSP</p>
+<p>RDU</p>
+</td>
+<td><p>The starting
+distribution is
+arbitrarily
+input. LNU is
+the final
+neutron to be
+started at a
+point TFX, TFY,
+TFZ relative to
+the global
+coordinate
+system or at a
+point TFX, TFY,
+TFZ, relative
+to the unit
+located at the
+global array
+position NXS,
+NYS, NZS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td></td>
+<td><p>XSM</p>
+<p>XSP</p>
+<p>YSM</p>
+<p>YSP</p>
+<p>ZSM</p>
+<p>ZSP</p>
+</td>
+<td><p>The starting
+points are
+chosen
+according to a
+flat
+distribution in
+the X- and
+Y-dimensions
+and a (1.0 −
+cos(z)):sup:`
+2`
+distribution in
+the Z-dimension
+throughout the
+volume of a
+cuboid defined
+by XSM, XSP,
+YSM, YSP, ZSM,
+and ZSP. Points
+that are not in
+fissile
+material are
+discarded.</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>NST</p>
+<p>ZSM</p>
+<p>ZSP</p>
+<p>FCT</p>
+</td>
+<td><p>XSM</p>
+<p>XSP</p>
+<p>YSM</p>
+<p>YSP</p>
+</td>
+<td><p>Neutrons are
+started with
+flat
+distribution in
+X and Y, and a
+segmented
+distribution in
+Z, with the X-Y
+limits defined
+by XSM, XSP,
+YSM, YSP and
+the relative
+fraction in
+ZSP-ZSM defined
+by FCT. FCT
+must be the
+last thing
+entered for
+each segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>NST</p>
+<p>MSS</p>
+</td>
+<td></td>
+<td><p>Mesh source
+from Sourcerer.
+The starting
+distribution is
+read from a
+previously
+created mesh
+source file
+declared with
+MSS=<em>filename
+.msl</em>,
+where
+<em>filename</em> may
+include a valid
+pathname. See
+Sourcerer
+section of
+SCALE manual
+for more
+details.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>a</em> When
+entering data
+for start 6,
+LNU must be the
+last entry for
+each set of
+data and the
+LNU in each
+successive set
+of data must be
+larger than the
+previous value
+of LNU. A set
+of data
+consists of
+required and
+optional data.
+The last LNU
+entered should
+be equal to the
+number per
+generation
+(parameter NPG=
+in the
+parameter
+input,
+<a class="reference internal" href="#id2"><span class="std std-ref">Title and parameter data</span></a>).</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="extra-1-d-xsecs-ids-data">
+<span id="id13"></span><h3>Extra 1-D XSECS IDs data<a class="headerlink" href="#extra-1-d-xsecs-ids-data" title="Permalink to this headline">¶</a></h3>
+<p>Extra 1-D cross section IDs are not required. They are allowed as input
+in order to simplify future modifications to calculate reaction rates,
+etc., as well as for compatibility with other SCALE codes. The syntax
+for the extra 1-D cross section data block is:</p>
+<p><strong>READ X1DS</strong> <strong>NEUTRON</strong> <em>i1 …ix1d</em> <strong>END X1DS</strong></p>
+<dl class="simple">
+<dt><strong>NEUTRON</strong></dt><dd><p>is a keyword to indicate that the following ID identifies a
+neutron interaction.</p>
+</dd>
+<dt><em>i</em><sub>1</sub> … <em>i</em><sub>x1d</sub></dt><dd><p><strong>X1D</strong> 1-D identification numbers or keyword identifiers
+for the 1-D cross section to be used. These cross sections must be
+available on the mixture cross section library. <strong>X1D</strong> entries are
+expected to be read (see integer PARAMETER data).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="mixing-table-data">
+<span id="id14"></span><h3>Mixing table data<a class="headerlink" href="#mixing-table-data" title="Permalink to this headline">¶</a></h3>
+<p>A cross section mixing table must be entered if KENO is being run stand
+alone and a Monte Carlo cross section format library is not being used
+in the multigroup mode, or KENO is being run stand alone in the
+continuous energy mode. If the parameter <strong>LIB</strong>= (Sect. 8.1.2.3) is
+entered, then mixing table data must be entered. A cross section mixing
+table is entered using the following syntax:</p>
+<p><strong>READ MIXT</strong> <em>p</em><sub>1</sub> … <em>p</em><sub>N</sub> <strong>END MIXT</strong></p>
+<dl class="simple">
+<dt><em>p</em><sub>1</sub> … <em>p</em><sub>N</sub></dt><dd><p>are <em>N</em> parameters that might or might not be keyworded.</p>
+</dd>
+</dl>
+<p>The possible parameters that can be used in a <strong>MIXT</strong> block are
+described below.</p>
+<dl class="simple">
+<dt><strong>SCT =</strong> <em>nsct</em></dt><dd><p>is used to input the number of scattering angles and
+only applies in multigroup mode. <em>nsct</em> is the number of discrete
+scattering angles, default = 1. The number of scattering angles
+specifies the number of discrete scattering angles to be used for the
+cross sections. If SCT is not set (i.e., SCT= −1), then the number of
+scattering angles is determined from the cross section library
+specified. The number of scattering angles defaults to (ncoef+1)/2,
+where ncoef is the largest Legendre polynomial order used in the
+problem. It needs to be entered only once for a problem. If more than
+one value is entered, the last one is used for the problem. For
+assistance in determining the number of discrete scattering angles for
+the cross sections, see <span class="xref std std-ref">8-1-3-4-3</span>.</p>
+</dd>
+<dt><strong>EPS =</strong> <em>pbxs</em></dt><dd><p>is used to enter the cross section message cutoff
+value, and it only applies in multigroup mode. <em>pbxs</em> is the value of
+the P<sub>0</sub> cross section for each transfer, above which generated
+warning messages will be printed, default = 3 × 10<sup>−5</sup>. The
+primary purpose of entering this cutoff value is to suppress printing
+these messages when they are generated during cross section processing.
+For assistance in determining a value for EPS, see <span class="xref std std-ref">8-1-3-4-4</span>.</p>
+</dd>
+<dt><strong>MIX =</strong> <em>mix</em></dt><dd><p>is used to input the identification number of the
+mixture being described. <em>mix</em> defines the mixture being described.</p>
+</dd>
+<dt><strong>NCM</strong> = <em>ncmx</em></dt><dd><p>is used to input the nuclide mixture IDs to be used for
+this mixture. <em>ncmx</em> defines the nuclide mixture ID. When
+<strong>MIX</strong>=<em>mix</em> is read, <em>ncmx</em> is defaulted to <em>mix</em> also. Then, as
+long as all the nuclides that need to be mixed into <em>mix</em> already have
+<em>mix</em> specified as their nuclide mixture (frequently the case when using
+SCALE), the user does not need to specify <strong>NCM</strong>. The most usual case
+where <strong>NCM</strong> must be specified is when the mixtures were specified as a
+different mixture number when they were created in SCALE as compared to
+the mixture number used for them in KENO. Cell homogenized mixtures also
+need <strong>NCM</strong> specified.</p>
+</dd>
+<dt><strong>TMP</strong>|<strong>TEM</strong> = <em>temperature</em></dt><dd><p>is used to input the desired
+temperature of the CE cross section data.</p>
+</dd>
+<dt><em>nucl</em></dt><dd><p>is the nuclide ID number from the AMPX working format cross
+section library.</p>
+</dd>
+<dt><strong>XS</strong>=<em>fname</em></dt><dd><p>is used to input the optional continuous energy cross
+section filename to override the default cross sections. <em>fname</em> is the
+name of the file.</p>
+</dd>
+<dt><em>dens</em></dt><dd><p>is the number density (atoms/b-cm) associated with nuclide ID
+number <em>nucl</em>.</p>
+</dd>
+</dl>
+<p>The sequence “<em>nucl</em> <strong>NCM</strong>=<em>ncmx</em> [<strong>XS</strong>=<em>fname</em>] <em>dens</em>”
+may be repeated until the mixture defined by <strong>MIX</strong>=<em>mix</em> has been
+completely described.</p>
+<p>The sequence “<strong>MIX =</strong> <em>mix</em> <strong>NCM</strong> = <em>ncmx</em> <strong>TMP</strong>|<strong>TEM</strong> =
+<em>temperature nucl</em> <strong>NCM</strong>=<em>ncmx</em> [<strong>XS</strong>=<em>fname</em>] <em>dens</em>” may
+be repeated until all the mixtures have been described.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a given nuclide ID is entered more than once in the same
+mixture, then the number densities for that nuclide are summed.</p>
+<p>If a mixture number is used as a nuclide ID, then it is treated as a
+nuclide and the number density associated with it is used as a
+density modifier. (If the density is entered as 1, then the mixture
+is mixed in at full density. If it is entered as 0.5, the mixture is
+mixed in at one half of its full density.) A Monte Carlo formatted
+cross section library is generated on the unit defined by the
+parameter <strong>XSC=</strong>. If this data set is saved, subsequent cases can
+utilize these mixtures without remixing.</p>
+<p>The entry <strong>XS</strong>=<em>fname</em> is optional. If a nuclide is entered
+more than once in a mixture and this entry is specified, then they
+must be the same (i.e., cannot use more than one continuous energy
+cross section sets for a nuclide in a given mixture). Different
+mixtures may have the same nuclide with different continuous energy
+cross section sets.</p>
+</div>
+</div>
+<div class="section" id="plot-data">
+<span id="id15"></span><h3>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h3>
+<p>Plots of slices specified through the geometry can be generated and
+displayed (1) as character plots using alphanumeric characters to
+represent mixture numbers, unit numbers or bias ID numbers or (2) as
+color plots which generate a PNG file using colors to represent mixture
+numbers, unit numbers or bias ID numbers. Color plots require an
+independent program to display the PNG file to a PC or workstation
+monitor or to convert the file to be displayed using a plotting device.
+The keyword <strong>SCR=</strong> is used to control the plot display method.
+<strong>SCR</strong>=YES, the default value, uses the color plot display method.
+<strong>SCR</strong>=NO uses the character plot display method. The value of
+<strong>SCR</strong> determines the plot display method for all the plots specified
+in a problem. If <strong>SCR</strong>= is entered more than once, the last entry
+determines the plot display method. In other words, all plots generated
+by a problem will be either character plots or color plots.</p>
+<p>The plot data can include the data for any or all types of plots. A plot
+by mixture number is the default. The kind of plot is defined by the
+parameter <strong>PIC=</strong>. Character plots are printed after the volumes are
+printed and before the final preparations for tracking are completed.
+Plot data are not required for a problem, but theyb can be used to
+verify the problem description. The actual plotting of the picture can
+be suppressed by entering <strong>PLT= NO</strong> in the parameter data or plot
+data. This allows plot data to be kept in the problem input for
+reference purposes without actually plotting the picture(s). Entering a
+value for <strong>PLT</strong> in the plot data will override any value entered in
+the parameter data. However, if a problem is restarted, the value of
+<strong>PLT</strong> from the parameter data is used. The upper left and lower right
+coordinates of the plot must be specified relative to the origin of the
+problem. See <span class="xref std std-ref">8-1-3-9</span> for a discussion of plot origins and plot
+data.</p>
+<p>Enter the plot data using the following syntax:</p>
+<p><strong>READ PLOT</strong> <em>p</em><sub>1</sub> … <em>p</em><sub>N</sub> <strong>END PLOT</strong></p>
+<dl class="simple">
+<dt><em>p</em><sub>1</sub> … <em>p</em><sub>N</sub></dt><dd><p>are <em>N</em> parameters entered using keywords followed by the
+appropriate data. The plot title and the plot character string must be
+contained within delimiters. Enter as many picture parameters as
+necessary to describe the plot. Multiple sets of plot data can be
+entered. The parameter input for each plot is terminated by a labeled or
+unlabeled <strong>END</strong>. The labeled <strong>END</strong> cannot use the word <strong>PLOT</strong> as
+the first four characters of the label. For example, <strong>END PLT1</strong> is a
+valid label, but <strong>END PLOT1</strong> is not. If an unlabeled <strong>END</strong> is used,
+it cannot start in column 1.</p>
+</dd>
+</dl>
+<p>The possible parameters that can be used in a <strong>PLOT</strong> block are
+described below.</p>
+<dl class="simple">
+<dt><strong>TTL=</strong> <em>delim ptitl delim</em></dt><dd><p>Enter a one-character delimiter <em>delim</em> to
+signal the beginning of the title (132 characters maximum). The title is
+terminated when <em>delim</em> is encountered the second time. Acceptable
+delimiters include “ , ‘ , * , ^ , or !.
+Default = title of the KENO case.</p>
+</dd>
+</dl>
+<p><strong>PIC=</strong> <em>wrd</em>
+The plot type, <em>wrd</em>, is followed by one or more blanks
+and must be one of the keywords listed below. The plot type is
+initialized to MAT; the default is the value from the previous plot.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MAT</p>
+<p>MIX[T[URE]]</p>
+<p>MEDI[A]</p>
+</td>
+<td><p>These keywords will cause the
+plot to represent the mixture
+numbers used in the specified
+geometry slice.</p></td>
+</tr>
+<tr class="row-even"><td><p>UNT</p>
+<p>UNIT[TYPE]</p>
+</td>
+<td><p>These keywords will cause the
+plot to represent the units used
+in the specified geometry slice.
+In the legend of the color plot,
+the material number actually
+refers to the units.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMP</p>
+<p>BIAS[ID]</p>
+<p>WTS</p>
+<p>WEIG[HTS]</p>
+<p>WGT[S]</p>
+</td>
+<td><p>These keywords will cause the
+plot to represent the bias ID
+numbers used in the specified
+geometry slice. In the legend of
+the color plot, the material
+number actually refers to the
+bias ID numbers.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl>
+<dt><strong>TYP</strong>=</dt><dd><p>Enter the type desired.
+XY for an X-Y plot
+XZ for an X-Z plot
+YZ for a Y-Z plot
+Direction cosines do not need to be entered if TYP is entered.</p>
+</dd>
+<dt>Plot coordinates</dt><dd><p>Enter values for the upper left and lower right
+coordinates of the plot as described below. <strong>Data must be entered for
+all nonzero coordinates unless all six values from the previous plot are
+to be used.</strong></p>
+</dd>
+<dt>Upper left coordinates</dt><dd><p>Enter the X, Y, and Z coordinates of the upper
+left-hand corner of the plot.</p>
+</dd>
+<dt><strong>XUL=</strong><em>xul</em></dt><dd><p>is used to enter the X coordinate of the upper
+left-hand corner of the plot.
+Default = value from previous plot; initialized to zero if any other
+coordinates are entered.</p>
+</dd>
+<dt><strong>YUL=</strong> <em>yul</em></dt><dd><p>is used to enter the Y coordinate of the upper left-hand
+corner of the plot. Default = value from previous plot; initialized to
+zero if any other coordinates are entered.</p>
+</dd>
+<dt><strong>ZUL=</strong> <em>zul</em></dt><dd><p>is used to enter the Z coordinate of the upper left-hand
+corner of the plot. Default = value from previous plot; initialized to
+zero if any other coordinates are entered.</p>
+</dd>
+<dt>Lower right coordinates</dt><dd><p>Enter the X, Y, and Z coordinates of the lower
+right-hand corner of the plot.</p>
+</dd>
+<dt><strong>XLR=</strong> <em>xlr</em></dt><dd><p>is used to enter the X coordinate of the lower right-hand
+corner of the plot. Default = value from previous plot; initialized to
+zero if any other coordinates are entered.</p>
+</dd>
+<dt><strong>YLR=</strong> <em>ylr</em></dt><dd><p>is used to enter the Y coordinate of the lower right-hand
+corner of the plot.
+Default = value from previous plot; initialized to zero if any other
+coordinates are entered.</p>
+</dd>
+<dt><strong>ZLR=</strong> <em>zlr</em></dt><dd><p>is used to enter the Z coordinate of the lower right-hand
+corner of the plot. Default = value from previous plot; initialized to zero if any other
+coordinates are entered.</p>
+</dd>
+<dt>Direction cosines across the plot</dt><dd><p>Enter direction numbers proportional to the direction cosines for the AX axis of the plot.
+The AX axis is from left to right across the plot. If any one of the AX direction cosines is entered,
+the other two are set to zero. The direction cosines are normalized by the code.</p>
+<p><strong>UAX=</strong> <em>uax</em> is used to enter the X component of the direction
+cosines for the AX axis of the plot. Default = value from previous
+plot; initialized to zero if any other direction cosines are entered.</p>
+<p><strong>VAX=</strong> <em>vax</em> is used to enter the Y component of the direction
+cosines for the AX axis of the plot. Default = value from previous
+plot; initialized to zero if any other direction cosines are entered.</p>
+<p><strong>WAX=</strong> <em>wax</em> is used to enter the Z component of the direction
+cosines for the AX axis of the plot. Default = value from previous
+plot; initialized to zero if any other direction cosines are entered.</p>
+</dd>
+<dt>Direction cosines down the plot</dt><dd><p>Enter direction numbers proportional
+to the direction cosines for the DN axis of the plot.
+The DN axis is from top to bottom down the plot. If any one of the DN direction
+cosines is entered, the other two are set to zero. The direction cosines are normalized
+by the code.</p>
+<p><strong>UDN=</strong> <em>udn</em> is used to enter the X component of the direction
+cosines for the DN axis of the plot. Default = value from previous
+plot; initialized to zero if any other direction cosines are entered.</p>
+<p><strong>VDN=</strong> <em>vdn</em> is used to enter the Y component of the direction
+cosines for the DN axis of the plot. Default = value from previous
+plot; initialized to zero if any other direction cosines are entered.</p>
+<p><strong>WDN=</strong> <em>wdn</em> is used to enter the Z component of the direction
+cosines for the DN axis of the plot. Default = value from previous
+plot; initialized to zero if any other direction cosines are entered.</p>
+</dd>
+<dt>Scaling parameters</dt><dd><p>Enter one or more scaling parameters to define the
+size of the plot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If any of the scaling parameters are entered for a plot,
+the value of those that were not entered is recalculated. If none of
+the scaling parameters are specified for a plot, the values from the
+previous plot are used.</p>
+</div>
+</dd>
+<dt><strong>DLX=</strong> <em>dlx</em></dt><dd><p>is used to input the horizontal spacing between points on
+the plot. Default = value from previous plot; initialized to zero if
+<strong>NAX</strong> or <strong>NDN</strong> is entered.</p>
+</dd>
+<dt><strong>DLD=</strong> <em>dld</em></dt><dd><p>is used to input the vertical spacing between points on
+the plot. Default = value from previous plot; initialized to zero if
+<strong>NAX</strong> or <strong>NDN</strong> is entered.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If either DLX or DLD is entered, the code will calculate the
+value of the other. If both are entered, the plot may be distorted.</p>
+</div>
+<dl class="simple">
+<dt><strong>NAX=</strong> <em>nax</em></dt><dd><p>is used to input the number of intervals to be printed
+across the plot. Default = value from previous plot; initialized to zero
+if <strong>DLX</strong> or <strong>DLD</strong> is entered.</p>
+</dd>
+<dt><strong>NDN=</strong> <em>ndn</em></dt><dd><p>is used to input the number of intervals to be printed
+down the plot. Default = value from previous plot; initialized to zero
+if <strong>DLX</strong> or <strong>DLD</strong> is entered.</p>
+</dd>
+</dl>
+<p>Global scaling parameter</p>
+<dl>
+<dt><strong>LPI=</strong> <em>lpi</em></dt><dd><p>is used to input a scaling factor used to control the
+horizontal to vertical proportionality of a plot or plots. SCALE 4.3 and
+later versions allow <em>lpi</em> to be input as a floating point number. For
+an undistorted character plot, <em>lpi</em> should be specified as the number
+of characters down the page that occupy the same distance as ten
+characters across the page. For an undistorted color plot, <em>lpi</em> should
+be entered as ten times the ratio of the vertical pixel dimension to the
+horizontal pixel dimension. The default value of <em>lpi</em> is 8.0 for a
+character plot and 10.0 for a color plot. <em>lpi</em>=10 will usually
+display an undistorted color plot.</p>
+<p>The value entered for <em>lpi</em> applies to all plot data following it
+until a new value of <em>lpi</em> is specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Plot data must include the specification of the upper left
+corner of the plot and the direction cosines across and down the
+plot.</p>
+<p>Additional data required to generate a plot are one of the following
+combinations:</p>
+<p>1. the lower right corner of the plot, the global scaling parameter,
+<strong>LPI</strong>, and one of the scaling parameters (<strong>DLX</strong>, <strong>DLD</strong>,
+<strong>NAX</strong>, <strong>NDN</strong>).</p>
+<p>2. the lower right corner of the plot, one of the scaling parameters
+related to the horizontal specifications of the plot (<strong>DLX</strong> or
+<strong>NAX</strong>), and one of the scaling parameters related to the vertical
+specification of the plot (<strong>DLD</strong> or <strong>NDN</strong>). <strong>LPI</strong>, even if
+specified will not be used.</p>
+<p>3. <strong>NAX</strong> and <strong>NDN</strong> and any two of <strong>LPI, DLX</strong>, and <strong>DLD</strong>. If
+<strong>LPI, DLX</strong>, and <strong>DLD</strong> are all specified, <strong>LPI</strong> is not used.</p>
+<p>The data required to generate a plot may be supplied from
+(1) defaulted values, (2) data from the previous plot, or (3) data
+that are specifically entered for the current plot.</p>
+</div>
+</dd>
+<dt>Miscellaneous parameters</dt><dd><p>Enter miscellaneous parameters</p>
+</dd>
+<dt><strong>RUN</strong>= <em>run</em></dt><dd><p>is used to determine if the problem is executed or is
+terminated after data checking. A value of YES for <em>run</em> means the
+problem will be executed if all the data were acceptable. A value of NO
+specifies the problem will be terminated after data checking is
+completed. The default value of <strong>RUN</strong> is YES.</p>
+</dd>
+<dt><strong>PLT</strong>= <em>plt</em></dt><dd><p>is used to specify if a plot is to be made. A value of
+YES for <em>plt</em> specifies that a plot is to be made. If plot data are
+entered, <strong>PLT</strong> is defaulted to YES.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameters <strong>RUN</strong> and <strong>PLT</strong> can also be entered in the
+PARAMETER data. See <a class="reference internal" href="#id2"><span class="std std-ref">Title and parameter data</span></a>. It is recommended that these
+parameters be entered only in the parameter data block in order to
+ensure that the data printed in the “Logical Parameters” table are what
+is actually performed.</p>
+</div>
+<dl class="simple">
+<dt><strong>SCR=</strong> <em>src</em></dt><dd><p>This is used to determine the plot display method. The
+plot display method is specified by entering either YES or NO for <em>src</em>.
+The default value is YES. <strong>SCR</strong>=YES uses the color plot display
+method. <strong>SCR</strong>=NO uses the character plot display method. If <strong>SCR</strong>
+is entered more than once in a problem, the last value entered is the
+one that is used.</p>
+</dd>
+<dt><strong>NCH=</strong> <em>delim char delim</em></dt><dd><p>Enter only if plots are to be made utilizing
+the character plot display method (<strong>SCR</strong>=NO). Enter a delimiter
+(i.e., “ , ‘ , * , ^ , or !) to signal the beginning of character
+string <em>char</em>. The character string is terminated when the <em>delim</em>
+character is encountered the second time. Do not use the initial
+delimiter in the <em>char</em> string, as it will be read as terminating the
+string. <em>char</em> is a character string with each entry representing a
+plottable quantity (i.e., media {mixture} number, unit number, or bias
+ID). These are the characters that will be used in the plot. The first
+entry represents media, unit, or bias ID zero; the second entry
+represents the smallest media, unit, or bias ID used in the problem; the
+third entry represents the next larger media, unit, or bias ID used in
+the problem; etc. For example, assume <strong>PIC</strong>=MAT is specified, and
+15 mixtures are defined in the mixing table, and the geometry data use
+only mixtures 3 and 7. By default, a blank will be printed for mixture
+zero, a 1 will be printed for mixture 3, and a 2 will be printed for
+mixture 7. If you wish to print a zero for a void (mixture 0), a 3 for
+mixture 3, and a 7 for mixture 7, enter NCH=‘037’.</p>
+</dd>
+</dl>
+<p>The default values of CHAR are the following:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 4%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Quantity</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-even"><td><p>SYMBOL</p></td>
+<td></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>A</p></td>
+<td><p>B</p></td>
+<td><p>C</p></td>
+<td><p>D</p></td>
+<td><p>E</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Quantity</p></td>
+<td><p>16</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>31</p></td>
+</tr>
+<tr class="row-odd"><td><p>SYMBOL</p></td>
+<td><p>G</p></td>
+<td><p>H</p></td>
+<td><p>I</p></td>
+<td><p>J</p></td>
+<td><p>K</p></td>
+<td><p>L</p></td>
+<td><p>M</p></td>
+<td><p>N</p></td>
+<td><p>O</p></td>
+<td><p>P</p></td>
+<td><p>Q</p></td>
+<td><p>R</p></td>
+<td><p>S</p></td>
+<td><p>T</p></td>
+<td><p>U</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Quantity</p></td>
+<td><p>32</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SYMBOL</p></td>
+<td><p>W</p></td>
+<td><p>X</p></td>
+<td><p>Y</p></td>
+<td><p>Z</p></td>
+<td><p>‘#’</p></td>
+<td><p>,</p></td>
+<td><p>‘$’</p></td>
+<td><p>‘−’</p></td>
+<td><p>‘+’</p></td>
+<td><p>‘)’</p></td>
+<td><p>‘|’</p></td>
+<td><p>‘&amp;’</p></td>
+<td><p>‘&gt;’</p></td>
+<td><p>‘:’</p></td>
+<td><p>‘;’</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Quantity</p></td>
+<td><p>47</p></td>
+<td><p>48</p></td>
+<td><p>49</p></td>
+<td><p>50</p></td>
+<td><p>51</p></td>
+<td><p>52</p></td>
+<td><p>53</p></td>
+<td><p>54</p></td>
+<td><p>55</p></td>
+<td><p>56</p></td>
+<td><p>57</p></td>
+<td><p>58</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>SYMBOL</p></td>
+<td><p>‘⋅’</p></td>
+<td><p>‘−’</p></td>
+<td><p>“%”</p></td>
+<td><p>“*”</p></td>
+<td><p>“”“</p></td>
+<td><p>“=”</p></td>
+<td><p>“!”</p></td>
+<td><p>“(“</p></td>
+<td><p>“&#64;”</p></td>
+<td><p>“&lt;“</p></td>
+<td><p>“/”</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>CLR=</strong> <em>n</em><sub>1</sub> <em>r*(*n</em><sub>1</sub>) <em>g*(*n</em><sub>1</sub>) <em>b*(*n</em><sub>1</sub>) … <em>n</em><sub>N</sub> <em>r*(*n</em><sub>N</sub>) <em>g*(*n</em><sub>N</sub>) <em>b*(*n</em><sub>N</sub>)
+<strong>END COLOR</strong></p>
+<blockquote>
+<div><p>this entry is used to define the colors to be used by the color plot.
+It may be entered only if plots are to be made utilizing the color
+plot display method (<strong>SCR</strong>=YES). After entering the keyword
+<strong>CLR=</strong>, 4 numbers are entered <em>N</em> times. The first number, <em>n</em><sub>1</sub>,
+represents a media (mixture) number, unit number, or bias ID. The
+next three numbers, whose values can range from 0 through 255, define
+the <em>red, green, and blue</em> components of the color that will
+represent this <em>n</em><sub>1</sub> in the plot. The sequence of 4 numbers is
+repeated until the colors associated with all of the media (mixture)
+numbers, unit numbers, or bias IDs used in the problem have been
+defined. The smallest number that can be entered for <em>n</em><sub>i</sub> is −1,
+representing undefined regions in the plot. An <em>ni</em> of 0 represents
+void regions; <em>n</em><sub>i</sub> of 1 represents the smallest media, unit, or
+bias ID used in the problem; <em>n</em><sub>i</sub> of 2 represents the next larger
+media, unit, or bias ID used in the problem, etc. The color plot
+definition data are terminated by entering the keywords <strong>END
+COLOR</strong>. A total of 256 default colors are provided in <a class="reference internal" href="#tab8-1-22"><span class="std std-numref">Table 51</span></a>
+Two of those colors represent undefined regions, <em>n</em><sub>i</sub>=-1*, as
+black and void regions, and <em>n</em><sub>i</sub>=0 as gray. The remaining 254
+colors represent the default values for mixtures, bias IDs, or unit
+numbers used in the problem. If <strong>num</strong> is entered as <strong>−1</strong>, the
+next three numbers define the color that will be used to represent
+undefined regions of the plot. The default color for undefined
+regions is black, represented as 0 0 0. If <em>n</em><sub>i</sub> is entered as 0,
+the next three numbers define the color that will represent void
+regions in the plot. The default color for void is gray, represented
+as 200 200 200. For example, assume a color plot is to be made for a
+problem that uses void regions and mixture numbers 1, 3, and 5. By
+default, the undefined regions (Index −1) will be black; void regions
+(Index 0) will be gray; the first mixture, mixture 1 (Index 1), will
+be medium blue; the next larger mixture, mixture 3 (Index 2), will be
+turquoise2; and the last mixture, mixture 5 (Index 3), will be
+green2. If these values are acceptable, data do not need to be
+entered for <strong>CLR</strong>=. If the user decides to define void to be
+white (255 255 255), mixture 1 to be red (255 0 0), mixture 3 to be
+bright blue (0 0 255), and mixture 5 to be green (0 255 0), then the
+following data could be entered:</p>
+<p><strong>CLR</strong>=0 255 255 255 1 255 0 0 2 0 0 255 3 0 255 0 <strong>END COLOR</strong></p>
+<p>In this example, the first number (0) defines the void, and the next
+three numbers are the <em>red, green, and blue</em> components that combine
+as the color white. The fifth number (1) represents the smallest
+mixture number (mixture 1), and the next three numbers are the <em>red,
+green, and blue</em> components of red. The ninth number (2) represents
+the next larger mixture number (mixture 3), and the next three
+numbers are the <em>red, green, and blue</em> components of bright blue. The
+thirteenth number (3) represents the next larger mixture number
+(mixture 5), and the next three numbers are the red, green, and blue
+components of green. The <strong>END COLOR</strong> terminates the color
+definition data. Because color data were not entered for <em>ni</em> of
+−1, undefined regions will be represented by the color black, the
+default specification from <a class="reference internal" href="#tab8-1-22"><span class="std std-numref">Table 51</span></a>. The <em>red, green, and blue</em>
+components of some bright colors are listed below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Display Color</strong></p></th>
+<th class="head"><p><strong>red</strong></p></th>
+<th class="head"><p><strong>green</strong></p></th>
+<th class="head"><p><strong>blue</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>black</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>white</p></td>
+<td><p>255</p></td>
+<td><p>255</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td><p>“default void gray”</p></td>
+<td><p>200</p></td>
+<td><p>200</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>red</p></td>
+<td><p>255</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>green</p></td>
+<td><p>0</p></td>
+<td><p>255</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>brightest blue</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td><p>yellow</p></td>
+<td><p>255</p></td>
+<td><p>255</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>brightest cyan</p></td>
+<td><p>0</p></td>
+<td><p>255</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td><p>magenta</p></td>
+<td><p>255</p></td>
+<td><p>0</p></td>
+<td><p>255</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The 256 default colors are listed in <a class="reference internal" href="#tab8-1-22"><span class="std std-numref">Table 51</span></a>.</p>
+<table class="docutils align-center" id="tab8-1-22">
+<caption><span class="caption-number">Table 51 </span><span class="caption-text">Default color specifications for the color plot display method</span><a class="headerlink" href="#tab8-1-22" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab22_Page_01.png"><img alt="_images/tab22_Page_01.png" class="align-center" src="_images/tab22_Page_01.png" style="width: 400px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="_images/tab22_Page_02.png"><img alt="_images/tab22_Page_02.png" class="align-center" src="_images/tab22_Page_02.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab22_Page_03.png"><img alt="_images/tab22_Page_03.png" class="align-center" src="_images/tab22_Page_03.png" style="width: 400px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="_images/tab22_Page_04.png"><img alt="_images/tab22_Page_04.png" class="align-center" src="_images/tab22_Page_04.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab22_Page_05.png"><img alt="_images/tab22_Page_05.png" class="align-center" src="_images/tab22_Page_05.png" style="width: 400px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="_images/tab22_Page_06.png"><img alt="_images/tab22_Page_06.png" class="align-center" src="_images/tab22_Page_06.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab22_Page_07.png"><img alt="_images/tab22_Page_07.png" class="align-center" src="_images/tab22_Page_07.png" style="width: 400px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="_images/tab22_Page_08.png"><img alt="_images/tab22_Page_08.png" class="align-center" src="_images/tab22_Page_08.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab22_Page_09.png"><img alt="_images/tab22_Page_09.png" class="align-center" src="_images/tab22_Page_09.png" style="width: 400px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="_images/tab22_Page_10.png"><img alt="_images/tab22_Page_10.png" class="align-center" src="_images/tab22_Page_10.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab22_Page_11.png"><img alt="_images/tab22_Page_11.png" class="align-center" src="_images/tab22_Page_11.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="energy-group-boundary-data">
+<h3>Energy group boundary data<a class="headerlink" href="#energy-group-boundary-data" title="Permalink to this headline">¶</a></h3>
+<p>Upper energy group boundary data in eV are entered to determine the
+groups into which the tallies will be collected in the continuous energy
+mode. For <em>G</em> groups <em>G</em>+1 entries are entered. The last entry is the
+lower energy boundary of the last group. The values must be in
+descending order. The parameter <strong>NGP</strong> is set equal to the number of
+entries−1. The syntax is:</p>
+<p><strong>READ ENERGY</strong> <em>u</em><sub>1</sub> …u<em>G</em> <em>u</em><sub>G+1</sub> <strong>END ENERGY</strong></p>
+<dl class="simple">
+<dt><em>u</em><sub>1</sub> … <em>u</em><sub>G</sub></dt><dd><p>are the upper energy limits of energy groups 1 … <em>G</em>,
+respectively.</p>
+</dd>
+<dt><em>u</em><sub>G+1</sub></dt><dd><p>is the lower energy limit of energy group <em>G</em>.</p>
+</dd>
+</dl>
+<p>Example:</p>
+<blockquote>
+<div><p><strong>READ ENERGY</strong></p>
+<p>2e7 1e5 1 1e−5</p>
+<p><strong>END ENERGY</strong></p>
+</div></blockquote>
+<p>Defines a 3-group structure with group 1 (2e+7 eV to 1e+5 eV), group 2
+(1e+5 eV to 1 eV), and group 3 (1 eV to 1e−5 eV) and sets <strong>NGP</strong>=3.</p>
+<p>Energy group boundary data are optional. Default values for the energy
+group boundaries in the calculations are determined as in the following
+order:</p>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li><p>Use energy group boundaries from <strong>READ ENERGY</strong> block if specified
+in the input. The number of entries in the <strong>READ ENERGY</strong> block is
+<strong>NGP</strong>+1.</p></li>
+<li><p>If only <strong>NGP</strong> is specified (in <strong>READ PARAMETER</strong>) in the input
+and <strong>NGP</strong> is equal to the number of energy groups in one of the
+SCALE neutron cross section libraries, the energy group structure
+from that library will be used.</p></li>
+<li><p>If only <strong>NGP</strong> is specified (in <strong>READ PARAMETER</strong>) in the input
+and <strong>NGP</strong> is not equal to the number of energy groups in one of
+the SCALE neutron cross section libraries, <strong>NGP</strong> equal lethargy
+bins will be used.</p></li>
+<li><p>Use SCALE 238 group structure as default, <strong>NGP</strong>=238.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="volume-data">
+<span id="id16"></span><h3>Volume data<a class="headerlink" href="#volume-data" title="Permalink to this headline">¶</a></h3>
+<p>If volumes are needed (for calculating fission densities, fluxes, etc.),
+then the data necessary to determine them are entered. The syntax for
+this block is:</p>
+<p><strong>READ VOLUME</strong> <em>p</em><sub>1</sub> … <em>p</em><sub>N</sub> <strong>END VOLUME</strong></p>
+<dl class="simple">
+<dt><em>p</em><sub>1</sub> … <em>p</em><sub>N</sub></dt><dd><p>are <em>N</em> parameters entered using keywords followed by the
+appropriate data.</p>
+</dd>
+</dl>
+<p>The possible parameters that can be used in a <strong>VOLUME</strong> block are
+described below.</p>
+<dl>
+<dt><strong>READVOL</strong>=<em>vol</em></dt><dd><p>used to input the file name (up to 256 characters)
+of the file from which user-specified volumes are read. This is an
+optional parameter and only works for KENO-VI. The data are read in
+sections for each <strong>UNIT</strong> contained in the problem. First the keyword
+“<strong>UNIT</strong>” is read, followed by the <strong>UNIT</strong> number. For that
+<strong>UNIT</strong> the data for each region containing material in the order shown
+in the input is read as follows: the keyword “<strong>MEDIA</strong>” is read,
+followed by the mixture number, followed by the keyword “<strong>VOL</strong>=”,
+followed by the total volume for that region. Regions containing
+<strong>ARRAY</strong>s and <strong>HOLE</strong>s are skipped. An example of the data
+contained in a volume file is given later in this section.</p>
+</dd>
+<dt><strong>TYPE</strong>=<em>vcalc</em></dt><dd><p>used to determine the type of volume calculation.
+<em>vcalc</em> can have the values:</p>
+<blockquote>
+<div><p>NONE: (only works in KENO-VI, where it is also the default) No volume
+calculation, volumes are set to –1.0 (only in KENO-VI).</p>
+<p>TRACE: A trapezoidal integration will be performed (only in KENO‑VI).</p>
+<p>RANDOM: A Monte Carlo integration will be performed.</p>
+</div></blockquote>
+</dd>
+<dt><strong>NRAYS</strong>=<em>ntotal</em></dt><dd><p>the number of intervals used in the trapezoidal
+integration (default 100,000). Used only with TYPE=TRACE (KENO-VI).</p>
+</dd>
+<dt><strong>BATCHES</strong>=<em>nloop</em></dt><dd><p>the number of batches to be used in the
+Monte Carlo integration (default 500). Used only with TYPE=RANDOM.</p>
+</dd>
+<dt><strong>POINTS</strong>=nplp</dt><dd><p>the number of points per batch used in the Monte Carlo
+integration (default 1000). Used only with TYPE=RANDOM.</p>
+</dd>
+<dt><strong>XP</strong>=<em>xp</em></dt><dd><p>the plus X face of the encompassing cuboid.</p>
+</dd>
+<dt><strong>XM</strong>=<em>xm</em></dt><dd><p>the minus X face of the encompassing cuboid.</p>
+</dd>
+<dt><strong>YP</strong>=<em>yp</em></dt><dd><p>the plus Y face of the encompassing cuboid.</p>
+</dd>
+<dt><strong>YM</strong>=<em>ym</em></dt><dd><p>the minus Y face of the encompassing cuboid.</p>
+</dd>
+<dt><strong>ZP</strong>=<em>zp</em></dt><dd><p>the plus Z face of the encompassing cuboid.</p>
+</dd>
+<dt><strong>ZM</strong>=<em>zm</em></dt><dd><p>the minus Z face of the encompassing cuboid.</p>
+</dd>
+<dt><strong>SAMPLE_DEN=</strong><em>sampleden</em></dt><dd><p>the density of sampling points per
+cm<sup>3</sup> per batch. Used only with TYPE=RANDOM.</p>
+</dd>
+<dt><strong>IFACE</strong> =<em>fname</em></dt><dd><p>the face of the enclosing cuboid where the
+trapezoidal integration will be performed. Enter either <strong>XFACE</strong>,
+<strong>YFACE</strong>, or <strong>ZFACE</strong>. KENO-VI will integrate over the face with the
+smallest area by default. This allows specifying a different face. Used
+only for <strong>TYPE</strong>=TRACE (KENO-VI).</p>
+</dd>
+</dl>
+<p>The volume parameters include specifying the type of calculation to
+determine the volumes and additional parameters needed for the selected
+type. In KENO-VI the default type is NONE (i.e., no volume calculation
+will be performed), and the volumes for regions not containing
+<strong>HOLE</strong>s or <strong>ARRAY</strong>s will be set to -1.0. No other data are
+needed for this type.</p>
+<p>In KENO-VI the volume data may be entered for any or all regions within
+the geometry data by placing the keyword <strong>VOL</strong>= followed by the
+total volume of that region in the problem at the end of the <strong>MEDIA</strong>
+card. See <a class="reference internal" href="#id3"><span class="std std-ref">Geometry data</span></a> (Geometry Data) for more details.</p>
+<p>For KENO-VI, in the same problem, volumes may be entered using a
+combination of three methods: (1) in the geometry data using <strong>VOL</strong>=,
+(2) read from a volume file, and (3) calculated. The calculated volumes
+(method 3) are obtained for both the regions, and the meshes are defined
+by a grid (such as in TSUNAMI runs). As for KENO V.a, the mesh volumes
+must always be calculated (i.e., there is no method to input the mesh
+volumes). If volumes are entered or calculated using more than one
+method, the following hierarchy is used to determine which volume is
+used for the regions.</p>
+<ol class="arabic simple">
+<li><p>Volumes entered as part of a <strong>MEDIA</strong> card using <strong>VOL</strong>= are
+always used.</p></li>
+<li><p>Volumes read from the volume file are used if that volume for the
+region was not specified using VOL= following a <strong>MEDIA</strong> card.</p></li>
+<li><p>Calculated volumes are used if they are not specified using
+<strong>VOL</strong>= and if there is no volume file or data for that region on
+the volume file.</p></li>
+<li><p>Volumes that have not been set or calculated will be set to –1.0.
+This may result in negative fluxes and fission densities for these
+regions.</p></li>
+<li><p>Volumes are only calculated for regions containing material. Regions
+containing <strong>ARRAY</strong>s or <strong>HOLE</strong>s have no volume. Those volumes
+are associated with the <strong>UNIT</strong> contained in the <strong>ARRAY</strong> or
+<strong>HOLE</strong>.</p></li>
+</ol>
+<p>In KENO V.a, the region volumes are always calculated by the code
+without the user’s intervention. This is possible because KENO V.a has
+no region intersections, so calculation of the volumes is always
+possible using analytical methods. The use of the (RANDOM) calculated
+volumes using the <strong>VOLUME</strong> block is then only justified when the user
+needs to calculate the volumes defined by a grid, such as for TSUNAMI
+calculations.</p>
+<p>When volumes are calculated using either RANDOM or TRACE, then a file
+containing volumes and named _volxxxx (where xxxx is an 18-digit number
+with the leftmost unused digits padded with zeros) is created in the
+temporary directory. The program searches the temporary directory for a
+file name beginning with _vol. If it is not found, the volume file that
+is created is named _vol000000000000000000. If a file exists, then a
+new file will be created where the file number is the largest number
+associated with a previous volume file incremented by 1. The file is
+automatically copied to the user directory with the input file base name
+prepended to it, such as inputfile.volxxxx.volumes.</p>
+<p>Below is an example of the <strong>VOLUME</strong> data block associated with a case
+in which volumes are being calculated using ray tracing. The number of
+rays used is set to one million, and if the outer unit volume is not a
+cuboid, then a cuboid will be placed around the global region prior to
+calculating volumes.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="n">read</span><span class="err"> </span><span class="n">volume</span>
+<span class="err">type=trace</span> <span class="err">nrays=</span><span class="m">1000000</span>
+<span class="err">XP=</span><span class="m">10</span>  <span class="err">XM=-</span><span class="m">15</span> <span class="err">YP=</span><span class="m">15</span>  <span class="err">YM=-</span><span class="m">15</span>  <span class="err">ZP=</span><span class="m">15</span>  <span class="err">ZM=-</span><span class="m">15</span>
+<span class="n">end</span><span class="err"> </span><span class="n">volume</span>
+</pre></div>
+</div>
+<p>Below is an example of the <strong>VOLUME</strong> data block associated with a case
+where volumes are being calculated using random sampling. The number of
+particles per batch is set to 100,000, and the number of batches used is
+set to 500. After being calculated, the volume data will be written to a
+file in the temporary directory as discussed above.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="n">read</span><span class="err"> </span><span class="n">volume</span>
+<span class="err">type=random</span> <span class="err">points=</span><span class="m">100000</span> <span class="err">batches=</span><span class="m">500</span>
+<span class="err">XP=</span><span class="m">10</span>  <span class="err">XM=-</span><span class="m">10</span>  <span class="err">YP=</span><span class="m">15</span>  <span class="err">YM=-</span><span class="m">15</span>  <span class="err">ZP=</span><span class="m">25</span>  <span class="err">ZM=</span><span class="m">15</span>
+<span class="n">end</span><span class="err"> </span><span class="n">volume</span>
+</pre></div>
+</div>
+<p>Below is an example of the <strong>VOLUME</strong> data block associated with a case
+where volumes are both read in from the file VOLUME_DATA and calculated
+using random sampling. The number of particles per generation is set to
+1,000,000, and the number of generations used is set to 500. The file
+VOLUME_DATA must be formatted as shown below. The calculated volume data
+are written in the temporary working directory to a file as discussed
+above. Calculating volume data for some volume regions and providing
+input volume data for others may be useful if only part of the volume
+data is known and the remaining data need to be calculated.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="n">read</span><span class="err"> </span><span class="n">volume</span>
+<span class="err">type=random</span> <span class="err">points=</span><span class="m">1000000</span> <span class="err">batches=</span><span class="m">500</span>
+<span class="err">readvol=volume_DAta</span>
+<span class="n">end</span><span class="err"> </span><span class="n">volume</span>
+</pre></div>
+</div>
+<p>Example volume file VOLUME_DATA:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">UNIT</span> <span class="m">1</span>
+   <span class="err">MEDIA</span> <span class="m">1</span> <span class="err">VOL=</span><span class="m">110</span><span class="err">.</span><span class="m">0</span>
+   <span class="err">MEDIA</span> <span class="m">2</span> <span class="err">VOL=</span><span class="m">2435</span><span class="err">.</span><span class="m">8</span>
+   <span class="err">MEDIA</span> <span class="m">2</span> <span class="err">VOL=</span><span class="m">3242</span><span class="err">.</span><span class="m">9</span>
+<span class="err">UNIT</span> <span class="m">2</span>
+   <span class="err">MEDIA</span> <span class="m">2</span> <span class="err">VOL=</span><span class="m">342</span><span class="err">.</span><span class="m">8</span>
+   <span class="err">MEDIA</span> <span class="m">0</span> <span class="err">VOL=</span><span class="m">4235</span><span class="err">.</span><span class="m">0</span>
+</pre></div>
+</div>
+<p>Below is an example of a sample problem in which volumes are being
+calculated using random sampling. The number of particles per generation
+is set to 100,000, and the number of generations used is set to 500.
+After being calculated, the <strong>VOLUME</strong> data will be written as described
+above.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=CSAS6</span>
+<span class="err">SAMPLE</span> <span class="err">PROBLEM</span> <span class="err">WITH</span> <span class="err">VOLUMES</span> <span class="err">CALCULATED</span> <span class="err">AND</span> <span class="err">PRINTED</span> <span class="err">TO</span> <span class="err">FILE</span>
+<span class="err">v</span><span class="m">7</span><span class="err">.</span><span class="m">1</span><span class="err">-</span><span class="m">252</span><span class="err">n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">URANIUM</span> <span class="m">1</span> <span class="err">DEN=</span><span class="m">18</span><span class="err">.</span><span class="m">76</span> <span class="m">1</span> <span class="m">293</span> <span class="m">92235</span> <span class="m">93</span><span class="err">.</span><span class="m">2</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">6</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="err">END</span>
+<span class="err">END</span> <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">GEOMETRY</span>
+<span class="err">UNIT</span> <span class="m">3</span>
+<span class="err">COM=</span><span class="s">&#39;SINGLE UNIT CENTERED&#39;</span>
+<span class="err">SPHERE</span> <span class="m">10</span> <span class="m">4</span><span class="err">.</span><span class="m">000</span>
+<span class="err">CUBOID</span> <span class="m">20</span> <span class="m">6</span><span class="err">P</span><span class="m">6</span><span class="err">.</span><span class="m">0</span>
+<span class="err">MEDIA</span> <span class="m">1</span> <span class="m">1</span> <span class="m">10</span>
+<span class="err">MEDIA</span> <span class="m">0</span> <span class="m">1</span> <span class="m">20</span> <span class="err">-</span><span class="m">10</span>
+<span class="err">BOUNDARY</span> <span class="m">20</span>
+<span class="err">UNIT</span> <span class="m">1</span>
+<span class="err">COM=</span><span class="s">&#39;SINGLE UNIT CENTERED&#39;</span>
+<span class="err">SPHERE</span> <span class="m">10</span> <span class="m">5</span><span class="err">.</span><span class="m">000</span>
+<span class="err">CUBOID</span> <span class="m">20</span> <span class="m">6</span><span class="err">P</span><span class="m">6</span><span class="err">.</span><span class="m">0</span>
+<span class="err">MEDIA</span> <span class="m">1</span> <span class="m">1</span> <span class="m">10</span>
+<span class="err">MEDIA</span> <span class="m">0</span> <span class="m">1</span> <span class="m">20</span> <span class="err">-</span><span class="m">10</span>
+<span class="err">BOUNDARY</span> <span class="m">20</span>
+<span class="err">GLOBAL</span> <span class="err">UNIT</span> <span class="m">2</span>
+<span class="err">COM=</span><span class="s">&#39;Global UNIT&#39;</span>
+<span class="err">CUBOID</span> <span class="m">10</span> <span class="m">6</span><span class="err">P</span><span class="m">18</span><span class="err">.</span><span class="m">0</span>
+<span class="err">ARRAY</span> <span class="m">1</span> <span class="m">10</span> <span class="err">PLACE</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">3</span><span class="err">R</span><span class="m">0</span><span class="err">.</span><span class="m">0</span>
+<span class="err">BOUNDARY</span> <span class="m">10</span>
+<span class="err">END</span> <span class="err">GEOMETRY</span>
+<span class="err">READ</span> <span class="err">ARRAY</span> <span class="err">ARA=</span><span class="m">1</span> <span class="err">NUX=</span><span class="m">3</span> <span class="err">NUY=</span><span class="m">3</span> <span class="err">NUZ=</span><span class="m">3</span> <span class="err">TYP=CUBOIDAL</span> <span class="err">FILL</span>
+<span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="err">END</span> <span class="err">ARRAY</span>
+<span class="err">READ</span> <span class="err">VOLUME</span>
+<span class="err">TYPE=RANDOM</span> <span class="err">POINTS=</span><span class="m">100000</span> <span class="err">BATCHES=</span><span class="m">500</span>
+<span class="err">END</span> <span class="err">VOLUME</span>
+<span class="err">END</span> <span class="err">DATA</span>
+<span class="err">END</span>
+</pre></div>
+</div>
+<p>Example volume file _volxxxx:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">UNIT</span> <span class="m">1</span>
+   <span class="err">MEDIA</span> <span class="m">1</span> <span class="err">VOL=</span><span class="m">9423</span><span class="err">.</span><span class="m">45</span>
+   <span class="err">MEDIA</span> <span class="m">0</span> <span class="err">VOL=</span><span class="m">21678</span><span class="err">.</span><span class="m">6</span>
+<span class="err">UNIT</span> <span class="m">3</span>
+   <span class="err">MEDIA</span> <span class="m">1</span> <span class="err">VOL=</span><span class="m">2410</span><span class="err">.</span><span class="m">81</span>
+   <span class="err">MEDIA</span> <span class="m">0</span> <span class="err">VOL=</span><span class="m">13143</span><span class="err">.</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Below is an example of a problem with the volumes entered in the
+geometry data block using <strong>VOL</strong>= followed by the volume for all
+<strong>MEDIA</strong> type content records. Note that the keyword “<strong>VOL</strong>=”
+should never follow a <strong>HOLE</strong> or <strong>ARRAY</strong> content record.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas26</span>
+<span class="err">Sample</span> <span class="err">problem</span> <span class="err">with</span> <span class="err">volumes</span> <span class="err">input</span> <span class="err">in</span> <span class="err">geometry</span> <span class="err">data</span>
+<span class="err">v</span><span class="m">7</span><span class="err">.</span><span class="m">1</span><span class="err">-</span><span class="m">252</span><span class="err">n</span>
+<span class="n">read</span><span class="err"> </span><span class="n">comp</span>
+<span class="err">uranium</span>  <span class="m">1</span> <span class="err">den=</span><span class="m">18</span><span class="err">.</span><span class="m">76</span> <span class="m">1</span> <span class="m">293</span> <span class="m">92235</span> <span class="m">93</span><span class="err">.</span><span class="m">2</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">6</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">comp</span>
+<span class="n">read</span><span class="err"> </span><span class="n">geometry</span>
+<span class="err">unit</span> <span class="m">3</span>
+<span class="err">com=</span><span class="s">&#39;unit 3&#39;</span>
+<span class="err">sphere</span>   <span class="m">10</span>  <span class="m">4</span><span class="err">.</span><span class="m">000</span>
+<span class="err">cuboid</span>   <span class="m">20</span>  <span class="m">6</span><span class="err">p</span><span class="m">6</span><span class="err">.</span><span class="m">0</span>
+<span class="err">media</span>  <span class="m">1</span> <span class="m">1</span> <span class="m">10</span>       <span class="err">vol=</span><span class="m">2412</span><span class="err">.</span><span class="m">7</span>
+<span class="err">media</span>  <span class="m">0</span> <span class="m">1</span> <span class="m">20</span> <span class="err">-</span><span class="m">10</span>   <span class="err">vol=</span><span class="m">13139</span><span class="err">.</span><span class="m">3</span>
+<span class="err">boundary</span> <span class="m">20</span>
+<span class="err">unit</span> <span class="m">1</span>
+<span class="err">com=</span><span class="s">&#39;UNIT 1&#39;</span>
+<span class="err">sphere</span>   <span class="m">10</span>  <span class="m">5</span><span class="err">.</span><span class="m">000</span>
+<span class="err">cuboid</span>   <span class="m">20</span>  <span class="m">6</span><span class="err">p</span><span class="m">6</span><span class="err">.</span><span class="m">0</span>
+<span class="err">media</span>  <span class="m">1</span> <span class="m">1</span> <span class="m">10</span>       <span class="err">vol=</span><span class="m">9424</span><span class="err">.</span><span class="m">8</span>
+<span class="err">media</span>  <span class="m">0</span> <span class="m">1</span> <span class="m">20</span> <span class="err">-</span><span class="m">10</span>   <span class="err">vol=</span><span class="m">21679</span><span class="err">.</span><span class="m">2</span>
+<span class="err">boundary</span> <span class="m">20</span>
+<span class="err">global</span> <span class="err">unit</span> <span class="m">2</span>
+<span class="err">com=</span><span class="s">&#39;GLOBAL Unit 2&#39;</span>
+<span class="err">cuboid</span> <span class="m">10</span>  <span class="m">6</span><span class="err">p</span><span class="m">18</span><span class="err">.</span><span class="m">0</span>
+<span class="err">array</span> <span class="m">1</span>    <span class="m">10</span> <span class="err">place</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">3</span><span class="err">r</span><span class="m">0</span><span class="err">.</span><span class="m">0</span>
+<span class="err">boundary</span>  <span class="m">10</span>
+<span class="n">end</span><span class="err"> </span><span class="n">geometry</span>
+<span class="n">read</span><span class="err"> </span><span class="n">array</span><span class="err">  </span><span class="n">ara</span><span class="err">=1 </span><span class="n">nux</span><span class="err">=3 </span><span class="n">nuy</span><span class="err">=3 </span><span class="n">nuz</span><span class="err">=3  </span><span class="n">typ</span><span class="err">=</span><span class="n">cuboidal</span><span class="err"> </span><span class="n">fill</span>
+<span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">3</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>  <span class="n">end</span><span class="err"> </span><span class="n">array</span>
+<span class="n">end</span><span class="err"> </span><span class="n">data</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grid-geometry-data">
+<h3>Grid geometry data<a class="headerlink" href="#grid-geometry-data" title="Permalink to this headline">¶</a></h3>
+<p>This data block is used to input the data needed to define a Cartesian
+grid for tallying purposes.</p>
+<p><strong>READ GRID N</strong> <em>p</em><sub>1</sub> … <em>p</em><sub>L</sub> <strong>END GRID</strong></p>
+<dl class="simple">
+<dt><em>N</em></dt><dd><p>mesh grid identifier, always entered.</p>
+</dd>
+<dt><em>p</em><sub>1</sub> … <em>p</em><sub>L</sub></dt><dd><p>are <em>L</em> parameters chosen from the list below. The
+parameters are entered using keywords followed by the appropriate data,
+except for the grid identifier, which is always entered first as an
+integer.</p>
+</dd>
+<dt><strong>N</strong>[<strong>UM</strong>]<strong>XCELLS</strong>=<em>numx</em></dt><dd><p>number of cells in the x
+direction, default = 1.</p>
+</dd>
+<dt><strong>N</strong>[<strong>UM</strong>]<strong>YCELLS</strong>=<em>numy</em></dt><dd><p>number of cells in the y
+direction, default = 1.</p>
+</dd>
+<dt><strong>N</strong>[<strong>UM</strong>]<strong>ZCELLS</strong>=<em>numz</em></dt><dd><p>number of cells in the z
+direction, default = 1.</p>
+</dd>
+<dt><strong>XMIN=</strong><em>xmin</em></dt><dd><p>minimum cell boundary in the x direction, default = 0.</p>
+</dd>
+<dt><strong>XMAX</strong>=<em>xmax</em></dt><dd><p>maximum cell boundary in the x direction, default =
+1.</p>
+</dd>
+<dt><strong>YMIN</strong>=<em>ymin</em></dt><dd><p>minimum cell boundary in the y direction, default =
+0.</p>
+</dd>
+<dt><strong>YMAX</strong>=<em>ymax</em></dt><dd><p>maximum cell boundary on the y direction, default =
+1.</p>
+</dd>
+<dt><strong>ZMIN</strong>=<em>zmin</em></dt><dd><p>minimum cell boundary in the z direction, default =
+0.</p>
+</dd>
+<dt><strong>ZMAX=</strong><em>zmax</em></dt><dd><p>maximum cell boundary in the z direction, default = 1.</p>
+</dd>
+<dt><strong>XPLANES</strong>=<em>xplanes</em></dt><dd><p>the cell boundaries in the x direction
+followed by end, default = 0, 1 end.</p>
+</dd>
+<dt><strong>YPLANES</strong>=<em>yplanes</em></dt><dd><p>the cell boundaries in the y direction
+followed by end, default = 0, 1 end.</p>
+</dd>
+<dt><strong>ZPLANES</strong>=<em>zplanes</em></dt><dd><p>the cell boundaries in the z direction
+followed by end, default = 0, 1 end.</p>
+</dd>
+<dt><strong>XLINEAR</strong>=<em>numcellsx *x</em><sub>min</sub> <em>x</em><sub>max</sub></dt><dd><p>generate y-z planes from
+x<sub>min</sub> to x<sub>max</sub> creating <em>numcellsx</em> intervals.</p>
+</dd>
+<dt><strong>YLINEAR</strong>=<em>numcellsy *y</em><sub>min</sub> <em>y</em><sub>max</sub></dt><dd><p>generate x-z planes from
+y<sub>min</sub> to y<sub>max</sub>, creating <em>numcellsy</em> intervals.</p>
+</dd>
+<dt><strong>ZLINEAR</strong>=<em>numcellsz *z</em><sub>min</sub> <em>z</em><sub>max</sub></dt><dd><p>generate x-y planes from
+z<sub>min</sub> to z<sub>max</sub>, creating <em>numcellsz</em> intervals.</p>
+</dd>
+<dt><strong>TITLE</strong>=<em>title</em></dt><dd><p>optional title for this mesh grid. Only used in
+KENO if an error in the grid causes a debug print.</p>
+</dd>
+</dl>
+<p>If <em>numx, xmin, xmax</em> are entered, then the code will calculate <em>numx</em>
+equally spaced cells in the x direction between <em>xmin</em> and <em>xmax</em>.</p>
+<p>If <em>xplanes</em> is entered, then the code will count the number of unique
+<em>xplanes</em>, and order them from minimum to maximum, deleting any
+duplicates.</p>
+<p>If the user inputs both sets of data, then the code will use the
+<em>xplanes</em> data.</p>
+<p>If <em>xplanes</em> and <em>xlinear</em> are both entered, then the code will retain
+all unique planes from <em>xplanes</em> and all <em>xlinear</em> entries provided. The
+above also applies to Y and Z.</p>
+<p><strong>NOTE</strong>: The user <strong>MUST</strong> set the minimum and maximum values in each
+direction so that the actual geometry is totally covered by the mesh for
+mesh flux tally that is used in TSUNAMI sensitivity calculations.</p>
+<p>KENO checks for and eliminates duplicate or nearly duplicate planes.</p>
+<p>The user may specify multiple mesh grids; each must be defined in
+separate <strong>READ GRID</strong> blocks. In this case, each grid should have
+different <em>N</em> (grid ID number). See <span class="xref std std-ref">8-1-3-10</span> for details and
+samples.</p>
+</div>
+<div class="section" id="reaction-data">
+<span id="id17"></span><h3>Reaction data<a class="headerlink" href="#reaction-data" title="Permalink to this headline">¶</a></h3>
+<p>The reaction data block is used to specify the type of tally (e.g.,
+reaction rates, flux, and few group reaction cross sections) and the
+reaction/nuclide pairs in any mixture used in the problem for reaction
+tally calculations. This block is operational only with the continuous
+energy mode, and it provides the specifications for reaction rate,
+neutron flux, and reaction cross section tallies. See <span class="xref std std-ref">8-1-6-6</span> for
+more details. For multigroup KENO calculations, use KMART5 or KMART6,
+which are described in the KMART section of the SCALE manual.</p>
+<p>A reaction data block consists of REACTION FILTERS, TALLY TYPE, ENERGY
+GROUP BOUNDARIES, and OUTPUT EDITS. These data types can be entered in
+any order. A combination of parameters for describing the REACTION
+FILTERS and TALLY TYPE must be entered for any reaction or cross section
+tally calculation. ENERGY GROUP BOUNDARIES and OUTPUT EDITS data are
+optional. Tally calculations can be performed for multiple reactions
+specified by the REACTION FILTERS. Only one energy grid, either
+specified with the data in ENERGY GROUP BOUNDARIES or from the READ
+ENERGY block or from the code defaults, is used for all reaction tally
+calculations. To provide data for the continuous energy depletion
+calculations, another energy grid can be specified and used for tallying
+only the mixture flux.</p>
+<p>Enter REACTION DATA in the form:</p>
+<dl class="simple">
+<dt><strong>READ REACTION</strong> <a href="#id18"><span class="problematic" id="id19">*</span></a>REACTION FILTERS [TALLY TYPE] [ENERGY GROUP BOUNDARIES]</dt><dd><p>[OUTPUT EDITS]* <strong>END REACTION</strong></p>
+</dd>
+<dt><em>REACTION FILTERS</em></dt><dd><p>define a reaction map that is used in reaction tally
+calculations. The <em>REACTION FILTERS</em> must be entered in the following
+order; mixture data (<strong>MIX</strong> or <strong>MIXLIST</strong>) followed by nuclide data
+(<strong>NUC</strong> or <strong>NUCLIST</strong>) followed by reaction IDs (<strong>MT</strong> or
+<strong>MTLIST</strong>). Each filter is defined using a combination of the following
+keywords:</p>
+</dd>
+<dt><strong>MIX</strong>=<em>mixnum</em></dt><dd><p>Mixture number, no default value. Specified mixture
+number must exist in the mixing table and be used in the problem for a
+valid filter generation. A wildcard “<em>*</em>” can be used to define a
+filter applicable for all mixtures in the problem.</p>
+</dd>
+<dt><strong>MIXLIST</strong> <em>mixnum</em><sub>1</sub> <em>mixnum</em><sub>2</sub> … <em>mixnum</em><sub>N</sub><strong>END</strong></dt><dd><p>A list of mixture
+numbers followed by <em>end,</em> no default values. Specified mixture numbers
+must exist in the mixing table and be used in the problem for a valid
+reaction tally calculation. Within each filter, use either <strong>MIX</strong> or
+<strong>MIXLIST</strong>, but not both.</p>
+</dd>
+<dt><strong>NUC</strong>=<em>nucid</em></dt><dd><p>Nuclide identifier, no default value. Specified
+nuclide must be a constituent of the mixtures used in this filter
+definition (specified with MIX or MIXLIST). A wildcard “*” can be used
+to define a filter applicable for all nuclides in each mixture in this
+filter definition. Nuclide identifiers are listed for all isotopes in
+the Standard Composition Library section of the SCALE manual (see <span class="xref std std-ref">7-2</span>).</p>
+</dd>
+<dt><strong>NUCLIST</strong> <em>nucid</em><sub>1</sub> <em>nucid</em><sub>2</sub> … <em>nucid</em><sub>N</sub><strong>END</strong></dt><dd><p>A list of nuclide
+identifiers followed by <em>end,</em> no default values. Specified nuclides
+must be the constituents of the mixtures used in this filter definition
+(specified by <strong>MIX</strong> or <strong>MIXLIST</strong>). Within each filter, use either
+<strong>NUC</strong> or <strong>NUCLIST</strong>, but not both.</p>
+</dd>
+<dt><strong>MT</strong>=<em>mt</em></dt><dd><p>Reaction MT number, no default value. Specified reaction
+MT number should be available for the nuclides defined in this filter
+definition (specified by <strong>NUC</strong> or <strong>NUCLIST</strong>). Otherwise, the code
+skips the filter definition with this given reaction MT. A wildcard “*”
+can be used to define a filter with all reaction MTs. Valid SCALE
+library MT values are listed in the SCALE Cross Section Libraries
+section of the SCALE manual (see Appendix A of <span class="xref std std-ref">11-1</span>).</p>
+</dd>
+<dt><strong>MTLIST</strong> <em>mt</em><sub>1</sub> <em>mt</em><sub>2</sub> … <em>mt</em><sub>N</sub><strong>END</strong></dt><dd><p>A list of reaction <strong>MT</strong>
+numbers followed by <em>end,</em> no default values. Specified MT numbers
+should be available for the nuclides defined in this filter definition
+(specified by <strong>MIX</strong> or <strong>MIXLIST</strong>). Otherwise, KENO skips that
+reaction specified in the filter for the reaction tally calculations.
+Within each filter, use either <strong>MT</strong> or <strong>MTLIST</strong>, but not both.</p>
+</dd>
+</dl>
+<p>A reaction filter consists of either single or multiple mixture, nuclide
+and reaction definitions. A valid reaction filter starts with mixture
+specification, followed by nuclide specification, and ends with reaction
+specification. Mixture(s) must be specified with either <strong>MIX</strong> or
+<strong>MIXLIST</strong> keywords. Nuclide(s) in these mixtures must be entered with
+either <strong>NUC</strong> or <strong>NUCLIST</strong>, and reactions for each nuclide must be
+specified with either <strong>MT</strong> or <strong>MTLIST</strong>.</p>
+<p>Mixture, nuclide, and reaction number are required for mixture average
+fluxes, even though the nuclide and reaction numbers are not used for
+the neutron flux tallies.</p>
+<p>Multiple reaction filter definitions are allowed. KENO processes all the
+definitions and creates a reaction map based on them. The following
+examples demonstrate the reaction filter specifications for different
+problems. In these examples, reaction filters are specified based on the
+following composition data used in the problem:</p>
+<p>compositions in the example problem</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>mixture</p></th>
+<th class="head"><p>nuclides</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>92235, 92238, 8016</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>92238, 94239, 8016</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>92235, 92238, 8016</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>1001, 8016</p></td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>1001, 8016, 5010, 5011</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example-1:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">READ</span> <span class="err">REACTION</span>
+         <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MT=</span><span class="m">18</span>
+         <span class="err">…</span>
+<span class="err">END</span> <span class="err">REACTION</span>
+</pre></div>
+</div>
+<p>Defines a reaction filter used to tally only fission reaction
+(<strong>MT</strong>=18) of <sup>235</sup>U in mixture 10.</p>
+<p>Example-2:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">READ</span> <span class="err">REACTION</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MT=*</span>
+          <span class="err">…</span>
+<span class="err">END</span> <span class="err">REACTION</span>
+</pre></div>
+</div>
+<p>Defines a reaction filter used to tally all available reactions of
+<sup>235</sup>U in mixture 10.</p>
+<p>Example-3:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">READ</span> <span class="err">REACTION</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MTLIST</span> <span class="m">2</span> <span class="m">18</span> <span class="m">102</span> <span class="err">END</span>
+          <span class="err">…</span>
+<span class="err">END</span> <span class="err">REACTION</span>
+</pre></div>
+</div>
+<p>Defines a reaction filter used to tally the elastic scattering (mt=2),
+fission (mt=18), and capture (mt=102) reactions of <sup>235</sup>U in
+mixture 10.</p>
+<p>Example-4:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">READ</span> <span class="err">REACTION</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MT=</span><span class="m">2</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MT=</span><span class="m">18</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MT=</span><span class="m">102</span>
+          <span class="err">…</span>
+<span class="err">END</span> <span class="err">REACTION</span>
+</pre></div>
+</div>
+<p>Defines a reaction filter used to tally the elastic scattering
+(<strong>MT</strong>=2), fission (<strong>MT</strong>=18), and capture (<strong>MT</strong>=102)
+reactions of <sup>235</sup>U in mixture 10. Reaction filter definition in
+this example is identical to the filter definition given in Example-3.</p>
+<p>Example-5:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>READ REACTION</dt><dd><p>MIX=10 NUC=*  MT=18
+…</p>
+</dd>
+</dl>
+<p>END REACTION</p>
+</div></blockquote>
+<p>Defines a reaction filter used to tally the fission reaction
+(<strong>MT</strong>=18) of <sup>235</sup>U and <sup>238</sup>U in mixture 10. Code
+skips the reaction tally request for <sup>16</sup>O since the requested
+reaction is not available for this nuclide in the data library.</p>
+<p>Example-6:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">READ</span> <span class="err">REACTION</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92235</span>  <span class="err">MT=</span><span class="m">18</span>
+          <span class="err">MIX=</span><span class="m">10</span> <span class="err">NUC=</span><span class="m">92238</span>  <span class="err">MT=</span><span class="m">18</span>
+          <span class="err">…</span>
+<span class="err">END</span> <span class="err">REACTION</span>
+</pre></div>
+</div>
+<p>Defines a reaction filter used to tally the fission reaction
+(<strong>MT</strong>=18) of <sup>235</sup>U and <sup>238</sup>U in mixture 10. Reaction
+filter definition in this example is identical to the filter definition
+given in Example-5.</p>
 </div>
 </div>
 </div>

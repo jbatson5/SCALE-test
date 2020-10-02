@@ -301,6 +301,8 @@ while running this code.
   :name: tab8-1-5
 
   * - .. image:: figs/Keno/tab5.svg
+        :width:  800
+        :align: center 
 
 .. list-table:: Summary of geometry data in KENO V.a.
   :name: tab8-1-6
@@ -391,7 +393,7 @@ terminated by entering **END XXXX** followed by two or more blanks. Note
 that multiple **READ GRID** blocks are used if multiple grid definitions
 are needed.
 
-.. _tab8-1-15
+.. _tab8-1-15:
 .. table:: Types of input data.
   :align: center
 
@@ -612,6 +614,8 @@ can be entered in any order.
    Broken line The broken line, \|, is used as a logical “or” symbol to
    show that the entries to its left and right are alternatives that
    cannot be used simultaneously.
+
+.. _8-1-2-3:
 
 Title and parameter data
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1535,4 +1539,2992 @@ for this attribute is:
   +-----------------------------------+-----------------------------------+
 
 
-hello again hi hello
+The ROTATE attribute
+
+This attribute can only be used in the KENO-VI input. It allows for the
+rotation of the **shape** or **HOLE** to which it is applied. If
+**ORIGIN** and **ROTATE** data follow the same **shape** or **HOLE**
+record, the **shape** is always rotated prior to translation, regardless
+of the order in which the data appear. Fig. 8.1.10 provides an example
+of the use of the **ROTATE** option. Its syntax is:
+
+**ROTATE** [**A1**\ =\ *a*\ :sub:`1`] [**A2**\ =\ *a*\ :sub:`2`] [**A3**\ =\ *a*\ :sub:`3`]
+
+**A1**\ =, **A2**\ =, **A3**\ =
+  are subordinate keywords to specify the
+  angles of rotation of the particular shape with respect to the origin of
+  the coordinate system. The Euler X-convention is used for rotation.
+
+*a*\ :sub:`1`, *a*\ :sub:`2`*, *a*\ :sub:`3`
+  are the values of the Euler rotation angles in
+  degrees. The default is 0 degrees. If a subordinate keyword appears more
+  than once following the ROTATE keyword, the values are summed.
+
+.. _fig8-1-10:
+.. figure:: figs/Keno/fig10.png
+  :align: center
+  :width: 500
+
+  Explanation of the ROTATE option.
+
+Examples of **shape**\ s:
+
+1. Specify a hemisphere labeled 10, containing material 2 with a radius
+   of 5.0 cm which contains only material where Z > 2.0 within the
+   sphere centered at the origin, and its origin translated to X=1.0,
+   Y=1.5, and Z=3.0.
+   KENO V.a (no label, but material and bias ID are the first two numerical entries):
+
+   **HEMISPHERE** 2 1 5.0 **CHORD** -2.0 **ORIGIN** 1.0 1.5 3.0
+
+   or
+
+   **HEMISPHE+Z** 2 1 5.0 **CHORD** -2.0 **ORIGIN** 1.0 1.5 3.0
+
+   KENO-VI (no material; this is to be specified with **MEDIA**):
+
+   **SPHERE** 10 5.0 **CHORD** **+Z**\ =2.0 **ORIGIN** **X**\ =1.0
+   **Y**\ =1.5 **Z**\ =3.0
+
+2. Specify a hemicylinder labeled 10, containing material 1, having a
+   radius of 5.0 cm and a length extending from Z=2.0 cm to Z=7.0 cm.
+   The hemicylinder has been truncated perpendicular to the X axis at
+   X= −3 such that material 1 does not exist between X= −3 and X= −5.
+   Position the origin of the truncated hemicylinder at X=10 cm and
+   Y=15 cm with respect to the origin of the unit, and rotate it (in
+   KENO-VI input) so it is in the YZ plane at X=10 and at a 45° angle
+   with the Y plane.
+
+   KENO V.a (no rotation possible, no label):
+
+   **ZHEMICYL+X** 1 1 5.0 7.0 2.0 **CHORD** 3.0 **ORIGIN** 10.0 15.0
+
+   KENO-VI (no material; this is to be specified with **MEDIA** card):
+
+   **CYLINDER** 10 5.0 7.0 2.0 **CHORD** **+X**\ = −3.0 **ORIGIN**
+   **X**\ =10.0 **Y**\ =15.0 **ROTATE** **A2**\ = −45
+
+COM=
+....
+
+The keyword **COM**\ = signals that a comment is to be read. The
+optional comment can be placed anywhere within a unit definition. Its
+syntax is:
+
+**COM** = *delim comment delim*
+
+*delim*
+  is the delimiter, which may be any one of “ , ‘ , \* , ^ , or !
+
+*comment*
+  is the comment string, up to 132 characters long.
+
+Example of comment within a **UNIT**:
+
+**COM**\ =“This is a fuel pin”
+
+HOLE
+....
+
+This entry is used to position a **UNIT** within a surrounding **UNIT**
+relative to the origin of the surrounding **UNIT**. **HOLE**\ s may
+share surfaces with but may not intersect other **HOLE**\ s, the
+**BOUNDARY** of the **UNIT** which contains the **HOLE**, or an
+**ARRAY** boundary. In KENO-VI, the **BOUNDARY** record of a **UNIT**
+placed in a **HOLE** may contain more than one geometry label, but all
+labels must be positive, indicating inside the respective geometry
+bodies. The syntax for **HOLE** is:
+
+KENO V.a:
+**HOLE** *u x y z*
+
+KENO-VI:
+**HOLE** *u* [*a*\ :sub:`1` … [*a*\ :sub:`M` ]…]
+
+*u*
+  is the unit previously defined that is to be placed within the
+  **HOLE**.
+
+*x y z*
+  is the position of the **HOLE** in the KENO V.a host **UNIT**.
+
+*a\ 1 … a\ M*
+  are optional KENO-VI *ATTRIBUTES* for the **HOLE**. The
+  *ATTRIBUTES* can be **ORIGIN** or **ROTATE** and follow the same syntax
+  previously defined for KENO-VI **shape** *ATTRIBUTES*. These
+  *ATTRIBUTES* allow for the translation and/or rotation of the **HOLE**
+  within the host region.
+
+Examples of **HOLE** use:
+
+Place **UNIT** 2 in the surrounding **UNIT** such that the **ORIGIN** of
+**UNIT** 2 is at **X**\ =3, **Y**\ =3.5, **Z**\ =4 relative to the
+origin of the surrounding **UNIT**.
+
+KENO V.a:
+**HOLE** 2 3 3.5 4
+
+KENO-VI:
+**HOLE** 2 **ORIGIN** **X**\ =3.0 **Y**\ =3.5 **Z**\ =4.0
+
+ARRAY
+.....
+
+When used within a **UNIT** description, this entry provides an
+**ARRAY** placement description. In KENO V.a, it always starts a new
+**UNIT** and generates a rectangular parallelepiped that fits the outer
+boundaries of the specified **ARRAY**. The specified **ARRAY** is
+positioned in the **UNIT** according to the most negative point in the
+**ARRAY** with respect to the coordinate system of the surrounding
+**UNIT**. Thus, the location of the minimum x, minimum y, and minimum z
+point in the array is specified in the coordinate system of the **UNIT**
+into which the **ARRAY** is being placed.
+
+In KENO-VI, the **ARRAY** keyword is used to position an **ARRAY**
+within a region in a surrounding **UNIT** relative to the origin of the
+surrounding **UNIT**. When the subordinate keyword **PLACE** is entered,
+it is followed by six numbers that precisely locate the **ARRAY** within
+the surrounding **UNIT** as shown in the example below. The first three
+numbers consist of the element in the **ARRAY** of the **UNIT** selected
+to position the **ARRAY**. The next three numbers consist of the
+position of the origin of the selected **UNIT** in the surrounding
+**UNIT**. Higher level **ARRAY** boundaries may intersect lower level
+**ARRAY** boundaries as long as they do not intersect **HOLE**\ s in the
+**UNIT**\ s contained in the **ARRAY** or in **UNIT**\ s contained in
+lower level **ARRAY**\ s.
+
+The syntax for the **ARRAY** card is as follows:
+
+KENO V.a:
+**ARRAY** *array_id* *x y z*
+
+KENO-VI:
+**ARRAY** *array_id* *l*\ :sub:`1` … *l*\ :sub:`N` [**PLACE** *N*\ :sub:`x` *N*\ :sub:`y` *N*\ :sub:`z` *x y
+z*]
+
+*array_id*
+  is the label that identifies the array to be placed.
+
+*l\ 1* … *l\ N*
+  is the *REGION DEFINITION VECTOR*. These are previously
+  defined **shape** labels, and together they define the region in which
+  the array *array_id* is to be placed. This is used only in KENO-VI.
+
+*N\ x N\ y N\ z*
+  are three integers that define the element in the
+  **ARRAY** of the **UNIT** selected to position the **ARRAY**. This is
+  used only in KENO-VI.
+
+*x y z*
+  specify the position of the **ARRAY** in the **UNIT**.
+
+  In KENO V.a, the x, y, and z values are the point where the most
+  negative x, y, and z point of the **ARRAY** is to be located in the
+  **UNIT**\ ’s coordinates.
+
+  In KENO-VI, the x, y, and z values are the point where the origin of the
+  **UNIT** specified by *N\ x*, *N\ y*, and *N\ z* is to be located in the
+  **shape** specified by the *REGION DEFINITION VECTOR*.
+
+Example of **ARRAY** use:
+
+In KENO V.a, position the most negative point of **ARRAY** 6 at X = 2.0,
+Y = 3.0, Z = 4.0 relative to the origin of the containing **UNIT**.
+
+**ARRAY** 6 2.0 3.0 4.0
+
+In KENO-VI, position instead the origin of **UNIT** (1,2,3) of **ARRAY**
+6 at X = 2.0, Y = 3.0, Z = 4.0 and specify the **ARRAY** boundary to be
+the region that is inside the geometry **shape**\ s labeled 10 and 20
+and outside the geometry **shape** labeled 30 used to describe the
+surrounding **UNIT**.
+
+**ARRAY** 6 10 20 −30 **PLACE** 1 2 3 2.0 3.0 4.0
+
+REPLICATE and REFLECTOR
+.......................
+
+
+These keywords specific to KENO V.a are used to generate additional
+geometry regions having the **shape** of the previous region. The
+geometry keyword **REFLECTOR** is a synonym for **REPLICATE**. The
+desired weighting functions can be applied to those regions by
+specifying biasing data as described in :ref:`8-1-2-7`. The total
+thickness generated for each surface is the thickness per region for
+that surface times the number of regions to be generated, *nreg*.
+
+The replicate specification is frequently used to generate weighting
+regions external to an **ARRAY** placement description. Thus an
+**ARRAY** placement description followed by a **REPLICATE** description
+would generate regions of a cuboidal shape. A cylindrical reflector
+could be generated by following the **ARRAY** placement description with
+a **CYLINDER** and then a **REPLICATE**. A **HOLE** cannot immediately
+follow a **REPLICATE**.
+
+Extra regions using default weights can be generated by specifying the
+first importance region, *imp*, to be one that was not defined in the
+*BIASING INFORMATION* provided in a **READ BIAS** block. This capability
+can be used to generate extra regions for collecting information such as
+fluxes, leakage, etc.
+
+Multiple replicate descriptions can be used in any problem. This
+capability can be used to model different reflector materials of
+different thicknesses on different faces.
+
+The number of appropriate region dimensions needed for specifying
+**REPLICATE** is determined by the preceding region. For example, if the
+previous region were a **SPHERE**, one entry (i.e., *t*\ :sub:`1`) would be
+required. If the previous region were a **CYLINDER**, the first entry,
+*t*\ :sub:`1`, would be the thickness/region in the radial direction, the
+second entry, *t*\ :sub:`2`, would the thickness/region in the positive length
+direction, the third entry, *t*\ :sub:`3`, would be the thickness/region in the
+negative length direction, etc. The **REPLICATE** specification
+requirements for a **CUBE** are the same as for a **CUBOID**.
+
+Syntax:
+
+**REPLICATE|REFLECTOR** *m* *b* *t*\ :sub:`1` … *t*\ :sub:`N` *nreg*
+
+*m*
+  is the number of the material (non-negative integer) that fills the
+  particular REPLICATE/REFLECTOR region in the **UNIT** description. A
+  material of zero indicates a void region (i.e., no material is present
+  in the volume defined by the **shape**).
+
+*b*
+  is the bias identification number (positive integer) assigned to the
+  particular region defined by the **shape** in the KENO V.a **UNIT**
+  description. If the specified bias ID is defined in a **READ BIAS**
+  block, the bias ID number will be incremented automatically, increasing
+  one for each additional region up to *nreg*.
+
+*t*\ :sub:`1` … *t*\ :sub:`N`
+  represent the thickness (floating point number) per region
+  for each of the *N* surfaces that define the particular **shape**. If
+  the specified bias ID is one that is defined in the READ BIAS block, the
+  region thicknesses should be consistent with the thicknesses used to
+  generate the bias data being used. See :ref:`9-1-2-7`.
+
+*nreg*
+  is the number of regions (integer) to be generated.
+
+Example:
+
+Create five regions of material 4, each being 3 cm thick, outside a
+cuboid region (a cuboid has six dimensions). The inner-most of the five
+generated regions has a *bias id* of 2. The following four regions have
+*bias id* of 3, 4, 5, and 6.
+
+MEDIA
+.....
+
+This card is used in the KENO-VI input file to define the location of a
+mixture relative to the geometric **shape**\ s in the **UNIT**.
+:numref:`fig8-1-11` shows the input for a set of three intersecting
+**SPHERE**\ s in a **CUBOID**. The total volume data for a region in the
+problem may be entered as the last entry on the **MEDIA** card by using
+the keyword “\ **VOL**\ =” keyword immediately followed by the volume in
+cm\ :sup:`3`. The volume entered is the volume of the region in the unit
+multiplied by the number of times the unit occurs in the problem minus
+any volume excluded from the problem by **ARRAY** boundaries and
+**HOLE**\ s. The volumes for any or all regions may be entered. If the
+volume is entered here, this value will be used even if volumes are also
+entered as a file or calculated (See :ref:`8-1-2-13`). Volumes not
+entered will be determined by the input specified in the VOLUME DATA
+block. If no volume is supplied, the KENO-VI default volume of -1 will
+be used. This only affects volume-averaged quantities, i.e., not
+*k*\ :sub:`eff`.
+
+Syntax:
+
+**MEDIA** *m* *b* *l*\ :sub:`1` … *l*\ :sub:`N` [**VOL**\ =\ *v*]
+
+*m*
+  is the material (positive integer or zero for vacuum) that fills the
+  region defined by **MEDIA**.
+
+*b*
+  is the *bias id* for the material sector being defined.
+
+*l*\ :sub:`1` … *l*\ :sub:`N`
+  is the region definition vector (*N* integers). These
+  are *N* previously defined **shape** labels that together define the
+  material sector.
+
+**VOL**\ =
+  is an optional sub-keyword used to input the material sector
+  volume.
+
+*v*
+  is the volume in cm\ :sup:`3` of the material sector defined by the
+  **MEDIA** card.
+
+.. _fig8-1-11:
+.. figure:: figs/Keno/fig11.png
+  :align: center
+  :width: 500
+
+  Example of the MEDIA record.
+
+BOUNDARY
+........
+
+This card is used in KENO-VI to define the outer boundary of the
+**UNIT**. In KENO V.a, the outer boundary of the **UNIT** is implicitly
+defined by the last **shape** in the **UNIT**. Each **UNIT** must have
+one and only one **BOUNDARY** card.
+
+Syntax:
+
+**BOUNDARY** *l\ 1* … *l\ N*
+
+*l*\ :sub:`1` … *l*\ :sub:`N`
+  is the **UNIT** *BOUNDARY DEFINITION VECTOR* (*N*
+  integers). These are *N* previously defined **shape** labels that
+  together define the outer boundary of the **UNIT**. All entries must be
+  positive for the **UNIT** being defined to be used subsequently as a
+  **HOLE**.
+
+.. _8-1-2-5:
+
+ARRAY Data
+~~~~~~~~~~
+
+The array definition data block is used to define the size of an
+**ARRAY** and to position **UNIT**\ s (defined in the geometry data) in
+a 3-D lattice that represents the **ARRAY** being described. As many
+arrays as are necessary can be described in a problem, subject to
+computer storage limitations. In KENO V.a, only one **ARRAY** may be
+placed directly in a **UNIT**, but as many **ARRAY**\ s as are needed
+may be placed in the **UNIT** by using **HOLE**\ s. In KENO-VI,
+any number of arrays can be placed in any **UNIT** either directly or
+indirectly using **HOLE**\ s. There is no default global array. If a
+global array is desired it must be explicitly defined.
+
+The **ARRAY** definition data is entered as:
+
+READ ARRAY ARRAY_ DATA END ARRAY
+
+The *ARRAY\_ DATA* consists of *ARRAY_PARAMETERS* and
+*UNIT_ORIENTATION_DESCRIPTION*.
+
+.. _8-1-2-5-1:
+
+ARRAY Parameters
+^^^^^^^^^^^^^^^^
+
+The ARRAY parameters that can be used in the definition of an ARRAY are:
+
+**ARA**\ =
+
+**GBL**\ =
+
+**NUX**\ =, **NUY**\ =, **NUZ**\ =
+
+**PRT**\ =
+
+**COM**\ =
+
+**TYP**\ = (KENO-VI only)
+
+ARA=
+....
+
+The **ARA**\ = parameter defines a reference number for an **ARRAY**. It
+has no default in KENO-VI. In KENO V.a, if is missing, the default is 1.
+
+Syntax:
+
+**ARA**\ =\ *a*
+
+*a*
+  is the reference number for the **ARRAY**. It has no default in
+  KENO-VI. In KENO V.a, if is missing, the default is 1.
+
+GBL=
+....
+
+This is used to input the number of the global array.
+
+Syntax:
+
+**GBL**\ =\ *g*
+
+*g*
+  is the reference number for the global **ARRAY**. In KENO V.a it
+  must not be entered more than once. The default is the largest value for
+  *a*, the reference number for the **ARRAY**. In KENO-VI it is no default
+  value and if entered more than once, the last value is used.
+
+PRT=
+....
+
+This entry is used to enable printing the **ARRAY** of **UNIT** numbers.
+
+Syntax:
+
+**PRT**\ =\ *print*
+
+*print*
+  is a logical constant which defaults to YES, indicating that the
+  **ARRAY** of **UNIT** numbers is printed. If the value is NO, then a
+  summary table is printed instead containing the number of times each
+  unit is used in each array.
+
+.. _8-1-2-5-1-4:
+
+NUX=, NUY=, NUZ=
+................
+
+
+These entries are used to input the number of units in the X, Y, and Z
+directions, respectively.
+
+Syntax:
+
+**NUX**\ =\ *n*\ :sub:`x` **NUY**\ =\ *n*\ :sub:`y` **NUZ**\ =\ *n*\ :sub:`z`
+
+*n*\ :sub:`x` *n*\ :sub:`y` *n*\ :sub:`z`
+  are the number of units in the X, Y, and Z directions,
+  respectively. There is no default in KENO-VI. In KENO V.a, each of them
+  defaults to 1.
+
+TYPE=
+.....
+
+This entry is used to specify the type of **ARRAY** and is specific to
+KENO-VI, where more than one type of arrays can be used. It cannot be
+used in KENO V.a.
+
+Syntax:
+
+**TYP**\ =\ *atyp*
+
+*atyp*
+  type of array (**cuboidal** or **square**, **hexagonal** or
+  **triangular**, **rhexagonal**, **shexagonal**, **dodecahedral**),
+  default = **cuboidal**
+
+.. _8-1-2-5-1-6:
+
+COM=
+....
+
+This keyword is used to enter a comment.
+
+Syntax:
+
+**COM**\ =\ *delim comment delim*
+
+*delim*
+  is a delimiter. Acceptable delimiters are “, ‘, \* , ^ , or !.
+
+*comment*
+  is the comment string. Maximum *comment* length is
+  132 characters.
+
+.. _8-1-2-5-2:
+
+ARRAY orientation data
+^^^^^^^^^^^^^^^^^^^^^^
+
+There are two methods to enter the **UNIT** numbers constituting an
+**ARRAY**: **LOOP** and **FILL**.
+
+LOOP Construct
+..............
+
+The **LOOP** construct resembles a FORTRAN DO-loop construct.
+The arrangement of **UNIT**\ s may be considered as consisting of a 3-D
+matrix of **UNIT** numbers, with the **UNIT** position increasing in the
+positive X, Y, and Z directions, respectively.
+
+Syntax:
+
+**LOOP** *u* *ix*\ :sub:`1` *ix*\ :sub:`2` incx *iy*\ :sub:`1` *iy*\ :sub:`2` incy *iz*\ :sub:`1` *iz*\ :sub:`2` *incz* **END
+LOOP**
+
+*u*
+  is the **UNIT** identification number (a positive integer).
+
+*ix*\ :sub:`1`
+  is the starting position in the X direction; *ix*\ :sub:`1` must be at
+  least 1 and less than or equal to *n*\ :sub:`x` of :ref:`8-1-2-5-1-4`.
+
+*ix*\ :sub:`2` is the ending position in the X direction; *ix*\ :sub:`2` must be at
+least 1 and less than or equal to *n\ x*.
+
+*incx*
+  is the number of **UNIT**\ s by which increments are made in the
+  positive X direction; *incx* must be greater than zero and less than or
+  equal to *n*\ :sub:`x`.
+
+*iy*\ :sub:`1`
+  is the starting position in the Y direction; *iy*\ :sub:`1` must be at
+  least 1 and less than or equal to *n*\ :sub:`y`.
+
+*iy*\ :sub:`2`
+  is the ending position in the Y direction; *iy*\ :sub:`2` must be at
+  least 1 and less than or equal to *n*\ :sub:`y`.
+
+*incy*
+  is the number of **UNIT**\ s by which increments are made in the
+  positive Y direction; *incy* must be greater than zero and less than or
+  equal to *n*\ :sub`y`.
+
+*iz*\ :sub:`1`
+  is the starting position in the Z direction; *iz*\ :sub:`1` must be at
+  least 1 and less than or equal to *n*\ :sub:`z`.
+
+*iz*\ :sub:`2`
+  is the ending position in the Z direction;, *iz*\ :sub:`2` must be at
+  least 1 and less than or equal to *n*\ :sub:`z`.
+
+*incz*
+  is the number of **UNIT**\ s by which increments are made in the
+  positive Z direction; *incz* must be greater than zero and less than or
+  equal to *n*\ :sub:`z`.
+
+The syntax for ending the **LOOP** construct is:
+
+**END LOOP**
+
+The sequence *u* through *incz* is repeated until the entire **ARRAY**
+is described. If any portion of an **ARRAY** is defined in a conflicting
+manner, the last entry to define that portion will determine the
+**ARRAY**\ ’s configuration. To use this feature, fill the entire
+**ARRAY** with the most relevant **UNIT** number and superimpose the
+other **UNIT** numbers in their proper places. An example showing the
+use of the **LOOP** option is given below. This 5 × 4 × 3 **ARRAY** of
+**UNIT**\ s is a matrix of **UNIT**\ s that has 5 \ **UNIT**\ s stacked
+in the X direction, 4 \ **UNIT**\ s in the Y direction, and
+3 \ **UNIT**\ s in the Z direction. X increases from left to right, and
+Y increases from bottom to top. Each Z layer is shown separately.
+
+.. highlight:: scale
+
+Given:
+
+::
+
+		1 2 1 2 1	  2 1 2 1 2	  1 1 1 1 1
+		1 1 1 1 1	  2 2 2 2 2	  1 3 3 3 1
+		1 1 1 1 1	  2 2 2 2 2	  1 3 3 3 1
+		1 2 1 2 1	  2 1 2 1 2	  1 1 1 1 1
+		Z Layer 1	  Z Layer 2	  Z Layer 3
+
+The data for this array could be entered using the following entries.
+
+(1)  1  1 5 1  1 4 1  1 3 1
+This fills the entire array with 1s.
+
+(2)  2  2 5 2  1 4 3  1 1 1
+This loads the four 2s in the first Z layer.
+
+(3)  2  1 5 1  2 3 1  2 2 1
+This loads the second and third rows of 2s in the second Z layer.
+
+(4)  2  1 5 2  1 4 3  2 2 1
+This loads the desired 2s in the first and fourth rows of the second Z layer.
+
+(5)  3  2 4 1  2 3 1  3 3 1
+This loads the 3s in the third Z layer and completes the array data input.
+
+The second layer could have been defined by substituting the following data for entries (3) and (4):
+
+(3)  2  1 5 1  1 4 1  2 2 1
+This completely fills the second layer with 2s.
+
+(4)  1  2 4 2  1 4 3  2 2 1
+This loads the four 1s in the second layer.
+
+When using the **LOOP** option, there is no single correct method of
+entering the data. If a **UNIT** is improperly positioned in the
+**ARRAY** or if some positions in the **ARRAY** are left undefined, it
+is often easier to add data to correctly define the **ARRAY** than to
+try to correct the existing data.
+
+FILL Construct
+..............
+
+The **FILL** construct enters data by stringing in **UNIT** numbers
+starting at X=1, Y=1, Z=1, and varying X, then Y, and then Z to fill the
+**ARRAY**. *n*\ :sub:`x` x *n*\ :sub:`y` x *n*\ :sub:`z` entries are required. FIDO-like
+input options specified in :numref:`tab8-1-17` are also available for filling
+the **ARRAY**.
+
+Syntax:
+
+**FILL** *u*\ :sub:`1` … *u*\ :sub:`N` {**END FILL}**\ \|\ **T**
+
+*u*\ :sub:`1` … *u*\ :sub:`N` are the *N*\ =\ *n*\ :sub:`x` x *n*\ :sub:`y` x *n*\ :sub:`z` **UNIT** numbers
+that make up the **ARRAY**
+
+The syntax for ending the **FILL** construct is
+
+**END FILL**
+
+An alternative to end the **UNIT** data in **FILL** is by entering the
+letter **T**.
+
+.. _tab8-1-17:
+.. table:: FIDO-like input for mixed box orientation fill option.
+  :align: center
+
+  +-----------------+-----------------+-----------------+-----------------+
+  | Count           | Option          | Operand         | Function        |
+  |                 |                 |                 |                 |
+  | field           | field           | field           |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  |                 |                 | *j*             | stores *j* at   |
+  |                 |                 |                 | the current     |
+  |                 |                 |                 | position in the |
+  |                 |                 |                 | array           |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | R               | *j*             | stores *j* in   |
+  |                 |                 |                 | the next *i*    |
+  |                 |                 |                 | positions in    |
+  |                 |                 |                 | the array       |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | \*              | *j*             | stores *j* in   |
+  |                 |                 |                 | the next *i*    |
+  |                 |                 |                 | positions in    |
+  |                 |                 |                 | the array       |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | $               | *j*             | stores *j* in   |
+  |                 |                 |                 | the next *i*    |
+  |                 |                 |                 | positions in    |
+  |                 |                 |                 | the array       |
+  +-----------------+-----------------+-----------------+-----------------+
+  |                 | F               | *j*             | fills the       |
+  |                 |                 |                 | remainder of    |
+  |                 |                 |                 | the array with  |
+  |                 |                 |                 | unit number     |
+  |                 |                 |                 | *j*, starting   |
+  |                 |                 |                 | with the        |
+  |                 |                 |                 | current         |
+  |                 |                 |                 | position in the |
+  |                 |                 |                 | array           |
+  +-----------------+-----------------+-----------------+-----------------+
+  |                 | A               | *j*             | sets the        |
+  |                 |                 |                 | current         |
+  |                 |                 |                 | position in the |
+  |                 |                 |                 | array to *j*    |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | S               |                 | increments the  |
+  |                 |                 |                 | current         |
+  |                 |                 |                 | position in the |
+  |                 |                 |                 | array by *i*    |
+  |                 |                 |                 | (This allows    |
+  |                 |                 |                 | for skipping    |
+  |                 |                 |                 | *i* positions;  |
+  |                 |                 |                 | *i* may be      |
+  |                 |                 |                 | positive or     |
+  |                 |                 |                 | negative.)      |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | Q               | *j*             | repeats the     |
+  |                 |                 |                 | previous *j*    |
+  |                 |                 |                 | entries *i*     |
+  |                 |                 |                 | times (default  |
+  |                 |                 |                 | value of *i* is |
+  |                 |                 |                 | 1)              |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | N               | *j*             | repeats         |
+  |                 |                 |                 | previous *j*    |
+  |                 |                 |                 | entries *i*     |
+  |                 |                 |                 | times,          |
+  |                 |                 |                 | inverting the   |
+  |                 |                 |                 | sequence each   |
+  |                 |                 |                 | time. (default  |
+  |                 |                 |                 | value of *i* is |
+  |                 |                 |                 | 1)              |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | B               | *j*             | backs *i*       |
+  |                 |                 |                 | entries. From   |
+  |                 |                 |                 | that position,  |
+  |                 |                 |                 | repeats the     |
+  |                 |                 |                 | previous *j*    |
+  |                 |                 |                 | entries in      |
+  |                 |                 |                 | reverse order   |
+  |                 |                 |                 | (default value  |
+  |                 |                 |                 | of *i* is 1)    |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *i*             | I               | *j k*           | provides the    |
+  |                 |                 |                 | end points j    |
+  |                 |                 |                 | and k, with i   |
+  |                 |                 |                 | entries         |
+  |                 |                 |                 | linearly        |
+  |                 |                 |                 | interpolated    |
+  |                 |                 |                 | between them    |
+  |                 |                 |                 | (i.e., a total  |
+  |                 |                 |                 | of i+2 points). |
+  |                 |                 |                 | At least one    |
+  |                 |                 |                 | blank must      |
+  |                 |                 |                 | separate j and  |
+  |                 |                 |                 | k. When used    |
+  |                 |                 |                 | for an integer  |
+  |                 |                 |                 | array, the      |
+  |                 |                 |                 | I option should |
+  |                 |                 |                 | only be used to |
+  |                 |                 |                 | generate        |
+  |                 |                 |                 | integer         |
+  |                 |                 |                 | steps—i.e., (k− |
+  |                 |                 |                 | j)/(i+1)        |
+  |                 |                 |                 | should be a     |
+  |                 |                 |                 | whole number    |
+  +-----------------+-----------------+-----------------+-----------------+
+  |                 | T               |                 | terminates the  |
+  |                 |                 |                 | data reading    |
+  |                 |                 |                 | for the array   |
+  +-----------------+-----------------+-----------------+-----------------+
+
+.. note:: When entering data using the options in this table, the *count
+   field* and *option field* must be adjacent with no imbedded blanks.
+   The operand field may be separated from the option field by one or
+   more blanks.
+
+Example: Consider a 3 × 3 × 1 **ARRAY** filled with 8 **UNIT** 1s and a
+**UNIT** 2, as shown below.
+
+::
+
+
+  1	1	1
+  1	2	1
+  1	1	1
+
+The input data to describe this **ARRAY** could be entered as follows:
+
+(1) 1 1 1 1 2 1 1 1 1 **T**
+  This fills the array one position at a time,
+  starting at the lower left corner. The \ **T** terminates the data.
+
+or
+
+(2) F1 A5 2 **END FILL**
+  The F1 fills the entire array with 1s, the A5
+  locates the fifth position in the array, and the 2 loads a 2 in that
+  position. The **END FILL** terminates the data.
+
+
+.. _8-1-2-6:
+
+Albedo data
+~~~~~~~~~~~
+
+Albedo boundary conditions are entered by assigning an albedo condition
+to each face of the outermost boundary. The **default value for each
+face is vacuum**. The default values are overridden only on faces for
+which other albedo names are specified. Albedo boundary conditions are
+applied **only** to **the outermost region of a problem.** In KENO V.a
+this geometry region must be a rectangular parallelepiped. The outer
+boundary can be any **shape** (or combination of **shape**\ s) in
+KENO-VI. Material-specific albedos (e.g., H2O and CONC) may not be used
+in continuous energy calculations.
+
+KENO-VI users need to be aware that when a neutron reaches a surface
+with a vacuum albedo, that neutron is lost. If a model contains features
+that are reentrant, that is a neutron could exit the model and reenter
+the model on the other side of an unmodeled region, all neutrons passing
+through the problem boundary are lost when they reach the unmodeled
+region. Neutrons are not “transported” across unmodeled areas between
+reentrant surfaces. It is not possible to create a KENO V.a model with
+reentrant problem outer boundary surfaces.
+
+The syntax for entering the albedo boundary conditions is:
+
+**READ BOUNDS** **fc**\ :sub:`1`\ =\ *a*\ :sub:`1` [**fc**\ :sub:`2`\ =\ *a*\ :sub:`2`\ …
+[**fc**\ :sub:`N`\ =\ *a*\ :sub:`N` ]…] **END BOUNDS**
+
+**fc**\ :sub:`1` … **fc**\ :sub:`N` are **N** face codes as defined in :numref:`tab8-1-18`.
+
+*a*\ :sub:`1` … *a*\ :sub:`N` are the albedo types as defined in :numref:`tab8-1-19`
+
+:numref:`tab8-1-19` lists some material-specific albedo sets. Care must be
+exercised when using material-specific albedo types. These data sets
+were generated using a real problem, and they implicitly reflect the
+neutron energy spectrum, materials, and geometry from that model. Where
+neutron energy spectra, materials, and geometry vary from that model,
+the material-specific albedos may give significantly incorrect results.
+This may be checked by comparing results from a sample of calculations
+performed with both explicitly modeled reflectors and material-specific
+albedos. In general, use of material-specific albedos is not
+recommended.
+
+.. _tab8-1-18:
+.. table:: Face codes and surface numbers for entering boundary (albedo) conditions (continued in the next table).
+  :align: center
+
+
+  +-----------------------------------+-----------------------------------+
+  | Face code                         | Faces defined by face codes       |
+  +-----------------------------------+-----------------------------------+
+  | +XB=                              | Positive X face                   |
+  +-----------------------------------+-----------------------------------+
+  | &XB=                              | Positive X face                   |
+  +-----------------------------------+-----------------------------------+
+  | −XB=                              | Negative X face                   |
+  +-----------------------------------+-----------------------------------+
+  | +YB=                              | Positive Y face                   |
+  +-----------------------------------+-----------------------------------+
+  | &YB=                              | Positive Y face                   |
+  +-----------------------------------+-----------------------------------+
+  | −YB=                              | Negative Y face                   |
+  +-----------------------------------+-----------------------------------+
+  | +ZB=                              | Positive Z face                   |
+  +-----------------------------------+-----------------------------------+
+  | &ZB=                              | Positive Z face                   |
+  +-----------------------------------+-----------------------------------+
+  | −ZB=                              | Negative Z face                   |
+  +-----------------------------------+-----------------------------------+
+  | ALL=                              | All six faces                     |
+  +-----------------------------------+-----------------------------------+
+  | XFC=                              | Both positive and negative X      |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | YFC=                              | Both positive and negative Y      |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | ZFC=                              | Both positive and negative Z      |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | +FC=                              | Positive X, Y, and Z faces        |
+  +-----------------------------------+-----------------------------------+
+  | &FC=                              | Positive X, Y, and Z faces        |
+  +-----------------------------------+-----------------------------------+
+  | −FC=                              | Negative X, Y, and Z faces        |
+  +-----------------------------------+-----------------------------------+
+  | XYF=                              | Positive and negative X and Y     |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | XZF=                              | Positive and negative X and Z     |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | YZF=                              | Positive and negative Y and Z     |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | +XY=                              | Positive X and Y faces            |
+  +-----------------------------------+-----------------------------------+
+  | +YX=                              | Positive X and Y faces            |
+  +-----------------------------------+-----------------------------------+
+  | &XY=                              | Positive X and Y faces            |
+  +-----------------------------------+-----------------------------------+
+  | &YZ=                              | Positive X and Y faces            |
+  +-----------------------------------+-----------------------------------+
+  | +XZ=                              | Positive X and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | +ZX=                              | Positive X and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | &XZ=                              | Positive X and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | &ZX=                              | Positive X and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | +YZ=                              | Positive Y and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | +ZY=                              | Positive Y and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | &YZ=                              | Positive Y and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | &ZY=                              | Positive Y and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | −XY=                              | Negative X and Y faces            |
+  +-----------------------------------+-----------------------------------+
+  | −XZ=                              | Negative X and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | −YZ=                              | Negative Y and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | YXF=                              | Positive and negative X and Y     |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | ZXF=                              | Positive and negative X and Z     |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | ZYF=                              | Positive and negative Y and Z     |
+  |                                   | faces                             |
+  +-----------------------------------+-----------------------------------+
+  | −YX=                              | Negative X and Y faces            |
+  +-----------------------------------+-----------------------------------+
+  | −ZX=                              | Negative X and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | −ZY=                              | Negative Y and Z faces            |
+  +-----------------------------------+-----------------------------------+
+  | BODY= x                           | x is the body’s geometry label in |
+  |                                   | the global unit (KENO-VI only)    |
+  +-----------------------------------+-----------------------------------+
+  | SURFACE( ii )=                    | Boundary condition for surface    |
+  |                                   | number ii of body x (KERNO-VI)    |
+  |                                   | only                              |
+  +-----------------------------------+-----------------------------------+
+
+.. list-table::
+  :align: center
+
+  * - .. image:: figs/Keno/tab18_Page_1.png
+  * - .. image:: figs/Keno/tab18_Page_2.png
+
+.. list-table::
+
+  * - .. image:: figs/Keno/tab18_Page_3.png
+
+.. _tab8-1-19:
+.. table:: Albedo names available on the KENO albedo library for use with the face codes \*
+  :align: center
+
+  +-----------------------------------+-----------------------------------+
+  | DP0H2O                            | 12 in. (30.48 cm) double          |
+  |                                   | P\ :sub:`0` water differential    |
+  | DPOH2O                            | albedo with 4 incident angles     |
+  |                                   |                                   |
+  | DP0                               |                                   |
+  |                                   |                                   |
+  | DPO                               |                                   |
+  +-----------------------------------+-----------------------------------+
+  | H2O                               | 12 in. (30.48 cm) water           |
+  |                                   | differential albedo with          |
+  | WATER                             | 4 incident angles                 |
+  +-----------------------------------+-----------------------------------+
+  | PARAFFIN                          | 12 in. (30.48 cm) paraffin        |
+  |                                   | differential albedo with          |
+  | PARA                              | 4 incident angles                 |
+  |                                   |                                   |
+  | WAX                               |                                   |
+  +-----------------------------------+-----------------------------------+
+  | CARBON                            | 78.74 in. (200.00 cm) carbon      |
+  |                                   | differential albedo with          |
+  | GRAPHITE                          | 4 incident angles                 |
+  |                                   |                                   |
+  | C                                 |                                   |
+  +-----------------------------------+-----------------------------------+
+  | ETHYLENE                          | 12 in. (30.48 cm) polyethylene    |
+  |                                   | differential albedo with          |
+  | POLY                              | 4 incident angles                 |
+  |                                   |                                   |
+  | CH2                               |                                   |
+  +-----------------------------------+-----------------------------------+
+  | CONC-4                            | 4 in. (10.16 cm) concrete         |
+  |                                   | differential albedo with          |
+  | CON4                              | 4 incident angles                 |
+  |                                   |                                   |
+  | CONC4                             |                                   |
+  +-----------------------------------+-----------------------------------+
+  | CONC-8                            | 8 in. (20.32 cm) concrete         |
+  |                                   | differential albedo with          |
+  | CON8                              | 4 incident angles                 |
+  |                                   |                                   |
+  | CONC8                             |                                   |
+  +-----------------------------------+-----------------------------------+
+  | CONC-12                           | 12 in. (30.48 cm) concrete        |
+  |                                   | differential albedo with          |
+  | CON12                             | 4 incident angles                 |
+  |                                   |                                   |
+  | CONC12                            |                                   |
+  +-----------------------------------+-----------------------------------+
+  | CONC-16                           | 16 in. (40.64 cm) concrete        |
+  |                                   | differential albedo with          |
+  | CON16                             | 4 incident angles                 |
+  |                                   |                                   |
+  | CONC16                            |                                   |
+  +-----------------------------------+-----------------------------------+
+  | CONC-24                           | 24 in. (60.96 cm) concrete        |
+  |                                   | differential albedo with          |
+  | CON24                             | 4 incident angles                 |
+  |                                   |                                   |
+  | CONC24                            |                                   |
+  +-----------------------------------+-----------------------------------+
+  | VACUUM                            | Vacuum condition                  |
+  |                                   |                                   |
+  | VOID                              |                                   |
+  +-----------------------------------+-----------------------------------+
+  | SPECULAR                          | Mirror image reflection           |
+  |                                   |                                   |
+  | MIRROR                            |                                   |
+  |                                   |                                   |
+  | REFLECT                           |                                   |
+  +-----------------------------------+-----------------------------------+
+  | PERIODIC                          | Periodic boundary condition       |
+  +-----------------------------------+-----------------------------------+
+  | WHITE                             | White boundary condition          |
+  +-----------------------------------+-----------------------------------+
+  | \* Material-specific albedos may not be used in continuous energy\    |
+  | mode                                                                  |
+  +-----------------------------------------------------------------------+
+
+The **BODY** and **SURFACE** keywords are unique to KENO-VI. The face
+code **BODY**\ = refers to the body label in global unit input. For
+example, assume the **GLOBAL UNIT** boundary record in a KENO-VI input
+consisted of the following: **BOUNDARY** 10 −30 20. In this case
+**BODY**\ =10 would refer to the geometry record labeled 10,
+**BODY**\ =20 would refer to the geometry record labeled 20, and
+**BODY**\ =30 would refer to the geometry record labeled 30. All surface
+numbers following the **BODY** keyword apply to that body. The default
+value of **BODY** is the first geometry label listed in the **GLOBAL
+UNIT** boundary record.
+
+All the face codes, listed in the first part of :numref:`tab8-1-18`, except
+**BODY**\ = and **SURFACE**\ (ii)= were intended to apply only to
+cuboids (KENO V.a). However, when used with non-cuboidal surfaces
+(KENO-VI) they will fill in the first six surface positions of a body in
+the following order, +X, −X, +Y, −Y, +Z, −Z. The **ALL** face code will
+apply the listed boundary conditions to all surfaces of the body
+currently being considered.
+
+Albedo boundary conditions may be entered on each **GLOBAL UNIT**
+boundary surface multiple times. The boundary condition that applies to
+the surface is the last one entered. If no boundary data are entered or
+if no albedo boundary condition is applied to a **GLOBAL UNIT** boundary
+surface, then the boundary surface is assumed to have a void or vacuum
+boundary condition. Any **CHORD**\ ed surfaces that are **GLOBAL UNIT**
+boundaries will use the default (void) boundary condition, and it cannot
+be changed. This restriction may need to be considered when building the
+geometry of the **GLOBAL UNIT**.
+
+Example:
+  Use a 24 in. concrete albedo boundary condition on the −Z face
+  of a problem with a cuboidal boundary and use mirror image reflection on
+  the +X and −X faces of the cuboid to represent an infinite linear array
+  on a 2 ft. thick concrete pad.
+
+  **READ BOUNDS** **−ZB**\ =CON24 **XFC**\ =MIRROR **END BOUNDS**
+
+Example:
+  Use a 24 in. concrete albedo boundary condition on the −Z face
+  of a problem with a hexagonal boundary, and use mirror image reflection
+  on all side faces of the hexprism to represent an infinite planar array
+  on a 2 ft. thick concrete pad.
+
+  **READ BOUNDS**
+
+  **SURFACE**\ (1)=MIRROR **SURFACE**\ (2)=MIRROR **SURFACE**\ (3)=MIRROR
+
+  **SURFACE**\ (4)=MIRROR **SURFACE**\ (5)=MIRROR **SURFACE**\ (6)=MIRROR
+
+  **SURFACE**\ (7)=VACUUM **SURFACE**\ (8)=CONC24
+
+  **END BOUNDS**
+
+Example:
+  The outer boundary of the global unit consists of a cuboid
+  (body label 10) and a sphere (body label 20). The sphere is large enough
+  to cut the corners of the cuboid leaving most of the cuboid intact. Use
+  a 24 in. concrete albedo boundary condition on the −Z face of the cuboid
+  to represent a 2 ft. thick concrete pad. Use the DP0H2O on the other
+  surfaces to represent an infinite water reflector.
+
+  **READ BOUNDS**
+
+  **BODY**\ =10 **ALL**\ =DP0H2O **−ZB**\ =CON24
+
+  **BODY**\ =20 **SURFACE**\ (1)=DP0H2O
+
+  **END BOUNDS**
+
+.. WARNING:: The user should thoroughly understand material-specific
+  albedos (e.g., DP0H2O, CON24, etc.) before attempting to use these
+  reflectors. Missapplication of these problem-specific albedo data can
+  cause the code to produce incorrect results without obvious symptoms.**
+
+.. _8-1-2-7:
+
+Biasing or weighting data
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The biasing data block is used (in only multigroup mode) to define the
+weight that is given to a neutron surviving Russian roulette. The
+average weight of a neutron that survives Russian roulette, *wtavg*, is
+defaulted to *dwtav* (**WTA**\ = in the parameter data [see :ref:`8-1-2-3`])
+for all *BIAS IDs* and can be overridden by entering biasing
+information.
+
+The *biasing_information* is used to relate a *BIAS ID* to the desired
+energy-dependent values of *wtavg*. This concept is similar to the way
+the *MIXTURE ID, mat*, is related to the macroscopic cross section data.
+
+The weighting functions used in KENO  are energy-dependent values of
+*wtavg* that are applicable over a given thickness interval of a
+material. For example, the weighting function for water is composed of
+sets of energy-dependent values of *wtavg* for 11 intervals, each
+interval being 3 cm thick. The first set of *wtavg’s* is for the 0–3 cm
+interval of water, the second set of *wtavg’s* is for the 3–6 cm
+interval of water, etc. The eleventh set of *wtavg’s* is for the 30–33
+cm interval of water.
+
+To input biasing information, a *BIAS ID* must be assigned to correspond
+to a set of *wtavg*. Biasing data can specify a *MATERIAL ID* from the
+existing KENO V.a weighting library or from the *AUXILIARY DATA* input.
+The materials available from the KENO  weighting library are listed in
+:numref:`tab8-1-20`.
+
+The *biasing_information* is entered in one of the following two forms.
+The first set is said to input the *CORRELATION DATA*, while the second
+form is said to input the *AUXILIARY DATA*.
+
+**READ BIAS ID**\ =\ *m ib ie* **END BIAS**
+
+or
+
+**READ BIAS WT**\ [**S**]=\ *wttitl id s* *t*\ :sub:`1` *i*\ :sub:`1` *g*\ :sub:`1` *w*\ :sub:`1,1` …
+*w*\ :sub:`1,i1xg1` … *t*\ :sub:`s` *i*\ :sub:`s` *g*\ :sub:`s` *w*\ :sub:`s,1` … *w*\ :sub:`s,isxgs`   **END BIAS**
+
+**ID=** specifies that *CORRELATION DATA* will be entered next.
+
+**WT=** or **WTS=** specifies that *AUXILIARY DATA* will be entered
+next.
+
+*m*
+  is the identification (material ID) for the material whose weighting
+  function is to be used. A material ID can be chosen from the existing
+  KENO weighting library (:numref:`tab8-1-20`) or from the *auxiliary data* input
+  using the second form of the **BIAS** block as described later. If a
+  material ID appears in both the KENO weighting library and the
+  *auxiliary data*, the *weights* from the *auxiliary data* will be used.
+
+*ib*
+  is the bias ID of the weighting function for the first interval of
+  material *m*. The geometry record having the bias ID equal to *ib* will
+  use the group-dependent *weights* from the first interval of material
+  *m*.
+
+*ie*
+  is the bias ID of the group-dependent *weights* from the (*ie* −
+  *ib* + 1)\ *th* interval of material *m*.
+
+*wttitl*
+  is an arbitrary title name (12 characters maximum), such as
+  CONCRETE, WATER, SPECIALH2O, etc., to identify the material for which
+  the user is entering data. Embedded blanks are not allowed.
+
+*id*
+  is an identification number (material ID). The value is arbitrary.
+  However, if the data are to be utilized in the problem, this ID must
+  also be used at least once in the first form of the **BIAS** block.
+
+*s*
+  is the number of sets of group structures for which *weights* will
+  be read for this ID.
+
+*t*\ :sub:`1`\ … *t*\ :sub:`s`
+  are *s* thicknesses of each increment for which *weights*
+  will be read for this ID.
+
+*i*\ :sub:`1`\ … *i*\ :sub:`s`
+  are *s* numbers of increments for which *weights* will be
+  read for this ID.
+
+*g*\ :sub:`1`\ … *g*\ :sub:`s`
+  are *s* numbers of energy groups for which *weights* will
+  be read.
+
+*w*\ :sub:`1,i1xg1`\ … *w*\ :sub:`s,isxgs`
+  are *s* sets of *weights*, each set containing
+  a number of *weights* equal to the product of number of increments times
+  the number of groups for that set. The group index varies the fastest.
+
+.. _tab8-1-20:
+.. table:: IDs, group structure and incremental thickness for weighting data available on the KENO  weighting library.
+  :align: center
+
+  +-------------+-------------+-------------+-------------+-------------+
+  | Material    | Material    | Group       | Increment\  | Total       |
+  |             |             | structure   | :sup:`a`    |             |
+  |             | ID          |             |             | number of   |
+  |             |             | for which   | thickness   |             |
+  |             |             | weights     |             | increments  |
+  |             |             |             | (cm)        | available   |
+  |             |             | are         |             |             |
+  |             |             | available   |             |             |
+  +-------------+-------------+-------------+-------------+-------------+
+  | Concrete    | 301         | 27          | 5           | 20          |
+  |             |             |             |             |             |
+  |             |             | 28          | 5           | 20          |
+  |             |             |             |             |             |
+  |             |             | 56          | 5           | 20          |
+  |             |             |             |             |             |
+  |             |             | 200         | 5           | 20          |
+  |             |             |             |             |             |
+  |             |             | 238         | 5           | 20          |
+  |             |             |             |             |             |
+  |             |             | 252         | 5           | 20          |
+  +-------------+-------------+-------------+-------------+-------------+
+  | Paraffin    | 400         | 27          | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 28          | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 56          | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 200         | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 238         | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 252         | 3           | 10          |
+  +-------------+-------------+-------------+-------------+-------------+
+  | Water       | 500         | 27          | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 28          | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 56          | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 200         | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 238         | 3           | 10          |
+  |             |             |             |             |             |
+  |             |             | 252         | 3           | 10          |
+  +-------------+-------------+-------------+-------------+-------------+
+  | Graphite    | 6100        | 27          | 20          | 10          |
+  |             |             |             |             |             |
+  |             |             | 28          | 20          | 10          |
+  |             |             |             |             |             |
+  |             |             | 56          | 20          | 10          |
+  |             |             |             |             |             |
+  |             |             | 200         | 20          | 10          |
+  |             |             |             |             |             |
+  |             |             | 238         | 20          | 10          |
+  |             |             |             |             |             |
+  |             |             | 252         | 20          | 10          |
+  +-------------+-------------+-------------+-------------+-------------+
+  |  :sup:`a`\ Group-dependent weight averages are supplied for each    |
+  |  increment of the specified incremental thickness (i.e., for any    |
+  |  given material) the first ngp (number of energy groups) weights    |
+  |  apply to the first increment of the thickness specified here, the  |
+  |  next ngp weights apply to the next increment of that thickness, etc|
+  |  CAUTION--If bias IDs defined in the weighting information data are |
+  |  used in the geometry, the region thickness should be consistent wi\|
+  |  th the incremental thickness of the weighting data in order to avo\|
+  |  id overbiasing or underbiasing.                                    |
+  +---------------------------------------------------------------------+
+
+.. Warning:: The user should thoroughly understand weighted tracking
+  before attempting to generate and use auxiliary data for biasing. Incorrect
+  weighting can cause the code to produce incorrect results without obvious symptoms.
+
+.. caution:: 1. Each set of *AUXILIARY* or *CORRELATION* data must be completely
+  described in conjunction with its keyword. Complete sets of these data
+  can be interspersed in an arbitrary order but data within each set must
+  be entered in the specified order.
+
+  2. *AUXILIARY DATA*: If the same *m* is specified in more than one set
+  of data, the last set having the group structure used in the problem is
+  the set that will be utilized. When *AUXILIARY DATA* are entered,
+  *CORRELATION DATA* must also be entered in order to use the *AUXILIARY
+  DATA*.
+
+  3. *CORRELATION DATA*: If biasing data define the same bias ID (from the
+  geometry data) more than once, the value that is entered last supersedes
+  previous entries. *Be well aware that multiple definitions for the same
+  bias ID can cause erroneous answers due to overbiasing.*
+
+  4. Bias data may not be used in continuous energy mode.
+
+.. centered:: Examples
+
+1. Use the first form of the **BIAS** block to utilize the water biasing
+   factors in bias IDs 2 through 11. From :numref:`tab8-1-20`, water has
+   material ID m=500 and has bias parameters for 10 intervals that are
+   each 3 cm thick.
+
+**READ BIAS ID**\ =500 2 11 **END BIAS**
+
+2. Use the second form of the **BIAS** block to specify biasing factors
+   for SPECIALWATER to be used in bias IDs 6 and 7. The SPECIALWATER
+   biasing factors have a value of 0.69 for BIAS ID 6 and 0.86 for bias
+   ID 7 in each energy group. Sixteen-group cross sections are being
+   used. Each weighting region is 3.048 cm thick. The material ID is
+   arbitrarily chosen to be 510. Note that the first form of the
+   **BIAS** block must be entered to allow the second form of the
+   **BIAS** block to be used for BIAS IDs 6 and 7.
+
+**READ BIAS WT**\ =SPECIALWATER 510 1 3.048 2 16 16*0.69 16*0.86
+**ID**\ =510 6 7 **END BIAS**
+
+3. An example of multiple definitions for the same bias ID follows:
+
+**READ BIAS ID**\ =400 2 7 **ID**\ =500 5 7 **END BIAS** .
+
+The data for paraffin (**ID**\ =400) will be used for bias IDs 2, 3, and
+4, and the data for water (**ID**\ =500) will be used for bias IDs 5, 6,
+and 7. The paraffin data for bias IDs 5, 6, and 7 have been overwritten
+by water data.
+
+Multiple definitions for the same bias ID are not necessarily incorrect,
+but the user should be cautious about using multiple definitions and
+should ensure that the desired biasing or weighting functions are used
+in the desired geometry regions.
+
+4. An example of how the *bias ID* relates to the energy-dependent
+   values of *weights* is given below.
+
+Assume that a paraffin reflector is to be used, and it is desirable to
+use the weighting function from the KENO weighting library to minimize
+the running time for the problem. Also assume that these weighting
+functions are to be used in the volumes defined in the geometry records
+having the *bias ID* (defined on a **shape** or **MEDIA** card for KENO
+V.a and KENO-VI, respectively) equal to 6, 7, 8, and 9. *Correlation
+data* are then entered and *auxiliary data* will not be entered.
+
+The biasing data would be:
+
+**READ BIAS ID**\ =400 6 9 **END BIAS**.
+
+The results of these data are
+
+(1) the group-dependent *weights* for the 0–3 cm interval of paraffin
+will be used in the volume defined by the geometry region having *bias
+ID*\ = 6.
+
+(2) the group-dependent *weights* for the 3–6 cm interval of paraffin
+will be used in the volume defined by the geometry region having *bias
+ID*\ = 7.
+
+(3) the group-dependent *weights* for the 6–9 cm interval of paraffin
+will be used in the volume defined by the geometry region having *bias
+ID*\ = 8.
+
+(4) the group-dependent *weights* for the 9–12 cm interval of paraffin
+will be used in the volume defined by the geometry region having *bias
+ID*\ = 9.
+
+.. _8-1-2-8:
+
+Start data
+~~~~~~~~~~
+
+Special start options are available for controlling the initial neutron
+distribution. The default starting distribution for an array is flat
+over the overall array dimensions, in fissile material only. The default
+starting distribution for a single unit is flat over the system, in
+fissile material only. See :numref:`tab8-1-21` for the starting distributions
+available in KENO. The syntax for the **START** block is:
+
+**READ START** *p\ 1* …\ *p\ N* **END START**
+
+*p*\ :sub:`1` …\ *p*\ :sub:`N` are *N* initializations for the parameters listed
+below.
+
+The starting information that can be entered is given below. Enter only
+the data necessary to describe the desired starting distribution.
+
+**NST =** *ntypst*
+  start type, default = 0
+  :numref:`tab8-1-21` lists the available options under the heading, “Start
+  type.”
+
+**TFX =** *tfx*
+  the X coordinate of the point at which neutrons are to
+  be started. Default = 0.0. Use for start types 3, 4, and 6.
+
+**TFY =** *tfy*
+  the Y coordinate of the point at which neutrons are to
+  be started. Default = 0.0. Use for start types 3, 4, and 6.
+
+**TFZ =** *tfz*
+  the Z coordinate of the point at which neutrons are to
+  be started. Default = 0.0.
+  Use for start types 3, 4, and 6.
+
+**NXS =** *nbxs*
+  the x index of the unit’s position in the global array.
+  Default = 0.
+  Use for start types 2, 3, and 6.
+
+**NYS =** *nbys*
+  the y index of the unit’s position in the global array.
+  Default = 0.
+  Use for start types 2, 3, and 6.
+
+**NZS =** *nbzs*
+  the z index of the unit’s position in the global array.
+  Default = 0.
+  Use for start types 2, 3, and 6.
+
+**KFS =** *kfis*
+  the mixture whose fission spectrum is to be used for
+  starting neutrons that are not in a fissionable medium. Defaulted to the
+  fissionable mixture having the smallest mixture number. Available for
+  start types 3, 4, and 6.
+
+**LNU =** *lfin*
+  the final neutron to be started at a point. Default =
+  0. Each *lfin* should be greater than zero and less than or equal to
+  NPG. Each successive *lfin* should be greater than the previous one. Use
+  for start types 6 and 8.
+
+**NBX =** *nboxst*
+  the unit in which neutrons will be started. Default =
+  0.
+  Use for start types 4 and 5.
+
+**FCT =** *fract*
+  the fraction of neutrons that will be started as a
+  spike. Default = 0.
+  Use for start type 2.
+
+**XSM =** *xsm*
+  the −X dimension of the cuboid in which the neutron will
+  be started. For an array problem, **XSM** is defaulted to the minimum
+  X coordinate of the global array. If the reflector key **RFL** is YES,
+  then and the outer reflector region is a cube or cuboid, **XSM** is
+  defaulted to the minimum X coordinate of the outer reflector region. If
+  **RFL** is YES and the outer region of the reflector is not a cube or
+  cuboid, then **XSM** must be entered in the start data and must fit
+  inside the outer reflector region.
+  Available for start types 0, 1, 2, and 8.
+
+**XSP =** *xsp*
+  the +X dimension of the cuboid in which the neutrons
+  will be started. For an array problem, **XSP** is defaulted to the
+  maximum X coordinate of the global array. If the reflector key **RFL**
+  is YES, then and the outer reflector region is a cube or cuboid, **XSP**
+  is defaulted to the maximum X coordinate of the outer reflector region.
+  If **RFL** is YES and the outer region of the reflector is not a cube or
+  cuboid, then **XSP** must be entered in the data and must fit inside the
+  outer reflector region.
+  Available for start types 0, 1, 2, and 8.
+
+**YSM =** *ysm*
+  the −Y dimension of the cuboid in which the neutron will
+  be started. For an array problem, **YSM** is defaulted to the minimum
+  Y coordinate of the global array. If the reflector key **RFL** is YES,
+  then **YSM** is defaulted to the minimum Y coordinate of the outer
+  reflector region, provided that region is a cube or cuboid. If **RFL**
+  is YES and the outer region of the reflector is not a cube or cuboid,
+  then **YSM** must be entered in the start data and must fit inside the
+  outer reflector region.
+  Available for start types 0, 1, 2, and 8.
+
+**YSP =** *ysp*
+  the +Y dimension of the cuboid in which the neutrons
+  will be started. For an array problem, **YSP** is defaulted to the
+  maximum Y coordinate of the global array. If the reflector key **RFL**
+  is YES, then **YSP** is defaulted to the maximum Y coordinate of the
+  outer reflector region, provided that region is a cube or cuboid. If
+  **RFL** is YES and the outer region of the reflector is not a cube or
+  cuboid, then **YSP** must be entered in the start data and must fit
+  inside the outer reflector region.
+  Available for start types 0, 1, 2, and 8.
+
+**ZSM =** *zsm*
+  the −Z dimension of the cuboid in which the neutrons
+  will be started. For an array problem, **ZSM** is defaulted to the
+  minimum Z coordinate of the global array. If the reflector key **RFL**
+  is YES, then **ZSM** is defaulted to the minimum Z coordinate of the
+  outer reflector region, provided that region is a cube or cuboid. If
+  **RFL** is YES and the outer region of the reflector is not a cube or
+  cuboid, then **ZSM** must be entered in the start data and must fit
+  inside the outer reflector region.
+  Available for start types 0, 1, 2, and 8.
+
+**ZSP =** *zsp*
+  the +Z dimension of the cuboid in which the neutrons
+  will be started. For an array problem, **ZSP** is defaulted to the
+  maximum Z coordinate of the global array. If the reflector key **RFL**
+  is YES, then **ZSP** is defaulted to the maximum Z coordinate of the
+  outer reflector region, provided that region is a cube or cuboid. If
+  **RFL** is YES and the outer region of the reflector is not a cube or
+  cuboid, then **ZSP** must be entered in the start data and must fit
+  inside the outer reflector region.
+  Available for start types 0, 1, 2, and 8.
+
+**RFL =** *rflkey*
+  the reflector key. If the reflector key is YES, then
+  neutrons can be started in the reflector. If it is NO, then all the
+  neutrons will be started in the array. Enter YES or NO. Default = NO.
+  Available for start types 0, 1, and 2.
+
+**PS6 =** *lprt6*
+  the key for printing start type 6 input data. If the
+  key is YES, then start type 6 data are printed. If it is NO, then start
+  type 6 data are not printed. Enter YES or NO. Default = NO.
+  Available for start type 6.
+
+**PSP =** *lpstp*
+  the key for printing the neutron starting points using
+  the tracking format. If the key is YES, then print the neutron starting
+  points. If it is NO, then do not print the starting points. Enter YES or
+  NO. Default = NO.
+  Available for all start types.
+
+**RDU =** *rdu*
+  the file from which ASCII start data are to be read for
+  start type 6.
+
+**WS6** = *ws6*
+  the file to which ASCII start data are written.
+
+**MSS** = *filename.msl*
+  the file from which ASCII start data are to be
+  read. *filename* may include a valid pathname. Available for start type
+  9.
+
+.. _tab8-1-21:
+.. table:: Starting distributions available in KENO.
+  :align: center
+
+  +-----------------+-----------------+-----------------+-----------------+
+  | Start           | Required        | Optional        | Starting        |
+  |                 |                 |                 | distribution    |
+  | type            | data            | data            |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | 0               | None            | NST             | Uniform         |
+  |                 |                 |                 | throughout      |
+  |                 |                 | XSM             | fissile         |
+  |                 |                 |                 | material within |
+  |                 |                 | XSP             | the volume      |
+  |                 |                 |                 | defined by      |
+  |                 |                 | YSM             | (1) the outer   |
+  |                 |                 |                 | region of a     |
+  |                 |                 | YSP             | single unit,    |
+  |                 |                 |                 | (2) the outer   |
+  |                 |                 | ZSM             | region of a     |
+  |                 |                 |                 | reflected array |
+  |                 |                 | ZSP             | having the      |
+  |                 |                 |                 | reflector key   |
+  |                 |                 | RFL             | set true,       |
+  |                 |                 |                 | (3) the         |
+  |                 |                 | PSP             | boundary of the |
+  |                 |                 |                 | global array,   |
+  |                 |                 |                 | or (4) a cuboid |
+  |                 |                 |                 | specified by    |
+  |                 |                 |                 | XSM, XSP, YSM,  |
+  |                 |                 |                 | YSP, ZSM, and   |
+  |                 |                 |                 | ZSP.            |
+  +-----------------+-----------------+-----------------+-----------------+
+  | 1               | NST             | XSM             | The starting    |
+  |                 |                 |                 | points are      |
+  |                 |                 | XSP             | chosen          |
+  |                 |                 |                 | according to a  |
+  |                 |                 | YSM             | cosine          |
+  |                 |                 |                 | distribution    |
+  |                 |                 | YSP             | throughout the  |
+  |                 |                 |                 | volume of a     |
+  |                 |                 | ZSM             | cuboid defined  |
+  |                 |                 |                 | by XSM, XSP,    |
+  |                 |                 | ZSP             | YSM, YSP, ZSM,  |
+  |                 |                 |                 | and ZSP. Points |
+  |                 |                 | RFL             | that are not in |
+  |                 |                 |                 | fissile         |
+  |                 |                 | PSP             | material are    |
+  |                 |                 |                 | discarded.      |
+  +-----------------+-----------------+-----------------+-----------------+
+  | 2               | NST             | XSM             | An arbitrary    |
+  |                 |                 |                 | fraction (FCT)  |
+  |                 | NXS             | XSP             | of neutrons are |
+  |                 |                 |                 | started         |
+  |                 | NYS             | YSM             | uniformly in    |
+  |                 |                 |                 | the unit        |
+  |                 | NZS             | YSP             | located at      |
+  |                 |                 |                 | position NXS,   |
+  |                 | FCT             | ZSM             | NYS, NZS in the |
+  |                 |                 |                 | global array.   |
+  |                 |                 | ZSP             | The remainder   |
+  |                 |                 |                 | of the neutrons |
+  |                 |                 | RFL             | is started in   |
+  |                 |                 |                 | fissile         |
+  |                 |                 | PSP             | material, from  |
+  |                 |                 |                 | points chosen   |
+  |                 |                 |                 | from a cosine   |
+  |                 |                 |                 | distribution    |
+  |                 |                 |                 | throughout the  |
+  |                 |                 |                 | volume of a     |
+  |                 |                 |                 | cuboid defined  |
+  |                 |                 |                 | by XSM, XSP,    |
+  |                 |                 |                 | YSM, YSP, ZSM,  |
+  |                 |                 |                 | ZSP.            |
+  +-----------------+-----------------+-----------------+-----------------+
+  | 3               | NST             | KFS             | All neutrons    |
+  |                 |                 |                 | are started at  |
+  |                 | TFX             | PSP             | position TFX,   |
+  |                 |                 |                 | TFY, TFZ within |
+  |                 | TFY             |                 | the unit        |
+  |                 |                 |                 | located at      |
+  |                 | TFZ             |                 | position NXS,   |
+  |                 |                 |                 | NYS, NZS in the |
+  |                 | NXS             |                 | global array.   |
+  |                 |                 |                 |                 |
+  |                 | NYS             |                 |                 |
+  |                 |                 |                 |                 |
+  |                 | NZS             |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | 4               | NST             | KFS             | All neutrons    |
+  |                 |                 |                 | are started at  |
+  |                 | TFX             | PSP             | position TFX,   |
+  |                 |                 |                 | TFY, TFZ within |
+  |                 | TFY             |                 | units NBX in    |
+  |                 |                 |                 | the global      |
+  |                 | TFZ             |                 | array.          |
+  |                 |                 |                 |                 |
+  |                 | NBX             |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+
++-----------------+-----------------+-----------------+-----------------+
+|                 |                 |                 |                 |
+| Starting        |                 |                 |                 |
+| distributions   |                 |                 |                 |
+| available in    |                 |                 |                 |
+| KENO            |                 |                 |                 |
+| (continued)     |                 |                 |                 |
++-----------------+-----------------+-----------------+-----------------+
+| Start           | Required        | Optional        | Starting        |
+|                 |                 |                 | distribution    |
+| type            | data            | data            |                 |
++-----------------+-----------------+-----------------+-----------------+
+| 5               | NST             | PSP             | Neutrons are    |
+|                 |                 |                 | started         |
+|                 | NBX             |                 | uniformly in    |
+|                 |                 |                 | fissile         |
+|                 |                 |                 | material in     |
+|                 |                 |                 | units NBX in    |
+|                 |                 |                 | the global      |
+|                 |                 |                 | array.          |
++-----------------+-----------------+-----------------+-----------------+
+| 6               | NST             | NXS             | The starting    |
+|                 |                 |                 | distribution is |
+|                 | TFX             | NYS             | arbitrarily     |
+|                 |                 |                 | input. LNU is   |
+|                 | TFY             | NZS             | the final       |
+|                 |                 |                 | neutron to be   |
+|                 | TFZ             | KFS             | started at a    |
+|                 |                 |                 | point TFX, TFY, |
+|                 | LNU\ *a*        | PS6             | TFZ relative to |
+|                 |                 |                 | the global      |
+|                 |                 | PSP             | coordinate      |
+|                 |                 |                 | system or at a  |
+|                 |                 | RDU             | point TFX, TFY, |
+|                 |                 |                 | TFZ, relative   |
+|                 |                 |                 | to the unit     |
+|                 |                 |                 | located at the  |
+|                 |                 |                 | global array    |
+|                 |                 |                 | position NXS,   |
+|                 |                 |                 | NYS, NZS.       |
++-----------------+-----------------+-----------------+-----------------+
+| 7               |                 | XSM             | The starting    |
+|                 |                 |                 | points are      |
+|                 |                 | XSP             | chosen          |
+|                 |                 |                 | according to a  |
+|                 |                 | YSM             | flat            |
+|                 |                 |                 | distribution in |
+|                 |                 | YSP             | the X- and      |
+|                 |                 |                 | Y-dimensions    |
+|                 |                 | ZSM             | and a (1.0 −    |
+|                 |                 |                 | cos(z))\ :sup:` |
+|                 |                 | ZSP             | 2`              |
+|                 |                 |                 | distribution in |
+|                 |                 |                 | the Z-dimension |
+|                 |                 |                 | throughout the  |
+|                 |                 |                 | volume of a     |
+|                 |                 |                 | cuboid defined  |
+|                 |                 |                 | by XSM, XSP,    |
+|                 |                 |                 | YSM, YSP, ZSM,  |
+|                 |                 |                 | and ZSP. Points |
+|                 |                 |                 | that are not in |
+|                 |                 |                 | fissile         |
+|                 |                 |                 | material are    |
+|                 |                 |                 | discarded.      |
++-----------------+-----------------+-----------------+-----------------+
+| 8               | NST             | XSM             | Neutrons are    |
+|                 |                 |                 | started with    |
+|                 | ZSM             | XSP             | flat            |
+|                 |                 |                 | distribution in |
+|                 | ZSP             | YSM             | X and Y, and a  |
+|                 |                 |                 | segmented       |
+|                 | FCT             | YSP             | distribution in |
+|                 |                 |                 | Z, with the X-Y |
+|                 |                 |                 | limits defined  |
+|                 |                 |                 | by XSM, XSP,    |
+|                 |                 |                 | YSM, YSP and    |
+|                 |                 |                 | the relative    |
+|                 |                 |                 | fraction in     |
+|                 |                 |                 | ZSP-ZSM defined |
+|                 |                 |                 | by FCT. FCT     |
+|                 |                 |                 | must be the     |
+|                 |                 |                 | last thing      |
+|                 |                 |                 | entered for     |
+|                 |                 |                 | each segment.   |
++-----------------+-----------------+-----------------+-----------------+
+| 9               | NST             |                 | Mesh source     |
+|                 |                 |                 | from Sourcerer. |
+|                 | MSS             |                 | The starting    |
+|                 |                 |                 | distribution is |
+|                 |                 |                 | read from a     |
+|                 |                 |                 | previously      |
+|                 |                 |                 | created mesh    |
+|                 |                 |                 | source file     |
+|                 |                 |                 | declared with   |
+|                 |                 |                 | MSS=\ *filename |
+|                 |                 |                 | .msl*,          |
+|                 |                 |                 | where           |
+|                 |                 |                 | *filename* may  |
+|                 |                 |                 | include a valid |
+|                 |                 |                 | pathname. See   |
+|                 |                 |                 | Sourcerer       |
+|                 |                 |                 | section of      |
+|                 |                 |                 | SCALE manual    |
+|                 |                 |                 | for more        |
+|                 |                 |                 | details.        |
++-----------------+-----------------+-----------------+-----------------+
+| *a* When        |                 |                 |                 |
+| entering data   |                 |                 |                 |
+| for start 6,    |                 |                 |                 |
+| LNU must be the |                 |                 |                 |
+| last entry for  |                 |                 |                 |
+| each set of     |                 |                 |                 |
+| data and the    |                 |                 |                 |
+| LNU in each     |                 |                 |                 |
+| successive set  |                 |                 |                 |
+| of data must be |                 |                 |                 |
+| larger than the |                 |                 |                 |
+| previous value  |                 |                 |                 |
+| of LNU. A set   |                 |                 |                 |
+| of data         |                 |                 |                 |
+| consists of     |                 |                 |                 |
+| required and    |                 |                 |                 |
+| optional data.  |                 |                 |                 |
+| The last LNU    |                 |                 |                 |
+| entered should  |                 |                 |                 |
+| be equal to the |                 |                 |                 |
+| number per      |                 |                 |                 |
+| generation      |                 |                 |                 |
+| (parameter NPG= |                 |                 |                 |
+| in the          |                 |                 |                 |
+| parameter       |                 |                 |                 |
+| input,          |                 |                 |                 |
+| :ref:`8-1-2-3`).|                 |                 |                 |
++-----------------+-----------------+-----------------+-----------------+
+
+.. _8-1-2-9:
+
+Extra 1-D XSECS IDs data
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Extra 1-D cross section IDs are not required. They are allowed as input
+in order to simplify future modifications to calculate reaction rates,
+etc., as well as for compatibility with other SCALE codes. The syntax
+for the extra 1-D cross section data block is:
+
+**READ X1DS** **NEUTRON** *i\ 1 …i\ x1d* **END X1DS**
+
+**NEUTRON**
+  is a keyword to indicate that the following ID identifies a
+  neutron interaction.
+
+*i*\ :sub:`1` … *i*\ :sub:`x1d`
+  **X1D** 1-D identification numbers or keyword identifiers
+  for the 1-D cross section to be used. These cross sections must be
+  available on the mixture cross section library. **X1D** entries are
+  expected to be read (see integer PARAMETER data).
+
+.. _8-1-2-10:
+
+Mixing table data
+~~~~~~~~~~~~~~~~~
+
+A cross section mixing table must be entered if KENO is being run stand
+alone and a Monte Carlo cross section format library is not being used
+in the multigroup mode, or KENO is being run stand alone in the
+continuous energy mode. If the parameter **LIB**\ = (Sect. 8.1.2.3) is
+entered, then mixing table data must be entered. A cross section mixing
+table is entered using the following syntax:
+
+**READ MIXT** *p*\ :sub:`1` … *p*\ :sub:`N` **END MIXT**
+
+*p*\ :sub:`1` … *p*\ :sub:`N`
+  are *N* parameters that might or might not be keyworded.
+
+The possible parameters that can be used in a **MIXT** block are
+described below.
+
+**SCT =** *nsct*
+  is used to input the number of scattering angles and
+  only applies in multigroup mode. *nsct* is the number of discrete
+  scattering angles, default = 1. The number of scattering angles
+  specifies the number of discrete scattering angles to be used for the
+  cross sections. If SCT is not set (i.e., SCT= −1), then the number of
+  scattering angles is determined from the cross section library
+  specified. The number of scattering angles defaults to (ncoef+1)/2,
+  where ncoef is the largest Legendre polynomial order used in the
+  problem. It needs to be entered only once for a problem. If more than
+  one value is entered, the last one is used for the problem. For
+  assistance in determining the number of discrete scattering angles for
+  the cross sections, see :ref:`8-1-3-4-3`.
+
+**EPS =** *pbxs*
+  is used to enter the cross section message cutoff
+  value, and it only applies in multigroup mode. *pbxs* is the value of
+  the P\ :sub:`0` cross section for each transfer, above which generated
+  warning messages will be printed, default = 3 × 10\ :sup:`−5`. The
+  primary purpose of entering this cutoff value is to suppress printing
+  these messages when they are generated during cross section processing.
+  For assistance in determining a value for EPS, see :ref:`8-1-3-4-4`.
+
+**MIX =** *mix*
+  is used to input the identification number of the
+  mixture being described. *mix* defines the mixture being described.
+
+**NCM** = *ncmx*
+  is used to input the nuclide mixture IDs to be used for
+  this mixture. *ncmx* defines the nuclide mixture ID. When
+  **MIX**\ =\ *mix* is read, *ncmx* is defaulted to *mix* also. Then, as
+  long as all the nuclides that need to be mixed into *mix* already have
+  *mix* specified as their nuclide mixture (frequently the case when using
+  SCALE), the user does not need to specify **NCM**. The most usual case
+  where **NCM** must be specified is when the mixtures were specified as a
+  different mixture number when they were created in SCALE as compared to
+  the mixture number used for them in KENO. Cell homogenized mixtures also
+  need **NCM** specified.
+
+**TMP**\ \|\ **TEM** = *temperature*
+  is used to input the desired
+  temperature of the CE cross section data.
+
+*nucl*
+  is the nuclide ID number from the AMPX working format cross
+  section library.
+
+**XS**\ =\ *fname*
+  is used to input the optional continuous energy cross
+  section filename to override the default cross sections. *fname* is the
+  name of the file.
+
+*dens*
+  is the number density (atoms/b-cm) associated with nuclide ID
+  number *nucl*.
+
+The sequence “\ *nucl* **NCM**\ =\ *ncmx* [**XS**\ =\ *fname*] *dens*\ ”
+may be repeated until the mixture defined by **MIX**\ =\ *mix* has been
+completely described.
+
+The sequence “\ **MIX =** *mix* **NCM** = *ncmx* **TMP**\ \|\ **TEM** =
+*temperature nucl* **NCM**\ =\ *ncmx* [**XS**\ =\ *fname*] *dens*\ ” may
+be repeated until all the mixtures have been described.
+
+.. note:: If a given nuclide ID is entered more than once in the same
+   mixture, then the number densities for that nuclide are summed.
+
+   If a mixture number is used as a nuclide ID, then it is treated as a
+   nuclide and the number density associated with it is used as a
+   density modifier. (If the density is entered as 1, then the mixture
+   is mixed in at full density. If it is entered as 0.5, the mixture is
+   mixed in at one half of its full density.) A Monte Carlo formatted
+   cross section library is generated on the unit defined by the
+   parameter **XSC=**. If this data set is saved, subsequent cases can
+   utilize these mixtures without remixing.
+
+   The entry **XS**\ =\ *fname* is optional. If a nuclide is entered
+   more than once in a mixture and this entry is specified, then they
+   must be the same (i.e., cannot use more than one continuous energy
+   cross section sets for a nuclide in a given mixture). Different
+   mixtures may have the same nuclide with different continuous energy
+   cross section sets.
+
+.. _8-1-2-11:
+
+Plot data
+~~~~~~~~~
+
+Plots of slices specified through the geometry can be generated and
+displayed (1) as character plots using alphanumeric characters to
+represent mixture numbers, unit numbers or bias ID numbers or (2) as
+color plots which generate a PNG file using colors to represent mixture
+numbers, unit numbers or bias ID numbers. Color plots require an
+independent program to display the PNG file to a PC or workstation
+monitor or to convert the file to be displayed using a plotting device.
+The keyword **SCR=** is used to control the plot display method.
+**SCR**\ =YES, the default value, uses the color plot display method.
+**SCR**\ =NO uses the character plot display method. The value of
+**SCR** determines the plot display method for all the plots specified
+in a problem. If **SCR**\ = is entered more than once, the last entry
+determines the plot display method. In other words, all plots generated
+by a problem will be either character plots or color plots.
+
+The plot data can include the data for any or all types of plots. A plot
+by mixture number is the default. The kind of plot is defined by the
+parameter **PIC=**. Character plots are printed after the volumes are
+printed and before the final preparations for tracking are completed.
+Plot data are not required for a problem, but theyb can be used to
+verify the problem description. The actual plotting of the picture can
+be suppressed by entering **PLT= NO** in the parameter data or plot
+data. This allows plot data to be kept in the problem input for
+reference purposes without actually plotting the picture(s). Entering a
+value for **PLT** in the plot data will override any value entered in
+the parameter data. However, if a problem is restarted, the value of
+**PLT** from the parameter data is used. The upper left and lower right
+coordinates of the plot must be specified relative to the origin of the
+problem. See :ref:`8-1-3-9` for a discussion of plot origins and plot
+data.
+
+Enter the plot data using the following syntax:
+
+**READ PLOT** *p*\ :sub:`1` … *p*\ :sub:`N` **END PLOT**
+
+*p*\ :sub:`1` … *p*\ :sub:`N`
+  are *N* parameters entered using keywords followed by the
+  appropriate data. The plot title and the plot character string must be
+  contained within delimiters. Enter as many picture parameters as
+  necessary to describe the plot. Multiple sets of plot data can be
+  entered. The parameter input for each plot is terminated by a labeled or
+  unlabeled **END**. The labeled **END** cannot use the word **PLOT** as
+  the first four characters of the label. For example, **END PLT1** is a
+  valid label, but **END PLOT1** is not. If an unlabeled **END** is used,
+  it cannot start in column 1.
+
+The possible parameters that can be used in a **PLOT** block are
+described below.
+
+**TTL=** *delim ptitl delim*
+  Enter a one-character delimiter *delim* to
+  signal the beginning of the title (132 characters maximum). The title is
+  terminated when *delim* is encountered the second time. Acceptable
+  delimiters include “ , ‘ , \* , ^ , or !.
+  Default = title of the KENO case.
+
+**PIC=** *wrd*
+The plot type, *wrd*, is followed by one or more blanks
+and must be one of the keywords listed below. The plot type is
+initialized to MAT; the default is the value from the previous plot.
+
+  +-----------------------------------+-----------------------------------+
+  | MAT                               | These keywords will cause the     |
+  |                                   | plot to represent the mixture     |
+  | MIX[T[URE]]                       | numbers used in the specified     |
+  |                                   | geometry slice.                   |
+  | MEDI[A]                           |                                   |
+  +-----------------------------------+-----------------------------------+
+  | UNT                               | These keywords will cause the     |
+  |                                   | plot to represent the units used  |
+  | UNIT[TYPE]                        | in the specified geometry slice.  |
+  |                                   | In the legend of the color plot,  |
+  |                                   | the material number actually      |
+  |                                   | refers to the units.              |
+  +-----------------------------------+-----------------------------------+
+  | IMP                               | These keywords will cause the     |
+  |                                   | plot to represent the bias ID     |
+  | BIAS[ID]                          | numbers used in the specified     |
+  |                                   | geometry slice. In the legend of  |
+  | WTS                               | the color plot, the material      |
+  |                                   | number actually refers to the     |
+  | WEIG[HTS]                         | bias ID numbers.                  |
+  |                                   |                                   |
+  | WGT[S]                            |                                   |
+  +-----------------------------------+-----------------------------------+
+
+**TYP**\ =
+  Enter the type desired.
+  XY for an X-Y plot
+  XZ for an X-Z plot
+  YZ for a Y-Z plot
+  Direction cosines do not need to be entered if TYP is entered.
+
+Plot coordinates
+  Enter values for the upper left and lower right
+  coordinates of the plot as described below. **Data must be entered for
+  all nonzero coordinates unless all six values from the previous plot are
+  to be used.**
+
+Upper left coordinates
+  Enter the X, Y, and Z coordinates of the upper
+  left-hand corner of the plot.
+
+**XUL=**\ *xul*
+  is used to enter the X coordinate of the upper
+  left-hand corner of the plot.
+  Default = value from previous plot; initialized to zero if any other
+  coordinates are entered.
+
+**YUL=** *yul*
+  is used to enter the Y coordinate of the upper left-hand
+  corner of the plot. Default = value from previous plot; initialized to
+  zero if any other coordinates are entered.
+
+**ZUL=** *zul*
+  is used to enter the Z coordinate of the upper left-hand
+  corner of the plot. Default = value from previous plot; initialized to
+  zero if any other coordinates are entered.
+
+Lower right coordinates
+  Enter the X, Y, and Z coordinates of the lower
+  right-hand corner of the plot.
+
+**XLR=** *xlr*
+  is used to enter the X coordinate of the lower right-hand
+  corner of the plot. Default = value from previous plot; initialized to
+  zero if any other coordinates are entered.
+
+**YLR=** *ylr*
+  is used to enter the Y coordinate of the lower right-hand
+  corner of the plot.
+  Default = value from previous plot; initialized to zero if any other
+  coordinates are entered.
+
+**ZLR=** *zlr*
+  is used to enter the Z coordinate of the lower right-hand
+  corner of the plot. Default = value from previous plot; initialized to zero if any other
+  coordinates are entered.
+
+Direction cosines across the plot
+  Enter direction numbers proportional to the direction cosines for the AX axis of the plot.
+  The AX axis is from left to right across the plot. If any one of the AX direction cosines is entered,
+  the other two are set to zero. The direction cosines are normalized by the code.
+
+  **UAX=** *uax* is used to enter the X component of the direction
+  cosines for the AX axis of the plot. Default = value from previous
+  plot; initialized to zero if any other direction cosines are entered.
+
+  **VAX=** *vax* is used to enter the Y component of the direction
+  cosines for the AX axis of the plot. Default = value from previous
+  plot; initialized to zero if any other direction cosines are entered.
+
+  **WAX=** *wax* is used to enter the Z component of the direction
+  cosines for the AX axis of the plot. Default = value from previous
+  plot; initialized to zero if any other direction cosines are entered.
+
+Direction cosines down the plot
+  Enter direction numbers proportional
+  to the direction cosines for the DN axis of the plot.
+  The DN axis is from top to bottom down the plot. If any one of the DN direction
+  cosines is entered, the other two are set to zero. The direction cosines are normalized
+  by the code.
+
+  **UDN=** *udn* is used to enter the X component of the direction
+  cosines for the DN axis of the plot. Default = value from previous
+  plot; initialized to zero if any other direction cosines are entered.
+
+  **VDN=** *vdn* is used to enter the Y component of the direction
+  cosines for the DN axis of the plot. Default = value from previous
+  plot; initialized to zero if any other direction cosines are entered.
+
+  **WDN=** *wdn* is used to enter the Z component of the direction
+  cosines for the DN axis of the plot. Default = value from previous
+  plot; initialized to zero if any other direction cosines are entered.
+
+Scaling parameters
+  Enter one or more scaling parameters to define the
+  size of the plot.
+
+  .. note:: If any of the scaling parameters are entered for a plot,
+   the value of those that were not entered is recalculated. If none of
+   the scaling parameters are specified for a plot, the values from the
+   previous plot are used.
+
+**DLX=** *dlx*
+  is used to input the horizontal spacing between points on
+  the plot. Default = value from previous plot; initialized to zero if
+  **NAX** or **NDN** is entered.
+
+**DLD=** *dld*
+  is used to input the vertical spacing between points on
+  the plot. Default = value from previous plot; initialized to zero if
+  **NAX** or **NDN** is entered.
+
+.. note:: If either DLX or DLD is entered, the code will calculate the
+  value of the other. If both are entered, the plot may be distorted.
+
+**NAX=** *nax*
+  is used to input the number of intervals to be printed
+  across the plot. Default = value from previous plot; initialized to zero
+  if **DLX** or **DLD** is entered.
+
+**NDN=** *ndn*
+  is used to input the number of intervals to be printed
+  down the plot. Default = value from previous plot; initialized to zero
+  if **DLX** or **DLD** is entered.
+
+Global scaling parameter
+
+**LPI=** *lpi*
+  is used to input a scaling factor used to control the
+  horizontal to vertical proportionality of a plot or plots. SCALE 4.3 and
+  later versions allow *lpi* to be input as a floating point number. For
+  an undistorted character plot, *lpi* should be specified as the number
+  of characters down the page that occupy the same distance as ten
+  characters across the page. For an undistorted color plot, *lpi* should
+  be entered as ten times the ratio of the vertical pixel dimension to the
+  horizontal pixel dimension. The default value of *lpi* is 8.0 for a
+  character plot and 10.0 for a color plot. *lpi*\ =10 will usually
+  display an undistorted color plot.
+
+  The value entered for *lpi* applies to all plot data following it
+  until a new value of *lpi* is specified.
+
+  .. note:: Plot data must include the specification of the upper left
+    corner of the plot and the direction cosines across and down the
+    plot.
+
+    Additional data required to generate a plot are one of the following
+    combinations:
+
+    1. the lower right corner of the plot, the global scaling parameter,
+    **LPI**, and one of the scaling parameters (**DLX**, **DLD**,
+    **NAX**, **NDN**).
+
+    2. the lower right corner of the plot, one of the scaling parameters
+    related to the horizontal specifications of the plot (**DLX** or
+    **NAX**), and one of the scaling parameters related to the vertical
+    specification of the plot (**DLD** or **NDN**). **LPI**, even if
+    specified will not be used.
+
+    3. **NAX** and **NDN** and any two of **LPI, DLX**, and **DLD**. If
+    **LPI, DLX**, and **DLD** are all specified, **LPI** is not used.
+
+    The data required to generate a plot may be supplied from
+    (1) defaulted values, (2) data from the previous plot, or (3) data
+    that are specifically entered for the current plot.
+
+Miscellaneous parameters
+  Enter miscellaneous parameters
+
+**RUN**\ = *run*
+  is used to determine if the problem is executed or is
+  terminated after data checking. A value of YES for *run* means the
+  problem will be executed if all the data were acceptable. A value of NO
+  specifies the problem will be terminated after data checking is
+  completed. The default value of **RUN** is YES.
+
+**PLT**\ = *plt*
+  is used to specify if a plot is to be made. A value of
+  YES for *plt* specifies that a plot is to be made. If plot data are
+  entered, **PLT** is defaulted to YES.
+
+.. note:: The parameters **RUN** and **PLT** can also be entered in the
+  PARAMETER data. See :ref:`8-1-2-3`. It is recommended that these
+  parameters be entered only in the parameter data block in order to
+  ensure that the data printed in the “Logical Parameters” table are what
+  is actually performed.
+
+**SCR=** *src*
+  This is used to determine the plot display method. The
+  plot display method is specified by entering either YES or NO for *src*.
+  The default value is YES. **SCR**\ =YES uses the color plot display
+  method. **SCR**\ =NO uses the character plot display method. If **SCR**
+  is entered more than once in a problem, the last value entered is the
+  one that is used.
+
+**NCH=** *delim char delim*
+  Enter only if plots are to be made utilizing
+  the character plot display method (**SCR**\ =NO). Enter a delimiter
+  (i.e., “ , ‘ , \* , ^ , or !) to signal the beginning of character
+  string *char*. The character string is terminated when the *delim*
+  character is encountered the second time. Do not use the initial
+  delimiter in the *char* string, as it will be read as terminating the
+  string. *char* is a character string with each entry representing a
+  plottable quantity (i.e., media {mixture} number, unit number, or bias
+  ID). These are the characters that will be used in the plot. The first
+  entry represents media, unit, or bias ID zero; the second entry
+  represents the smallest media, unit, or bias ID used in the problem; the
+  third entry represents the next larger media, unit, or bias ID used in
+  the problem; etc. For example, assume **PIC**\ =MAT is specified, and
+  15 mixtures are defined in the mixing table, and the geometry data use
+  only mixtures 3 and 7. By default, a blank will be printed for mixture
+  zero, a 1 will be printed for mixture 3, and a 2 will be printed for
+  mixture 7. If you wish to print a zero for a void (mixture 0), a 3 for
+  mixture 3, and a 7 for mixture 7, enter NCH=‘037’.
+
+The default values of CHAR are the following:
+
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | Quantity | 0   | 1   | 2   | 3   | 4   | 5     | 6   | 7   | 8   | 9   | 10  | 11  | 12  | 13  | 14  | 15 |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | SYMBOL   |     | 1   | 2   | 3   | 4   | 5     | 6   | 7   | 8   | 9   | A   | B   | C   | D   | E   | F  |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  |          |     |     |     |     |     |       |     |     |     |     |     |     |     |     |     |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | Quantity | 16  | 17  | 18  | 19  | 20  | 21    | 22  | 23  | 24  | 25  | 26  | 27  | 28  | 29  | 30  | 31 |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | SYMBOL   | G   | H   | I   | J   | K   | L     | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V  |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  |          |     |     |     |     |     |       |     |     |     |     |     |     |     |     |     |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | Quantity | 32  | 33  | 34  | 35  | 36  | 37    | 38  | 39  | 40  | 41  | 42  | 43  | 44  | 45  | 46  |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | SYMBOL   | W   | X   | Y   | Z   | ‘#’ |  ,    | ‘$’ | ‘−’ | ‘+’ | ‘)’ | ‘|’ | ‘&’ | ‘>’ | ‘:’ | ‘;’ |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  |          |     |     |     |     |     |       |     |     |     |     |     |     |     |     |     |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | Quantity | 47  | 48  | 49  | 50  | 51  | 52    | 53  | 54  | 55  | 56  | 57  | 58  |     |     |     |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+  | SYMBOL   | ‘⋅’ | ‘−’ | “%” | “*” | “”“ |  “=”  | “!” | “(“ | “@” | “<“ | “/” | 0   |     |     |     |    |
+  +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
+
+**CLR=** *n*\ :sub:`1` *r*(*n*\ :sub:`1`) *g*(*n*\ :sub:`1`) *b*(*n*\ :sub:`1`) … *n*\ :sub:`N` *r*(*n*\ :sub:`N`) *g*(*n*\ :sub:`N`) *b*(*n*\ :sub:`N`)
+**END COLOR**
+  this entry is used to define the colors to be used by the color plot.
+  It may be entered only if plots are to be made utilizing the color
+  plot display method (**SCR**\ =YES). After entering the keyword
+  **CLR=**, 4 numbers are entered *N* times. The first number, *n*\ :sub:`1`,
+  represents a media (mixture) number, unit number, or bias ID. The
+  next three numbers, whose values can range from 0 through 255, define
+  the *red, green, and blue* components of the color that will
+  represent this *n*\ :sub:`1` in the plot. The sequence of 4 numbers is
+  repeated until the colors associated with all of the media (mixture)
+  numbers, unit numbers, or bias IDs used in the problem have been
+  defined. The smallest number that can be entered for *n*\ :sub:`i` is −1,
+  representing undefined regions in the plot. An *n\ i* of 0 represents
+  void regions; *n*\ :sub:`i` of 1 represents the smallest media, unit, or
+  bias ID used in the problem; *n*\ :sub:`i` of 2 represents the next larger
+  media, unit, or bias ID used in the problem, etc. The color plot
+  definition data are terminated by entering the keywords **END
+  COLOR**. A total of 256 default colors are provided in :numref:`tab8-1-22`
+  Two of those colors represent undefined regions, *n*\ :sub:`i`\ =-1*, as
+  black and void regions, and *n*\ :sub:`i`\ =0 as gray. The remaining 254
+  colors represent the default values for mixtures, bias IDs, or unit
+  numbers used in the problem. If **num** is entered as **−1**, the
+  next three numbers define the color that will be used to represent
+  undefined regions of the plot. The default color for undefined
+  regions is black, represented as 0 0 0. If *n*\ :sub:`i` is entered as 0,
+  the next three numbers define the color that will represent void
+  regions in the plot. The default color for void is gray, represented
+  as 200 200 200. For example, assume a color plot is to be made for a
+  problem that uses void regions and mixture numbers 1, 3, and 5. By
+  default, the undefined regions (Index −1) will be black; void regions
+  (Index 0) will be gray; the first mixture, mixture 1 (Index 1), will
+  be medium blue; the next larger mixture, mixture 3 (Index 2), will be
+  turquoise2; and the last mixture, mixture 5 (Index 3), will be
+  green2. If these values are acceptable, data do not need to be
+  entered for **CLR**\ =. If the user decides to define void to be
+  white (255 255 255), mixture 1 to be red (255 0 0), mixture 3 to be
+  bright blue (0 0 255), and mixture 5 to be green (0 255 0), then the
+  following data could be entered:
+
+  **CLR**\ =0 255 255 255 1 255 0 0 2 0 0 255 3 0 255 0 **END COLOR**
+
+  In this example, the first number (0) defines the void, and the next
+  three numbers are the *red, green, and blue* components that combine
+  as the color white. The fifth number (1) represents the smallest
+  mixture number (mixture 1), and the next three numbers are the *red,
+  green, and blue* components of red. The ninth number (2) represents
+  the next larger mixture number (mixture 3), and the next three
+  numbers are the *red, green, and blue* components of bright blue. The
+  thirteenth number (3) represents the next larger mixture number
+  (mixture 5), and the next three numbers are the red, green, and blue
+  components of green. The **END COLOR** terminates the color
+  definition data. Because color data were not entered for *n\ i* of
+  −1, undefined regions will be represented by the color black, the
+  default specification from :numref:`tab8-1-22`. The *red, green, and blue*
+  components of some bright colors are listed below.
+
+  +---------------------+---------+-----------+----------+
+  | **Display Color**   | **red** | **green** | **blue** |
+  +=====================+=========+===========+==========+
+  | black               | 0       | 0         | 0        |
+  +---------------------+---------+-----------+----------+
+  | white               | 255     | 255       | 255      |
+  +---------------------+---------+-----------+----------+
+  | “default void gray” | 200     | 200       | 200      |
+  +---------------------+---------+-----------+----------+
+  | red                 | 255     | 0         | 0        |
+  +---------------------+---------+-----------+----------+
+  | green               | 0       | 255       | 0        |
+  +---------------------+---------+-----------+----------+
+  | brightest blue      | 0       | 0         | 255      |
+  +---------------------+---------+-----------+----------+
+  | yellow              | 255     | 255       | 0        |
+  +---------------------+---------+-----------+----------+
+  | brightest cyan      | 0       | 255       | 255      |
+  +---------------------+---------+-----------+----------+
+  | magenta             | 255     | 0         | 255      |
+  +---------------------+---------+-----------+----------+
+
+The 256 default colors are listed in :numref:`tab8-1-22`.
+
+.. list-table:: Default color specifications for the color plot display method
+  :name: tab8-1-22
+  :align: center
+
+  * - .. image:: figs/Keno/tab22_Page_01.png
+        :width: 400
+        :align: center
+  * - .. image:: figs/Keno/tab22_Page_02.png
+        :width: 400
+        :align: center
+
+.. list-table::
+  :align: center
+
+  * - .. image:: figs/Keno/tab22_Page_03.png
+        :width: 400
+        :align: center
+  * - .. image:: figs/Keno/tab22_Page_04.png
+        :width: 400
+        :align: center
+
+.. list-table::
+  :align: center
+
+  * - .. image:: figs/Keno/tab22_Page_05.png
+        :width: 400
+        :align: center
+  * - .. image:: figs/Keno/tab22_Page_06.png
+        :width: 400
+        :align: center
+
+.. list-table::
+  :align: center
+
+  * - .. image:: figs/Keno/tab22_Page_07.png
+        :width: 400
+        :align: center
+  * - .. image:: figs/Keno/tab22_Page_08.png
+        :width: 400
+        :align: center
+
+.. list-table::
+  :align: center
+
+  * - .. image:: figs/Keno/tab22_Page_09.png
+        :width: 400
+        :align: center
+  * - .. image:: figs/Keno/tab22_Page_10.png
+        :width: 400
+        :align: center
+
+.. list-table::
+  :align: center
+
+  * - .. image:: figs/Keno/tab22_Page_11.png
+        :width: 400
+        :align: center
+
+.. 8-1-2-12:
+
+Energy group boundary data
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Upper energy group boundary data in eV are entered to determine the
+groups into which the tallies will be collected in the continuous energy
+mode. For *G* groups *G*\ +1 entries are entered. The last entry is the
+lower energy boundary of the last group. The values must be in
+descending order. The parameter **NGP** is set equal to the number of
+entries−1. The syntax is:
+
+**READ ENERGY** *u*\ :sub:`1` …u\ *G* *u*\ :sub:`G+1` **END ENERGY**
+
+*u*\ :sub:`1` … *u*\ :sub:`G`
+  are the upper energy limits of energy groups 1 … *G*,
+  respectively.
+
+*u*\ :sub:`G+1`
+  is the lower energy limit of energy group *G*.
+
+Example:
+
+  **READ ENERGY**
+
+  2e7 1e5 1 1e−5
+
+  **END ENERGY**
+
+Defines a 3-group structure with group 1 (2e+7 eV to 1e+5 eV), group 2
+(1e+5 eV to 1 eV), and group 3 (1 eV to 1e−5 eV) and sets **NGP**\ =3.
+
+Energy group boundary data are optional. Default values for the energy
+group boundaries in the calculations are determined as in the following
+order:
+
+  i.   Use energy group boundaries from **READ ENERGY** block if specified
+       in the input. The number of entries in the **READ ENERGY** block is
+       **NGP**\ +1.
+
+  ii.  If only **NGP** is specified (in **READ PARAMETER**) in the input
+       and **NGP** is equal to the number of energy groups in one of the
+       SCALE neutron cross section libraries, the energy group structure
+       from that library will be used.
+
+  iii. If only **NGP** is specified (in **READ PARAMETER**) in the input
+       and **NGP** is not equal to the number of energy groups in one of
+       the SCALE neutron cross section libraries, **NGP** equal lethargy
+       bins will be used.
+
+  iv.  Use SCALE 238 group structure as default, **NGP**\ =238.
+
+.. _8-1-2-13:
+
+Volume data
+~~~~~~~~~~~
+
+If volumes are needed (for calculating fission densities, fluxes, etc.),
+then the data necessary to determine them are entered. The syntax for
+this block is:
+
+**READ VOLUME** *p*\ :sub:`1` … *p*\ :sub:`N` **END VOLUME**
+
+*p*\ :sub:`1` … *p*\ :sub:`N`
+  are *N* parameters entered using keywords followed by the
+  appropriate data.
+
+The possible parameters that can be used in a **VOLUME** block are
+described below.
+
+**READVOL**\ =\ *vol*
+  used to input the file name (up to 256 characters)
+  of the file from which user-specified volumes are read. This is an
+  optional parameter and only works for KENO-VI. The data are read in
+  sections for each **UNIT** contained in the problem. First the keyword
+  “\ **UNIT**\ ” is read, followed by the **UNIT** number. For that
+  **UNIT** the data for each region containing material in the order shown
+  in the input is read as follows: the keyword “\ **MEDIA**\ ” is read,
+  followed by the mixture number, followed by the keyword “\ **VOL**\ =”,
+  followed by the total volume for that region. Regions containing
+  **ARRAY**\ s and **HOLE**\ s are skipped. An example of the data
+  contained in a volume file is given later in this section.
+
+**TYPE**\ =\ *vcalc*
+  used to determine the type of volume calculation.
+  *vcalc* can have the values:
+
+   NONE: (only works in KENO-VI, where it is also the default) No volume
+   calculation, volumes are set to –1.0 (only in KENO-VI).
+
+   TRACE: A trapezoidal integration will be performed (only in KENO‑VI).
+
+   RANDOM: A Monte Carlo integration will be performed.
+
+**NRAYS**\ =\ *ntotal*
+  the number of intervals used in the trapezoidal
+  integration (default 100,000). Used only with TYPE=TRACE (KENO-VI).
+
+**BATCHES**\ =\ *nloop*
+  the number of batches to be used in the
+  Monte Carlo integration (default 500). Used only with TYPE=RANDOM.
+
+**POINTS**\ =nplp
+  the number of points per batch used in the Monte Carlo
+  integration (default 1000). Used only with TYPE=RANDOM.
+
+**XP**\ =\ *xp*
+  the plus X face of the encompassing cuboid.
+
+**XM**\ =\ *xm*
+  the minus X face of the encompassing cuboid.
+
+**YP**\ =\ *yp*
+  the plus Y face of the encompassing cuboid.
+
+**YM**\ =\ *ym*
+  the minus Y face of the encompassing cuboid.
+
+**ZP**\ =\ *zp*
+  the plus Z face of the encompassing cuboid.
+
+**ZM**\ =\ *zm*
+  the minus Z face of the encompassing cuboid.
+
+**SAMPLE_DEN=**\ *sampleden*
+  the density of sampling points per
+  cm\ :sup:`3` per batch. Used only with TYPE=RANDOM.
+
+**IFACE** =\ *fname*
+  the face of the enclosing cuboid where the
+  trapezoidal integration will be performed. Enter either **XFACE**,
+  **YFACE**, or **ZFACE**. KENO-VI will integrate over the face with the
+  smallest area by default. This allows specifying a different face. Used
+  only for **TYPE**\ =TRACE (KENO-VI).
+
+The volume parameters include specifying the type of calculation to
+determine the volumes and additional parameters needed for the selected
+type. In KENO-VI the default type is NONE (i.e., no volume calculation
+will be performed), and the volumes for regions not containing
+**HOLE**\ s or **ARRAY**\ s will be set to -1.0. No other data are
+needed for this type.
+
+In KENO-VI the volume data may be entered for any or all regions within
+the geometry data by placing the keyword **VOL**\ = followed by the
+total volume of that region in the problem at the end of the **MEDIA**
+card. See :ref:`8-1-2-4` (Geometry Data) for more details.
+
+For KENO-VI, in the same problem, volumes may be entered using a
+combination of three methods: (1) in the geometry data using **VOL**\ =,
+(2) read from a volume file, and (3) calculated. The calculated volumes
+(method 3) are obtained for both the regions, and the meshes are defined
+by a grid (such as in TSUNAMI runs). As for KENO V.a, the mesh volumes
+must always be calculated (i.e., there is no method to input the mesh
+volumes). If volumes are entered or calculated using more than one
+method, the following hierarchy is used to determine which volume is
+used for the regions.
+
+1. Volumes entered as part of a **MEDIA** card using **VOL**\ = are
+   always used.
+
+2. Volumes read from the volume file are used if that volume for the
+   region was not specified using VOL= following a **MEDIA** card.
+
+3. Calculated volumes are used if they are not specified using
+   **VOL**\ = and if there is no volume file or data for that region on
+   the volume file.
+
+4. Volumes that have not been set or calculated will be set to –1.0.
+   This may result in negative fluxes and fission densities for these
+   regions.
+
+5. Volumes are only calculated for regions containing material. Regions
+   containing **ARRAY**\ s or **HOLE**\ s have no volume. Those volumes
+   are associated with the **UNIT** contained in the **ARRAY** or
+   **HOLE**.
+
+In KENO V.a, the region volumes are always calculated by the code
+without the user’s intervention. This is possible because KENO V.a has
+no region intersections, so calculation of the volumes is always
+possible using analytical methods. The use of the (RANDOM) calculated
+volumes using the **VOLUME** block is then only justified when the user
+needs to calculate the volumes defined by a grid, such as for TSUNAMI
+calculations.
+
+When volumes are calculated using either RANDOM or TRACE, then a file
+containing volumes and named \_volxxxx (where xxxx is an 18-digit number
+with the leftmost unused digits padded with zeros) is created in the
+temporary directory. The program searches the temporary directory for a
+file name beginning with \_vol. If it is not found, the volume file that
+is created is named \_vol000000000000000000. If a file exists, then a
+new file will be created where the file number is the largest number
+associated with a previous volume file incremented by 1. The file is
+automatically copied to the user directory with the input file base name
+prepended to it, such as inputfile.volxxxx.volumes.
+
+Below is an example of the **VOLUME** data block associated with a case
+in which volumes are being calculated using ray tracing. The number of
+rays used is set to one million, and if the outer unit volume is not a
+cuboid, then a cuboid will be placed around the global region prior to
+calculating volumes.
+
+::
+
+  read volume
+  type=trace nrays=1000000
+  XP=10  XM=-15 YP=15  YM=-15  ZP=15  ZM=-15
+  end volume
+
+Below is an example of the **VOLUME** data block associated with a case
+where volumes are being calculated using random sampling. The number of
+particles per batch is set to 100,000, and the number of batches used is
+set to 500. After being calculated, the volume data will be written to a
+file in the temporary directory as discussed above.
+
+::
+
+  read volume
+  type=random points=100000 batches=500
+  XP=10  XM=-10  YP=15  YM=-15  ZP=25  ZM=15
+  end volume
+
+Below is an example of the **VOLUME** data block associated with a case
+where volumes are both read in from the file VOLUME_DATA and calculated
+using random sampling. The number of particles per generation is set to
+1,000,000, and the number of generations used is set to 500. The file
+VOLUME_DATA must be formatted as shown below. The calculated volume data
+are written in the temporary working directory to a file as discussed
+above. Calculating volume data for some volume regions and providing
+input volume data for others may be useful if only part of the volume
+data is known and the remaining data need to be calculated.
+
+::
+
+  read volume
+  type=random points=1000000 batches=500
+  readvol=volume_DAta
+  end volume
+
+Example volume file VOLUME_DATA:
+
+::
+
+  UNIT 1
+     MEDIA 1 VOL=110.0
+     MEDIA 2 VOL=2435.8
+     MEDIA 2 VOL=3242.9
+  UNIT 2
+     MEDIA 2 VOL=342.8
+     MEDIA 0 VOL=4235.0
+
+Below is an example of a sample problem in which volumes are being
+calculated using random sampling. The number of particles per generation
+is set to 100,000, and the number of generations used is set to 500.
+After being calculated, the **VOLUME** data will be written as described
+above.
+
+::
+
+  =CSAS6
+  SAMPLE PROBLEM WITH VOLUMES CALCULATED AND PRINTED TO FILE
+  v7.1-252n
+  READ COMP
+  URANIUM 1 DEN=18.76 1 293 92235 93.2 92238 5.6 92234 1.0 92236 0.2 END
+  END COMP
+  READ GEOMETRY
+  UNIT 3
+  COM='SINGLE UNIT CENTERED'
+  SPHERE 10 4.000
+  CUBOID 20 6P6.0
+  MEDIA 1 1 10
+  MEDIA 0 1 20 -10
+  BOUNDARY 20
+  UNIT 1
+  COM='SINGLE UNIT CENTERED'
+  SPHERE 10 5.000
+  CUBOID 20 6P6.0
+  MEDIA 1 1 10
+  MEDIA 0 1 20 -10
+  BOUNDARY 20
+  GLOBAL UNIT 2
+  COM='Global UNIT'
+  CUBOID 10 6P18.0
+  ARRAY 1 10 PLACE 2 2 2 3R0.0
+  BOUNDARY 10
+  END GEOMETRY
+  READ ARRAY ARA=1 NUX=3 NUY=3 NUZ=3 TYP=CUBOIDAL FILL
+  1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 END ARRAY
+  READ VOLUME
+  TYPE=RANDOM POINTS=100000 BATCHES=500
+  END VOLUME
+  END DATA
+  END
+
+Example volume file _volxxxx:
+
+::
+
+  UNIT 1
+     MEDIA 1 VOL=9423.45
+     MEDIA 0 VOL=21678.6
+  UNIT 3
+     MEDIA 1 VOL=2410.81
+     MEDIA 0 VOL=13143.1
+
+Below is an example of a problem with the volumes entered in the
+geometry data block using **VOL**\ = followed by the volume for all
+**MEDIA** type content records. Note that the keyword “\ **VOL**\ =”
+should never follow a **HOLE** or **ARRAY** content record.
+
+::
+
+  =csas26
+  Sample problem with volumes input in geometry data
+  v7.1-252n
+  read comp
+  uranium  1 den=18.76 1 293 92235 93.2 92238 5.6 92234 1.0 92236 0.2 end
+  end comp
+  read geometry
+  unit 3
+  com='unit 3'
+  sphere   10  4.000
+  cuboid   20  6p6.0
+  media  1 1 10       vol=2412.7
+  media  0 1 20 -10   vol=13139.3
+  boundary 20
+  unit 1
+  com='UNIT 1'
+  sphere   10  5.000
+  cuboid   20  6p6.0
+  media  1 1 10       vol=9424.8
+  media  0 1 20 -10   vol=21679.2
+  boundary 20
+  global unit 2
+  com='GLOBAL Unit 2'
+  cuboid 10  6p18.0
+  array 1    10 place 2 2 2 3r0.0
+  boundary  10
+  end geometry
+  read array  ara=1 nux=3 nuy=3 nuz=3  typ=cuboidal fill
+  1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1  end array
+  end data
+  end
+
+.. _8-1-2-14
+
+Grid geometry data
+~~~~~~~~~~~~~~~~~~
+
+This data block is used to input the data needed to define a Cartesian
+grid for tallying purposes.
+
+**READ GRID N** *p*\ :sub:`1` … *p*\ :sub:`L` **END GRID**
+
+*N*
+  mesh grid identifier, always entered.
+
+*p*\ :sub:`1` … *p*\ :sub:`L`
+  are *L* parameters chosen from the list below. The
+  parameters are entered using keywords followed by the appropriate data,
+  except for the grid identifier, which is always entered first as an
+  integer.
+
+**N**\ [**UM**]\ **XCELLS**\ =\ *numx*
+  number of cells in the x
+  direction, default = 1.
+
+**N**\ [**UM**]\ **YCELLS**\ =\ *numy*
+  number of cells in the y
+  direction, default = 1.
+
+**N**\ [**UM**]\ **ZCELLS**\ =\ *numz*
+  number of cells in the z
+  direction, default = 1.
+
+**XMIN=**\ *xmin*
+  minimum cell boundary in the x direction, default = 0.
+
+**XMAX**\ =\ *xmax*
+  maximum cell boundary in the x direction, default =
+  1.
+
+**YMIN**\ =\ *ymin*
+  minimum cell boundary in the y direction, default =
+  0.
+
+**YMAX**\ =\ *ymax*
+  maximum cell boundary on the y direction, default =
+  1.
+
+**ZMIN**\ =\ *zmin*
+  minimum cell boundary in the z direction, default =
+  0.
+
+**ZMAX=**\ *zmax*
+  maximum cell boundary in the z direction, default = 1.
+
+**XPLANES**\ =\ *xplanes*
+  the cell boundaries in the x direction
+  followed by end, default = 0, 1 end.
+
+**YPLANES**\ =\ *yplanes*
+  the cell boundaries in the y direction
+  followed by end, default = 0, 1 end.
+
+**ZPLANES**\ =\ *zplanes*
+  the cell boundaries in the z direction
+  followed by end, default = 0, 1 end.
+
+**XLINEAR**\ =\ *numcellsx *x*\ :sub:`min` *x*\ :sub:`max`
+  generate y-z planes from
+  x\ :sub:`min` to x\ :sub:`max` creating *numcellsx* intervals.
+
+**YLINEAR**\ =\ *numcellsy *y*\ :sub:`min` *y*\ :sub:`max`
+  generate x-z planes from
+  y\ :sub:`min` to y\ :sub:`max`, creating *numcellsy* intervals.
+
+**ZLINEAR**\ =\ *numcellsz *z*\ :sub:`min` *z*\ :sub:`max`
+  generate x-y planes from
+  z\ :sub:`min` to z\ :sub:`max`, creating *numcellsz* intervals.
+
+**TITLE**\ =\ *title*
+  optional title for this mesh grid. Only used in
+  KENO if an error in the grid causes a debug print.
+
+If *numx, xmin, xmax* are entered, then the code will calculate *numx*
+equally spaced cells in the x direction between *xmin* and *xmax*.
+
+If *xplanes* is entered, then the code will count the number of unique
+*xplanes*, and order them from minimum to maximum, deleting any
+duplicates.
+
+If the user inputs both sets of data, then the code will use the
+*xplanes* data.
+
+If *xplanes* and *xlinear* are both entered, then the code will retain
+all unique planes from *xplanes* and all *xlinear* entries provided. The
+above also applies to Y and Z.
+
+**NOTE**: The user **MUST** set the minimum and maximum values in each
+direction so that the actual geometry is totally covered by the mesh for
+mesh flux tally that is used in TSUNAMI sensitivity calculations.
+
+KENO checks for and eliminates duplicate or nearly duplicate planes.
+
+The user may specify multiple mesh grids; each must be defined in
+separate **READ GRID** blocks. In this case, each grid should have
+different *N* (grid ID number). See :ref:`8-1-3-10` for details and
+samples.
+
+.. _8-1-2-15:
+
+Reaction data
+~~~~~~~~~~~~~
+
+The reaction data block is used to specify the type of tally (e.g.,
+reaction rates, flux, and few group reaction cross sections) and the
+reaction/nuclide pairs in any mixture used in the problem for reaction
+tally calculations. This block is operational only with the continuous
+energy mode, and it provides the specifications for reaction rate,
+neutron flux, and reaction cross section tallies. See :ref:`8-1-6-6` for
+more details. For multigroup KENO calculations, use KMART5 or KMART6,
+which are described in the KMART section of the SCALE manual.
+
+A reaction data block consists of REACTION FILTERS, TALLY TYPE, ENERGY
+GROUP BOUNDARIES, and OUTPUT EDITS. These data types can be entered in
+any order. A combination of parameters for describing the REACTION
+FILTERS and TALLY TYPE must be entered for any reaction or cross section
+tally calculation. ENERGY GROUP BOUNDARIES and OUTPUT EDITS data are
+optional. Tally calculations can be performed for multiple reactions
+specified by the REACTION FILTERS. Only one energy grid, either
+specified with the data in ENERGY GROUP BOUNDARIES or from the READ
+ENERGY block or from the code defaults, is used for all reaction tally
+calculations. To provide data for the continuous energy depletion
+calculations, another energy grid can be specified and used for tallying
+only the mixture flux.
+
+Enter REACTION DATA in the form:
+
+**READ REACTION** *REACTION FILTERS [TALLY TYPE] [ENERGY GROUP BOUNDARIES]
+        [OUTPUT EDITS]* **END REACTION**
+
+*REACTION FILTERS*
+  define a reaction map that is used in reaction tally
+  calculations. The *REACTION FILTERS* must be entered in the following
+  order; mixture data (**MIX** or **MIXLIST**) followed by nuclide data
+  (**NUC** or **NUCLIST**) followed by reaction IDs (**MT** or
+  **MTLIST**). Each filter is defined using a combination of the following
+  keywords:
+
+**MIX**\ =\ *mixnum*
+  Mixture number, no default value. Specified mixture
+  number must exist in the mixing table and be used in the problem for a
+  valid filter generation. A wildcard “\ *\**\ ” can be used to define a
+  filter applicable for all mixtures in the problem.
+
+**MIXLIST** *mixnum*\ :sub:`1` *mixnum*\ :sub:`2` … *mixnum*\ :sub:`N`\ **END**
+  A list of mixture
+  numbers followed by *end,* no default values. Specified mixture numbers
+  must exist in the mixing table and be used in the problem for a valid
+  reaction tally calculation. Within each filter, use either **MIX** or
+  **MIXLIST**, but not both.
+
+**NUC**\ =\ *nucid*
+  Nuclide identifier, no default value. Specified
+  nuclide must be a constituent of the mixtures used in this filter
+  definition (specified with MIX or MIXLIST). A wildcard “*” can be used
+  to define a filter applicable for all nuclides in each mixture in this
+  filter definition. Nuclide identifiers are listed for all isotopes in
+  the Standard Composition Library section of the SCALE manual (see :ref:`7-2`).
+
+**NUCLIST** *nucid*\ :sub:`1` *nucid*\ :sub:`2` … *nucid*\ :sub:`N`\ **END**
+  A list of nuclide
+  identifiers followed by *end,* no default values. Specified nuclides
+  must be the constituents of the mixtures used in this filter definition
+  (specified by **MIX** or **MIXLIST**). Within each filter, use either
+  **NUC** or **NUCLIST**, but not both.
+
+**MT**\ =\ *mt*
+  Reaction MT number, no default value. Specified reaction
+  MT number should be available for the nuclides defined in this filter
+  definition (specified by **NUC** or **NUCLIST**). Otherwise, the code
+  skips the filter definition with this given reaction MT. A wildcard “*”
+  can be used to define a filter with all reaction MTs. Valid SCALE
+  library MT values are listed in the SCALE Cross Section Libraries
+  section of the SCALE manual (see Appendix A of :ref:`11-1`).
+
+**MTLIST** *mt*\ :sub:`1` *mt*\ :sub:`2` … *mt*\ :sub:`N`\ **END**
+  A list of reaction **MT**
+  numbers followed by *end,* no default values. Specified MT numbers
+  should be available for the nuclides defined in this filter definition
+  (specified by **MIX** or **MIXLIST**). Otherwise, KENO skips that
+  reaction specified in the filter for the reaction tally calculations.
+  Within each filter, use either **MT** or **MTLIST**, but not both.
+
+A reaction filter consists of either single or multiple mixture, nuclide
+and reaction definitions. A valid reaction filter starts with mixture
+specification, followed by nuclide specification, and ends with reaction
+specification. Mixture(s) must be specified with either **MIX** or
+**MIXLIST** keywords. Nuclide(s) in these mixtures must be entered with
+either **NUC** or **NUCLIST**, and reactions for each nuclide must be
+specified with either **MT** or **MTLIST**.
+
+Mixture, nuclide, and reaction number are required for mixture average
+fluxes, even though the nuclide and reaction numbers are not used for
+the neutron flux tallies.
+
+Multiple reaction filter definitions are allowed. KENO processes all the
+definitions and creates a reaction map based on them. The following
+examples demonstrate the reaction filter specifications for different
+problems. In these examples, reaction filters are specified based on the
+following composition data used in the problem:
+
+compositions in the example problem
+
++---------+------------------------+
+| mixture | nuclides               |
++=========+========================+
+| 10      | 92235, 92238, 8016     |
++---------+------------------------+
+| 20      | 92238, 94239, 8016     |
++---------+------------------------+
+| 30      | 92235, 92238, 8016     |
++---------+------------------------+
+| 40      | 1001, 8016             |
++---------+------------------------+
+| 100     | 1001, 8016, 5010, 5011 |
++---------+------------------------+
+
+Example-1:
+
+::
+
+   READ REACTION
+ 	    MIX=10 NUC=92235  MT=18
+ 	    …
+   END REACTION
+
+Defines a reaction filter used to tally only fission reaction
+(**MT**\ =18) of :sup:`235`\ U in mixture 10.
+
+Example-2:
+
+::
+
+  READ REACTION
+ 	    MIX=10 NUC=92235  MT=*
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally all available reactions of
+:sup:`235`\ U in mixture 10.
+
+Example-3:
+
+::
+
+  READ REACTION
+ 	    MIX=10 NUC=92235  MTLIST 2 18 102 END
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally the elastic scattering (mt=2),
+fission (mt=18), and capture (mt=102) reactions of :sup:`235`\ U in
+mixture 10.
+
+Example-4:
+
+::
+
+  READ REACTION
+ 	    MIX=10 NUC=92235  MT=2
+	    MIX=10 NUC=92235  MT=18
+	    MIX=10 NUC=92235  MT=102
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally the elastic scattering
+(**MT**\ =2), fission (**MT**\ =18), and capture (**MT**\ =102)
+reactions of :sup:`235`\ U in mixture 10. Reaction filter definition in
+this example is identical to the filter definition given in Example-3.
+
+Example-5:
+
+  READ REACTION
+ 	    MIX=10 NUC=*  MT=18
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally the fission reaction
+(**MT**\ =18) of :sup:`235`\ U and :sup:`238`\ U in mixture 10. Code
+skips the reaction tally request for :sup:`16`\ O since the requested
+reaction is not available for this nuclide in the data library.
+
+Example-6:
+
+::
+
+  READ REACTION
+ 	    MIX=10 NUC=92235  MT=18
+	    MIX=10 NUC=92238  MT=18
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally the fission reaction
+(**MT**\ =18) of :sup:`235`\ U and :sup:`238`\ U in mixture 10. Reaction
+filter definition in this example is identical to the filter definition
+given in Example-5.
