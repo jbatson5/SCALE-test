@@ -199,9 +199,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><em>k</em><sub>eff</sub>.. _STARBUCS:</p>
-<div class="section" id="starbucs-a-scale-control-module-for-automated-criticality-safety-analyses-using-burnup-credit">
-<h1>STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit<a class="headerlink" href="#starbucs-a-scale-control-module-for-automated-criticality-safety-analyses-using-burnup-credit" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="starbucs-a-scale-control-module-for-automated-criticality-safety-analyses-using-burnup-credit">
+<span id="starbucs"></span><h1>STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit<a class="headerlink" href="#starbucs-a-scale-control-module-for-automated-criticality-safety-analyses-using-burnup-credit" title="Permalink to this headline">¶</a></h1>
 <p><em>G. Radulescu and I. C. Gauld</em></p>
 <p>STARBUCS is an analysis sequence in SCALE for automating criticality
 safety and burnup loading curve analyses of spent fuel systems employing
@@ -313,7 +312,7 @@ the initial fuel enrichment using the least squares method, and repeats
 the sequence until either convergence is achieved or determine that no
 solution can be found. The overall program structures and flow for a
 single criticality calculation and for burnup loading curve calculations
-are illustrated in <a class="reference internal" href="#fig2-3-1"><span class="std std-numref">Fig. 122</span></a> and <a class="reference internal" href="#fig2-3-2"><span class="std std-numref">Fig. 123</span></a>, respectively.</p>
+are illustrated in <a class="reference internal" href="#fig2-3-1"><span class="std std-numref">Fig. 169</span></a> and <a class="reference internal" href="#fig2-3-2"><span class="std std-numref">Fig. 170</span></a>, respectively.</p>
 <p>The sequence uses well-established code modules currently available in
 the SCALE code system. These modules include ARP and ORIGEN to perform
 the depletion analysis phase of the calculations. ORIGEN-ARP is a
@@ -402,11 +401,11 @@ based on the assumption that the mass ratios
 change with fuel enrichment.</p>
 <div class="figure align-center" id="id7">
 <span id="fig2-3-1"></span><a class="reference internal image-reference" href="_images/fig14.png"><img alt="_images/fig14.png" src="_images/fig14.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 122 </span><span class="caption-text">Modules and flow of STARBUCS sequence for criticality calculations.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 169 </span><span class="caption-text">Modules and flow of STARBUCS sequence for criticality calculations.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id8">
 <span id="fig2-3-2"></span><a class="reference internal image-reference" href="_images/fig23.png"><img alt="_images/fig23.png" src="_images/fig23.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 123 </span><span class="caption-text">Modules and flow of STARBUCS sequence for burnup loading curve calculations.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 170 </span><span class="caption-text">Modules and flow of STARBUCS sequence for burnup loading curve calculations.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="capabilities-and-limitations">
@@ -492,7 +491,7 @@ concentrations after irradiation and decay are automatically applied to
 the KENO criticality analysis. The mixture numbers for each of the fuel
 regions are identified by unique mixture numbers assigned automatically
 by STARBUCS based on the axial and horizontal regions in the problem
-(see <a class="reference internal" href="#fig2-3-3"><span class="std std-numref">Fig. 124</span></a>). The user is required to specify the geometry/extent
+(see <a class="reference internal" href="#fig2-3-3"><span class="std std-numref">Fig. 171</span></a>). The user is required to specify the geometry/extent
 of the axial and horizontal zones in the KENO model and apply the
 appropriate mixture numbers for the desired configuration based on the
 mixture identifying scheme. STARBUCS performs no checking of the
@@ -509,11 +508,11 @@ mixtures could be omitted to simulate a problem using only a subset of
 the available fuel zones that were simulated in the depletion analysis.</p>
 <div class="figure align-center" id="id9">
 <span id="fig2-3-3"></span><a class="reference internal image-reference" href="_images/fig33.png"><img alt="_images/fig33.png" src="_images/fig33.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 124 </span><span class="caption-text">Fuel and material mixture numbering convention used in STARBUCS.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 171 </span><span class="caption-text">Fuel and material mixture numbering convention used in STARBUCS.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id10">
 <span id="fig2-3-4"></span><a class="reference internal image-reference" href="_images/fig43.png"><img alt="_images/fig43.png" src="_images/fig43.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 125 </span><span class="caption-text">Example of mixture numbering scheme used in STARBUCS.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 172 </span><span class="caption-text">Example of mixture numbering scheme used in STARBUCS.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <p>There are several conventions that must be followed when using STARBUCS.
 In general, these relate to the specification of materials and mixture
@@ -539,16 +538,16 @@ also be used directly in the KENO model. Additional unique mixture
 numbers are required by the code for the lattice cell descriptions
 for each separate fuel zone (except for mixture 0 for void). These
 additional mixtures are assigned automatically by the code and are
-shown in <a class="reference internal" href="#fig2-3-3"><span class="std std-numref">Fig. 124</span></a> for a lattice cell consisting of fuel, gap,
+shown in <a class="reference internal" href="#fig2-3-3"><span class="std std-numref">Fig. 171</span></a> for a lattice cell consisting of fuel, gap,
 clad, and moderator. The additional mixture numbers may also be used
 directly in the KENO model. Mixture number allocation is illustrated
-in <a class="reference internal" href="#fig2-3-4"><span class="std std-numref">Fig. 125</span></a> for an example case where the number of different
+in <a class="reference internal" href="#fig2-3-4"><span class="std std-numref">Fig. 172</span></a> for an example case where the number of different
 horizontal zones is four and the maximum number of axial zones is
 limited to 25.</p></li>
 <li><p>All structural materials in the problem must have mixture numbers
 different from the numbers automatically generated by the code (see
-<a class="reference internal" href="#fig2-3-4"><span class="std std-numref">Fig. 125</span></a> for an example of available mixture numbers). For the
-example shown in <a class="reference internal" href="#fig2-3-4"><span class="std std-numref">Fig. 125</span></a>, mixtures 5–100, 126–200, 226–300,
+<a class="reference internal" href="#fig2-3-4"><span class="std std-numref">Fig. 172</span></a> for an example of available mixture numbers). For the
+example shown in <a class="reference internal" href="#fig2-3-4"><span class="std std-numref">Fig. 172</span></a>, mixtures 5–100, 126–200, 226–300,
 326–400, 501, 601, 701, 426–500, and 801–2147 are not allocated by
 STARBUCS and may be defined by the user in the composition data block
 and used in the geometry model. If the constraints in paragraph 1 are
@@ -1972,7 +1971,7 @@ MX=118 would correspond to the top axial zone. If multiple horizontal
 zones are defined, then the numbering sequence of the second horizontal
 zone will start at MX=201 and, in the example given here, would range up
 to MX=218. Refer to <a class="reference internal" href="#cap-and-lim"><span class="std std-ref">Capabilities and Limitations</span></a> for limitations in the mixture-numbering
-scheme. The mixture-numbering scheme is illustrated in <a class="reference internal" href="#fig2-3-3"><span class="std std-numref">Fig. 124</span></a>.</p>
+scheme. The mixture-numbering scheme is illustrated in <a class="reference internal" href="#fig2-3-3"><span class="std std-numref">Fig. 171</span></a>.</p>
 </div>
 </div>
 <div class="section" id="sample-problems">
@@ -1994,7 +1993,7 @@ spent fuel assemblies residing in water. Sample problem 6 uses KENO-VI
 to model a hexagonal VVER‑440 fuel assembly.</p>
 <div class="section" id="sample-problem-1">
 <h3>Sample problem 1<a class="headerlink" href="#sample-problem-1" title="Permalink to this headline">¶</a></h3>
-<p>Sample problem 1, listed in <a class="reference internal" href="#list2-3-1"><span class="std std-numref">Listing 5</span></a>, defines a simple infinite
+<p>Sample problem 1, listed in <a class="reference internal" href="#list2-3-1"><span class="std std-numref">Listing 13</span></a>, defines a simple infinite
 UO<sub>2</sub> pin-cell model with uniform-axial burnup for burnup loading
 curve calculations. The initial fuel enrichment is 2.0 wt %. The control
 parameter data block specifies that the standard Westinghouse (W)
@@ -2012,7 +2011,7 @@ average burnup per cycle in GWd/MTU, <em>avgbu</em>, fractional downtime,
 </div>
 <div class="section" id="sample-problem-2">
 <h3>Sample problem 2<a class="headerlink" href="#sample-problem-2" title="Permalink to this headline">¶</a></h3>
-<p>Sample problem 2, listed in <a class="reference internal" href="#list2-3-2"><span class="std std-numref">Listing 6</span></a>, illustrates a simple pin-cell
+<p>Sample problem 2, listed in <a class="reference internal" href="#list2-3-2"><span class="std std-numref">Listing 14</span></a>, illustrates a simple pin-cell
 model using 18-axial-burnup-dependent zones. In this example, the
 built-in axial profiles for three burnup ranges are applied using the
 NAX= −18 option (see profiles in <a class="reference internal" href="#tab2-3-5"><span class="std std-numref">Table 90</span></a>). STARBUCS determines the
@@ -2039,7 +2038,7 @@ burnup value equal to that of the particular mixture used. The average
 assembly burnup would also be equal to that of the particular mixture
 used, and not that defined by the power history data block.</p>
 <div class="literal-block-wrapper docutils container" id="list2-3-1">
-<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">STARBUCS input listing for sample problem 1</span><a class="headerlink" href="#list2-3-1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">STARBUCS input listing for sample problem 1</span><a class="headerlink" href="#list2-3-1" title="Permalink to this code">¶</a></div>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span>    <span class="err">=starbucs</span>
    <span class="err">PWR</span> <span class="m">17</span><span class="err">x</span><span class="m">17</span> <span class="err">Fuel</span> <span class="err">Assembly</span> <span class="err">-</span> <span class="err">uniform</span> <span class="err">axial</span> <span class="err">burnup</span> <span class="err">rods</span>
   <span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
@@ -2106,7 +2105,7 @@ used, and not that defined by the power history data block.</p>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="list2-3-2">
-<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">STARBUCS input listing for sample problem 2</span><a class="headerlink" href="#list2-3-2" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 14 </span><span class="caption-text">STARBUCS input listing for sample problem 2</span><a class="headerlink" href="#list2-3-2" title="Permalink to this code">¶</a></div>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=starbucs</span>
  <span class="err">PWR</span> <span class="m">17</span><span class="err">x</span><span class="m">17</span> <span class="err">Fuel</span> <span class="err">Assembly</span> <span class="err">-</span> <span class="m">18</span><span class="err">-zone</span> <span class="err">axial</span> <span class="err">burnup</span> <span class="err">profile</span>
 <span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
@@ -2180,7 +2179,7 @@ used, and not that defined by the power history data block.</p>
 </div>
 <div class="section" id="sample-problem-3">
 <h3>Sample problem 3<a class="headerlink" href="#sample-problem-3" title="Permalink to this headline">¶</a></h3>
-<p>Sample problem 3, listed in <a class="reference internal" href="#list2-3-3"><span class="std std-numref">Listing 7</span></a>, performs a burnup-credit
+<p>Sample problem 3, listed in <a class="reference internal" href="#list2-3-3"><span class="std std-numref">Listing 15</span></a>, performs a burnup-credit
 criticality safety calculation using the SCALE 238-group ENDF/B-VII
 cross section library (V7-238) for an array of Combustion Engineering
 (CE) 14 × 14 spent fuel assemblies in water. A subset of burnup-credit
@@ -2204,9 +2203,9 @@ with burnup. The nominal CE 14 × 14 assembly design specifications were
 obtained from <a class="bibtex reference internal" href="#dehart-extension-1996" id="id6">[DH96]</a>. The assembly pitch in the criticality
 calculations is 22.78 cm. A cross section view of the assembly geometry,
 a 2 × 8 array of water reflected assemblies, is illustrated in
-<a class="reference internal" href="#fig2-3-5"><span class="std std-numref">Fig. 126</span></a>.</p>
+<a class="reference internal" href="#fig2-3-5"><span class="std std-numref">Fig. 173</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="list2-3-3">
-<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">STARBUCS input listing for sample problem</span><a class="headerlink" href="#list2-3-3" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">STARBUCS input listing for sample problem</span><a class="headerlink" href="#list2-3-3" title="Permalink to this code">¶</a></div>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span>  <span class="err">=starbucs</span>
 <span class="err">CE</span> <span class="m">14</span><span class="err">x</span><span class="m">14</span> <span class="err">assembly</span> <span class="m">2</span> <span class="err">x</span> <span class="m">8</span> <span class="err">array</span>
 <span class="err">V</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
@@ -2322,15 +2321,15 @@ a 2 × 8 array of water reflected assemblies, is illustrated in
 </div>
 <div class="figure align-center" id="id18">
 <span id="fig2-3-5"></span><a class="reference internal image-reference" href="_images/fig53.png"><img alt="_images/fig53.png" src="_images/fig53.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 126 </span><span class="caption-text">Plot of the CE 14 × 14 assembly array geometry in sample problem 3.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 173 </span><span class="caption-text">Plot of the CE 14 × 14 assembly array geometry in sample problem 3.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="sample-problem-4">
 <h3>Sample problem 4<a class="headerlink" href="#sample-problem-4" title="Permalink to this headline">¶</a></h3>
-<p>Sample problem 4, listed in <a class="reference internal" href="#list2-3-4"><span class="std std-numref">Listing 8</span></a>, illustrates the application of
+<p>Sample problem 4, listed in <a class="reference internal" href="#list2-3-4"><span class="std std-numref">Listing 16</span></a>, illustrates the application of
 STARBUCS for a criticality safety analysis of a burnup-credit cask. The
 cask geometry in this example is based on a 32-assembly generic
-burnup-credit cask model and is illustrated in <a class="reference internal" href="#fig2-3-6"><span class="std std-numref">Fig. 127</span></a>.</p>
+burnup-credit cask model and is illustrated in <a class="reference internal" href="#fig2-3-6"><span class="std std-numref">Fig. 174</span></a>.</p>
 <p>The assemblies are assumed to be W 17 × 17 OFA assemblies with an
 initial enrichment of 4.98 wt %. The standard composition description
 for this problem includes the fuel assembly and all cask structural
@@ -2350,10 +2349,10 @@ evaluation of the cask is performed following a cooling time of
 1826 days (5 years).</p>
 <div class="figure align-center" id="id19">
 <span id="fig2-3-6"></span><a class="reference internal image-reference" href="_images/fig62.png"><img alt="_images/fig62.png" src="_images/fig62.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 127 </span><span class="caption-text">Cutaway view of the generic 32-assembly burnup-credit cask showing the cask bottom half with a quarter of the model removed.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 174 </span><span class="caption-text">Cutaway view of the generic 32-assembly burnup-credit cask showing the cask bottom half with a quarter of the model removed.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 <div class="literal-block-wrapper docutils container" id="list2-3-4">
-<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">STARBUCS input listing for sample problem 4</span><a class="headerlink" href="#list2-3-4" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">STARBUCS input listing for sample problem 4</span><a class="headerlink" href="#list2-3-4" title="Permalink to this code">¶</a></div>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=starbucs</span>
  <span class="err">PWR</span> <span class="m">18</span><span class="err">-axial</span> <span class="err">zone</span> <span class="err">W</span><span class="m">17</span><span class="err">x</span><span class="m">17</span> <span class="err">assembly,</span> <span class="err">GBC-</span><span class="m">32</span> <span class="err">assembly</span> <span class="err">cask</span> <span class="err">model</span>
 <span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
@@ -2636,7 +2635,7 @@ evaluation of the cask is performed following a cooling time of
 </div>
 <div class="section" id="sample-problem-5">
 <h3>Sample problem 5<a class="headerlink" href="#sample-problem-5" title="Permalink to this headline">¶</a></h3>
-<p>Sample problem 5, listed in <a class="reference internal" href="#list2-3-5"><span class="std std-numref">Listing 9</span></a>, uses the CE 14 × 14 assembly
+<p>Sample problem 5, listed in <a class="reference internal" href="#list2-3-5"><span class="std std-numref">Listing 17</span></a>, uses the CE 14 × 14 assembly
 design from problem 3, and performs a burnup-credit calculation using
 the horizontal burnup-profile option. The assembly configuration is
 taken to be a simple 2 × 2 assembly array with water reflection. This
@@ -2681,7 +2680,7 @@ KENO V.a problem description produce the desired average burnup.</p>
 <p>In this sample problem the four assemblies are aligned so the lower
 burnup regions of the assemblies are adjacent to one another to maximize
 the system reactivity. The assembly geometry showing the different
-burnup regions of the assemblies is illustrated in <a class="reference internal" href="#fig2-3-7"><span class="std std-numref">Fig. 128</span></a>. The
+burnup regions of the assemblies is illustrated in <a class="reference internal" href="#fig2-3-7"><span class="std std-numref">Fig. 175</span></a>. The
 criticality calculation is performed using the SCALE ENDF/B-VII
 continuous cross section library (CE_V7).</p>
 <p>Following the STARBUCS calculation, the KENO V.a geometry model could be
@@ -2692,7 +2691,7 @@ have already been created during the initial STARBUCS run. This
 facilitates the rapid evaluation of different fuel configurations
 without the need to regenerate the material compositions using STARBUCS.</p>
 <div class="literal-block-wrapper docutils container" id="list2-3-5">
-<div class="code-block-caption"><span class="caption-number">Listing 9 </span><span class="caption-text">STARBUCS input listing for sample problem 5</span><a class="headerlink" href="#list2-3-5" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">STARBUCS input listing for sample problem 5</span><a class="headerlink" href="#list2-3-5" title="Permalink to this code">¶</a></div>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=starbucs</span>
 <span class="err">CE</span> <span class="m">14</span><span class="err">x</span><span class="m">14</span> <span class="err">assembly</span> <span class="m">4</span><span class="err">x</span><span class="m">4</span> <span class="err">array</span> <span class="err">-</span> <span class="err">horizontal</span> <span class="err">burnup</span> <span class="err">gradient</span>
 <span class="err">ce_v</span><span class="m">7</span>
@@ -2882,7 +2881,7 @@ without the need to regenerate the material compositions using STARBUCS.</p>
 </div>
 <div class="figure align-center" id="id20">
 <span id="fig2-3-7"></span><a class="reference internal image-reference" href="_images/fig72.png"><img alt="_images/fig72.png" src="_images/fig72.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 128 </span><span class="caption-text">Plot of the 2 x 2 array of CE 14  14 assemblies with burnup gradient.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 175 </span><span class="caption-text">Plot of the 2 x 2 array of CE 14  14 assemblies with burnup gradient.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="sample-problem-6">
@@ -2892,10 +2891,10 @@ assembly. In this example the axial burnup profile is simulated using
 five axial regions of non-uniform volume (height). In this case the
 profile input in the AXP= array is not normalized by the code (i.e.,
 NPR=NO). The criticality calculation is performed using actinide credit
-only. The input file is listed in <a class="reference internal" href="#list2-3-6"><span class="std std-numref">Listing 10</span></a> and is the geometry is
-illustrated in <a class="reference internal" href="#fig2-3-8"><span class="std std-numref">Fig. 129</span></a>.</p>
+only. The input file is listed in <a class="reference internal" href="#list2-3-6"><span class="std std-numref">Listing 18</span></a> and is the geometry is
+illustrated in <a class="reference internal" href="#fig2-3-8"><span class="std std-numref">Fig. 176</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="list2-3-6">
-<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">STARBUCS input listing for sample problem 6</span><a class="headerlink" href="#list2-3-6" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">STARBUCS input listing for sample problem 6</span><a class="headerlink" href="#list2-3-6" title="Permalink to this code">¶</a></div>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=starbucs</span>
 <span class="err">VVER</span> <span class="err">assembly</span> <span class="err">array</span>
 <span class="err">V</span><span class="m">7</span><span class="err">-</span><span class="m">238</span>
@@ -2997,7 +2996,7 @@ illustrated in <a class="reference internal" href="#fig2-3-8"><span class="std s
 </div>
 <div class="figure align-center" id="id21">
 <span id="fig2-3-8"></span><a class="reference internal image-reference" href="_images/fig82.png"><img alt="_images/fig82.png" src="_images/fig82.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 129 </span><span class="caption-text">Cutaway 3-D view of the hexagonal VVER assembly model with water hidden.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 176 </span><span class="caption-text">Cutaway 3-D view of the hexagonal VVER assembly model with water hidden.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </div>
 <p id="bibtex-bibliography-STARBUCS-0"><dl class="citation">
 <dt class="bibtex label" id="cacciapouti-axial-2000"><span class="brackets"><a class="fn-backref" href="#id5">Cac00</a></span></dt>

@@ -1,4 +1,4 @@
-*k*\ :sub:`eff`.. _STARBUCS:
+.. _STARBUCS:
 
 STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit
 ==============================================================================================
