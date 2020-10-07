@@ -388,7 +388,7 @@ energy and directional.</p>
 <p>The spatial component of a source in Monaco is simple but very flexible.
 First, the general shape of the source region is defined in global
 coordinates. The basic solid shapes and their allowed degenerate cases
-are listed in <a class="reference internal" href="#monaco-tab1"><span class="std std-numref">Table 52</span></a>. The user can reference any of the defined
+are listed in <a class="reference internal" href="#monaco-tab1"><span class="std std-numref">Table 53</span></a>. The user can reference any of the defined
 distributions to describe the source distribution in any coordinate
 (<em>x</em>, <em>y</em>, and <em>z</em> for cuboids, <em>r</em> and <em>z</em> for cylinders and <em>r</em> for
 spheres) to use for sampling or leave the source distribution as uniform
@@ -399,7 +399,7 @@ defined that are independent or dependent on the model geometry. A
 cylinder or cylindrical shell region can be oriented with its axis in
 any direction.</p>
 <span id="monaco-tab1"></span><table class="docutils align-default" id="id20">
-<caption><span class="caption-number">Table 52 </span><span class="caption-text">Available source shapes and their allowed degenerate cases</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 53 </span><span class="caption-text">Available source shapes and their allowed degenerate cases</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -905,10 +905,10 @@ such as the decay radiation from common isotopic sources.  Consider a simple shi
 simulation using cobalt-60.  This isotope gives off two high-energy gamma rays when it decays
 (1173230 eV with intensity 99.85% and 1332490 eV with intensity 99.9826%).  In the SCALE multigroup
 calculations, a cobalt-60 source spectrum is represented by a broad pdf, controlled by the group structure.
-This is shown in <a class="reference internal" href="#fig8-1"><span class="std std-numref">Fig. 66</span></a>. for the fine 47-group structure and the broad 19-group structure.</p>
+This is shown in <a class="reference internal" href="#fig8-1"><span class="std std-numref">Fig. 81</span></a>. for the fine 47-group structure and the broad 19-group structure.</p>
 <div class="figure align-center" id="id21">
 <span id="fig8-1"></span><a class="reference internal image-reference" href="_images/Picture1.png"><img alt="_images/Picture1.png" src="_images/Picture1.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">The multigroup representation of a cobalt-60 source.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">The multigroup representation of a cobalt-60 source.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </div>
 <p>Note that in both group structures, 1.33 MeV is a group boundary, so the
 1332490 eV line is represented by group that covers higher energies. The
@@ -916,12 +916,12 @@ cross section for that group is lower than the cross section for the
 specific line, so multigroup transport calculations will tend to
 overestimate the number of photons penetrating a shield, which will
 overestimate dose rates.</p>
-<p>Using CE and the two multigroup libraries, the total cross sections for the cobalt lines are listed in <a class="reference internal" href="#tab8-2"><span class="std std-numref">Table 53</span></a>.
-<a class="reference internal" href="#fig8-2"><span class="std std-numref">Fig. 67</span></a>. shows the total cross section of photons in tungsten, in both CE and the two SCALE multigroup structures.
-On the whole, the multigroup data represents the CE data well.  <a class="reference internal" href="#fig8-3"><span class="std std-numref">Fig. 68</span></a>. shows the same cross section information
+<p>Using CE and the two multigroup libraries, the total cross sections for the cobalt lines are listed in <a class="reference internal" href="#tab8-2"><span class="std std-numref">Table 54</span></a>.
+<a class="reference internal" href="#fig8-2"><span class="std std-numref">Fig. 82</span></a>. shows the total cross section of photons in tungsten, in both CE and the two SCALE multigroup structures.
+On the whole, the multigroup data represents the CE data well.  <a class="reference internal" href="#fig8-3"><span class="std std-numref">Fig. 83</span></a>. shows the same cross section information
 near the two cobalt lines, which shows how the multigroup cross sections average over quite large energy ranges.</p>
 <span id="tab8-2"></span><table class="docutils align-center" id="id22">
-<caption><span class="caption-number">Table 53 </span><span class="caption-text">Total macroscopic cross section in tungsten (/cm).</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 54 </span><span class="caption-text">Total macroscopic cross section in tungsten (/cm).</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 29%" />
 <col style="width: 35%" />
@@ -950,7 +950,7 @@ near the two cobalt lines, which shows how the multigroup cross sections average
 </table>
 <p>The small differences in cross section can make large differences in the
 transport. Consider just 5 cm of tungsten. Using the cross sections in
-<a class="reference internal" href="#tab8-2"><span class="std std-numref">Table 53</span></a>, the attenuation (<span class="math notranslate nohighlight">\(e^{- \mu x}\)</span>) of either line can
+<a class="reference internal" href="#tab8-2"><span class="std std-numref">Table 54</span></a>, the attenuation (<span class="math notranslate nohighlight">\(e^{- \mu x}\)</span>) of either line can
 vary by 30%.</p>
 <p>In addition to source representation problems, multigroup transport is
 not adequate for applications where line spectra are measured. Because
@@ -962,11 +962,11 @@ other photons from 400 to 600 keV. No multigroup structure could contain
 thin groups around every line of interest.</p>
 <div class="figure align-center" id="id23">
 <span id="fig8-2"></span><a class="reference internal image-reference" href="_images/8-2.png"><img alt="_images/8-2.png" src="_images/8-2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Photon total cross section in tungsten.  The energies of the cobalt-60 are displayed as lines at 1173230 and 1332490 eV.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Photon total cross section in tungsten.  The energies of the cobalt-60 are displayed as lines at 1173230 and 1332490 eV.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id24">
 <span id="fig8-3"></span><a class="reference internal image-reference" href="_images/8-3.png"><img alt="_images/8-3.png" src="_images/8-3.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Photon total cross section in tungsten, near the cobalt lines.  The energies of the cobalt-60 are displayed as lines at 1173230 and 1332490 eV.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">Photon total cross section in tungsten, near the cobalt lines.  The energies of the cobalt-60 are displayed as lines at 1173230 and 1332490 eV.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </div>
 <p>A sample problem involving a cobalt source and a slab of tungsten will
 compare the use of continuous-energy transport to multigroup transport,
@@ -1013,7 +1013,7 @@ examples only for clarity. Except for strings in quotes (like
 filenames), SCALE is not case sensitive.</p>
 <p>After all of the blocks are listed, a single line with “end data” should
 be listed. A final “end” should also be listed, to signify the end of
-all Monaco input. See <a class="reference internal" href="#tab8-3"><span class="std std-numref">Table 54</span></a> for an overview of the Monaco input
+all Monaco input. See <a class="reference internal" href="#tab8-3"><span class="std std-numref">Table 55</span></a> for an overview of the Monaco input
 file structure.</p>
 <div class="section" id="cross-sections-block">
 <h3>Cross sections block<a class="headerlink" href="#cross-sections-block" title="Permalink to this headline">¶</a></h3>
@@ -1026,7 +1026,7 @@ from ENDF/B-VII.0 data—the v7-200n47g fine-group and the v7-27n19g
 coarse-group libraries. CE libraries made from ENDF/BVII.0 are also
 available in SCALE.</p>
 <span id="tab8-3"></span><table class="docutils align-center" id="id25">
-<caption><span class="caption-number">Table 54 </span><span class="caption-text">Overall input format for Monaco</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 55 </span><span class="caption-text">Overall input format for Monaco</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1337,14 +1337,14 @@ correspond to the order of the bounds array. These two examples</p>
 <span class="n">end</span><span class="err"> </span><span class="n">response</span>
 </pre></div>
 </div>
-<p>are shown in <a class="reference internal" href="#fig8-4"><span class="std std-numref">Fig. 69</span></a> and <a class="reference internal" href="#fig8-5"><span class="std std-numref">Fig. 70</span></a>.</p>
+<p>are shown in <a class="reference internal" href="#fig8-4"><span class="std std-numref">Fig. 84</span></a> and <a class="reference internal" href="#fig8-5"><span class="std std-numref">Fig. 85</span></a>.</p>
 <div class="figure align-center" id="id26">
 <span id="fig8-4"></span><a class="reference internal image-reference" href="_images/8-4.png"><img alt="_images/8-4.png" src="_images/8-4.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">Histogram-type response.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Histogram-type response.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id27">
 <span id="fig8-5"></span><a class="reference internal image-reference" href="_images/8-5.png"><img alt="_images/8-5.png" src="_images/8-5.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">Value/function pair response.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Value/function pair response.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
 </div>
 </dd>
 <dt>Type 2.</dt><dd><p>Data from the cross-section library can also be used to define a
@@ -1390,10 +1390,10 @@ if a non-existing reaction is requested.</p>
 <span class="n">end</span><span class="err"> </span><span class="n">definitions</span>
 </pre></div>
 </div>
-<p>For the examples above, response 41 is shown in <a class="reference internal" href="#fig8-6"><span class="std std-numref">Fig. 71</span></a>. and
-<a class="reference internal" href="#fig8-7"><span class="std std-numref">Fig. 72</span></a>. for both MULTIGROUP and CE.</p>
+<p>For the examples above, response 41 is shown in <a class="reference internal" href="#fig8-6"><span class="std std-numref">Fig. 86</span></a>. and
+<a class="reference internal" href="#fig8-7"><span class="std std-numref">Fig. 87</span></a>. for both MULTIGROUP and CE.</p>
 <table class="docutils align-center" id="tab8-4">
-<caption><span class="caption-number">Table 55 </span><span class="caption-text">Common MT (reaction) numbers for responses</span><a class="headerlink" href="#tab8-4" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 56 </span><span class="caption-text">Common MT (reaction) numbers for responses</span><a class="headerlink" href="#tab8-4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -1405,11 +1405,11 @@ if a non-existing reaction is requested.</p>
 </table>
 <div class="figure align-center" id="id28">
 <span id="fig8-6"></span><a class="reference internal image-reference" href="_images/8-6.png"><img alt="_images/8-6.png" src="_images/8-6.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">Multigroup <sup>235</sup>U total fission cross section.</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Multigroup <sup>235</sup>U total fission cross section.</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id29">
 <span id="fig8-7"></span><a class="reference internal image-reference" href="_images/8-7.png"><img alt="_images/8-7.png" src="_images/8-7.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">CE <sup>235</sup>U total fission cross section.</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">CE <sup>235</sup>U total fission cross section.</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
 </div>
 </dd>
 </dl>
@@ -1426,7 +1426,7 @@ using a weighting spectrum. These dose responses can be accessed through
 Monaco/MAVRIC by defining a response object that uses the keyword
 “specialDose=” and then providing the MT number of the particular
 response. The dose responses available in the shielding libraries in are
-shown in <a class="reference internal" href="#tab8-5"><span class="std std-numref">Table 56</span></a>. Note that the coupled responses in SCALE 6.1 are
+shown in <a class="reference internal" href="#tab8-5"><span class="std std-numref">Table 57</span></a>. Note that the coupled responses in SCALE 6.1 are
 no longer used by Monaco, since responses are now defined to be either a
 neutron response or a photon response. When using the “specialDose=”
 keyword, the “neutron” or “photon” designation is ignored, since the
@@ -1439,7 +1439,7 @@ particle type is inherent with the MT number.</p>
 </pre></div>
 </div>
 <table class="docutils align-center" id="tab8-5">
-<caption><span class="caption-number">Table 56 </span><span class="caption-text">Flux-to-Dose conversion factor MT numbers</span><a class="headerlink" href="#tab8-5" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 57 </span><span class="caption-text">Flux-to-Dose conversion factor MT numbers</span><a class="headerlink" href="#tab8-5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -1454,9 +1454,9 @@ the continuous-energy libraries. Routines have been added to the Monaco
 code base to generate data points to allow users to define responses
 based on the original references. Note that the responses in these
 references were defined over different energy ranges, as shown in
-<a class="reference internal" href="#tab8-6"><span class="std std-numref">Table 57</span></a>.</p>
+<a class="reference internal" href="#tab8-6"><span class="std std-numref">Table 58</span></a>.</p>
 <table class="docutils align-center" id="tab8-6" style="width: 70%">
-<caption><span class="caption-number">Table 57 </span><span class="caption-text">Energy ranges of the original Flux-to-Dose responses</span><a class="headerlink" href="#tab8-6" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 58 </span><span class="caption-text">Energy ranges of the original Flux-to-Dose responses</span><a class="headerlink" href="#tab8-6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -1490,31 +1490,31 @@ multigroup responses in the those libraries.</p>
 </div>
 <p>As an example of the various forms of a flux-to-dose conversion factor,
 the ANSI 1991 values (MT=9031 and 9505) are shown in
-<a class="reference internal" href="#fig8-8"><span class="std std-numref">Fig. 73</span></a> through <a class="reference internal" href="#fig8-11"><span class="std std-numref">Fig. 76</span></a>.</p>
+<a class="reference internal" href="#fig8-8"><span class="std std-numref">Fig. 88</span></a> through <a class="reference internal" href="#fig8-11"><span class="std std-numref">Fig. 91</span></a>.</p>
 <div class="figure align-center" id="id30">
 <span id="fig8-8"></span><a class="reference internal image-reference" href="_images/8-8.png"><img alt="_images/8-8.png" src="_images/8-8.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">ANSI 1991 neutron CE (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">ANSI 1991 neutron CE (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id31">
 <span id="fig8-9"></span><a class="reference internal image-reference" href="_images/8-9.png"><img alt="_images/8-9.png" src="_images/8-9.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">ANSI 1991 neutron MULTIGROUP (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">ANSI 1991 neutron MULTIGROUP (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id32">
 <span id="fig8-10"></span><a class="reference internal image-reference" href="_images/8-10.png"><img alt="_images/8-10.png" src="_images/8-10.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">ANSI 1991 photon CE (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">ANSI 1991 photon CE (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id33">
 <span id="fig8-11"></span><a class="reference internal image-reference" href="_images/8-11.png"><img alt="_images/8-11.png" src="_images/8-11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">ANSI 1991 photon MULTIGROUP (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">ANSI 1991 photon MULTIGROUP (left is log-log, right is linear-linear)</span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
 </div>
 <p>The use of the “specialDose=” and “doseData=” keywords is summarized in
-<a class="reference internal" href="#tab8-7"><span class="std std-numref">Table 58</span></a>. Users should understand that the only way to get the ‘true’
+<a class="reference internal" href="#tab8-7"><span class="std std-numref">Table 59</span></a>. Users should understand that the only way to get the ‘true’
 response described in the original references is to use the “doseData=”
 and “noExtrapolation” keywords. The traditional approach in SCALE has
 been to extrapolate the original data over the entire energy range of
 the problem, yielding higher dose rates than the ‘true’ response would.</p>
 <table class="docutils align-center" id="tab8-7">
-<caption><span class="caption-number">Table 58 </span><span class="caption-text">Use of the “specialDose=” and “doseData=” keywords.</span><a class="headerlink" href="#tab8-7" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 59 </span><span class="caption-text">Use of the “specialDose=” and “doseData=” keywords.</span><a class="headerlink" href="#tab8-7" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -1746,7 +1746,7 @@ file for all of the distributions in the definitions block, use the
 keyword “runSampleTests” inside the definitions block but outside any
 particular distribution.</p>
 <p>Some example distribution inputs are listed below and shown in
-<a class="reference internal" href="#fig8-12"><span class="std std-numref">Fig. 77</span></a>.</p>
+<a class="reference internal" href="#fig8-12"><span class="std std-numref">Fig. 92</span></a>.</p>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">distribution</span> <span class="m">11</span>
    <span class="err">title=</span><span class="s">&quot;a binned histogram&quot;</span>
    <span class="err">abscissa</span> <span class="err">-</span><span class="m">5</span> <span class="err">-</span><span class="m">4</span> <span class="err">-</span><span class="m">3</span> <span class="err">-</span><span class="m">2</span> <span class="err">-</span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="n">end</span>
@@ -1801,7 +1801,7 @@ specified using “energyBoundsID=”.</p></li>
 </div></blockquote>
 <div class="figure align-center" id="id34">
 <span id="fig8-12"></span><a class="reference internal image-reference" href="_images/8-12.png"><img alt="_images/8-12.png" src="_images/8-12.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Sampling tests for the distribution examples.</span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">Sampling tests for the distribution examples.</span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
 </div>
 <p>Several special (built-in) distributions are available in Monaco. To use
 one of these, specify the keyword “special=” with a distribution name in
@@ -1833,7 +1833,7 @@ neutron groups but when sampled in Monaco, the continuous Froehner and
 Spencer<sup>1</sup> method is used to select an energy of source particles
 using a Watt spectrum distribution.</p>
 <span id="tab8-8"></span><table class="docutils align-center" id="id35">
-<caption><span class="caption-number">Table 59 </span><span class="caption-text">Special (built-in) distributions</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 60 </span><span class="caption-text">Special (built-in) distributions</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -1982,7 +1982,7 @@ Table S4.4.5. 4) Fission neutron distributions are not allowed in the CE
 problems, users are advised to use “wattSpectum” in order to get a
 similar distribution.</p>
 <table class="docutils align-center" id="tab8-9">
-<caption><span class="caption-number">Table 60 </span><span class="caption-text">Watt spectrum parameters for neutron induced fission of <sup>233</sup>U (From ENDF/B-VII.0)</span><a class="headerlink" href="#tab8-9" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 61 </span><span class="caption-text">Watt spectrum parameters for neutron induced fission of <sup>233</sup>U (From ENDF/B-VII.0)</span><a class="headerlink" href="#tab8-9" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -1993,7 +1993,7 @@ similar distribution.</p>
 </tbody>
 </table>
 <p>Some example special distribution inputs are listed below and shown in
-<a class="reference internal" href="#fig8-13"><span class="std std-numref">Fig. 78</span></a>.</p>
+<a class="reference internal" href="#fig8-13"><span class="std std-numref">Fig. 93</span></a>.</p>
 <div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">distribution</span> <span class="m">11</span>
     <span class="err">special=</span><span class="s">&quot;wattSpectrum&quot;</span>
     <span class="err">parameters</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">3</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
@@ -2031,7 +2031,7 @@ similar distribution.</p>
 </div>
 <div class="figure align-center" id="id36">
 <span id="fig8-13"></span><img alt="_images/8-13.png" src="_images/8-13.png" />
-<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Sampling tests for the special (built-in) distribution examples.</span><a class="headerlink" href="#id36" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Sampling tests for the special (built-in) distribution examples.</span><a class="headerlink" href="#id36" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="energy-boundaries">
@@ -2789,7 +2789,7 @@ location ID number must be specified using the “locationID=” keyword.
 For CE calculations, energy boundary objects need to be defined using
 the keywords “nEnergyBoundsID=” and “pEnergyBoundsID=”.</p>
 <table class="docutils align-center" id="tab8-10">
-<caption><span class="caption-number">Table 61 </span><span class="caption-text">Directions available for path-length stretching</span><a class="headerlink" href="#tab8-10" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 62 </span><span class="caption-text">Directions available for path-length stretching</span><a class="headerlink" href="#tab8-10" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2910,7 +2910,7 @@ weight matching the target weight of the importance map.</p>
 <h4>Monaco input summary<a class="headerlink" href="#monaco-input-summary" title="Permalink to this headline">¶</a></h4>
 <p>Below are summaries of the Monaco blocks and their available keywords.</p>
 <table class="docutils align-center" id="tab8-11">
-<caption><span class="caption-number">Table 62 </span><span class="caption-text">Keywords for the cross section block</span><a class="headerlink" href="#tab8-11" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 63 </span><span class="caption-text">Keywords for the cross section block</span><a class="headerlink" href="#tab8-11" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2921,7 +2921,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-12">
-<caption><span class="caption-number">Table 63 </span><span class="caption-text">Keywords for the definitions block</span><a class="headerlink" href="#tab8-12" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 64 </span><span class="caption-text">Keywords for the definitions block</span><a class="headerlink" href="#tab8-12" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2932,7 +2932,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-13">
-<caption><span class="caption-number">Table 64 </span><span class="caption-text">More keywords for the definitions block</span><a class="headerlink" href="#tab8-13" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 65 </span><span class="caption-text">More keywords for the definitions block</span><a class="headerlink" href="#tab8-13" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2943,7 +2943,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-14">
-<caption><span class="caption-number">Table 65 </span><span class="caption-text">Even more keywords for the definitions block</span><a class="headerlink" href="#tab8-14" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 66 </span><span class="caption-text">Even more keywords for the definitions block</span><a class="headerlink" href="#tab8-14" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2954,7 +2954,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-15">
-<caption><span class="caption-number">Table 66 </span><span class="caption-text">Special distribution keywords for the definitions block</span><a class="headerlink" href="#tab8-15" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 67 </span><span class="caption-text">Special distribution keywords for the definitions block</span><a class="headerlink" href="#tab8-15" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2965,7 +2965,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-16">
-<caption><span class="caption-number">Table 67 </span><span class="caption-text">Continuous energy keywords for the definitions block</span><a class="headerlink" href="#tab8-16" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 68 </span><span class="caption-text">Continuous energy keywords for the definitions block</span><a class="headerlink" href="#tab8-16" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2976,7 +2976,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-17">
-<caption><span class="caption-number">Table 68 </span><span class="caption-text">Keywords for the sources block</span><a class="headerlink" href="#tab8-17" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 69 </span><span class="caption-text">Keywords for the sources block</span><a class="headerlink" href="#tab8-17" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2987,7 +2987,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-18">
-<caption><span class="caption-number">Table 69 </span><span class="caption-text">More keywords for the sources block</span><a class="headerlink" href="#tab8-18" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 70 </span><span class="caption-text">More keywords for the sources block</span><a class="headerlink" href="#tab8-18" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -2998,7 +2998,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-19">
-<caption><span class="caption-number">Table 70 </span><span class="caption-text">Keywords for the tallies block</span><a class="headerlink" href="#tab8-19" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 71 </span><span class="caption-text">Keywords for the tallies block</span><a class="headerlink" href="#tab8-19" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -3009,7 +3009,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-20">
-<caption><span class="caption-number">Table 71 </span><span class="caption-text">Keywords for the parameters block</span><a class="headerlink" href="#tab8-20" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 72 </span><span class="caption-text">Keywords for the parameters block</span><a class="headerlink" href="#tab8-20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -3020,7 +3020,7 @@ weight matching the target weight of the importance map.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-21">
-<caption><span class="caption-number">Table 72 </span><span class="caption-text">Keywords for the biasing block</span><a class="headerlink" href="#tab8-21" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 73 </span><span class="caption-text">Keywords for the biasing block</span><a class="headerlink" href="#tab8-21" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -3077,7 +3077,7 @@ also produce chart files, “<em>outputName</em>.pd<em>id</em>.chart” or
 the total photon flux, and the total response function value calculated
 at the end of each batch. This data can be used to look at tally
 convergence and can be viewed with the Interactive Plotter capabilities
-of Fulcrum. <a class="reference internal" href="#tab8-22"><span class="std std-numref">Table 73</span></a> lists the output files, based on the name of
+of Fulcrum. <a class="reference internal" href="#tab8-22"><span class="std std-numref">Table 74</span></a> lists the output files, based on the name of
 the main output file (here called <em>outputName)</em>, that are available to
 the user. These files will be copied back to the directory where SCALE
 was executed.</p>
@@ -3102,7 +3102,7 @@ identification number. The “runSampleTest” results will also be
 displayed in the main text output with each distribution listed in the
 Monaco input review.</p>
 <span id="tab8-22"></span><table class="docutils align-center" id="id37">
-<caption><span class="caption-number">Table 73 </span><span class="caption-text">Output files created by Monaco</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 74 </span><span class="caption-text">Output files created by Monaco</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -3424,7 +3424,7 @@ detector. The two statistical tables are shown in <a class="reference internal" 
 <a class="reference internal" href="#list8-4"><span class="std std-numref">Listing 4</span></a>. This tally is not yet converged enough to pass most of
 the statistical tests. With thirty times the simulation time, this point
 detector tally will pass all six tests.</p>
-<p><a class="reference internal" href="#fig8-14"><span class="std std-numref">Fig. 79</span></a> shows the behavior of both the region tally
+<p><a class="reference internal" href="#fig8-14"><span class="std std-numref">Fig. 94</span></a> shows the behavior of both the region tally
 (well-converged) and the point detector tally (not-yet-converged) for
 this example problem as a function of the simulation run time (shown as
 the twenty batches of particles). The batch values are shown as blue
@@ -3490,7 +3490,7 @@ which should be zero.</p>
 </div>
 <div class="figure align-center" id="id38">
 <span id="fig8-14"></span><img alt="_images/8-14.png" src="_images/8-14.png" />
-<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Behavior of two tallies as a function of number of particle batches.</span><a class="headerlink" href="#id38" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Behavior of two tallies as a function of number of particle batches.</span><a class="headerlink" href="#id38" title="Permalink to this image">¶</a></p>
 </div>
 <p>Note that the slope of the VOV is found by fitting an exponential curve
 through the calculated VOV values and is very sensitive to outliers.
@@ -3749,19 +3749,19 @@ between the point detector flux and the region tally track-length
 estimate. The region tally did not produce a collision-density estimate
 of flux since the region was a void. Also notice that the neutron dose
 (response 1) from both tallies match well. The tally details that are
-saved in the *.pd*.txt or *.rt*.txt files are shown in <a class="reference internal" href="#tab8-23"><span class="std std-numref">Table 74</span></a>.
+saved in the *.pd*.txt or *.rt*.txt files are shown in <a class="reference internal" href="#tab8-23"><span class="std std-numref">Table 75</span></a>.
 Group values for the mesh tally were obtained through the Mesh File
 Viewer.</p>
 <p>For the mesh tally, the total neutron flux and neutron dose can be
-visualized using the Mesh File Viewer, as shown in <a class="reference internal" href="#fig8-15"><span class="std std-numref">Fig. 80</span></a> and <a class="reference internal" href="#fig8-16"><span class="std std-numref">Fig. 81</span></a>. Using the mouse in the
+visualized using the Mesh File Viewer, as shown in <a class="reference internal" href="#fig8-15"><span class="std std-numref">Fig. 95</span></a> and <a class="reference internal" href="#fig8-16"><span class="std std-numref">Fig. 96</span></a>. Using the mouse in the
 viewer, the flux and the dose rate for the cell that contains the
 detector location (100,0,0) are found to be 1.004 ± 2.3%
 n/cm<sup>2</sup>/s and 7.82×10<sup>‑5</sup> ± 2.4% rem/hr, respectively,
 matching the other tallies well, given the higher uncertainties for the
 mesh tally.</p>
 <p>A comparison of the results of all three Monaco tallies to the two
-experimental measurements is shown in <a class="reference internal" href="#fig8-17"><span class="std std-numref">Fig. 82</span></a> through
-<a class="reference internal" href="#fig8-21"><span class="std std-numref">Fig. 86</span></a> for different cross section libraries. Note
+experimental measurements is shown in <a class="reference internal" href="#fig8-17"><span class="std std-numref">Fig. 97</span></a> through
+<a class="reference internal" href="#fig8-21"><span class="std std-numref">Fig. 101</span></a> for different cross section libraries. Note
 that the point detector results and the region tally results are the
 same for most of the energy range shown. The line representing the mesh
 tally result becomes broken in some plots because no neutrons of certain
@@ -3769,9 +3769,9 @@ energy groups crossed this particular mesh cell. These four plots are
 each for 10 minutes of computation using a 2 GHz Linux processor.</p>
 <p>Using the library with finer groups, the Monaco results show more of the
 structure seen in the experiments over the energy range from 0.01 MeV to
-1.0 MeV, as shown in <a class="reference internal" href="#fig8-18"><span class="std std-numref">Fig. 83</span></a> and <a class="reference internal" href="#fig8-19"><span class="std std-numref">Fig. 84</span></a>.</p>
+1.0 MeV, as shown in <a class="reference internal" href="#fig8-18"><span class="std std-numref">Fig. 98</span></a> and <a class="reference internal" href="#fig8-19"><span class="std std-numref">Fig. 99</span></a>.</p>
 <span id="tab8-23"></span><table class="docutils align-center" id="id39">
-<caption><span class="caption-number">Table 74 </span><span class="caption-text">Group-by-group details of the three flux tallies (ENDF/B-VII.0 27n19g)</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 75 </span><span class="caption-text">Group-by-group details of the three flux tallies (ENDF/B-VII.0 27n19g)</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 14%" />
@@ -4031,31 +4031,31 @@ Tally</p></th>
 </table>
 <div class="figure align-center" id="id40">
 <span id="fig8-15"></span><img alt="_images/8-15.png" src="_images/8-15.png" />
-<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Total neutron flux in n/cm2/s.</span><a class="headerlink" href="#id40" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Total neutron flux in n/cm2/s.</span><a class="headerlink" href="#id40" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id41">
 <span id="fig8-16"></span><img alt="_images/8-16.png" src="_images/8-16.png" />
-<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Neutron dose rate in rem/hr.</span><a class="headerlink" href="#id41" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Neutron dose rate in rem/hr.</span><a class="headerlink" href="#id41" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id42">
 <span id="fig8-17"></span><a class="reference internal image-reference" href="_images/8-17.png"><img alt="_images/8-17.png" src="_images/8-17.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII.0 27n/19g library and the measured values.</span><a class="headerlink" href="#id42" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII.0 27n/19g library and the measured values.</span><a class="headerlink" href="#id42" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id43">
 <span id="fig8-18"></span><a class="reference internal image-reference" href="_images/8-18.png"><img alt="_images/8-18.png" src="_images/8-18.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">Comparison of Monaco results using the new ENDF/B-VII.0 200n/47g library and the measured values.</span><a class="headerlink" href="#id43" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 98 </span><span class="caption-text">Comparison of Monaco results using the new ENDF/B-VII.0 200n/47g library and the measured values.</span><a class="headerlink" href="#id43" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id44">
 <span id="fig8-19"></span><img alt="_images/8-19.png" src="_images/8-19.png" />
-<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII 238n library and the measured values.</span><a class="headerlink" href="#id44" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 99 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII 238n library and the measured values.</span><a class="headerlink" href="#id44" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id45">
 <span id="fig8-20"></span><a class="reference internal image-reference" href="_images/8-20.png"><img alt="_images/8-20.png" src="_images/8-20.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII 252n library and the measured values.</span><a class="headerlink" href="#id45" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 100 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII 252n library and the measured values.</span><a class="headerlink" href="#id45" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id46">
 <span id="fig8-21"></span><img alt="_images/8-21.png" src="_images/8-21.png" />
-<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII CE n/p library (binned using the 200n group structure) and the measured values.</span><a class="headerlink" href="#id46" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 101 </span><span class="caption-text">Comparison of Monaco results using the ENDF/B-VII CE n/p library (binned using the 200n group structure) and the measured values.</span><a class="headerlink" href="#id46" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -4073,7 +4073,7 @@ For this sample problem, just the basics will be modeled in two inputs:
 SCALE <code class="docutils literal notranslate"><span class="pre">samples\input</span></code> directory.</p>
 <div class="figure align-center" id="id47">
 <span id="fig8-22"></span><img alt="_images/8-22.png" src="_images/8-22.png" />
-<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Experimental setup.</span><a class="headerlink" href="#id47" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 102 </span><span class="caption-text">Experimental setup.</span><a class="headerlink" href="#id47" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="id11">
 <h4>Input<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
@@ -4313,7 +4313,7 @@ the detector after paths that see different amounts of shield.</p>
 <p>The group-wise results list in the point detector detail files from each
 case can be subtracted and compared to the measurements and calculations
 listed in <a class="bibtex reference internal" href="#jansky-comparison-1997" id="id13">[JTN+97]</a>. The computed and measured neutron spectra seen by the
-detector are shown in <a class="reference internal" href="#fig8-23"><span class="std std-numref">Fig. 88</span></a> through <a class="reference internal" href="#fig8-27"><span class="std std-numref">Fig. 92</span></a>
+detector are shown in <a class="reference internal" href="#fig8-23"><span class="std std-numref">Fig. 103</span></a> through <a class="reference internal" href="#fig8-27"><span class="std std-numref">Fig. 107</span></a>
 using different cross-section libraries. For each figure, the
 computational times for case “A”, without the shields and case “B”, with
 the shields, were 10 minutes and 90 minutes, each on a 2 GHz Linux
@@ -4322,23 +4322,23 @@ statistical uncertainties. Except for the 27/19 multigroup case shown
 above, none of the “B” cases passed all of the statistical tests.</p>
 <div class="figure align-center" id="id48">
 <span id="fig8-23"></span><img alt="_images/8-23.png" src="_images/8-23.png" />
-<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-VII.0 27n/19g library to the measured values.</span><a class="headerlink" href="#id48" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 103 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-VII.0 27n/19g library to the measured values.</span><a class="headerlink" href="#id48" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id49">
 <span id="fig8-24"></span><img alt="_images/8-24.png" src="_images/8-24.png" />
-<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-VII.0 200n/47g library to the measured values.</span><a class="headerlink" href="#id49" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 104 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-VII.0 200n/47g library to the measured values.</span><a class="headerlink" href="#id49" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id50">
 <span id="fig8-25"></span><img alt="_images/8-25.png" src="_images/8-25.png" />
-<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-V 238n library to the measured values.</span><a class="headerlink" href="#id50" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 105 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-V 238n library to the measured values.</span><a class="headerlink" href="#id50" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id51">
 <span id="fig8-26"></span><img alt="_images/8-26.png" src="_images/8-26.png" />
-<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-V 252n library to the measured values.</span><a class="headerlink" href="#id51" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 106 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-V 252n library to the measured values.</span><a class="headerlink" href="#id51" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id52">
 <span id="fig8-27"></span><img alt="_images/8-27.png" src="_images/8-27.png" />
-<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-VII CE n/p library (binned using the 200n group structure) to the measured values.</span><a class="headerlink" href="#id52" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 107 </span><span class="caption-text">Comparison of Monaco calculated results using the ENDF/B-VII CE n/p library (binned using the 200n group structure) to the measured values.</span><a class="headerlink" href="#id52" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -4358,7 +4358,7 @@ outer radius of 30 cm by 70 cm in height. The outer wall, top, and
 bottom are made of 2 cm thick Plexiglas. The access port is a cylinder
 of radius 2 cm extending 5 cm away from the tank center through the side
 wall. A Plexiglas rod can be removed/inserted into the port for sample
-loading. The tank is filled with ordinary water. <a class="reference internal" href="#fig8-28"><span class="std std-numref">Fig. 93</span></a> shows a
+loading. The tank is filled with ordinary water. <a class="reference internal" href="#fig8-28"><span class="std std-numref">Fig. 108</span></a> shows a
 cutaway view of a very simplified model of the tank with the Plexiglas
 rod inserted into the access port, to prevent neutrons from streaming
 into the room. The source is located in the center of the tank and is
@@ -4376,7 +4376,7 @@ half-life of <sup>198</sup>Au of 2.7 days (decay constant is
 <span class="eqno">(57)<a class="headerlink" href="#equation-monaco-24" title="Permalink to this equation">¶</a></span>\[A = RV\left( 1 - e^{- \lambda T} \right)e^{- \lambda t}\]</div>
 <div class="figure align-center" id="id53">
 <span id="fig8-28"></span><a class="reference internal image-reference" href="_images/8-28.png"><img alt="_images/8-28.png" src="_images/8-28.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Idealized geometry for a neutron howitzer.</span><a class="headerlink" href="#id53" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 108 </span><span class="caption-text">Idealized geometry for a neutron howitzer.</span><a class="headerlink" href="#id53" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="input-file">
 <h4>Input file<a class="headerlink" href="#input-file" title="Permalink to this headline">¶</a></h4>
@@ -4522,7 +4522,7 @@ CSAS-MG is used to generate the cross sections.</p>
 </pre></div>
 </div>
 <p>In addition to the main output file, the diagnostics from the
-definitions block are shown in <a class="reference internal" href="#fig8-29"><span class="std std-numref">Fig. 94</span></a> and <a class="reference internal" href="#fig8-30"><span class="std std-numref">Fig. 95</span></a> The final value for the activation rate
+definitions block are shown in <a class="reference internal" href="#fig8-29"><span class="std std-numref">Fig. 109</span></a> and <a class="reference internal" href="#fig8-30"><span class="std std-numref">Fig. 110</span></a> The final value for the activation rate
 density <em>R</em> is 2.65×10<sup>5</sup> /cm:sup:<cite>3</cite>/sec. Note how the track
 length tally performs better than the collision density estimate for
 this thin foil region. But also note that after ten minutes, not all of
@@ -4535,11 +4535,11 @@ metrics. A tally region over a larger, more cuboid-like volume would
 make for a better behaved tally.</p>
 <div class="figure align-center" id="id54">
 <span id="fig8-29"></span><img alt="_images/8-29.png" src="_images/8-29.png" />
-<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Response 1.</span><a class="headerlink" href="#id54" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 109 </span><span class="caption-text">Response 1.</span><a class="headerlink" href="#id54" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id55">
 <span id="fig8-30"></span><img alt="_images/8-30.png" src="_images/8-30.png" />
-<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Distribution 1.</span><a class="headerlink" href="#id55" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 110 </span><span class="caption-text">Distribution 1.</span><a class="headerlink" href="#id55" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -4558,9 +4558,9 @@ of paraffin which had a 45° cone cut-out. A neutron meter was placed
 placed between the source and detector, with the detector side of the
 shield always fixed at 90 cm from the source. The shield thickness was
 increased on the source side of the shield. His results (read from a
-plot) for different thicknesses of graphite are shown in <a class="reference internal" href="#tab8-24"><span class="std std-numref">Table 75</span></a>.</p>
+plot) for different thicknesses of graphite are shown in <a class="reference internal" href="#tab8-24"><span class="std std-numref">Table 76</span></a>.</p>
 <span id="tab8-24"></span><table class="docutils align-center" id="id56">
-<caption><span class="caption-number">Table 75 </span><span class="caption-text">Ueki’s experimental results</span><a class="headerlink" href="#id56" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 76 </span><span class="caption-text">Ueki’s experimental results</span><a class="headerlink" href="#id56" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 38%" />
 <col style="width: 62%" />
@@ -4756,20 +4756,20 @@ Ueki’s experiment for the 20 cm graphite slab.</p>
     <span class="err">------------------</span>  <span class="err">-----------</span>  <span class="err">-----------</span>  <span class="err">-------</span>  <span class="err">--------</span>  <span class="err">-----------</span>
 </pre></div>
 </div>
-<p>The plots generated by the “read plots” block are shown in <a class="reference internal" href="#fig8-31"><span class="std std-numref">Fig. 96</span></a></p>
+<p>The plots generated by the “read plots” block are shown in <a class="reference internal" href="#fig8-31"><span class="std std-numref">Fig. 111</span></a></p>
 <p>To compute the attenuation that Ueki measured, this dose rate can be
 divided by the dose rate from another Monaco calculation using a slab
 thickness of 0 cm—the unattenuated case. Combining the results of nine
 Monaco runs (eight different thicknesses and the unattenuated case),
 which were allowed to run long enough to achieve 1% uncertainty, gives
-the results shown in <a class="reference internal" href="#tab8-25"><span class="std std-numref">Table 76</span></a>. Note how the runtime of the Monaco
+the results shown in <a class="reference internal" href="#tab8-25"><span class="std std-numref">Table 77</span></a>. Note how the runtime of the Monaco
 calculation increases with increasing shield thickness.</p>
 <div class="figure align-center" id="id57">
 <span id="fig8-31"></span><img alt="_images/8-31.png" src="_images/8-31.png" />
-<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Images (*.png files) generated with the “read plot” block.</span><a class="headerlink" href="#id57" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 111 </span><span class="caption-text">Images (*.png files) generated with the “read plot” block.</span><a class="headerlink" href="#id57" title="Permalink to this image">¶</a></p>
 </div>
 <span id="tab8-25"></span><table class="docutils align-center" id="id58">
-<caption><span class="caption-number">Table 76 </span><span class="caption-text">Measured and calculated dose attenuation rate for graphite</span><a class="headerlink" href="#id58" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 77 </span><span class="caption-text">Measured and calculated dose attenuation rate for graphite</span><a class="headerlink" href="#id58" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 16%" />
@@ -4881,10 +4881,10 @@ calculation increases with increasing shield thickness.</p>
 <span class="n">end</span><span class="err"> </span><span class="n">tallies</span>
 </pre></div>
 </div>
-<p>and viewing the resulting *.3dmap file with the Mesh File Viewer can produce the image shown in <a class="reference internal" href="#fig8-32"><span class="std std-numref">Fig. 97</span></a>.</p>
+<p>and viewing the resulting *.3dmap file with the Mesh File Viewer can produce the image shown in <a class="reference internal" href="#fig8-32"><span class="std std-numref">Fig. 112</span></a>.</p>
 <div class="figure align-center" id="id59">
 <span id="fig8-32"></span><img alt="_images/fig8-32.png" src="_images/fig8-32.png" />
-<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Mesh tally showing neutron dose rate (rem/hr)</span><a class="headerlink" href="#id59" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Mesh tally showing neutron dose rate (rem/hr)</span><a class="headerlink" href="#id59" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -4939,7 +4939,7 @@ isotopic abundances.</p>
 </div>
 <div class="figure align-center" id="id60">
 <span id="fig8-33"></span><a class="reference internal image-reference" href="_images/8-33.png"><img alt="_images/8-33.png" src="_images/8-33.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 98 </span><span class="caption-text">Simple slab geometry with a source (S) on the left and a tally region (T) on the right.</span><a class="headerlink" href="#id60" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Simple slab geometry with a source (S) on the left and a tally region (T) on the right.</span><a class="headerlink" href="#id60" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the definitions block, a location (for a point detector), the photon
 dose response function, the Co-60 line spectra and an energy boundaries
@@ -5017,7 +5017,7 @@ decays/sec to get 1 Ci.</p>
 <div class="section" id="id19">
 <h4>Output<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
 <p>Results for the dose rate from this continuous-energy calculation are
-shown in <a class="reference internal" href="#tab8-26"><span class="std std-numref">Table 77</span></a>, along with results from two multigroup
+shown in <a class="reference internal" href="#tab8-26"><span class="std std-numref">Table 78</span></a>, along with results from two multigroup
 calculations and an MCNP calculation. To simulate the same type of
 physics used in the continuous-energy SCALE, the MCNP calculation used a
 photon cutoff energy of 0.01 MeV, EMCPF=100 MeV (detailed physics),
@@ -5034,7 +5034,7 @@ the 1.33-1.44 MeV group (too high – higher dose will result). The
 multigroup results are well-converged – just not as accurate as desired.
 The continuous-energy results should be more accurate.</p>
 <table class="docutils align-center" id="tab8-26" style="width: 70%">
-<caption><span class="caption-number">Table 77 </span><span class="caption-text">Dose rates for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#tab8-26" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 78 </span><span class="caption-text">Dose rates for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#tab8-26" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -5044,21 +5044,21 @@ The continuous-energy results should be more accurate.</p>
 </tr>
 </tbody>
 </table>
-<p><a class="reference internal" href="#fig8-34"><span class="std std-numref">Fig. 99</span></a> and <a class="reference internal" href="#fig8-35"><span class="std std-numref">Fig. 100</span></a> show the results of the point detector
+<p><a class="reference internal" href="#fig8-34"><span class="std std-numref">Fig. 114</span></a> and <a class="reference internal" href="#fig8-35"><span class="std std-numref">Fig. 115</span></a> show the results of the point detector
 and region tally flux as a function of energy, for this problem as well
 as two multigroup calculations and an MCNP calculation. Tables M and N
 list the flux values of the cobalt lines and the annihilation gamma for
 the two tally types.</p>
 <div class="figure align-center" id="id61">
 <span id="fig8-34"></span><img alt="_images/8-34.png" src="_images/8-34.png" />
-<p class="caption"><span class="caption-number">Fig. 99 </span><span class="caption-text">Point detector fluxes for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#id61" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Point detector fluxes for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#id61" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id62">
 <span id="fig8-35"></span><img alt="_images/8-35.png" src="_images/8-35.png" />
-<p class="caption"><span class="caption-number">Fig. 100 </span><span class="caption-text">Region tally fluxes for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#id62" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 115 </span><span class="caption-text">Region tally fluxes for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#id62" title="Permalink to this image">¶</a></p>
 </div>
 <table class="docutils align-center" id="tab8-27" style="width: 70%">
-<caption><span class="caption-number">Table 78 </span><span class="caption-text">Region tally fluxes for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#tab8-27" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 79 </span><span class="caption-text">Region tally fluxes for the cobalt-60/tungsten problem using different energy treatments.</span><a class="headerlink" href="#tab8-27" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -5069,7 +5069,7 @@ the two tally types.</p>
 </tbody>
 </table>
 <table class="docutils align-center" id="tab8-28" style="width: 70%">
-<caption><span class="caption-number">Table 79 </span><span class="caption-text">Region tally flux values for the lines.</span><a class="headerlink" href="#tab8-28" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 80 </span><span class="caption-text">Region tally flux values for the lines.</span><a class="headerlink" href="#tab8-28" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 100%" />
 </colgroup>

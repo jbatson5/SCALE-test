@@ -240,7 +240,7 @@ KENO Data Guide
 KENO may be run stand alone or as part of a SCALE criticality safety or
 sensitivity and uncertainty analysis sequence. If KENO is run stand
 alone in the multigroup mode, cross section data can be used from an
-AMPX [2]_ working format library or from a Monte Carlo format cross
+AMPX :cite:`dunn_ampx-2000_2002` working format library or from a Monte Carlo format cross
 section library. If KENO uses an AMPX working format library, a mixing
 table data block must be entered. If a Monte Carlo format library is
 used, a mixing table data block is not entered, and the mixtures
@@ -277,32 +277,40 @@ while running this code.
   :name: tab8-1-1
   :align: center
 
-  * - .. image:: figs/Keno/tab1.png
+  * - .. image:: figs/Keno/tab1.svg
+        :align: center
+        :width: 800
 
 .. list-table:: Summary of array data.
   :name: tab8-1-2
   :align: center
 
-  * - .. image:: figs/Keno/tab2.png
+  * - .. image:: figs/Keno/tab2.svg
+        :align: center
+        :width: 1000
 
 .. list-table:: Summary of biasing data.
   :name: tab8-1-3
   :align: center
 
-  * - .. image:: figs/Keno/tab3.png
+  * - .. image:: figs/Keno/tab3.svg
+        :align: center
+        :width: 1000
 
 .. list-table:: Summary of boundary condition data.
   :name: tab8-1-4
   :align: center
 
   * - .. image:: figs/Keno/tab4.svg
+        :width: 1000
+        :align: center
 
 .. list-table:: Summary of boundary condition data specific to KENO-VI.
   :name: tab8-1-5
 
   * - .. image:: figs/Keno/tab5.svg
         :width:  800
-        :align: center 
+        :align: center
 
 .. list-table:: Summary of geometry data in KENO V.a.
   :name: tab8-1-6
@@ -327,25 +335,36 @@ while running this code.
   :name: tab8-1-9
   :align: center
 
+
   * - .. image:: figs/Keno/tab9.svg
+       :align: center
+       :width: 1000
 
 .. list-table:: Summary of starting data.
   :name: tab8-1-10
   :align: center
 
   * - .. image:: figs/Keno/tab10.svg
+        :align: center
+        :width: 1000
 
 .. list-table:: Summary of volume data (KENO-VI).
   :name: tab8-1-11
   :align: center
 
   * - .. image:: figs/Keno/tab11.svg
+        :width: 10000
+        :align: center
 
 .. list-table:: Summary of grid geometry data.
   :name: tab8-1-12
   :align: center
 
   * - .. image:: figs/Keno/tab12.svg
+        :width: 1000
+        :align: center
+
+
 
 .. _tab8-1-13:
 .. table:: Summary of energy group boundary data.
@@ -369,7 +388,10 @@ while running this code.
   :align: center
 
   * - .. image:: figs/Keno/tab14.svg
+        :width: 1000
+        :align: center
 
+.. _8-1-2-1:
 
 Keno input outline
 ~~~~~~~~~~~~~~~~~~
@@ -469,7 +491,7 @@ see the appropriate manual section for additional guidance.
    PARM**, or **READ PARAMETER.** Parameter data may be entered in any
    order. If a parameter is entered more than once, the last value is
    used. The words **END PARA** or **END PARM**, or **END PARAMETER**
-   terminate the parameter data. See Sect. 8.1.2.3.
+   terminate the parameter data. See :ref:`8-1-2-3`.
 
 (n\ :sub:`1`)...( n\ :sub:`13`) The following data may be entered in any
 order. Data not needed to describe the problem may be omitted.
@@ -479,7 +501,7 @@ order. Data not needed to describe the problem may be omitted.
 Geometry region data must be entered for every problem that is not a
 restart problem. Geometry data must begin with the words **READ GEOM**
 or **READ GEOMETRY**. The words **END GEOM** or **END GEOMETRY**
-terminate the geometry region data. See Sect. 8.1.2.4.
+terminate the geometry region data. See :ref:`8-1-2-4`.
 
 (n\ :sub:`2`) **READ ARRA** *array_definition_data* **END ARRA**
 
@@ -488,7 +510,7 @@ terminate the geometry region data. See Sect. 8.1.2.4.
    the geometry data) in a 3-D lattice that represents the physical
    problem being analyzed. Array data must begin with the words **READ
    ARRA** or **READ ARRAY** and must terminate with the words **END
-   ARRA** or **END ARRAY**. See Sect. 8.1.2.5.
+   ARRA** or **END ARRAY**. See :ref:`8-1-2-5`.
 
 (n\ :sub:`4`) **READ BOUN** *albedo_boundary_conditions* **END BOUN**
 
@@ -496,14 +518,14 @@ terminate the geometry region data. See Sect. 8.1.2.4.
    Albedo data must begin with the words **READ BOUN, READ BNDS**,
    **READ BOUND**, or **READ BOUNDS,** and it must terminate with the
    words **END BOUN**, **ENDS BNDS**, **END BOUND**, or **END BOUNDS**.
-   See Sect. 8.1.2.6.
+   See :ref:`8-1-2-6`.
 
 (n\ :sub:`3`) **READ BIAS** *biasing_information* **END BIAS**
 
    The *biasing_information* is used to define the weight given to a
    neutron surviving Russian roulette. Biasing data must begin with the
    words **READ BIAS**. The words **END BIAS** terminate the biasing
-   data. See Sect. 8.1.2.7.
+   data. See :ref:`8-1-2-7`.
 
 (n\ :sub:`5`) **READ STAR** *starting_distribution_information* **END
 STAR**
@@ -512,7 +534,7 @@ STAR**
    neutrons only if a uniform starting distribution is undesirable.
    Start data must begin with the words **READ STAR, READ STRT** or
    **READ START**, and it must terminate with the words **END STAR**,
-   **END STRT** or **END START**. See Sect. 8.1.2.8.
+   **END STRT** or **END START**. See :ref:`8-1-2-8`.
 
 (n\ :sub:`6`) **READ ENER** *energy_group_boundaries* **END ENER**
 
@@ -522,7 +544,7 @@ STAR**
    with the words **END ENER** or **END ENERGY**. The last entry is the
    lower energy boundary of the last group. The values must be in
    descending order. This block is only applicable to continuous energy
-   KENO calculations. See Sect. 8.1.2.12.
+   KENO calculations. See :ref:`8-1-2-12`.
 
 (n\ :sub:`7`) **READ MIXT** *cross_section_mixing_table* **END MIXT**
 
@@ -530,7 +552,7 @@ STAR**
    problem. The mixing table must begin with the words **READ MIXT** or
    **READ MIX** and must end with the words **END MIXT** or **END MIX**.
    Do not enter mixing table data if KENO is being executed as a part of
-   a SCALE sequence. See Sect. 8.1.2.10.
+   a SCALE sequence. See :ref:`8-1-2-10`.
 
 (n\ :sub:`8`) **READ X1DS** *extra_1-D_cross_section_IDs* **END X1DS**
 
@@ -538,7 +560,7 @@ STAR**
    problem. These must be available on the mixture cross section
    library. Extra 1-D cross section data must begin with the words
    **READ X1DS** and terminate with the words **END X1DS**. See
-   Sect. 8.1.2.9.
+   :ref:`8-1-2-9`.
 
 (n\ :sub:`9`) **READ PLOT** *plot_data* **END PLOT**
 
@@ -546,7 +568,7 @@ STAR**
    slice through a specified portion of the 3-D geometrical
    representation of the problem. Plot data must begin with the words
    **READ PLOT**, **READ PLT**, or **READ PICT** and terminate with the
-   words **END PLOT**, **END PLT**, or **END PICT**. See Sect. 8.1.2.11.
+   words **END PLOT**, **END PLT**, or **END PICT**. See :ref:`8-1-2-11`.
 
 (n\ :sub:`10`) **READ VOLU** *volume_data* **END VOLU**
 
@@ -572,7 +594,7 @@ STAR**
    Enter the data needed to specify filters for the reaction tally
    calculations. Reaction data must begin with the words **READ REAC**
    and terminate with **END REAC**. This block is only applicable to
-   calculations in the continuous energy mode. See Sect.8.1.2.15.
+   calculations in the continuous energy mode. See :ref:`8-1-2-15`.
 
 (n\ :sub:`13`) **END DATA must be entered**
 
@@ -3742,8 +3764,7 @@ The default values of CHAR are the following:
   | SYMBOL   | ‘⋅’ | ‘−’ | “%” | “*” | “”“ |  “=”  | “!” | “(“ | “@” | “<“ | “/” | 0   |     |     |     |    |
   +----------+-----+-----+-----+-----+-----+-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+----+
 
-**CLR=** *n*\ :sub:`1` *r*(*n*\ :sub:`1`) *g*(*n*\ :sub:`1`) *b*(*n*\ :sub:`1`) … *n*\ :sub:`N` *r*(*n*\ :sub:`N`) *g*(*n*\ :sub:`N`) *b*(*n*\ :sub:`N`)
-**END COLOR**
+**CLR=** *n*\ :sub:`1` *r*(*n*\ :sub:`1`) *g*(*n*\ :sub:`1`) *b*(*n*\ :sub:`1`) … *n*\ :sub:`N` *r*(*n*\ :sub:`N`) *g*(*n*\ :sub:`N`) *b*(*n*\ :sub:`N`) **END COLOR**
   this entry is used to define the colors to be used by the color plot.
   It may be entered only if plots are to be made utilizing the color
   plot display method (**SCR**\ =YES). After entering the keyword
@@ -3830,6 +3851,9 @@ The 256 default colors are listed in :numref:`tab8-1-22`.
   * - .. image:: figs/Keno/tab22_Page_01.png
         :width: 400
         :align: center
+
+.. list-table::
+
   * - .. image:: figs/Keno/tab22_Page_02.png
         :width: 400
         :align: center
@@ -3840,6 +3864,9 @@ The 256 default colors are listed in :numref:`tab8-1-22`.
   * - .. image:: figs/Keno/tab22_Page_03.png
         :width: 400
         :align: center
+
+.. list-table::
+
   * - .. image:: figs/Keno/tab22_Page_04.png
         :width: 400
         :align: center
@@ -3850,6 +3877,9 @@ The 256 default colors are listed in :numref:`tab8-1-22`.
   * - .. image:: figs/Keno/tab22_Page_05.png
         :width: 400
         :align: center
+
+.. list-table::
+
   * - .. image:: figs/Keno/tab22_Page_06.png
         :width: 400
         :align: center
@@ -3860,6 +3890,9 @@ The 256 default colors are listed in :numref:`tab8-1-22`.
   * - .. image:: figs/Keno/tab22_Page_07.png
         :width: 400
         :align: center
+
+.. list-table::
+
   * - .. image:: figs/Keno/tab22_Page_08.png
         :width: 400
         :align: center
@@ -3870,6 +3903,9 @@ The 256 default colors are listed in :numref:`tab8-1-22`.
   * - .. image:: figs/Keno/tab22_Page_09.png
         :width: 400
         :align: center
+
+.. list-table::
+
   * - .. image:: figs/Keno/tab22_Page_10.png
         :width: 400
         :align: center
@@ -3881,7 +3917,7 @@ The 256 default colors are listed in :numref:`tab8-1-22`.
         :width: 400
         :align: center
 
-.. 8-1-2-12:
+.. _8-1-2-12:
 
 Energy group boundary data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4224,7 +4260,7 @@ should never follow a **HOLE** or **ARRAY** content record.
   end data
   end
 
-.. _8-1-2-14
+.. _8-1-2-14:
 
 Grid geometry data
 ~~~~~~~~~~~~~~~~~~
@@ -4359,7 +4395,7 @@ only the mixture flux.
 
 Enter REACTION DATA in the form:
 
-**READ REACTION** *REACTION FILTERS [TALLY TYPE] [ENERGY GROUP BOUNDARIES]
+**READ REACTION** *REACTION FILTERS [TALLY TYPE] [ENERGY GROUP BOUNDARIES]\
         [OUTPUT EDITS]* **END REACTION**
 
 *REACTION FILTERS*
@@ -4504,6 +4540,8 @@ this example is identical to the filter definition given in Example-3.
 
 Example-5:
 
+::
+
   READ REACTION
  	    MIX=10 NUC=*  MT=18
 	    …
@@ -4528,3 +4566,4627 @@ Defines a reaction filter used to tally the fission reaction
 (**MT**\ =18) of :sup:`235`\ U and :sup:`238`\ U in mixture 10. Reaction
 filter definition in this example is identical to the filter definition
 given in Example-5.
+
+Example-7:
+
+::
+
+  READ REACTION
+ 	    MIX=* NUC=8016  MT=102
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally the capture reaction
+(**MT**\ =102) of :sup:`16`\ O in all mixtures.
+
+Example-8:
+
+::
+
+  READ REACTION
+     	MIX=10  NUC=8016  MT=102
+    	MIX=20  NUC=8016  MT=102
+    	MIX=30  NUC=8016  MT=102
+    	MIX=40  NUC=8016  MT=102
+    	MIX=100 NUC=8016  MT=102
+		        …
+  END REACTION
+
+Defines a reaction filter used to tally the capture reaction
+(**MT**\ =102) of :sup:`16`\ O in mixtures 10, 20, 30, 40, and 100
+respectively. Reaction filter definition in this example is identical to
+the filter definition given in Example-7.
+
+Example-9:
+
+::
+
+  READ REACTION
+ 	    MIXLIST 10 20 30 40 100 END NUC=8016  MT=102
+	    …
+  END REACTION
+
+Defines a reaction filter used to tally the capture reaction
+(**MT**\ =102) of :sup:`16`\ O in mixtures 10, 20, 30, 40, and 100
+respectively. Reaction filter definition in this example is identical to
+the filter definition given in Examples 7 and 8.
+
+Example-10:
+
+::
+
+  READ REACTION
+     	MIXLIST 10 20 30 END NUC=92238  MT=102
+    	MIX=20  NUC=94239 MT=18
+      	MIX=40  NUC=1001  MT=*
+    	MIX=*   NUC=8016  MT=2
+    	MIX=*   NUC=*     MT=27
+    	…
+  END REACTION
+
+Defines a complex reaction filter used to tally:
+
+a) Capture reaction (**MT**\ =102) of :sup:`238`\ U in mixtures 10, 20
+   and 30 respectively,
+
+b) Fission reaction (**MT**\ =18) of :sup:`239`\ Pu in mixture 20,
+
+c) All reactions of :sup:`1`\ H in mixture 40,
+
+d) Elastic scattering reaction of :sup:`16`\ O in all mixtures,
+
+e) Total absorption reaction of all nuclides in all mixtures.
+
+Parameters of TALLY TYPE are logical parameters used to select
+quantities (reaction cross section, reaction rate, and mixture flux)
+that are tallied for the given problem. The user specifies any
+combination of these TALLY TYPEs once for all filters:
+
+**XSTALLY**\ *=lCEXSTally*
+   Enter YES or NO. A value of YES specifies that reaction cross
+   sections be tallied for the reactions listed in *REACTION FILTERS*.
+   The default value of **XSTALLY** is NO. Computed reaction cross
+   sections are saved in a file named *BASENAME_keno_micro_xs.0* in
+   RTNDIR, which is a SCALE environment variable for the directory from
+   where the calculation was started. BASENAME is a SCALE environment
+   variable that is the base name of the input file. (BASENAME is equal
+   to *“mytest”* if the SCALE input name is *“mytest.inp.”*)
+
+**RRTALLY**\ *=lCERRTally*
+   Enter YES or NO. A value of YES specifies that reaction rates be
+   tallied for the reactions listed in *REACTION FILTERS*. The default
+   value of RRTALLY is NO. Computed reaction rates are saved in a file
+   named *BASENAME_keno_micro_rr.0* in RTNDIR.
+
+.. note:: KENO combines and saves reaction rate and reaction cross
+  section tallies to the same file, named *BASENAME_keno_micro_xs_rr.0* in
+  RTNDIR, if both **XSTALLY** and **RRTALLY** are set to YES.
+
+**MIXFLX**\ *=lCEMixFlux*
+   Enter YES or NO. A value of YES specifies that mixture fluxes are to
+   be tallied for the mixtures listed in *REACTION FILTERS*. The default
+   value of **MIXFLX** is NO. Computed mixture fluxes are saved in a
+   file named *BASENAME_keno_mixture_flux.0* in RTNDIR.
+
+   Mixture, nuclide, and reaction number are required for mixture
+   average fluxes, even though the nuclide and reaction numbers are not
+   used for the neutron flux tallies.
+
+Example-11:
+
+::
+
+  READ REACTION
+ 	    MIX=10 NUC=92235  MT=18
+	    XSTALLY=YES
+ 	    …
+  END REACTION
+
+Defines a reaction filter, which uses fission reaction (**MT**\ =18) of
+:sup:`235`\ U in mixture 10, for tallying reaction cross sections.
+
+.. note:: Computed data are saved in a file named
+  *BASENAME_keno_micro_xs.0*
+
+Example-12:
+
+::
+
+  READ REACTION
+ 	    MIX=10 NUC=92235  MT=18
+	    XSTALLY=YES RRTALLY=YES
+ 	    …
+  END REACTION
+
+Defines a reaction filter, which uses fission reaction (**MT=**\ 18) of
+:sup:`235`\ U in mixture 10, for tallying reaction rates as well as the
+reaction cross sections.
+
+.. note:: Computed data are saved in files named
+  *BASENAME_keno_micro_xs_rr.0*
+
+Example-13:
+
+::
+
+  READ REACTION
+ 	  MIX=10 NUC=92235  MT=18
+	   XSTALLY=YES MIXFLX=YES
+ 	   …
+  END REACTION
+
+Defines a reaction filter, which uses fission reaction (**MT=**\ 18) of
+:sup:`235`\ U in mixture 10, for tallying reaction cross sections. In
+addition, mixture flux is tallied for mixture 10 given in this reaction
+filter.
+
+.. note:: Computed data are saved in files named
+  *BASENAME_keno_micro_xs.0*, and *BASENAME_keno_mixture_flux.0*,
+  respectively.
+
+*ENERGY GROUP BOUNDARIES* data define energy group structure other than
+the defaults for tallying both reaction cross sections/reaction rates
+and mixture fluxes.
+
+**ENER_XS** *e\ 1 e\ 2 e\ 3 …*\ **END** Upper energy boundary for each
+group. The last entry is the lower energy boundary of the last group.
+For N groups, there are N+1 entries. Entries must be in descending
+order. This may be specified once in the REACTION block and, if used, is
+applied to all cross section and reaction rate tallies.
+
+**ENER_FLX** *e\ 1 e\ 2 e\ 3 …*\ **END** Upper energy boundary for each
+group, default is **NGP**-group data. The last entry is the lower energy
+boundary of the last group. For N groups, there are N +1 entries.
+Entries must be in descending order. This may be specified once in the
+REACTION block and, if used, is applied to all mixture flux tallies.
+
+.. note:: Default values for the energy group boundaries in reaction
+  tally calculations are determined as in the order described in :ref:`8-1-2-12`.
+
+Example-14: (no **READ ENERGY** block, no **NGP** in **READ PARAMETER**
+block, no energy group
+
+::
+
+  READ REACTION
+ 	  MIX=10 NUCLIST 92235 92238 END
+	   MTLIST 16 17 18 END
+	    MIXFLX=YES XSTALLY=YES
+ 	    …
+  END REACTION
+
+Default SCALE 238-group energy structure is used for tallying both
+mixture flux and reaction cross sections.
+
+Example-15: (energy group bounds specified in **READ ENERGY** block)
+
+::
+
+  READ ENERGY
+	   20.E6   0.6 1.E-4
+  END ENERGY
+      …
+  READ REACTION
+ 	   MIX=10 NUCLIST 92235 92238 END
+	   MTLIST 16 17 18 END
+	   MIXFLX=YES XSTALLY=YES
+ 	   …
+  END REACTION
+
+2-group energy structure given in **READ ENERGY** block is used for
+tallying both mixture flux and reaction cross sections.
+
+Example-16: (**NGP** is set in **READ PARAMETER** block)
+
+::
+
+  READ PARAMETER
+ 		 …
+		 NGP=4
+  END PARAMETER
+    …
+  READ REACTION
+ 	   MIX=10 NUCLIST 92235 92238 END
+	   MTLIST 16 17 18 END
+	   MIXFLX=YES XSTALLY=YES
+ 	   …
+  END REACTION
+
+4-group energy group structure (4-equal lethargy bins) is used for
+tallying both mixture flux and reaction cross sections.
+
+Example-17:
+
+::
+
+  READ REACTION
+     	MIX=10 NUCLIST 92235 92238 END
+    	MTLIST 16 17 18 END
+    	MIXFLX=YES XSTALLY=YES
+    	ENER_XS 20.E6 1.E3 1.0 1.E-4 END
+     	 …
+  END REACTION
+
+3-group energy group structure given in **READ REACTION** block is used
+for tallying reaction cross sections, and default SCALE 238 group energy
+structure is used for tallying mixture flux.
+
+Example-18:
+
+::
+
+  READ REACTION
+     	MIX=10 NUCLIST 92235 92238 END
+    	MTLIST 16 17 18 END
+    	MIXFLX=YES XSTALLY=YES
+    	ENER_FLX 20.E6 1.E3 1.0 1.E-4 END
+    	ENER_XS 20.E6 1.0 1.E-4 END
+     	 …
+  END REACTION
+
+2-group energy group structure given in **READ REACTION** block is used
+for tallying reaction cross sections, and 3-group energy group structure
+given in **READ REACTION** block is used for tallying mixture flux.
+
+Parameters of *OUTPUT EDITS* are logical parameters used to print
+reaction tallies and mixture fluxes in separate files. These parameters
+are optional parameters.
+
+**PRNTXS**\ *=lCEprintXS* Enter YES or NO. A value of YES specifies that
+reaction cross sections tallies for each mixture be written in separate
+files in RTNDIR (*BASENAME_keno_micro_xs_mix{mixnum}.0, mixnum* is the
+mixture numbers specified in the reaction filters)\ *.* The default
+value of **PRNTXS** is NO.
+
+**PRNTRR**\ *=lCEprintRR* Enter YES or NO. A value of YES specifies that
+reaction rate tallies for each mixture be written in separate files in
+RTNDIR (*BASENAME_keno_micro_rr_mix{mixnum}.0, mixnum* is the mixture
+numbers specified in the reaction filters)\ *.* The default value of
+**PRNTRR** is NO.
+
+**PRNTFLX**\ *=lCEprintMixFlux* Enter YES or NO. A value of YES
+specifies that mixture flux tallies for each mixture be written in
+separate files in RTNDIR (*BASENAME_keno_mixture_flux_mix{mixnum}.0,
+mixnum* is the mixture numbers specified in the reaction filters)\ *.*
+The default value of **PRNTFLX** is NO.
+
+.. _8-1-3:
+
+Notes for Keno Users
+--------------------
+
+This section provides assorted tips designed to assist the KENO user with problem mockups.
+Some information concerning methods used by KENO is also included.
+
+.. _8-1-3-1:
+
+Data entry
+~~~~~~~~~~
+
+The KENO data is entered in blocks that begin and end with keywords as
+described in :ref:`8-1-2-1`. Only one set of parameter data can be
+entered for a problem. However, for other data blocks, it is possible to
+enter more than one block of the same kind of data. When this is done,
+only the last block of that kind of data is retained for use by the
+problem, except for the GRID block for which all blocks are retained.
+
+Within data blocks, a number, x, can be repeated n times by specifying
+nRx, n*x, or n$x.
+
+Numbers in engineering notation may be specified with or without an “E”
+between the base and the exponent. For example; 0.0011 may be specified
+as 1.1e-3 or as 1.1-3.
+
+.. _8-1-3-1-1:
+
+Multiple and scattered entries in the mixing table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the following examples, assume 1001 is the nuclide ID for hydrogen,
+8016 is the nuclide ID for oxygen, 92235 is the nuclide ID for
+:sup:`235`\ U, and 92238 is the nuclide ID for :sup:`238`\ U. If a given
+nuclide ID is used more than once in the same mixture, the result is the
+summing of all the number densities associated with that nuclide. For
+example:
+
+**MIX**\ =1 92235 4.3e-2 92238 2.6e-3 1001 3.7e-2 92235 1.1e-3 8016
+1.8e-2
+
+would be the same as entering:
+
+**MIX**\ =1 92235 4.41e-2 92238 2.6e-3 1001 3.7e-2 8016 1.8e-2
+
+A belated entry for a mixture can be made as follows:
+
+**MIX**\ =1 1001 6.6e-2 MIX=2 92235 4.3e-2 92238 2.6e-3 MIX=1 8016
+3.3e-2
+
+This is the same as entering:
+
+**MIX**\ =1 1001 6.6e-2 8016 3.3e-2 MIX=2 92235 4.3e-2 92238 2.6e-3
+
+.. _8-1-3-1-2:
+
+Multiple entries in geometry data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Individual geometry regions cannot be replaced by adding an additional
+description. However, entire unit descriptions can be replaced by adding
+a new description having the same unit number. The last description
+entered for a unit is used in the calculation. For example, the
+following geometry descriptions are equivalent in KENO V.a and KENO-VI,
+respectively:
+
+In KENO V.a:
+
+::
+
+  READ GEOM  UNIT 1 SPHERE 1 1 5.0 CUBE 0 1 10.0 -10.0
+  UNIT 2 CYLINDER 1 1 2.0 5.0 -5.0  CUBE  0 1 10.0 -10.0
+  UNIT 1  CUBOID  1 1 1.0 -1.5 2.5 -2.0 5.0 -6.0  CUBE  0 1 10.0 -10.0
+  END GEOM
+
+is the same as entering:
+
+::
+
+  READ GEOM  UNIT 1  CUBOID 1 1 1.0 -1.5 2.5 -2.0 5.0 -6.0
+  CUBE  0 1 10.0 -10.0
+  UNIT 2  CYLINDER  1 1 2.0 5.0 -5.0  CUBE  0 1 10.0 -10.0 END GEOM
+
+or
+
+::
+
+  READ GEOM  UNIT 2 CYLINDER  1 1 2.0 5.0 -5.0  CUBE  0 1 10.0 -10.0
+  UNIT 1  CUBOID  1 1 1.0 -1.5 2.5 -2.0 5.0 -6.0  CUBE  0 1 10.0 -10.0
+  END GEOM
+
+In KENO-VI:
+
+::
+
+    READ GEOM
+    UNIT 1 SPHERE 10 5.0
+    CUBOID 20 10.0 -10.0 10.0 -10.0 10.0 -10.0
+    MEDIA 1 1 10
+    MEDIA 0 1 20 -10
+    BOUNDARY  20
+    UNIT 2
+    CYLINDER  10  2.0 5.0 -5.0
+    CUBOID  20  10.0 -10.0 10.0 -10.0 10.0 -10.0
+    MEDIA 1 1 10
+    MEDIA 0 1 20 -10
+    BOUNDARY  20
+    UNIT 1
+    CUBOID  10   1.0  -1.5  2.5  -2.0  5.0  -6.0
+    CUBOID  20  10.0 -10.0 10.0 -10.0 10.0 -10.0
+    MEDIA 1 1 10
+    MEDIA 0 1 -10 20
+    BOUNDARY  20
+    END GEOM
+
+is the same as entering
+
+::
+
+    READ GEOM
+    UNIT 1
+    CUBOID  10   1.0  -1.5  2.5  -2.0  5.0  -6.0
+    CUBOID  20  10.0 -10.0 10.0 -10.0 10.0 -10.0
+    MEDIA 1 1 10
+    BOUNDARY  20
+    MEDIA 0 1 -10  20
+    UNIT 2
+    CYLINDER  10   2.0   5.0 -5.0
+    CUBOID    20  10.0 -10.0 10.0 -10 10.0 -10.0
+    MEDIA 1 1 10
+    MEDIA 0 1 -10 20
+    BOUNDARY  20
+    END GEOM
+
+or
+
+::
+
+    READ GEOM
+    UNIT 2
+    CYLINDER  30  2.0  5.0 -5.0
+    CUBOID    40  6P10.0
+    MEDIA 1 1 30
+    MEDIA 0 1 -30  40
+    BOUNDARY  40
+    UNIT 1
+    CUBOID  20  1.0 -1.5 2.5 -2.0 5.0 -6.0
+    CUBOID  10  6P10.0
+    MEDIA 1 1 20
+    MEDIA 0 1 10 -20
+    BOUNDARY  10
+    END GEOM
+
+The order of entry for **UNIT** descriptions is not important because
+the **UNIT** number is assigned as the value following the word
+**UNIT**. They do not need to be entered sequentially, and they do not
+need to be numbered sequentially. It is perfectly acceptable to enter
+**UNIT**\ s 2, 3, and 5, omitting Units 1 and 4 as long as **UNIT**\ s 1
+and 4 are not referenced in the problem. It is also acceptable to
+scramble the order of entry as in entering **UNIT**\ s 3, 2, and 5.
+
+.. _8-1-3-2:
+
+Default logical unit numbers for KENO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The logical unit numbers for data used by KENO are listed in
+:numref:`tab8-1-23`.
+
+.. _tab8-1-23:
+.. table:: KENO logical unit numbers
+  :align: center
+
+
+  +-----------------+-----------------+-----------------+-----------------+
+  | Function        | Parameter       | Unit            | Variable        |
+  |                 | name            | number          | name            |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Problem input   |                 | 5               | INPT            |
+  | data (ASCII)    |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Problem input   |                 | 95              | BIN             |
+  | data (binary)   |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Program output  |                 | 6               | OUTPT           |
+  | (ASCII)         |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Albedo data     | ALB=            | 79              | ALBDO           |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Scratch unit    | SKT=            | 16              | SKRT            |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Read restart    | RST=            | 0\ :sup:`a`     | RSTRT           |
+  | data            |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  |                 |                 | 34\ :sup:`b`    | RSTRT           |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Write restart   | WRS=            | 0\ :sup:`a`     | WSTRT           |
+  | data            |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  |                 |                 | 35\ :sup:`c`    | WSTRT           |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Direct access   |                 | 8               | DIRECT(1)       |
+  | storage for     |                 |                 |                 |
+  | input data      |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Direct access   |                 | 9               | DIRECT(2)       |
+  | storage for     |                 |                 |                 |
+  | supergrouped    |                 |                 |                 |
+  | data            |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Direct access   |                 | 10              | DIRECT(3)       |
+  | storage for     |                 |                 |                 |
+  | cross section   |                 |                 |                 |
+  | mixing          |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Mixed cross     | XSC=            | 14\ :sup:`d`    | ICEXS           |
+  | section data    |                 |                 |                 |
+  | set             |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Group-dependent | WTS=            | 80              | WTS             |
+  | weights         |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | AMPX working    | LIB=            | 0\ :sup:`a`     | AMPXS           |
+  | format cross    |                 |                 |                 |
+  | sections        |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | Group boundary  | GRP=            | 77              | GRPBS           |
+  | Library         |                 |                 |                 |
+  | (KENO-VI)       |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+  | *a* Defaulted   |                 |                 |                 |
+  | to zero.        |                 |                 |                 |
+  |                 |                 |                 |                 |
+  | *b* Defaulted   |                 |                 |                 |
+  | to 34 if BEG= a |                 |                 |                 |
+  | number greater  |                 |                 |                 |
+  | than 1 and      |                 |                 |                 |
+  | RSTRT=0.        |                 |                 |                 |
+  |                 |                 |                 |                 |
+  | *c* Defaulted   |                 |                 |                 |
+  | to 35 if RES= a |                 |                 |                 |
+  | number greater  |                 |                 |                 |
+  | than zero and   |                 |                 |                 |
+  | WSTRT=0.        |                 |                 |                 |
+  |                 |                 |                 |                 |
+  | *d* Defaulted   |                 |                 |                 |
+  | to 0; if LIB= a |                 |                 |                 |
+  | number greater  |                 |                 |                 |
+  | than zero,      |                 |                 |                 |
+  | ICEXS is        |                 |                 |                 |
+  | defaulted to    |                 |                 |                 |
+  | 14.             |                 |                 |                 |
+  +-----------------+-----------------+-----------------+-----------------+
+
+.. _8-1-3-3:
+
+Parameter input
+~~~~~~~~~~~~~~~
+
+When the parameter data block is entered for a problem, the same keyword
+may be entered several times. The last value that is entered is used in
+the problem. Data may be entered as follows:
+
+::
+
+  READ PARAM  FLX=YES NPG=1000 TME=0.5 TME=1.0
+  NPG=50 TME=10.0 FLX=NO
+  NPG=500
+  END PARA
+
+This will result in the problem having **FLX=NO**, **TME=10.0**, and
+**NPG=500**. It may be more convenient for the user to insert a new
+value than to change the existing data.
+
+Certain parameter default values should not be overridden unless the
+user has a very good reason to do so. These parameters are as follows:
+
+   1. **X1D=** which defines the number of extra 1-D cross sections. The
+   use of extra 1‑D cross sections—other than the use of the fission
+   cross section for calculating the average number of neutrons per
+   fission—requires programming changes to the code;
+
+   2. **NFB=** which defines the number of neutrons that can be entered
+   in the fission bank (the fission bank is where the information
+   related to a fission is stored);
+
+   3. **XFB=** which defines the number of extra positions in the
+   fission bank;
+
+   4. **NBK=** which defines the number of neutrons that can be entered
+   in the neutron bank (the neutron bank contains information about each
+   history);
+
+   5. **XNB=** which defines the number of extra positions in the
+   neutron bank;
+
+   6. **WTH=** which defines the factor that determines when splitting
+   occurs;
+
+   7. **WTA=** which defines the default average weight given to a
+   neutron that survives Russian roulette;
+
+   8. **WTL=** which defines the factor that determines when Russian
+   roulette is played; and
+
+   9. **LNG=** which sets the maximum words of storage available to the
+   program.
+
+It is recommended that **BUG=**, the flag for printing debug
+information, **never** be set to YES. The user would have to look at the
+FORTRAN coding to determine what information is printed. **BUG**\ =YES
+prints massive amounts of sparsely labeled information. The user should
+only rarely consider using **TRK**\ =YES. This generates thousands of
+lines of well-labeled output that provides information about each
+history at key locations during the tracking procedure. All other
+parameters can be changed at will to provide features the user wishes to
+activate.
+
+.. _8-1-3-4:
+
+Cross sections
+~~~~~~~~~~~~~~
+
+In multi-energy group mode, KENO always uses cross sections from a mixed
+cross section data file. The format of this file is the Monte Carlo
+processed cross section file. A mixed cross section file can be created
+by previous KENO run, or  by using an AMPX working format library and
+entering mixing table data in KENO.
+
+.. _8-1-3-4-1:
+
+Use a mixed cross section Monte Carlo format library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A mixed cross section Monte Carlo format library (premixed cross section
+data file) from a previous KENO case may be used. This file is specified
+using the parameter **XSC**\ =. If a mixing table data block is entered,
+the premixed cross section data file will be rewritten. Therefore, a
+mixing table should not be entered if a premixed cross section data file
+is used. The user should verify that the mixtures created by a previous
+KENO case are consistent with those used in the geometry data of the
+problem.
+
+.. _8-1-3-4-2:
+
+Use an AMPX working format library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When an AMPX working format library is used, it must be specified using
+the parameter **LIB**\ =, and mixing table data must always be entered.
+IDs used in the mixing table must match the IDs on the AMPX working
+format library. The user must provide a file with the correct cross
+sections with a name that matches the pattern ftNNf001, with NN being
+the number of the logical unit.
+
+.. _8-1-3-4-3:
+
+Number of scattering angles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The number of scattering angles is defaulted to 1 (defaulted to 2 when
+KENO-VI is run as part of the CSAS6 sequence). This stand alone default
+is not adequate for many applications. The user should specify the
+scattering angle to be consistent with the cross sections being used.
+The number of scattering angles is entered in the cross section mixing
+table by using the keyword **SCT**\ =. See :ref:`8-1-2-10`.
+
+The order of the last Legendre coefficient to be preserved in the
+scattering distribution is equal to (2 × SCT − 1). **SCT**\ =1 could be
+used with a P\ :sub:`1` cross section set such as the 16-group
+Hansen-Roach cross section library, and **SCT**\ =2, for a P\ :sub:`3`
+cross section set such as the SCALE 27-group cross section library.
+ENDF/B-V cross section libraries such as the 44-group or 238-group
+libraries contain many nuclides having P\ :sub:`5` cross section sets.
+Isotropic scattering is achieved by entering **SCT**\ =0.
+
+.. _8-1-3-4-4:
+
+Cross section message cutoff
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The cross section message cutoff value, *pbxs*, is defaulted to
+3 × 10\ :sup:`−5`. Warning messages generated when errors are
+encountered in the P\ :sub:`L` expansion of the group-to-group transfers
+will be suppressed if the P\ :sub:`0` cross section for that particular
+energy transfer is less than *pbxs*. The value of *pbxs* is specified in
+the cross section mixing table by using the keyword **EPS**\ =. See
+:ref:`8-1-2-10`.
+
+The default value of *pbxs* is sufficient to assure that warning
+messages will not be printed for most of the SCALE P\ :sub:`1` and
+P\ :sub:`3` cross section libraries. However, the v7.0-238n library may
+print a few errors if P\ :sub:`5` cross sections are specified.
+
+The error messages below were printed for a problem using the 238-group
+cross section library and *pbxs* = 3.0 × 10\ :sup:`–5`. If the default
+value of *pbxs* allows too many warning messages to be printed, a value
+can be determined which does not print the error messages from the
+printed messages by choosing a number larger than the P\ :sub:`0`
+component on the first line, as shown below.
+
+THE LEGENDRE EXPANSION OF THE CROSS SECTION (P\ :sub:`0`\-P\ :sub:`N`) IS
+P\ :sub:`0` P\ :sub:`1` P\ :sub:`2` ... P\ :sub:`n`
+
+THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE
+M\ :sub:`1` M\ :sub:`2` ... M\ :sub:`n`
+
+THE MOMENTS CORRESPONDING TO THE GENERATED DISTRIBUTION ARE
+M\ :sub:`1` M\ :sub:`2` ... M\ :sub:`n`
+
+THE LEGENDRE EXPANSION CORRESPONDING TO THESE MOMENTS IS
+P\ :sub:`0` P\ :sub:`1` P\ :sub:`2` ... P\ :sub:`n`
+
+___ MOMENTS WERE ACCEPTED
+
+
+For the following messages, **EPS**\ =6.9e−5 would cause all three
+messages to be suppressed. A value less than 5.615159e−5 and greater
+than 4.767635e−5 would suppress the second message, and a value less
+than 6.855362e−5 and greater than 5.615159e−5 would suppress the first
+two messages.
+
+::
+
+  KMSG060	THE ANGULAR SCATTERING DISTRIBUTION FOR MIXTURE 2 HAS BAD MOMENTS FOR THE TRANSFER FROM GROUP 28 TO GROUP 72
+                    1 MOMENTS WERE ACCEPTED
+                  THE LEGENDRE EXPANSION OF THE CROSS SECTION (P0-PN) IS
+             5.615159E-05   1.155527E-06  -2.804013E-05  -1.732067E-06
+  THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE
+             2.057870E-02   4.234578E-04   8.710817E-06
+  THE MOMENTS CORRESPONDING TO THE GENERATED DISTRIBUTION ARE
+             2.057870E-02   4.235078E-04   8.710817E-06
+  THE LEGENDRE EXPANSION CORRESPONDING TO THESE MOMENTS IS
+             5.615159E-05   1.155527E-06  -2.804011E-05  -1.732066E-06
+                  THE WEIGHTS/ANGLES FOR THIS DISTRIBUTION ARE
+             9.999995E-01   5.268617E-07
+             2.057881E-02  -1.973451E-01
+  THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE
+             2.057870E-02   4.235078E-04   8.710817E-06
+
+
+  KMSG060	THE ANGULAR SCATTERING DISTRIBUTION FOR MIXTURE 2 HAS BAD MOMENTS FOR THE TRANSFER FROM GROUP 31 TO GROUP 75
+                    1 MOMENTS WERE ACCEPTED
+                  THE LEGENDRE EXPANSION OF THE CROSS SECTION (P0-PN) IS
+             4.767635E-05   7.834378E-07  -2.381887E-05  -1.174626E-06
+                  THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE
+             1.643242E-02   2.700205E-04   4.451724E-06
+                  THE MOMENTS CORRESPONDING TO THE GENERATED DISTRIBUTION ARE
+             1.643242E-02   2.700282E-04   4.437279E-06
+                  THE LEGENDRE EXPANSION CORRESPONDING TO THESE MOMENTS IS
+             4.767635E-05   7.834378E-07  -2.381885E-05  -1.174627E-06
+                  THE WEIGHTS/ANGLES FOR THIS DISTRIBUTION ARE
+             9.999858E-01   1.420136E-05
+             1.643265E-02  -2.334324E-07
+                  THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE
+             1.643242E-02   2.700282E-04   4.437279E-06
+
+
+  KMSG060	THE ANGULAR SCATTERING DISTRIBUTION FOR MIXTURE 2 HAS BAD MOMENTS FOR THE TRANSFER FROM GROUP
+  32 TO GROUP 74  	                                                          (1)
+                    1 MOMENTS WERE ACCEPTED         	                        (2)
+                  THE LEGENDRE EXPANSION OF THE CROSS SECTION (P0-PN) IS 	    (3)
+              6.855362E-05   1.341944E-06  -3.423741E-05  -2.011613E-06  	    (4)
+                  THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE     	    (5)
+              1.957510E-02   3.831484E-04   7.601939E-06                  	  (6)
+                  THE MOMENTS CORRESPONDING TO THE GENERATED DISTRIBUTION ARE (7)
+              1.957510E-02   3.832207E-04   7.502292E-06                   	  (8)
+                  THE LEGENDRE EXPANSION CORRESPONDING TO THESE MOMENTS IS  	(9)
+              6.855362E-05   1.341944E-06  -3.423740E-05  -2.011629E-06    	  (10)
+                  THE WEIGHTS/ANGLES FOR THIS DISTRIBUTION ARE             	  (11)
+              9.999056E-01   9.437981E-05                                    	(12)
+              1.957695E-02  -1.848551E-06                                  	  (13)
+                  THE MOMENTS CORRESPONDING TO THIS DISTRIBUTION ARE       	  (14)
+                   1.957510E-02   3.832207E-04   7.502292E-06              	  (15)
+
+The user does not need to attempt to suppress all these messages. They
+are printed to inform the user of the fact that the moments of the
+angular distribution are not moments of a valid probability
+distribution. The original P\ :sub:`n` coefficients and their moments
+are listed in lines 3–6 of the message. Lines 7–10 list the new
+corrected moments and their corresponding P\ :sub:`n` coefficients.
+
+The weights and angles printed in lines 11–13 were generated from the
+corrected moments. The last two lines of the message list the moments
+generated from those weights and angles. They should match line 8, which
+lists the moments corresponding to the generated distribution.
+
+For most criticality problems, the first moment contributions are much
+more significant than the contributions of the higher order moments.
+Thus, the higher order moments may not affect the results significantly.
+The user may compare the original moments and corrected moments to make
+a judgment as to the significance of the change in the moments.
+
+.. _8-1-3-5:
+
+Mixing table
+~~~~~~~~~~~~
+
+Mixtures can be used in defining other mixtures. When defining mixture
+numbers, care should be taken to avoid using a mixture number that is
+identical to a nuclide ID number if the mixture is to be used in
+defining another mixture. If a mixture number is defined more than once,
+it results in a summing effect.
+
+The nuclide mixing loop is done before the mixture mixing loop, which
+performs mixing in the order of data entry. Thus, the order of mixing
+mixtures into other mixtures is important because a mixture must be
+defined before it can be used in another mixture. Some examples of
+correct and incorrect mixing are shown below, using 1001 as the nuclide
+ID for hydrogen, 8016 as the nuclide ID for oxygen, 92235 as the nuclide
+ID for :sup:`235`\ U, and 92238 as the nuclide ID for :sup:`238`\ U.
+
+EXAMPLES OF CORRECT USAGE
+
+::
+
+    1.	READ MIXT
+          MIX=1 1001 6.6e-2  8016 3.3e-2
+          MIX=2 1 0.5
+        END MIXT
+
+This results in mixture 1 being full-density water and mixture 2 being half-density water.
+
+::
+
+    2.	READ MIXT
+          MIX=1  2  0.5
+          MIX=3  1  0.5
+          MIX=2  1001  6.6e-2  8016  3.3e-2
+        END MIXT
+
+This results in mixture 1 being half-density water, mixture 2 being
+full-density water, and mixture 3 being quarter-density water. Because
+the nuclide mixing loop is done first, mixture 2 is created first and is
+available to create mixture 1, which is then available to create
+mixture 3.
+
+::
+
+    3.  READ MIXT
+          MIX=1   1001   6.6e-2   8016   3.3e-2
+          MIX=2   92235   7.5e-4   92238   2.3e-2  8016   4.6e-2  1 .01
+       END MIXT
+
+This results in mixture 1 being full-density water and mixture 2 being uranium oxide containing 0.01 density water.
+
+::
+
+    4.  READ MIXT
+          MIX=1    1001  6.6e-2    8016  3.3e-2
+          MIX=2  92235  4.4e-2  92238  2.6e-3
+          MIX=1  1  0.5
+        END MIXT
+
+This results in mixture 1 being water at 1.5 density (1001 9.9e-2 and 8016 4.95e-2)
+and mixture 2 is highly enriched uranium metal.
+
+EXAMPLES OF INCORRECT USAGE
+
+
+::
+
+      1.	READ MIXT
+            MIX=3  1  0.75
+            MIX=1  2  0.5
+            MIX=2  1001  6.6e-2  8016  3.3e-2
+          END MIXT
+
+Here the intent is for mixture 2 to be full-density water, mixture 1 to
+be half-density water, and mixture 3 to be 3/8 (0.75 × 0.5) density
+water. Instead, the result for mixture 3 is a void, mixture 1 is
+half-density water, and mixture 2 is full-density water. This is because
+the nuclide mixing loop is done first, thus defining mixture 2. The
+mixture mixing loop is done next. Mixture 3 is defined to be mixture 1
+multiplied by 0.75, but since mixture 1 has not been defined yet, 0.75
+of zero is zero. Mixture 1 is then defined to be mixture 2 multiplied by
+0.5. If the definition of mixture 1 preceded the definition of
+mixture 3, as in item (2) under examples of correct usage, it would work
+correctly.
+
+::
+
+      2.	READ MIXT
+            MIX=1         1001   6.6e-2     8016     3.3e-2
+            MIX=1001 92235   4.4e-2   92238   2.6e-3
+            MIX=2   1001   0.5
+          END MIXT
+
+This results in mixture 1 being full-density water, mixture 1001 being
+uranium metal, and mixture 2 being hydrogen with a number density of 0.5
+because 1001 is the nuclide ID number for hydrogen. When a mixture
+number is identical to a nuclide ID and is used in mixing, that number
+is assumed to be a nuclide ID rather than a mixture number. The intent
+was for mixture 1 to be full-density water, mixture 1001 to be uranium
+metal, and mixture 2 to be half-density uranium metal.
+
+.. _8-1-3-6:
+
+Geometry
+~~~~~~~~
+
+In general, KENO geometry descriptions consist of (1) geometry data
+(:ref:`8-1-2-4`) defining the geometrical shapes present in the problem,
+and (2) array data (:ref:`8-1-2-5`) defining the placement of the units
+that were defined in the geometry data. The geometry data block is
+prefaced by **READ GEOM**, and the array data block is prefaced by
+**READ ARRAY**.
+
+When a 3-D geometrical configuration is described as KENO geometry data,
+it may be necessary to describe portions of the configuration
+individually. These individual partial descriptions of the configuration
+are called **UNIT**\ s. KENO geometry modeling is subject to the
+following restrictions:
+
+1. Units are composed of regions. These regions are created using
+      geometric bodies and surfaces (**shape**\ s) that are previously
+      defined.
+
+   1. In KENO-VI the geometric bodies and surfaces may intersect.
+      Regions are defined relative to the geometric bodies and surfaces
+      in a **UNIT**. **HOLE**\ s provide a means of creating complex
+      geometries in a **UNIT** and then inserting the **UNIT** into
+      existing **UNIT**\ s. For complex geometries the use of
+      **HOLE**\ s may decrease the CPU time required for the problem.
+
+   2. In KENO V.a, each geometry region in a **UNIT** must completely
+      enclose all geometry regions which precede it. Boundaries of the
+      surfaces of the regions may be shared or tangent, but they must
+      not intersect. The use of **HOLE**\ s in KENO V.a provides an
+      exception to this complete enclosure rule. The use of **HOLE**\ s
+      in KENO V.a will increase the CPU time required for the problem.
+
+2. All geometrical surfaces must be describable in KENO V.a as spheres,
+      hemispheres, cylinders, hemicylinders, cubes, cuboids, or as a set
+      of quadratic equations in KENO-VI.
+
+3. When specifying an **ARRAY**, each **UNIT** used in a cuboidal
+      **ARRAY** must have a **CUBE** or **CUBOID** as its outer region
+      (this is the only option in KENO V.a); a hexprism as the outer
+      boundary if it is a hexagonal, triangular, or shexagonal
+      **ARRAY**; a rhexprism as the outer boundary if it is a rhexagonal
+      **ARRAY**; and a dodecahedron as the outer boundary if it is a
+      dodecahedral **ARRAY**. In addition, the outer boundary of a
+      **UNIT** cannot be rotated or translated in KENO V.a.
+
+4. When several **UNIT**\ s are used to describe an **ARRAY**, the
+      adjacent faces of the **UNIT**\ s in contact with each other must
+      be the same size and shape.
+
+5. **UNIT**\ s are placed directly into regions using **HOLE**\ s. As
+      many **HOLE**\ s as will fit without intersecting other
+      **HOLE**\ s, nested **ARRAY**\ s or **HOLE**\ s, or the **UNIT**
+      **BOUNDARY** can be placed in a **UNIT** without intersecting each
+      other. In KENO V.a, **HOLE**\ s cannot intersect any of the
+      regions within the **UNIT** in which they are placed. **HOLE**\ s
+      are described in more detail in :ref:`8-1-3-6-1`, and nested
+      **HOLE**\ s are described in :ref:`8-1-3-6-2`.
+
+6. Multiple **ARRAY**\ s may be required to describe a complicated
+      system. In KENO V.a, only one **ARRAY** may be placed directly
+      into a **UNIT**. However, multiple **ARRAY**\ s may be placed in a
+      **UNIT** by placing the **ARRAY**\ s in other **UNIT**\ s and
+      placing those **UNIT**\ s in the original **UNIT** using
+      **HOLE**\ s. Multiple **ARRAY**\ s may be placed directly into a
+      **UNIT** in KENO-VI. These **UNIT**\ s may then be used to create
+      other **ARRAY**\ s, or they may be placed in other **UNIT**\ s
+      using **HOLE**\ s. **UNIT**\ s placed in **ARRAY**\ s or
+      **HOLE**\ s that are contained in other **HOLE**\ s or
+      **ARRAY**\ s are said to be nested. The nesting level of a
+      **UNIT** is the number of **ARRAY**\ s and **HOLE**\ s between the
+      **ARRAY** or **HOLE** in the **GLOBAL UNIT** or **ARRAY** and the
+      **UNIT**. Multiple **ARRAY**\ s are described in more detail in
+      :ref:`8-1-3-6-3`.
+
+The KENO V.a geometry package allows any applicable **shape** to be
+enclosed by any other applicable **shape**, subject only to the complete
+enclosure restriction. The KENO-VI geometry package allows any **shape**
+describable using quadratic equations to be enclosed or intersected by
+any other allowable **shape**. The implication of this type of
+description is that the entire volume between two adjacent geometrical
+surfaces contains only one mixture, **HOLE**, or **ARRAY**. A void is
+specified by a mixture ID of zero. If **HOLE**\ s are present in the
+volume between two surfaces, the volume of that region is reduced by the
+**HOLE**\ ’s volume(s).
+
+In KENO V.a geometry, if the problem requires several **UNIT**\ s to
+describe its geometrical characteristics, each **UNIT** that is used in
+an **ARRAY** must have a rectangular parallelepiped as its outer
+surface. This restriction is relaxed in KENO-VI, where the outer surface
+may be a rectangular parallelepiped, a hexagonal prism, a 90º rotated
+hexagonal prism, or a dodecahedron, but all units placed in an array
+must use the same shape as their outer **BOUNDARY**. In order to
+describe the composite overall geometrical characteristics of the
+problem, these **UNIT**\ s may be arranged in a rectangular **ARRAY**
+for KENO V.a geometry, or in either a rectangular, hexagonal,
+shexagaonal, rhexagonal, or dodecahedral **ARRAY** for KENO-VI geometry.
+This is done by specifying the number of units in the X, Y, and
+Z directions. If more than one **UNIT** is involved, data must be
+entered to define the number assigned to the **ARRAY** and the placement
+of the individual **UNIT**\ s in the **ARRAY**. The **ARRAY** number,
+the number of **UNIT**\ s in the X, Y, and Z directions, and the
+placement data are called *array data* (:ref:`8-1-2-5`).
+
+In the KENO V.a geometry description, the surrounding regions of any
+**shape** may be placed around an **ARRAY**, and they may consist of any
+number of regions in any order subject to the complete enclosure
+restriction. **ARRAY**\ s are positioned relative to the **UNIT ORIGIN**
+by specifying the location of the most negative point in the array, i.e.
+the most negative X, most negative Y, and most negative Z corner of the
+**ARRAY**. In KENO-VI geometry, an **ARRAY** may be placed in a region
+of any shape if the region boundary is contained within the **ARRAY** or
+shares the **ARRAY** boundary and does not cut across nested
+**ARRAY**\ s or **HOLE**\ s. In this case, only the section of the
+**ARRAY** contained within the region is recognized by the problem.
+**ARRAY**\ s are positioned relative to the **UNIT** **ORIGIN** by
+placing the **ORIGIN** of a specified **UNIT** in the **ARRAY** at a
+specified location in the **UNIT**.
+
+To create a geometry mockup from a physical configuration, the user
+should keep the restrictions mentioned earlier in mind. There may be
+several ways of correctly describing the same physical configuration.
+Careful analysis of the system can result in a simpler mockup and
+shorter computer running time. A mockup with fewer geometry regions may
+run faster than the same mockup with extraneous regions. The number of
+**UNIT**\ s used can affect the running time, because a transformation
+of coordinates must be made every time a history moves from one **UNIT**
+into another. Thus, if the size of a **UNIT** is small relative to the
+mean free path, a larger percentage of time is spent processing the
+transformation of coordinates. Because all boundaries in a **UNIT** must
+be checked for crossings, it may be more efficient to break up complex
+**UNIT**\ s into several smaller, simpler **UNIT**\ s. The trade-off
+involves the time required to process more boundary crossings vs the
+time required to transform coordinate systems when **UNIT** boundaries
+are crossed.
+
+**Geometry dimensions:** The use of FIDO syntax may help simplify the
+description of the geometry. For example, a 20 × 20 × 2.5 cm rectangular
+parallelepiped would have been described as **CUBOID** 1 1 10.0 −10.0
+10.0 −10.0 1.25 −1.25 in KENO V.a and **CUBOID** 1 10.0 –10.0 10.0 –10.0
+1.25 –1.25 in KENO-VI. By using the P option (see Table 8.1.17), the
+same rectangular parallelepiped could be described as **CUBOID** 1 1
+4P10.0 2P1.25 in KENO V.a and or **CUBOID** 1 4P10.0 2P1.25 in KENO-VI,
+where the last 6 entries describe the geometry. The P option simply
+repeats the dimension following the P for the number of times stated
+before the P, and it reverses the sign every time. Therefore, 6P8.0 is
+equivalent to 8.0 −8.0 8.0 −8.0 8.0 −8.0.
+
+**Geometry comments:** One comment can be entered for each **UNIT** in
+the *geometry region data*. Similarly, one comment can be entered for
+each **ARRAY** in the *array definition data*. A comment can be entered
+using the keyword **COM**\ =. This is followed by a comment with a
+maximum length of 132 characters. The comment must be preceded and
+terminated by a delimiter character. Acceptable delimiters include “ , ‘
+, \* , ^ , or !. One comment is allowed for each **UNIT** in the
+*geometry region data*. If multiple comments are entered for a **UNIT**,
+the last comment is used. The comment can be entered anywhere after the
+**UNIT** number where a keyword is expected (:ref:`8-1-2-4`). See the
+following example.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+    COM=*SPHERICAL METAL UNIT*
+    SPHERE 1 1 5.0
+    CUBE 0 1 2P5.0
+  UNIT 2
+    CYLINDER 1 1 5.0 2P5.0
+    CUBE 0 1 2P5.0
+    COM=!CYLINDRICAL METAL UNIT!
+  UNIT 3
+    HEMISPHE+X 1 1 5.0
+    COM='HEMISPHERICAL METAL UNIT'
+    CUBE 0 1 2P5.0
+  UNIT 4
+    COM=^ARRAY OF SPHERICAL UNITS^
+    ARRAY 1 3*0.0
+  UNIT 5
+    COM=“ARRAY OF CYLINDRICAL UNITS”
+    ARRAY 2 3*0.0
+  UNIT 6
+    COM='ARRAY OF HEMISPHERICAL UNITS'
+    ARRAY 3 3*0.0
+  END GEOM
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+    COM=*SPHERICAL METAL UNIT*
+    SPHERE 1  5.0
+    CUBOID 2  6P5.0
+    MEDIA 1 1 1
+    MEDIA 0 1 -1 2
+    BOUNDARY 2
+  UNIT 2
+    CYLINDER 1 5.0 2P5.0
+    CUBOID 2 6P5.0
+    MEDIA 1 1 1
+    COM=!CYLINDRICAL METAL UNIT!
+    MEDIA 0 1 -1 2
+    BOUNDARY 2
+  UNIT 3
+    SPHERE 1  5.0 CHORD +X=0.0
+    MEDIA 1 1 1
+    COM='HEMISPHERICAL METAL UNIT'
+    CUBOID 2  6P5.0
+    MEDIA 0 1 -1 2
+    BOUNDARY 2
+  UNIT 4
+    COM='ARRAY OF SPHERICAL UNITS'
+    CUBOID 1 6P15
+    ARRAY 1 1 PLACE 2 2 2 3*0.0
+    BOUNDARY 1
+  UNIT 5
+    CUBOID 1 6P15.0
+    COM='ARRAY OF CYLINDRICAL UNITS'
+    ARRAY 2 1 PLACE 2 2 2 3*0.0
+    BOUNDARY 1
+  UNIT 6
+    COM='ARRAY OF HEMISPHERICAL UNITS'
+    CUBOID 1 6P15.0
+    ARRAY 3 1 PLACE 2 2 2 3*0.0
+    BOUNDARY 1
+  GLOBAL UNIT 7
+    COM='ARRAY OF ARRAYS'
+    CUBOID 1 4P15.0 2P45.0
+    ARRAY 4 1 PLACE 1 1 2 3*0.0
+    BOUNDARY 1
+  END GEOM
+
+One comment is allowed for each array in the *array definition data*.
+The rules governing these comments are the same as those listed above.
+However, the comment for an **ARRAY** must precede the **UNIT**
+arrangement description, and it can precede the **ARRAY** number
+(:ref:`8-1-2-5`). Examples of correct **ARRAY** comments are given below.
+
+KENO V.a:
+
+::
+
+  READ ARRAY
+    COM='ARRAY OF SPHERICAL METAL UNITS'
+    ARA=1 NUX=2 NUY=2 NUZ=2 FILL F1 END FILL
+    ARA=2 COM='ARRAY OF CYLINDRICAL METAL UNITS'
+    NUX=2 NUY=2 NUZ=2 FILL F2 END FILL
+    ARA=3 NUX=2 NUY=2 NUZ=2
+    COM='ARRAY OF HEMISPHERICAL METAL UNITS'
+    FILL F3 END FILL
+    ARA=4 COM='COMPOSITE ARRAY OF ARRAYS. Z=1 IS SPHERES, Z=2 IS CYLINDERS,   Z=3 IS HEMISPHERES'
+    NUX=1 NUY=1 NUZ=3 FILL 4 5 6 END FILL
+  END ARRAY
+
+KENO-VI:
+
+::
+
+  READ ARRAY
+    COM='ARRAY OF SPHERICAL METAL UNITS'
+    ARA=1 NUX=3 NUY=3 NUZ=3 FILL F1 END FILL
+    ARA=2 COM='ARRAY OF CYLINDRICAL METAL UNITS'
+    NUX=3 NUY=3 NUZ=3 FILL F2 END FILL
+    ARA=3 NUX=3 NUY=3 NUZ=3
+    COM='ARRAY OF HEMISPHERICAL METAL UNITS'
+    FILL F3 END FILL
+    ARA=4 COM='COMPOSITE ARRAY OF ARRAYS. Z=1 IS SPHERES, Z=2 IS CYLINDERS, Z=3 IS  HEMISPHERES'
+    NUX=1 NUY=1 NUZ=3 FILL 4 5 6 END FILL
+  END ARRAY
+
+Some of the basics of KENO geometry are illustrated in the following examples:
+
+EXAMPLE 1. Assume a stack of six cylindrical disks each measuring 5 cm
+in radius and 2 cm thick. The bottom disk is composed of material 1, and
+the next disk is composed of material 2, etc., alternating throughout
+the stack. A square plate of material 3 that is 20 cm on a side and
+2.5 cm thick is centered on top of the stack. This configuration is
+shown in :numref:`fig8-1-12`.
+
+.. _fig8-1-12:
+.. figure:: figs/Keno/fig12.png
+  :align: center
+  :width: 400
+
+  Stack of disks with a square top.
+
+This problem can be described as a single **UNIT** problem, describing
+the cylindrical portion first. In this instance, the origin has been
+chosen at the center bottom of the bottom disk. The bottom disk is
+defined by the first cylinder description, and the next disk is defined
+by the difference between the first and second cylinder descriptions.
+Since both disks have a radius of 5.0 and a −Z length of 0.0, the first
+cylinder containing material 1 exists from Z = 0.0 to Z = 2.0, and the
+second cylinder containing material 2 exists from Z = 2.0 to Z = 4.0.
+When all the disks have been described, a void cuboid having the same X
+and Y dimensions as the square plate and the same Z dimensions as the
+stack of disks is defined. The square plate of material 3 is then
+defined on top of the stack. Omission of the first cuboid description
+would result in the stack of disks being encased in a solid cuboid of
+material 3 instead of having a flat plate on top of the stack. The
+geometry input is shown below.
+
+.. centered:: Data description 1, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  CYLINDER 1  1     5.0 2.0    0.0
+  CYLINDER 2  1     5.0 4.0    0.0
+  CYLINDER 1  1     5.0 6.0    0.0
+  CYLINDER 2  1     5.0 8.0    0.0
+  CYLINDER 1  1     5.0 10.0   0.0
+  CYLINDER 2  1     5.0 12.0   0.0
+  CUBOID 0 1 10.0 -10.0 10.0 -10.0 12.0 0.0
+  CUBOID 3 1 10.0 -10.0 10.0 -10.0 14.5 0.0
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER   1   5.0   2.0   0.0
+  CYLINDER   2   5.0   4.0   2.0
+  CYLINDER   3   5.0   6.0   4.0
+  CYLINDER   4   5.0   8.0   6.0
+  CYLINDER   5   5.0  10.0   8.0
+  CYLINDER   6   5.0  12.0  10.0
+  CUBOID     7  10.0 -10.0  10.0 -10.0  12.0  0.0
+  CUBOID     8  10.0 -10.0  10.0 -10.0  14.5  0.0
+  MEDIA 1 1 1
+  MEDIA 2 1 2
+  MEDIA 1 1 3
+  MEDIA 2 1 4
+  MEDIA 1 1 5
+  MEDIA 2 1 6
+  MEDIA 0 1 -1 -2 -3 -4 -5 -6 7
+  MEDIA 3 1 -7 8
+  BOUNDARY  8
+  END GEOM
+
+
+An alternative description of the same example is given below. The
+origin has been chosen at the center of the disk of material 1 nearest
+the center of the stack. This disk of material 1 is defined by the first
+cylinder description, and the disks of material 2 on either side of it
+are defined by the second cylinder description. The top and bottom disks
+of material 1 are defined by the third cylinder, and the top disk of
+material 2 is defined by the last cylinder. The square plate is defined
+by the two cuboids. This description is more efficient than the previous
+one because there are fewer surfaces to check for crossings.
+
+.. centered:: Data description 2, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  CYLINDER 1 1  5.0   1.0 -1.0
+  CYLINDER 2 1  5.0   3.0 -3.0
+  CYLINDER 1 1  5.0   5.0 -5.0
+  CYLINDER 2 1  5.0   7.0 -5.0
+  CUBOID   0 1 10.0 -10.0 10.0 -10.0 7.0 -5.0
+  CUBOID   3 1 10.0 -10.0 10.0 -10.0 9.5 -5.0
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER 10  5.0   1.0 -1.0
+  CYLINDER 20  5.0   3.0 -3.0
+  CYLINDER 30  5.0   5.0 -5.0
+  CYLINDER 40  5.0   7.0 -5.0
+  CUBOID   50 10.0 -10.0 10.0 -10.0 7.0 -5.0
+  CUBOID   60 10.0 -10.0 10.0 -10.0 9.5 -5.0
+  MEDIA 1 1 10
+  MEDIA 2 1 -10 20
+  MEDIA 1 1 -20 30
+  MEDIA 2 1 -30 40
+  MEDIA 0 1 -40 50
+  MEDIA 3 1 -50 60
+  BOUNDARY  60
+  END GEOM
+
+Example 1 can also be described as an **ARRAY**. Define three different
+**UNIT** types. **UNIT** 1 will define a disk of material 1, **UNIT** 2
+will define a disk of material 2, and **UNIT** 3 will define the square
+plate of material 3. The origin of each **UNIT** is defined at the
+center bottom of the disk or plate being described. As mentioned
+earlier, only **UNIT**\ s with a **CUBE** or **CUBOID** as their outer
+boundary can be placed in a cuboidal **ARRAY**. The geometry input for
+this arrangement is shown below.
+
+.. centered:: Data description 3, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1  5.0   2.0  0.0
+  CUBOID    0 1 10.0 -10.0 10.0 -10.0 2.0 0.0
+  UNIT 2
+  CYLINDER  2 1  5.0   2.0  0.0
+  CUBOID    0 1 10.0 -10.0 10.0 -10.0 2.0 0.0
+  UNIT 3
+  CUBOID    3 1 10.0 -10.0 10.0 -10.0 2.5 0.0
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=7 FILL 1 2 1 2 1 2 3 END ARRAY
+
+.. note:: The **ARRAY** is assumed to be the **GLOBAL ARRAY** because
+  only a single **ARRAY** is defined.
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER 1  5.0   2.0  0.0
+  CUBOID  2 10.0 -10.0 10.0 -10.0 2.0 0.0
+  MEDIA 1 1 1
+  MEDIA 0 1 -1 2
+  BOUNDARY 2
+  UNIT 2
+  CYLINDER  1  5.0   2.0  0.0
+  CUBOID    2 10.0 -10.0 10.0 -10.0 2.0 0.0
+  MEDIA 2 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY 2
+  UNIT 3
+  CUBOID    1 10.0 -10.0 10.0 -10.0 2.5 0.0
+  MEDIA 3 1 1
+  BOUNDARY 1
+  GLOBAL UNIT 4
+  CUBOID 1  10 -10 10 -10 14.5 0.0
+  ARRAY 1 1  PLACE 1 1 1 3*0.0
+  BOUNDARY 1
+  END GEOM
+  READ ARRAY ARA=1 NUX=1 NUY=1 NUZ=7 FILL 1 2 1 2 1 2 3 END ARRAY
+
+If the user prefers for the origin of each unit to be at its center, the
+geometry region data can be entered as shown below. The array data would
+be identical to that of data description 3, Example 1.
+
+.. centered:: Data description 4, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1  5.0   1.0 -1.0
+  CUBOID    0 1 10.0 -10.0 10.0 -10.0 1.0 -1.0
+  UNIT 2
+  CYLINDER  2 1  5.0   1.0 -1.0
+  CUBOID    0 1 10.0 -10.0 10.0 -10.0 1.0 -1.0
+  UNIT 3
+  CUBOID  3 1 10.0 -10.0 10.0 -10.0 1.25 -1.25
+  END GEOM
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER 1  5.0   1.0 -1.0
+  CUBOID  2   10.0 -10.0 10.0 -10.0 1.0 -1.0
+  MEDIA 1 1 1
+  MEDIA 0 1 -1 2
+  BOUNDARY  2
+  UNIT 2
+  CYLINDER 1  5.0   1.0 -1.0
+  CUBOID  2  10.0 -10.0 10.0 -10.0 1.0 -1.0
+  MEDIA 2 1 1
+  MEDIA 0 1 -1 2
+  BOUNDARY  2
+  UNIT 3
+  CUBOID 1 10.0 -10.0 10.0 -10.0 1.25 -1.25
+  MEDIA 3 1 1
+  BOUNDARY  1
+  GLOBAL UNIT 4
+  CUBOID 1 10 -10 10 -10 14.5 0.0
+  ARRAY 1 1 PLACE 1 1 1 0.0 0.0 1.0
+  BOUNDARY 1
+  END GEOM
+
+Be aware that each **UNIT** in a geometry description can have its
+origin defined independent of the other **UNIT**\ s. It would be correct
+to use **UNIT**\ s 1 and 3 from data descriptions 3, and **UNIT** 2 from
+data description 4. The *array data* would remain the same as data
+description 3, Example 1. The user should define the origin of each unit
+to be as convenient as possible for the chosen description. Care should
+be taken when assigning coordinates to the **UNIT** used to **PLACE**
+the **ARRAY** in its surrounding region.
+
+Another method of describing Example 1 as a bare array is to define
+**UNIT** 1 to be a disk of material 1 topped by a disk of material 2.
+The origin has been chosen at the center bottom of the disk of
+material 1. **UNIT** 2 is the square plate of material 3 with the origin
+at the center of the **UNIT**. The **ARRAY** consists of three
+**UNIT** 1s, topped by a **UNIT** 2, as shown below.
+
+
+.. centered:: Data description 5, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1  5.0   2.0  0.0
+  CYLINDER  2 1  5.0   4.0  0.0
+  CUBOID    0 1 10.0 -10.0 10.0 -10.0 4.0 0.0
+  UNIT 2
+  CUBOID    3 1 10.0 -10.0 10.0 -10.0 1.25 -1.25
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=4 FILL 3R1 2 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1  5.0   2.0  0.0
+  CYLINDER  2  5.0   4.0  2.0
+  CUBOID  3   10.0 -10.0 10.0 -10.0 4.0 0.0
+  MEDIA 1 1 1
+  MEDIA 2 1 2
+  MEDIA 0 1 -1 -2 3
+  BOUNDARY  3
+  UNIT 2
+  CUBOID  1  10.0 -10.0 10.0 -10.0 1.25 -1.25
+  MEDIA 3 1 1
+  BOUNDARY  1
+  GLOBAL UNIT 3
+  CUBOID  1 10 -10 10 -10 14.5 0.0
+  ARRAY 1 1 PLACE 1 1 1 3*0.0
+  BOUNDARY  1
+  END GEOM
+  READ ARRAY  ARA=1 NUX=1 NUY=1 NUZ=4 FILL 3R1 2 END ARRAY
+
+Example 1 can be described as a reflected **ARRAY** by treating the
+square plate as a reflector in the positive Z direction. One means of
+describing this situation is to define **UNIT**\ s 1 and 2 as in data
+description 3, Example 1. The origin of the **GLOBAL UNIT** is defined
+to be at the center of the **ARRAY**. The corresponding input geometry
+is shown below.
+
+.. centered:: Data description 6, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1   5.0   2.0  0.0
+  CUBOID    0 1  10.0  -10.0  10.0  -10.0  2.0  0.0
+  UNIT 2
+  CYLINDER  2 1   5.0   2.0  0.0
+  CUBOID      0 1  10.0  -10.0  10.0  -10.0  2.0  0.0
+  GLOBAL UNIT 3
+  ARRAY        1 -10.0  -10.0  -6.0
+  CUBOID     3 1  10.0  -10.0  10.0  -10.0  8.5  -6.0
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=6 FILL 1 2 1 2 1 2 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1  5.0   2.0  0.0
+  CUBOID  2   10.0 -10.0 10.0 -10.0 2.0  0.0
+  MEDIA 1 1 1
+  MEDIA 0 1 -1 2
+  BOUNDARY  2
+  UNIT 2
+  CYLINDER  1  5.0   2.0  0.0
+  CUBOID  2  10.0 -10.0 10.0 -10.0 2.0  0.0
+  MEDIA 2 1 1
+  MEDIA 0 1 -1 2
+  BOUNDARY  2
+  GLOBAL UNIT 3
+  CUBOID 1  10.0 -10.0 10.0 -10.0 6.0 -6.0
+  CUBOID 2  10.0 -10.0 10.0 -10.0 8.5 -6.0
+  ARRAY 1 1 PLACE 1 1 1 0.0 0.0 -6.0
+  MEDIA 3 1 -1 2
+  BOUNDARY  2
+  END GEOM
+  READ ARRAY ARA=1 NUX=1 NUY=1 NUZ=6 FILL 1 2 1 2 1 2 END ARRAY
+
+The user could have chosen the origin of the **ARRAY** boundary to be at
+the center bottom of the **ARRAY**, in which case the geometry
+description for the **GLOBAL UNIT** would be:
+
+KENO V.a:
+
+::
+
+  ARRAY       1 -10.0  -10.0  0.0
+  CUBOID   3 1 10.0  -10.0  10.0  -10.0  14.5  0.0
+
+or
+
+::
+
+  ARRAY    1  -10.0  -10.0 0.0
+  REPLICATE  3  4*0.0  2.5  0 1
+
+The reflector region at the top of the array can be added by using a
+**CUBOID** or by using a **REPLICATE** description in KENO V.a. Recall
+that there is no **REPLICATE** function in KENO-VI.
+
+A simpler method of describing Example 1 as a reflected array is to
+define only one unit as in data description 5, Example 1. The square
+plate is treated as a reflector, as in data description 6, Example 1.
+The input for this arrangement is given below.
+
+.. centered:: Data description 7, Example 1.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1   5.0   2.0  0.0
+  CYLINDER  2 1   5.0   4.0  0.0
+  CUBOID      0 1  10.0  -10.0  10.0  -10.0  4.0  0.0
+  GLOBAL UNIT 2
+  ARRAY        1  -10.0  -10.0  0.0
+  CUBOID     3  1  10.0  -10.0  10.0  -10.0  14.5  0.0
+  END GEOM
+  READ ARRAY NUX=1 NUY=1 NUZ=3 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1   5.0   2.0  0.0
+  CYLINDER  2   5.0   4.0  2.0
+  CUBOID   3   10.0 -10.0 10.0 -10.0 4.0 0.0
+  MEDIA 1 1 1
+  MEDIA 2 1 2
+  MEDIA 0 1 -1 -2 3
+  BOUNDARY  3
+  GLOBAL UNIT 2
+  CUBOID  1  10.0 -10.0 10.0 -10.0  12.0 0.0
+  CUBOID  2  10.0 -10.0 10.0 -10.0 14.5 0.0
+  ARRAY 1 1 PLACE 1 1 1 3*0.0
+  MEDIA 3 1 -1 2
+  BOUNDARY  2
+  END GEOM
+  READ ARRAY ARA=1 NUX=1 NUY=1 NUZ=3 FILL F1  END FILL  END ARRAY
+
+EXAMPLE 2. Assume that the stack of six disks in Example 1 is placed at
+the center bottom of a cylindrical container composed of material 6
+whose inside diameter is 16.0 cm. The bottom and sides of the container
+are 0.25 cm thick, the top is open, and the total height of the
+container is 18.25 cm. Assume the square plate of Example 1 is centered
+on top of the container.
+
+The geometry input can be described utilizing most of the data
+description methods associated with Example 1. One method of describing
+Example 2 as a single **UNIT** is given below.
+
+.. centered:: Data description 1, Example 2.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1  5.0    1.0  -1.0
+  CYLINDER  2 1  5.0    3.0  -3.0
+  CYLINDER  1 1  5.0    5.0  -5.0
+  CYLINDER  2 1  5.0    7.0  -5.0
+  CYLINDER  0 1  8.0   13.0  -5.0
+  CYLINDER  6 1  8.25  13.0  -5.25
+  CUBOID    0 1 10.0  -10.0  10.0 -10.0 13.0 -5.25
+  CUBOID    3 1 10.0  -10.0  10.0 -10.0 15.5 -5.25
+  END GEOM
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER  1  5.0    1.0  -1.0
+  CYLINDER  2  5.0    3.0  -3.0
+  CYLINDER  3  5.0    5.0  -5.0
+  CYLINDER  4  5.0    7.0  -5.0
+  CYLINDER  5  8.0   13.0  -5.0
+  CYLINDER  6  8.25  13.0  -5.25
+  CUBOID    7  10.0 -10.0  10.0 -10.0 13.0 -5.25
+  CUBOID    8  10.0 -10.0  10.0 -10.0 15.5 -5.25
+  MEDIA 1 1 1
+  MEDIA 2 1 -1 2
+  MEDIA 1 1 -2 3
+  MEDIA 2 1 -3 4
+  MEDIA 0 1 -4 5
+  MEDIA 6 1 -5 6
+  MEDIA 0 1 -6 7
+  MEDIA 3 1 -7 8
+  BOUNDARY  8
+  END GEOM
+
+In the above description, the origin is defined to be at the center of
+the disk of material 1 nearest the center of the stack. This disk is
+defined by the first cylinder description. The disks of material 2 above
+and below it are defined by the second cylinder description. The disks
+of material 1 above and below them are defined by the third cylinder
+description. The top disk of material 2 is defined by the fourth
+cylinder description. The void interior of the container is defined by
+the fifth cylinder description. The container is defined by the last
+cylinder description. The first cuboid description is used to define a
+void whose X and Y dimensions are the same as the square plate and whose
+Z dimensions are the same as the container. The last cuboid description
+defines the square plate. Omission of the first cuboid description would
+result in the container being encased in a solid cuboid of material 3.
+Thus, both cuboids are necessary to properly define the square plate.
+
+Example 2 can be described as a reflected **ARRAY**. One of the
+descriptions uses only one **UNIT** and is similar to data
+description 7, Example 1. This description is shown below.
+
+.. centered:: Data description 2, Example 2.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1  1  5.0    2.0   0.0
+  CYLINDER  2  1  5.0    4.0   0.0
+  CUBOID    0 1  5.0   -5.0   5.0   -5.0  4.0  0.0
+  GLOBAL UNIT 2
+  ARRAY          1  -5.0   -5.0   0.0
+  CYLINDER  0  1  8.0   18.0   0.0
+  CYLINDER  6  1  8.25  18.0  -0.25
+  CUBOID      0  1  10.0  -10.0  10.0  -10.0  18.0  -0.25
+  CUBOID      3  1  10.0  -10.0  10.0  -10.0  20.5  -0.25
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=3 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1  5.0    2.0   0.0
+  CYLINDER  2  5.0    4.0   2.0
+  CUBOID    3  5.0   -5.0   5.0   -5.0  4.0  0.0
+  MEDIA 1 1 1
+  MEDIA 2 1 2
+  MEDIA 0 1 -1 -2 3
+  BOUNDARY  3
+  GLOBAL UNIT 2
+  CUBOID   1 5.0 -5.0 5.0 -5.0 12.0 0.0
+  ARRAY 1 1 PLACE 1 1 1 3*0.0
+  CYLINDER  2  8.0   18.0   0.0
+  MEDIA 0 1 -1 2
+  CYLINDER  3  8.25  18.0  -0.25
+  MEDIA 6 1 -2 3
+  CUBOID    4 10.0  -10.0  10.0  -10.0 20.5 18.0
+  CUBOID    5 10.0  -10.0  10.0  -10.0 20.5 -0.25
+  MEDIA 3 1 4
+  MEDIA 0 1 -3 -4 5
+  BOUNDARY  5
+  END GEOM
+  READ ARRAY ARA NUX=1 NUY=1 NUZ=3 FILL F1 END FILL END ARRAY
+
+In the above data description, the first two cylinder descriptions
+define a disk of material 1 with a disk of material 2 directly on top of
+it. A tight fitting void cuboid is placed around them so they can be
+stacked three high to achieve the stack of disks shown in Example 1,
+:numref:`fig8-1-12`. This array comprises the array portion of the geometry
+region description. The origin of the array boundary, a tight fitting
+cube or cuboid that encompasses the array, is defined by the **ARRAY**
+description. Everything after the **ARRAY** record is considered part of
+the reflector. The first cylinder after the **ARRAY** record defines the
+void interior of the cylindrical container. The next cylinder defines
+the walls of the container. The second-to-last cuboid defines a void
+volume outside the container from its bottom to its top and having the
+same X and Y dimensions as the square plate. The last cuboid defines the
+square plate of material 3 that is sitting on top of the container.
+
+Another method to describe Example 2 is as an array composed of units
+that contain both the stack and container. This description requires a
+minimum of four units to describe the problem. This configuration is
+given below in data description 3, Example 2.
+
+.. centered:: Data description 3, Example 2.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  6 1  8.25   0.25   0.0
+  CUBOID    0 1 10.0  -10.0   10.0 -10.0 0.25  0.0
+  UNIT 2
+  CYLINDER  1 1  5.0    2.0    0.0
+  CYLINDER  2 1  5.0    4.0    0.0
+  CYLINDER  0 1  8.0    4.0    0.0
+  CYLINDER  6 1  8.25   4.0    0.0
+  CUBOID    0 1 10.0  -10.0   10.0 -10.0 4.0   0.0
+  UNIT 3
+  CYLINDER  0 1  8.0    3.0   -3.0
+  CYLINDER  6 1  8.25   3.0   -3.0
+  CUBOID    0 1 10.0  -10.0   10.0 -10.0 3.0  -3.0
+  CUBOID    3 1 10.0  -10.0   10.0 -10.0 5.5  -3.0
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=5 FILL 1 3R2 3 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1  8.25   0.25   0.0
+  CUBOID  2   10.0  -10.0   10.0 -10.0 0.25  0.0
+  MEDIA 6 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  UNIT 2
+  CYLINDER  10  5.0    2.0    0.0
+  CYLINDER  20  5.0    4.0    0.0
+  CYLINDER  30  8.0    4.0    0.0
+  CYLINDER  40  8.25   4.0    0.0
+  CUBOID  50   10.0  -10.0   10.0 -10.0 4.0   0.0
+  MEDIA 1 1 10
+  MEDIA 2 1 20 -10
+  MEDIA 0 1 30 -20
+  MEDIA 6 1 40 -30
+  MEDIA 0 1 50 -40
+  BOUNDARY  50
+  UNIT 3
+  CYLINDER  1  8.0    3.0   -3.0
+  CYLINDER  2  8.25   3.0   -3.0
+  CUBOID    3 10.0  -10.0   10.0 -10.0 5.5   3.0
+  CUBOID    4 10.0  -10.0   10.0 -10.0 5.5  -3.0
+  MEDIA 0 1 1
+  MEDIA 6 1 2 -1
+  MEDIA 3 1 3
+  MEDIA 0 1 4 -3 -2
+  BOUNDARY  4
+  GLOBAL UNIT 4
+  CUBOID  1  10.0 -10.0 10.0 -10.0 20.75 0.0
+  ARRAY 1 1 PLACE 1 1 1 3*0.0
+  BOUNDARY  1
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=5 FILL 1 3R2 3 END ARRAY
+
+
+In the above description, **UNIT** 1 is the bottom of the cylindrical
+container. The void **CUBOID** is only as tall as the bottom of the
+container, and its X and Y dimensions are the same as the square plate
+on top of the container. If all the **UNIT**\ s in the **ARRAY** use
+these same dimensions in the X and Y directions, the requirement that
+adjacent faces of units in contact with each other must be the same size
+and shape is satisfied. This **ARRAY** is stacked in the Z direction, so
+all **UNIT**\ s must have the same overall dimensions in the X direction
+and in the Y direction. **UNIT** 2 will be used in the **ARRAY** three
+times to create the stack of disks. It contains a disk of material 1
+topped by a disk of material 2. The portion of the container that
+contains the disks and the cuboid that defines the outer boundaries of
+the unit are included in **UNIT** 2. **UNIT** 3 describes the empty top
+portion of the container and the square plate on top of it. The
+Z dimensions of **UNIT** 3 were determined by subtracting three times
+the total Z dimension of **UNIT** 2 from the inside height of the
+container [18.0 − (3 × 4.0) = 6.0]. This can also be determined from the
+overall height of the container by subtracting off the bottom thickness
+of the container and three times the height of **UNIT** 2 [18.25 − 0.25
+− (3 × 4.0) = 6.0]. The origin of **UNIT** 3 is located at the center of
+this distance. For the KENO-VI input, a **GLOBAL UNIT** is also
+provided, **UNIT** 4, containing the **ARRAY** built with **UNIT**\ s 1,
+2, 3.
+
+EXAMPLE 3. Refer to Example 1, :numref:`fig8-1-12`, and imagine a **HOLE**
+1.5 cm in diameter is drilled along the centerline of the stack through
+the disks and the square plate. In KENO V.a this **HOLE** would
+eliminate the possibility of describing the system as a single unit
+because the **HOLE** in the center of the alternating materials of the
+stack cannot be described in a manner that allows each successive
+geometry region to encompass the regions interior to it. Therefore, it
+must be described as an **ARRAY**. The square plate on the top of the
+disks is defined as a **UNIT** in the **ARRAY**. In the geometry
+description given below, the square plate is defined in **UNIT** 3.
+KENO-VI can easily describe this configuration as a single **UNIT**.
+
+.. centered:: Data description 1, Example 3.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  0 1  0.75   2.0  0.0
+  CYLINDER  1 1  5.0    2.0  0.0
+  CUBOID    0 1 10.0  -10.0 10.0 -10.0 2.0 0.0
+  UNIT 2
+  CYLINDER  0 1  0.75   2.0  0.0
+  CYLINDER  2 1  5.0    2.0  0.0
+  CUBOID    0 1 10.0  -10.0 10.0 -10.0 2.0 0.0
+  UNIT 3
+  CYLINDER  0 1  0.75   2.5  0.0
+  CUBOID    3 1 10.0  -10.0 10.0 -10.0 2.5 0.0
+  END GEOM
+  READ ARRAY  NUX=1 NUY=1 NUZ=7 FILL 1 2 2Q2 3 END FILL END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER  1  0.75     7.0  -5.0
+  CYLINDER  2  5.0      1.0  -1.0
+  CYLINDER  3 5.0      3.0  -3.0
+  CYLINDER  4 5.0      5.0  -5.0
+  CYLINDER  5 5.0      7.0  -5.0
+  CYLINDER  6 8.0    13.0  -5.0
+  CYLINDER  7 8.25  13.0  -5.25
+  CUBOID  8  10.0  -10.0  10.0 -10.0 15.5  13.0
+  CUBOID   9 10.0  -10.0  10.0 -10.0 15.5 -5.25
+  MEDIA 0 1  1
+  MEDIA 1 1 -1  2
+  MEDIA 2 1 -1 -2  3
+  MEDIA 1 1 -1 -3  4
+  MEDIA 2 1 -1 -4  5
+  MEDIA 0 1 -5  6
+  MEDIA 6 1 -6  7
+  MEDIA 3 1  8
+  MEDIA 0 1 -7 -8  9
+  BOUNDARY   9
+  END GEOM
+
+In data description 1, Example 3 above, KENO V.a input, **UNIT** 1
+describes a disk of material 1 with a **HOLE** through its centerline.
+The first **CYLINDER** defines the **HOLE**, the second defines the rest
+of the disk, and the **CUBOID** defines the size of the **UNIT** to be
+consistent with the square plate so they can be stacked together in an
+**ARRAY**. **UNIT** 2 describes a disk of material 2 in similar fashion.
+**UNIT** 3 describes the square plate of material 3 with a **HOLE**
+through its center. The **CYLINDER** defines the **HOLE** and the
+**CUBOID** defines the square plate. These three **UNIT**\ s are stacked
+in the Z direction to achieve the composite system. This is represented
+by **FILL** 1 2 2Q2 3. The 2Q2 repeats the two entries preceding the 2Q2
+twice. Alternatively, this can be achieved by entering **FILL** 1 2 1 2
+1 2 3 **END FILL**. The same **ARRAY** can also be achieved using the
+**LOOP** option. An example of the data for this option is:
+
+**LOOP** 1 6R1 1 5 2 2 6R1 2 6 2 3 6R1 7 7 1 **END LOOP**.
+
+**UNIT** 1 is placed at the X = 1, Y = 1, and Z = 1,3,5 positions of the
+**ARRAY** by entering 1 6R1 1 5 2. **UNIT** 2 is positioned at the X =
+1, Y = 1 and Z = 2,4,6 positions in the **ARRAY** by entering 2 6R1 2 6
+2. **UNIT** 3 is placed at the X = 1, Y = 1, Z = 7 position of the
+**ARRAY** by entering 3 6R1 7 7 1. See Sect. 8.1.2.5 for additional
+information regarding **ARRAY** specifications.
+
+For the KENO-VI input, **UNIT** 1 contains the entire problem
+description. The first **CYLINDER** describes the 1.5 cm diameter hole
+through the stack. The next four **CYLINDER**\ s define the stack. The
+sixth and seventh **CYLINDER**\ s describe the void and container. The
+two **CUBOID**\ s describe the top plate and surrounding global region
+of void. The **MEDIA** cards are used to place the materials in the
+appropriate regions.
+
+EXAMPLE 4. Assume two large cylinders that are 2.5 cm in radius and 5 cm
+long are connected by a smaller cylinder that is 0.5 cm in radius and
+10 cm long, as shown in :numref:`fig8-1-13`. All three cylinders are composed of
+material 1. By starting the geometry description in the small cylinder,
+this system can be described as a single unit.
+
+.. _fig8-1-13:
+.. figure:: figs/Keno/fig13.png
+  :align: center
+  :width: 400
+
+  Two large cylinders joined axially by a small cylinder.
+
+.. centered:: Data description 1, Example 4.
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  XCYLINDER  1  0.5  5.0  -5.0
+  XCYLINDER  2  2.5  5.0  -5.0
+  XCYLINDER  3  2.5 10.0 -10.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  MEDIA 1 1 3 -2
+  BOUNDARY  3
+  END GEOM
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  CYLINDER  1 1 0.5  5.0  -5.0
+  CYLINDER  0 1 2.5  5.0  -5.0
+  CYLINDER  1 1 2.5 10.0 -10.0
+  END GEOM
+
+The origin is at the center of the small cylinder, which is described by
+the first cylinder description. The second cylinder description defines
+a void cylinder surrounding the small cylinder. Its radius is the same
+as the large cylinders, and its height (length) coincides with that of
+the small cylinder. The last cylinder description defines the large
+cylinders on either end of the small cylinder. In KENO V.a, because this
+problem does not specify otherwise, the length of the **CYLINDER**\ s is
+assumed to coincide with the Z axis. In KENO-VI, because the problem was
+created using **XCYLINDER**\ s, the long axes of the **CYLINDER**\ s
+coincide with the X axis.
+
+EXAMPLE 5. Assume two large cylinders with a center-to-center spacing of
+15 cm, each having a radius of 2.5 cm and length of 5 cm, are connected
+radially by a small cylinder having a radius of 1.5 cm, as shown in :numref:`fig8-1-14`.
+
+.. _fig8-1-14:
+.. figure:: figs/Keno/fig14.png
+  :align: center
+  :width: 400
+
+  Two large cylinders radially connected by a small cylinder.
+
+This system cannot be described rigorously in KENO V.a geometry because
+the intersection of the cylinders cannot be described. However, it can
+be approximated two ways, as shown in :numref:`fig8-1-15`. The top approximation
+is described in data description 1, Example 5. The bottom approximation
+is described in data description 2, Example 5, and data description 3,
+Example 5. These may be poor approximations for criticality safety
+calculations.
+
+.. _fig8-1-15:
+.. figure:: figs/Keno/fig15.png
+  :align: center
+  :width: 400
+
+  KENO V.a approximations of cylindrical intersections.
+
+.. centered:: Data description 1, Example 5.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1 2.5 2.5 -2.5
+  CUBE      0 1 2.5 -2.5
+  UNIT 2
+  XCYLINDER 1 1 1.5 5.0 -5.0
+  CUBOID    0 1 5.0 -5.0 2.5 -2.5 2.5 -2.5
+  END GEOM
+  READ ARRAY NUX=3 NUY=1 NUZ=1 FILL 1 2 1 END ARRAY
+
+**UNIT** 1 defines a large **CYLINDER**, and **UNIT** 2 describes the
+small **CYLINDER**. In both **UNIT**\ s the origin is at the center of
+the **CYLINDER**. The large **CYLINDER**\ s have their centerlines along
+the Z axis and the small **CYLINDER** has its length along the X axis.
+
+.. centered:: Data description 2, Example 5.
+
+KENO V.a:
+
+::
+
+  READ GEOMETRY
+  UNIT 1
+  CYLINDER 1 1 2.5 1.0 0.0
+  CUBOID 0 1 4P2.5 1.0 0.0
+  UNIT 2
+  ZHEMICYL-X 1 1 2.5 2P1.5 CHORD 2.0
+  CUBOID 0 1 2.0 3P-2.5 2P1.5
+  UNIT 3
+  ZHEMICYL+X 1 1 2.5 2P1.5 CHORD 2.0
+  CUBOID 0 1 2.5 -2.0 2P2.5 2P1.5
+  UNIT 4
+  XCYLINDER 1 1 1.5 2P5.5
+  CUBOID 0 1 2P5.5 2P2.5 2P1.5
+  UNIT 5
+  CUBOID 0 1 2P5.0 2P2.5 1.0 0.0
+  UNIT 6
+  ARRAY 1 3*0.0
+  UNIT 7
+  ARRAY 2 3*0.0
+  END GEOMETRY
+  READ ARRAY ARA=1 NUX=3 NUY=1 NUZ=1 FILL 1 5 1 END FILL
+  ARA=2 NUX=3 NUY=1 NUZ=1 FILL 2 4 3 END FILL
+  ARA=3 NUX=1 NUY=1 NUZ=3 FILL 6 7 6 END FILL
+  END ARRAY
+
+The above geometry description uses **ARRAY**\ s of **ARRAY**\ s (see
+:ref:`8-1-3-6-3`) to describe the bottom approximation of :numref:`fig8-1-15`.
+**UNIT** 1 defines a large **CYLINDER** that has a radius of 2.5 cm and
+a height of 10 cm inside a close-fitting **CUBOID**. This is used in
+both large **CYLINDER**\ s as the portion of the large **CYLINDER** that
+exists above and below the region where the small **CYLINDER** joins it.
+**UNIT** 5 is the spacing between the tops of the two large
+**CYLINDER**\ s and the spacing between the bottoms of the two large
+**CYLINDER**\ s. **ARRAY** 1 thus defines the bottom of the system:
+two short **CYLINDER**\ s (**UNIT** 1s) separated by 10 cm (**UNIT** 5
+is the separation). **UNIT** 6 contains **ARRAY** 1.
+
+**UNIT** 2 is the left hemicylinder that adjoins the horizontal
+**CYLINDER**, and **UNIT** 3 is the right hemicylinder that adjoins the
+horizontal **CYLINDER**. **UNIT** 4 defines the horizontal **CYLINDER**.
+**ARRAY** 2 contains **UNIT**\ s 2, 4, and 3 from left to right. This
+defines the central portion of the system where the horizontal
+**CYLINDER** adjoins the two hemicylinders. These hemicylinders are
+larger than half **CYLINDER**\ s. **UNIT** 7 contains **ARRAY** 2. The
+entire system is achieved by stacking a **UNIT** 6 above and below the
+**UNIT** 7 as defined in **ARRAY** 3, the **GLOBAL ARRAY**.
+
+.. centered:: Data description 3, Example 5.
+
+KENO V.a:
+
+::
+
+  READ GEOMETRY
+  UNIT 1
+  CYLINDER 1 1 2.5 1.0 0.0
+  UNIT 2
+  CYLINDER 1 1 2.5 1.0 0.0
+  CUBOID 0 1 17.5 -2.5 2P2.5 1.0 0.0
+  HOLE 1 15.0 0.0 0.0
+  UNIT 3
+  ZHEMICYL-X 1 1 2.5 2P1.5 CHORD 2.0
+  UNIT 4
+  ZHEMICYL+X 1 1 2.5 2P1.5 CHORD 2.0
+  UNIT 5
+  XCYLINDER  1 1 1.5 2P5.5
+  CUBOID 0 1  2P10.0 2P2.5 2P1.5
+  HOLE 3 -7.5 2*0.0
+  HOLE 4 7.5 2*0.0
+  END GEOMETRY
+  READ ARRAY
+  ARA=1 NUX=1 NUY=1 NUZ=3 FILL 2 5 2 END FILL
+  END ARRAY
+
+The above geometry description uses **HOLE**\ s (see :ref:`8-1-3-6-1`) to
+describe the bottom approximation of :numref:`fig8-1-15`. **UNIT** 1 defines a
+large **CYLINDER** with a radius of 2.5 cm and a height of 1.0 cm.
+**UNIT** 2 defines the same **CYLINDER** within a **CUBOID** that
+extends from X = −2.5 to X = 17.5, from Y = −2.5 to Y = 2.5, and Z = 0.0
+to Z = 1.0. The origin of the **CYLINDER** is at (0.0,0.0,0.0). Thus
+**UNIT** 2 describes the top and bottom of the **CYLINDER** on the left.
+**UNIT** 1 is positioned within this **CUBOID** as a **HOLE** with its
+origin at (15.0,0.0,0.0) to describe the top and bottom of the
+**CYLINDER** on the right. **UNIT** 3 is the left hemicylinder that
+adjoins the horizontal **CYLINDER**, and **UNIT** 4 is the right
+hemicylinder that adjoins the horizontal **CYLINDER**. **UNIT** 5
+defines the horizontal **CYLINDER** with its origin at the center within
+a **CUBOID** that extends from X = −10.0 to X = +10.0, Y = −2.5 to Y =
+2.5, and Z = −1.5 to Z = 1.5. **UNIT** 3 is positioned to the left of
+the horizontal **CYLINDER**, and **UNIT** 4 is positioned to the right
+of the horizontal **CYLINDER** by using **HOLE**\ s. The entire system
+is achieved by stacking a **UNIT** 2 above and below **UNIT** 5 as shown
+in the **ARRAY** data.
+
+This same geometry description can be used with **UNIT** 2 redefined,
+having its origin defined so that it extends from X = −10 to X = 10, Y =
+−2.5 to Y = 2.5, and Z = 0.0 to Z = 1. In this instance, the geometry
+data would be identical except for **UNIT** 2. This alternative
+description of **UNIT** 2 is
+
+KENO V.a:
+
+::
+
+  UNIT 2
+  CYLINDER 1 1 2.5 1.0 0.0 ORIGIN -7.5 0.0
+  CUBOID 0 1 2P10.0 2P2.5 1.0 0.0
+  HOLE 1 7.5 0.0 0.0
+
+
+This system can be easily described in KENO-VI geometry because
+intersections are allowed. The small **CYLINDER** is rotated in data
+description 1, Example 5.
+
+.. centered:: Data description 1, Example 5.
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER   1  2.5  2.5 -2.5
+  CYLINDER   2  2.5  2.5 -2.5 ORIGIN Y=15.0
+  YCYLINDER  3  1.5 15.0  0.0
+  CUBOID     4  5.0 -5.0 17.5 -2.5 2.5 -2.5
+  MEDIA 1 1 1
+  MEDIA 1 1 2
+  MEDIA 1 1 3 -1 -2
+  MEDIA 0 1 4 -3 -2 -1
+  BOUNDARY  4
+  END GEOM
+
+The first and second **CYLINDER**\ s define the two large
+**CYLINDER**\ s, and the third **CYLINDER** describes the small
+connecting **CYLINDER**. The two large **CYLINDER**\ s are oriented
+along the Z axis. The second large cylinder is translated so its origin
+is at position (0.0, 15.0, 0.0). The small **CYLINDER** is oriented
+along the Y axis. Region 1 consists of the material in the first large
+**CYLINDER**. Region 2 consists of the material in the second large
+**CYLINDER**. Region 3 consists of the material in the small
+**CYLINDER** but not in either of the large **CYLINDER**\ s. Region 4 is
+the **BOUNDARY** region.
+
+EXAMPLE 6. Assume 2 small cylinders 1.0 cm in radius and 10 cm long are
+connected by a large cylinder 2.5 cm in radius and 5 cm long as shown in
+:numref:`fig8-1-16`.
+
+.. _fig8-1-16:
+.. figure:: figs/Keno/fig16.png
+  :align: center
+  :width: 200
+
+  Two small cylinders joined axially by a large cylinder.
+
+This problem is very similar to Example 4. It can be described as a
+single **UNIT** in KENO-VI, but not in KENO V.a where it must be
+described as an array. In KENO V.a, **UNIT** 1 defines the large
+cylinder, and **UNIT** 2 defines the small cylinder. The origin of each
+**UNIT** is at its center. The composite system consists of two
+**UNIT** 2s and one **UNIT** 1 as shown below. In KENO-VI,
+**CYLINDER** 1 defines the long thin cylinder, and **CYLINDER** 2
+defines the short thick cylinder. The origin of each cylinder is at its
+center. In both KENO V.a and KENO-VI, the centerline of the cylinders
+lies along the Z axis.
+
+.. centered:: Data description 1, Example 6.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 1 2.5 2.5 -2.5
+  CUBE      0 1 2.5 -2.5
+  UNIT 2
+  CYLINDER  1 1 1.0 5.0 -5.0
+  CUBOID    0 1 2.5 -2.5 2.5 -2.5 5.0 -5.0
+  END GEOM
+  READ ARRAY NUX=1 NUY=1 NUZ=3 FILL 2 1 2 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER  1  1.0 12.5  -12.5
+  CYLINDER  2  2.5  2.5   -2.5
+  CUBOID    3  4P2.5 12.5 -12.5
+  MEDIA 1 1 1
+  MEDIA 1 1 2 -1
+  MEDIA 0 1 3 -2 -1
+  BOUNDARY  3
+  END GEOM
+
+EXAMPLE 7. Assume an 11 × 5 × 3 square-pitched array of spheres of
+material 1, radius 3.75 cm, with a center-to-center spacing of 10 cm in
+the X, Y, and Z directions. The data for this system are given below.
+
+.. centered:: Data description 1, Example 7.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  SPHERE 1 1 3.75
+  CUBE   0 1 5.0 -5.0
+  END GEOM
+  READ ARRAY NUX=11  NUY=5 NUZ=3 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE  1  3.75
+  CUBOID  2  6P5.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  GLOBAL UNIT 2
+  CUBOID 10 55.0 -55.0 25.0 -25.0 15.0 -15.0
+  ARRAY 1 10 PLACE 6 3 2 3*0.0
+  BOUNDARY  10
+  END GEOM
+  READ ARRAY NUX=11  NUY=5 NUZ=3 FILL F1 END FILL END ARRAY
+
+EXAMPLE 8. Assume an 11 × 5 × 3 rectangular-pitched array of spheres of
+material 1, whose radius is 3.75 cm and whose center-to-center spacing
+is 10 cm in the X direction, 15 cm in the Y direction, and 20 cm in the
+Z direction. The input for this geometry is given below.
+
+.. centered:: Data description 1, Example 8.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  SPHERE  1 1 3.75
+  CUBOID  0 1 5.0  -5.0 7.5 -7.5 10.0 -10.0
+  END GEOM
+  READ ARRAY  NUX=11 NUY=5 NUZ=3 END ARRAY
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE  1 3.75
+  CUBOID  2  5.0  -5.0 7.5 -7.5 10.0 -10.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  GLOBAL UNIT 2
+  CUBOID  1  55.0 -55.0 37.5 -37.5 30.0 -30.0
+  ARRAY 1 1 PLACE 6 3 2 3*0.0
+  BOUNDARY  1
+  END GEOM
+  READ ARRAY  NUX=11 NUY=5 NUZ=3 FILL F1 END FILL END ARRAY
+
+EXAMPLE 9. Assume an 11 × 5 × 3 square-pitched array of spheres of
+material 1 with a 3.75 cm radius and 10 cm center-to-center spacing in
+the X, Y, and Z directions. This array is reflected by 30 cm of
+material 2 (water) on all faces, and weighted tracking (biasing) is to
+be used in the water reflector. The array spacing defines the
+perpendicular distance from the outer layer of spheres to the reflector
+to be 5 cm in the X, Y, and Z directions. The geometry input for this
+system is given below.
+
+.. centered:: Data description 1, Example 9.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE     1  1   3.75
+  CUBE         0  1   5.0   -5.0
+  GLOBAL UNIT 2
+  ARRAY               1  -55.0  -25.0  -15.0
+  REFLECTOR    2  2  6*3.0  10
+  END GEOM
+  READ ARRAY  NUX=11 NUY=5 NUZ=3 END ARRAY
+  READ BIAS ID=500 2 11 END BIAS
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE  1  3.75
+  CUBOID  2 6P5.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  GLOBAL UNIT 2
+  CUBOID  1  55.0  -55.0  25.0  -25.0  15.0  -15.0
+  CUBOID  2  58.0  -58.0  28.0  -28.0  18.0  -18.0
+  CUBOID  3  61.0  -61.0  31.0  -31.0  21.0  -21.0
+  CUBOID  4  64.0  -64.0  34.0  -34.0  24.0  -24.0
+  CUBOID  5  67.0  -67.0  37.0  -37.0  27.0  -27.0
+  CUBOID  6  70.0  -70.0  40.0  -40.0  30.0  -30.0
+  CUBOID  7  73.0  -73.0  43.0  -43.0  33.0  -33.0
+  CUBOID  8  76.0  -76.0  46.0  -46.0  36.0  -36.0
+  CUBOID  9  79.0  -79.0  49.0  -49.0  39.0  -39.0
+  CUBOID 10  82.0  -82.0  52.0  -52.0  42.0  -42.0
+  CUBOID 11  85.0  -85.0  55.0  -55.0  45.0  -45.0
+  ARRAY 1 1 PLACE 6 3 2 3*0.0
+  MEDIA 2 2 2 -1
+  MEDIA 2 3 3 -2
+  MEDIA 2 4 4 -3
+  MEDIA 2 5 5 -4
+  MEDIA 2 6 6 -5
+  MEDIA 2 7 7 -6
+  MEDIA 2 8 8 -7
+  MEDIA 2 9 9 -8
+  MEDIA 2 10 10 -9
+  MEDIA 2 11 11 -10
+  BOUNDARY  11
+  END GEOM
+  READ ARRAY  NUX=11 NUY=5 NUZ=3 FILL F1 END FILL  END ARRAY
+  READ BIAS ID=500 2 11 END BIAS
+
+In the KENO V.a input, the **ARRAY** boundary defines the origin of the
+**REFLECTOR** to be at the center of the **ARRAY**. The 6*3.0 in the
+**REFLECTOR** description repeats the 3.0 six times. The **REFLECTOR**
+record is used to generate ten **REFLECTOR** regions, each of which is
+3.0 cm thick, on all six faces of the **ARRAY**.
+
+In the KENO-VI input, the basic **UNIT** used to construct the **ARRAY**
+is defined in **UNIT** 1. The **ARRAY** is positioned in **UNIT** 2
+(the **GLOBAL UNIT**) using the **ARRAY** card and the **PLACE** option.
+The **ARRAY** is then surrounded by ten \ **REFLECTOR** regions, each
+3.0 cm thick, on all sides.
+
+The first bias **ID** is 2, so the last bias **ID** will be 11 if
+10 regions are created. The biasing data block is necessary to apply
+the desired weighting or biasing function to the reflector. The
+biasing material ID is obtained from :numref:`tab8-1-20`. IDs, group
+structure and incremental thickness for
+weighting data available on the KENO  weighting library. If the
+biasing data block is omitted from the problem description, the 10
+reflector regions will not have a biasing function applied to them,
+and the default value of the average weight will be used. This may
+cause the problem to execute more slowly, and therefore require the
+use of more computer time.
+
+EXAMPLE 10. Assume the reflector in Example 9 is present only on both
+X faces, both Y faces, and the negative Z face. The reflector is only
+15.24 cm thick on these faces. The top of the array (positive Z face) is
+unreflected.
+
+.. centered:: Data description 1, Example 10.
+
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE    1  1   3.75
+  CUBE        0  1   5.0   -5.0
+  GLOBAL UNIT 2
+  ARRAY             1  -55.0   -25.0  -15.0
+  REFLECTOR  2  2  4*3.0    0.0   3.0  5
+  REFLECTOR  2 7  4*0.24   0.0  0.24  1
+  READ ARRAY NUX=11 NUY=5 NUZ=3 END ARRAY
+  READ BIAS ID=500 2 7 END BIAS
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE  1 3.75
+  CUBOID  2 6P5.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  GLOBAL UNIT 2
+  CUBOID  1  55.0  -55.0  25.0  -25.0  15.0  -15.0
+  CUBOID  2  58.0  -58.0  28.0  -28.0  15.0  -18.0
+  CUBOID  3  61.0  -61.0  31.0  -31.0  15.0  -21.0
+  CUBOID  4  64.0  -64.0  34.0  -34.0  15.0  -24.0
+  CUBOID  5  67.0  -67.0  37.0  -37.0  15.0  -27.0
+  CUBOID  6  70.24 -70.24 40.24 -40.24 15.0  -30.24
+  ARRAY 1 1 PLACE 6 3 2 3*0.0
+  MEDIA 2 2 2 -1
+  MEDIA 2 3 3 -2
+  MEDIA 2 4 4 -3
+  MEDIA 2 5 5 -4
+  MEDIA 2 6 6 -5
+  BOUNDARY  6
+  END GEOM
+  READ ARRAY  NUX=11 NUY=5 NUZ=3 FILL F1 END FILL  END ARRAY
+  READ BIAS ID=500 2 6 END BIAS
+
+In the KENO V.a input, the first **REFLECTOR** description generates
+five regions around the **ARRAY**, each region being 3.0 cm thick in the
++X, −X, +Y, −Y, and −Z directions, and of zero thickness in the
++Z direction. This defines a total thickness of 15 cm of reflector
+material on the appropriate faces. The second **REFLECTOR** description
+generates the last 0.24 cm of material 2 on those faces. Thus, the total
+reflector thickness is 15.24 cm on each face of the array, except the
+top which has no reflector. Five reflector regions were generated by the
+first **REFLECTOR** description, and one was generated by the second
+**REFLECTOR** description; so, six biasing regions must be defined in
+the biasing data. Thus, the beginning bias **ID** is 2, and the ending
+bias ID is 7.
+
+In the KENO-VI input, the first **CUBOID** in Unit 2 represents the
+boundary for the **ARRAY**. The next four **CUBOID**\ s represent the
+first four regions around the **ARRAY**, each region being 3.0 cm thick
+in the +X, X, +Y, −Y, and −Z directions, and of zero thickness in the
++Z direction. A total thickness of 12 cm of reflector material is on the
+appropriate faces. The last **CUBOID** represents the last 3.24 cm of
+material 2 on those faces. Thus, the total reflector thickness is
+15.24 cm on each face of the array, except the top which has no
+reflector. The beginning bias ID is 2, and the ending bias ID is 6. The
+last region could either be larger or smaller than the recommended
+thickness to complete the reflector.
+
+The biasing material **ID** and thickness per region are obtained from
+:numref:`tab8-1-20`. The thickness per region should be very nearly the
+thickness per region from the table to avoid over biasing in the
+reflector. Partial increments at the outer region of a reflector are
+exempt from this recommendation. If a biasing function is not to be
+applied to a region generated by the **REFLECTOR** record, the thickness
+per region can be any desired thickness and the biasing data block is
+omitted.
+
+EXAMPLE 11. Assume the array of Example 7 has the central unit of the
+array replaced by a cylinder of material 4, 5 cm in radius and 10 cm
+tall. Assume a 20 cm thick spherical reflector of material 3 (concrete)
+is positioned so its inner radius is 65 cm from the center of the array.
+The minimum inner radius of a spherical reflector for this array is
+62.25 cm (:math:`\sqrt{55^{2} + 25^{2} + 15^{2} }`). If the inner radius is smaller than this, the problem
+cannot be described using KENO V.a geometry.
+
+.. centered:: Data description 1, Example 11.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE  1  1  3.75
+  CUBE  0  1  5.0  -5.0
+  UNIT 2
+  CYLINDER  4  1  5.0  5.0  -5.0
+  CUBE  0  1  5.0  -5.0
+  GLOBAL UNIT 2
+  ARRAY     1 -55.0  -25.0  -15.0
+  SPHERE  0  1  65.0
+  REPLICATE  3  2  5.0  4
+  END GEOM
+  READ ARRAY
+     NUX=11 NUY=5 NUZ=3
+     LOOP 1  1  11  1  1 5 1  1 3 1  2  6 6 1  3 3 1  2 2 1  END LOOP
+  END ARRAY
+  READ BIAS ID=301 2 5 END BIAS
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  SPHERE  1 3.75
+  CUBOID   2 6P5.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  UNIT 2
+  CYLINDER 1 5.0 5.0 -5.0
+  CUBOID  2  6P5.0
+  MEDIA 4 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  GLOBAL UNIT 3
+  CUBOID 1  55.0 -55.0 25.0 -25.0 15.0 -15.0
+  SPHERE 2 65.0
+  SPHERE 3 70.0
+  SPHERE 4 75.0
+  SPHERE 5 80.0
+  SPHERE 6 85.0
+  ARRAY 1 1 PLACE 6 3 2 3*0.0
+  MEDIA 0 1 2 -1
+  MEDIA 3 2 3 -2
+  MEDIA 3 3 4 -3
+  MEDIA 3 4 5 -4
+  MEDIA 3 5 6 -5
+  BOUNDARY  6
+  END GEOM
+  READ ARRAY
+  NUX=11 NUY=5 NUZ=3
+  LOOP 1  1  11  1  1 5 1  1 3 1 2  6 6 1  3 3 1  2 2 1 END LOOP
+  END ARRAY
+  READ BIAS ID=301 2 5 END BIAS
+
+**UNIT** 1 describes the **SPHERE** and spacing used in the **ARRAY**.
+**UNIT** 2 defines the **CYLINDER** located at the center of the
+**ARRAY**. In KENO V.a, the **ARRAY** record defines the origin of the
+reflector to be at the center of the **ARRAY**, while in KENO-VI it
+defines the origin of the **ARRAY** to be at the center of the **GLOBAL
+UNIT**. The first **SPHERE** in the **GLOBAL UNIT** defines the inner
+radius of the reflector. The next four **SPHERE** and four **MEDIA**
+records of the KENO-VI input and the **REPLICATE** record of the KENO
+V.a input will generate four spherical regions of material 3, each
+5.0 cm thick. The data for the **BIAS** block is generated in a similar
+manner to previous examples, except that concrete (ID=301) is used. The
+recommended reflector thickness is 5 cm; this thickness is incorporated
+explicitly in the KENO-VI model and with 4 repetitions of the 5 cm thick
+reflector via **REPLICATE** in the KENO V.a model. The first 10 entries
+following the word **LOOP** fills the 11 × 5 × 3 **ARRAY** with
+**UNIT**\ s 1. The next 10 entries position **UNIT** 2 at the center of
+the **ARRAY** (X = 6, Y = 3, and Z = 2), replacing the **UNIT** 1 that
+had been placed there by the first 10 entries.
+
+EXAMPLE 12. Assume a data profile such as fission densities is desired
+in a cylinder at 0.5 cm intervals in the radial direction and 1.5 cm
+intervals axially. The cylinder is composed of material 1 and has a
+radius of 5 cm and a height of 15 cm. The **REPLICATE** or **REFLECTOR**
+description can be used to generate these regions in KENO V.a. A biasing
+data block is not entered because default biasing is desired throughout
+the cylinder.
+
+.. centered:: Data description 1, Example 12.
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  CYLINDER  1 1 0.5 1.5 0
+  REFLECTOR 1 1 0.5 1.5 0 9
+  END GEOM
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER 1 0.5 1.5 0
+  CYLINDER 2 1.0 3.0 0
+  CYLINDER 3 1.5 4.5 0
+  CYLINDER 4 2.0 6.0 0
+  CYLINDER 5 2.5 7.5 0
+  CYLINDER 6 3.0 9.0 0
+  CYLINDER 7 3.5 10.5 0
+  CYLINDER 8 4.0 12.0 0
+  CYLINDER 9 4.5 13.5 0
+  CYLINDER 10 5.0 15.0 0
+  MEDIA 1 1 1
+  MEDIA 1 1 2 -1
+  MEDIA 1 1 3 -2
+  MEDIA 1 1 4 -3
+  MEDIA 1 1 5 -4
+  MEDIA 1 1 6 -5
+  MEDIA 1 1 7 -6
+  MEDIA 1 1 8 -7
+  MEDIA 1 1 9 -8
+  MEDIA 1 1 10 -9
+  BOUNDARY  10
+  END GEOM
+
+EXAMPLE 13. (KENO-VI due to pipe junctions) Assume a cross composed of
+two Plexiglas cylinders (material 3) having an inner diameter of
+13.335 cm and an outer diameter of 16.19 cm. The bottom and side legs of
+the cross are closed by a 3.17 cm thick piece of Plexiglas. From the
+center of the intersection, the bottom and side legs are 91.44 cm long
+and the top leg is 121.92 cm long. The cross is filled with a
+UO\ :sub:`2`\ F\ :sub:`2` solution (material 1) to a height of 28.93 cm
+above the center of the cylinder intersection. The cross is then
+surrounded by a water reflector (material 2) that extends from the
+center of the intersection: 111.74 cm in the ±X directions, 20.64 cm in
+the ±Y directions, 29.03 cm in the +Z direction, and –118.428 cm in the
+–Z direction. A schematic of the assembly is shown in :numref:`fig8-1-17`.
+
+.. _fig8-1-17:
+.. figure:: figs/Keno/fig17.png
+  :align: center
+  :width: 400
+
+  Plexiglas UO\ :sub:`2`\ F\ :sub:`2`-filled cross.
+
+.. centered:: Data description of Example 13 (KENO-VI only).
+
+::
+
+  READ GEOMETRY
+  GLOBAL UNIT 1
+  CYLINDER   10 13.335  28.93 -88.27
+  CYLINDER   20 13.335 121.92 -88.27
+  CYLINDER   30 16.19  121.92 -91.44
+  YCYLINDER  40 13.335  88.27 -88.27
+  YCYLINDER  50 16.19 91.44 -91.44
+  CUBOID     60 2P111.74 2P20.64  29.03 -118.428
+  CUBOID     70 2P111.74 2P20.64 121.92 -118.428
+  MEDIA 1 1 10
+  MEDIA 0 1 20 -10
+  MEDIA 3 1 30 -20 -40
+  MEDIA 1 1 40 -10
+  MEDIA 3 1 50 -40 -30
+  MEDIA 2 1 60 -30 -50
+  MEDIA 0 1 70 -30 -60
+  BOUNDARY  70
+  END GEOMETRY
+
+EXAMPLE 14. (KENO-VI only because of rotation) Assume a Y-shaped
+aluminum cylinder (material 2) with a 13.95 cm inner radius and a 0.16
+cm wall thickness is filled with a UO\ :sub:`2`\ F\ :sub:`2` solution
+(material 1). From the center where the Y intersects the cylinder, the
+bottom leg is 76.7 cm long, the top leg is 135.4 cm long, and the Y leg
+is 126.04 cm long, canted at a 29.26-degree angle. The bottom of the
+bottom leg and the top of the Y leg are sealed with 1.3 cm caps. The
+Y cylinder is filled to a height of 52.8 cm above the center where the
+Y leg intersects the vertical cylinder. The cylinder is surrounded by a
+water reflector (material 3) that extends out 37.0 cm in the
+±X direction, 100.0 and  −37.0 cm in the ±Y direction, and 135.4 and
+–99.6 in the ±Z direction. A schematic of the assembly is shown in
+:numref:`fig8-1-18`.
+
+.. _fig8-1-18:
+.. figure:: figs/Keno/fig18.png
+  :align: center
+  :width: 400
+
+  Y-shaped UO\ :sub:`2`\ F\ :sub:`2`-filled aluminum cylinder.
+
+.. centered:: Data description of Example 14 (KENO-VI only).
+
+
+::
+
+  READ GEOMETRY
+  GLOBAL UNIT 1
+  COM='30 DEG Y CYLINDER'
+  CYLINDER 10 13.95 135.4 -75.4
+  CYLINDER 20 14.11 135.4 -76.7
+  CYLINDER 30 13.95 124.74  0.0  ROTATE A2=-29.26
+  CYLINDER 40 14.11 126.04  0.0 ROTATE A2=-29.26
+  CUBOID   50 2P37.0 100.0 -37.0 52.8 -75.4
+  CUBOID   60 2P37.0 100.0 -37.0 135.4 -99.6
+  MEDIA 1 1 10 50
+  MEDIA 2 1 20 -10 -30
+  MEDIA 1 1 30  50 -10
+  MEDIA 2 1 40 -30 -20
+  MEDIA 0 1 10 -50
+  MEDIA 0 1 30 -50 -10
+  MEDIA 3 1 60 -20 -40
+  BOUNDARY  60
+  END GEOMETRY
+
+.. _8-1-3-6-1:
+
+Use of holes in the geometry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:ref:`8-1-3-6` tells how each KENO V.a geometry region in a **UNIT**
+must completely enclose all previously described regions in that
+**UNIT** and how KENO-VI geometry allows regions in a **UNIT** to
+intersect, thus eliminating the need for **HOLE**\ s. **HOLE**\ s can be
+used to circumvent the complete enclosure restriction in KENO V.a to
+some degree. In KENO-VI, they can be useful in simplifying the input of
+a problem and decreasing the total CPU time needed for a problem.
+A \ **HOLE** is a means of placing an entire **UNIT** within a geometry
+region. A separate **HOLE** description is required for every location
+in a geometry region where a **UNIT** is to be placed. The information
+contained in a **HOLE** description is (1) the keyword **HOLE**, (2) the
+**UNIT** number of the **UNIT** to be placed, and (3) any modification
+data needed to correctly position and rotate (in KENO-VI) the specified
+**UNIT** within the containing **UNIT**. In KENO V.a, a **HOLE** is
+placed inside the geometry region that precedes it. This excludes
+**HOLE**\ s ... (i.e., if a **CUBE** geometry region is followed by four
+**HOLE** descriptions, all four **HOLE**\ s are located within the
+**CUBE**). In KENO V.a, **HOLE**\ s are subject to the restriction that
+they cannot intersect any other geometry region. **HOLE**\ s can be
+nested to any depth (see :ref:`8-1-3-6-2`). It is not advisable to use
+**HOLE**\ s tangent to other **HOLE**\ s or geometry, because round-off
+error may cause them to overlap. It is not uncommon for a problem that
+runs on one type of computer to fail on another type using the same
+data. Therefore, it is recommended that tangency and boundaries shared
+with **HOLE**\ s be avoided. This may be accomplished by separating the
+otherwise collocated or tangent surfaces by a very small (i.e.,
+10\ :sup:`-6` cm) distance.
+
+In KENO V.a, tracking in regions that contain holes is less efficient
+than tracking in regions that do not contain holes. Therefore, holes
+should be used only when the system cannot be easily described by
+conventional methods. One example of the use of holes is shown in
+:numref:`fig8-1-19`, representing nine close-packed rods in an annulus.
+
+In KENO-VI, tracking in regions that contain **HOLE**\ s can be more
+efficient than tracking in regions that do not contain **HOLE**\ s
+because every region boundary in a **UNIT** must be checked for a
+crossing whenever a crossing is possible. Putting small but complex
+geometries in a hole will lessen the number of boundaries that need to
+be checked for possible crossings. However, the indiscriminate use of
+holes is not advised since the particle must change coordinate systems
+every time a hole is entered or exited. Therefore, holes should be used
+carefully and only when the system can be simplified significantly by
+their use.
+
+EXAMPLE 15. One example of a unit that requires holes in KENO V.a is
+better described not using holes in KENO-VI as shown in :numref:`fig8-1-19`,
+representing nine close-packed rods in an annulus. The large rods are
+1.4 cm in radius and composed of mixture 3. The small rods are 0.6 cm
+in radius and composed of mixture 1. The inside radius of the annulus
+is 3.6 cm, and the outside radius is 3.8 cm. The annulus is made of
+mixture 2. The rods and annulus are both 30 cm long. The annulus is
+centered in a cuboid having an 8 cm\ :sup:`2` cross section and a
+length of 32 cm. The black and gray areas in
+:numref:`fig8-1-19` are void.
+
+.. _fig8-1-19:
+.. figure:: figs/Keno/fig19.png
+  :align: center
+  :width: 400
+
+  Close-packed cylinders in an annulus.
+
+.. centered:: Data description of Example 15.
+
+
+KENO V.a:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER 1 1 0.6 2P15.0
+  UNIT 2
+  CYLINDER 3 1 1.4 2P15.0
+  GLOBAL UNIT 3
+  CYLINDER 1 1 0.6 2P15.0
+  CYLINDER 0 1 3.6 2P15.0
+  HOLE 2 0.0 -2.0 0.0
+  HOLE 1 2.0 -2.0 0.0
+  HOLE 2 2.0 0.0 0.0
+  HOLE 1 2.0 2.0 0.0
+  HOLE 2 0.0 2.0 0.0
+  HOLE 1 -2.0 2.0 0.0
+  HOLE 2 -2.0 0.0 0.0
+  HOLE 1 -2.0 -2.0 0.0
+  CYLINDER  2 1 3.8 2P15.0
+  CUBOID    0 1 4P4.0 2P16.0
+  END GEOM
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  GLOBAL UNIT 1
+  CYLINDER 1 0.6 2P15.0
+  CYLINDER 2 0.6 2P15.0 ORIGIN X=2.0  Y=-2.0
+  CYLINDER 3 0.6 2P15.0 ORIGIN X=2.0  Y=2.0
+  CYLINDER 4 0.6 2P15.0 ORIGIN X=-2.0 Y=2.0
+  CYLINDER 5 0.6 2P15.0 ORIGIN X=-2.0 Y=-2.0
+  CYLINDER 6 1.4 2P15.0 ORIGIN X=2.0
+  CYLINDER 7 1.4 2P15.0 ORIGIN Y=2.0
+  CYLINDER 8 1.4 2P15.0 ORIGIN X=-2.0
+  CYLINDER 9 1.4 2P15.0 ORIGIN Y=-2.0
+  CYLINDER 10 3.6 2P15.0
+  CYLINDER 11 3.8 2P15.0
+  CUBOID  12  4P4.0 2P16.0
+  MEDIA 1 1 1
+  MEDIA 1 1 2
+  MEDIA 1 1 3
+  MEDIA 1 1 4
+  MEDIA 1 1 5
+  MEDIA 3 1 6
+  MEDIA 3 1 7
+  MEDIA 3 1 8
+  MEDIA 3 1 9
+  MEDIA 0 1 10 -1 -2 -3 -4 -5 -6 -7 -8 -9
+  MEDIA 2 1 11 -10
+  MEDIA 0 1 12 -11
+  BOUNDARY  12
+  END GEOM
+
+The first **HOLE** description in the KENO V.a input represents the
+bottom large rod. It takes **UNIT** 2 and places its **ORIGIN** at
+(0.0,−2.0,0.0) relative to the **ORIGIN** of **UNIT** 3. The second
+**HOLE** description represents the small rod to the right of the large
+rod just discussed. It places the origin of **UNIT** 1 at (2.0,−2.0,0.0)
+in **UNIT** 3. The third **HOLE** description represents the large rod
+to the right. It places the origin of **UNIT** 2 at (2.0,0.0,0.0) in
+**UNIT** 3. This procedure is repeated in a counterclockwise direction
+until all eight rods have been placed within the region that defines the
+inner surface of the annulus. The **CYLINDER** that defines the outer
+surface of the annulus is described after all the **HOLE**\ s for the
+previous region have been placed. Then the outer **CUBOID** is
+described. This example illustrates that a **UNIT** that is to be placed
+using a **HOLE** description need not have a **CUBE** or **CUBOID** as
+its last region. Note that including the central rod directly in
+**UNIT** 3 reduces the CPU time required for transport compared to the
+case of all 9 rods being inserted as **HOLE**\ s. It is also important
+that the 9 **HOLE**\ s are inserted *after* the void cylinder into which
+they are inserted. Entering the **HOLE**\ s in any other position in the
+input would generated region intersection errors. The order of the HOLE
+records in any given region is not important, as they can be
+interchanged with each other randomly. However, they must always appear
+immediately after the region in which they are placed.
+
+The KENO-VI input does not need to use **HOLE**\ s. The first
+**CYLINDER** description in this case represents the middle small rod.
+The next four **CYLINDER** records describe the four remaining small
+rods surrounding the middle rod. The **ORIGIN** attribute is used to
+shift the origin of each **CYLINDER** to the appropriate location. The
+following four **CYLINDER** records represent the four large rods.
+Again, the **ORIGIN** attribute is used to shift the **ORIGIN** of each
+**CYLINDER** to the appropriate location. Only the nonzero dimensions
+need to be entered in the **ORIGIN** data. The tenth **CYLINDER** record
+is the void in the annulus that contains the rods. The last **CYLINDER**
+record defines the outer surface of the annulus. Finally, the **CUBOID**
+record describes the surrounding **UNIT** boundary.
+
+
+In KENO-VI, holes may not extend across any array outer boundary, may
+not intersect with other holes, and may not cross the host UNIT outer
+boundary. Thus a hole may be placed so that it crosses several regions
+within an array. The hole description replaces the unit description
+within the hole domain. Since the holes are placed using the host UNIT
+coordinate system, the location of the hole record in the unit
+definition is not relevant.
+
+An array of the arrangement shown in :numref:`fig8-1-19` can be easily described
+by altering the array description data. For example, a 5 × 3 × 2 array
+of these shapes with a center-to-center spacing of 8 cm in X and Y and
+32 cm in Z can be achieved by using the following array data:
+
+::
+
+	READ ARRAY  NUX=5 NUY=3 NUZ=2  FILL F3  END FILL  END ARRAY
+
+or
+
+::
+
+	READ ARRAY  NUX=5 NUY=3 NUZ=2  FILL 30*3  END FILL  END ARRAY
+
+or
+
+::
+
+	READ ARRAY  NUX=5 NUY=3 NUZ=2  LOOP  3 1 5 1 1 3 1 1 2 1  END LOOP END ARRAY
+
+.. _8-1-3-6-2:
+
+Nesting holes
+^^^^^^^^^^^^^
+
+This section illustrates how holes are nested. Holes can be nested to
+any level. Consider the configuration illustrated in :numref:`fig8-1-19` and
+replace the large rods with a complicated geometric arrangement. The
+resulting Fig. is shown in :numref:`fig8-1-20`. :numref:`fig8-1-21` shows the
+complicated geometric arrangement that replaced the large rods of
+:numref:`fig8-1-19`. :numref:`fig8-1-22` shows a component of the arrangement shown in
+:numref:`fig8-1-20`.
+
+.. _fig8-1-20:
+.. figure:: figs/Keno/fig20.png
+  :align: center
+  :width: 400
+
+  Configuration using nested holes.
+
+.. _fig8-1-21:
+.. figure:: figs/Keno/fig21.png
+  :align: center
+  :width: 400
+
+  Complicated geometric arrangement by Unit 7.
+
+.. _fig8-1-22:
+.. figure:: figs/Keno/fig22.png
+  :align: center
+  :width: 400
+
+  Geometric component represented by Unit 4.
+
+EXAMPLE 16. There is no predetermined preferred method to create a
+geometry mockup for a given physical system. The user should determine
+the most convenient order. To describe the configuration shown in Fig.
+8.1.20 using nested **HOLE**\ s, it is likely most convenient to start
+the geometry mockup at the deepest nesting level, as shown in
+Fig. 8.1.22. The small **CYLINDER**\ s are composed of mixture 1, and
+they are each 0.1 cm in radius and 30 cm long. There are five small
+**CYLINDER**\ s used in Fig. 8.1.22. Their centers are located at
+(0,0,0) for the central one, at (0,−0.4,0) for the bottom one, at
+(0.4,0,0) for the right one, at (0,0.4,0) for the top one, and at
+(−0.4,0,0) for the left one. The rectangular parallelepipeds
+(**CUBOID**\ s) are composed of mixture 2. Each one is 30 cm long and
+0.1 cm by 0.2 cm in cross section. The large **CYLINDER** containing the
+configuration is composed of mixture 3, is 30 cm long and has a radius
+of 0.5 cm.
+
+A possible geometry mockup for this system is described as follows in
+KENO V.a:
+
+   (1) define a small cylinder to be **UNIT** 1,
+
+   (2) define a small **CUBOID** with its length in the X direction to
+   be **UNIT** 2,
+
+   (3) define a small **CUBOID** with its length in the Y direction to
+   be **UNIT** 3,
+
+   (4) define **UNIT** 4 to be the large cylinder and place the
+   **CYLINDER**\ s and **CUBOID**\ s in it using **HOLE**\ s.
+
+::
+
+  UNIT 1
+  CYLINDER 1 1 0.1 2P15.0
+  UNIT 2
+  CUBOID 2 1 2P0.1 2P0.05 2P15.0
+  UNIT 3
+  CUBOID 2 1 2P0.05 2P0.1 2P15.0
+  UNIT 4
+  CYLINDER  1 1 0.1 2P15.0
+  CYLINDER  3 1 0.5 2P15.0
+  HOLE 1 0.0 -0.4 0.0
+  HOLE 1 0.4 0.0 0.0
+  HOLE 1 0.0 0.4 0.0
+  HOLE 1 -0.4 0.0 0.0
+  HOLE 2 -0.2 0.0 0.0
+  HOLE 2 0.2 0.0 0.0
+  HOLE 3 0.0 -0.2 0.0
+  HOLE 3 0.0 0.2 0.0
+
+The first cylinder description in **UNIT** 4 places the central rod,
+
+the second cylinder description in **UNIT** 4 places the outer cylinder,
+
+the *first* **HOLE** places the bottom **CYLINDER**,
+
+the *second* **HOLE** places the **CYLINDER** at the right,
+
+the *third* **HOLE** places the top **CYLINDER**,
+
+the *fourth* **HOLE** places the **CYLINDER** at the left,
+
+the *fifth* **HOLE** places the left **CUBOID** whose length is in X,
+
+the *sixth* **HOLE** places the right **CUBOID** whose length is in X,
+
+the *seventh* **HOLE** places the bottom **CUBOID** whose length is in
+Y, and
+
+the *eighth* **HOLE** places the top **CUBOID** whose length is in Y.
+
+A possible geometry mockup for this system is described as follows in
+KENO-VI:
+
+1. define **UNIT** 1 to contain the five small cylinders and four
+   blocks,
+
+2. define **UNIT** 2 to contain the next two larger-sized cylinders and
+   **UNIT** 1 as **HOLE**\ s, and
+
+3. define **GLOBAL UNIT** 3 to contain the large cylinders and
+   **UNIT** 2 as **HOLE**\ s.
+
+::
+
+  UNIT 1
+  CYLINDER  1 0.1 2P15.0
+  CYLINDER  2 0.1 2P15.0 ORIGIN Y=-0.4
+  CYLINDER  3 0.1 2P15.0 ORIGIN X=0.4
+  CYLINDER  4 0.1 2P15.0 ORIGIN Y=0.4
+  CYLINDER  5 0.1 2P15.0 ORIGIN X=-0.4
+  CUBOID    6 -0.3 -0.1  2P0.05 2P15.0
+  CUBOID    7 0.3 0.1  2P0.05 2P15.0
+  CUBOID    8 2P0.05 -0.3 -0.1  2P15.0
+  CUBOID    9 2P0.05 0.3 0.1  2P15.0
+  CYLINDER 10 0.5 2P15.0
+  MEDIA 1 1 1
+  MEDIA 1 1 2
+  MEDIA 1 1 3
+  MEDIA 1 1 4
+  MEDIA 1 1 5
+  MEDIA 2 1 6
+  MEDIA 2 1 7
+  MEDIA 2 1 8
+  MEDIA 2 1 9
+  MEDIA 3 1 10 -1 -2 -3 -4 -5 -6 -7 -8 -9
+  BOUNDARY  10
+
+geometry record *1* places the central rod,
+
+geometry record *2* places the bottom **CYLINDER**,
+
+geometry record *3* places the **CYLINDER** at the right,
+
+geometry record *4* places the top **CYLINDER**,
+
+geometry record *5* places the **CYLINDER** at the left,
+
+geometry record *6* places the left **CUBOID** whose length is in X,
+
+geometry record *7* places the right **CUBOID** whose length is in X,
+
+geometry record *8* places the bottom **CUBOID** whose length is in Y,
+
+geometry record *9* places the top **CUBOID** whose length is in Y, and
+
+geometry record *10* is the surrounding **CYLINDER** that defines the
+unit boundary.
+
+In :numref:`fig8-1-21`, the large plain cylinders are composed of mixture 1 and
+are 0.5 cm in radius and 30 cm long. The cylindrical component of
+**UNIT** 4 for KENO V.a or **UNIT** 1 for KENO-VI is the same size: an
+outer radius of 0.5 cm and a length of 30 cm. The small cylinders
+located in the interstices between the large cylinders are composed of
+mixture 2, are 0.2 cm in radius, and are 30 cm long. The annulus is
+composed of mixture 4, has a 1.3 cm inside radius and a 1.4 cm outer
+radius. The volume between the inner cylinders is void. The large
+cylinders each have a radius of 0.5 cm and are tangent. Therefore, their
+origins are offset from the origin of the **UNIT** by 0.707107. This is
+from X\ :sup:`2` + Y\ :sup:`2` = 1.0, where X and Y are equal.
+
+For KENO V.a, define **UNIT** 5 to be the large plain cylinder,
+**UNIT** 6 to be the small cylinder, and **UNIT** 7 as the annulus that
+contains the cylinders. Its origin is at its center. The geometry mockup
+for this portion of the problem follows:
+
+KENO V.a:
+
+::
+
+  UNIT 5
+  CYLINDER  1 1 0.5 2P15.0
+  UNIT 6
+  CYLINDER  2 1 0.2 2P15.0
+  UNIT 7
+  CYLINDER  2 1 0.2 2P15.0
+  CYLINDER  0 1 1.3 2P15.0
+  HOLE      5 0.707107 0.0 0.0
+  HOLE      6 0.707107 0.707107 0.0
+  HOLE      4 0.0 0.707107 0.0
+  HOLE      6 -0.707107 0.707107 0.0
+  HOLE      5 -0.707107 0.0 0.0
+  HOLE      6 -0.707107 -0.707107 0.0
+  HOLE      4 0.0 -0.707107 0.0
+  HOLE      6 0.707107 -0.707107 0.0
+  CYLINDER  4 1 1.4 2P15.0
+
+The *first* **HOLE** places the larger **CYLINDER** of mixture 1 at the
+right with its origin at (0.707107,0.0,0.0),
+
+the *second* **HOLE** places the small **CYLINDER** in the upper right
+quadrant,
+
+the *third* **HOLE** places the top **CYLINDER** that contains the
+geometric component defined in **UNIT** 4,
+
+the *fourth* **HOLE** places the small **CYLINDER** in the upper left
+quadrant,
+
+the *fifth* **HOLE** places the larger **CYLINDER** of mixture 1 at the
+left,
+
+the *sixth* **HOLE** places the small **CYLINDER** in the lower lower
+left quadrant,
+
+the *seventh* **HOLE** places the bottom **CYLINDER** that contains the
+geometric component defined in **UNIT** 4, and
+
+the *eighth* **HOLE** places the small **CYLINDER** in the lower right
+quadrant.
+
+The last **CYLINDER** defines the outer surface of the annulus.
+
+For KENO-VI, **UNIT** 2 is the annulus that contains the cylinders.
+
+KENO-VI:
+
+::
+
+  UNIT 2
+  CYLINDER  1 0.2 2P15.0
+  CYLINDER  2 0.2 2P15.0 ORIGIN X=0.707107  Y=0.707107
+  CYLINDER  3 0.2 2P15.0 ORIGIN X=-0.707107 Y=0.707107
+  CYLINDER  4 0.2 2P15.0 ORIGIN X=-0.707107 Y=-0.707107
+  CYLINDER  5 0.2 2P15.0 ORIGIN X=0.707107  Y=-0.707107
+  CYLINDER  6 0.5 2P15.0 ORIGIN X=0.707107
+  CYLINDER  7 0.5 2P15.0 ORIGIN X=-0.707107
+  CYLINDER 10 1.3 2P15.0
+  CYLINDER 11 1.4 2P15.0
+  MEDIA 2 1 1
+  MEDIA 2 1 2
+  MEDIA 2 1 3
+  MEDIA 2 1 4
+  MEDIA 2 1 5
+  MEDIA 1 1 6
+  MEDIA 1 1 7
+  HOLE 1 ORIGIN Y=0.707107
+  HOLE 1 ORIGIN Y=-0.707107
+  MEDIA 0 1 10 -1 -2 -3 -4 -5 -6 -7
+  MEDIA 4 1 11 -10
+  BOUNDARY  11
+
+In Unit 2 of the above KENO-VI geometry,
+
+**CYLINDER** *1* places a small **CYLINDER** of mixture 2 at the origin,
+
+**CYLINDER** *2* places the small **CYLINDER** of mixture 2 in the upper
+right quadrant,
+
+**CYLINDER** *3* places the small **CYLINDER** of mixture 2 in the upper
+left quadrant,
+
+**CYLINDER** *4* places the small **CYLINDER** of mixture 2 in the lower
+left quadrant,
+
+**CYLINDER** *5* places the small **CYLINDER** of mixture 2 in the lower
+right quadrant,
+
+**CYLINDER** *6* places the larger **CYLINDER** of mixture 1 at the
+right with its origin at (0.707107,0.0,0.0),
+
+**CYLINDER** *7* places the larger **CYLINDER** of mixture 1 at the left
+with its origin at (0.0,0.707107.0.0),
+
+**CYLINDER** *10* defines the inner surface of the annulus,
+
+**CYLINDER** *11* defines the outer surface of the annulus and the
+**UNIT** boundary,
+
+the first **HOLE** places the top **CYLINDER** that contains the
+geometric component defined in **UNIT** 1, and
+
+the second **HOLE** places the bottom **CYLINDER** that contains the
+geometric component defined in **UNIT** 1.
+
+To complete the geometry mockup, consider :numref:`fig8-1-20`.
+
+For KENO V.a geometry, define **UNIT** 8 to be a cylinder of mixture 2
+having a radius of 0.6 cm and a length of 30 cm. Define **UNIT** 9 to be
+the central rod and the large annulus of 3.6 cm inner radius, 3.8 cm
+outer radius, and 30 cm length centered in a **CUBOID** having an 8
+cm\ :sup:`2` cross section and being 32 cm long.
+
+KENO V.a:
+
+::
+
+  UNIT 8
+  CYLINDER  2 1 0.6 2P15.0
+  UNIT 9
+  CYLINDER  2 1 0.6 2P15.0
+  CYLINDER  0 1 3.6 2P15
+  HOLE   7 2.0 0.0 0.0
+  HOLE   8 2*2.0 0.0
+  HOLE   7 0.0 2.0 0.0
+  HOLE   8 -2.0 2.0 0.0
+  HOLE   7 -2.0 2*0.0
+  HOLE   8 2*-2.0 0.0
+  HOLE   7 0.0 -2.0 0.0
+  HOLE   8 2P2.0 0.0
+  CYLINDER  4 1 3.8 2P15.0
+  CUBOID    0 1 4P4.0 2P16.0
+
+In **UNIT** 9 of the KENO V.a description, the first **CYLINDER**
+defines the rod of mixture 2, centered in the annulus. The second
+**CYLINDER** defines the void volume between the central rod and the
+annulus.
+
+The *first* **HOLE** places the composite annulus of **UNIT** 7 to the
+right of the central rod,
+
+the *second* **HOLE** places a rod defined by **UNIT** 8 in the upper
+right quadrant of the annulus,
+
+the *third* **HOLE** places the composite annulus of **UNIT** 7 above
+the central rod,
+
+the *fourth* **HOLE** places a rod defined by **UNIT** 8 in the upper
+left quadrant of the annulus,
+
+the *fifth* **HOLE** places the composite annulus of **UNIT** 7 to the
+left of the central rod,
+
+the *sixth* **HOLE** places a rod defined by **UNIT** 8 in the lower
+left quadrant,
+
+the *seventh* **HOLE** places the composite annulus of **UNIT** 7 below
+the central rod, and
+
+the *eighth* **HOLE** places a rod defined by **UNIT** 8 in the lower
+right quadrant.
+
+The last **CYLINDER** defines the outer surface of the annulus. The
+outer **CUBOID** is the last region.
+
+For KENO-VI geometry, define **UNIT** 3 to be the central rod and four
+outer rods of 0.6 cm radius and 30.0 cm length, and the large annulus of
+3.6 cm inner radius, 3.8 cm outer radius, and 30 cm length centered in a
+cuboid having an 8 cm\ :sup:`2` cross section and a length of 32 cm.
+
+KENO-VI:
+
+::
+
+  GLOBAL UNIT 3
+  CYLINDER  1 0.6 2P15.0
+  CYLINDER  2 0.6 2P15.0 ORIGIN X=2.0 Y=2.0
+  CYLINDER  3 0.6 2P15.0 ORIGIN X=-2.0 Y=2.0
+  CYLINDER  4 0.6 2P15.0 ORIGIN X=-2.0 Y=-2.0
+  CYLINDER  5 0.6 2P15.0 ORIGIN X=2.0 Y=-2.0
+  CYLINDER 10 3.6 2P15.0
+  CYLINDER 11 3.8 2P15.0
+  CUBOID   12 4P4.0 2P16.0
+  MEDIA 2 1 1
+  MEDIA 2 1 2
+  MEDIA 2 1 3
+  MEDIA 2 1 4
+  MEDIA 2 1 5
+  HOLE  2 ORIGEN X=2
+  HOLE  2 ORIGEN Y=2
+  HOLE  2 ORIGEN X=-2
+  HOLE  2 ORIGEN Y=-2
+  MEDIA 0 1 10 -1 -2 -3 -4 -5
+  MEDIA 4 1 11 -10
+  MEDIA 0 1 12 -11
+  BOUNDARY  12
+
+In **UNIT** 3 of the above KENO-VI description,
+
+**CYLINDER** *1* defines the rod of mixture 2, centered in the annulus,
+
+**CYLINDER** *2* places a rod of mixture 2 in the upper right quadrant
+of the annulus,
+
+**CYLINDER** *3* places a rod of mixture 2 in the upper left quadrant of
+the annulus,
+
+**CYLINDER** *4* places a rod of mixture 2 in the lower left quadrant,
+
+**CYLINDER** *5* places a rod of mixture 2 in the lower right quadrant,
+
+**CYLINDER** *10* defines the void volume between the central rod and
+the annulus,
+
+**CYLINDER** *11* defines the outer surface of the annulus,
+
+**CUBOID** *12* defines the unit boundary,
+
+the first **HOLE** places **UNIT** 2 to the right of the central rod,
+
+the second **HOLE** places **UNIT**  2 above the central rod,
+
+the third **HOLE** places **UNIT**  2 to the left of the central rod,
+and
+
+the fourth **HOLE** places **UNIT**  2 below the central rod.
+
+This problem illustrates three levels of **HOLE** nesting. The total
+input data for the problem is given below. The geometry description
+accurately recreates the geometry arrangement of :numref:`fig8-1-20`. The 2‑D
+color plot output is shown in :numref:`fig8-1-23`.
+
+.. _fig8-1-23:
+.. figure:: figs/Keno/fig23.png
+  :align: center
+  :width: 400
+
+  Color plot of nested holes example problem.
+
+KENO V.a:
+
+NESTED HOLES SAMPLE
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER 1 1 0.1 2P15.0
+  UNIT 2
+  CUBOID 2 1 2P0.1 2P0.05 2P15.0
+  UNIT 3
+  CUBOID 2 1 2P0.05 2P0.1 2P15.0
+  UNIT 4
+  CYLINDER 1 1 0.1 2P15.0
+  CYLINDER 3 1 0.5 2P15.0
+  HOLE 1  0.0 -0.4 0.0
+  HOLE 1  0.4  0.0 0.0
+  HOLE 1  0.0  0.4 0.0
+  HOLE 1 -0.4  0.0 0.0
+  HOLE 2 -0.2  0.0 0.0
+  HOLE 2  0.2  0.0 0.0
+  HOLE 3  0.0 -0.2 0.0
+  HOLE 3  0.0  0.2 0.0
+  UNIT 5
+  CYLINDER 1 1 0.5 2P15.0
+  UNIT 6
+  CYLINDER 2 1 0.2 2P15.0
+  UNIT 7
+  CYLINDER 2 1 0.2 2P15.0
+  CYLINDER 0 1 1.3 2P15.0
+  HOLE 5 0.707107 2*0.0
+  HOLE 6 0.707107 0.707107 0.0
+  HOLE 4 0.0 0.707107 0.0
+  HOLE 6 -0.707107 0.707107 0.0
+  HOLE 5 -0.707107 0.0 0.0
+  HOLE 6 -0.707107 -0.707107 0.0
+  HOLE 4 0.0 -0.707107 0.0
+  HOLE 6 0.707107 -0.707107 0.0
+  CYLINDER 4 1 1.4 2P15.0
+  UNIT 8
+  CYLINDER 2 1 0.6 2P15.0
+  GLOBAL UNIT 9
+  CYLINDER 2 1 0.6 2P15.0
+  CYLINDER 0 1 3.6 2P15.0
+  HOLE 7 2.0 0.0 0.0
+  HOLE 8 2*2.0 0.0
+  HOLE 7 0.0 2.0 0.0
+  HOLE 8 -2.0 2.0 0.0
+  HOLE 7 -2.0 2*0.0
+  HOLE 8 2*-2.0 0.0
+  HOLE 7 0.0 -2.0 0.0
+  HOLE 8 2P2.0 0.0
+  CYLINDER 4 1 3.8 2P15.0
+  CUBOID 0 1 4P4.0 2P16.0
+  END GEOM
+  READ PLOT
+    TTL='X-Y SLICE AT Z MIDPOINT. NESTED HOLES'
+    XUL=-0.1  YUL=8.1 ZUL=16.0
+    XLR=8.1 YLR=-0.1 ZLR=16
+    UAX=1.0 VDN=-1.0  NAX=260 NCH=' *-.X' SCR=NO
+  END PLOT
+  END DATA
+  END
+
+KENO-VI:
+
+::
+
+  READ GEOM
+  UNIT 1
+  CYLINDER  1 0.1 2P15.0
+  CYLINDER  2 0.1 2P15.0 ORIGIN Y=-0.4
+  CYLINDER  3 0.1 2P15.0 ORIGIN X=0.4
+  CYLINDER  4 0.1 2P15.0 ORIGIN Y=0.4
+  CYLINDER  5 0.1 2P15.0 ORIGIN X=-0.4
+  CUBOID    6 -0.3 -0.1  2P0.05 2P15.0
+  CUBOID    7 0.3 0.1  2P0.05 2P15.0
+  CUBOID    8 2P0.05 -0.3 -0.1  2P15.0
+  CUBOID    9 2P0.05 0.3 0.1  2P15.0
+
+  CYLINDER 10 0.5 2P15.0
+  MEDIA 1 1 1 -6 -7 -8 -9
+  MEDIA 1 1 2 -8
+  MEDIA 1 1 3 -7
+  MEDIA 1 1 4 -9
+  MEDIA 1 1 5 -6
+  MEDIA 2 1 6 -1 -5
+  MEDIA 2 1 7 -1 -3
+  MEDIA 2 1 8 -1 -2
+  MEDIA 2 1 9 -1 -4
+  MEDIA 3 1 -1 -2 -3 -4 -5 -6 -7 -8 -9 10
+  BOUNDARY  10
+  UNIT 2
+  CYLINDER  1 0.2 2P15.0
+  CYLINDER  2 0.2 2P15.0 ORIGIN X=0.707107  Y=0.707107
+  CYLINDER  3 0.2 2P15.0 ORIGIN X=-0.707107 Y=0.707107
+  CYLINDER  4 0.2 2P15.0 ORIGIN X=-0.707107 Y=-0.707107
+  CYLINDER  5 0.2 2P15.0 ORIGIN X=0.707107  Y=-0.707107
+  CYLINDER  6 0.5 2P15.0 ORIGIN X=0.707107
+  CYLINDER  7 0.5 2P15.0 ORIGIN X=-0.707107
+  CYLINDER 10 1.3 2P15.0
+  CYLINDER 11 1.4 2P15.0
+  MEDIA 2 1 1
+  MEDIA 2 1 2
+  MEDIA 2 1 3
+  MEDIA 2 1 4
+  MEDIA 2 1 5
+  MEDIA 1 1 6
+  MEDIA 1 1 7
+  HOLE  1 ORIGIN Y=0.707107
+  HOLE  1 ORIGIN Y=-0.707107
+  MEDIA 0 1 10 -1 -2 -3 -4 -5 -6 -7
+  MEDIA 4 1 11 -10
+  BOUNDARY  11
+  GLOBAL UNIT 3
+  CYLINDER  1 0.6 2P15.0
+  CYLINDER  2 0.6 2P15.0 ORIGIN X=2.0  Y=2.0
+  CYLINDER  3 0.6 2P15.0 ORIGIN X=-2.0 Y=2.0
+  CYLINDER  4 0.6 2P15.0 ORIGIN X=-2.0 Y=-2.0
+  CYLINDER  5 0.6 2P15.0 ORIGIN X=2.0  Y=-2.0
+  CYLINDER 10 3.6 2P15.0
+  CYLINDER 11 3.8 2P15.0
+  CUBOID   12 4P4.0 2P16.0
+  MEDIA 2 1 1
+  MEDIA 2 1 2
+  MEDIA 2 1 3
+  MEDIA 2 1 4
+  MEDIA 2 1 5
+  HOLE 2 ORIGIN X=2
+  HOLE 2 ORIGIN Y=2
+  HOLE 2 ORIGIN X=-2
+  HOLE 2 ORIGIN Y=-2
+  MEDIA 0 1 10 -1 -2 -3 -4 -5
+  MEDIA 4 1 11 -10
+  MEDIA 0 1 12 -11
+  BOUNDARY  12
+  END GEOM
+  READ PLOT
+    TTL='X-Y SLICE AT Z MIDPOINT. NESTED HOLES'
+    XUL=-4.1  YUL=4.1 ZUL=0.0
+    XLR=4.1 YLR=-4.1 ZLR=0
+    UAX=1.0 VDN=-1.0  NAX=800
+  END PLOT
+  END DATA
+  END
+
+.. _8-1-3-6-3:
+
+Multiple arrays
+^^^^^^^^^^^^^^^
+
+EXAMPLE 17. :ref:`8-1-3-6` demonstrates how **UNIT**\ s are composed of
+geometry regions and how these **UNIT**\ s can be stacked in an
+**ARRAY**. This same procedure can be extended to create multiple
+**ARRAY**\ s. Furthermore, **ARRAY**\ s can be used as building blocks
+within other **ARRAY**\ s.
+
+Consider Sample Problem 19 from Appendix C. This problem is a critical
+experiment consisting of a composite array :cite:`thomas_critical_1973,thomas_critical_1964` of four
+highly enriched uranium metal cylinders and four cylindrical Plexiglas
+containers filled with uranyl nitrate solution. A photograph of the
+experiment is given in :numref:`fig9-1c-3`. The coordinate system is defined to
+be Z up the page, Y across the page, and X out of the page.
+
+The Plexiglas containers have an inside radius of 9.525 cm and an
+outside radius of 10.16 cm. The inside height is 17.78 cm, and the
+outside height is 19.05 cm. Four of these containers are stacked with a
+center-to-center spacing of 21.75 cm in the Y direction and 20.48 cm in
+the Z direction (vertical). This arrangement of four Plexiglas
+containers can be described as follows: mixture 2 is the uranyl nitrate
+and mixture 3 is Plexiglas, so the Plexiglas container with its
+appropriate spacing **CUBOID** can be described as **UNIT** 1. This
+considers the **ARRAY** to be bare and suspended with no supports.
+
+KENO V.a:
+
+::
+
+  UNIT 1
+  CYLINDER  2 1 9.525  2P8.89
+  CYLINDER  3 1 10.16  2P9.525
+  CUBOID    0 1 4P10.875  2P10.24
+
+KENO-VI:
+
+::
+
+  UNIT 1
+  CYLINDER 1  9.525  2P8.89
+  CYLINDER 2  10.16  2P9.525
+  CUBOID  3   4P10.875  2P10.24
+  MEDIA 2 1 1
+  MEDIA 3 1 2 -1
+  MEDIA 0 1 3 -2
+  BOUNDARY  3
+
+The **ARRAY** of four Plexiglas containers can be described as
+**ARRAY** 1 in the array data as follows:
+
+   **ARA**\ =1 **NUX**\ =1 **NUY**\ =2 **NUZ**\ =2 **FILL** F1 **END
+   FILL**
+
+The four metal cylinders, comprised of mixture 1, each have a radius of
+5.748 cm and are 10.765 cm tall. They have a center-to-center spacing of
+13.18 cm in the Y direction and 12.45 cm in the Z direction (vertical).
+Thus, one of the metal cylinders with its appropriate spacing **CUBOID**
+can be described as **UNIT** 2. This **ARRAY** is also considered to be
+bare and unsupported.
+
+
+KENO V.a:
+
+::
+
+  UNIT 2
+  CYLINDER 1 1  5.748 2P5.3825
+  CUBOID   0 1  4P6.59 2P6.225
+
+KENO-VI:
+
+::
+
+  UNIT 2
+  CYLINDER 1 5.748 2P5.3825
+  CUBOID   2   4P6.59 2P6.225
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+
+The array of four metal cylinders can be described as **ARRAY** 2 in the
+array data.
+
+   **ARA**\ =2 **NUX**\ =1 **NUY**\ =2 **NUZ**\ =2 **FILL** F2 **END
+   FILL**
+
+Now two **ARRAY**\ s have been described. The overall dimensions of the
+**ARRAY** of Plexiglas containers are 21.75 cm in X, 43.5 cm in Y, and
+40.96 cm in Z. The overall dimensions of the **ARRAY** of metal
+cylinders are 13.18 cm in X, 26.36 cm in Y, and 24.9 cm in Z.
+
+In order to describe the composite **ARRAY**, these two **ARRAY**\ s
+must be positioned within **UNIT**\ s and stacked together into one
+**ARRAY**. In order for them to be stacked into one **ARRAY**, the
+adjacent faces must match. This is accomplished by defining a **UNIT** 3
+which contains **ARRAY** 1, the **ARRAY** of Plexiglas solution
+containers. The overall dimensions of this **UNIT** are 21.75 cm in X,
+43.5 cm in Y, and 40.96 cm in Z. These dimensions are calculated by the
+code and need not be specified. **UNIT** 3 is defined as follows:
+
+KENO V.a:
+
+::
+
+  UNIT 3
+  ARRAY 1  3*0.0
+
+KENO-VI:
+
+::
+
+  UNIT 3
+  CUBOID  1 2P10.875 2P21.75 2P20.48
+  ARRAY 1 1 PLACE 1 1 1 0.0 -10.875 -10.24
+  BOUNDARY  1
+
+The **ARRAY** of metal cylinders will be defined to be **UNIT** 4.
+However, this **ARRAY** is 17.14 cm smaller in the Y and 16.06 cm
+smaller in the Z dimensions than the **ARRAY** of Plexiglas **UNIT**\ s.
+Therefore, a void region must be placed around the **ARRAY** in those
+directions so **UNIT** 4 and **UNIT** 3 will be the same size in Y and
+Z.
+
+KENO V.a:
+
+::
+
+  UNIT 4
+  ARRAY  2  3*0.0
+  REPLICATE  0 1 2*0.0  2*8.57  2*8.03  1
+
+KENO-VI:
+
+::
+
+  UNIT 4
+  CUBOID 1 2P6.59 2P13.18 2P12.45
+  CUBOID 2 2P6.59 2P21.75 2P20.48
+  ARRAY  2  1 PLACE 1 1 1 0.0 -6.59 -6.225
+  MEDIA 0 1 2 -1
+  BOUNDARY 2
+
+Now that **UNIT** 3 and **UNIT** 4 have been defined, they must be
+placed in the global or universe **ARRAY** to define the physical
+arrangement of the eight pieces. This procedure is implemented via a
+**GLOBAL** **ARRAY** in KENO V.a, while KENO-VI uses a **GLOBAL UNIT** 3
+as follows:
+
+
+KENO V.a:
+
+::
+
+  GBL=3  ARA=3  NUX=2  NUY=1  NUZ=1  FILL  4 3  END FILL
+
+KENO-VI:
+
+::
+
+  GLOBAL UNIT 5
+  CUBOID 1 34.93 0.0 43.5 0.0 40.96 0.0
+  ARRAY 3 1 PLACE 1 1 1 6.59 21.75 20.48
+  BOUNDARY  1
+
+The description of **ARRAY** 3 in KENO-VI is identical to that shown for
+KENO V.a.
+
+This completes the geometry description for the problem. The complete
+geometry input description for the problem is given below.
+
+KENO V.a:
+
+::
+
+  =KENOVA
+  SAMPLE PROBLEM 19 4 AQUEOUS 4 METAL ARRAY OF ARRAYS
+  READ PARAM  LIB=4  RUN=NO END PARAM
+  READ MIXT SCT=1
+       MIX=1
+    1092238  	3.2275e-3
+    1092235  	4.4802e-2
+       MIX=2
+    20011023 	5.81e-2
+    2007014   	1.9753e-3
+    2008016   	3.6927e-2
+    20092235 	9.8471e-4
+    20092238 	7.7697e-5
+       MIX=3
+    11006012 	3.5552e-2
+    11011023	5.6884e-2
+    11008016 	1.4221e-2
+  END MIXT
+  READ GEOM
+  UNIT 1
+    CYLINDER  2 1 9.525 8.89 -8.89
+    CYLINDER  3 1 10.16 2P9.525
+    CUBOID  0 1 4P10.875 2P10.24
+  UNIT 2
+    CYLINDER  1 1 5.748 2P5.3825
+    CUBOID  0 1 4P6.59 2P6.225
+  UNIT 3
+    ARRAY 1 3*0.0
+  UNIT 4
+    ARRAY 2 3*0.0
+    REPLICATE 0 1 2*0.0 2*8.57 2*8.03 1
+  END GEOM
+  READ ARRAY
+    ARA=1 NUX=1 NUY=2 NUZ=2                FILL F1 END FILL
+    ARA=2 NUX=1 NUY=2 NUZ=2                FILL F2 END FILL
+    GBL=3 ARA=3 NUX=2 NUY=1 NUZ=1   FILL 4 3 END FILL
+  END ARRAY
+    READ PLOT TTL='X-Y SLICE AT Z=10.24'
+    XUL=-1.0    YUL=44.5 ZUL=10.24
+    XLR=35.93 YLR=-1.0  ZLR=10.24
+    UAX=1.0 VDN=-1.0 NAX=640 PIC=MIX END
+    TTL='X-Z SLICE AT Y=10.875'
+    XUL=-1.0 YUL=10.875 ZUL=41.96 XLR=35.93 YLR=10.875 ZLR=-1.0
+    UAX=1.0 WDN=-1.0 PIC=MIX END  END PLOT
+  END DATA
+  END
+
+KENO-VI:
+
+::
+
+  =KENO-VI
+  SAMPLE PROBLEM 19 4 AQUEOUS 4 METAL ARRAY OF ARRAYS
+  READ PARAM
+    LIB=4 FLX=YES FDN=YES NUB=YES SMU=YES MKP=YES MKU=YES FMP=YES FMU=YES
+  END PARAM
+  READ MIXT
+    SCT=2
+    MIX=1
+        1092234 4.82717E-04
+        1092235 4.47971E-02
+        1092236 9.57233E-05
+        1092238 2.65767E-03
+    MIX=2
+        2001001 5.77931E-02
+        2007014 2.13092E-03
+        2008016 3.74114E-02
+        2092234 1.06784E-05
+        2092235 9.84602E-04
+        2092236 5.29386E-06
+        2092238 6.19414E-05
+    MIX=3
+        11001001 5.67873E-02
+        11006000 3.54921E-02
+        11008016 1.41968E-02
+  END MIXT
+  READ GEOM
+  UNIT 1
+    CYLINDER 1  9.525  2P8.89
+    CYLINDER 2  10.16  2P9.525
+    CUBOID   3  4P10.875  2P10.24
+    MEDIA 2 1 1
+    MEDIA 3 1 2 -1
+    MEDIA 0 1 3 -2
+    BOUNDARY  3
+  UNIT 2
+    CYLINDER  1 5.748 2P5.3825
+    CUBOID    2 4P6.59 2P6.225
+    MEDIA 1 1 1
+    MEDIA 0 1 2 -1
+    BOUNDARY  2
+  UNIT 3
+    CUBOID 1 2P10.875 2P21.75 2P20.48
+    ARRAY 1 1 PLACE 1 1 1 0.0 -10.875 -10.24
+    BOUNDARY  1
+  UNIT 4
+    CUBOID 1 2P6.59 2P13.18 2P12.45
+    CUBOID 2 2P6.59 2P21.75 2P20.48
+    ARRAY  2  1 PLACE 1 1 1 0.0 -6.59 -6.225
+    MEDIA 0 1 2 -1
+    BOUNDARY
+  GLOBAL UNIT 5
+    CUBOID 1 34.93 0.0 43.5 0.0 40.96 0.0
+    ARRAY 3 1 PLACE 1 1 1 6.59 21.75 20.48
+    BOUNDARY  1
+  END GEOM
+  READ ARRAY
+    ARA=1 NUX=1 NUY=2 NUZ=2                 FILL F1 END FILL
+    ARA=2 NUX=1 NUY=2 NUZ=2                 FILL F2 END FILL
+    GBL=3 ARA=3 NUX=2 NUY=1 NUZ=1    FILL 4 3 END FILL
+  END ARRAY
+  READ PLOT TTL='X-Y SLICE AT Z=10.24'
+    XUL=-1.0 YUL=44.5 ZUL=10.24
+    XLR=35.93 YLR=-1.0 ZLR=10.24
+    UAX=1.0 VDN=-1.0 NAX=130 NCH=' *.-' PIC=MIX END
+    TTL='X-Z SLICE AT Y=10.875'
+    XUL=-1.0 YUL=10.875 ZUL=41.96
+    XLR=35.93 YLR=10.875 ZLR=-1.0
+    UAX=1.0 WDN=-1.0 PIC=MIX END
+  END PLOT
+  END DATA
+  END
+
+
+A plot of an X-Y slice taken through the bottom layer of the array is
+shown in :numref:`fig8-1-24`. A plot of an X-Z slice taken through the +Y half
+of the array is shown in :numref:`fig8-1-25`. These plots were used to verify
+the geometry mockup.
+
+.. _fig8-1-24:
+.. figure:: figs/Keno/fig24.png
+  :align: center
+  :width: 400
+
+  X-Y plot of mixed array.
+
+.. _fig8-1-25:
+.. figure:: figs/Keno/fig25.png
+  :align: center
+  :width: 400
+
+  X-Z plot of mixed array.
+
+
+.. centered:: STORAGE ARRAY
+
+EXAMPLE 18. Consider a storage array of highly enriched uranium buttons,
+each 1 in. tall and 4 in. in diameter. These buttons are stored on
+stainless steel shelves with a center-to-center spacing of 60.96 cm
+(2 ft) between them in the Y direction, and only one button on each
+shelf in the X direction. The shelves are 0.635 cm
+(:sup:`1`/:sub:`4` in.) thick (Z dimension), 45.72 cm (18 in.) wide (X
+dimension), 609.6 cm (20 ft) long (Y dimension), and are 45.72 cm
+(18 in.) from the top of a shelf to the bottom of the shelf above it.
+Each rack of storage shelves is four shelves high, with the first shelf
+being 15.24 cm (6 in.) above the floor. The storage room is 586.56 cm
+(19.5 ft) in the X direction by 1293.44 cm (43 ft) in the Y direction
+with 365.76 cm (12 ft. ) ceilings in the Z direction. The walls,
+ceiling, and floor are composed of concrete, 30.48 cm (1 ft) thick. All
+the aisles between the storage racks are 91.44 cm (3 ft) wide. The racks
+are arranged with their length in the Y direction and an aisle between
+them. The arrays of racks are arranged with two in the Y direction and
+five in the X direction. Mixture 1 is the uranium metal, mixture 2 is
+the stainless steel, and mixture 3 is the concrete.
+
+The metal button and its center-to-center spacing are described first.
+The void vertical spacing has arbitrarily been chosen to extend from the
+bottom of the button to the next shelf above the button. The shelf of
+stainless steel is described under the button.
+
+KENO V.a:
+
+::
+
+  UNIT 1
+  COM='METAL BUTTONS'
+  CYLINDER 1 1 5.08 2.54 0.0
+  CUBOID  0 1 2P22.86 2P30.48 45.72 0.0
+  CUBOID  2 1 2P22.86 2P30.48 45.72 -0.635
+
+KENO-VI:
+
+::
+
+  UNIT 1
+  CYLINDER 1 5.08  2.54  0.0
+  CUBOID   2   2P22.86   2P30.48  45.72   0.0
+  CUBOID   3   2P22.86   2P30.48  45.72  -0.635
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  MEDIA 2 1 3 -2
+  BOUNDARY  3
+
+**ARRAY** 1 creates an **ARRAY** of these buttons that fills one shelf.
+**UNIT** 2 then contains one of the shelves shown in :numref:`fig8-1-26`.
+
+.. _fig8-1-26:
+.. figure:: figs/Keno/fig26.png
+  :align: center
+  :width: 400
+
+  Two racks of uranium buttons.
+
+KENO V.a:
+
+::
+
+  ARA=1 COM='SINGLE SHELF CONTAINING 10 METAL BUTTONS'
+        NUX=1 NUY=10 NUZ=1 FILL F1 END FILL
+
+  UNIT 2
+  COM='SINGLE SHELF (1 X 10 X 1 ARRAY OF METAL BUTTONS ON A SHELF)'
+  ARRAY 1 3*0.0
+
+KENO-VI:
+
+::
+
+  ARA=1  NUX=1  NUY=10  NUZ=1  FILL  F1  END FILL
+
+  UNIT 2
+  CUBOID 1 45.72 0.0 609.60 0.0 46.355 0.0
+  ARRAY  1  1  PLACE  1  1  1  22.86  30.48  0.635
+  BOUNDARY  1
+
+.. note:: The origin of **UNIT** 2 is on the bottom of the bottom shelf; it
+  has been moved from the bottom of the button. The X and Y position of
+  the origin is at the front, left-hand corner of the bottom of this
+  lowest shelf.
+
+Stack four **UNIT** 2s vertically to obtain one of the racks shown in
+:numref:`fig8-1-26`. One rack is defined by array 2.
+
+   **ARA**\ =2 **COM**\ ='SINGLE RACK OF 4 SHELVES'
+
+   **NUX**\ =1 **NUY**\ =1 **NUZ**\ =4 **FILL** F2 **END FILL**
+
+Generate a **UNIT** 3 that contains a rack of shelves and a **UNIT** 4
+that is the aisle between the ends of the two racks in the Y direction.
+
+KENO V.a:
+
+::
+
+  UNIT 3
+  COM='SINGLE RACK (4 SHELVES TALL)'
+  ARRAY 2 3*0.0
+
+  UNIT 4
+  COM='CENTRAL AISLE UNIT SAME HEIGHT AS 4 SHELVES'
+  CUBOID 0 1 2P22.86 2P45.72 185.42 0.0
+
+KENO-VI:
+
+::
+
+  UNIT 3
+  CUBOID 1 45.72 0.0 609.60 0.0 185.42 0.0
+  ARRAY  2 1 PLACE 1 1 1 3*0.0
+  BOUNDARY  1
+  UNIT 4
+  CUBOID  1  2P22.86  2P45.72  185.42  0.0
+  MEDIA 0 1 1
+  BOUNDARY  1
+
+Stack **UNIT**\ s 3 and 4 together in the Y direction to create
+**UNIT** 5 which contains both racks in the Y direction and the aisle
+between them. This configuration is shown in :numref:`fig8-1-26`.
+
+KENO V.a:
+
+::
+
+  ARA=3 COM='TWO RACKS END TO END WITH CENTRAL AISLE'
+        NUX=1 NUY=3 NUZ=1 FILL 3 4 3 END FILL
+
+  UNIT 5
+  COM='SET OF TWO RACKS END TO END SEPARATED BY THE CENTRAL AISLE'
+  ARRAY 3 3*0.0
+
+KENO-VI:
+
+::
+
+  ARA=3  NUX=1  NUY=3  NUZ=1  FILL  3 4 3  END FILL
+
+  UNIT 5
+  CUBOID 1 45.72 0.0 1310.64 0.0 185.42 0.0
+  ARRAY 3 1 PLACE 1 1 1 3*0.0
+  BOUNDARY  1
+
+Create a **UNIT** 6, which is an aisle 91.44 cm (3 ft) wide in the
+X direction and 1310.64 cm (43 ft) in the Y direction (full length of
+the room).
+
+KENO V.a:
+
+::
+
+  UNIT 6
+  COM='AISLE BETWEEN ADJACENT SETS OF TWO RACKS & CENTRAL AISLE (UNITS 5)'  CUBOID 0 1 91.44 0.0 1310.64 0.0 185.42 0.0
+
+KENO-VI:
+
+::
+
+  UNIT 6
+  CUBOID 1 91.44 0.0  1310.64 0.0  185.42 0.0
+  MEDIA 0 1 1
+  BOUNDARY  1
+
+
+Stack **UNIT**\ s 5 and 6 in the X direction to achieve the array of
+racks in the room. Then put the 6 in. spacing below the bottom of the
+racks, the spacing between the top of the top rack and the ceiling, and
+add the concrete floor, walls, and ceiling around the array. **ARRAY** 4
+describes the array of racks in the room. **ARRAY** record (first
+**CUBOID** description in KENO-VI) encompasses this **ARRAY**, and the
+first **REFLECTOR** (second **CUBOID** in KENO-VI) descriptions are used
+to add the spacing between the top rack and the ceiling. The last two
+**REFLECTOR** (**CUBOID**\ s 3 through 9 in KENO-VI) descriptions add
+the ceiling, walls, and floor in 5.0 cm increments to bias the concrete.
+A perspective of the room is shown in :numref:`fig8-1-27`.
+
+KENO V.a:
+
+::
+
+  ARA=4 COM='ENTIRE STORAGE ARRAY'
+        NUX=9 NUY=1 NUZ=1 FILL 5 6 3Q2 5 END FILL
+  GLOBAL
+  UNIT 7
+  COM='STORAGE ARRAY IN THE ROOM WITH WALLS, FLOOR AND CEILING'
+  ARRAY  4  3*0.0
+  REFLECTOR   0  1  4*0.0  165.1  15.24  1
+  REFLECTOR  3  2  6*5.0  6
+  REFLECTOR  3  8  6*0.48  1
+
+KENO-VI:
+
+::
+
+  GBL=4  ARA=4  NUX=9  NUY=1  NUZ=1  FILL 5 6  3Q2  5  END FILL
+
+  GLOBAL UNIT  7
+  CUBOID 1 594.36   0.0  1310.64   0.0  185.42   0.0
+  CUBOID 2 594.36   0.0  1310.64   0.0  350.52 -15.24
+  CUBOID 3 599.36  -5.00 1315.64  -5.00 355.52 -20.24
+  CUBOID 4 604.36 -10.00 1320.64 -10.00 360.52 -25.24
+  CUBOID 5 609.36 -15.00 1325.64 -15.00 365.52 -30.24
+  CUBOID 6 614.36 -20.00 1330.64 -20.00 370.52 -35.24
+  CUBOID 7 619.36 -25.00 1335.64 -25.00 375.52 -40.24
+  CUBOID 8 624.36 -30.00 1340.64 -30.00 380.52 -45.24
+  CUBOID 9 624.84 -30.48 1341.12 -30.48 381.00 -45.72
+  ARRAY  4 1 PLACE 1 1 1 3*0.0
+  MEDIA 0 1 2 -1
+  MEDIA 3 2 3 -2
+  MEDIA 3 3 4 -3
+  MEDIA 3 4 5 -4
+  MEDIA 3 5 6 -5
+  MEDIA 3 6 7 -6
+  MEDIA 3 7 8 -7
+  MEDIA 3 8 9 -8
+  BOUNDARY  9
+
+.. _fig8-1-27:
+.. figure:: figs/Keno/fig27.png
+  :align: center
+  :width: 400
+
+  Entire storage array in the room.
+
+The complete input for this room is given below: The plots for this
+problem must be quite large in order to see all the detail because the
+array is sparse and the shelves are thin. Therefore, the plots for this
+system are not included as Fig.s. The user can generate the plots if it
+is desirable to see them. The nuclide IDs used in this problem are for
+the 16-group Hansen-Roach working format library, which is no longer
+distributed with SCALE.
+
+KENO V.a:
+
+::
+
+  =KENO5A
+  STORAGE ARRAY
+  READ PARAMETERS  FDN=YES LIB=41
+  END PARAMETERS
+  READ MIXT  SCT=1  MIX=1 92500 4.48006e-2  92800 2.6578e-3  92400 4.827e-4
+  92600 9.57e-5  MIX=2 200 1.0 MIX=3 301 1 END MIXT
+  READ GEOMETRY
+  UNIT 1
+  COM='METAL BUTTONS'
+  CYLINDER 1 1 5.08 2.54 0.0
+  CUBOID  0 1 2P22.86 2P30.48 45.72 0.0
+  CUBOID  2 1 2P22.86 2P30.48 45.72 -0.635
+  UNIT 2
+  COM='SINGLE SHELF (1 X 10 X 1 ARRAY OF METAL BUTTONS ON A SHELF)'
+  ARRAY 1 3*0.0
+  UNIT 3
+  COM='SINGLE RACK (4 SHELVES TALL)'
+  ARRAY 2 3*0.0
+  UNIT 4
+  COM='CENTRAL AISLE UNIT SAME HEIGHT AS 4 SHELVES'
+  CUBOID 0 1 2P22.86 2P45.72 185.42 0.0
+  UNIT 5
+  COM='SET OF TWO RACKS END TO END SEPARATED BY THE CENTRAL AISLE'
+  ARRAY 3 3*0.0
+  UNIT 6
+  COM='AISLE BETWEEN ADJACENT SETS OF TWO RACKS & CENTRAL AISLE (UNITS 5)'
+  CUBOID 0 1 91.44 0.0 1310.64 0.0 185.42 0.0
+  GLOBAL
+  UNIT 7
+  COM='STORAGE ARRAY IN THE ROOM WITH WALLS, FLOOR AND CEILING'
+  ARRAY 4 3*0.0
+  REFLECTOR 0 1 4*0.0 165.1 15.24 1
+  REFLECTOR 3 2 6*5.0    6
+  REFLECTOR 3 8 6*0.48  1
+  END GEOMETRY
+  READ ARRAY
+  ARA=1 COM='SINGLE SHELF CONTAINING 10 METAL BUTTONS'
+        NUX=1 NUY=10 NUZ=1 FILL F1 END FILL
+  ARA=2 COM='SINGLE RACK OF 4 SHELVES'
+        NUX=1 NUY=1 NUZ=4 FILL F2 END FILL
+  ARA=3 COM='TWO RACKS END TO END WITH CENTRAL AISLE'
+        NUX=1 NUY=3 NUZ=1 FILL 3 4 3 END FILL
+  ARA=4 COM='ENTIRE STORAGE ARRAY'
+        NUX=9 NUY=1 NUZ=1 FILL 5 6 3Q2 5 END FILL
+  END ARRAY
+  READ BIAS ID=301 2 8 END BIAS
+  READ START NST=5  NBX=5 END START
+  READ PLOT TTL='X-Z SLICE AT Y=30.48 WITH Z ACROSS AND X DOWN'
+  XUL=594.8 YUL=30.48 ZUL=-1.0 XLR=-0.5 YLR=30.48 ZLR=186.0
+  WAX=1.0 UDN=-1.0 NAX=640  END
+  TTL='Y-Z SLICE OF LEFT RACKS, X=22.86 WITH Z ACROSS AND Y DOWN'
+  XUL=22.86 YUL=1311.0 ZUL=-0.5 XLR=22.86 YLR=-3.0 ZLR=186.0
+  WAX=1.0 VDN=-1.0 NAX=640 END
+  TTL='X-Y SLICE OF ROOM THROUGH SHELF Z=0.3175 WITH X ACROSS AND Y DOWN'
+  XUL=-1.0 YUL=1312.0 ZUL=0.3175 XLR=596.0 YLR=-2.5 ZLR=0.3175
+  UAX=1.0 VDN=-1.0 NAX=320 END
+  END PLOT
+  END DATA
+  END
+
+KENO-VI:
+
+::
+
+  =KENOVI
+  STORAGE ARRAY
+  READ PARAMETERS  FDN=YES LIB=41  END PARAMETERS
+  READ MIXT  SCT=1
+  MIX=1 92500 4.48006e-2  92800 2.6578e-3  92400 4.827e-4  92600 9.57e-5
+  MIX=2 200 1.0 MIX=3 301 1
+  END MIXT
+  READ GEOMETRY
+  UNIT 1
+  CYLINDER 1  5.08  2.54  0.0
+  CUBOID   2   2P22.86   2P30.48  45.72  0.0
+  CUBOID   3   2P22.86   2P30.48  45.72  -.635
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  MEDIA 2 1 3 -2
+  BOUNDARY  3
+  UNIT 2
+  CUBOID 1 45.72 0.0 609.60 0.0 46.355 0.0
+  ARRAY  1  1  PLACE  1  1  1  22.86  30.48  0.635
+  BOUNDARY  1
+  UNIT 3
+  CUBOID 1 45.72 0.0 609.60 0.0 185.42 0.0
+  ARRAY 2 1 PLACE 1 1 1 3*0.0
+  BOUNDARY  1
+  UNIT 4
+  CUBOID  1  2P22.86  2P45.72  185.42  0.0
+  MEDIA 0 1 1
+  BOUNDARY  1
+  UNIT 5
+  CUBOID 1 45.72 0.0 1310.64 0.0 185.42 0.0
+  ARRAY 3 1 PLACE 1 1 1 3*0.0
+  BOUNDARY  1
+  UNIT 6
+  CUBOID 1 91.44 0.0  1310.64 0.0  185.42 0.0
+  MEDIA 0 1 1
+  BOUNDARY  1
+  GLOBAL UNIT  7
+  CUBOID 1 594.36    0.0 1310.64    0.0 185.42    0.0
+  CUBOID 2 594.36    0.0 1310.64    0.0 350.52 -15.24
+  CUBOID 3 599.36  -5.00 1315.64  -5.00 355.52 -20.24
+  CUBOID 4 604.36 -10.00 1320.64 -10.00 360.52 -25.24
+  CUBOID 5 609.36 -15.00 1325.64 -15.00 365.52 -30.24
+  CUBOID 6 614.36 -20.00 1330.64 -20.00 370.52 -35.24
+  CUBOID 7 619.36 -25.00 1335.64 -25.00 375.52 -40.24
+  CUBOID 8 624.36 -30.00 1340.64 -30.00 380.52 -45.24
+  CUBOID 9 624.84 -30.48 1341.12 -30.48 381.00 -45.72
+  ARRAY  4 1 PLACE 1 1 1 3*0.0
+  MEDIA 0 1 2 -1
+  MEDIA 3 2 3 -2
+  MEDIA 3 3 4 -3
+  MEDIA 3 4 5 -4
+  MEDIA 3 5 6 -5
+  MEDIA 3 6 7 -6
+  MEDIA 3 7 8 -7
+  MEDIA 3 8 9 -8
+  BOUNDARY  9
+  END GEOMETRY
+  READ ARRAY
+  ARA=1 NUX=1 NUY=10 NUZ=1 FILL F1 END FILL
+  ARA=2 NUX=1 NUY=1 NUZ=4 FILL F2 END FILL
+  ARA=3 NUX=1 NUY=3 NUZ=1 FILL 3 4 3 END FILL
+  GBL=4 ARA=4 NUX=9 NUY=1 NUZ=1 FILL 5 6 3Q2 5 END FILL
+  END ARRAY
+  READ BIAS ID=301 2 8 END BIAS
+  READ START NST=5 NBX=5 END START
+  READ PLOT PLT=YES TTL='X-Z SLICE AT Y=30.48 WITH Z ACROSS AND X DOWN'
+  XUL=594.8 YUL=30.48 ZUL=-1.0 XLR=-0.5 YLR=30.48 ZLR=186.0
+  WAX=1.0 UDN=-1.0 NAX=640  END
+  TTL='Y-Z SLICE OF LEFT RACKS, X=22.86 WITH Z ACROSS AND Y DOWN'
+  XUL=22.86 YUL=1311.0 ZUL=-0.5 XLR=22.86 YLR=-3.0 ZLR=186.0
+  WAX=1.0 VDN=-1.0 NAX=640 END
+  TTL='X-Y SLICE OF ROOM THROUGH SHELF Z=0.3175 WITH X ACROSS AND Y DOWN'
+  XUL=-1.0 YUL=1312.0 ZUL=0.3175 XLR=596.0 YLR=-2.5 ZLR=0.3175
+  UAX=1.0 VDN=-1.0 NAX=320 END
+  END PLOT
+  END DATA
+  END
+
+.. _8-1-3-6-4:
+
+Arrays and holes
+^^^^^^^^^^^^^^^^
+
+:ref:`8-1-3-6-1` and :ref:`8-1-3-6-2` describe the use of **HOLE**\ s, and
+:ref:`8-1-3-6-3` describes multiple **ARRAY**\ s and **ARRAY**\ s of
+**ARRAY**\ s. **HOLE**\ s can be used to place **ARRAY**\ s at locations
+in other **UNIT**\ s. This section contains examples to illustrate the
+combined use of **ARRAY**\ s and **HOLE**\ s.
+
+.. centered:: EXAMPLE 19. A SIMPLE CASK
+
+
+This example consists of cylindrical mild steel container with an inside
+radius of 4.15 cm and a radial wall thickness of 0.45 cm. The thickness
+of the ends of the container is 1.27 cm, and the inside height is
+10.1 cm. Highly enriched uranium rods 1 cm in diameter and 10 cm long
+are banded together into square bundles of four. These bundles are then
+positioned in the mild steel container as shown in Fig. 8.1.28. The rods
+sit on the floor of the container and have a 0.1 cm gap between their
+tops and the top of the container.
+
+.. _fig8-1-28:
+.. figure:: figs/Keno/fig28.png
+  :align: center
+  :width: 400
+
+  Uranium rods in a cylindrical container.
+
+To generate the geometry description for this system, **UNIT** 1 is
+defined as one uranium rod and its associated square-pitch close-packed
+spacing region.
+
+KENO V.a:
+
+::
+
+  UNIT 1
+  CYLINDER  1 1  0.5  2P5.0
+  CUBOID    0 1  4P0.5  2P5.0
+
+KENO-VI:
+
+::
+
+  UNIT 1
+  CYLINDER 1 0.5  2P5.0
+  CUBOID   2   4P0.5  2P5.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+
+From here, the geometry description diverges between KENO V.a and KENO-VI.
+
+KENO V.a:
+
+**ARRAY** 1 is defined to be the central square **ARRAY** consisting of
+four bundles of rods.
+
+   **ARA**\ =1 **NUX**\ =4 **NUY**\ =4 **NUZ**\ =1 **FILL** F1 **END
+   FILL**
+
+**ARRAY** 2 is defined to be a bundle of four rods.
+
+   **ARA**\ =2 **NUX**\ =2 **NUY**\ =2 **NUZ**\ =1 **FILL** F1 **END
+   FILL**
+
+**ARRAY** 2 is placed in **UNIT** 2. This defines the outer boundaries
+of an imaginary **CUBOID** that contains the **ARRAY**. It is convenient
+to have the origin of the **ARRAY** at its center, so the most negative
+point of the array will be (−1, −1,−5).
+
+  UNIT 2
+  ARRAY 2  -1.0 -1.0 -5.0
+
+An **ARRAY** record is used to place **ARRAY** 1 in the **GLOBAL UNIT**.
+Then the cylindrical container is described around it and **HOLE**\ s
+are used to place the four outer bundles around the central **ARRAY**.
+
+::
+
+  GLOBAL UNIT 3
+  ARRAY   1  -2.0  -2.0  -5.0
+  CYLINDER   0 1  4.15  5.1  -5.0
+  HOLE   2    0.0 -3.0  0.0
+  HOLE   2    3.0  0.0  0.0
+  HOLE   2    0.0  3.0  0.0
+  HOLE   2   -3.0  0.0  0.0
+  CYLINDER   2  1  4.6  6.37 -6.27
+
+The first **HOLE** places the bottom bundle of four rods, the second
+**HOLE** places the bundle of four rods at the right, the third **HOLE**
+places the top bundle of rods and the fourth **HOLE** places the left
+bundle of rods.
+
+KENO-VI:
+
+Define **UNIT** 2 to be a void **CUBOID** with the same square pitch as
+the rod square pitch.
+
+   **UNIT** 2
+
+   **CUBOID** 1 4P0.5 2P5.0
+
+   **MEDIA** 0 1 1
+
+   **BOUNDARY** 1
+
+**ARRAY** 1 is defined to be the central square 10 × 10 **ARRAY**
+consisting of 32 rods and 68 void positions that can be used to
+represent the array shown in :numref:`fig8-1-28`.
+
+  **ARA**\ =1 **NUX**\ =10 **NUY**\ =10 **NUZ**\ =1 **FILL** 14*2 1 1
+  8*2 1 1 7*2 4*1 4*2 8*1 2 2 8*1 4*2 4*1 7*2 1 1 8*2 1 1 14*2 **END
+  FILL**
+
+**ARRAY** 1 is placed in **UNIT** 3. The first **CYLINDER** card defines
+the **ARRAY** **BOUNDARY**. Everything external to this boundary is not
+considered part of the problem. The positions in the **ARRAY** that do
+not contain rods are filled with cuboids consisting of void. The
+**ARRAY** boundary must either coincide with the outer boundary of the
+**ARRAY** or be contained within the **ARRAY**. An exterior void region
+is placed around the array boundary to coincide with the size of the
+interior radius of the container. The 10 × 10 **ARRAY** with the
+**ARRAY** boundary is shown in :numref:`fig8-1-29`.
+
+::
+
+  UNIT 3
+  CYLINDER 1  4.15 5.0 -5.0
+  CYLINDER 2 4.15 5.1 -5.0
+  ARRAY 1 1 PLACE 5 5 1   -0.5 -0.5 -0.0
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+
+.. _fig8-1-29:
+.. figure:: figs/Keno/fig29.png
+  :align: center
+  :width: 400
+
+  The 10 × 10 array of 32 uranium rods and 68 void cuboids with the array boundary.
+
+The **UNIT** containing the **ARRAY** is now placed within the global
+unit using a **HOLE** content record. The location of the **HOLE** is
+determined using **ORIGIN** data to match the origin of the **UNIT** in
+the **HOLE** with an X, Y, Z position in the surrounding **UNIT**. In
+this problem, the origin of the **UNIT** must be at position (0,0,0).
+Since only nonzero data must be entered, **ORIGIN** data are not needed
+for this problem. The boundary region consists of the steel container.
+
+::
+
+  GLOBAL UNIT 4
+  CYLINDER 2 4.6 6.37 -6.27
+  HOLE 3 ORIGIN X=0.0 Y=0.0 Z=0.0
+  MEDIA 2 1 2
+  BOUNDARY  2
+
+The overall problem description is shown below. Two of the color plots
+used for verification of this mockup are shown in :numref:`fig8-1-30` and
+:numref:`fig8-1-31`. The black outside border of the two color plots indicates
+volume outside the global unit. The plot can be extended just outside
+the global unit boundary to ensure that the entire problem is included
+in the plot. This results in a black area surrounding the actual
+problem.
+
+KENO V.a:
+
+::
+
+  =KENOVA
+  CASK ARRAY
+  READ PARAMETERS  FDN=YES LIB=41 GEN=10
+  END PARAMETERS
+  READ MIXT  SCT=1  MIX=1 92500 4.48006e-2  92800 2.6578e-3  92400 4.827e-4
+  92600 9.57e-5  MIX=2 100 1.0 END MIXT
+  READ GEOMETRY
+  UNIT 1
+  CYLINDER 1 1 0.5 2P5.0
+  CUBOID  0 1 4P0.5 2P5.0
+  UNIT 2
+  ARRAY 2 -1.0 -1.0 -5.0
+  GLOBAL UNIT 3
+  ARRAY  1 -2.0 -2.0 -5.0
+  CYLINDER 0 1 4.15 5.1 -5.0
+  HOLE 2 0.0 -3.0 0.0
+  HOLE 2 3.0 0.0 0.0
+  HOLE 2 0.0 3.0 0.0
+  HOLE 2 -3.0 0.0 0.0
+  CYLINDER 2 1 4.6 6.37 -6.27
+  END GEOM
+  READ ARRAY
+  ARA=1 NUX=4 NUY=4 NUZ=1 FILL F1 END FILL
+  ARA=2 NUX=2 NUY=2 NUZ=1 FILL F1 END FILL
+  END ARRAY
+  READ PLOT TTL='X-Z SLICE AT Y=0.25 WITH X ACROSS AND Z DOWN'
+  XUL=-5.0 YUL=0.25 ZUL=6.5 XLR=5.0 YLR=0.25 ZLR=-6.5
+  UAX=1.0 WDN=-1.0 NAX=640  END
+  TTL='X-Y SLICE AT Z=0.0 WITH X ACROSS AND Y DOWN'
+  XUL=-5.0 YUL=5.0 ZUL=0.0 XLR=5.0 YLR=-5.0 ZLR=0.0
+  UAX=1.0 VDN=-1.0 NAX=640 END
+  END PLOT
+  END DATA
+  END
+
+KENO-VI:
+
+::
+
+  KENO VI
+  CASK ARRAY
+  READ PARAMETERS  TME=1.0 FDN=YES LIB=41 GEN=10  END PARAMETERS
+  READ MIXT  SCT=1
+  MIX=1 92500 4.48006e-2  92800 2.6578e-3  92400 4.827e-4  92600 9.57e-5
+  MIX=2 100 1.0 END MIXT
+  READ GEOMETRY
+  UNIT 1
+  CYLINDER 1  0.5  2P5.0
+  CUBOID   2   4P0.5  2P5.0
+  MEDIA 1 1 1
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  UNIT 2
+  CUBOID 1 4P0.5 2P5.0
+  MEDIA 0 1 1
+  BOUNDARY  1
+  UNIT 3
+  CYLINDER 1  4.15 5.0 -5.0
+  CYLINDER 2 4.15 5.1 -5.0
+  ARRAY 1 1 PLACE 5 5 1   -0.5 -0.5 -0.0
+  MEDIA 0 1 2 -1
+  BOUNDARY  2
+  GLOBAL UNIT 4
+  CYLINDER 2 4.6 6.37 -6.27
+  HOLE 3 ORIGIN X=0.0 Y=0.0 Z=0.0
+  MEDIA 2 1 2
+  BOUNDARY  2
+  END GEOM
+  READ ARRAY
+  ARA=1  NUX=10  NUY=10  NUZ=1  FILL  14*2 1 1 8*2 1 1 7*2 4*1 4*2 8*1 2 2 8*1 4*2 4*1 7*2 1 1
+  8*2 1 1 14*2  END FILL
+  END ARRAY
+  READ PLOT TTL='X-Z SLICE AT Y=0.25 WITH X ACROSS AND Z DOWN'
+  XUL=-5.0 YUL=0.25 ZUL=6.5 XLR=5.0 YLR=0.25 ZLR=-6.5
+  UAX=1.0 WDN=-1.0 NAX=640  END
+  TTL='X-Y SLICE AT Z=0.0 WITH X ACROSS AND Y DOWN'
+  XUL=-5.0 YUL=5.0 ZUL=0.0 XLR=5.0 YLR=-5.0 ZLR=0.0
+  UAX=1.0 VDN=-1.0 NAX=640 END
+  END PLOT
+  END DATA
+  END
+  =
+
+.. _fig8-1-30:
+.. figure:: figs/Keno/fig30.png
+  :align: center
+  :width: 400
+
+  X-Y slice of uranium rods in a cylindrical container.
+
+.. _fig8-1-31:
+.. figure:: figs/Keno/fig31.png
+  :align: center
+  :width: 400
+
+  X-Z slice of uranium rods in a cylindrical container.
+
+.. centered:: EXAMPLE 20. A TYPICAL PRESSURIZED WATER REACTOR (PWR) SHIPPING CASK
+
+A typical PWR shipping cask is illustrated in :numref:`fig8-1-32`. The interior
+and exterior shell of the cask is carbon steel (mixture 7), and a
+depleted uranium gamma shield (mixture 6) is present in the annulus
+between the steel layers. The shipping cask contains seven PWR fuel
+assemblies. Each assembly is a 17 × 17 **ARRAY** of fuel rods with water
+holes. Each assembly is contained in a stainless steel (mixture 5) box.
+Each fuel rod is composed of 4% enriched UO\ :sub:`2` (mixture 1) clad
+with Zircaloy (mixture 2). Rods of B\ :sub:`4`\ C clad (mixture 4) with
+stainless steel are positioned between the fuel assemblies. The entire
+cask is filled with water (mixture 3).
+
+.. _fig8-1-32:
+.. figure:: figs/Keno/fig32.png
+  :align: center
+  :width: 400
+
+  Typical PWR shipping cask.
+
+To describe the geometry of the cask, some simple units are defined as
+shown in :numref:`fig8-1-33`. **UNIT** 1 represents a fuel rod and its
+associated square pitch spacing region. **UNIT** 2 represents a water
+hole in a fuel assembly. **UNIT**\ s 3, 4, and 6 represent the
+B\ :sub:`4`\ C rods with their various spacings, and **UNIT** 5 is a
+water hole that is used in association with some of the B\ :sub:`4`\ C
+rods.
+
+.. _fig8-1-33:
+.. figure:: figs/Keno/fig33.png
+  :align: center
+  :width: 400
+
+  Simple units.
+
+KENO V.a:
+
+  UNIT 1
+  CYLINDER  1 1 .41148 365.76 0.0
+  CYLINDER  2 1 .48133 365.76 0.0
+  CUBOID    3 1 .63754 -.63754 .63754 -.63754 365.76 0.0
+
+  UNIT 2
+  CUBOID    3 1 .63754 -.63754 .63754 -.63754 365.76 0.0
+
+
+  UNIT 3
+  CYLINDER  4 1 .584 365.76 0.0
+  CYLINDER  5 1 .635 365.76 0.0
+  CUBOID    3 1 .9912 -.9912 2.2352 -1.27 365.76 0.0
+
+  UNIT 4
+  CYLINDER  4 1 .584 365.76 0.0
+  CYLINDER  5 1 .635 365.76 0.0
+  CUBOID    3 1 .9912 -.9912 1.2702 -2.235 365.76 0.0
+
+  UNIT 5
+  CUBOID    3 1 .9912 -.9912 1.7526 -1.7526 365.76 0.0
+
+  UNIT 6
+  CYLINDER  4 1 .584 365.76 0.0
+  CYLINDER  5 1 .635 365.76 0.0
+  CUBOID    3 1 1.1875215 -1.1875215 1.883706 -1.883706 365.76 0.0
+
+KENO-VI:
+
+::
+
+  UNIT 1
+  CYLINDER 1  .41148 365.76 0.0
+  CYLINDER 2  .48133 365.76 0.0
+  CUBOID   3  .63754 -.63754 .63754 -.63754 365.76 0.0
+  MEDIA 1 1 1
+  MEDIA 2 1 2 -1
+  MEDIA 3 1 3 -2
+  BOUNDARY  3
+
+  UNIT 2
+  CUBOID   1  .63754 -.63754 .63754 -.63754 365.76 0.0
+  MEDIA 3 1 1
+  BOUNDARY  1
+
+  UNIT 3
+  CYLINDER  1  .584 365.76 0.0
+  CYLINDER 2   .635 365.76 0.0
+  CUBOID    3   .9912 -.9912 2.2352 -1.27 365.76 0.0
+  MEDIA 4 1 1
+  MEDIA 5 1 2 -1
+  MEDIA 3 1 3 -2
+  BOUNDARY  3
+
+  UNIT 4
+  CYLINDER 1  .584 365.76 0.0
+  CYLINDER 2  .635 365.76 0.0
+  CUBOID   3   .9912 -.9912 1.2702 -2.235 365.76 0.0
+  MEDIA 4 1 1
+  MEDIA 5 1 2 -1
+  MEDIA 3 1 3 -2
+  BOUNDARY  3
+
+  UNIT 5
+  CUBOID 1   .9912 -.9912 1.7526 -1.7526 365.76 0.0
+  MEDIA 3 1 1
+  BOUNDARY  1
+
+  UNIT 6
+  CYLINDER 1  .584 365.76 0.0
+  CYLINDER 2  .635 365.76 0.0
+  CUBOID  3    1.1875215 -1.1875215 1.883706 -1.883706 365.76 0.0
+  MEDIA 4 1 1
+  MEDIA 5 1 2 -1
+  MEDIA 3 1 3 -2
+  BOUNDARY  3
+
+**UNIT**\ s 1 and 2 are stacked together into **ARRAY** 1 to form the
+**ARRAY** of fuel pins and water holes in a fuel assembly as shown in
+:numref:`fig8-1-34`. This **ARRAY** is then encompassed with a layer of water
+and a layer of stainless steel to complete a fuel assembly in a storage
+cell (**UNIT** 7) as shown in :numref:`fig8-1-35`.
+
+.. _fig8-1-34:
+.. figure:: figs/Keno/fig34.png
+  :align: center
+  :width: 400
+
+  Quarter section of fuel pin array.
+
+.. _fig8-1-35:
+.. fiure:: figs/Keno/fig35.png
+  :align: center
+  :width: 400
+
+  Quarter section of fuel assembly.
+
+KENO V.a:
+
+::
+
+  ARA=1 NUX=17 NUY=17 NUZ=1 FILL
+  39R1 2 2Q3 8R1 2 9R1 2 22R1 2 4Q3 38R1 2 4Q3
+  Q51 22R1 2 Q10 Q9 2Q3 39R1                END FILL
+
+  UNIT 7
+  ARRAY 1 -10.83818 -10.83818 0.0
+  CUBOID    3 1 11.112495 -11.112495 11.112495 -11.112495 365.76 0.0
+  CUBOID    8 1 11.302238 -11.302238 11.302238 -11.302238 365.76 0.0
+
+KENO-VI:
+
+::
+
+  ARA=1 NUX=17 NUY=17 NUZ=1 FILL
+  39R1 2 2Q3 8R1 2 9R1 2 22R1 2 4Q3 38R1 2 4Q3
+  Q51 22R1 2 Q10 Q9 2Q3 39R1                END FILL
+  UNIT 7
+  CUBOID  1 10.83818 -10.83818 10.83818 -10.83818 365.76 0.0
+  CUBOID  2 11.112495 -11.112495 11.112495 -11.112495 365.76 0.0
+  CUBOID  3 11.302238 -11.302238 11.302238 -11.302238 365.76 0.0
+  ARRAY 1 1  PLACE 9 9 1  3*0.0
+  MEDIA 3 1 2 -1
+  MEDIA 5 1 3 -2
+  BOUNDARY  3
+
+An array of **UNIT** 6s is created to represent the array of
+B\ :sub:`4`\ C rods that is positioned between the fuel assemblies. In
+KENO V.a, the array of B\ :sub:`4`\ C rods shown in :numref:`fig8-1-36` is
+contained in **UNIT** 8 for further use. KENO-VI geometry description
+does not need the placement of **ARRAY** 2 in a separate **UNIT**.
+
+.. _fig8-1-36:
+.. figure:: figs/Keno/fig36.png
+  :align: center
+  :width: 400
+
+  2 × 6 array of B\ :sub:`4`\ C rods.
+
+KENO V.a:
+
+::
+
+  ARA=2 NUX=2 NUY=6 NUZ=1    FILL F6        END FILL
+
+  UNIT 8
+  ARRAY 2 0 0 0
+
+KENO-VI:
+
+::
+
+  ARA=2 NUX=2 NUY=6 NUZ=1    FILL F6        END FILL
+
+
+The next step is to create the central array of three fuel assemblies
+with B\ :sub:`4`\ C rods between them. In KENO V.a, this is done by
+stacking fuel assemblies in storage cells (**UNIT** 7) and
+B\ :sub:`4`\ C rod arrays (**UNIT** 8) into an array (**ARRAY** 3) and
+placing it in a **UNIT** (**UNIT** 9). In KENO-VI description, **UNIT**
+7 (fuel assembly in storage cell) and the array of B\ :sub:`4`\ C rods
+(**ARRAY** 2) are directly placed into a **UNIT** (**UNIT** 8). The
+resultant geometry is shown in :numref:`fig8-1-37`.
+
+
+.. _fig8-1-37:
+.. figure:: figs/Keno/fig37.png
+  :align: center
+  :width: 400
+
+  Central array.
+
+KENO V.a:
+
+::
+
+  ARA=3 NUX=5 NUY=1 NUZ=1    FILL 7 8 7 8 7 END FILL
+
+  UNIT 9    ARRAY 3 0 0 0
+
+KENO-VI:
+
+::
+
+
+  UNIT 8
+  CUBOID 4  -11.302238 -16.052324 11.302238 -11.302238 365.76 0.0
+  CUBOID 5    16.052324 11.302238 11.302236 -11.302236 365.76 0.0
+  CUBOID 6    38.052324 -38.052324 11.302236 -11.302236 365.76 0.0
+  HOLE 7
+  HOLE 7 ORIGIN X= -27.354562
+  HOLE 7 ORIGIN X= 27.354562
+  ARRAY 2 4 PLACE 1 1 1 -14.8648025  -9.418530 0.0
+  ARRAY 2 5 PLACE 1 1 1  12.4897595  -9.418530 0.0
+  MEDIA 3 1 6 -5 -4
+  BOUNDARY  6
+
+
+
+
+.. bibliography:: bibs/Keno.bib
