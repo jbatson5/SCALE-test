@@ -2321,7 +2321,11 @@ The input data to describe this **ARRAY** could be entered as follows:
   This fills the array one position at a time,
   starting at the lower left corner. The \ **T** terminates the data.
 
+\
+
 or
+
+\
 
 (2) F1 A5 2 **END FILL**
   The F1 fills the entire array with 1s, the A5
@@ -4395,8 +4399,7 @@ only the mixture flux.
 
 Enter REACTION DATA in the form:
 
-**READ REACTION** *REACTION FILTERS [TALLY TYPE] [ENERGY GROUP BOUNDARIES]\
-        [OUTPUT EDITS]* **END REACTION**
+**READ REACTION** *REACTION FILTERS [TALLY TYPE] [ENERGY GROUP BOUNDARIES][OUTPUT EDITS]* **END REACTION**
 
 *REACTION FILTERS*
   define a reaction map that is used in reaction tally
@@ -10202,7 +10205,7 @@ data are listed below.
   CYLINDER 0 1 12.4  2P50.0
   CYLINDER 2 1 12.65 2P50.0
 
- Now **UNIT**\ s 10 and 11 are described and placed above and below the
+Now **UNIT**\ s 10 and 11 are described and placed above and below the
 **ARRAY**. These **UNIT**\ s are shown in :numref:`fig8-1-59`. **UNIT** 10 is
 described to complete the two central rods at the top of the **ARRAY**
 of :numref:`fig8-1-58`. :numref:`fig8-1-59` and :numref:`fig8-1-60` illustrate these **UNIT**\ s.
@@ -12250,8 +12253,2956 @@ number.
 
 .. centered:: EXAMPLE 7. LARGE STORAGE ARRAY.
 
+The storage array described Example 18 in :ref:`8-1-3-6-3` and
+:numref:`fig8-1-27` is such a sparse array that the mixture map had to be very
+large in order to show the detail of the shelves and uranium buttons.
+The mixture maps for this configuration were not presented in
+:ref:`8-1-3-6-3`, but the data description was listed so the user can
+generate them. It may be useful to generate a **UNIT** map for this kind
+of problem. The input data for generating unit maps for this storage
+array is given below.
+
+::
+
+  READ PLOT  PIC=UNIT
+  TTL='X-Z SLICE THROUGH STORAGE ARRAY ROOM AT Y=30.48 WITH Z ACROSS AND X DOWN'
+  XUL=624.84 YUL=30.48 ZUL=-45.72 XLR=-30.48 YLR=30.48 ZLR=381.0
+  WAX=1.0 UDN=-1.0 NAX=320  END
+  TTL='X-Y SLICE THROUGH STORAGE ARRAY ROOM AT Z=0.3175 WITH X ACROSS AND Y DOWN'
+  XUL=-30.48 YUL=1341.1 ZUL=0.3175 XLR=624.84 YLR=-30.48 ZLR=0.3175
+  UAX=1.0 VDN=-1.0 NAX=320 END
+  END PLOT
+
+The plot data and **UNIT** map for an X-Z slice through the array at
+Y=30.48 cm is given in :numref:`list8-1-14` and :numref:`fig8-1-94`. The Z direction,
+which extends from −45.72 cm to 381.0 cm, is plotted in 320 pixels
+across the plot. This **UNIT** map was created with Z across the plot
+and X down the plot.
 
 
+.. code-block:: scale
+  :name: list8-1-14
+  :caption: Plot data for X-Z slice of storage array.
+
+  x-z slice through storage array room at y=30.48 with z across and x down
+
+  unit map
+
+  	    unit  1 2 3 4 5 6 7
+  	  symbol  1 2 3 4 5 6 7
+  	       upper  left          lower right
+  	       coordinates          coordinates
+  	 x      6.2484e+02          -3.0480e+01
+  	 y      3.0480e+01           3.0480e+01
+  	 z     -4.5720e+01           3.8100e+02
+  	           u axis      v axis
+  	           (down)      (across)
+  	 x        -1.00000      0.00000
+  	 y         0.00000      0.00000
+  	 z         0.00000      1.00000
+  	 nu=  491   nv=  320     delu= 1.3335e+00     delv= 1.3335e+00     lpi=  10.000
+
+.. _fig8-1-94:
+.. figure:: figs/Keno/fig94.png
+  :align: center
+  :width: 400
+
+  X-Z plot of storage array.
+
+The plot data and **UNIT** map for an X-Y slice through the shelf are
+given in :numref:`list8-1-15` and :numref:`fig8-1-96`. This **UNIT** map was created with
+X across the plot and Y down the plot. This shows five rows of shelves
+in the X direction.
+
+.. code-block::
+  :name: list8-1-15
+  :caption: Plot data for X-Y slice of storage array.
+
+  x-y slice through storage array room at z=0.3175 with x across and y down
+  unit map
+
+      unit  1 2 3 4 5 6 7
+    symbol  1 2 3 4 5 6 7
+          upper  left          lower right
+          coordinates          coordinates
+   x     -3.0480e+01           6.2484e+02
+   y      1.3411e+03          -3.0480e+01
+   z      3.1750e-01           3.1750e-01
+             u axis      v axis
+             (down)      (across)
+   x         0.00000      1.00000
+   y        -1.00000      0.00000
+   z         0.00000      0.00000
+   nu=  669   nv=  320     delu= 2.0479e+00     delv= 2.0479e+00     lpi=  10.000
+
+.. _fig8-1-96:
+.. figure:: figs/Keno/fig96.png
+  :align: center
+  :width: 400
+
+  X-Y plot of storage array.
+
+.. _8-1-3-10:
+
+KENO Multiple Mesh and Mesh-based Quantity Specifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+KENO creates a grid and stores several mesh definitions in this object.
+The following mesh definitions are supported by KENO:
+
+i. Default mesh (grid **ID** =10001):
+
+KENO generates a 5 × 5 × 5 Cartesian mesh which overlays the entire
+geometry. This mesh is always used for fission source convergence
+diagnostics if the user does not specify any mesh for this quantity.
+Currently users cannot enter grid **ID**\ s greater than 9999.
+
+ii. Simple mesh (grid **ID** = 20001):
+
+KENO generates a uniform simple mesh with the mesh size specified by the
+user with the MSH parameter, which is introduced in Table 9.1.1. This
+mesh definition is only used for mesh flux calculations.
+
+iii. Mesh with **READ GRID** block (grid **ID** = NUMBER):
+
+The user can specify either a mesh with a single **READ GRID** block or
+multiple meshes by repeating the **READ GRID** block with different mesh
+definitions. Note that the entire block, including **READ GRID** and
+**END GRID**, must be repeated each time; this behavior is different
+from all other blocks of KENO input.
+
+After setting up all mesh, KENO tries to match the IDs specified in the
+parameter block with the keywords **SCD**, **MFX**, **CDS**, **CGD**,
+and **GFX** (See :ref:`8-1-2-3`) to the grid **ID** in each grid
+definition. Each mesh-based quantity requested by the user is associated
+with a grid if the requested grid **ID** exists.
+
+The following examples demonstrate the mesh features in KENO:
+
+.. centered:: EXAMPLE 1: SOURCE CONVERGENCE DIAGNOSTICS WITH DEFAULT MESH
+
+
+KENO always generates a default mesh for source convergence diagnostics
+if the user does not specify any mesh for this quantity. The following
+example (only KENO-VI version is shown) will be used in all examples in
+this section to summarize several mesh definition scenarios with several
+mesh-based quantity requests. In this sample problem, a bounding box is
+defined to enclose the entire geometry with xmin=‑13.01, xmax=13.01,
+ymin=-13.74, ymax=13.74, zmin=-13.74, and zmax=13.74. KENO uses this
+bounding box and creates a 5 × 5 × 5 grid for source convergence
+diagnostics.
+
+KENO-VI:
+
+::
+
+    =CSAS6
+    MESH TEST – CHECK DIFFERENT MESH DEFINITIONS WITH SEVERAL MESH QUANTITIES.
+    V7.1-252n
+    READ COMP
+      URANIUM  1 DEN=18.76 1 300 92235 93.2 92238 5.6 92234 1.0 92236 0.2 END
+    END COMP
+    READ PARAMETERS
+      FDN=YES HTM=NO
+    END PARAMETERS
+    READ MIXT SCT=2 EPS=1.0  END MIXT
+    READ GEOMETRY
+      UNIT 1
+        COM='-Y HALF OF UNIT 3'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD -X=0.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 0.0 -6.87 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 2
+        COM='+Y HALF OF UNIT 3'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD +X=0.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 0.0 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 3
+        COM='CYLINDER COMPOSED OF EQUAL HALVES (XHEMICYLINDERS WITH Y RADII)'
+        CUBOID 10 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        ARRAY 1 10 PLACE 1 1 1 0.0 0.0 0.0
+        BOUNDARY  10
+      UNIT 4
+        COM='-Y PORTION (MORE THAN HALF) OF UNIT 6'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD -X=3.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 3.0 -6.87 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 5
+        COM='+Y PORTION (LESS THAN HALF) OF UNIT 6'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD +X=3.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 3.0 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 6
+        COM='CYLINDER COMPOSED OF UNEQUAL HALVES (XHEMICYLINDERS WITH Y RADII)'
+        CUBOID 10 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        ARRAY 2 10 PLACE 1 1 1 3*0.0
+        BOUNDARY  10
+      UNIT 7
+        COM='CYLINDER OF A SINGLE XHEMICYLINDER IN THE -Y DIRECTION'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD -X=5.748 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 8
+        COM='CYLINDER OF A SINGLE XHEMICYLINDER IN THE +Y DIRECTION'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD +X=-5.748 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 9
+        COM='-Z HALF OF UNIT 11'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD -Y=0.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 0.0 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 10
+        COM='+Z HALF OF UNIT 11'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD +Y=0.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 6.87 0.0
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 11
+        COM='CYLINDER COMPOSED OF EQUAL HALVES (XHEMICYLINDERS WITH Z RADII)'
+        CUBOID 10 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        ARRAY 3 10 PLACE 1 1 1 0.0 0.0 0.0
+        BOUNDARY  10
+      UNIT 12
+        COM='-Z PORTION (MORE THAN HALF) OF UNIT 14'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD -Y=3.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 3.0 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 13
+        COM='+Z PORTION (LESS THAN HALF) OF UNIT 14'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD +Y=3.0 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 6.87 3.0
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 14
+        COM='CYLINDER COMPOSED OF UNEQUAL HALVES (XHEMICYLINDERS WITH Z RADII)'
+        CUBOID 10 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        ARRAY 4 10 PLACE 1 1 1 3*0.0
+        BOUNDARY  10
+      UNIT 15
+        COM='CYLINDER OF A SINGLE XHEMICYLINDER IN THE -Z DIRECTION'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD -Y=5.748 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      UNIT 16
+        COM='CYLINDER OF A SINGLE XHEMICYLINDER IN THE +Z DIRECTION'
+        CYLINDER 10 5.748 5.3825 -5.3825 CHORD +Y=-5.748 ROTATE A1=90 A2=90
+        CUBOID   20 6.505 -6.505 6.87 -6.87 6.87 -6.87
+        MEDIA 1 1 10     VOL=2234.742156
+        MEDIA 0 1 20 -10 VOL=2677.511196
+        BOUNDARY  20
+      GLOBAL UNIT 17
+        CUBOID 10 13.01 -13.01 13.74 -13.74 13.74 -13.74
+        ARRAY 5 10 PLACE 1 1 1 -6.505 -6.87 -6.87
+        BOUNDARY  10
+    END GEOMETRY
+    READ ARRAY
+      COM='ARRAY 1 DEFINES UNIT 3 (XHEMICYLINDERS WITH Y RADII)'
+      ARA=1 NUX=1 NUY=2 NUZ=1 FILL 1 2 END FILL
+      COM='ARRAY 2 DEFINES UNIT 6 (XHEMICYLINDERS WITH Y RADII)'
+      ARA=2 NUX=1 NUY=2 NUZ=1 FILL 4 5 END FILL
+      COM='ARRAY 3 DEFINES UNIT 11 (XHEMICYLINDERS WITH Z RADII)'
+      ARA=3 NUX=1 NUY=1 NUZ=2 FILL 9 10 END FILL
+      COM='ARRAY 4 DEFINES UNIT 14 (XHEMICYLINDERS WITH Z RADII)'
+      ARA=4 NUX=1 NUY=1 NUZ=2 FILL 12 13 END FILL
+      COM='ARRAY 5 DEFINES THE TOTAL 2C8 PROBLEM'
+      ARA=5 NUX=2 NUY=2 NUZ=2 FILL 3 7 6 8 11 15 14 16 END FILL
+    END ARRAY
+    END DATA
+    END
+
+In the output, KENO notifies users about the default mesh usage for
+source convergence diagnostics with the message k\ *N*-316. The default
+grid definition and the source entropy are shown in the output edits as
+follows:
+
+::
+
+  …
+    ***** warning ***** keno message number k6-316 follows:
+    No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+  …
+  ........ finished in Keno-VI before tracking       ........
+
+                                  ........    0.00183 minutes were used processing data.       ........
+               ====> Grid Geometry: 10001
+               ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+               ====>     Plane Summary
+               ====>       x:   5 cells from -1.30100E+01 to  1.30100E+01
+               ====>       y:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>     Total number of cells: 125
+
+
+   volume fraction of fissile material in the system= 4.54932E-01
+
+   start type 0 was used.
+
+   the neutrons were started with a flat distribution in a cuboid defined by:
+                          +x= 1.30100E+01  -x=-1.30100E+01  +y= 1.37400E+01  -y=-1.37400E+01  +z= 1.37400E+01  -z=-1.37400E+01
+
+     0.00017 minutes were required for starting.  total elapsed time is   0.00200 minutes.
+  1mesh test - scd with default mesh (5x5x5), scd=yes (default)
+
+                     generation        average         avg k-eff        generation        matrix        matrix k-eff
+       generation   k-effective      k-effective       deviation         entropy        k-effective       deviation
+            1       9.17432E-01      1.00000E+00      0.00000E+00      6.58169E+00      0.00000E+00      0.00000E+00
+            2       9.44195E-01      1.00000E+00      0.00000E+00      6.54091E+00      0.00000E+00      0.00000E+00
+
+.. centered:: EXAMPLE 2: SOURCE CONVERGENCE DIAGNOSTICS WITH USER-DEFINED MESH
+
+The user can request the accumulation of the fission source on a
+different grid rather than the default grid for source convergence
+diagnostics. In this example, the sample problem specified in EXAMPLE 1
+is modified for this purpose. A new 6x6x6 grid is defined over the
+entire geometry in a **READ GRID** block with a grid **ID** 12, and
+source convergence diagnostics are requested by setting **SCD**
+parameter to 12 in the parameter block that matches the NUMBER
+specification in the **READ GRID** block.
+
+::
+
+  …
+        READ PARAMETERS
+          FDN=YES HTM=NO  SCD=12
+        END PARAMETERS
+   …
+       '
+        READ GRID
+           12
+           TITLE "TEST SCD WITH THIS MESH"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+
+The output prints for the new mesh for source convergence diagnostics:
+
+::
+
+                                  ........ finished in Keno-VI before tracking       ........
+
+                                  ........    0.00200 minutes were used processing data.       ........
+               ====> Grid Geometry: 12
+               ====>     title: test SCD with this mesh
+               ====>     Plane Summary
+               ====>       x:   6 cells from -1.30100E+01 to  1.30100E+01
+               ====>       y:   6 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   6 cells from -1.37400E+01 to  1.37400E+01
+               ====>     Total number of cells: 216
+
+
+   volume fraction of fissile material in the system= 4.54932E-01
+
+   start type 0 was used.
+
+   the neutrons were started with a flat distribution in a cuboid defined by:
+                          +x= 1.30100E+01  -x=-1.30100E+01  +y= 1.37400E+01  -y=-1.37400E+01  +z= 1.37400E+01  -z=-1.37400E+01
+
+.. centered:: EXAMPLE 3: SOURCE CONVERGENCE DIAGNOSTICS WITH NON-EXISTING MESH
+
+This example demonstrates the code behavior if there is a mismatch
+between the NUMBER entry in **READ GRID** data block and the **SCD**
+parameter in the **READ PARAMETER** data block. The sample input in
+EXAMPLE 2 was modified as (a) a single mesh is defined with a grid
+**ID** = 12, and (b) source convergence diagnostics is intended to use a
+grid with grid **ID** = 99, which does not exist.
+
+::
+
+  …
+        READ PARAMETERS
+          FDN=YES HTM=NO  SCD=99
+        END PARAMETERS
+   …
+       '
+        READ GRID
+           12
+           TITLE "TEST SCD WITH THIS MESH"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+
+
+In this case, calculation is stopped with an error message since the requested
+grid definition for source convergence diagnostics does not exist in the input.
+
+::
+
+                                 *************** data reading completed ***************
+
+                                  ........ finished preparing the keno-vi input data    ........
+
+                                  ........ finished loading the data    ........
+
+    ***** error ***** csas message number cs-315 follows:
+    Mesh < 99 > specified for  Source Convergence Diagnostics(SCD) is not found in  input.
+  …
+                                 ........ finished processing csas input data    ........
+
+   *********************************************************************************************************************************
+   *****       csas message number cs-100   this problem will not be run because errors were encountered in the input data. *****
+  *********************************************************************************************************************************
+
+.. centered:: EXAMPLE 4: MESH FLUX TALLY WITH A MESH DEFINITION WITH MSH PARAMETER
+
+
+In this example, we slightly modify the sample problem described in
+EXAMPLE 1 to request a mesh flux tally calculations over a uniform mesh
+defined with the **MSH** parameter. In this case, the default mesh (grid
+**ID**\ =10001) is used for the source convergence diagnostics, and the
+simple uniform mesh (grid **ID**\ =20001) generated with the **MSH**
+parameter is used for a mesh flux tally.
+
+::
+
+  …
+        READ PARAMETERS
+          FDN=YES HTM=NO MFX=YES MSH=3.0
+        END PARAMETERS
+   …
+  READ VOLUME
+    TYPE=RANDOM BATCHES=100 POINTS=1000
+    XP=+13.01  XM=-13.01
+    YP=+13.74  YM=-13.74
+    ZP=+13.74  ZM=-13.74
+  END VOLUME
+
+The output  for this sample problem has the following sections for
+mesh definitions/mesh quantities:
+
+::
+
+  …
+    ***** warning ***** keno message number k6-316 follows:
+    No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+
+  1                                        kenovi  sample problem 1  case 2c8 bare
+
+                                volumes for those units utilized in this problem
+
+                        volumes not specified in the input were set to -1.0
+
+                                           geometry
+                           unit     uses    region     mixture        total region volume (cm**3)
+
+                             1         8       1           1          8.93897E+03
+                                               2           0          1.07100E+04
+
+                             2         1       1
+                      Grid Geometry: 20001
+                          title: Uniform mesh grid automatically generated with mesh_size =   3.000000
+                          Plane Summary
+                            x:  12 cells from -1.80000E+01 to  1.80000E+01
+                            y:  12 cells from -1.80000E+01 to  1.80000E+01
+                            z:  10 cells from -1.50000E+01 to  1.50000E+01
+                          Total number of cells: 1440
+
+                                              x-planes               y-planes               z-planes
+  …
+              ====> Grid Geometry: 10001
+               ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+               ====>     Plane Summary
+               ====>       x:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       y:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   5 cells from -1.30100E+01 to  1.30100E+01
+               ====>     Total number of cells: 125
+
+.. centered:: EXAMPLE 5: MESH FLUX TALLY WITH A MESH DEFINITION IN **READ GRID** DATA
+  BLOCK
+
+In this example, we slightly modify the sample problem described in
+EXAMPLE 1 to request a mesh flux tally calculation over a mesh defined
+in the **READ GRID** data block. In this case, the default mesh (grid
+**ID**\ =10001) is used for the source convergence diagnostics, and the
+user defined mesh (grid **ID**\ =12) is used for the mesh flux tally.
+
+::
+
+  …
+        READ PARAMETERS
+          FDN=YES HTM=NO MFX=12
+        END PARAMETERS
+   …
+        READ GRID
+           12
+           TITLE "TEST MESH"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+
+  …
+  READ VOLUME
+    TYPE=RANDOM BATCHES=100 POINTS=1000
+    XP=+13.01  XM=-13.01
+    YP=+13.74  YM=-13.74
+    ZP=+13.74  ZM=-13.74
+  END VOLUME
+
+The output for this sample problem has the following
+sections for mesh definitions/mesh quantities:
+
+::
+
+    No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+
+  1                                        kenovi  sample problem 1  case 2c8 bare
+
+                                volumes for those units utilized in this problem
+
+                        volumes not specified in the input were set to -1.0
+
+                                           geometry
+                           unit     uses    region     mixture        total region volume (cm**3)
+
+                             1         8       1           1          8.93897E+03
+                                               2           0          1.07100E+04
+
+                             2         1       1
+                      Grid Geometry: 12
+                          title: test - mesh
+                          Plane Summary
+                            x:   6 cells from -1.37400E+01 to  1.37400E+01
+                            y:   6 cells from -1.37400E+01 to  1.37400E+01
+                            z:   6 cells from -1.30100E+01 to  1.30100E+01
+                          Total number of cells: 216
+
+              ====> Grid Geometry: 10001
+               ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+               ====>     Plane Summary
+               ====>       x:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       y:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   5 cells from -1.30100E+01 to  1.30100E+01
+               ====>     Total number of cells: 125
+    ***** warning ***** keno message number k6-316 follows:
+
+
+.. centered:: EXAMPLE 6: MESH FLUX TALLY WITH A MESH DEFINITION IN **READ GRID** DATA
+  BLOCK
+
+In this example, the sample input in EXAMPLE 5 is used with the
+old-style definition, mesh flux tally is requested with setting **MFX**
+parameter to yes. In this case, the default mesh (grid **ID**\ =10001)
+is used for the source convergence diagnostics, and the first defined
+user defined mesh (grid **ID**\ =12) is used for the mesh flux tally.
+
+::
+
+  …
+        READ PARAMETERS
+          FDN=YES HTM=NO MFX=YES
+        END PARAMETERS
+   …
+        READ GRID
+           12
+           TITLE "TEST MESH"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+
+  …
+  READ VOLUME
+    TYPE=RANDOM BATCHES=100 POINTS=1000
+    XP=+13.01  XM=-13.01
+    YP=+13.74  YM=-13.74
+    ZP=+13.74  ZM=-13.74
+  END VOLUME
+
+The output for this sample problem has the following sections for mesh
+definitions/mesh quantities:
+
+::
+
+    ***** warning ***** keno message number k6-316 follows:
+    No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+
+  1                                        kenovi  sample problem 1  case 2c8 bare
+
+                                volumes for those units utilized in this problem
+
+                        volumes not specified in the input were set to -1.0
+
+                                           geometry
+                           unit     uses    region     mixture        total region volume (cm**3)
+
+                             1         8       1           1          8.93897E+03
+                                               2           0          1.07100E+04
+
+                             2         1       1
+                      Grid Geometry: 12
+                          title: test - mesh
+                          Plane Summary
+                            x:   6 cells from -1.37400E+01 to  1.37400E+01
+                            y:   6 cells from -1.37400E+01 to  1.37400E+01
+                            z:   6 cells from -1.30100E+01 to  1.30100E+01
+                          Total number of cells: 216
+
+              ====> Grid Geometry: 10001
+               ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+               ====>     Plane Summary
+               ====>       x:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       y:   5 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   5 cells from -1.30100E+01 to  1.30100E+01
+               ====>     Total number of cells: 125
+
+.. centered:: EXAMPLE 7: MESH FLUX TALLY WITH A MESH DEFINITION IN **READ GRID** DATA
+  BLOCK
+
+In this example, the sample problem described in EXAMPLE 1 is modified
+to request a mesh flux tally calculation over a mesh over a part of
+geometry defined in the **READ GRID** data block. In this case, the
+default mesh (grid **ID**\ =10001) is used for the source convergence
+diagnostics, and the user-defined mesh (grid **ID**\ =14) is used for
+the mesh flux tally. Code execution is terminated since KENO requires
+the mesh definition to cover the whole geometry for the mesh flux tally.
+
+::
+
+  …
+        READ PARAMETERS
+          FDN=YES HTM=NO MFX=14
+        END PARAMETERS
+   …
+        READ GRID
+           14
+           TITLE "test mesh"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+
+  …
+  READ VOLUME
+    TYPE=RANDOM BATCHES=100 POINTS=1000
+    XP=+1.01  XM=-13.01
+    YP=+1.74  YM=-13.74
+    ZP=+1.74  ZM=-13.74
+  END VOLUME
+
+The output prints for this sample problem have the following
+sections for mesh definitions/mesh quantities:
+
+::
+
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+
+                                  Mesh Volume Sampling Parameters
+                                  -------------------------------
+
+                                  The number of points per batch was specified as 1000
+                                  This gives a sampling density of  5.08931E-02 points per cc per batch.
+                                  The number of batches is 100
+
+    ***** error ***** csas message number cs-305 follows:
+    Mesh fluxes have been specified, but the mesh does not completely cover the geometry.
+    The point x=  3.85512E+00 y=  1.90999E+00 z= -9.70580E+00 lies outside the mesh.
+    The problem will not be run. Fix the mesh and resubmit the case.
+       =====> Grid Geometry: 12
+       =====>     title: test - mesh
+       =====>     Plane Summary
+       =====>       x:   6 cells from -1.74000E+00 to  1.37400E+01
+       =====>       y:   6 cells from -1.74000E+00 to  1.37400E+01
+       =====>       z:   6 cells from -1.01000E+00 to  1.30100E+01
+       =====>     Total number of cells: 216
+
+       =====>                         x-planes               y-planes               z-planes
+       =====>     -----  ---------------------  ---------------------  ---------------------
+       =====>         1  -1.74000100000000E+00  -1.74000100000000E+00  -1.01000100000000E+00
+       =====>         2   8.40000000000000E-01   8.40000000000000E-01   1.32666666666667E+00
+       =====>         3   3.42000000000000E+00   3.42000000000000E+00   3.66333333333333E+00
+       =====>         4   6.00000000000000E+00   6.00000000000000E+00   6.00000000000000E+00
+       =====>         5   8.58000000000000E+00   8.58000000000000E+00   8.33666666666667E+00
+       =====>         6   1.11600000000000E+01   1.11600000000000E+01   1.06733333333333E+01
+       =====>         7   1.37400010000000E+01   1.37400010000000E+01   1.30100010000000E+01
+       =====>     -----  ---------------------  ---------------------  ---------------------
+
+  …
+
+  *********************************************************************************************************************************
+   *****       csas message number cs-100   this problem will not be run because errors were encountered in the input data. *****
+  *********************************************************************************************************************************
+
+.. centered:: EXAMPLE 8: MULTIPLE MESH QUANTITY WITH MULTIPLE MESH DEFINITION
+
+This example demonstrates the multiple mesh definition for multiple
+mesh-based quantities. Our sample problem is modified so that (1) two
+grids have been defined with the **READ GRID** data block, and (2) both
+the source convergence diagnostics and mesh flux tally are requested. In
+this sample, the grid with grid ID = 12 is assigned to the source
+convergence diagnostics, and the grid with grid ID = 1 is assigned to
+the mesh flux tally.
+
+::
+
+        READ PARAMETERS
+          FDN=YES HTM=NO MFX=1 SCD=12
+        END PARAMETERS
+   …
+        READ GRID
+           1
+           TITLE "test – mesh 1"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+        READ GRID
+           12
+           TITLE "test – mesh 12"
+            NUMXCELLS=4 NUMYCELLS=2 NUMZCELLS=7
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+
+  …
+  READ VOLUME
+    TYPE=RANDOM BATCHES=100 POINTS=1000
+    XP=+1.01  XM=-13.01
+    YP=+1.74  YM=-13.74
+    ZP=+1.74  ZM=-13.74
+  END VOLUME
+
+KENO prints the following sections for mesh definitions/mesh quantities in the output:
+
+::
+
+                      Grid Geometry: 1
+                          title: test - mesh 1
+                          Plane Summary
+                            x:   6 cells from -1.37400E+01 to  1.37400E+01
+                            y:   6 cells from -1.37400E+01 to  1.37400E+01
+                            z:   6 cells from -1.30100E+01 to  1.30100E+01
+                          Total number of cells: 216
+
+                                              x-planes               y-planes               z-planes
+                          -----  ---------------------  ---------------------  ---------------------
+                              1  -1.37400010000000E+01  -1.37400010000000E+01  -1.30100010000000E+01
+                              2  -9.16000000000000E+00  -9.16000000000000E+00  -8.67333333333333E+00
+                              3  -4.58000000000000E+00  -4.58000000000000E+00  -4.33666666666667E+00
+                              4   0.00000000000000E+00   0.00000000000000E+00   1.77635683940025E-15
+                              5   4.58000000000000E+00   4.58000000000000E+00   4.33666666666667E+00
+                              6   9.16000000000000E+00   9.16000000000000E+00   8.67333333333333E+00
+                              7   1.37400010000000E+01   1.37400010000000E+01   1.30100010000000E+01
+                          -----  ---------------------  ---------------------  ---------------------
+
+  1                                        kenovi  sample problem 1  case 2c8 bare
+                                          cumulative mesh volumes for those units utilized in this problem
+                     Per cent delta is the difference between the cumulative mesh volume and the cumulative analytic volume
+  …
+                                  ........ finished in Keno-VI before tracking       ........
+
+                                  ........    0.02500 minutes were used processing data.       ........
+               ====> Grid Geometry: 12
+               ====>     title: test - mesh 12
+               ====>     Plane Summary
+               ====>       x:   4 cells from -1.37400E+01 to  1.37400E+01
+               ====>       y:   2 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   7 cells from -1.30100E+01 to  1.30100E+01
+               ====>     Total number of cells: 56
+
+.. centered:: EXAMPLE 9: MULTIPLE MESH QUANTITY WITH A SINGLE MESH DEFINITION
+
+This example demonstrates that the same grid may be used for multiple
+mesh-based quantities. Our sample problem is modified as (1) a single
+grid has been defined with **READ GRID** data block, and (2) both source
+convergence diagnostics and mesh flux tally are requested. In this
+sample, the grid with grid ID = 1 is assigned to both the source
+convergence diagnostics and the mesh flux tally. KENO calculates the
+specified quantities using the same grid data.
+
+::
+
+        READ PARAMETERS
+          FDN=YES HTM=NO MFX=1 SCD=1
+        END PARAMETERS
+   …
+        READ GRID
+           1
+           TITLE "test – mesh 1"
+            NUMXCELLS=6 NUMYCELLS=6 NUMZCELLS=6
+            XMIN=-13.01 XMAX=13.01
+            YMIN=-13.74 YMAX=13.74
+            ZMIN=-13.74 ZMAX=13.74
+        END GRID
+        '
+  …
+  READ VOLUME
+    TYPE=RANDOM BATCHES=100 POINTS=1000
+    XP=+1.01  XM=-13.01
+    YP=+1.74  YM=-13.74
+    ZP=+1.74  ZM=-13.74
+  END VOLUME
+
+KENO prints the following sections for mesh definitions/mesh quantities in the output:
+
+::
+
+                      Grid Geometry: 1
+                          title: test - mesh 1
+                          Plane Summary
+                            x:   6 cells from -1.37400E+01 to  1.37400E+01
+                            y:   6 cells from -1.37400E+01 to  1.37400E+01
+                            z:   6 cells from -1.30100E+01 to  1.30100E+01
+                          Total number of cells: 216
+
+                                              x-planes               y-planes               z-planes
+                          -----  ---------------------  ---------------------  ---------------------
+                              1  -1.37400010000000E+01  -1.37400010000000E+01  -1.30100010000000E+01
+                              2  -9.16000000000000E+00  -9.16000000000000E+00  -8.67333333333333E+00
+                              3  -4.58000000000000E+00  -4.58000000000000E+00  -4.33666666666667E+00
+                              4   0.00000000000000E+00   0.00000000000000E+00   1.77635683940025E-15
+                              5   4.58000000000000E+00   4.58000000000000E+00   4.33666666666667E+00
+                              6   9.16000000000000E+00   9.16000000000000E+00   8.67333333333333E+00
+                              7   1.37400010000000E+01   1.37400010000000E+01   1.30100010000000E+01
+                          -----  ---------------------  ---------------------  ---------------------
+
+  1                                        kenovi  sample problem 1  case 2c8 bare
+                                          cumulative mesh volumes for those units utilized in this problem
+                     Per cent delta is the difference between the cumulative mesh volume and the cumulative analytic volume
+  …
+                                  ........ finished in Keno-VI before tracking       ........
+
+                                  ........    0.02500 minutes were used processing data.       ........
+              ====> Grid Geometry: 1
+               ====>     title: test - mesh 1
+               ====>     Plane Summary
+               ====>       x:   6 cells from -1.37400E+01 to  1.37400E+01
+               ====>       y:   6 cells from -1.37400E+01 to  1.37400E+01
+               ====>       z:   6 cells from -1.30100E+01 to  1.30100E+01
+               ====>     Total number of cells: 216
+
+.. _8-1-3-11:
+
+Random sequence
+~~~~~~~~~~~~~~~
+
+The random-number package used by KENO always starts with the same seed
+and thus always reproduces the same sequence of random numbers. Any
+random number except the one printed as the starting random number in
+the parameter table can be used to activate a different random sequence.
+The user can rerun a problem with a different random sequence by simply
+entering a hexadecimal random number other than the starting random
+number in the parameter data. For example, by entering RND=A10C1893E6D5
+in the parameter data, the problem will be run with a different random
+sequence.
+
+.. _8-1-3-12:
+
+Matrix k-effective
+~~~~~~~~~~~~~~~~~~
+
+Matrix k-effective calculations provide an alternative method of
+calculating the k-effective of the system. Cofactor k-effectives and
+source vectors are additional information that can be provided when the
+matrix k-effective is calculated. The necessary source and fission
+weight data are collected during the neutron tracking procedure. This
+information is converted to a FISSION PRODUCTION MATRIX, which is the
+number of next generation neutrons produced at J by a neutron born at I.
+The principal eigenvalue of the fission probability matrix is the matrix
+k-effective. KENO offers four alternatives when calculating matrix
+k-effective as discussed below:
+
+(1) If **MKP**\ =YES is specified in the parameter data, the fission
+production matrix is collected by array position or position index in
+the GLOBAL ARRAY. The position index is used to reference a given
+location in a 3-D lattice. For a 2 × 2 × 2 array, there are nine unique
+position indices as shown below. Position zero contains everything
+outside the GLOBAL ARRAY.
+
+.. _tab8-1-24:
+.. table:: Array index guide for a sample 2 × 2 × 2 array
+
+  +---+----------+---+---+
+  |   | POSITION |   |   |
+  +---+----------+---+---+
+  |   | X        | Y | Z |
+  +---+----------+---+---+
+  | 0 | 0        | 0 | 0 |
+  +---+----------+---+---+
+  | 1 | 1        | 1 | 1 |
+  +---+----------+---+---+
+  | 2 | 2        | 1 | 1 |
+  +---+----------+---+---+
+  | 3 | 1        | 2 | 1 |
+  +---+----------+---+---+
+  | 4 | 2        | 2 | 1 |
+  +---+----------+---+---+
+  | 5 | 1        | 1 | 2 |
+  +---+----------+---+---+
+  | 6 | 2        | 1 | 2 |
+  +---+----------+---+---+
+  | 7 | 1        | 2 | 2 |
+  +---+----------+---+---+
+  | 8 | 2        | 2 | 2 |
+  +---+----------+---+---+
+
+The fission production matrix is the number of next generation neutrons
+produced at index J by a neutron born at index I. This matrix is used to
+calculate the matrix k-effective, cofactor k‑effectives and the source
+vector by position index. Because the size of the fission probability
+matrix is the square of the array size (for a 4 × 4 × 4 array there are
+4,096 entries), it can use vast amounts of computer memory.
+
+(2) If **MKU**\ =YES is specified in the parameter data, the fission
+production matrix is collected by **UNIT**. It is the number of next
+generation neutrons produced in **UNIT** J by a neutron born in
+**UNIT** I. This matrix is used to calculate the matrix k-effective,
+cofactor k-effectives and source vector by **UNIT**.
+
+(3) If **MKH**\ =YES is specified in the parameter data, the fission
+production matrix is collected by the **HOLE** number. Matrix
+information can be collected at either the highest **HOLE** nesting
+level (first level of nesting) or the deepest **HOLE** nesting level.
+**HHL**\ =YES specifies that the matrix information will be collected at
+the first nesting level. By default, the matrix information is collected
+at the deepest nesting level. The fission production matrix is the
+number of next generation neutrons produced in **HOLE** J by a neutron
+born in **HOLE** I. This matrix is used to calculate the matrix
+k-effective, cofactor k-effectives and the source vector by **HOLE**.
+
+(4) If **MKA**\ =YES is specified in the parameter data, the fission
+production matrix is collected by **ARRAY** number. It can be collected
+at the highest **ARRAY** level (first level of nesting) or at the
+deepest **ARRAY** level. **HAL**\ =YES specifies that the matrix
+information will be collected at the first nesting level. By default,
+the matrix information is collected at the deepest nesting level. The
+fission production matrix is the number of next generation neutrons
+produced in **ARRAY** J by a neutron born in **ARRAY** I. This matrix is
+used to calculate the matrix k-effective, cofactor k-effectives and the
+source vector by **ARRAY**.
+
+The user can simultaneously implement all methods of calculating the
+matrix k-effective. The results are labeled in the printout. Matrix
+k-effectives cannot be calculated for a single unit problem. If the user
+wishes to do so, the geometry description must have a cube or cuboid as
+its outer region, and the problem description should include **READ
+ARRAY END ARRAY**. These two actions convert the single unit problem
+into a 1 × 1 × 1 array.
+
+A cofactor k-effective is the eigenvalue of the fission production
+matrix reduced by the row and column that references the specified
+**UNIT** or position index. The difference between the k-effective for
+the system and the cofactor k-effective for a **UNIT** or position index
+is an indication of the *in situ* k-effective of that **UNIT** or the
+contribution that **UNIT** makes to the k-effective of the system. The
+cofactor k‑effective of a **UNIT** devoid of fissile material should
+approximate the k-effective of the system.
+
+.. _8-1-3-13:
+
+Deviations
+~~~~~~~~~~
+
+
+When a deviation is calculated by KENO, it is the standard deviation of
+the mean. This assumes a large sample having a normal distribution.
+KENO calculates the real variance using an iterative approach and lag
+covariance data between generations as follows :cite:`demaret_accurate_1999,becker_proof_2009`
+
+1. The sample variance and covariance estimates are calculated.
+
+2. The apparent variance is set equal to the sample variance and the
+   apparent covariance is set equal to the sample covariance.
+
+3. The real covariance is set equal to the apparent covariance and the
+   real variance is calculated.
+
+4. Using the real variance and apparent covariance calculate the real
+   covariance.
+
+5. The real variance is recalculated.
+
+6. Steps 4 and 5 are repeated until the real variance converges within a
+   preset tolerance.
+
+The covariance estimates are only calculated for the previous
+20 generations. A maximum of 50 iterations are allowed for the real
+variance to converge.
+
+.. _8-1-3-14:
+
+Generation time and lifetime
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The generation time and lifetime calculations use the average velocity.
+The validity of these calculations is determined by how accurately the
+average velocity represents the spectrum over the range of the energy
+group. The lifetime and generation time calculated by KENO are not
+kinetics parameters. The lifetime is the average life span of a neutron
+(in seconds) from the time it is born until it is absorbed or leaks from
+the system. The generation time is the average time (in seconds) between
+successive neutron generations.
+
+.. _8-1-3-15:
+
+Energy of the Average Lethargy of Fission
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The energy of the average lethargy of neutrons causing fission (*EALF*)
+is a parameter calculated in KENO to characterize the neutron energy
+spectrum or fastness of a system. The *EALF* is given in units of eV in
+the KENO output. An *EALF* value that is high (> 100 keV) indicates that
+most fissions in the system are being caused by fast neutrons, and an
+*EALF* value that is low (< 1 eV) indicates that most fissions are
+induced by thermal neutrons.
+
+The *EALF* is calculated by determining the lethargy, :math:`u`, a
+measure of how much neutron energy changes from its initial or birth
+energy:
+
+
+.. math::
+  :label: eq8-1-1
+
+  u = ln\left( \frac{E_{0}}{E} \right),
+
+
+where :math:`E` is the energy of the neutron colliding with a nucleus
+and :math:`E_{0}` is the maximum possible energy of fission neutrons
+(assumed in KENO to be 10 MeV). The average lethargy of all fission
+events is calculated by weighting the lethargy for each collision by the
+probability that the collision will create a fission event, and
+averaging this quantity. Using a log-scale parameter like lethargy to
+represent the fastness of systems is more convenient than directly
+averaging the energy of neutrons causing fission both because of the
+wide range of neutrons in a problem (potentially more than seven orders
+of magnitude), and because fast neutrons that are slowing down lose
+about the same fraction of their energy during each collision.
+
+.. math::
+  :label: eq8-1-2
+
+  EALF = E_{o}e^{- u_{\text{avg}}}
+
+
+Equation :eq:`eq8-1-2` is then applied again to transform the average lethargy of
+neutrons causing fission into a neutron energy that corresponds to the
+average lethargy of neutrons causing fission (this is the *EALF*); this
+transformation back to units of energy is done because energy has a much
+more intuitive meaning than units of lethargy.
+
+.. _8-1-4:
+
+Description of Output
+---------------------
+
+This section contains a brief description and explanation of the KENO
+output. Portions of the printout will not be printed for every problem.
+Some printout is optional, as noted in this section. This section
+provides representative samples of the output format. The actual data
+contained in this section are not necessarily consistent with results
+computed by the current version of KENO.
+
+KENO offers an HTML output format including a series of files that can
+be viewed in a standard web browser. The HTML formatted output offers
+interactive output that is easy to read and navigate. Many of the tables
+of data can be sorted in ascending or descending order by clicking on
+the heading of the column for which sorting is desired. Interactive
+plotting of fluxes, fission production, absorption, and k-effective
+values are also available within the HTML output through an applet
+version of the Javapeño plotting package. In this section, the standard
+text output description is followed by a description of the optional
+HTML formatted output. The HTML formatted output can be deactivated by
+entering HTM=NO in the parameter data section.
+
+.. _8-1-4-1:
+
+Program verification information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Program verification information :numref:`list8-1-16` is printed after the
+header page. It lists the name of the program, the date the load module
+was created, the library that contains the load module, the computer
+code name from the configuration control table, and the revision number.
+The job name, date, and time of execution are also printed. This
+information may be used for quality assurance purposes.
+
+.. code-block:: scale
+  :name: list8-1-16
+  :caption: Sample program verification table.
+
+  ************************************************************************************************************************
+  ************************************************************************************************************************
+  ************************************************************************************************************************
+  *****                                                                                                              *****
+  *****                                       program verification information                                       *****
+  *****                                                                                                              *****
+  *****                                   code system:   scale  version:   5.1                                     *****
+  *****                                                                                                              *****
+  ************************************************************************************************************************
+  ************************************************************************************************************************
+  *****                                                                                                              *****
+  *****                                                                                                              *****
+  *****              program: kenova                                                                                *****
+  *****                                                                                                              *****
+  *****        creation date: 16_aug_2006                                                                           *****
+  *****                                                                                                              *****
+  *****              library: /scale/scale5/OSF1_V5/bin                                                             *****
+  *****                                                                                                              *****
+  *****                                                                                                              *****
+  *****      production code: kenova                                                                                *****
+  *****                                                                                                              *****
+  *****              version: 5.1.1                                                                                 *****
+  *****                                                                                                              *****
+  *****              jobname: qol                                                                                   *****
+  *****                                                                                                              *****
+  *****         machine name: nuc22                                                                                 *****
+  *****                                                                                                              *****
+  *****    date of execution: 13_sep_2006                                                                           *****
+  *****                                                                                                              *****
+  *****    time of execution: 11:11:32.04                                                                           *****
+  *****                                                                                                              *****
+  *****                                                                                                              *****
+  ************************************************************************************************************************
+  ************************************************************************************************************************
+  ************************************************************************************************************************
+
+The program verification information is the first page shown in the
+KENO HTML output, after selecting KENO from the SCALE HTML index page.
+This page can also be displayed by selecting the *Program Verification
+Information* link under the *General Information* submenu and is shown
+in :numref:`list8-1-16`.
+
+.. _8-1-4-2:
+
+Tables of parameter data
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The first two tables printed by KENO list the numeric parameters and
+logical parameters used in the problem. The user should always verify
+that the parameter data block was entered as desired. An example of
+numeric parameters table is shown in :numref:`list8-1-17`. An example of the
+:numref:`list8-1-18`.
+
+.. code-block:: scale
+  :name: list8-1-17
+  :caption: Sample table of numeric parameter data.
+
+     *********************************************************************************************************
+     ***                                                                                                   ***
+     ***                        sample problem 18   1f27  critical experiment                              ***
+     ***                                                                                                   ***
+     *********************************************************************************************************
+     ***                      ****** numeric parameters  ******                      ***
+     ***                                                                                                   ***
+     ***                                                                                                   ***
+     ***             tme         maximum problem time (min)                          0.00                  ***
+     ***                                                                                                   ***
+     ***             tba         time per generation (min)                          10.00                  ***
+     ***                                                                                                   ***
+     ***             gen         number of generations                                103                  ***
+     ***                                                                                                   ***
+     ***             npg         number per generation                               2000                  ***
+     ***                                                                                                   ***
+     ***             nsk         number of generations to be skipped                    3                  ***
+     ***                                                                                                   ***
+     ***             tme         maximum problem time (min)                          0.00                  ***
+     ***                                                                                                   ***
+     ***             tba         time per generation (min)                          10.00                  ***
+     ***                                                                                                   ***
+     ***             gen         number of generations                                103                  ***
+     ***                                                                                                   ***
+     ***             npg         number per generation                               2000                  ***
+     ***                                                                                                   ***
+     ***             nsk         number of generations to be skipped                    3                  ***
+     ***                                                                                                   ***
+     ***             beg         beginning generation number                            1                  ***
+     ***                                                                                                   ***
+     ***             res         generations between checkpoints                        0                  ***
+     ***                                                                                                   ***
+     ***             x1d         number of extra 1-d cross sections                     1                  ***
+     ***                                                                                                   ***
+     ***             nbk         neutron bank size                                   2025                  ***
+     ***                                                                                                   ***
+     ***             xnb         extra positions in neutron bank                        0                  ***
+     ***                                                                                                   ***
+     ***             nfb         fission bank size                                   2000                  ***
+     ***                                                                                                   ***
+     ***             xfb         extra positions in fission bank                        0                  ***
+     ***                                                                                                   ***
+     ***             sig         cut off standard deviation                        0.0000                  ***
+     ***                                                                                                   ***
+     ***             wta         default value of weight average                   0.5000                  ***
+     ***                                                                                                   ***
+     ***             wth         weight high for splitting                         3.0000                  ***
+     ***                                                                                                   ***
+     ***             wtl         weight low for russian roulette                   0.3333                  ***
+     ***                                                                                                   ***
+     ***             rnd         starting random number                  0000F12C09ED2195                  ***
+     ***                                                                                                   ***
+     ***             nb8         number of d.a. blocks on unit  8                    1000                  ***
+     ***                                                                                                   ***
+     ***             nl8         length of d.a. blocks on unit  8                     512                  ***
+     ***                                                                                                   ***
+     ***             nqd         quadrature order for angular fluxes                    0                  ***
+     ***                                                                                                   ***
+     ***             pnm         highest order of flux moments                          0                  ***
+     ***                                                                                                   ***
+     ***             msh         mesh size for mesh flux tally                     0.0000                  ***
+     ***                                                                                                   ***
+     ***             adj         mode of calculation                              forward                  ***
+     ***                                                                                                   ***
+     ***             tps         sampling sites per track length                        5                  ***
+     ***                                                                                                   ***
+     ***             cgs         number of secondary groups to sampl                    0                  ***
+     ***                                                                                                   ***
+     ***             cas         number of secondary angles to sampl                    0                  ***
+     ***                                                                                                   ***
+     ***             wtc         Woodcock tracking cut-off value                     0.90                  ***
+     ***                                                                                                   ***
+     ***             ttl         temperature tolerance for CE xsecs                 -1.00                  ***
+     ***                                                                                                   ***
+     ***                                                                                                   ***
+     ***                         input data written on restart unit                    no                  ***
+     ***                                                                                                   ***
+     ***             dbl         Low Energy Cutoff (in eV) for DBRC                  0.40                  ***
+     ***                                                                                                   ***
+     ***             dbh         High Energy Cutoff (in eV) for DBRC               210.00                  ***
+     ***                                                                                                   ***
+     ***             cet         CE-TSUNAMI sensitivity method                       NONE                  ***
+     ***                                                                                                   ***
+     ***             cfp         Number of latent gens in CE-TSUNAMI                   -1                  ***
+     ***                                                                                                   ***
+     ***             dbr         DBRC isotope selection                                 0                  ***
+     ***                                                                                                   ***
+     ***             dbx         Doppler Broadening Method                              0                  ***
+     ***                                                                                                   ***
+     ***                                                                                                   ***
+     *********************************************************************************************************
+
+.. code-block:: scale
+  :name: list8-1-18
+  :caption: Sample table of logical parameter data.
+
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              sample problem 18   1f27  critical experiment                                   ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******      logical parameters        ******                                 ***
+          ***                                                                                                              ***
+          ***  run  execute problem after checking data  yes            plt  plot picture map(s)                     yes   ***
+          ***                                                                                                              ***
+          ***       compute fluxes (cfx, flx, cfe or mfp yes            fdn  compute fission densities               yes   ***
+          ***                                                                                                              ***
+          ***  smu  compute avg unit self-multiplication  no            nub  compute nu-bar & avg fission group      yes   ***
+          ***                                                                                                              ***
+          ***  mku  compute matrix k-eff by unit number  yes            mkp  compute matrix k-eff by unit location    no   ***
+          ***                                                                                                              ***
+          ***  cku  compute cofactor k-eff by unit numbe yes            ckp  compute cofactor k-eff by unit location  no   ***
+          ***                                                                                                              ***
+          ***  fmu  print fiss prod matrix by unit numbe yes            fmp  print fiss prod matrix by unit location  no   ***
+          ***                                                                                                              ***
+          ***  mkh  compute matrix k-eff by hole number   no            mka  compute matrix k-eff by array number    yes   ***
+          ***                                                                                                              ***
+          ***  ckh  compute cofactor k-eff by hole numbe  no            cka  compute cofactor k-eff by array number  yes   ***
+          ***                                                                                                              ***
+          ***  fmh  print fiss prod matrix by hole numbe yes            fma  print fiss prod matrix by array number  yes   ***
+          ***                                                                                                              ***
+          ***  hhl  collect matrix by highest hole level  no            hal  collect matrix by highest array level    no   ***
+          ***                                                                                                              ***
+          ***  amx  print all mixed cross sections       yes            far  print fis. and abs. by region           yes   ***
+          ***                                                                                                              ***
+          ***  xs1  print 1-d mixture x-sections         yes            gas  print far by group                      yes   ***
+          ***                                                                                                              ***
+          ***  xs2  print 2-d mixture x-sections         yes            pax  print xsec-albedo correlation tables    yes   ***
+          ***                                                                                                              ***
+          ***  xsl  print 2-d mixture Pl arrays          yes            pwt  print weight average array              yes   ***
+          ***                                                                                                              ***
+          ***  xap  print mixture angles & probabilities yes            pgm  print input geometry                    yes   ***
+          ***                                                                                                              ***
+          ***  pki  print fission spectrum               yes            bug  print debug information                  no   ***
+          ***                                                                                                              ***
+          ***  p1d  print extra 1-d cross sections       yes            trk  print tracking information               no   ***
+          ***                                                                                                              ***
+          ***  tfm  coordinate transform for fluxes       no            pmf  print angular fluxes and flux moments    no   ***
+          ***                                                                                                              ***
+          ***       print fluxes (flx)                   yes            app  append, not overwrite, restart data      no   ***
+          ***                                                                                                              ***
+          ***  mfx  compute mesh fluxes                   no            pms  print mesh fluxes if calculated          no   ***
+          ***                                                                                                              ***
+          ***  mfp  compute region mean free paths        no            pmm  print mesh flux moments if calculated    no   ***
+          ***                                                                                                              ***
+          ***  sen  compute derivative sensitivites       no            pmv  print mesh volumes                       no   ***
+          ***                                                                                                              ***
+          ***  cep  continuous energy calculation         no            ptb  use probability tables                  yes   ***
+          ***                                                                                                              ***
+          ***  fre  use analytic free gas kernel         yes            pnu  use prompt neutron spectrum only         no   ***
+          ***                                                                                                              ***
+          ***  udi  use double indexing                   no            cbt  compute contributons                     no   ***
+          ***                                                                                                              ***
+          ***  pct  print contributons                    no            cds  collect CADIS fissions                   no   ***
+          ***                                                                                                              ***
+          ***  cfe  use collision flux estimator          no            wdk  use woodcock tracking                    no   ***
+          ***                                                                                                              ***
+          ***  scx  save CE cross sections in restart     no            uum  use unionized mixture cross sections    yes   ***
+          ***                                                                                                              ***
+          ***  htm  produce HTML output                  yes            scd  mesh based source convergence diag.    yes   ***
+          ***                                                                                                              ***
+          ***  cgd  use F*(r) Mesh                        no            m2u  use unionized nuclide cross sections    yes   ***
+          ***                                                                                                              ***
+          ***  fst  print F*(r) mesh values              yes                                                               ***
+          ***                                                                                                              ***
+          ***       continuous energy library           ce_v7_endf                                                         ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+				    parameter input completed
+
+
+                                ........ finished reading the parameter data      ........
+
+
+                               *************** data reading completed ***************
+
+
+For the logical parameter data table, messages concerning the parameter
+data may be printed at the bottom of the table. If the problem is being
+restarted, the title of the parent case is printed at the bottom of the
+table. If the restart title or messages are not printed, the bottom
+section of the table is omitted.
+
+.. _8-1-4-3:
+
+Unprocessed geometry input data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This printout is optional and is usually used to locate code
+difficulties, to show all the geometry input data when only part of it
+is used in the problem, or to show the order in which units were
+entered. It is considered debug information and is printed only if
+**PGM**\ =YES is specified in the parameter input data. Standard KENO
+use does not require printing these data because the processed geometry
+that is used in the problem is always printed. See :ref:`8-1-4-52-9` and
+:ref:`8-1-4-13`. for examples of the standard printed KENO geometry data.
+
+When the unprocessed geometry input is printed, the problem title is
+located at the top of the page, followed by the heading “GEOMETRY
+DESCRIPTION INPUT.” The region-dependent geometry information is then
+printed. If the problem contains a unit orientation array, the problem
+title is printed again, followed by the unit orientation. This is
+followed by a statement affirming the completion of the data input.
+
+.. _8-1-4-4:
+
+Table of data sets used in the problem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This table is the third table of data printed by KENO. It should be
+carefully scrutinized to verify the desired data set name is associated
+with the proper unit number and volume. An example of this table is
+shown in :numref:`list8-1-19`.
+
+.. code-block:: scale
+  :name: list8-1-19
+  :caption: Sample table of data sets used in the problem.
+
+        *******************************************************************************************************************
+        ***                                                                                                              ***
+        ***                              sample problem 18   1f27  critical experiment                                   ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***          unit                                                volume                                          ***
+        ***         number               data set name                    name        unit function                      ***
+        ***         ------               -------------                    ----        -------------                      ***
+        ***                                                                                                              ***
+        ***      xsc  14     /tmp/scale.5kq.16156/ft14f001                            mixed cross sections               ***
+        ***                                                                                                              ***
+        ***      alb  79      unknown                                                 input albedos                      ***
+        ***                                                                                                              ***
+        ***      wts  80      unknown                                                 input weights                      ***
+        ***                                                                                                              ***
+        ***      skt  16     /tmp/scale.5kq.16156/ft16f001                            write scratch data                 ***
+        ***                                                                                                              ***
+        ***      rst  95     /tmp/scale.5kq.16156/restart.keno_input                  read restart data                  ***
+        ***                                                                                                              ***
+        ***      lib   4     /tmp/scale.5kq.16156/ft04f001                            input ampx working library         ***
+        ***                                                                                                              ***
+        ***            8     /tmp/scale.5kq.16156/xfile008                            input data direct access           ***
+        ***                                                                                                              ***
+        ***           10      unknown                                                 xsec mixing direct access          ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished preparing input data    ........
+
+
+This table lists unit numbers specified in the parameter data or that
+are defaulted in the code, along with the information pertinent to them.
+This information is given in the following order, left to right: (1) the
+keyword used in the parameter data to define the unit number, (2) the
+unit number, (3) the data set name, (4) the name of the volume on which
+the data set resides, and (5) the type of data contained on the data
+set. This table can be useful for quality assurance purposes.
+Information for units for which default values have not been overridden
+is printed even though they may not be used in the problem. Information
+for every unit specified in the parameter data is also printed. Units 8
+and 10 are the direct-access devices, and their unit numbers are fixed
+within the code. When this table is printed, Unit 10 has not yet been
+defined. This causes its data set names to be listed as FT10F001 or as
+“UNKNOWN” on some systems. If KENO is run as part of a CSAS sequence,
+this table will include two entries for Unit 95: one for binary input
+data, and one for read restart data.
+
+.. _8-1-4-5:
+
+Table of additional information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The fourth table of data printed by KENO contains additional information
+determined from the input data. An example of this table is shown in
+:numref:`list8-1-20`.
+
+This table should be used to verify the problem input. The NUMBER OF
+ENERGY GROUPS for a multigroup problem is read either from the
+Monte Carlo formatted library, identified by the keyword **XSC** and the
+unit function name MIXED CROSS SECTIONS from the Table of Data Sets in
+:ref:`8-1-4-4`, or from the restart unit, identified by the keyword
+**RST** and the unit function name, READ RESTART DATA. The NO. OF
+FISSION SPECTRUM SOURCE GROUP is the number of different energy groups
+for which a fission spectrum is defined. In the present version, this
+number should always be 1. The NO. OF SCATTERING ANGLES IN XSECS is the
+number of scattering angles to be used in processing the cross sections.
+The default value is one, and it may be overridden by specifying the
+parameter **SCT**\ = in the mixing table input. One scattering angle
+yields P\ :sub:`1` cross sections, two scattering angles yield
+P\ :sub:`3` cross sections, three scattering angles yield P\ :sub:`5`
+cross sections, etc. ENTRIES/NEUTRON IN THE NEUTRON BANK specifies the
+number of pieces of data that are banked for each history during
+tracking. ENTRIES/NEUTRON IN THE FISSION BANK is the amount of data
+stored for each source neutron for each generation.
+
+.. code-block:: scale
+  :name: list8-1-20
+  :caption: Sample table of additional information.
+
+
+                 ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***          sample problem 18   1f27  critical experiment                                      ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+                 ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***                               ****** additional information ******                          ***
+                 ***                                                                                             ***
+                 ***  use a global unit                      yes    use lattice geometry                    yes  ***
+                 ***                                                                                             ***
+                 ***  no. of scattering angles in xsecs        2    global array number                       5  ***
+                 ***                                                                                             ***
+                 ***  number of mixtures used                  3    number of units in the global x dir.     1  ***
+                 ***                                                                                             ***
+                 ***  number of bias ids used                 6    number of units in the global y dir.     1  ***
+                 ***                                                                                             ***
+                 ***  number of differential albedos used      1    number of units in the global z dir.     1  ***
+                 ***                                                                                             ***
+                 ***  total input geometry regions            15    number of energy groups                 238  ***
+                 ***                                                                                             ***
+                 ***  number of geometry regions used         15    no. of fission spectrum source grps.     1  ***
+                 ***                                                                                             ***
+                 ***  use nested arrays                      yes    use nested holes                         no  ***
+                 ***                                                                                             ***
+                 ***  number of arrays used                    5    number of holes                           0  ***
+                 ***                                                                                             ***
+                 ***  maximum array nesting level              2    maximum hole nesting level                0  ***
+                 ***                                                                                             ***
+                 ***  largest array number                     5    largest geometry unit number              3  ***
+                 ***                                                                                             ***
+                 ***                                                                                             ***
+                 ***  boundary label 60               cuboid                                                     ***
+                 ***                                                                                             ***
+                 ***    +x boundary condition          vacuum         -x boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***    +y boundary condition          vacuum         -y boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***    +z boundary condition          vacuum         -z boundary condition                 h2o  ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+
+The NUMBER OF MIXTURES USED is the number of different mixtures (media)
+used in the geometry data used by the problem. This may be less than the
+total number of different mixtures specified in the geometry data if
+portions of the geometry data are not used in the problem.
+
+The NUMBER OF BIAS IDS USED is the number of different biasing regions
+used in the problem. This will always be one unless a biasing data block
+is entered.
+
+The NUMBER OF DIFFERENTIAL ALBEDOS USED is the number of different
+differential albedo reflectors used in the problem. This will always be
+zero unless the boundary condition data specify the use of differential
+albedo reflection on one or more faces of the system as described in
+:ref:`8-1-4-7`. The BOUNDARY CONDITION data printed in this table should
+also be checked. The number of different differential albedos specified
+on the faces should be consistent with the NUMBER OF DIFFERENTIAL
+ALBEDOS USED. Specular, mirror, vacuum, and periodic are not
+differential albedos. Several different keywords may be used to specify
+the same differential albedo.
+
+The TOTAL INPUT GEOMETRY REGIONS is the number of geometry regions
+specified in the problem input. This excludes UNIT label and comments
+provided using COM=, but it includes the array boundary description.
+It excludes the automatic reflector description, but it includes the
+geometry regions generated by it. The NUMBER OF GEOMETRY REGIONS USED is
+the number of geometry regions used in the problem. It may be less than
+or equal to the TOTAL INPUT GEOMETRY REGIONS. The LARGEST GEOMETRY UNIT
+NUMBER is the largest unit number defined in the geometry data,
+including unused units and implicitly defined units. Implicitly defined
+unit numbers are created when a core boundary specification is not
+immediately preceded by a specification. The unit number is assigned by
+the code by adding one to the largest unit number encountered in the
+geometry region data. For example, if two such core boundary
+specifications are contained in a problem whose largest explicitly
+defined unit number is 7, then a unit number of 8 is assigned to the
+first one, and a unit number of 9 is assigned to the second one. A value
+of 9 would be printed for the LARGEST GEOMETRY UNIT NUMBER. The LARGEST
+ARRAY NUMBER is the largest array number specified in the array data.
+
+USE LATTICE GEOMETRY is determined by the logical flag that indicates
+whether or not the problem is a single unit problem. This should be YES
+for any problem that is not a single unit problem and NO for a single
+unit problem. By definition, a single unit problem does not use array
+data in any form. :ref:`8-1-4-12` describes array data. The GLOBAL
+ARRAY NUMBER is the number of the array designated as the global,
+overall, or universal array. The global array can be thought of as the
+array that defines the overall system.
+
+The NUMBER OF UNITS IN THE GLOBAL X/Y/Z DIR. defines the size of the
+global array in terms of the number of units that are located along the
+edge of the array boundaries in the X/Y/Z directions. For a single unit,
+all three of these should be zero. For a simple 1 × 1 × 1 array
+consisting of one unit type, all three of these numbers should be 1.
+
+USE GLOBAL REFLECTOR indicates if the global array is reflected.
+
+USE NESTED HOLES is set YES if holes are nested deeper than one level.
+
+NUMBER OF HOLES is the number of HOLES that are entered in the geometry
+region data.
+
+The MAXIMUM HOLE NESTING LEVEL is the deepest level of hole nesting.
+
+USE NESTED ARRAYS is set YES if arrays are nested deeper than one level.
+
+The NUMBER OF ARRAYS USED is the number of array descriptions actually
+used in the problem description.
+
+MAXIMUM ARRAY NESTING LEVEL is the deepest level of array nesting.
+
+Six BOUNDARY CONDITIONs are printed near the bottom of the table. They
+show the type of boundary condition that is applied to each face of the
+system. These should all be VACUUM unless albedo boundary conditions are
+applied to one or more faces of the system. One should refer to the
+NUMBER OF DIFFERENTIAL ALBEDOS USED, as discussed previously in the
+description of this table of information.
+
+.. _8-1-4-6:
+
+Mixing table data
+~~~~~~~~~~~~~~~~~
+
+If **LIB=** is entered in the KENO parameter data and a mixing table
+data block is provided to KENO, mixing table data will be printed. This
+output edit is not considered optional because it cannot be suppressed
+if the necessary data are present. Sample mixing table data are shown in
+:numref:`list8-1-21` In the HTML output, the mixing table data can be accessed
+with the *Mixing Table* link in the *Input Data* section.
+
+The data printed in this table include the problem title, the number of
+scattering angles, and the cross section message threshold. Data are
+then printed for each mixture. First the mixture number, density, and
+temperature are printed, followed by a table of the nuclides which make
+up the mixture. This table contains the following data: nuclide
+ID number, nuclide mixture ID number, atom density, weight fraction of
+nuclide in mixture, ZA number, atomic weight, temperature, and nuclide
+title. Mixture temperature is the same as the nuclides’ temperatures for
+the multigroup calculations, but it may be different for the continuous
+energy calculations if Doppler broadening is not enabled since the
+nuclides are loaded from libraries with the closest temperature. After
+all mixture data have been printed, a table of nuclides and descriptive
+titles is printed for all nuclides included in the mixtures. If extra
+1-D cross sections were specified in the problem (see **X1D**\ =,
+:ref:`8-1-2-3`), the extra 1-D cross section IDs will be printed under
+the heading “1-D CROSS SECTION ARRAY ID NUMBERS.” If is to be calculated
+(parameter **NUB**\ =YES), six MT numbers will be printed. The MT number
+for the total cross section (Σ\ :sub:`T`) is 1; the MT number for the sum
+of the transfer array normalized byΣ\ :sub:`T` is 2002; the MT number
+for the normalized fission-product cross section (νΣ\ :sub:`f`/ Σ\ :sub:`t`)
+is 1452; the MT number for the normalized absorption cross section
+(Σ\ :sub:`abs`/ Σ\ :sub:`T`) is 27; the MT number for the normalized fission
+cross section (Σ\ :sub:`f`/ Σ\ :sub:`T`) is 18; and the MT number for the
+fission spectrum (χ) is 1018. χ is summed and normalized to 1.0. Other
+MT numbers in this list have been specified by the user. If the number
+of blocks on the direct access data set are insufficient to hold the
+cross section data, a message is printed stating THE NUMBER OF DIRECT
+ACCESS BLOCKS ON UNIT____\_ HAS BEEN INCREASED TO \____. If the problem
+is to write a restart data set (parameter **RES**\ =), a message is
+printed stating that restart information was written, and the restart
+I/O unit number is specified. This is followed by a statement of the
+number of I/Os used in preparing the cross sections. The user should
+examine the mixing table carefully to verify that the proper nuclides
+are specified for the proper mixtures and that all the data are correct.
+The mixing table is printed in subroutine PRTMIX.
+
+.. code-block:: scale
+  :name: list8-1-21
+  :caption: Example of mixing table data.
+
+                                           sample problem 18   1f27  critical experiment
+
+                                                     mixing table
+
+                                            number of scattering angles =  2
+                                        cross section message threshold = 1.0E+00
+
+
+   mixture =     1          density(g/cc) =  1.5549              temperature(K) =    300.00
+      nuclide    nucmix   atom-dens.  wgt. frac.    za      awt      temp               nuclide title
+         1001       1    5.77931E-02  6.22019E-02    1001    1.0078  300.00   h_h2o 1 fast: h1 endf/b7 rel0 rev7 mod0     12/17/09
+         7014       1    2.13092E-03  3.18663E-02    7014   14.0031  300.00   n14 725 endf/b7 rel8 rev7 mod0              12/17/09
+         8016       1    3.74114E-02  6.39037E-01    8016   15.9949  300.00   o16 825 endf/b7 rel8 rev7 mod3              12/17/09
+        92234       1    1.06784E-05  2.66894E-03   92234  234.0410  300.00   u234 9225 endf/b7 rel5 rev7 mod2            12/17/09
+        92235       1    9.84603E-04  2.47144E-01   92235  235.0439  300.00   u235 9228 endf/b7 rel0 rev7 mod7            12/17/09
+        92236       1    5.29387E-06  1.33447E-03   92236  236.0456  300.00   u236 9231 endf/b7 rel0 rev7 mod1            12/17/09
+        92238       1    6.19415E-05  1.57468E-02   92238  238.0508  300.00   u238 9237 endf/b7 rel6 rev7 mod5            12/17/09
+
+   mixture =     2          density(g/cc) =  1.1800              temperature(K) =    293.00
+      nuclide    nucmix   atom-dens.  wgt. frac.    za      awt      temp               nuclide title
+         1001       2    5.67888E-02  8.05411E-02    1001    1.0078  293.00   h_h2o 1 fast: h1 endf/b7 rel0 rev7 mod0     12/17/09
+         6000       2    3.54930E-02  5.99899E-01    6000   12.0107  293.00   c 600 endf/b7 rel6 rev7 mod0                12/17/09
+         8016       2    1.41972E-02  3.19560E-01    8016   15.9949  293.00   o16 825 endf/b7 rel8 rev7 mod3              12/17/09
+
+   mixture =     3          density(g/cc) = 0.90000              temperature(K) =    293.00
+      nuclide    nucmix   atom-dens.  wgt. frac.    za      awt      temp               nuclide title
+      9001001       3    7.99139E-02  1.48599E-01    1001    1.0078  293.00   h_ch2 37 fast: h1 endf/b7 rel0 rev7 mod0    12/17/09
+         6000       3    3.84202E-02  8.51401E-01    6000   12.0107  293.00   c 600 endf/b7 rel6 rev7 mod0                12/17/09
+
+   mixture =     4          density(g/cc) = 0.99820E-09          temperature(K) =    293.00
+      nuclide    nucmix   atom-dens.  wgt. frac.    za      awt      temp               nuclide title
+         1001       4    6.67530E-11  1.11915E-01    1001    1.0078  293.00   h_h2o 1 fast: h1 endf/b7 rel0 rev7 mod0     12/17/09
+         8016       4    3.33765E-11  8.88085E-01    8016   15.9949  293.00   o16 825 endf/b7 rel8 rev7 mod3              12/17/09
+
+
+
+
+    ***** warning ***** keno message number k6-222 follows:
+    660 transfers for mixture 1 were corrected for bad moments.
+
+    ***** warning ***** keno message number k6-222 follows:
+    654 transfers for mixture 2 were corrected for bad moments.
+
+    ***** warning ***** keno message number k6-222 follows:
+    614 transfers for mixture 3 were corrected for bad moments.
+
+    ***** warning ***** keno message number k6-222 follows:
+    652 transfers for mixture 4 were corrected for bad moments.
+
+                                  ........ finished mixing cross sections       ........
+
+                                   1-d cross section array id numbers
+
+                                              neutron
+                                  reaction name    reaction id
+                                          total              1
+                                 non-absorption           2002
+                                     nu-fission           1452
+                                     absorption             27
+                                        fission             18
+                                            chi           1018
+
+                                  ........ finished preparing the cross sections    ........
+
+
+
+.. 8-1-4-7:
+
+Albedo cross section correspondence
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Printing the albedo cross section correspondence tables is optional. The
+headings for the tables are printed in subroutine CORRE, and then
+subroutine RATIO prints the data. These tables are printed only if
+**PAX**\ =YES is specified in the parameter data as described in
+:ref:`8-1-2-3`. Examples of these tables are shown in :numref:`list8-1-22` and
+:numref:`list8-1-23`.
+
+The table shown in :numref:`list8-1-22` contains, left to right, the cross
+section energy group, the lower and upper lethargy bounds, the
+corresponding albedo energy groups, and the cumulative probability
+associated with each albedo energy group for choosing the albedo energy
+group corresponding to the cross section energy group. The table shown
+in :numref:`list8-1-23` is the inverse of the table shown in :numref:`list8-1-22`. It
+provides the cumulative probabilities for choosing the cross section
+energy group corresponding to the albedo energy group. The information
+in these tables is automatically generated by KENO.
+
+.. code-block:: scale
+  :name: list8-1-22
+  :caption: Cumulative probabilities for correlating the albedo energy group to the cross section energy group.
+
+                                        cumulative probabilities for choosing the corresponding albedo group for each xsec group
+   xsec                               --------------------------------------------------------------------------------------------
+  energy      cross section group       albedo               albedo               albedo               albedo
+   group      lethargy boundaries        group  probability   group  probability   group  probability   group  probability
+           --------------------------   -------------------  -------------------  -------------------  -------------------
+
+     1     -0.69315E+00   0.20000E+00      1     1.00000
+     2      0.20000E+00   0.44099E+00      1     1.00000
+     3      0.44099E+00   0.73397E+00      1     1.00000
+     4      0.73397E+00   0.12040E+01      1     1.00000
+     5      0.12040E+01   0.13947E+01      2     1.00000
+     6      0.13947E+01   0.14465E+01      2     1.00000
+     7      0.14465E+01   0.16874E+01      2     1.00000
+     8      0.16874E+01   0.19661E+01      2     1.00000
+     9      0.19661E+01   0.24079E+01      3     1.00000
+    10      0.24079E+01   0.32189E+01      4     1.00000
+    11      0.32189E+01   0.46052E+01      5     1.00000
+    12      0.46052E+01   0.59915E+01      6     1.00000
+    13      0.59915E+01   0.63771E+01      6     1.00000
+    14      0.63771E+01   0.81117E+01      7     1.00000
+    15      0.81117E+01   0.98082E+01      8     1.00000
+    16      0.98082E+01   0.11513E+02      9     1.00000
+    17      0.11513E+02   0.12717E+02     10     1.00000
+    18      0.12717E+02   0.13816E+02     11     1.00000
+    19      0.13816E+02   0.14026E+02     12     1.00000
+    20      0.14026E+02   0.14326E+02     12     1.00000
+    21      0.14326E+02   0.14560E+02     12     1.00000
+    22      0.14560E+02   0.15019E+02     12     1.00000
+    23      0.15019E+02   0.15547E+02     13     1.00000
+    24      0.15547E+02   0.16118E+02     13     1.00000
+    25      0.16118E+02   0.16588E+02     14     1.00000
+    26      0.16588E+02   0.17034E+02     14     1.00000
+    27      0.17034E+02   0.17099E+02     15     1.00000
+    28      0.17099E+02   0.17168E+02     15     1.00000
+    29      0.17168E+02   0.17242E+02     15     1.00000
+    30      0.17242E+02   0.17409E+02     15     1.00000
+    31      0.17409E+02   0.17504E+02     15     1.00000
+    32      0.17504E+02   0.17610E+02     15     1.00000
+    33      0.17610E+02   0.17728E+02     15     1.00000
+    34      0.17728E+02   0.18015E+02     15     1.00000
+    35      0.18015E+02   0.18421E+02     15     1.00000
+    36      0.18421E+02   0.18777E+02     16     1.00000
+    37      0.18777E+02   0.19114E+02     16     1.00000
+    38      0.19114E+02   0.19337E+02     16     1.00000
+    39      0.19337E+02   0.19625E+02     16     1.00000
+    40      0.19625E+02   0.19795E+02     16     1.00000
+    41      0.19795E+02   0.20723E+02     16     1.00000
+    42      0.20723E+02   0.21011E+02     16     1.00000
+    43      0.21011E+02   0.21927E+02     16     1.00000
+    44      0.21927E+02   0.27631E+02     16     1.00000
+
+
+.. code-block:: scale
+  :name: list8-1-23
+  :caption: Cumulative probabilities for correlating the cross section energy group to the albedo energy group.
+
+                                       cumulative probabilities for choosing the corresponding xsec group for each albedo group
+  albedo                              --------------------------------------------------------------------------------------------
+  energy        albedo group              xsec                 xsec                 xsec                 xsec
+   group      lethargy boundaries        group  probability   group  probability   group  probability   group  probability
+           --------------------------   -------------------  -------------------  -------------------  -------------------
+
+     1     -0.40547E+00   0.12040E+01      1     0.37620        2     0.52593        3     0.70797        4     1.00000
+     2      0.12040E+01   0.19661E+01      5     0.25029        6     0.31818        7     0.63430        8     1.00000
+     3      0.19661E+01   0.24079E+01      9     1.00000
+     4      0.24079E+01   0.32189E+01     10     1.00000
+     5      0.32189E+01   0.46052E+01     11     1.00000
+     6      0.46052E+01   0.63771E+01     12     0.78235       13     1.00000
+     7      0.63771E+01   0.81117E+01     14     1.00000
+     8      0.81117E+01   0.98082E+01     15     1.00000
+     9      0.98082E+01   0.11513E+02     16     1.00000
+    10      0.11513E+02   0.12717E+02     17     1.00000
+    11      0.12717E+02   0.13816E+02     18     1.00000
+    12      0.13816E+02   0.15019E+02     19     0.17502       20     0.42428       21     0.61832       22     1.00000
+    13      0.15019E+02   0.16118E+02     23     0.48027       24     1.00000
+    14      0.16118E+02   0.17034E+02     25     0.51294       26     1.00000
+    15      0.17034E+02   0.18421E+02     27     0.04655       28     0.09632       29     0.14978       30     0.27029
+                                          31     0.33904       32     0.41504       33     0.50000       34     0.70752
+                                          35     1.00000
+    16      0.18421E+02   0.23026E+02     36     0.07745       37     0.15052       38     0.19897       39     0.26144
+                                          40     0.29844       41     0.50000       42     0.56247       43     0.76144
+
+
+.. _8-1-4-8:
+
+1-D macroscopic cross sections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The decision to print the 1-D mixture cross sections is optional. They
+are printed only if **XS1**\ =YES is specified in the parameter data.
+When the 1-D cross sections are to be printed, they are printed a group
+at a time for each mixture. The 1-D mixture cross sections for a mixture
+are shown in :numref:`list8-1-24`.
+
+.. code-block:: scale
+  :name: list8-1-24
+  :caption: Example of macroscopic 1-D cross sections.
+
+
+                             sample problem 18   1f27 demonstration of options problem
+
+   mixture id =          1          mixture index =     1     mixture number 1
+
+                      neutron cross sections
+
+   group     sigt        sigs        siga        sum         signu       chi             mwa1        mwa2        mwa3
+       1  1.15428E-01 9.16628E-01 8.77582E-02 1.00439E+00 6.01783E-02 5.08789E-03           1          44           1
+       2  1.23131E-01 9.36854E-01 6.56846E-02 1.00254E+00 4.56337E-02 1.40176E-02          45          87           2
+       3  1.48927E-01 9.69401E-01 3.08343E-02 1.00024E+00 2.37130E-02 4.39061E-02          88         129           3
+       4  2.15026E-01 9.84773E-01 1.52348E-02 1.00001E+00 1.59607E-02 1.52569E-01         130         170           4
+       5  1.93005E-01 9.90875E-01 9.11579E-03 9.99990E-01 1.81313E-02 8.51956E-02         171         210           5
+       6  1.85540E-01 9.91543E-01 8.45733E-03 1.00000E+00 1.89876E-02 2.41070E-02         211         249           6
+       7  2.30900E-01 9.93137E-01 6.86857E-03 1.00001E+00 1.51846E-02 1.14749E-01         250         287           7
+       8  2.79222E-01 9.94364E-01 5.63578E-03 1.00000E+00 1.19673E-02 1.26574E-01         288         324           8
+       9  3.99800E-01 9.96484E-01 3.51348E-03 9.99997E-01 7.74724E-03 1.64607E-01         325         360           9
+      10  4.87741E-01 9.97127E-01 2.87289E-03 9.99999E-01 5.86340E-03 1.72796E-01         361         395          10
+      11  6.99641E-01 9.97647E-01 2.35312E-03 1.00000E+00 4.68926E-03 8.28739E-02         396         429          11
+      12  1.05091E+00 9.97712E-01 2.28509E-03 9.99997E-01 4.13425E-03 1.17778E-02         430         462          12
+      13  1.21722E+00 9.97398E-01 2.59740E-03 9.99995E-01 4.44404E-03 7.60891E-04         463         494          13
+      14  1.30216E+00 9.96273E-01 3.72301E-03 9.99996E-01 6.37277E-03 9.05272E-04         495         525          14
+      15  1.36016E+00 9.91689E-01 8.30789E-03 9.99997E-01 1.38111E-02 6.71782E-05         526         555          15
+      16  1.38813E+00 9.80506E-01 1.94940E-02 9.99999E-01 3.05368E-02 5.28434E-06         556         584          16
+      17  1.42397E+00 9.58489E-01 4.15096E-02 9.99998E-01 6.29254E-02 3.71200E-07         585         612          17
+      18  1.43410E+00 9.49753E-01 5.02445E-02 9.99997E-01 6.65227E-02 5.89427E-08         613         639          18
+      19  1.49375E+00 9.11050E-01 8.89463E-02 9.99996E-01 1.59102E-01 3.80675E-09         640         665          19
+      20  1.44967E+00 9.39107E-01 6.08899E-02 9.99997E-01 4.12231E-02 3.71183E-09         666         690          20
+      21  1.42509E+00 9.56044E-01 4.39514E-02 9.99995E-01 2.13894E-02 1.92988E-09         691         714          21
+      22  1.39136E+00 9.77546E-01 2.24504E-02 9.99996E-01 3.39243E-02 2.29045E-09         715         737          22
+      23  1.38466E+00 9.82979E-01 1.70210E-02 1.00000E+00 2.34382E-02 1.26213E-09         738         759          23
+      24  1.43754E+00 9.61585E-01 3.84152E-02 1.00000E+00 6.99354E-02 6.01827E-10         760         781          23
+      25  1.48951E+00 9.53851E-01 4.61498E-02 1.00000E+00 9.43387E-02 2.24719E-10         782         802          24
+      26  1.59902E+00 9.37015E-01 6.29850E-02 1.00000E+00 1.27601E-01 1.07110E-10         803         823          24
+      27  1.72197E+00 9.13395E-01 8.65988E-02 9.99993E-01 1.72474E-01 1.03686E-11         824         844          24
+      28  1.76643E+00 9.02727E-01 9.72717E-02 9.99998E-01 1.91807E-01 1.00286E-11         845         865          24
+      29  1.81618E+00 8.89829E-01 1.10167E-01 9.99996E-01 2.14479E-01 9.67683E-12         866         886          24
+      30  1.89632E+00 8.74833E-01 1.25165E-01 9.99998E-01 2.38811E-01 1.82426E-11         887         906          25
+      31  1.94668E+00 8.75800E-01 1.24202E-01 1.00000E+00 2.34757E-01 8.53387E-12         907         926          25
+      32  1.96891E+00 8.83618E-01 1.16384E-01 1.00000E+00 2.20969E-01 8.11709E-12         927         946          25
+      33  2.00165E+00 8.89664E-01 1.10339E-01 1.00000E+00 2.11590E-01 7.67781E-12         947         966          25
+      34  2.09542E+00 8.91601E-01 1.08400E-01 1.00000E+00 2.11473E-01 1.39251E-11         967         986          25
+      35  2.30850E+00 8.82426E-01 1.17573E-01 1.00000E+00 2.33302E-01 1.17592E-11         987        1006          25
+      36  2.58403E+00 8.67936E-01 1.32064E-01 1.00000E+00 2.64121E-01 5.82018E-12        1007        1026          25
+      37  2.90193E+00 8.54450E-01 1.45552E-01 1.00000E+00 2.92035E-01 3.26048E-12        1027        1046          25
+      38  3.22233E+00 8.44719E-01 1.55282E-01 1.00000E+00 3.11990E-01 1.41275E-12        1047        1066          25
+      39  3.54760E+00 8.36310E-01 1.63691E-01 1.00000E+00 3.29122E-01 1.24545E-12        1067        1086          25
+      40  3.85997E+00 8.28324E-01 1.71677E-01 1.00000E+00 3.45318E-01 5.20590E-13        1087        1106          25
+      41  4.50604E+00 8.08984E-01 1.91017E-01 1.00000E+00 3.84373E-01 1.34335E-12        1107        1126          25
+      42  5.49579E+00 7.75585E-01 2.24411E-01 9.99996E-01 4.51699E-01 1.55684E-13        1127        1146          25
+      43  6.31937E+00 7.47156E-01 2.52842E-01 9.99997E-01 5.08932E-01 2.15537E-13        1147        1166          25
+      44  9.06955E+00 6.89055E-01 3.10944E-01 9.99999E-01 6.25898E-01 7.29785E-14        1167        1186          25
+
+                 fission
+   group        reaction
+       1     1.59471E-02
+       2     1.33170E-02
+       3     7.54948E-03
+       4     5.55928E-03
+       5     6.63986E-03
+       6     7.06642E-03
+       7     5.74782E-03
+       8     4.61959E-03
+       9     3.04435E-03
+      10     2.34878E-03
+      11     1.90913E-03
+      12     1.69467E-03
+      13     1.82380E-03
+      14     2.61534E-03
+      15     5.66797E-03
+      16     1.25321E-02
+      17     2.58241E-02
+      18     2.73003E-02
+      19     6.52940E-02
+      20     1.69176E-02
+      21     8.78070E-03
+      22     1.39222E-02
+      23     9.61884E-03
+      24     2.87009E-02
+      25     3.87158E-02
+      26     5.23664E-02
+      27     7.07818E-02
+      28     7.87160E-02
+      29     8.80204E-02
+      30     9.80058E-02
+      31     9.63423E-02
+      32     9.06838E-02
+      33     8.68348E-02
+      34     8.67866E-02
+      35     9.57453E-02
+      36     1.08393E-01
+      37     1.19849E-01
+      38     1.28038E-01
+      39     1.35069E-01
+      40     1.41716E-01
+      41     1.57743E-01
+      42     1.85373E-01
+      43     2.08861E-01
+      44     2.56863E-01
+
+
+When the 1-D mixture cross sections are printed, the problem title is
+printed at the top of the page. The mixture ID, mixture index, and
+mixture number are then printed. ID is the mixture number from the
+mixing table, and mixture index is the index used to reference it and
+mixture number is its identifier. This step is followed by a heading to
+identify the different 1-D cross sections. *GROUP* is the energy group,
+*sigt* is the total cross section for the mixture, *sigs* is the
+nonabsorption probability, *siga* is the absorption probability, *signu*
+is the production probability, *chi* is the fission spectrum, *mwa1* is
+the pointer for the first position of the cross sections for the energy
+group, *mwa2* is the pointer for the last position of the cross sections
+for the energy group, and *mwa3* contains the group for the transfer
+corresponding to the first position. *SUM* is the sum of the absorption
+probability and the nonabsorption probability. The absorption
+probability is defined as the absorption cross section divided by the
+total cross section. The nonabsorption probability is the sum of the
+group-to-group transfers for this group, divided by the total
+cross section. The production probability is defined as the fission
+production cross section divided by the total cross section
+(νΣ\ :sub:`f`/ Σ\ :sub:`T`). The nonabsorption probability and the production
+probability are not true probabilities in that they may be greater than
+1. This is because the nonabsorption probability has the (n,2n) transfer
+array summed into the total transfer array twice, and the (n,3n) is
+summed three times, etc.
+
+.. _8-1-4-9:
+
+Extra 1-d cross sections
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Printing the extra 1-D cross sections is optional. They are printed if
+**P1D**\ =YES is specified in the parameter data. Extra 1-D
+cross sections are not used in KENO unless **NUB**\ =YES is specified in
+the parameter data or the user has altered the code to access and
+utilize other 1-D cross sections. If \ **NUB**\ =YES is specified, the
+extra 1-D cross section is the fission cross section, which is used to
+calculate the average number of neutrons per fission. This is printed
+only for fissile mixtures as shown in :numref:`list8-1-24`. The fission cross
+section heading follows the table of 1‑D cross sections. The fission
+cross section heading is XSEC ID 18, and it follows the table of 1-D
+cross sections.
+
+.. _8-1-4-10:
+
+2-D macroscopic cross sections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The decision to print the 2-D mixture cross sections is optional. They
+are printed only if **XS2**\ =YES is specified in the parameter data.
+They are printed after the 1-D cross sections for the mixture. A
+heading is printed, followed by the transfer data. An example of the
+2-D mixture cross sections is given in :numref:`list8-1-25`.
+
+.. code-block:: scale
+  :name: list8-1-25
+  :caption: Example of 2-D macroscopic cross sections.
+
+       primary-to-primary scattering transfer array for material     1
+
+         from   grp   1     grp   2     grp   3     grp   4     grp   5     grp   6     grp   7     grp   8     grp   9     grp  10
+    to grp
+      +  0    2.76004E-01 2.30437E-01 3.08411E-01 4.37264E-01 1.89892E-01 6.33570E-02 2.11990E-01 2.67904E-01 4.00917E-01 5.10155E-01
+      +  1    2.03033E-01 2.78858E-01 3.36072E-01 1.74937E-01 8.20990E-02 2.98125E-01 2.98946E-01 3.42163E-01 3.90577E-01 3.81060E-01
+      +  2    1.01409E-01 1.60889E-01 5.98274E-02 2.36591E-02 2.21123E-01 1.58388E-01 1.74973E-01 2.16973E-01 1.56513E-01 8.16009E-02
+      +  3    1.24301E-01 4.70653E-02 1.43966E-02 7.70470E-02 1.22512E-01 1.70835E-01 1.74450E-01 1.29820E-01 3.89991E-02 8.69963E-03
+      +  4    4.47561E-02 1.13532E-02 5.83858E-02 6.88775E-02 1.36620E-01 1.71890E-01 1.04893E-01 3.23718E-02 4.15785E-03 1.52224E-02
+      +  5    1.23857E-02 4.60509E-02 5.28377E-02 7.72884E-02 1.37716E-01 1.03250E-01 2.60844E-02 3.44751E-03 7.27620E-03 2.66366E-03
+      +  6    5.86263E-02 4.49698E-02 6.00219E-02 7.84594E-02 8.27497E-02 2.56449E-02 2.77438E-03 6.02982E-03 1.27412E-03 4.89235E-04
+      +  7    5.84380E-02 6.21971E-02 6.15746E-02 4.71201E-02 2.04951E-02 2.72564E-03 4.85055E-03 1.05475E-03 2.33838E-04 7.61032E-05
+      +  8    5.22837E-02 6.94998E-02 3.65257E-02 1.15436E-02 2.17655E-03 4.76450E-03 8.48206E-04 1.93714E-04 3.63697E-05 2.17437E-05
+      +  9    4.17090E-02 3.84899E-02 8.83219E-03 1.21992E-03 3.80343E-03 8.33050E-04 1.55771E-04 3.01328E-05 1.03911E-05 2.06565E-06
+      + 10    2.08834E-02 7.80028E-03 9.99479E-04 2.12870E-03 6.64843E-04 1.52984E-04 2.42304E-05 8.60934E-06 9.87144E-07 2.28309E-06
+      + 11    4.67932E-03 7.75399E-04 1.76176E-03 3.71688E-04 1.22090E-04 2.37968E-05 6.92295E-06 8.17886E-07 1.09106E-06 1.35899E-06
+      + 12    4.80347E-04 1.32913E-03 2.90574E-04 6.82444E-05 1.89916E-05 6.79904E-06 6.57679E-07 9.03982E-07 6.49437E-07 1.90258E-06
+      + 13    8.31964E-04 2.30896E-04 5.17884E-05 1.06160E-05 5.42636E-06 6.45906E-07 7.26909E-07 5.38085E-07 9.09210E-07 1.33724E-06
+      + 14    1.44920E-04 4.37094E-05 8.00896E-06 3.03353E-06 5.15525E-07 7.13898E-07 4.32685E-07 7.53317E-07 6.39047E-07 8.37132E-07
+      + 15    2.68831E-05 7.27315E-06 2.28815E-06 2.88223E-07 5.69802E-07 4.24941E-07 6.05757E-07 5.29476E-07 4.00052E-07 4.07695E-07
+      + 16    4.28242E-06 2.28136E-06 2.17555E-07 3.18583E-07 3.39175E-07 5.94916E-07 4.25762E-07 3.31459E-07 1.94831E-07 2.44617E-07
+      + 17    1.26664E-06 2.35932E-07 2.40563E-07 1.89647E-07 4.74860E-07 4.18142E-07 2.66533E-07 1.61426E-07 1.16898E-07 2.71796E-08
+      + 18    1.24400E-07 2.70156E-07 1.43272E-07 2.65534E-07 3.33780E-07 2.61762E-07 1.29806E-07 9.68557E-08 1.29887E-08 2.71798E-08
+      + 19    1.39484E-07 1.67593E-07 2.00748E-07 1.86669E-07 2.08957E-07 1.27482E-07 7.78838E-08 1.07617E-08 1.29888E-08 2.71796E-08
+      + 20    8.44631E-08 2.48474E-07 1.41306E-07 1.16889E-07 1.01781E-07 7.64892E-08 8.65374E-09 1.07618E-08 1.29887E-08 5.43594E-08
+      + 21    1.21165E-07 1.92050E-07 8.86409E-08 5.69467E-08 6.10759E-08 8.49879E-09 8.65379E-09 1.07617E-08 2.59775E-08 2.71796E-08
+      + 22    8.88489E-08 1.36001E-07 4.33019E-08 3.41817E-08 6.78674E-09 8.49882E-09 8.65372E-09 2.15235E-08 1.29887E-08 2.71797E-08
+      + 23    5.87317E-08 7.59242E-08 2.60636E-08 3.79895E-09 6.78692E-09 8.49876E-09 1.73075E-08 1.07618E-08 1.29888E-08 2.71796E-08
+      + 24    3.07090E-08 5.20373E-08 2.90234E-09 3.79923E-09 6.78703E-09 1.69976E-08 8.65376E-09 1.07618E-08 1.29888E-08 5.43594E-08
+      + 25    1.98263E-08 6.28429E-09 2.90409E-09 3.79952E-09 1.35747E-08 8.49879E-09 8.65379E-09 1.07618E-08 2.59776E-08 5.43593E-08
+      + 26    2.31013E-09 6.42039E-09 2.90599E-09 7.60017E-09 6.78773E-09 8.49882E-09 8.65377E-09 2.15236E-08 2.59775E-08 3.26156E-08
+      + 27    2.33895E-09 6.57135E-09 5.81871E-09 3.80073E-09 6.78801E-09 8.49879E-09 1.73076E-08 2.15236E-08 1.55865E-08 2.17438E-08
+      + 28    2.37090E-09 1.36706E-08 2.91332E-09 3.80125E-09 6.78834E-09 1.69976E-08 1.73076E-08 1.29142E-08 1.03910E-08 1.08719E-08
+      + 29    4.85358E-09 7.14744E-09 2.91652E-09 3.80188E-09 1.35780E-08 1.69976E-08 1.03846E-08 8.60950E-09 5.19552E-09 1.08719E-08
+      + 30    2.49288E-09 7.39793E-09 2.92024E-09 7.60612E-09 1.35804E-08 1.01985E-08 6.92310E-09 4.30475E-09 5.19553E-09 5.10977E-09
+      + 31    2.54591E-09 7.69152E-09 5.85488E-09 7.61081E-09 8.15022E-09 6.79902E-09 3.46157E-09 4.30477E-09 2.44189E-09 1.66340E-08
+      + 32    2.60806E-09 1.65134E-08 5.88321E-09 4.57010E-09 5.43494E-09 3.39950E-09 3.46158E-09 2.02323E-09 7.94921E-09 2.71796E-09
+      + 33    5.45544E-09 1.87416E-08 3.55281E-09 3.04943E-09 2.71816E-09 3.39950E-09 1.62695E-09 6.58638E-09 1.29889E-09 4.89233E-09
+      + 34    5.92718E-09 1.30449E-08 2.38514E-09 1.52600E-09 2.71890E-09 1.59777E-09 5.29636E-09 1.07620E-09 2.33802E-09 3.25069E-09
+      + 35    3.92956E-09 1.00017E-08 1.20050E-09 1.52732E-09 1.27821E-09 5.20127E-09 8.65425E-10 1.93720E-09 1.55353E-09
+      + 36    2.90120E-09 5.62458E-09 1.20860E-09 7.18477E-10 4.16394E-09 8.49879E-10 1.55773E-09 1.28714E-09
+      + 37    1.58265E-09 6.26148E-09 5.71983E-10 2.34442E-09 6.81204E-10 1.52978E-09 1.03501E-09
+      + 38    1.71748E-09 3.25283E-09 1.89506E-09 3.84567E-10 1.22788E-09 9.85861E-10
+      + 39    8.58506E-10 1.31884E-08 3.19170E-10 6.95416E-10 7.94628E-10
+      + 40    3.39164E-09 2.90353E-09 5.94107E-10 4.48145E-10
+      + 41    6.98978E-10 6.76740E-09 3.41104E-10
+      + 42    1.56355E-09 1.02870E-08
+      + 43    2.05302E-09
+
+
+.. _8-1-4-11:
+
+Probabilities and angles
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Printing the probabilities and angles is optional. They are printed if
+the number of scattering angles is greater than zero and **XAP**\ =YES
+is specified in the parameter data. Examples of the probabilities are
+shown in :numref:`list8-1-26`. Examples of the angles are shown in :numref:`list8-1-27`. If the group-to-group
+transfer for a mixture is isotropic, the first angle for that transfer
+will be set to −2.0 as a flag to the code.
+
+.. code-block:: scale
+  :name: list8-1-26
+  :caption: Example of macroscopic probabilities.
+
+       primary-to-primary probability   1  array for material     1
+
+         from   grp   1     grp   2     grp   3     grp   4     grp   5     grp   6     grp   7     grp   8     grp   9     grp  10
+    to grp
+      +  0    8.52241E-01 8.30759E-01 8.08166E-01 8.14207E-01 8.01140E-01 9.25173E-01 8.36425E-01 7.76545E-01 7.82953E-01 7.94158E-01
+      +  1    6.61685E-01 6.42141E-01 7.33639E-01 5.61329E-01 6.65762E-01 7.51642E-01 6.80411E-01 7.32953E-01 7.23039E-01 8.73549E-01
+      +  2    9.74934E-01 9.85130E-01 9.93821E-01 8.07233E-01 6.98629E-01 9.76556E-01 9.87838E-01 9.70733E-01 8.73979E-01 6.52692E-01
+      +  3    9.30280E-01 9.91115E-01 9.93502E-01 9.89998E-01 9.94645E-01 9.91922E-01 9.76019E-01 9.32118E-01 8.43266E-01 9.13831E-01
+      +  4    8.71709E-01 9.89244E-01 9.89845E-01 9.88632E-01 9.90806E-01 9.81214E-01 9.62138E-01 9.63139E-01 9.93653E-01 6.19199E-01
+      +  5    8.30505E-01 9.83908E-01 9.83380E-01 9.83574E-01 9.80597E-01 9.67755E-01 9.73597E-01 9.94935E-01 9.00071E-01 6.67346E-01
+      +  6    7.78710E-01 9.47570E-01 9.70721E-01 9.71325E-01 9.67987E-01 9.74418E-01 9.91481E-01 9.54305E-01 9.62199E-01 7.14936E-01
+      +  7    7.10370E-01 8.48230E-01 9.48712E-01 9.55969E-01 9.72320E-01 9.89297E-01 9.67976E-01 9.72428E-01 9.67623E-01 9.36007E-01
+      +  8    7.07306E-01 7.76263E-01 9.26753E-01 9.55943E-01 9.85543E-01 9.68681E-01 9.76689E-01 9.94252E-01 9.92148E-01 9.95041E-01
+      +  9    7.97797E-01 7.68471E-01 9.07553E-01 9.68550E-01 9.71040E-01 9.72539E-01 9.94891E-01 9.99897E-01 9.99347E-01 9.99222E-01
+      + 10    8.44042E-01 8.70798E-01 7.24619E-01 9.63417E-01 9.93164E-01 9.84549E-01 9.99883E-01 9.99983E-01 9.99928E-01 9.99012E-01
+      + 11    8.83152E-01 9.22473E-01 6.56381E-01 9.93940E-01 9.99738E-01 9.98382E-01 9.99986E-01 9.99997E-01 9.99937E-01 9.99284E-01
+      + 12    9.39710E-01 9.45242E-01 6.35618E-01 9.99647E-01 9.99927E-01 9.99664E-01 9.99995E-01 9.99986E-01 9.99963E-01 9.99639E-01
+      + 13    9.67906E-01 9.55922E-01 8.68720E-01 9.99806E-01 9.99912E-01 9.99749E-01 9.99991E-01 9.99994E-01 9.99971E-01 9.98665E-01
+      + 14    9.85419E-01 9.35977E-01 9.93876E-01 9.99725E-01 9.99885E-01 9.99721E-01 9.99990E-01 9.99991E-01 9.99984E-01 9.91830E-01
+      + 15    9.79772E-01 8.91080E-01 9.96993E-01 9.99627E-01 9.99873E-01 9.99546E-01 9.99985E-01 9.99993E-01 9.99979E-01 9.98487E-01
+      + 16    9.62903E-01 8.33435E-01 9.96696E-01 9.99582E-01 9.99852E-01 9.99955E-01 9.99978E-01 9.99976E-01 9.99983E-01 9.99710E-01
+      + 17    9.38643E-01 7.85460E-01 9.96433E-01 9.99531E-01 9.99827E-01 5.45580E-01 9.99972E-01 9.99983E-01 9.99992E-01 6.83280E-01
+      + 18    9.16100E-01 7.68086E-01 9.96072E-01 9.99448E-01 9.99780E-01 5.00000E-01 9.99977E-01 9.99990E-01 9.99989E-01 6.17036E-01
+      + 19    9.06506E-01 7.46502E-01 9.95475E-01 9.99295E-01 9.99717E-01 5.00000E-01 9.99981E-01 9.99980E-01 9.99988E-01 9.99671E-01
+      + 20    8.95330E-01 7.19388E-01 9.94459E-01 9.99068E-01 9.99623E-01 5.00000E-01 9.99990E-01 9.99990E-01 9.99987E-01 9.99866E-01
+      + 21    8.79642E-01 6.81376E-01 9.92628E-01 9.98835E-01 9.99544E-01 5.00000E-01 9.99990E-01 9.99990E-01 9.99992E-01 9.99804E-01
+      + 22    8.53271E-01 6.26868E-01 9.90637E-01 9.98531E-01 9.99416E-01 5.00000E-01 9.99989E-01 9.99976E-01 9.99990E-01 9.99955E-01
+      + 23    8.09293E-01 5.86472E-01 9.88329E-01 9.98349E-01 9.99397E-01 5.00000E-01 9.99989E-01 9.99979E-01 9.99995E-01 9.99811E-01
+      + 24    7.80584E-01 5.47732E-01 9.86505E-01 9.98290E-01 9.99373E-01 5.00000E-01 9.99988E-01 9.99973E-01 9.99989E-01 9.99808E-01
+      + 25    7.44201E-01 5.27594E-01 9.85597E-01 9.98231E-01 9.99428E-01 5.00000E-01 9.99987E-01 9.99979E-01 9.99988E-01 9.99933E-01
+      + 26    7.14143E-01 5.22470E-01 9.85561E-01 9.98126E-01 9.99387E-01 5.00000E-01 9.99987E-01 9.99983E-01 9.99991E-01 5.00000E-01
+      + 27    7.08167E-01 5.16983E-01 9.84702E-01 9.98000E-01 9.99353E-01 5.00000E-01 9.99985E-01 9.99982E-01 9.99991E-01 5.00000E-01
+      + 28    7.01707E-01 5.08105E-01 9.83687E-01 9.97898E-01 9.99320E-01 5.00000E-01 9.99982E-01 9.99973E-01 9.99988E-01 5.00000E-01
+      + 29    6.93003E-01 5.01514E-01 9.83158E-01 9.97769E-01 9.99250E-01 5.00000E-01 9.99956E-01 9.99972E-01 9.99992E-01 9.99881E-01
+      + 30    6.83089E-01 5.08552E-01 9.82228E-01 9.97533E-01 9.99109E-01 5.00000E-01 9.99973E-01 9.99980E-01 9.99990E-01 5.00000E-01
+      + 31    6.76098E-01 5.16147E-01 9.80437E-01 9.97058E-01 9.98751E-01 5.00000E-01 9.99972E-01 9.99974E-01 9.99987E-01 9.99916E-01
+      + 32    6.69503E-01 5.29078E-01 9.76923E-01 9.96482E-01 9.98494E-01 5.00000E-01 9.99968E-01 9.99891E-01 9.99976E-01 5.00000E-01
+      + 33    6.51525E-01 5.49423E-01 9.71776E-01 9.95830E-01 9.98551E-01 5.00000E-01 5.00000E-01 9.99968E-01 9.99977E-01 5.00000E-01
+      + 34    6.20059E-01 5.69269E-01 9.66677E-01 9.95214E-01 9.98337E-01 5.00000E-01 9.99948E-01 9.99909E-01 9.99969E-01 5.00000E-01
+      + 35    5.69136E-01 5.84414E-01 9.61871E-01 9.94572E-01 9.97814E-01 5.00000E-01 5.00000E-01 9.99708E-01 9.99896E-01
+      + 36    5.38616E-01 5.94841E-01 9.57772E-01 9.93890E-01 9.97618E-01 5.00000E-01 5.00000E-01 5.03965E-01
+      + 37    5.21453E-01 6.02622E-01 9.52084E-01 9.92144E-01 9.96145E-01 5.00000E-01 5.00000E-01
+      + 38    5.13506E-01 6.21863E-01 9.40663E-01 9.89300E-01 9.93285E-01 5.00000E-01
+      + 39    5.24697E-01 6.29896E-01 9.18747E-01 9.84638E-01 5.66433E-01
+      + 40    5.42798E-01 6.42670E-01 8.86418E-01 5.17681E-01
+      + 41    6.74478E-01 7.36938E-01 6.26224E-01
+      + 42    7.70649E-01 7.43777E-01
+      + 43    8.24775E-01
+
+.. code-block:: scale
+  :name: list8-1-27
+  :caption: Example of macroscopic angles.
+
+     primary-to-primary angle   1  array for material     1
+       from   grp   1     grp   2     grp   3     grp   4     grp   5     grp   6     grp   7     grp   8     grp   9     grp  10
+  to grp
+    +  0    9.00465E-01 9.09011E-01 8.87870E-01 8.50610E-01 8.88802E-01 9.22530E-01 8.88012E-01 8.53760E-01 8.32766E-01 8.18781E-01
+    +  1    8.15491E-01 8.31145E-01 8.09726E-01 8.15582E-01 8.34845E-01 8.59487E-01 8.13794E-01 8.12299E-01 7.49622E-01 6.66308E-01
+    +  2    7.81564E-01 7.48812E-01 7.15334E-01 8.21374E-01 8.37084E-01 8.18519E-01 7.48644E-01 6.49131E-01 5.05429E-01 3.76234E-01
+    +  3    6.56417E-01 6.24530E-01 6.71306E-01 7.69588E-01 7.76540E-01 6.92276E-01 5.67989E-01 4.12011E-01 2.55082E-01 1.98454E-01
+    +  4    5.81240E-01 5.86366E-01 6.26593E-01 6.77567E-01 6.54195E-01 5.23696E-01 3.56988E-01 2.03994E-01 1.39055E-01 1.54019E-01
+    +  5    5.59772E-01 5.48450E-01 5.51594E-01 5.70642E-01 4.94862E-01 3.29606E-01 1.78840E-01 1.16146E-01 1.00961E-01 6.37247E-02
+    +  6    5.53457E-01 5.15595E-01 4.67710E-01 4.33467E-01 3.12185E-01 1.66096E-01 1.02879E-01 8.22667E-02 4.31629E-02 2.68173E-02
+    +  7    4.20227E-01 4.59018E-01 3.62757E-01 2.78308E-01 1.58149E-01 9.58220E-02 7.21238E-02 3.42438E-02 1.83665E-02 1.10669E-02
+    +  8    4.01896E-01 3.72376E-01 2.43251E-01 1.44409E-01 9.15377E-02 6.70516E-02 3.01754E-02 1.43023E-02 7.92022E-03 5.91931E-03
+    +  9    3.07036E-01 2.76673E-01 1.36507E-01 8.40096E-02 6.37001E-02 2.81830E-02 1.25768E-02 6.33247E-03 4.27142E-03 3.98971E-03
+    + 10    2.26758E-01 1.29439E-01 1.62571E-01 5.78993E-02 2.59535E-02 1.18903E-02 5.55927E-03 3.51354E-03 2.87702E-03 3.52760E-03
+    + 11    1.25798E-01 7.36103E-02 1.66509E-01 2.28921E-02 1.07918E-02 5.20285E-03 3.08066E-03 2.38554E-03 2.53851E-03 3.07886E-03
+    + 12    6.79954E-02 4.54770E-02 1.02923E-01 9.41933E-03 4.84593E-03 2.87204E-03 2.09195E-03 2.10812E-03 2.21525E-03 2.60393E-03
+    + 13    4.22236E-02 1.46543E-02 2.89246E-02 4.21426E-03 2.68699E-03 1.95430E-03 1.84690E-03 1.83931E-03 1.87798E-03 2.06451E-03
+    + 14    1.48277E-02 2.82584E-03 5.26220E-03 2.32648E-03 1.82204E-03 1.72320E-03 1.61380E-03 1.56052E-03 1.47116E-03 1.58456E-03
+    + 15    4.95805E-03-4.33240E-03 2.24523E-03 1.56880E-03 1.60521E-03 1.52065E-03 1.33584E-03 1.20000E-03 8.64477E-04 1.22163E-03
+    + 16    2.99202E-04-1.04362E-02 1.31586E-03 1.36748E-03 1.40245E-03 1.23837E-03 9.99758E-04 4.56768E-04 6.25122E-04 9.56522E-04
+    + 17   -2.75718E-03-1.54217E-02 4.82290E-04 1.19463E-03 1.09532E-03 1.58551E-03 3.19048E-04 4.54760E-06 4.65414E-04 1.39418E-03
+    + 18   -4.89445E-03-1.86850E-02 6.78851E-04 8.94183E-04-8.15751E-06-1.20321E-03 6.44756E-06 1.71249E-06 3.14618E-06 1.42694E-03
+    + 19   -6.02968E-03-2.11928E-02 1.82252E-04-3.47300E-05 2.23170E-05-6.09572E-04 4.68762E-06 5.24065E-06 3.67773E-06 7.30740E-04
+    + 20   -7.26525E-03-2.45807E-02-3.57794E-04-3.69421E-05-8.68614E-06-4.97714E-04-3.29004E-07 1.14253E-06 3.67977E-06 6.21064E-04
+    + 21   -8.43149E-03-3.32152E-02-2.92332E-04-6.92321E-05-1.99958E-05-9.99889E-03-3.55894E-07 1.12654E-06 1.93658E-06 5.84439E-04
+    + 22   -1.02984E-02-3.36927E-02-5.88660E-04-8.20511E-05 1.18470E-05-4.57178E-04 1.79475E-07 6.42279E-06 2.91014E-06 5.49270E-04
+    + 23    1.39931E-04-5.18445E-02-7.58866E-04-1.07627E-04 1.15684E-05-5.27906E-04-1.98763E-07 5.13726E-06 7.21203E-07 4.66119E-04
+    + 24   -1.58817E-02-6.28656E-02-7.56585E-04-1.09292E-04 1.35072E-05-3.73285E-04-1.23103E-07 7.57414E-06 2.87378E-06 4.20527E-04
+    + 25   -2.09019E-02-7.08378E-02-5.32538E-04-1.14318E-04-3.39641E-05-9.99889E-03 2.48428E-07 5.18703E-06 3.17516E-06 2.87340E-04
+    + 26   -1.31033E-02-7.27620E-02-8.06832E-04-1.22156E-04-3.50792E-05-4.93809E-04-2.35164E-07 2.84392E-06 1.98341E-06-8.73206E-04
+    + 27   -1.34994E-02-7.47818E-02-8.56382E-04-1.30379E-04-3.55679E-05-9.99889E-03-6.45205E-08 2.85842E-06 1.45799E-06-1.17848E-03
+    + 28   -1.39344E-02-7.83377E-02-9.14246E-04-1.36753E-04-3.90201E-05-3.73285E-04 6.03457E-07 7.32700E-06 2.25418E-06-9.62226E-04
+    + 29   -1.79522E-02-8.12275E-01-1.11458E-03-1.39150E-04-4.34358E-05-4.93810E-04 1.29745E-05 6.98105E-06 3.88004E-07 1.13449E-05
+    + 30   -2.23740E-02-8.12591E-01-1.17999E-03-1.49979E-04-4.93662E-05-1.09097E-03 1.24988E-06-5.58177E-08 8.14204E-07-9.47664E-04
+    + 31   -2.50366E-02-8.12960E-01-1.30145E-03-1.65564E-04 2.97852E-05-9.33214E-04 2.06376E-07 1.57520E-06 1.77910E-06 1.16790E-05
+    + 32   -3.25809E-02-8.13642E-01-1.53627E-03-2.11449E-04 4.67549E-05-1.35236E-03 4.09384E-07 3.22236E-05 5.22438E-06-8.25102E-04
+    + 33   -3.55853E-02-8.14927E-01-1.59342E-03-2.61104E-04-9.45346E-05-1.35236E-03-3.79454E-03 7.11786E-09 3.66382E-06-1.07228E-03
+    + 34   -4.10668E-02-8.16533E-01-1.88975E-03-3.13055E-04-9.66110E-05-7.90804E-04 3.59860E-06 2.58170E-05 5.32363E-06-1.60402E-03
+    + 35   -2.39631E-02-8.18166E-01-2.17271E-03-3.53306E-04 5.79954E-05-6.31225E-04-4.97372E-03 7.56035E-05 2.97362E-05
+    + 36   -2.89561E-02-8.19606E-01-2.87421E-03-3.69276E-04-1.51266E-04-6.76177E-04-4.02523E-03 8.32586E-02
+    + 37   -4.71813E-02-8.21016E-01-2.76008E-03-5.03160E-04 9.20744E-05-1.66067E-03-1.00236E-01
+    + 38   -7.12765E-02-8.16878E-01-4.09335E-03-7.06906E-04 1.40513E-03-2.90622E-03
+    + 39   -7.96740E-01-8.19426E-01-4.83713E-03-2.28413E-04 1.40667E-01
+    + 40   -8.08098E-01-8.22612E-01 2.81930E-03 3.46898E-01
+    + 41   -7.70496E-01-7.92807E-01-6.72080E-01
+    + 42   -7.48616E-01-8.01185E-01
+    + 43   -7.48875E-01
+
+
+.. _8-1-4-12:
+
+Array summary
+~~~~~~~~~~~~~
+
+The arrays that are used in the problem are summarized in the table
+shown in :numref:`list8-1-28`. This table is printed whenever more than one array is used in
+the problem.
+
+.. code-block:: scale
+  :name: list8-1-28
+  :caption: Example of array summary.
+
+  ************************************************************
+  **                                                        **
+  **   array      units in   units in   units in   nesting  **
+  **   number      x dir.    y dir.    z dir.    level   **
+  **                                                        **
+  **     1            2          2          2          1    **
+  **                                                        **
+  **     2            2          2          1          1    **
+  **                                                        **
+  **     3            1          2          3          1    **
+  **                                                        **
+  **     4            3          1          3          1    **
+  **                                                        **
+  ************************************************************
+
+
+  ........ finished loading the data    ........
+
+The ARRAY NUMBER is the number by which the array is designated in the
+input data. The number of units in the X, Y, and Z directions is listed
+for each array. The NESTING LEVEL indicates the level of nesting for
+each array. The global, overall, or universe array is flagged by the
+word GLOBAL. The global array should always appear at the first nesting
+level. Arrays that have been placed in the global reflector by using
+holes should also appear at the first nesting level. A nesting level of
+one is the highest or first nesting levels. The larger the number in the
+nesting level column, the deeper the nesting level will be.
+
+.. _8-1-4-13:
+
+Geometry data
+~~~~~~~~~~~~~
+
+The geometry region data used by the problem are always printed and
+cannot be suppressed. They should be carefully examined by the user to
+verify the mixture number, bias ID, and geometry specifications used in
+the problem. If geometry region data are entered but are not referenced
+in the unit orientation array data, they will not be printed here. An
+example would be to enter geometry region data describing Units 1, 2, 3,
+and 4 and to use only Units 1, 3, and 4 in the unit orientation array.
+Then the geometry region data for Unit 2 will not be printed. An example
+of the KENO V.a geometry region printout for a problem is given in
+:numref:`list8-1-29`.
+
+The problem title and a heading are printed at the top of each page.
+REGION is the region number within a unit. Each unit has its regions
+numbered sequentially, beginning with one. MEDIA NUM is the mixture
+number or mixture ID that occupies the volume defined by the region.
+BIAS ID is the bias ID that corresponds to the desired set of weight
+average for biasing the region. The unit number is printed at the top of
+each unit’s geometry region description near the center of the page. The
+data printed for each geometry region include (1) the region number
+relative to the unit (numbered sequentially within the unit), (2) the
+shape of the geometry region, (3) the mixture ID of the material within
+the volume defined by the region, (4) the bias ID to define the average
+weight of a neutron in the region, and (5) the dimensions defining the
+outer boundaries of the geometry region. If additional geometry
+surrounds an array, a heading is printed stating: UNIT \___\_ EXTERNAL
+TO LATTICE \____. The lattice number is the number of the array that is
+surrounded by the specified geometry. The unit number is the unit that
+contains the specified geometry. In the case of an external reflector
+for the global array, the unit number is assigned by the code.
+
+.. code-block:: scale
+  :name: list8-1-29
+  :caption: Example of geometry region data.
+
+                                           sample problem 18   1f27 demonstration of options problem
+
+                    media bias      geometry description for those units utilized in this problem
+   region            num   id
+                                                        -----   unit     1   -----
+
+     1 cylinder         1  1  radius =  9.5200     +z =  8.7804     -z = -8.7804     centerline is at  x =  0.0000      y =  0.0000
+     2 cylinder         0  1  radius =  9.5200     +z =  8.9896     -z = -8.7804     centerline is at  x =  0.0000      y =  0.0000
+     3 cylinder         2  1  radius =  10.160     +z =  9.6296     -z = -9.4204     centerline is at  x =  0.0000      y =  0.0000
+     4 cuboid           4  1      +x =  18.450     -x = -18.450     +y =  18.450     -y = -18.450     +z =  17.895     -z = -17.685
+                                            -----   unit     2  external to lattice  1   -----
+
+     1 array number     1         +x =  73.800     -x =  0.0000     +y =  73.800     -y =  0.0000     +z =  71.160     -z =  0.0000
+                                            -----   unit     3  external to lattice  2   -----
+
+     1 array number     2         +x =  73.800     -x =  0.0000     +y =  73.800     -y =  0.0000     +z =  35.580     -z =  0.0000
+                                            -----   unit     4  external to lattice  3   -----
+
+     1 array number     3         +x =  36.900     -x =  0.0000     +y =  73.800     -y =  0.0000     +z =  106.74     -z =  0.0000
+                                            -----   unit     5  external to lattice  4   -----
+
+     1 array number     4         +x =  110.70     -x =  0.0000     +y =  36.900     -y =  0.0000     +z =  106.74     -z =  0.0000
+                                            *******************   global   *******************
+                                                        -----   unit     6   -----
+
+     1 cuboid           4  1      +x =  55.350     -x = -55.350     +y =  55.350     -y = -55.350     +z =  53.370     -z = -53.370
+       hole number      1       at x = -55.350      y = -18.450      z = -17.790     is unit number      2
+
+       hole number      2       at x = -55.350      y = -18.450      z = -53.370     is unit number      3
+
+       hole number      3       at x =  18.450      y = -18.450      z = -53.370     is unit number      4
+
+       hole number      4       at x = -55.350      y = -55.350      z = -53.370     is unit number      5
+
+     2 cuboid           3  2      +x =  58.350     -x = -58.350     +y =  58.350     -y = -58.350     +z =  56.370     -z = -56.370
+     3 cuboid           3  3      +x =  61.350     -x = -61.350     +y =  61.350     -y = -61.350     +z =  59.370     -z = -59.370
+     4 cuboid           3  4      +x =  64.350     -x = -64.350     +y =  64.350     -y = -64.350     +z =  62.370     -z = -62.370
+     5 cuboid           3  5      +x =  67.350     -x = -67.350     +y =  67.350     -y = -67.350     +z =  65.370     -z = -65.370
+     6 cuboid           3  6      +x =  70.350     -x = -70.350     +y =  70.350     -y = -70.350     +z =  68.370     -z = -68.370
+     7 cuboid           3  7      +x =  70.590     -x = -70.590     +y =  70.590     -y = -70.590     +z =  68.610     -z = -68.610
+
+.. _8-1-4-14:
+
+Unit orientation description
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each unit orientation description defines the location of units in the
+3-D lattice that represent the specified array. The array described is
+identified in the heading UNIT ORIENTATION DESCRIPTION FOR ARRAY \____.
+The arrays used in the problem are stacked together to represent the
+physical problem being analyzed. The unit orientation description is not
+printed if only Unit 1 is described in the problem. The user should
+carefully examine the unit orientation descriptions to ensure proper
+placement of the units in each lattice. A sample unit orientation
+description is shown in :numref:`list8-1-30` .
+
+.. code-block:: scale
+  :name: list8-1-30
+  :caption: Example of unit orientation description.
+
+
+                            sample problem 18   1f27 demonstration of options problem
+
+                     -------  unit orientation description for array   1         -------
+
+   z layer   1, x column   1 to   2 left to right   y row   1 to   2  bottom to top
+
+    1 1
+
+    1 1
+
+   z layer   2, x column   1 to   2 left to right   y row   1 to   2  bottom to top
+
+    1 1
+
+    1 1
+
+                     -------  unit orientation description for array   2         -------
+
+   z layer   1, x column   1 to   2 left to right   y row   1 to   2  bottom to top
+
+    1 1
+
+    1 1
+
+                     -------  unit orientation description for array   3         -------
+
+   z layer   1, x column   1 to   1 left to right   y row   1 to   2  bottom to top
+
+    1
+
+    1
+
+
+   z layer   2, x column   1 to   1 left to right   y row   1 to   2  bottom to top
+
+    1
+
+    1
+
+
+   z layer   3, x column   1 to   1 left to right   y row   1 to   2  bottom to top
+
+    1
+
+    1
+
+
+                            sample problem 18   1f27 demonstration of options problem
+
+                     -------  unit orientation description for array   4         -------
+
+   z layer   1, x column   1 to   3 left to right   y row   1 to   1  bottom to top
+
+    1 1 1
+
+
+   z layer   2, x column   1 to   3 left to right   y row   1 to   1  bottom to top
+
+    1 1 1
+
+
+   z layer   3, x column   1 to   3 left to right   y row   1 to   1  bottom to top
+
+    1 1 1
+
+If a very large array is used by the problem, its unit orientation
+description may be spread over several pages. When checking the
+printout, the user should pay careful attention to the headings that
+indicate the portion of each lattice being printed. The detailed
+printout of an array may be suppressed using the ARRAY parameter PRT=no.
+
+.. _8-1-4-15:
+
+Volume information
+~~~~~~~~~~~~~~~~~~
+
+The volume information printout differs between KENO V.a and KENO-VI.
+Because it does not allow intersections of bodies, KENO V.a is always
+able to calculate analytically the volume of any region in the geometry.
+KENO-VI, on the other hand, never calculates volumes analytically. In
+fact, KENO-VI never calculates volumes unless it is directed to do so,
+but it can read volumes off the **MEDIA** cards or off a **VOLUME** file
+(:ref:`8-1-2-13`).
+
+.. _8-1-4-15-1:
+
+KENO V.a
+^^^^^^^^
+
+Three tables of volumes are always printed and cannot be suppressed. The
+problem title is printed at the top of the page, followed by the heading
+“VOLUMES FOR THOSE UNITS UTILIZED IN THIS PROBLEM.” An example of the
+volume printout is given in .
+
+The first table is arranged by ascending unit number. It includes
+(1) the unit number, (2) the region number within the unit, (3) the
+overall geometry region number, (4) the net volume of each individual
+region, and (5) the cumulative volume through each region in the unit.
+The cumulative volume of the last region in a unit is the total volume
+of the unit. The unit number is printed under the heading UNIT. Data
+listed under the heading REGION refer to the number of the geometry
+region within the unit. The geometry regions within a unit are numbered
+sequentially starting with 1. Data entered under the heading GEOMETRY
+REGION refer to the entry number of the individual geometry region.
+These are numbered sequentially, starting with 1, through the TOTAL
+INPUT GEOMETRY REGIONS defined in :numref:`list8-1-31`. The net volume of each individual
+region is calculated by subtracting the volume of the interior region
+from the volume of the region and is listed under the heading VOLUME.
+The data listed under the heading CUMULATIVE VOLUME are calculated from
+the dimensions of the region. A simple example demonstrating how volumes
+are calculated can be given by assuming a unit that is composed of three
+concentric cubes. Region 1 is a cube 3 cm on a side, region 2 is a cube
+4 cm on a side, and region 3 is a cube 5 cm on a side. The cumulative
+volume of region 1 is 27 cm\ :sup:`3` (3:sup:`3`); the cumulative volume
+of region 2 is 64 cm\ :sup:`3` (4:sup:`3`); the cumulative volume of
+region 3 is 125 cm\ :sup:`3` (5:sup:`3`). The volume of region 1 is
+27 cm\ :sup:`3` (3:sup:`3`), the volume of region 2 is 37 cm\ :sup:`3`
+(64 - 27), and the volume of region 3 is 61 cm\ :sup:`3` (125 - 64).
+
+.. code-block:: scale
+  :name: list8-1-31
+  :caption: Sample volume information.
+
+
+                       sample problem 18   1f27 demonstration of options problem
+                      volumes for those units utilized in  this problem
+
+                        geometry                                  cumulative
+     unit    region      region            volume                   volume
+
+       1         1         1         4.99998E+03 cm**3         4.99998E+03 cm**3
+                 2         2         5.95645E+01 cm**3         5.05954E+03 cm**3
+                 3         3         1.11823E+03 cm**3         6.17778E+03 cm**3
+                 4         4         4.22683E+04 cm**3         4.84461E+04 cm**3
+
+     surrounding geometry volumes -  geometry region      5 is an array placement boundary region
+
+       2         1         5         3.87569E+05 cm**3         3.87569E+05 cm**3
+
+     surrounding geometry volumes -  geometry region      6 is an array placement boundary region
+
+       3         1         6         1.93784E+05 cm**3         1.93784E+05 cm**3
+
+     surrounding geometry volumes -  geometry region      7 is an array placement boundary region
+
+       4         1         7         2.90677E+05 cm**3         2.90677E+05 cm**3
+
+     surrounding geometry volumes -  geometry region      8 is an array placement boundary region
+
+       5         1         8         4.36015E+05 cm**3         4.36015E+05 cm**3
+
+       6         1         9         7.12500E+00 cm**3         1.30805E+06 cm**3
+                 2        10         2.27350E+05 cm**3         1.53540E+06 cm**3
+                 3        11         2.52272E+05 cm**3         1.78767E+06 cm**3
+                 4        12         2.78490E+05 cm**3         2.06616E+06 cm**3
+                 5        13         3.06005E+05 cm**3         2.37217E+06 cm**3
+                 6        14         3.34814E+05 cm**3         2.70698E+06 cm**3
+                 7        15         2.80682E+04 cm**3         2.73505E+06 cm**3
+
+
+                      unit     uses    region     mixture        total volume
+
+                        1        27       1          1         1.34999E+05 cm**3
+                                          2          0         1.60824E+03 cm**3
+                                          3          2         3.01923E+04 cm**3
+                                          4          4         1.14124E+06 cm**3
+
+                        2         1       1                    3.87569E+05 cm**3
+
+                        3         1       1                    1.93784E+05 cm**3
+
+                        4         1       1                    2.90677E+05 cm**3
+
+                        5         1       1                    4.36015E+05 cm**3
+
+                        6         1       1          4         7.12500E+00 cm**3
+                                          2          3         2.27350E+05 cm**3
+                                          3          3         2.52272E+05 cm**3
+                                          4          3         2.78490E+05 cm**3
+                                          5          3         3.06005E+05 cm**3
+                                          6          3         3.34814E+05 cm**3
+                                          7          3         2.80682E+04 cm**3
+
+
+                                             total mixture volumes
+                               mixture        total volume              mass(g)
+                                   0         1.60824E+03 cm**3
+                                   1         1.34999E+05 cm**3        2.09924E+05
+                                   2         3.01923E+04 cm**3        3.56467E+04
+                                   3         1.42700E+06 cm**3        1.32815E+06
+                                   4         1.14125E+06 cm**3        1.13920E-03
+
+
+The second table contains (1) the unit number, (2) the number of times
+the unit is used in the problem, (3) the region number within the unit,
+(4) the mixture number present in the region, and (5) the total volume
+associated with the region in the whole problem. The unit number is
+printed under the heading UNIT, data printed under the heading USES
+indicates the number of times the unit is used in the problem. Data
+printed under the heading MIXTURE indicates the mixture number used in
+the region. The total volume of each region is printed under the heading
+TOTAL VOLUME and is determined by multiplying the VOLUME of the region
+listed in the first table by the number of times the unit containing
+that region is used in the problem.
+
+The third table is printed following the heading “TOTAL MIXTURE
+VOLUMES.” In this table, the mixtures used in the problem are listed
+with their associated total volume and total mass. The mixture numbers
+are printed under the heading MIXTURE, the total volume of each mixture
+is printed under the heading TOTAL VOLUME, and the mass of each mixture
+is printed under the heading MASS(G). All masses will be printed as zero
+if the working format cross section library does not contain the data
+required to calculate the densities of the mixtures used in the problem.
+
+.. _8-1-4-15-2:
+
+KENO-VI
+^^^^^^^
+
+Two tables of volumes are printed by subroutine VOLUME and cannot be
+suppressed. If a volume calculation type of NONE is specified and no
+volumes are read in for the regions, then the volumes will be set to
+−1.0, which will result in negative fluxes and fission densities. For
+the calculated volumes, an error estimate is printed after the volumes.
+The first table will list the number of times each unit is used in the
+problem and the total volume of each region throughout the entire
+problem description. The second table will list the total volume and
+mass of each mixture used in the problem. An example of the volume
+printout is given in :numref:`list8-1-32`.
+
+.. code-block:: scale
+  :name: list8-1-32
+  :caption: Sample volume information.
+
+                           godiva sensitivity test
+
+                volumes for those units utilized in this problem
+
+        volumes not specified in the input were set to -1.0
+
+                           geometry
+           unit     uses    region     mixture        total region volume (cm**3)
+
+             1         1       1           1          4.66148E+02
+                               2           1          4.66046E+02
+                               3           1          4.67932E+02
+                               4           1          4.67839E+02
+                               5           1          4.67042E+02
+                               6           1          4.62506E+02
+
+                           godiva sensitivity test
+                          cumulative mesh volumes for those units utilized in this problem
+     Per cent delta is the difference between the cumulative mesh volume and the cumulative analytic volume
+
+
+                         Number of non zero mesh volumes 7879
+
+
+                            geometry      cumulative                 per cent           per cent
+         unit    region      region         volume                  deviation            delta
+
+           1         1         1         4.65467E+02 cm**3         4.56010E-01         1.46187E-01
+                     2         2         4.66084E+02 cm**3         9.66306E-01         8.10813E-03
+                     3         3         4.67262E+02 cm**3         1.79492E+00         1.43145E-01
+                     4         4         4.68011E+02 cm**3         1.50251E+00         3.68626E-02
+                     5         5         4.65934E+02 cm**3         2.06780E+00         2.37295E-01
+                     6         6         4.62507E+02 cm**3         1.99254E+00         1.13296E-04
+
+
+
+               mixture       total mixture volume (cm**3)            total mixture mass (gm)
+
+                   1         2.79751E+03                             5.24309E+04
+                            -------------                           -------------
+                             2.79751E+03                             5.24309E+04
+
+
+The unit number is printed under the heading **UNIT**. The REGION refers
+to the number of the geometry region within the unit determined by the
+order of the CONTENT records in the unit. USES indicates the number of
+times the unit is used in the problem. MIXTURE is the mixture number
+used in the region. A blank indicates an array or unit, placed in a
+hole, in that region. TOTAL VOLUME is the total volume of that region
+followed by +/− and an error estimate if the volume for the region was
+calculated.
+
+If mesh volumes are used, there will be a table listing the cumulative
+volumes generated by summing the mesh volumes, the deviations, and the
+deltas between the summed volumes and the overall volumes for the
+regions. If the overall volume has been calculated, then the delta
+should be zero, but if it was entered, then the delta will show the
+difference.
+
+In the last table, the mixtures used in the problem are listed along
+with their total volumes and masses. Along with the total volumes and
+masses, an error estimate is printed for any mixtures having regions
+that were calculated using either the **RANDOM** or **TRACE** volume
+estimates.
+
+.. _8-1-4-16:
+
+Mesh volumes
+~~~~~~~~~~~~
+
+With the mesh flux accumulator, fluxes are tabulated for each region of
+each unit in a cuboidal mesh. KENO computes the volume of each region in
+each mesh interval so that fluxes per unit volume can be determined. For
+models where the mesh flux accumulator is activated by setting
+**MFX**\ =YES and the mesh size set to a positive value with **MSH**\ =,
+the cumulative volume of all mesh intervals for a given region and the
+number of meshes used in each region are printed as shown in :numref:`list8-1-33`.
+
+.. code-block:: scale
+  :name: list8-1-33
+  :caption: Sample sum of mesh volumes edit.
+
+		godiva sensitivity test
+                                cumulative mesh volumes for those units utilized in this problem
+           Per cent delta is the difference between the cumulative mesh volume and the cumulative analytic volume
+
+
+                               Number of non zero mesh volumes 7879
+
+
+                                  geometry      cumulative                 per cent           per cent
+               unit    region      region         volume                  deviation            delta
+
+                 1         1         1         4.65467E+02 cm**3         4.56010E-01         1.46098E-01
+                           2         2         4.66084E+02 cm**3         9.66306E-01         8.08242E-03
+                           3         3         4.67262E+02 cm**3         1.79492E+00         1.43011E-01
+                           4         4         4.68011E+02 cm**3         1.50251E+00         3.68888E-02
+                           5         5         4.65933E+02 cm**3         2.06781E+00         2.37455E-01
+                           6         6         4.62506E+02 cm**3         1.99254E+00         1.36096E-04
+
+An optional edit of volumes for each mesh interval for each region can
+be activated by entering **PMV**\ =YES in the parameter input. This edit
+can be very large, especially if a small mesh size is used with a large
+model. A sample of the volume by mesh for each region is shown in :numref:`list8-1-34`.
+
+.. code-block::
+  :name: list8-1-34
+  :caption: Sample of volume by mesh for each region.
+
+  Volume by Mesh for Each Region
+
+
+
+           unit 1 region 1 z-layer 1 z= 0.0000E+00 to  1.0000E+02 cm
+
+                 0           1
+       1  1.6808E+04  1.6808E+04
+       0  1.6808E+04  1.6808E+04
+
+
+           unit 1 region 1 z-layer 0 z=-1.0000E+02 to  0.0000E+00 cm
+
+                 0           1
+       1  1.6942E+04  1.6942E+04
+       0  1.6942E+04  1.6942E+04
+
+
+
+           unit 1 region 2 z-layer 1 z= 0.0000E+00 to  1.0000E+02 cm
+
+                 0           1
+       1  2.6804E+02  2.6804E+02
+       0  2.6804E+02  2.6804E+02
+
+
+
+           unit 1 region 2 z-layer 0 z=-1.0000E+02 to  0.0000E+00 cm
+
+                 0           1
+       1  1.3402E+02  1.3402E+02
+       0  1.3402E+02  1.3402E+02
+
+
+
+           unit 1 region 3 z-layer 1 z= 0.0000E+00 to  1.0000E+02 cm
+
+                 0           1
+       1  3.7740E+03  3.7740E+03
+       0  3.7740E+03  3.7740E+03
+
+.. _8-1-4-17:
+
+Biasing information
+~~~~~~~~~~~~~~~~~~~
+
+This table specifies the weighting or biasing data to be used in the
+problem. An example of biasing information is given in :numref:`list8-1-35`.
+
+.. code-block:: scale
+  :name: list8-1-35
+  :caption: Biasing information.
+
+    ********************************************************************************************************************
+    ***                                                                                                              ***
+    ***                                         biasing information                                                  ***
+    ***                                                                                                              ***
+    ***     weighting intervals   1 to   6 for paraffin    ,mat id=  400 will be used for bias ids    2 to    7     ***
+    ***                                                                                                              ***
+    ***     a default weight of    0.500 will be used for all other bias ids.                                      ***
+    ***                                                                                                              ***
+    ********************************************************************************************************************
+
+The user is responsible for determining from the input data whether the
+group-dependent weights (wtavg) for the specified material(s) were
+obtained from the weighting library or were entered by the user. The
+group-dependent weights can be printed for verification purposes as
+shown in :ref:`8-1-4-18`.
+
+.. _8-1-4-18:
+
+Group-dependent weights
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Printing the group-dependent weights is optional. They are printed if
+**PWT**\ =YES is entered in the parameter data. An example of the
+printed group-dependent weights is shown in :numref:`list8-1-36`.
+
+.. code-block:: scale
+  :name: list8-1-36
+  :caption: Example of biasing data.
+
+                                         sample problem 18   1f27 demonstration of options problem
+
+                                                      group dependent weights
+
+  energy        bias          bias          bias          bias          bias          bias          bias
+  group          id   1        id   2        id   3        id   4        id   5        id   6        id   7
+  -----      ----------    ----------    ----------    ----------    ----------    ----------    ----------
+    1        5.00000E-01   6.45620E-01   9.18370E-01   1.27953E+00   1.79963E+00   2.54822E+00   3.62191E+00
+    2        5.00000E-01   6.30150E-01   8.90506E-01   1.27093E+00   1.86077E+00   2.76980E+00   4.16192E+00
+    3        5.00000E-01   5.97447E-01   8.27164E-01   1.21142E+00   1.85960E+00   2.93788E+00   4.71945E+00
+    4        5.00000E-01   6.02319E-01   8.72352E-01   1.38278E+00   2.35268E+00   4.18040E+00   7.61880E+00
+    5        5.00000E-01   6.03416E-01   8.99907E-01   1.51145E+00   2.77730E+00   5.39596E+00   1.08420E+01
+    6        5.00000E-01   6.02020E-01   9.03990E-01   1.54519E+00   2.90888E+00   5.81680E+00   1.20707E+01
+    7        5.00000E-01   6.03913E-01   9.22489E-01   1.62838E+00   3.19784E+00   6.71280E+00   1.46796E+01
+    8        5.00000E-01   6.04658E-01   9.51760E-01   1.78398E+00   3.79208E+00   8.72478E+00   2.10917E+01
+    9        5.00000E-01   6.06036E-01   9.98160E-01   2.03660E+00   4.82428E+00   1.25518E+01   3.46445E+01
+   10        5.00000E-01   6.07775E-01   1.08248E+00   2.52715E+00   7.05251E+00   2.19482E+01   7.30304E+01
+   11        5.00000E-01   6.25788E-01   1.27469E+00   3.60867E+00   1.24307E+01   4.75318E+01   1.91658E+02
+   12        5.00000E-01   6.48768E-01   1.49488E+00   4.88448E+00   1.89880E+01   7.88949E+01   3.34568E+02
+   13        5.00000E-01   6.60420E-01   1.61202E+00   5.55442E+00   2.22849E+01   9.38038E+01   3.99407E+02
+   14        5.00000E-01   6.82387E-01   1.72650E+00   6.10317E+00   2.47702E+01   1.04624E+02   4.45818E+02
+   15        5.00000E-01   7.13029E-01   1.92603E+00   7.15390E+00   2.96382E+01   1.25893E+02   5.37071E+02
+   16        5.00000E-01   7.23974E-01   2.07297E+00   8.03687E+00   3.37577E+01   1.43807E+02   6.13781E+02
+   17        5.00000E-01   7.33870E-01   2.23252E+00   8.97808E+00   3.80495E+01   1.62325E+02   6.92943E+02
+   18        5.00000E-01   7.00287E-01   2.23813E+00   9.20905E+00   3.91797E+01   1.67220E+02   7.13870E+02
+   19        5.00000E-01   7.97973E-01   2.69722E+00   1.12404E+01   4.79024E+01   2.04480E+02   8.72943E+02
+   20        5.00000E-01   5.87908E-01   1.94657E+00   8.13714E+00   3.46882E+01   1.48076E+02   6.32151E+02
+   21        5.00000E-01   6.07528E-01   2.06750E+00   8.67361E+00   3.69873E+01   1.57894E+02   6.74064E+02
+   22        5.00000E-01   7.48539E-01   2.67353E+00   1.12536E+01   4.80027E+01   2.04921E+02   8.74827E+02
+   23        5.00000E-01   7.41377E-01   2.71578E+00   1.14781E+01   4.89758E+01   2.09079E+02   8.92578E+02
+   24        5.00000E-01   8.36856E-01   3.21015E+00   1.36168E+01   5.81160E+01   2.48101E+02   1.05917E+03
+   25        5.00000E-01   9.09954E-01   3.61098E+00   1.53591E+01   6.55621E+01   2.79891E+02   1.19488E+03
+   26        5.00000E-01   9.21096E-01   3.70575E+00   1.57871E+01   6.73937E+01   2.87711E+02   1.22827E+03
+   27        5.00000E-01   9.19665E-01   3.71912E+00   1.58550E+01   6.76852E+01   2.88955E+02   1.23358E+03
+   28        5.00000E-01   9.16251E-01   3.70863E+00   1.58135E+01   6.75082E+01   2.88199E+02   1.23035E+03
+   29        5.00000E-01   9.11580E-01   3.69380E+00   1.57530E+01   6.72506E+01   2.87100E+02   1.22566E+03
+   30        5.00000E-01   9.04871E-01   3.67861E+00   1.56921E+01   6.69908E+01   2.85991E+02   1.22093E+03
+   31        5.00000E-01   9.05042E-01   3.70027E+00   1.57880E+01   6.74006E+01   2.87740E+02   1.22839E+03
+   32        5.00000E-01   9.12037E-01   3.74764E+00   1.59923E+01   6.82725E+01   2.91463E+02   1.24429E+03
+   33        5.00000E-01   9.22067E-01   3.80714E+00   1.62479E+01   6.93639E+01   2.96122E+02   1.26418E+03
+   34        5.00000E-01   9.38872E-01   3.90409E+00   1.66638E+01   7.11398E+01   3.03703E+02   1.29654E+03
+   35        5.00000E-01   9.64627E-01   4.06345E+00   1.73469E+01   7.40559E+01   3.16153E+02   1.34969E+03
+   36        5.00000E-01   9.88527E-01   4.21274E+00   1.79855E+01   7.67823E+01   3.27792E+02   1.39938E+03
+   37        5.00000E-01   1.00660E+00   4.32095E+00   1.84479E+01   7.87566E+01   3.36221E+02   1.43536E+03
+   38        5.00000E-01   1.01866E+00   4.38989E+00   1.87423E+01   8.00137E+01   3.41588E+02   1.45828E+03
+   39        5.00000E-01   1.02765E+00   4.43902E+00   1.89521E+01   8.09093E+01   3.45412E+02   1.47460E+03
+   40        5.00000E-01   1.03479E+00   4.47694E+00   1.91140E+01   8.16004E+01   3.48363E+02   1.48720E+03
+   41        5.00000E-01   1.04635E+00   4.53564E+00   1.93645E+01   8.26699E+01   3.52929E+02   1.50670E+03
+   42        5.00000E-01   1.06180E+00   4.61159E+00   1.96886E+01   8.40529E+01   3.58831E+02   1.53189E+03
+   43        5.00000E-01   1.07202E+00   4.65916E+00   1.98916E+01   8.49188E+01   3.62524E+02   1.54764E+03
+   44        5.00000E-01   1.08997E+00   4.73715E+00   2.02243E+01   8.63372E+01   3.68566E+02   1.57327E+03
+
+The title is printed at the top of the table. The average weight (wtavg)
+is printed for each energy group and each BIAS ID. The BIAS ID number
+printed at the top of the column corresponds to the BIAS ID used in the
+geometry region description or MEDIA record and printed in the biasing
+information.
+
+.. _8-1-4-19:
+
+Plot representation
+~~~~~~~~~~~~~~~~~~~
+
+Plots representing 2-D slices through the geometrical description of the
+problem are optional. They are created if plot data are entered unless
+**PLT**\ =NO is specified either in the plot data or the parameter data.
+Plots can be generated and displayed as (1) character plots with
+alphanumeric characters representing mixture numbers, unit numbers, or
+bias ID numbers or (2) color plots with colors representing mixture
+numbers, unit numbers, or bias ID numbers. Color plots generate a PNG
+file and require an independent program to be displayed.
+
+An example of the output generated using the character plot method is
+given in :numref:`list8-1-37` and :numref:`list8-1-38`. An example of the output generated using the color plot
+method is given in :numref:`list8-1-39` and :numref:`fig8-1-121`.
+
+:numref:`list8-1-37` summarizes the data used to generate the character plot. :numref:`list8-1-38` is an example
+of a character plot of the 2-D slice specified through the geometrical
+description of the problem. In :numref:`list8-1-37`, the plot title is printed at the top of
+the page, followed by a statement that “THE FOLLOWING WILL BE A
+CHARACTER PLOT.” If a plot title was not entered in the plot data, the
+plot title is defaulted to the problem title. The title is followed by a
+heading specifying the type of plot (MIXTURE MAP, BIAS ID MAP, or UNIT
+MAP). This is followed by a table that correlates the symbols to be used
+in the character plot with the mixture numbers, bias ID numbers, or unit
+numbers that were used in the problem. If the problem is a bare array,
+the overall system coordinates are printed. Then the coordinates of the
+upper left corner and lower right corner of the plot are printed. This
+is followed by the direction cosines down and across the plot. The
+remaining plot parameters (including both input data and calculated
+values) are then printed. NU is the number of characters printed in the
+U (down) direction, NV is the number of characters printed in the V
+(across) direction, DELU is the incremental distance, in cm, represented
+by each character in the U (down) direction, DELV is the incremental
+distance, in cm, represented by each character in the V (across)
+direction, and LPI is the vertical to horizontal scaling factor for plot
+proportionality.
+
+.. code-block:: scale
+  :name: list8-1-37
+  :caption: Summary of character plot symbols, coordinates, and data.
+
+     1f27 xy plot at z=0.0
+                      the following will be a character plot
+
+                                         mixture map
+
+   mixture  0 1 2 3 4
+    symbol  . * - 3
+
+         upper  left          lower right
+         coordinates          coordinates
+
+   x     -7.1000e+01           7.1000e+01
+   y      7.1000e+01          -7.1000e+01
+   z      0.0000e+00           0.0000e+00
+
+             u axis      v axis
+             (down)      (across)
+
+   x          .00000      1.00000
+   y        -1.00000       .00000
+   z          .00000       .00000
+
+   nu=   78   nv=  130     delu= 1.8205e+00     delv= 1.0923e+00     lpi=   6.000
+
+:numref:`list8-1-38` shows a character plot of a 2-D slice specified through the
+geometrical description of the problem. These plots aid the user in
+verifying that the problem is described correctly. Any number of plots
+can be made in one problem.
+
+:numref:`list8-1-39` summarizes the data used to generate the color plot.
+:numref:`fig8-1-121` is an example of a color plot of the 2-D slice specified
+through the geometrical description of the problem. This plot does not
+appear in the KENO printout. It is generated from a PNG file that is
+created when a color plot has been specified in the KENO input data and
+requires special processing by the user.
+
+In :numref:`fig8-1-121`, the plot title is printed at the top of the page,
+followed by a statement that “THE FOLLOWING WILL BE A COLOR PLOT.” If a
+plot title was not entered in the plot data, the plot title is defaulted
+to the problem title. The title is followed by a heading specifying the
+type of plot (MIXTURE MAP, BIAD ID MAP, or UNIT MAP). If the problem is
+a bare array, the overall system coordinates are printed. Then the
+coordinates of the upper left corner and lower right corner of the plot
+are printed. This is followed by the direction cosines down and across
+the plot. The remaining plot parameters (including both input data and
+calculated values) are then printed. NU is the number of characters
+printed in the U (down) direction, NV is the number of characters
+printed in the V (across) direction, DELU is the incremental distance,
+in cm, represented by each character in the U (down) direction, DELV is
+the incremental distance, in cm, represented by each character in the V
+(across) direction, and LPI is the vertical to horizontal scaling factor
+for plot proportionality.
+
+.. code-block:: none
+  :name: list8-1-38
+  :caption: Sample character plot representation.
+
+   ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333            -*******--                        -*******-                        --*******-            33333333333333?
+   ?33333333333333          -************-                    *************                    -************-          33333333333333?
+   ?33333333333333         ***************-                 -***************-                 -***************         33333333333333?
+   ?33333333333333        *****************-                *****************                -*****************        33333333333333?
+   ?33333333333333       -*****************-               -*****************-               -*****************-       33333333333333?
+   ?33333333333333        *****************-               -*****************-               -*****************        33333333333333?
+   ?33333333333333        -****************                 -***************-                 ****************-        33333333333333?
+   ?33333333333333         -**************                   -*************-                   **************-         33333333333333?
+   ?33333333333333           -**********-                      ***********                      -**********-           33333333333333?
+   ?33333333333333              ------                           -------                           ------              33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333             -*****--                         --*****--                         --*****-             33333333333333?
+   ?33333333333333          -***********-                     -***********-                     -***********-          33333333333333?
+   ?33333333333333         -**************-                  ***************                  -**************-         33333333333333?
+   ?33333333333333        -****************                 *****************                 ****************-        33333333333333?
+   ?33333333333333        *****************-               -*****************-               -*****************        33333333333333?
+   ?33333333333333        *****************-               -*****************-               -*****************        33333333333333?
+   ?33333333333333        -****************                 *****************                 ****************-        33333333333333?
+   ?33333333333333         -**************-                  ***************                  -**************-         33333333333333?
+   ?33333333333333          -***********-                     -***********-                     -***********-          33333333333333?
+   ?33333333333333             -*****--                         --*****--                         --*****-             33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333              ------                           -------                           ------              33333333333333?
+   ?33333333333333           -**********-                      ***********                      -**********-           33333333333333?
+   ?33333333333333         -**************                   -*************-                   **************-         33333333333333?
+   ?33333333333333        -****************                 -***************-                 ****************-        33333333333333?
+   ?33333333333333        *****************-               -*****************-               -*****************        33333333333333?
+   ?33333333333333       -*****************-               -*****************-               -*****************-       33333333333333?
+   ?33333333333333        *****************-                *****************                -*****************        33333333333333?
+   ?33333333333333         ***************-                 -***************-                 -***************         33333333333333?
+   ?33333333333333          -************-                    *************                    -************-          33333333333333?
+   ?33333333333333            -*******--                        -*******-                        --*******-            33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?33333333333333                                                                                                     33333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ?333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333?
+   ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
 

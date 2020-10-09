@@ -421,11 +421,11 @@ parameter causes geometry intersections. Constraints should be entered
 for a DIMENSION search. Only one set of constraints (i.e., min and max)
 are allowed per problem. These constraints apply to all the dimensions
 that are being altered.</p>
-<p>For a DIMENSION search, the constraints are given by <a class="reference internal" href="#equation-csasapp-1">(58)</a> and <a class="reference internal" href="#equation-csasapp-2">(59)</a></p>
+<p>For a DIMENSION search, the constraints are given by <a class="reference internal" href="#equation-csasapp-1">(60)</a> and <a class="reference internal" href="#equation-csasapp-2">(61)</a></p>
 <div class="math notranslate nohighlight" id="equation-csasapp-1">
-<span class="eqno">(58)<a class="headerlink" href="#equation-csasapp-1" title="Permalink to this equation">¶</a></span>\[C_{min} = ((D_{min}/D_i) - 1.0)/SC ,\]</div>
+<span class="eqno">(60)<a class="headerlink" href="#equation-csasapp-1" title="Permalink to this equation">¶</a></span>\[C_{min} = ((D_{min}/D_i) - 1.0)/SC ,\]</div>
 <div class="math notranslate nohighlight" id="equation-csasapp-2">
-<span class="eqno">(59)<a class="headerlink" href="#equation-csasapp-2" title="Permalink to this equation">¶</a></span>\[C_{max} = ((D_{min}/D_i) - 1.0)/SC ,\]</div>
+<span class="eqno">(61)<a class="headerlink" href="#equation-csasapp-2" title="Permalink to this equation">¶</a></span>\[C_{max} = ((D_{min}/D_i) - 1.0)/SC ,\]</div>
 <p>Where</p>
 <blockquote>
 <div><p>C<sub>min</sub> is the minimum constraint for the search</p>
@@ -451,8 +451,8 @@ be conducted to determine the radius at which the sphere is critical.
 The minimum radius the user wishes to allow is 3 cm, and the maximum
 radius to be allowed is 9 cm. A nonzero search constant must be entered
 to cause the radius to be changed. A search constant of 1.0, will be
-used for the radius (RADIUS=1.0). The constraints calculated from <a class="reference internal" href="#equation-csasapp-1">(58)</a>
-and <a class="reference internal" href="#equation-csasapp-2">(59)</a> are:</p>
+used for the radius (RADIUS=1.0). The constraints calculated from <a class="reference internal" href="#equation-csasapp-1">(60)</a>
+and <a class="reference internal" href="#equation-csasapp-2">(61)</a> are:</p>
 <blockquote>
 <div><p>C<sub>min</sub> = ((3.0/6.0)−1.0)/1.0 = −0.5</p>
 <p>C<sub>max</sub> = ((9.0/6.0)−1.0)/1.0 = 0.5</p>
@@ -476,11 +476,11 @@ expanding the system:</p>
 <p>D<sub>+</sub> are face constraints for the positive dimensions,</p>
 <p>D<sub>−</sub> are face constraints for the negative dimensions.</p>
 </div></blockquote>
-<p>Face constraints must be calculated for each face using <a class="reference internal" href="#equation-csasapp-3">(60)</a>  and <a class="reference internal" href="#equation-csasapp-4">(61)</a> :</p>
+<p>Face constraints must be calculated for each face using <a class="reference internal" href="#equation-csasapp-3">(62)</a>  and <a class="reference internal" href="#equation-csasapp-4">(63)</a> :</p>
 <div class="math notranslate nohighlight" id="equation-csasapp-3">
-<span class="eqno">(60)<a class="headerlink" href="#equation-csasapp-3" title="Permalink to this equation">¶</a></span>\[D_{+} = \frac{(X_{d+} - X_{i+})(SC_{+} \times \text{del}_{+}\text{SC}_{\_} \times \text{del}_{\_})}{(X_{i+} - X_{i-})(\text{SC}_{+}\text{**}2 \times \text{del}_{\_})}\]</div>
+<span class="eqno">(62)<a class="headerlink" href="#equation-csasapp-3" title="Permalink to this equation">¶</a></span>\[D_{+} = \frac{(X_{d+} - X_{i+})(SC_{+} \times \text{del}_{+}\text{SC}_{\_} \times \text{del}_{\_})}{(X_{i+} - X_{i-})(\text{SC}_{+}\text{**}2 \times \text{del}_{\_})}\]</div>
 <div class="math notranslate nohighlight" id="equation-csasapp-4">
-<span class="eqno">(61)<a class="headerlink" href="#equation-csasapp-4" title="Permalink to this equation">¶</a></span>\[D_{\_} = \frac{(X_{d-} - X_{i-})(SC_{+} \times \text{del}_{+}\text{SC}_{\_} \times \text{del}_{\_})}{(X_{i+} - X_{i-})(\text{SC}_{+}\text{**}2 \times \text{del}_{\_})}\]</div>
+<span class="eqno">(63)<a class="headerlink" href="#equation-csasapp-4" title="Permalink to this equation">¶</a></span>\[D_{\_} = \frac{(X_{d-} - X_{i-})(SC_{+} \times \text{del}_{+}\text{SC}_{\_} \times \text{del}_{\_})}{(X_{i+} - X_{i-})(\text{SC}_{+}\text{**}2 \times \text{del}_{\_})}\]</div>
 <p>where</p>
 <blockquote>
 <div><p>X <sub>d+</sub> is the desired limit of the positive dimension of the
@@ -656,12 +656,12 @@ those results or set constraints to avoid them. Only one set of
 constraints (i.e., min and max) are allowed per problem. These
 constraints apply to all the standard compositions that are being
 altered.</p>
-<p>For a CONCENTRATION search, the constraints are given by <a class="reference internal" href="#equation-csasapp-5">(62)</a> and <a class="reference internal" href="#equation-csasapp-6">(63)</a>. The
+<p>For a CONCENTRATION search, the constraints are given by <a class="reference internal" href="#equation-csasapp-5">(64)</a> and <a class="reference internal" href="#equation-csasapp-6">(65)</a>. The
 maximum constraint must be larger than the minimum constraint.</p>
 <div class="math notranslate nohighlight" id="equation-csasapp-5">
-<span class="eqno">(62)<a class="headerlink" href="#equation-csasapp-5" title="Permalink to this equation">¶</a></span>\[C_{min} = \frac{((\frac{D_{min}}{D_{i}})-1)}{\text{FACTOR}},\]</div>
+<span class="eqno">(64)<a class="headerlink" href="#equation-csasapp-5" title="Permalink to this equation">¶</a></span>\[C_{min} = \frac{((\frac{D_{min}}{D_{i}})-1)}{\text{FACTOR}},\]</div>
 <div class="math notranslate nohighlight" id="equation-csasapp-6">
-<span class="eqno">(63)<a class="headerlink" href="#equation-csasapp-6" title="Permalink to this equation">¶</a></span>\[C_{max} = \frac{((\frac{D_{max}}{D_{i}})-1)}{\text{FACTOR}},\]</div>
+<span class="eqno">(65)<a class="headerlink" href="#equation-csasapp-6" title="Permalink to this equation">¶</a></span>\[C_{max} = \frac{((\frac{D_{max}}{D_{i}})-1)}{\text{FACTOR}},\]</div>
 <p>where</p>
 <blockquote>
 <div><p>C<sub>min</sub> is the minimum constraint for the search,</p>
@@ -1528,7 +1528,7 @@ the problem are zero. Only those dimensions having a nonzero search
 constant are altered by the code.</p>
 <p>By default, a dimension search sets the minimum constraint to −10E10 and
 the maximum constraint to +10E10. The relationship between the
-constraints and the search constants are given in <a class="reference internal" href="#equation-csasapp-1">(58)</a>  and <a class="reference internal" href="#equation-csasapp-2">(59)</a>. If the
+constraints and the search constants are given in <a class="reference internal" href="#equation-csasapp-1">(60)</a>  and <a class="reference internal" href="#equation-csasapp-2">(61)</a>. If the
 default values of the constraints are used, appropriate search constants
 must be calculated using these equations. It may be simpler to set the
 search constants to 1.0 and calculate the corresponding maximum and
@@ -1839,7 +1839,7 @@ the problem are zero. Only those dimensions having a nonzero search
 constant are altered by the code.</p>
 <p>By default, a dimension search sets the minimum constraint to −10E10 and
 the maximum constraint to +10E10. The relationship between the
-constraints and the search constants are given in <a class="reference internal" href="#equation-csasapp-1">(58)</a>. and <a class="reference internal" href="#equation-csasapp-2">(59)</a>. If the
+constraints and the search constants are given in <a class="reference internal" href="#equation-csasapp-1">(60)</a>. and <a class="reference internal" href="#equation-csasapp-2">(61)</a>. If the
 default values of the constraints are used, appropriate search constants
 must be calculated using these equations. In some cases it may be
 simpler to set the search constants to 1.0 and calculate the
@@ -2058,7 +2058,7 @@ the problem are zero. Only those dimensions having a nonzero search
 constant are altered by the code.</p>
 <p>By default, a dimension search sets the minimum constraint to −10E10 and
 the maximum constraint to +10E10. The relationship between the
-constraints and the search constants is given in <a class="reference internal" href="#equation-csasapp-1">(58)</a> and <a class="reference internal" href="#equation-csasapp-2">(59)</a>. If the
+constraints and the search constants is given in <a class="reference internal" href="#equation-csasapp-1">(60)</a> and <a class="reference internal" href="#equation-csasapp-2">(61)</a>. If the
 default values of the constraints are used, appropriate search constants
 must be calculated using these equations. It may be simpler to set the
 search constants to 1.0 and calculate the corresponding maximum and
