@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>math= &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS" href="K5C5.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keno.html">Keno: A Monte Carlo Criticality Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">math=</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-energy-mode-solution-procedure">Continuous energy mode solution procedure</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>math=</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/math.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="math">
+<h1>math=<a class="headerlink" href="#math" title="Permalink to this headline">¶</a></h1>
+<div class="math notranslate nohighlight" id="equation-eq8-1-3">
+<span class="eqno">(67)<a class="headerlink" href="#equation-eq8-1-3" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}&amp; \frac{1}{\mathrm{v}}\frac{\partial\Phi}{\partial t}\left( X,E,\Omega,t \right) + \Omega \bullet \nabla\Phi\left( X,E,\Omega,t \right) + \Sigma_{t}\left( X,E,\Omega,t \right)\Phi\left( X,E,\Omega,t \right)\\  &amp; \ \ \ \ \ \ \ \ = S\left( X,E,\Omega,t \right)\\&amp; \ \ \ \ \ \ \ \ + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \rightarrow \Omega,t \right)\Phi\left( X,E^{'},\Omega^{'},t \right)}}d\Omega^{'}dE^{'}\ ,\end{aligned}\end{align} \]</div>
+<p>where</p>
+<blockquote>
+<div><p>Φ(X,E,Ω,t) = neutron flux (neutrons/cm:sup:<cite>2</cite>/s) per unit energy at
+energy E per steradian about direction Ω at position X at time t
+moving at speed v corresponding to E;</p>
+<p>Σ<sub>t</sub>(X,E,Ω,t) = macroscopic total cross section of the media
+(cm:sup:<cite>−1</cite>) at position X, energy E, direction Ω and time t;</p>
+<p>Σ<sub>s</sub>(X,E′→E,Ω′→Ω,t) = macroscopic differential cross section
+of the media (cm:sup:<cite>−1</cite>) per unit energy at energy E′ per steradian
+about direction Ω′ at position X, and time t, for scattering to
+energy E and direction Ω;</p>
+<p>S(X,E,Ω,t) = neutrons/cm<sup>3</sup>/s born at position X and time t
+per unit energy at energy E per steradian about direction Ω (excludes
+scatter source).</p>
+</div></blockquote>
+<p>Defining q(X,E,Ω,t) as the total source resulting from the external
+source, scattering, fission, and all other contributions, the following
+relationship can be written.</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-4">
+<span class="eqno">(68)<a class="headerlink" href="#equation-eq8-1-4" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}q(X,E,\Omega, t) =\\&amp; S(X,E,\omega, t) + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \rightarrow \Omega,t \right)\Phi\left( X,E^{'},\Omega^{'},t \right)}}d\Omega^{'}dE^{'}\ ,\end{aligned}\end{align} \]</div>
+<p>Combining <a class="reference internal" href="#equation-eq8-1-3">(67)</a> and <a class="reference internal" href="#equation-eq8-1-4">(68)</a>, assuming media to be stationary and ignoring time-dependence, yields</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-5">
+<span class="eqno">(69)<a class="headerlink" href="#equation-eq8-1-5" title="Permalink to this equation">¶</a></span>\[\ \Omega \bullet \nabla\Phi\left( X,E,\Omega \right)+ \Sigma_{t}\left( X,E,\Omega \right)\Phi\left( X,E,\Omega \right) = q\left( X,E,\Omega \right)\]</div>
+<div class="section" id="continuous-energy-mode-solution-procedure">
+<span id="id1"></span><h2>Continuous energy mode solution procedure<a class="headerlink" href="#continuous-energy-mode-solution-procedure" title="Permalink to this headline">¶</a></h2>
+<p>Using the relationship X′ = X − RΩ, using an integrating factor on both
+sides of <a class="reference internal" href="#equation-eq8-1-5">(69)</a>, and defining</p>
+<div class="math notranslate nohighlight">
+\[T(R) = \int_{0}^{R} \Sigma_{t}(X - R^{'}\Omega, E)dR^{'} ,\]</div>
+<p>the following equation can be written.</p>
+<p>At this point, the problem becomes an eigenvalue problem. If there is no
+external source, the source may be defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-6">
+<span class="eqno">(70)<a class="headerlink" href="#equation-eq8-1-6" title="Permalink to this equation">¶</a></span>\[\Phi(X,E,\Omega) = \int_{O}^{\infty}q(X - R\Omega,E,\Omega)e^{-T(R)}dR\]</div>
+<p>At this point, the problem becomes an eigenvalue problem. If there is no external source, the source may be defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-7">
+<span class="eqno">(71)<a class="headerlink" href="#equation-eq8-1-7" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}q\left( X,E,\Omega \right) = &amp; \int_{}^{}{\int_{}^{}{{dE^{'}d\Omega^{'}\ \Phi\left( X,E^{'},\Omega^{'} \right)\ \Sigma}_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}}\\&amp; + \ \frac{1}{k}Q^{'}(X,E,\Omega) ,\end{aligned}\end{align} \]</div>
+<p>where</p>
+<dl class="simple">
+<dt>k</dt><dd><p>is the largest eigenvalue of the integral equation,</p>
+</dd>
+<dt>Q′(X,E,Ω)</dt><dd><p>is the fission source at position X for energy E and
+direction Ω (all fission contributions to point E from all energy
+points in the previous generation),</p>
+</dd>
+<dt>Σ<sub>s</sub>(X,E′→E,Ω′ Ω)</dt><dd><p>is the scattering cross section for
+scattering at position X from energy point E′ and direction Ω′ to
+energy point E and direction Ω.</p>
+</dd>
+</dl>
+<p>Assuming the fission neutrons to be isotropic, the fission source
+Q′(X,E,Ω) can be written as</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-8">
+<span class="eqno">(72)<a class="headerlink" href="#equation-eq8-1-8" title="Permalink to this equation">¶</a></span>\[Q^{'}(X,E,\Omega) = \frac{1}{4\pi}\int_{E^{'}}^{}\int_{\Omega^{'}}^{}dE^{'}d\Omega^{'}\Phi(X,E^{'},\Omega^{'})\chi(X,E^{'}\rightarrow E)\nu(X,E^{'})\Sigma_{f}(X,E^{'}) ,\]</div>
+<p>where</p>
+<blockquote>
+<div><p>χ(X,E′→E) is the fraction of neutrons born at energy point E from
+fission at energy point E′ in the media at position X,</p>
+<p>ν(X,E′) is the number of neutrons resulting from a fission at energy
+point E′ at position X,</p>
+<p>Σ<sub>f</sub>(X,E′) is the macroscopic fission cross section of the
+material at position X for a neutron at energy point E′.</p>
+</div></blockquote>
+<p>Substituting <a class="reference internal" href="#equation-eq8-1-7">(71)</a> into <a class="reference internal" href="#equation-eq8-1-6">(70)</a> yields the following equation:</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-9">
+<span class="eqno">(73)<a class="headerlink" href="#equation-eq8-1-9" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned} \ {\Phi\left( X,E,\Omega \right) = \int_{0}^{\infty}{\text{dR }e^{- T\left( R \right)}\left\{ \frac{1}{k}Q^{'}\left( X - R\Omega,E,\Omega \right) \right.\ }}\\ {+ \left. \ \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{{dE^{'}d\Omega^{'}\Phi\left( X - R\Omega,E^{'},\Omega^{'} \right)\Sigma}_{s}\left( X - R\Omega,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}} \right\}}\end{aligned}\end{align} \]</div>
+<p>The definition of k may be given as the ratio of the number of neutrons
+produced in the (n + 1)<em>th</em> generation to the number of neutrons
+produced in the n<em>th</em> generation or the largest eigenvalue of the
+integral equation. Using <a class="reference internal" href="#equation-eq8-1-8">(72)</a>, <a class="reference internal" href="#equation-eq8-1-6">(70)</a> can be written as</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-10">
+<span class="eqno">(74)<a class="headerlink" href="#equation-eq8-1-10" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}\ {\Phi\left( X,E,\Omega \right) =\\\int_{0}^{\infty}{\text{dR }e^{-T\left( R \right)}\left\{ \ \frac{1}{k}\int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{{\nu\left( X - R\Omega,E^{'}\right)\text{ Σ}}_{f}\left( X - R\Omega,E^{'} \right)}\chi\left( X - R\Omega,E^{'}\rightarrow E \right)}\Phi\left( X - R\Omega,E^{'},\Omega^{'} \right)dE^{'}\frac{d\Omega^{'}}{4\pi}\  \right.\ }}\\{+ \left. \ \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{{dE^{'}d\Omega^{'}\text{ Φ}\left( X - R\Omega,E^{'},\Omega^{'} \right)\text{ Σ}}_{s}\left( X - R\Omega,E^{'}\rightarrow E,\Omega^{'} \cdot \Omega \right)}} \right\}}\end{aligned}\end{align} \]</div>
+<p>Writing <code class="xref eq docutils literal notranslate"><span class="pre">eq9-1-10</span></code> in generation notation, multiplying and dividing
+certain terms by Σ<sub>t</sub>(X,E) and multiplying both sides of the
+equation by ν(X,E)Σ<sub>f</sub>(X,E), yields the following equation,
+which is solved by KENO V in the continuous energy mode:</p>
+<div class="math notranslate nohighlight" id="equation-eq8-1-11">
+<span class="eqno">(75)<a class="headerlink" href="#equation-eq8-1-11" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}{\frac{{\nu\left( X,E \right)\text{ Σ}}_{f}\left( X,E \right)}{\Sigma_{t}\left( X,E \right)}\Sigma_{t}\left( X,E \right)\Phi_{n}\left( X,E,\Omega \right) = \frac{{\nu\left(X,E \right)\text{ Σ}}_{f}\left( X,E \right)}{\Sigma_{t}\left(X,E \right)}\Sigma_{t}\left( X,E \right)\int_{0}^{\infty}{\text{dR }e^{- T\left( R\right)}}}\\{{\left\{ \ \frac{1}{k}\int_{E^{'}}^{}{\int_{\Omega^{'}}^{}\frac{{\nu\left( X - R\Omega,E^{'} \right)\text{ Σ}}_{f}\left( X - R\Omega,E^{'} \right)}{\text{ Σ}_{t}\left( X - R\Omega,E^{'} \right)}\chi\left( X - R\Omega,E^{'} \rightarrow E \right)\text{ Σ}_{t}\left( X - R\Omega,E^{'} \right)}\Phi_{n - 1}\left( X - R\Omega,E^{'},\Omega^{'}\right)dE^{'}\frac{d\Omega^{'}}{4\pi} \right.\ }\\{\left. \  + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}\frac{\Sigma_{s}\left( X - R\Omega,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}{\text{ Σ}_{t}\left( X -R\Omega,E^{'} \right)}\text{ Σ}_{t}\left( X - R\Omega,E^{'} \right)}\Phi_{n}\left(X - R\Omega,E^{'},\Omega^{'} \right)dE^{'}d\Omega^{'} \right\},}}\end{aligned}\end{align} \]</div>
+<p>where n indicates the n<em>th</em> generation and n − 1 is the (n − 1)<em>th</em>
+generation. Note that the left-hand side of the equation, ν(X,E)
+Σ<sub>f</sub>(X,E)Φ:sub:<cite>n</cite>(X,E,Ω) is the fission production for the
+n<em>th</em> generation.</p>
+<p>The solution strategy used by KENO solves <code class="xref eq docutils literal notranslate"><span class="pre">eq9-1-11</span></code> by using an
+iterative procedure. The fission production at point X at energy point E
+due to neutrons in the (n − 1)<em>th</em> generation, normalized to the
+system multiplication, is</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{k}\int_{E^{'}}{}\int_{\Omega^{'}}{}\frac{\nu(X,E^{'})\Sigma_{f}(X,E^{'})}{\Sigma_{t}(X,E^{'})}\chi(X,E^{'}\rightarrow E)\Sigma_{t}(X,E)\Phi_{n-1}(X,E^{'}\Omega^{'})dE^{'}\frac{d\Omega^{'}}{4\pi}\]</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="K5C5.html" class="btn btn-neutral float-left" title="K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

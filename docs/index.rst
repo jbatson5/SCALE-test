@@ -38,3 +38,4 @@ Welcome to the SCALE manual!
   DEVC
   KMART
   K5C5
+  math 
