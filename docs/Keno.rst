@@ -1146,6 +1146,8 @@ The **UNIT**\ s are assembled to construct the problem’s global geometry
 for KENO. The *GEOMETRY\_ DATA* must be entered unless the problem is
 being restarted. See :ref:`8-1-3-6` for detailed examples.
 
+.. _8-1-2-4-1:
+
 UNITS
 ^^^^^
 
@@ -1276,6 +1278,8 @@ The method of entering *GEOMETRY_DATA* in the geometry data block
 follows:
 
 **READ GEOM** *GEOMETRY\_ DATA* **END GEOM**
+
+.. _8-1-2-4-1-1:
 
 UNIT initialization
 ...................
@@ -1626,6 +1630,8 @@ Examples of **shape**\ s:
    **CYLINDER** 10 5.0 7.0 2.0 **CHORD** **+X**\ = −3.0 **ORIGIN**
    **X**\ =10.0 **Y**\ =15.0 **ROTATE** **A2**\ = −45
 
+.. _8-1-2-4-1-2:
+
 COM=
 ....
 
@@ -1644,6 +1650,8 @@ syntax is:
 Example of comment within a **UNIT**:
 
 **COM**\ =“This is a fuel pin”
+
+.. _8-1-4-2-1-3:
 
 HOLE
 ....
@@ -1688,6 +1696,8 @@ KENO V.a:
 
 KENO-VI:
 **HOLE** 2 **ORIGIN** **X**\ =3.0 **Y**\ =3.5 **Z**\ =4.0
+
+.. _8-1-2-4-1-4:
 
 ARRAY
 .....
@@ -13629,7 +13639,7 @@ The mixing table is printed in subroutine PRTMIX.
 
 
 
-.. 8-1-4-7:
+.. _8-1-4-7:
 
 Albedo cross section correspondence
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16118,10 +16128,10 @@ CHECK SUBROUTINE KENOG FOR A CODE ERROR.
   checked.
 
 KMSG019
-** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **
+*\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR **
 K?-019 FOLLOWS:
 A GLOBAL UNIT HAS NOT BEEN SPECIFIED.
-** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **** ERROR **
+*\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR ***\* ERROR *\*
 
   This message from subroutine KENOG indicates that a **GLOBAL UNIT** has
   not been specified. The outermost unit in the problem must be specified
@@ -17264,6 +17274,7 @@ THE NUMBER OF GENERATIONS RUN WAS NOT GREATER THAN THE NUMBER OF GENERATIONS SKI
 KMSG136
 \****\* ERROR \****\* K?-136 FOLLOWS:
 GEOMETRY TYPE - IGEO = ___ - OUT OF RANGE IN ___
+
   This message from subroutine SRMAX occurs if the geometry indicator is
   invalid as the result of a code error. A STOP 127 is executed in
   conjunction with this message and a traceback may be printed from
@@ -17825,9 +17836,9 @@ READ. ___ WERE WRITTEN, BUT AN ATTEMPT WAS MADE TO READ ___.
 
 KMSG187
 \****\* WARNING \****\* K?-187 FOLLOWS:
-INTERVALS IN THE ABOVE RANGE WERE NOT USED.      ***
-***  THIS COULD LEAD TO IMPROPER BIASING. \****\*   ***
-***                                               ***
+INTERVALS IN THE ABOVE RANGE WERE NOT USED.      **\*
+**\*  THIS COULD LEAD TO IMPROPER BIASING. \****\*   **\*
+**\*                                               **\*
 
   This message from subroutine LODWTS is printed to remind the user that
   at least one of the specified intervals was not used in the problem.
@@ -17968,7 +17979,7 @@ KMSG201
 \****\* WARNING \****\* K?-201 FOLLOWS:
 NEUTRON ___ SPECIFIED A POSITION IN THE GLOBAL ARRAY.
 THE GLOBAL UNIT DID NOT CONTAIN AN ARRAY SO THE POSITION WAS IGNORED
-*** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING ***
+**\* WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING \****\** WARNING **\*
 
   This warning message from subroutine START6 indicates that extraneous
   data were specified in the start type 6 data. It should be verified that
@@ -19180,15 +19191,2588 @@ written as
 .. math::
   :label: eq8-1-3
 
-  \frac{1}{\mathrm{v}}\frac{\partial\Phi}{\partial t}\left( X,E,\Omega,t \right) + \Omega \bullet \nabla\Phi\left( X,E,\Omega,t \right) + \Sigma_{t}\left( X,E,\Omega,t \right)\Phi\left( X,E,\Omega,t \right)
+  & \frac{1}{\mathrm{v}}\frac{\partial\Phi}{\partial t}\left( X,E,\Omega,t \right) + \Omega \bullet \nabla\Phi\left( X,E,\Omega,t \right) + \Sigma_{t}\left( X,E,\Omega,t \right)\Phi\left( X,E,\Omega,t \right)
 
-  = S\left( X,E,\Omega,t \right)
+    & \ \ \ \ \ \ \ \ = S\left( X,E,\Omega,t \right)
 
-  + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \rightarrow \Omega,t \right)\Phi\left( X,E^{'},\Omega^{'},t \right)}}d\Omega^{'}dE^{'}\ ,
-
-
+  & \ \ \ \ \ \ \ \ + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \rightarrow \Omega,t \right)\Phi\left( X,E^{'},\Omega^{'},t \right)}}d\Omega^{'}dE^{'}\ ,
 
 
+where
+
+     Φ(X,E,Ω,t) = neutron flux (neutrons/cm\ :sup:\ `2`/s) per unit energy at
+     energy E per steradian about direction Ω at position X at time t
+     moving at speed v corresponding to E;
+
+     Σ\ :sub:`t`\ (X,E,Ω,t) = macroscopic total cross section of the media
+     (cm:sup:`−1`) at position X, energy E, direction Ω and time t;
+
+     Σ\ :sub:`s`\ (X,E′→E,Ω′→Ω,t) = macroscopic differential cross section
+     of the media (cm\ :sup:`−1`) per unit energy at energy E′ per steradian
+     about direction Ω′ at position X, and time t, for scattering to
+     energy E and direction Ω;
+
+     S(X,E,Ω,t) = neutrons/cm\ :sup:`3`/s born at position X and time t
+     per unit energy at energy E per steradian about direction Ω (excludes
+     scatter source).
+
+Defining q(X,E,Ω,t) as the total source resulting from the external
+source, scattering, fission, and all other contributions, the following
+relationship can be written.
+
+.. math::
+  :label: eq8-1-4
+
+  q(X,E,\Omega, t) =
+
+  & S(X,E,\Omega, t) + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \rightarrow \Omega,t \right)\Phi\left( X,E^{'},\Omega^{'},t \right)}}d\Omega^{'}dE^{'}\ .
+
+Combining :eq:`eq8-1-3` and :eq:`eq8-1-4`, assuming media to be stationary and ignoring time-dependence, yields
+
+.. math::
+  :label: eq8-1-5
+
+  \ \Omega \bullet \nabla\Phi\left( X,E,\Omega \right)+ \Sigma_{t}\left( X,E,\Omega \right)\Phi\left( X,E,\Omega \right) = q\left( X,E,\Omega \right)
+
+.. _8-1-6-2:
+
+Continuous energy mode solution procedure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using the relationship X′ = X − RΩ, using an integrating factor on both
+sides of :eq:`eq8-1-5`, and defining
+
+.. math::
+
+  T(R) = \int_{0}^{R} \Sigma_{t}(X - R^{'}\Omega, E)dR ,
+
+the following equation can be written.
+
+At this point, the problem becomes an eigenvalue problem. If there is no
+external source, the source may be defined as
+
+.. math::
+  :label: eq8-1-6
+
+  \Phi(X,E,\Omega) = \int_{O}^{\infty}q(X - R\Omega,E,\Omega)e^{-T(R)}dR
+
+At this point, the problem becomes an eigenvalue problem. If there is no external source, the source may be defined as
+
+
+.. math::
+  :label: eq8-1-7
+
+  q\left( X,E,\Omega \right) = & \int_{}^{}{\int_{}^{}{{dE^{'}d\Omega^{'}\ \Phi\left( X,E^{'},\Omega^{'} \right)\ \Sigma}_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}}
+
+  & + \ \frac{1}{k}Q^{'}(X,E,\Omega) ,
+
+where
+
+k
+  is the largest eigenvalue of the integral equation,
+
+Q′(X,E,Ω)
+  is the fission source at position X for energy E and
+  direction Ω (all fission contributions to point E from all energy
+  points in the previous generation),
+
+Σ\ :sub:`s`\ (X,E′→E,Ω′:math:`\cdot` Ω)
+  is the scattering cross section for
+  scattering at position X from energy point E′ and direction Ω′ to
+  energy point E and direction Ω.
+
+Assuming the fission neutrons to be isotropic, the fission source
+Q′(X,E,Ω) can be written as
+
+.. math::
+  :label: eq8-1-8
+
+  Q^{'}(X,E,\Omega) = \frac{1}{4\pi}\int_{E^{'}}^{}\int_{\Omega^{'}}^{}dE^{'}d\Omega^{'}\Phi(X,E^{'},\Omega^{'})\chi(X,E^{'}\rightarrow E)\nu(X,E^{'})\Sigma_{f}(X,E^{'}) ,
+
+where
+
+   χ(X,E′→E) is the fraction of neutrons born at energy point E from
+   fission at energy point E′ in the media at position X,
+
+   ν(X,E′) is the number of neutrons resulting from a fission at energy
+   point E′ at position X,
+
+   Σ\ :sub:`f`\ (X,E′) is the macroscopic fission cross section of the
+   material at position X for a neutron at energy point E′.
+
+Substituting :eq:`eq8-1-7` into :eq:`eq8-1-6` yields the following equation:
+
+.. _ first equation says chapter 9
+
+.. math::
+  :label: eq8-1-9
+
+   \ {\Phi\left( X,E,\Omega \right) = \int_{0}^{\infty}{\text{dR }e^{- T\left( R \right)}\left\{ \frac{1}{k}Q^{'}\left( X - R\Omega,E,\Omega \right) \right.\ }}
+
+   {+ \left. \ \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{{dE^{'}d\Omega^{'}\Phi\left( X - R\Omega,E^{'},\Omega^{'} \right)\Sigma}_{s}\left( X - R\Omega,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}} \right\}}
+
+The definition of k may be given as the ratio of the number of neutrons
+produced in the (n + 1)\ *th* generation to the number of neutrons
+produced in the n\ *th* generation or the largest eigenvalue of the
+integral equation. Using :eq:`eq8-1-8`, :eq:`eq8-1-6` can be written as
+
+.. math::
+  :label: eq8-1-10
+
+  \ {\Phi\left( X,E,\Omega \right) =
+
+  \int_{0}^{\infty}{\text{dR }e^{-T\left( R \right)}\left\{ \ \frac{1}{k}\int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{{\nu\left( X - R\Omega,E^{'}\right)\text{ Σ}}_{f}\left( X - R\Omega,E^{'} \right)}\chi\left( X - R\Omega,E^{'}\rightarrow E \right)}\Phi\left( X - R\Omega,E^{'},\Omega^{'} \right)dE^{'}\frac{d\Omega^{'}}{4\pi}\  \right.\ }}
+
+  {+ \left. \ \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{{dE^{'}d\Omega^{'}\text{ Φ}\left( X - R\Omega,E^{'},\Omega^{'} \right)\text{ Σ}}_{s}\left( X - R\Omega,E^{'}\rightarrow E,\Omega^{'} \cdot \Omega \right)}} \right\}}
+
+Writing :eq:`eq8-1-10` in generation notation, multiplying and dividing
+certain terms by Σ\ :sub:`t`\ (X,E) and multiplying both sides of the
+equation by ν(X,E)Σ\ :sub:`f`\ (X,E), yields the following equation,
+which is solved by KENO V in the continuous energy mode:
+
+.. _ first equation says chapter 9
+
+.. math::
+  :label: eq8-1-11
+
+  {\frac{{\nu\left( X,E \right)\text{ Σ}}_{f}\left( X,E \right)}{\Sigma_{t}\left( X,E \right)}\Sigma_{t}\left( X,E \right)\Phi_{n}\left( X,E,\Omega \right) = \frac{{\nu\left(X,E \right)\text{ Σ}}_{f}\left( X,E \right)}{\Sigma_{t}\left(X,E \right)}\Sigma_{t}\left( X,E \right)\int_{0}^{\infty}{\text{dR }e^{- T\left( R\right)}}}
+
+  {{\left\{ \ \frac{1}{k}\int_{E^{'}}^{}{\int_{\Omega^{'}}^{}\frac{{\nu\left( X - R\Omega,E^{'} \right)\text{ Σ}}_{f}\left( X - R\Omega,E^{'} \right)}{\text{ Σ}_{t}\left( X - R\Omega,E^{'} \right)}\chi\left( X - R\Omega,E^{'} \rightarrow E \right)\text{ Σ}_{t}\left( X - R\Omega,E^{'} \right)}\Phi_{n - 1}\left( X - R\Omega,E^{'},\Omega^{'}\right)dE^{'}\frac{d\Omega^{'}}{4\pi} \right.\ }
+
+  {\left. \  + \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}\frac{\Sigma_{s}\left( X - R\Omega,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}{\text{ Σ}_{t}\left( X -R\Omega,E^{'} \right)}\text{ Σ}_{t}\left( X - R\Omega,E^{'} \right)}\Phi_{n}\left(X - R\Omega,E^{'},\Omega^{'} \right)dE^{'}d\Omega^{'} \right\},}}
+
+where n indicates the n\ *th* generation and n − 1 is the (n − 1)\ *th*
+generation. Note that the left-hand side of the equation, ν(X,E)
+Σ\ :sub:`f`\ (X,E)Φ\ :sub:`n`\ (X,E,Ω) is the fission production for the
+n\ *th* generation.
+
+The solution strategy used by KENO solves :eq:`eq8-1-11` by using an
+iterative procedure. The fission production at point X at energy point E
+due to neutrons in the (n − 1)\ *th* generation, normalized to the
+system multiplication, is
+
+.. math::
+
+  \frac{1}{k}\int_{E^{'}}{}\int_{\Omega^{'}}{}\frac{\nu(X,E^{'})\Sigma_{f}(X,E^{'})}{\Sigma_{t}(X,E^{'})}\chi(X,E^{'}\rightarrow E)\Sigma_{t}(X,E)\Phi_{n-1}(X,E^{'}\Omega^{'})dE^{'}\frac{d\Omega^{'}}{4\pi}
+
+The collision points used in KENO are chosen by selecting path lengths
+from the distribution
+
+e\ :sup:`−T(R)` ,
+
+which is the probability of transport from any position X − RΩ to
+position X.
+
+The first collision density of neutrons at energy E per unit solid angle
+about Ω resulting from the fission source produced by the (n − 1)
+generation, normalized to the system multiplication, is
+
+.. math::
+
+  \Sigma_{t}(X,E)\int_{0}^{\infty}dRe^{-T(R)}\frac{1}{k}\int_{\Omega^{'}}^{}\int_{E^{'}}^{}\frac{\nu(X-R\Omega,E^{'})\Sigma_{f}(X-R\Omega,E^{'})}{\Sigma_{t}(X-R\Omega,E^{'})}
+
+  \chi(X - R\Omega, E^{'}\rightarrow E)\Sigma_{t}(X - R\Omega,E^{'})\Phi_{n-1}(X-R\Omega,E^{'},\Omega^{'})dE^{'}\frac{d\Omega^{'}}{4\pi}
+
+The scattering source at position X emerging at energy E and direction :math:`\Omega` resulting from previous collisions in the same generation, is
+
+.. math::
+
+  \int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\frac{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}{\Sigma_{t}\left( X,E^{'} \right)}\Sigma_{t}\left( X,E^{'} \right)\Phi_{n}\left( X,E^{'},\Omega^{'} \right)}}d\Omega^{'}dE^{'}
+
+The collision density at energy E, per solid angle about :math:`\Omega` is
+
+.. math::
+
+  \Sigma_{t}\left( X,E \right)\int_{0}^{\infty}{\text{dR }e^{- T\left( R \right)}}\int_{E^{'}}^{}{\int_{\Omega^{'}}^{}{\frac{\Sigma_{s}\left( X - R\Omega,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)}{\Sigma_{t}\left( X - R\Omega,E^{'} \right)}\Sigma_{t}\left( X - R\Omega,E^{'}\right)\Phi_{n}\left( X - R\Omega,E^{'},\Omega^{'} \right)}}d\Omega^{'}dE^{'}
+
+The total collision density times :math:`\frac{\nu_{g}(X)\Sigma_{fg}(X)}{\Sigma_{tg}(X)}` is the relationship from which KENO picks the source points for the next generation.
+
+.. _8-1-6-2-1:
+
+Problem initialization
+^^^^^^^^^^^^^^^^^^^^^^
+
+In order to use continuous energy cross sections in the random walk,
+various initialization tasks must be addressed for each problem. Based
+on the mixture specifications for a problem, KENO reads the microscopic
+cross section data for each nuclide and dynamically allocates storage
+for the particular problem. For continuous energy problems, if
+**UUM=**\ no then KENO will not allocate macroscopic cross sections for
+each material, and will instead use the master set of microscopic cross
+section data (on a non-unionized energy grid). This is the default
+behavior. Storing cross sections on a material-based unionized energy
+grid (**UUM=**\ yes) results in smaller cross section lookup times and
+faster KENO runtimes; however, storing unionized cross section data for
+every material can require a prohibitively large amount of memory for
+problems with a large number of materials. Users should therefore only
+set **UUM**\ =yes for relatively small models; experience is the best
+guide as to what “small” means with respect to available system
+resources. After finishing the cross section processing, KENO reads the
+user-specified KENO data (See Sect. ) and stores the problem-dependent
+data for retrieval during the random walk. After the data initialization
+tasks are complete, the Monte Carlo random walk can be performed
+according to the procedures that are documented in the subsequent
+sections.
+
+.. _8-1-6-2-2:
+
+Initial source distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before the Monte Carlo simulation can be performed, the initial source
+distribution of neutrons must be sampled. Typically, each mixture in a
+problem is composed of multiple isotopes, and each mixture must be
+checked for the presence of fissionable material. For each fissionable
+mixture, the volume fraction of fissionable material must be calculated
+on a per isotope basis.
+
+The first source distribution is comprised of the initial spatial
+coordinates, direction cosines and energy for each neutron within the
+problem. Regarding the coordinate values, both continuous energy and
+multigroup KENO use the same start types, and the initial angular
+distribution is sampled from an isotropic distribution. For the initial
+energy distribution, the energy of each neutron must be sampled from the
+continuous energy fission spectrum, χ(\ *E*), of a fissionable isotope
+within the mixture. If more than one fissionable isotope is present, the
+*i*\ :sup:`th` isotope can be selected using the following relation:
+
+.. math::
+  :label: eq8-1-12
+
+  \sum^{i-1}_{j=1}\Sigma^{j}_{f} < R\sum^{N}_{j=1}\Sigma^{j}_{f} \leq \sum^{i}_{j=1}\Sigma^{j}_{f}
+
+where
+
+   :math:`\sum^{j}_f` = macroscopic fission cross section for the *j*\ :sup:`th`
+   isotope,
+
+   *R* = random number [0, 1),
+
+   *N* = total number of fissionable isotopes in the mixture.
+
+Note that the relation in :eq:`eq8-1-12`  requires the knowledge of the fission
+cross section at a particular energy. Therefore, an initial energy of
+0.025 eV is assumed for selecting the appropriate isotope to sample.
+Once the *i*\ :sup:`th` isotope is selected, the initial energy is
+sampled from the corresponding χ\ :sub:`i`\ (*E*).
+
+.. _8-1-6-2-3:
+
+Collision site selection
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each neutron must be tracked until the history is terminated via leakage
+from the system or the particle is “killed” via roulette. The selection
+of the next collision site is governed by the following probability
+density function (PDF):
+
+.. math::
+  :label: eq8-1-13
+
+  f(x)dx = \Sigma^{m}_{t}(E)e^{-\Sigma^{m}_{t}(E)x}dx ,
+
+where
+
+   :math:`\Sigma^{m}_{t}(E)` = macroscopic total cross section for mixture *m* at
+   energy *E*,
+
+   *x* = spatial variable.
+
+The PDF in :eq:`eq8-1-13`  describes the probability that a neutron will have an
+interaction between *x* and *x* + *dx* along its flight path.
+Integrating :eq:`eq8-1-13`  over the spatial variable yields the following
+cumulative distribution function (CDF):
+
+.. math::
+  :label: eq8-1-14
+
+  F(x) = \int^{x}_{0}\Sigma^{m}_{t}(E)e^{-\Sigma^{m}_{t}(E)x^{'}}dx^{'} = 1 - e^{-\Sigma^{m}_{t}(E)x} ,
+
+and the next collision site is determined by setting the CDF in :eq:`eq8-1-14` 
+equal to a random number on the interval [0, 1) and solving for *x*.
+
+Note that :eq:`eq8-1-14` requires the total cross section for mixture *m* at
+energy *E* in order to calculate the next collision site. As mentioned
+in the :ref:`8-1-6-2-1`, KENO has two approaches to calculate the
+macroscopic total cross section for each mixture; (1) use a unionized
+energy grid (**UUM=**\ yes) – once KENO reads the microscopic data for
+each isotope/nuclide in a mixture, KENO calculates and stores the
+macroscopic total cross sections for the nuclides in each mixture (2)
+on-the-fly mixture macroscopic cross section calculation (**UUM=**\ no)
+– KENO does not store macroscopic cross sections and instead calculates
+mixture cross sections upon request during particle tracking. Selecting
+**UUM**\ =yes results in substantially increased memory usage for
+problems with a large number of materials, making it impossible to
+perform CE calculations for some detailed problems. Thus, it is highly
+recommended to use **UUM**\ =no, the default setting, for the large
+problems with multiple mixture definitions. For most cases selecting
+**UUM**\ =no increases the runtime for KENO CE calculations by
+approximately 17 %, but this feature also expands the code’s capability
+to simulate very large problems with multiple mixture configurations.
+
+Just as the **UUM** option allows the user to prevent KENO from storing
+mixture cross sections on a unionized energy grid, the **M2U** option
+toggles whether or not KENO stores cross sections on a unionized energy
+grid for each individual nuclide. The default for this option is
+**M2U=**\ no, which prevents the storage of all the transport cross
+sections (i.e. inelastic scattering levels) for each nuclide in addition
+to the major reactions that are already on the unionized energy grid
+(i.e. total, fission, capture, and scatter) on an energy grid that is
+unionized for that nuclide, and setting **M2U=**\ yes activates this
+unionization and storage. **M2U=**\ no reduces the nuclear data memory
+footprint of large models by several gigabytes, but it also increases
+the runtime of these problems by several percent. It is encouraged to
+investigate both **UUM** and **M2U** options in continuous energy
+problems to optimize the runtime and memory depending on the user’s
+models and applications. In the continuous energy depletion
+calculations, **UUM** parameter is intentionally forced to “no” to
+minimize the memory requirement of internal data storage. The cross
+section storage and treatment options should be used consistently in
+both validation and analysis calculations.
+
+
+If any of the isotopes in the mixture have unresolved-resonance data and
+corresponding probability-table data, KENO must determine if the neutron
+energy is in the unresolved resonance range (URR) for each isotope
+during the random walk. If the neutron energy is in the URR for an
+isotope, the appropriate probability table must be sampled to obtain the
+total cross section for each isotope (refer to :ref:`8-1-6-2-1` for sampling
+probability tables). Subsequently, the macroscopic total cross section
+for mixture *m* is adjusted to account for sampling the probability
+tables. Once the revised Σ\ :sub:`t`\ :sup:`m`\ (*E*) is determined,
+:eq:`eq8-1-14` can be used to select the next collision site within mixture *m* at
+energy *E*.
+
+.. _8-1-6-2-4:
+
+Collision treatment
+^^^^^^^^^^^^^^^^^^^
+
+Once the collision site is determined, the collision can be modeled, and
+the post collision parameters can be calculated. In the continuous
+energy approach, each collision is modeled with an individual
+isotope/nuclide. If a mixture is defined by multiple isotopes and/or
+nuclides, the target must be selected at each collision site. If there
+are *N* different isotopes/nuclides present in a mixture, the following
+equation can be used to select the *i*\ :sup:`th` target for
+interaction:
+
+.. math::
+  :label: eq8-1-15
+
+  \sum^{i-1}_{j=1}\Sigma^{j}_{t} < R \sum^{N}_{j=1}\Sigma^{j}_{t} \leq \sum^{i}_{j=1}\Sigma^{j}_{t} ,
+
+where,
+
+  :math:`Σ^{j}_{t}` = macroscopic total cross section for the *j*\ :sup:`th`
+  isotope/nuclide.
+
+As noted in :ref:`8-1-6-2-2` and :ref:`8-1-6-2-3`, the collision energy may be in the
+URR of one or more isotopes within the mixture. Consequently, the total
+cross section for each isotope that has unresolved-resonance data is
+sampled from the probability table information prior to selecting the
+next collision site (see discussion in :ref:`8-1-6-2-1`). Subsequently, the
+sampled values for the total and partial reactions are stored for
+retrieval. Therefore, the macroscopic total cross section values that
+are used in :eq:`eq8-1-15` are adjusted to account for sampling the probability
+table data by retrieving the appropriate microscopic total cross section
+value at energy *E*. Once the corrected values for Σ\ *t\ j*\ (*E*) are
+determined, :eq:`eq8-1-15` can be used to select the target for interaction.
+
+After selecting the collision target, the neutron’s weight is reduced by the nonabsorption probability:
+
+.. math::
+  :label: eq8-1-16
+
+  w = \frac{\sigma^{i}_{s}(E)}{\sigma^{i}_{t}(E)}w_{b} = P_{nabs}(E)w_{b} ,
+
+where
+
+   :math:`\sigma^{i}_{s}(E)` = microscopic scattering cross section for the
+   *i*\ :sup:`th` isotope/nuclide at energy *E*,
+
+   :math:`\sigma^{i}_{t}(E)` = microscopic total cross section for the
+   *i*\ :sup:`th` isotope/nuclide at energy E,
+
+   *w\ b* = weight before collision.
+
+The absorption and fission weights are calculated using the following relations, respectively:
+
+.. math::
+  :label: eq8-1-17
+
+  w_{a} = \frac{\sigma^{i}_{a}(E)}{\sigma^{i}_{t}(E)}w_b ,
+
+where
+
+  :math:`\sigma^{i}_{a}(E)` = microscopic absorption cross section for the *i*\ :sup:`th` isotope/nuclide at energy *E*,
+
+and
+
+.. math::
+  :label: eq8-1-18
+
+  w_f = \frac{\bar{\nu}^{i}(E)\sigma^{i}_{f}(E)}{\sigma^{i}_{t}(E)}w_b ,
+
+:math:`\bar{\nu}^i` = average number of neutrons released per fission at energy *E*,
+
+:math:`\sigma^{i}_{f}(E)` = microscopic fission cross section for the *i*\ :sup:`th` isotope/nuclide at energy *E*.
+
+If the collision isotope is in the URR at energy *E* and probability
+table data are available, the collision probabilities must be adjusted
+for sampling the partial reactions from the appropriate probability
+table. In particular, the revised or sampled values for scattering,
+absorption and fission must be used to calculate the collision weights
+as defined by :eq:`eq8-1-16` through :eq:`eq8-1-18`. Depending on the neutron’s weight, splitting
+and/or Roulette are performed as necessary. Once the appropriate weights
+are calculated, the collision can be processed to determine the type of
+interaction and the corresponding exiting energy and angle if secondary
+neutrons are generated.
+
+Because an explicit collision treatment is dictated by the point cross
+section data, the type of reaction must be modeled explicitly in the
+continuous energy version of KENO. :numref:`fig8-1-196` summarizes the cross section
+hierarchy and can be used as an aide to understanding the collision
+treatment in KENO in continuous energy mode. After selecting the
+isotope/nuclide for interaction according to :eq:`eq8-1-15` and calculating the
+weights using :eq:`eq8-1-16` through :eq:`eq8-1-18`, the collision is modeled using the following
+procedures:
+
+1. At each collision site, ensure that the type of collision is
+   selected based on the cross section data. Moreover, the
+   *k*\ :sup:`th` reaction can be randomly selected using the following
+   relation:
+
+   .. math::
+    :label: eq8-1-19
+
+    \sum^{k-1}_{j=1}\sigma_{j} < R\sum^{NI}_{j=1}\sigma_{j} < \sum^{k}_{j=1}\sigma_{j} ,
+
+  where
+
+     :math:`\sigma_{j}(E)` = cross section for the *j*\ :sup:`th` reaction,
+
+     *NI* = number of elastic and nonelastic reactions (i.e., excludes
+     neutron disappearance reactions).
+
+  Note that the fission reactions (e.g., first chance fission, second
+  chance fission, etc.) are excluded from :eq:`eq8-1-19`  because an implicit
+  approach is used to treat fission. The details of the fission
+  treatment are provided in :ref:`8-1-6-2-5`. If a neutron production reaction
+  with multiple exit neutrons such as (n, 2n), (n, 3n) is selected and
+  the reaction is not a fission reaction, then the weight of the
+  neutron is adjusted by the multiplicity to account for the additional
+  neutrons, such as *w* = 2\ *w* for (n, 2n), *w* = 3\ *w* for (n, 3n).
+
+  .. _fig8-1-196:
+  .. figure:: figs/Keno/fig196.png
+    :align: center
+    :width: 600
+
+    Cross section hierarchy for particle interactions.
+
+2. Select the exiting angle for the collision. The cross section
+   library provides a kinematics data block that provides the angle and
+   energy distributions of secondary particles for a specified reaction.
+   Each record for each section of a reaction provides a flag (NPU)
+   indicating the number of secondary angles for that energy. If the NPU
+   flag is 1 and the corresponding cosine value is -2 (set as a
+   programming flag), then the reaction is isotropic. The exiting angle
+   for the collision can be obtained as follows:
+
+   i. Isotropic Emission
+
+   If the LAND flag is 0 for the secondary angular distribution, the
+   exiting angle cosine is sampled uniformly between −1 and +1:
+
+   .. math::
+    :label: eq8-1-20
+
+    \mu = 2R - 1
+
+
+   If the LAND flag is 1 for the secondary angular distribution, the
+   exiting angle cosine must be sampled from an anisotropic distribution
+   provided in the cross section library for the specified reaction.
+   Details for sampling the exiting angle from the angular distribution
+   data are provided in :ref:`8-1-6-2-6`.
+
+   The secondary angular distribution data are provided as a function of
+   incident energy. The initial record of each section for a reaction
+   provides the number of incident energies (*NE*) for the secondary
+   angular and energy distributions. Corresponding to each incident
+   energy is a secondary angular distribution. Therefore, there will be
+   *NE* records used to describe the secondary angular data for each
+   section.
+
+   For each angular distribution record, there is an *LMU* flag and a
+   *NPU* flag that describes the format of the data. The *LMU* flag
+   designates whether the secondary distribution is provided in
+   equiprobable cosine bins or in nonequiprobable cosine bins. The
+   procedures for sampling the two types of data are provided in :ref:`8-1-6-2-7`.
+   The *LMU* flag must be the same for all *NE* records within a
+   section. The *NPU* flag specifies the number of cosine values in the
+   distribution.
+
+   Based on the incident energy of the neutron, the angular distribution
+   data are sampled according to the procedures of :ref:`8-1-6-2-7` to obtain the
+   exiting angle cosine, *μ*, in the lab system.
+
+3. Select the exiting energy for the collision. In addition to the
+   angular distributions of the kinematics data, the cross section
+   library provides the energy distributions of secondary particles for
+   a specified reaction.
+
+   The secondary energy distributions are provided as a function of
+   incident energy and secondary angle cosine in each section. Once the
+   exiting angle cosine is selected, the exiting energy is selected from
+   the energy distribution that corresponds to the (*E*, \ *μ*) pair.
+   The exit energy is determined using the procedures of :ref:`8-1-6-2-7`.
+
+   For each energy distribution record, there is an *LE* flag and an
+   *NPE* flag describing the format of the data. The *LE* flag
+   designates whether the secondary distribution is provided in
+   equiprobable energy bins or in nonequiprobable energy bins. The
+   procedures for sampling the two types of data are provided in :ref:`8-1-6-2-7` .
+   Note that the *LE* flag must be the same for all *NE* records within
+   a section for the secondary energy distribution data. The *NPE* flag
+   specifies the number of secondary energy values in the distribution.
+   For elastic scattering and discrete-level inelastic scattering, the
+   *NPE* flag will equal the *NPU* flag due to the one-to-one
+   correspondence between angle and energy.
+
+4. Select the azimuthal angle η uniformly between 0. and 2π (i.e., η
+   = 2\ *Rπ*).
+
+5. Calculate the new direction cosines in the lab system using the
+   following equations:
+
+   .. math::
+    :label: eq8-1-21
+
+    u^{'} = u\mu - \sqrt{\nu^{2}+w^{2}} \sqrt{1-\mu^{2}}\text{cos}(\eta)
+
+   .. math::
+    :label: eq8-1-22
+
+    \nu^{'} = \nu \mu + \frac{u\nu}{\sqrt{\nu^{2}+w^{2}}}\text{cos}(\eta)\sqrt{1-\mu^{2}} - \frac{w}{\sqrt{\nu^{2}+w^{2}}}\sqrt{1-\mu^{2}}\text{sin}(\eta)
+
+   .. math::
+    :label: eq8-1-23
+
+    w^{'} = w\mu + \frac{uw}{\sqrt{\nu^{2}+w^{2}}}\text{cos}(\eta)\sqrt{1-\mu^{2}} + \frac{v}{\sqrt{\nu^{2}+w^{2}}}\sqrt{1-\mu^{2}}\text{sin}(\eta)
+
+   where
+
+   *u*, :math:`v`, and *w* = initial direction cosines,
+
+   *u′*, :math:`v^{'}`, and *w′* = exiting direction cosines,
+
+   *μ* = cosine of the scattering angle, and
+
+   η = cosine of the azimuthal angle.
+
+.. _8-1-6-2-5:
+
+Fission treatment
+^^^^^^^^^^^^^^^^^
+
+As noted in the previous section, an implicit approach is used to treat
+a fission event. During the collision treatment, the fission weight is
+calculated using :eq:`eq8-1-18`. After processing the collision, the fission
+weight is evaluated to determine if the fission treatment should be
+applied. If the fission weight is greater than zero, the collision
+occurred in fissile material. During the random walk, several fission
+source points must be generated to provide an adequate representation of
+the true source distribution. A minimum production factor is defined at
+the beginning of each generation to ensure that enough fission points
+are generated:
+
+.. math::
+  :label: eq8-1-24
+
+  mpf = \frac{3.0\bar{k}}{\sqrt{FG}} ,
+
+where
+
+    :math:`\bar{k}` = running average of :math:`k_{eff}` through the current generation, and
+
+    *FG* = number of histories per generation.
+
+:eq:`eq8-1-24` represents an estimate of the 99% lower confidence interval for the distribution of the generation k-effective.
+
+If the fission weight is greater than zero, a pseudo-fission weight is calculated as follows:
+
+.. math::
+  :label: eq8-1-25
+
+  pfw = \frac{w_{f}}{R} = \frac{\nu^{-i}(E)\sigma^{i}_{f}(E)}{R\sigma^{i}_{t}(E)}w_{b} .
+
+If the pseudo-fission weight is less than the minimum production factor
+given by :eq:`eq8-1-24` fission points are not generated and tracking of the
+particle continues. However, if the pseudo-fission weight is greater
+than the minimum production factor, *pfw* is redefined to be the minimum
+production factor divided by a random number:
+
+.. math::
+  :label: eq8-1-26
+
+  pfw = \frac{mpf}{R}
+
+Once the pseudo-fission weight is redefined, a fission point can be
+generated. Each time a fission point is generated, the pseudo-fission
+weight is stored with the point in the fission bank. When a new point is
+stored in the fission bank, the energy and angular cosine must be
+selected from the kinematics data. Once the kinematics data are sampled
+for the new fission point, the fission weight of the history is
+decremented by the minimum production factor. If the remaining fission
+weight is greater than zero, the fission treatment procedures are
+repeated until the fission weight of the history has been exhausted
+(i.e., *w*\ :sub:`f` ≤ 0).
+
+.. _8-1-6-2-6:
+
+Sampling details
+^^^^^^^^^^^^^^^^
+
+The preceding sections describe the procedures for the continuous energy
+random walk for KENO. During the random walk, KENO must sample various
+tables of data that may include probability tables and angle-energy distributions
+for secondary particles.
+
+.. _8-1-6-2-6-1:
+
+Probability tables
+..................
+
+
+For each isotope with unresolved resonance data, multiple probability
+tables may be used to describe the URR. The header block for each
+isotope has an LPTAB flag that provides the number of probability tables
+for an isotope. Each table is defined for a range of incident energies
+between *E*\ :sub:`i` and *E*\ :sub:`i+1`, and the energy range for a table should not
+overlap with another table for the isotope. For a particle with energy
+*E*, a search must be performed to find the probability table with
+energy bounds that bracket the particle energy (i.e., *E*\ :sub:`i` ≤ *E* <
+*E*\ :sub:`i+1`). Once the appropriate table is identified, the table can be
+sampled to obtain the total, elastic scattering, fission and capture
+cross section values in the URR.
+
+The probability table block provides four separate records that
+correspond to each reaction within a table; however, the probability
+table construction is based on the total cross section. Therefore, the
+probabilities in each table refer to the total cross section band
+values, and the bands should be sampled based on the total cross
+section. Once the band is sampled, the corresponding partial reaction
+cross section values are selected from the same band as the total
+cross section. The cross section format permits the probability table to
+be expressed in equiprobable or nonequiprobable cross section bands
+(i.e., LBND = 0 or 1, respectively). The procedures for sampling both
+types of tables are provided in the subsequent subsections.
+
+.. _8-1-6-2-6-2:
+
+Equiprobable cross section bands
+................................
+
+Each probability record has an NB parameter that designates the number
+of cross section bands for a table. If the table is constructed with
+equiprobable cross section bands, the *k*\ :sup:`th` band can be
+selected as follows:
+
+.. math::
+  :label: eq8-1-27
+
+  k = NB \ ^{\ast} R + 1
+
+where
+
+     *R* = random number [0., 1).
+
+
+Based on the sampled cross section band, the total cross section
+corresponding to *k*\ :sup:`th` band is extracted from the table.
+Likewise, the elastic scattering, fission and capture cross section
+values that correspond to the *k*\ :sup:`th` band are also extracted
+from their respective records in the probability-table block.
+
+.. _8-1-6-2-6-3:
+
+Nonequiprobable cross section bands
+...................................
+
+If the LBND flag is 1, the cross section bands in the table are not
+equiprobable, and a different procedure must be used to sample the
+appropriate cross section band. For this case, the probability values in
+the table must be constructed as a cumulative distribution function. As
+noted previously, each probability record has an NB parameter that
+designates the number of cross section bands for a table, and the
+*k*\ :sup:`th` band can be selected as follows:
+
+.. math::
+  :label: eq8-1-28
+
+  \sum^{k-1}_{j=1}P_{j} < R\sum^{NB}_{j=1}P_{j} \leq \sum^{k}_{j=1}P_{j} ,
+
+where
+
+  *P*\ :math:`j` = probability corresponding to the j\ :sup:`th` cross section
+  band.
+
+Based on the sampled cross section band, the total cross section
+corresponding to the *k*\ :sup:`th` band is extracted from the table.
+Likewise, the elastic scattering, fission and capture cross section
+values that correspond to the *k*\ :sup:`th` band are also extracted
+from their respective records in the probability-table block.
+
+.. _8-1-6-2-7:
+
+Kinematics data
+^^^^^^^^^^^^^^^
+
+The kinematics data in the KENO library are provided in the lab or
+target-at-rest system as opposed to the center-of-mass system. By
+adhering to the lab coordinate system, KENO does not have to transform
+between different coordinate systems during the random walk; however,
+the energy and angle representations for elastic and discrete-level
+inelastic scattering become more complex in the lab system. For example,
+an angular distribution that is isotropic in the center-of-mass system
+is anisotropic in the lab system. Moreover, the secondary energy
+distribution as a function of exit angle in the lab system can be double
+valued (i.e., two possible exit energies with respect to a single angle)
+for energies above the threshold for the reaction. Likewise, a similar
+double valued distribution is observed for elastic scattering with
+hydrogen in the lab system if the actual mass ratio is used (i.e.,
+*A* = 0.99928 as opposed to *A* = 1.0). Consequently, special care must
+be exercised in the construction of the secondary angle and energy
+distributions in the lab system.
+
+The subsequent sections address the general procedures for sampling the
+kinematics data with emphasis on the special cases that must be
+addressed during the random walk. In :ref:`8-1-6-2-7-1`, the general
+procedures for sampling the kinematics data are provided,
+:ref:`8-1-6-2-7-4` discusses isotropic angular data with energy coupling,
+while :ref:`8-1-6-2-7-5` discusses coherent and incoherent elastic
+scattering. A discussion is also provided in :ref:`8-1-6-2-7-6` to
+describe the elastic and discrete-level inelastic treatment.
+
+.. _8-1-6-2-7-1:
+
+General procedures
+..................
+
+The kinematics data format is designed to accommodate coupled angle
+energy distributions of secondary particles. The following discussion
+provides the procedures for sampling the coupled distributions. Special
+cases such as elastic and discrete level inelastic scattering are
+discussed after the “General Procedures” section.
+
+The sampling procedures in the following sections assume that the angle
+and energy distributions are continuous in nature. As a result,
+interpolation procedures can be used to obtain intermediate angle or
+energy values between the tabulated angle or energy values. During the
+course of KENO development, there may be a need to provide an average
+angle or energy value for a bin. The kinematics format can be modified
+as needed to accommodate additional angle and energy representations.
+Therefore, the following procedures represent the anticipated approach
+for sampling the current form of the kinematics data.
+
+.. _8-1-6-2-7-2:
+
+Exit angle cosine
+.................
+
+The first record for each reaction provides the number of sections
+(NSECT) used to describe the kinematics for the reaction. Within each
+section, the first record defines the incident energy range for the
+section. After the first record for a section, the first block of data
+provides the secondary angular distributions for *NE* different incident
+energies within the energy range of the section. Consequently, there
+will be *NE* different angular distribution records in the secondary
+angle cosine block. The kinematics format permits the anisotropic
+angular distributions to be expressed in either equiprobable or
+nonequiprobable cosine bins (i.e., LMU = 0 or 1, respectively).
+Moreover, the formats permit the number of cosine bins to vary as a
+function of incident energy. In particular, each cosine distribution
+record can have *NPU* secondary angles that correspond to *NPU* − 1
+cosine bins.
+
+**Equiprobable Cosine Bins.** If the incident energy, *E*, is between
+*E*\ :sub:`i` and *E*\ :sub:`i+1`, the angle cosine is sampled in both
+tables, and the exit angle cosine is obtained by interpolating between
+the two tables. If the angular distribution is provided in equiprobable
+cosine bins, the *a*\ :sup:`th` bin is selected from the *i*\ :sup:`th`
+table as follows:
+
+.. math::
+  :label: eq8-1-29
+
+  a = (NPU_{i} - 1) \ ^{\ast} R_{1} + 1 = NA_{i} \ast R_{1} + 1 .
+
+In :eq:`eq8-1-29` *a* denotes an integer quantity, and *NA*\ :sub:`i` is the number of
+cosine bins for the *i*\ :sup:`th` table. Using a similar procedure, the
+*b*\ :sup:`th` bin is selected from the *i*\ +1\ :sup:`st` table:
+
+.. math::
+  :label: eq8-1-30
+
+  b = NA_{i+1} \ ^{\ast} R_{1} + 1
+
+As noted for the *i*\ :sup:`th` table, *b* is an integer quantity in
+Eq.  and *NA*\ :sub:`i+1` is the number of cosine bins for the
+*i*\ +1\ :sup:`st` table. Once the cosine bins are selected, the cosine
+of the exiting angle from the *i*\ :sup:`th` and *i*\ +1\ :sup:`st`
+tables is calculated with :eq:`eq8-1-31` and :eq:`eq8-1-32`, respectively:
+
+.. math::
+  :label: eq8-1-31
+
+  {\dot{\mu}}_{i} = \mu_{ia} + \left( a - NA_{i}*R_{1} \right)\left( \mu_{ia + 1} - \mu_{ia} \right) ,
+
+.. math::
+  :label: eq8-1-32
+
+  {\dot{\mu}}_{i + 1} = \mu_{i + 1b} + \left( b - NA_{i + 1}*R_{1} \right)\left( \mu_{i + 1b + 1} - \mu_{i + 1b} \right) .
+
+The exiting angle cosine is obtained by interpolating between *i* and
+*i*\ +1 based on the incident energy grid:
+
+.. math::
+  :label: eq8-1-33
+
+  \ \mu = {\dot{\mu}}_{i} + \left( \frac{E - E_{i}}{E_{i + 1} - E_{i}} \right)\left( {\dot{\mu}}_{i + 1} - {\dot{\mu}}_{i} \right).
+
+**Nonequiprobable Cosine Bins.** If the angular distribution is in the
+form of nonequiprobable cosine bins, the *a*\ :sup:`th` bin is selected
+from the cumulative distribution function for the *i*\ :sup:`th` table:
+
+.. math::
+  :label: eq8-1-34
+
+  C_{ia - 1} < R_{1} \leq C_{ia}\ ,
+
+where
+
+    *C*\ :math:`_{ia-1}` = cumulative probability corresponding to the :math:`a-1^{st}` cosine bin,
+
+    *C*\ :math:`_{ia}`    = cumulative probability corresponding to the :math:`a^{th}` cosine bin,
+
+Using a similar procedure, the *b*\ :sup:`th` bin is selected from the
+*i*\ +1\ :sup:`st` table:
+
+.. math::
+  :label: eq8-1-35
+
+  C_{i + 1b - 1} < R_{1} \leq C_{i + 1b}\ ,
+
+where
+
+    :math:`C_{ib-1}` = cumulative probability corresponding to the :math:`b - 1^{st}` cosine bin,
+
+    :math:`C_{ib}`   = cumulative probability corresponding to the :math:`b^{th}` cosine bin.
+
+If the cosine bins are not equiprobable and the PDF is represented by a
+continuous distribution, the bins are selected so that linear
+interpolation can be performed in the PDF. Because the CDF is obtained
+by integrating the PDF, the interpolation procedure for the CDF has a
+quadratic form. The value for :math:`{\dot{\mu}}_{i}` is obtained with
+the following equation:
+
+.. math::
+  :label: eq8-1-36
+
+  {\dot{\mu}}_{i} = \mu_{ia} + \frac{\sqrt{P_{ia}^{2} + 2s_{i}(R_{1} - C_{ia - 1})} - P_{ia}}{s_{i}}\ ,
+
+and
+
+.. math::
+  :label: eq8-1-37
+
+  s_{i} = \frac{P_{ia + 1} - P_{ia}}{\mu_{ia + 1} - \mu_{ia}}\ ,
+
+where
+
+  :math:`P_{ia}`   = value of the PDF corresponding to the lower boundary of the :math:`a^{th}` cosine bin in the distribution for :math:`E_{i}`, and
+
+  :math:`P_{ia+1}` = value of the PDF corresponding to the upper boundary of the :math:`a^{th}` cosine bin in the distribution for :math:`E_{i}`.
+
+Likewise, the equation for :math:`{\dot{\mu}}_{i + 1}` is obtained using
+an equation that is similar to :eq:`eq8-1-36`
+
+.. math::
+  :label: eq8-1-38
+
+  {\dot{\mu}}_{i + 1} = \mu_{i + 1b} + \frac{\sqrt{P_{i + 1b}^{2} + 2s_{i + 1}(R_{1} - C_{i + 1b - 1})} - P_{i + 1b}}{s_{i + 1}},
+
+and
+
+.. math::
+  :label: eq8-1-39
+
+  s_{i + 1} = \frac{P_{i + 1b + 1} - P_{i + 1b}}{\mu_{i + 1b + 1} - \mu_{i + 1b}} ,
+
+where
+
+    :math:`P_{i + 1b}`     = value of the PDF corresponding to the lower value of the :math:`b^{th}` cosine bin in the distribution for :math:`E_{i+1}`, and
+
+    :math:`P_{i + 1b + 1}` = value of the PDF corresponding to the upper value of the :math:`b^{th}` cosine bin in the distribution for :math:`E_{i+1}`.
+
+The exiting angle cosine is obtained by interpolating between
+:math:`{\dot{\mu}}_{i}` and :math:`{\dot{\mu}}_{i + 1}` based on the
+incident energy using :eq:`eq8-1-33`.
+
+.. _ last eq says chapter 9
+
+.. _8-1-6-2-7-3:
+
+Exit energy
+...........
+
+In the kinematics data block, each incident energy has a secondary
+distribution of *NPU* angle cosines. Therefore, there are *NPU*
+(*E*, \ *μ*) pairs associated with each incident energy. For each
+(*E*, \ *μ*) pair, there is a corresponding exit energy distribution
+that can have *NPE* exit energies. Because the kinematics data are
+tabulated in a coupled angle-energy format, the exit energy is obtained
+by a 2-D interpolation as shown in :numref:`fig8-1-197`.
+
+The objective of the sampling procedure is to sample the exit energy
+*E′* in conjunction with the sampled angle cosine. Therefore, the
+interpolation for the exit energy is performed with an equation that is
+analogous to :eq:`eq8-1-33`:
+
+.. _ last eq says chapter 9
+
+.. math::
+  :label: eq8-1-40
+
+  E^{'} = E^{'}_{i} + \bigg(\frac{E - E_{i}}{E_{i+1} - E_{i}}\bigg) (E^{'}_{i + 1} - E^{'}_{i})
+
+Based on :eq:`eq8-1-40`, the values of *E′\ i* and *E′\ i+*\ :sub:`1` must
+be obtained in order to calculate the exit energy for the collision. The
+*a*\ :sup:`th` and *b*\ :sup:`th` cosine bins are selected according to
+the procedures in :ref:`8-1-6-2-7-1` from tables
+*i* and *i*\ +1, respectively. As a result, the secondary energy
+distributions corresponding to the *a*\ :sup:`th` and *b*\ :sup:`th`
+cosine bins must be used to sample the exit energies from tables *i* and
+*i*\ +1. The details for sampling the energy bins are deferred for the
+moment. Once the appropriate energy bins are sampled from the two
+tables, the interpolation for :math:`E^{'}_{i}` and :math:`{E_{i+1}` is obtained
+with the following equations:
+
+.. math::
+  :label: eq8-1-41
+
+  E_{i}^{'} = E_{ia}^{'} + \left( \frac{{\dot{\mu}}_{i} - \mu_{ia}}{\mu_{ia + 1} - \mu_{ia}} \right)\left( E_{ia + 1}^{'} - E^{'}_{ia} \right)\ ,
+
+.. math::
+  :label: eq8-1-42
+
+  E_{i + 1}^{'} = E_{i + 1b}^{'} + \left( \frac{{\dot{\mu}}_{i + 1} - \mu_{i + 1b}}{\mu_{i + 1b + 1} - \mu_{i + 1b}} \right)\left( E_{i + 1b + 1}^{'} - E_{i + 1b}^{'} \right) .
+
+.. _fig8-1-197:
+.. figure:: figs/Keno/fig197.png
+  :align: center
+  :width: 600
+
+  Interpolation diagram for secondary angle-energy data.
+
+Based on :eq:`eq8-1-41` and :eq:`eq8-1-42` the values for :math:`E^{'}_{ia}`, :math:`E^{'}_{ia + 1}`, and
+:math:`E^{'}_{ia + 1 b+1}`are needed to
+calculate :math:`E^{'}_{i}` and :math:`E^{'}_{i+1}`. The values for :math:`E^{'}_{ia}`
+and :math:`E^{'}_{ia + 1}`correspond to secondary energies that are coupled
+with the *a*\ :sup:`th` and :math:`a+1^{st}` angle cosines in Table
+*i*. Likewise, the values for :math:`E^{'}_{i+1 b}` :math:`E^{'}_{i+1 b+1}`
+correspond to the secondary energies that are coupled with the
+*b*\ :sup:`th` and :math:`b+1^{st}` angle cosines in Table *i*\ +1.
+Therefore, the exit energies from Table *i* are sampled from the
+secondary energy distributions that correspond to (*E*, \ *μ*\ :sub:`i a`) and
+(*E*, \ *μ*\ :sub:`i a + 1`), and the energies from Table *i*\ +1 are
+sampled from the energy distributions for (*E*, \ *μ*\ :sub:`i+1 b`)
+and (*E*, \ *μ*\ :sub:`i+1 b+1`).
+
+As with the angular data, the secondary energy distributions may be
+provided in equiprobable or nonequiprobable energy bins. The following
+discussion provides the procedures for sampling the different
+distributions.
+
+**Equiprobable Energy Bins.** In Table *i*, the *k*\ :sup:`th` and
+*m*\ :sup:`th` energy bins are sampled from the energy distributions for
+(*E*, :math:`\mu_{i \ a}`) and (*E*, :math:`\mu_{i \ a+1}`), respectively. The
+number of energy bins in a distribution is one less than the number of
+energies in the table (i.e., *NPE* − 1). If the energy distributions are
+provided in equiprobable bins, the *k*\ :sup:`th` and *m*\ :sup:`th`
+bins are selected as follows:
+
+.. math::
+  :label: eq8-1-43
+
+  k = (NPE_{ia} - 1)\ast R_{2} + 1 ,
+
+.. math::
+  :label: eq8-1-44
+
+  m = (NPE_{ia+1} - 1)\ast R_{2} + 1 .
+
+The exiting energy values for :math:`E^{'}_{i \ a}` :math:`E^{'}_{i \ a+1}` are interpolated as follows:
+
+.. math::
+  :label: eq8-1-45
+
+  E^{'}_{ia} = E^{'}_{iak} + \bigg[k - (NPE_{ia} - 1)\ast R_{2}\bigg] \bigg(E^{'}_{iak+1} - E^{'}_{iak}\bigg) ,
+
+.. math::
+  :label: eq8-1-46
+
+  E^{'}_{ia+1} = E^{'}_{ia + 1m} + \bigg[m - (NPE_{ia+1} - 1)\ast R_{2}\bigg] \bigg(E^{'}_{ia+1m+1} - E^{'}_{ia+1m}\bigg) .
+
+In Table *i*\ +1, the *n*\ :sup:`th` and *q*\ :sup:`th` energy bins
+are sampled from the energy distributions for (*E*, \ *μ*\ :sub:`i \ b`) and
+(*E*,\ *μ* :sub:`i b+1`), respectively. As presented for the
+*i*\ :sup:`th` table, the *n*\ :sup:`th` and *q*\ :sup:`th` bins are
+selected from an equiprobable distribution in a manner analogous with
+:eq:`eq8-1-43` and :eq:`eq8-1-44`:
+
+.. math::
+  :label: eq8-1-47
+
+  n = (NPE_{i+1b} - 1)\ast R_{2} + 1 ,
+
+.. math::
+  :label: eq8-1-48
+
+  q = (NPE_{i+1b+1} - 1)\ast R_{2} + 1 .
+
+The exiting energy values for :math:`E_{i+1 \ b}` and :math:`E_{i+1 b+1}` are interpolated as follows:
+
+.. math::
+  :label: eq8-1-49
+
+  E^{'}_{i+1b} = E^{'}_{i+1bn} + \bigg[n - (NPE_{i+1b} - 1)\ast R_{2}\bigg] \bigg(E^{'}_{i+1bn+1} - E^{'}_{i+1bn}\bigg) ,
+
+.. math::
+  :label: eq8-1-50
+
+  E^{'}_{i+1b+1} = E^{'}_{i+1b+1q} + \bigg[q - (NPE_{i+1b+1} - 1)\ast R_{2}\bigg] \bigg(E^{'}_{i+1b+1q+1} - E^{'}_{i+1b+1q}\bigg) .
+
+The exit energy from the *i*\ :sup:`th` table (i.e., :math:`E^{'}`) is
+obtained by substituting the values for :math:`E^{'}_{ia}` and :math:`E^{'}_{ia+1}`
+into :eq:`eq8-1-41`, and the exit energy from the *i*\ +1\ :sup:`st` table (i.e.,
+:math:`E^{'}_{i+1}`) is calculated by substituting the values for
+:math:`E^{'}_{ib}` and :math:`E^{'}_{ib+1}` into :eq:`eq8-1-42`. Finally, the exit energy for
+the collision is obtained by inserting the calculated values for :math:`E^{'}_{i}`
+and :math:`E^{'}_{i+1}` into :eq:`eq8-1-40`.
+
+.. _ last equation in this paragraph says chapter 9
+
+**Nonequiprobable Energy Bins.** If the energy distributions are
+provided in nonequiprobable bins, the *k*\ :sup:`th` and *m*\ :sup:`th`
+bins are sampled according to the cumulative distribution values:
+
+.. math::
+  :label: eq8-1-51
+
+  C_{iak - 1} < R_2 \leq C_{iak} ,
+
+.. math::
+  :label: eq8-1-52
+
+  C_{ia + 1m - 1} < R_2 \leq C_{ia+1m} ,
+
+where
+
+    :math:`C_{iak - 1}` = cumulative probability corresponding to the *k*\ -1\ :sup:`st` energy bin in the (E, :math:`μ_{i \ a}` distribution,
+
+    :math:`C_{iak}` = cumulative probability corresponding to the *k*\ :sup:`th` energy bin in the (E, :math:`μ_{i \ a}` distribution,
+
+    :math:`C_{ia + 1m - 1}` = cumulative probability corresponding to the m-1\ :sup:`st` energy bin in the (E, :math:`μ_{i \ a+1}`) distribution, and
+
+    :math:`C_{ia+1m}` = cumulative probability corresponding to the m\ :sup:`th` energy bin in the (E, :math:`μ_{i \ a+1}`) distribution.
+
+For the nonequiprobable bins, the bins for the secondary energy are selected
+so that linear interpolation can be performed in the PDF. Since the CDF is
+obtained by integrating the PDF, the interpolation procedure for the CDF is
+quadratic in form. As a result, the value for :math:`E^{'}_{i \ a}` is obtained with the following equation:
+
+.. math::
+  :label: eq8-1-53
+
+  E^{'}_{ia} = E^{'}_{iak} + \frac{\sqrt{P^{2}_{iak} + 2s_{ia}(R_{2}-C_{iak-1})} - P_{iak}}{s_{ia}} ,
+
+and
+
+.. math::
+  :label: eq8-1-54
+
+  s_{ia} = \frac{\sqrt{P_{iak+1} - P_{iak}}}{E^{'}_{iak+1} - E^{'}_{iak}} ,
+
+where
+
+    :math:`P_{iak}` = value of the PDF corresponding to the lower boundary of the *k*\ :sup:`th` energy bin in the  (E, :math:`μ_{i \ a}`) distribution, and
+
+    :math:`P_{iak+1}` = value of the PDF corresponding to the upper boundary of the *k*\ :sup:`th` energy bin in the (E, :math:`μ_{i \ a}`) distribution.
+
+Likewise, the value for :math:`E_{i \ a+1}` is obtained with the following equation:
+
+.. math::
+  :label: eq8-1-55
+
+  E^{'}_{ia+1} = E^{'}_{ia+1m} + \frac{\sqrt{P^{2}_{ia+1m} + 2s_{ia+1}(R_{2} - C_{ia+1m-1})} - P_{ia+1m}}{s_{ia+1}} ,
+
+and
+
+.. math::
+  :label: eq8-1-56
+
+  s_{ia+1} = \frac{P_{ia+1m+1} - P_{ia+1m}}{E^{'}_{ia+1m+1} - E^{'}_{ia+1m}}
+
+where
+
+    :math:`P_{ia+1m}` = value of the PDF corresponding to the lower boundary of the *m*\ :sup:`th` energy bin in the  (E, :math:`μ_{i a+1}`) distribution, and
+
+    :math:`P_{ia+1m+1}` = value of the PDF corresponding to the upper boundary of the *m*\ :sup:`th` energy bin in the (E, :math:`μ_{i a+1}`) distribution.
+
+For nonequiprobable distributions in the *i*\ +1\ :sup:`st` table, the
+*n*\ :sup:`th` and *q*\ :sup:`th` bins are sampled according to the
+cumulative distribution values:
+
+.. math::
+  :label: eq8-1-57
+
+  C_{i+1bn-1} < R_{2} \leq C_{i+1bn} ,
+
+.. math::
+  :label: eq8-1-58
+
+  C_{i+1b+1q-1} < R_{2} \leq C_{i+1b+1q} ,
+
+where
+
+    :math:`C_{i+1bn-1}` = cumulative probability corresponding to the n-1\ :sup:`st` energy bin in the (E, :math:`μ_{i+1 \ b}`) distribution,
+
+    :math:`C_{i+1bn}` = cumulative probability corresponding to the *n*\ :sup:`th` energy bin in the (E, :math:`μ_{i+1 \ b}`) distribution,
+
+    :math:`C_{i+1b+1q-1}` = cumulative probability corresponding to the q-1\ :sup:`st` energy bin in the (E, :math:`μ_{i+1 \ b+1}`) distribution, and
+
+    :math:`C_{i+1b+1q}` = cumulative probability corresponding to the *q*\ :sup:`th` energy bin in the (E, :math:`μ_{i+1 \ b+1}`) distribution.
+
+As observed for the i\ :sup:`th` table, the interpolation procedure for the CDF is
+quadratic in form, and the value for :math:`E^{'}_{i+1 \ b}` is obtained as follows:
+
+.. math::
+  :label: eq8-1-59
+
+  E^{'}_{i+1b} = E^{'}_{i+1bn} + \frac{\sqrt{P^{2}_{i+1bn} + 2s_{i+1b}(R_{2} - C_{i+1bn-1})} - P_{i+1bn}} {s_{i+1b}} ,
+
+and
+
+.. math::
+  :label: eq8-1-60
+
+  s_{i+1b} = \frac{P_{i+1bn+1} - P_{i+1bn}}{E^{'}_{i+1bn+1} - E^{'}_{i+1bn}} ,
+
+where
+
+    :math:`P_{i+1bn}` = value of the PDF corresponding to the lower boundary of the *n*\ :sup:`th` energy bin in the  (E, :math:`μ_{i+1 b}`) distribution, and
+
+    :math:`P_{i+1bn+1}` = value of the PDF corresponding to the upper boundary of the *n*\ :sup:`th` energy bin in the  (E, :math:`μ_{i+1 b}`) distribution.
+
+Likewise, the value for :math:`E^{'}_{i+1 b+1}` is obtained with the following equation:
+
+.. math::
+  :label: eq8-1-61
+
+  E^{'}_{i+1b+1} = E^{'}_{i+1b+1q} + \frac{\sqrt{P^{2}_{i+1b+1q} + 2s_{i+1b+1}(R_{2} - C_{i+1b+1q-1})} - P_{i+1b+1q}}{s_{i+1b+1}} ,
+
+and
+
+.. math::
+  :label: eq8-1-62
+
+  s_{i+1b+1} = \frac{P_{i+1b+1q+1} - P_{i+1b+1q}}{E^{'}_{i+1b+1q+1} - E^{'}_{i+1b+1q}} ,
+
+where
+
+    :math:`P_{i+1b+1q}` = value of the PDF corresponding to the lower boundary of the *q*\ :sup:`th` energy bin in the (E, :math:`μ_{i+1 b+1}`) distribution, and
+
+    :math:`P_{i+1b+1q+1}` = value of the PDF corresponding to the upper boundary of the *q*\ :sup:`th` energy bin in the (E, :math:`μ_{i+1 b+1}`) distribution.
+
+
+To obtain the exit energy for the collision, the energy from the i\ :sup:`th`
+table (i.e., :math:`E^{'}_{i}`) is calculated by substituting the values for
+:math:`E^{'}_{ia}` and :math:`E^{'}_{ia+1}` into :eq:`eq8-1-41`, and the exit
+energy from the i+1\ :sup:`st` table (i.e., :math:`E^{'}_{i+1}`)
+is calculated by substituting the values for :math:`E^{'}_{ib}` and :math:`E^{'}_{ib+1}`
+into :eq:`eq8-1-42`.
+Finally, the exit energy for the collision is obtained by inserting the
+calculated values for :math:`E^{'}_{i}` and :math:`E^{'}_{i+1}` into :eq:`eq8-1-40`.
+
+.. _ last ref says chapter 9
+
+.. _8-1-6-2-7-4:
+
+Isotropic Angular Distributions With Energy Coupling
+....................................................
+
+The kinematics format can accommodate isotropic angular distributions in
+the coupled angle energy format. The following discussion describes the
+special case with the appropriate sampling procedures. If the secondary
+angular distribution is isotropic at an incident energy *E*, a single
+exit cosine with a value of −2.0 is specified in the (*E*, \ *μ*) block.
+Therefore, the exit angle cosine is sampled uniformly between −1.0 and
+1.0:
+
+.. math::
+  :label: eq8-1-63
+
+  \mu = 2R_{1} - 1 .
+
+Because there is only one exit cosine specified in the (*E*, \ *μ*)
+block, there is a single energy distribution record specified for the
+(*E*, \ *μ*) pair. The general structure (i.e., material identifiers and
+data flags are omitted for clarity) of the kinematics data within a
+section for a reaction is presented in :numref:`tab8-1-25`. As a result, the
+sampling procedure for the exit energy is based on the incident energy.
+
+.. list-table:: Kinematics data structure for isotropic angular distributions
+  :name: tab8-1-25
+  :align: center
+
+  * - .. image:: figs/Keno/tab25.svg
+          :align: center
+          :width: 600
+
+Once the angle is sampled according to :eq:`eq8-1-63`, the exit energy is sampled
+in a manner that is analogous to the procedures of Sect. Exit energy. If
+the incident energy, *E*, is between *E*\ :sub:`i` and
+*E*\ :sub:`i+1`, the *k*\ :sup:`th` energy bin is sampled from the
+distribution corresponding to *E*\ :sub:`i` using :eq:`eq8-1-64` or :eq:`eq8-1-65` for
+equiprobable or nonequiprobable distributions, respectively.
+
+.. math::
+  :label: eq8-1-64
+
+  k = \big(NPE_{i} - 1\big)\ast R_{2} + 1 ,
+
+
+or
+
+.. math::
+  :label: eq8-1-65
+
+  C_{ik-1} < R_{2} \leq C_{ik} ,
+
+where
+
+    :math:`NPE_{i}` = number of exit energies corresponding to :math:`E_{i}`,
+
+    :math:`C_{ik-1}` = cumulative probability corresponding to the k-1\ :sup:`st` energy bin in the distribution for :math:`E_{i}`, and
+
+    :math:`C_{ik}` = cumulative probability corresponding to the k\ :sup:`th` energy bin in the distribution for :math:`E_{i}`.
+
+For equiprobable energy bins, the exit energy corresponding to :math:`E_{i}` is calculated as follows:
+
+.. math::
+  :label: eq8-1-66
+
+  E^{'}_i = E^{'}_{ik} + \bigg[k - \big(NPE_{i} - 1\big)\ast R_{2}\bigg] \bigg(E^{'}_{ik+1} - E^{'}_{ik} \bigg) .
+
+If the secondary energy distributions are provided in nonequiprobable bins the exit energy is calculated using the following equation:
+
+.. math::
+  :label: eq8-1-67
+
+  E^{'}_{i} = E^{'}_{ik} + \frac{P^{2}_{ik} +2s_{i}\big(R_{2}-C_{ik-1}\big) - P_{ik}}{s_{i}} ,
+
+and
+
+.. math::
+  :label: eq8-1-68
+
+  s_{i} = \frac{P_{ik+1} - P_{ik}}{E^{'}_{ik+1} - E^{'}_{ik}} ,
+
+where
+
+    :math:`P_{ik}` = value of the PDF corresponding to the lower boundary of the *k*\ :sup:`th` energy bin in the distribution for :math:`E_{i}`, and
+
+    :math:`P_{ik+1}` = value of the PDF corresponding to the upper boundary of the *k*\ :sup:`th` energy bin in the distribution for :math:`E_{i}`.
+
+By replacing *i* with *i*\ +1 in :eq:`eq8-1-64` through :eq:`eq8-1-68`, the exit energy :math:`E^{'}_{i+1}` can be
+calculated from the secondary energy distribution corresponding to the
+incident energy :math:`E_{i+1}`. Subsequently, :eq:`eq8-1-40` can be used to calculate the
+exit energy.
+
+.. _ last equation says chapter 9.
+
+.. _8-1-6-2-7-5:
+
+Coherent and incoherent elastic scattering
+..........................................
+
+If thermal scattering law data are available for a material, the elastic
+scattering mechanism may be specified as either coherent or incoherent
+elastic scattering. Consequently, there is no change in energy resulting
+from either collision. The secondary energy distribution block for each
+(*E*, \ *μ*) pair only has one exit energy with a value equal to the
+incident energy *E*. Therefore, the procedure for coherent or incoherent
+elastic scattering reduces to sampling the exit angle cosine. The
+procedures detailed in :ref:`8-1-6-2-7-2` are used to sample the exit
+angle cosine. The general structure of the kinematics data within a
+section for coherent or incoherent elastic scattering is presented in
+:numref:`tab8-1-26` with the material identifiers and data flags omitted for
+clarity. Once the angle cosine is selected, the exit energy is set equal
+to the incident energy.
+
+.. list-table:: Kinematics data structure for coherent and incoherent elastic scattering
+  :name: tab8-1-26
+  :align: center
+
+  * - .. image:: figs/Keno/tab26.svg
+        :align: center
+        :width: 600
+
+
+.. _8-1-6-2-7-6:
+
+Elastic and discrete-level inelastic scattering
+...............................................
+
+There is a one-to-one correspondence between the exiting angle and
+energy for elastic and discrete level inelastic scattering . Once the
+exiting angle is selected, the exiting energy is already determined
+based on the kinematics equations documented in most conventional
+reactor theory text books. However, an obscure fact is that the exiting
+energy distributions for discrete-level inelastic reactions and hydrogen
+elastic scattering can be double valued in the lab system. For discrete
+level inelastic scattering in the lab system, the range of incident
+energies that can have a double valued exit energy is given by the
+following expression:
+
+.. math::
+  :label: eq8-1-69
+
+  \Delta E_{double} =  \frac{Q}{A(1-A)} ,
+
+where
+
+     *Q* = the excess of the kinetic energy of the product particles over
+     that of the original particles, and
+
+     *A* = atomic mass ratio of the target mass to the mass of a neutron.
+
+:eq:`eq8-1-69` provides the size in energy of the double valued region above the
+threshold energy for the reaction. As indicated by :eq:`eq8-1-69`, the range of
+energies for a double valued region is inversely proportional to the
+target mass. Using :eq:`eq8-1-69` and ENDF/B data, the values of Δ\ *E*\ :sub:`double`
+can be calculated for all discrete level inelastic scattering reactions
+for all isotopes. A plot of Δ\ *E*\ :sub:`double` as a function of atomic mass
+ratio is provided in :numref:`fig8-1-198` for all possible discrete level
+inelastic scattering collisions for all isotopes. As shown in Fig.
+:numref:`fig8-1-198`, the size of the double valued region approaches 1 MeV as the
+mass ratio decreases. Because Δ\ *E\ double* can be relatively large,
+the double valued anomaly cannot be ignored in the collision treatment.
+The following discussion outlines the properties of the kinematics data
+and the procedures for treating elastic and discrete level inelastic
+scattering.
+
+.. _fig8-1-198:
+.. figure:: figs/Keno/fig198.png
+  :align: center
+  :width: 600
+
+  Range of incident energies (∆\ *E*\ :sub:`double`) for double valued region as a function of mass ratio.
+
+As noted previously, *NPU* secondary angle cosines are provided for each
+incident energy for a reaction, and the cosine distribution can be
+represented with either equiprobable or nonequiprobable distributions.
+Depending on the type of distribution, procedures similar to those of
+:ref:`8-1-6-2-7-3` are used to sample an equiprobable or nonequiprobable
+angular distribution for the exit cosine in the lab system.
+
+The angular data blocks for discrete level inelastic scattering and
+hydrogen elastic scattering are similar in form to other reactions;
+however, the exit lab cosines for discrete level inelastic scattering
+are greater than zero in the double-valued region, and an exit lab
+cosine may appear twice in the distribution with different
+probabilities. As an example, discrete level inelastic scattering for
+:sup:`7`\ Li is characterized by a double valued exit energy
+distribution as a function of exit cosine in the lab system.
+:numref:`fig8-1-190` provides the exit energy distribution for an inelastic
+collision that leaves the :sup:`7`\ Li nucleus in the first excited
+state (i.e., MT = 51) in the lab system. For :sup:`7`\ Li, the threshold
+for MT = 51 is 5.4672 × 10\ :sup:`5` eV, and the double valued region
+extends from the threshold energy up to 5.58259 × 10\ :sup:`5` eV;
+therefore, the incident energy range of the double valued region is
+~1.15 × 10\ :sup:`4` eV. As shown in :numref:`fig8-1-190`, the exit energy
+distributions are provided for different incident energies within the
+double valued region and an incident energy above the double valued
+region. As the incident energy exceeds the maximum energy for which two
+exiting energies can be produced, the secondary energy distribution
+becomes single valued (i.e., one exit energy for an exit cosine).
+
+Note that the double valued anomaly does not occur in the center-of-mass
+system. Therefore, the two exit energies possible for the lab system
+actually correspond to two different center-of-mass exit cosines. During
+the preparation of the KENO library, the angular distribution tables for
+discrete level inelastic scattering and elastic scattering for hydrogen
+can be constructed in the center-of-mass system and subsequently
+converted to the lab system. In order to properly construct the angular
+distribution tables in the lab system, the minimum lab cosine,
+*μ*\ :sup:`min`\ :sub:`lab`, must be determined because exit angles
+below the minimum lab cosine are not possible.
+
+For discrete level inelastic scattering and elastic scattering, the exit
+cosine in the lab system can be expressed as a function of the
+center-of-mass scattering angle, *μ*\ :sub:`cm`:
+
+.. math::
+  :label: eq8-1-70
+
+  \mu = \frac{\gamma + \mu_{cm}}{\big(1+2\gamma\mu_{cm}+\gamma^{2}\big)^{1/2}} ,
+
+where
+
+.. math::
+  :label: eq8-1-71
+
+  \frac{1}{\gamma} = \bigg[A^{2} + \frac{A\big(A+1\big)Q}{E}\bigg]^{1/2}
+
+Physically, the quantity 1/γ represents the ratio of the exit velocity
+of the neutron in the lab system to the center-of-mass velocity.
+Moreover, the quantity 1/γ reduces to *A* for elastic scattering
+(i.e., *Q* = 0). The minimum value for *μ* can be obtained by taking the
+derivative of :eq:`eq8-1-72` with respect to *μ*\ :sub:`cm` which yields the following
+expression:
+
+.. math::
+  :label: eq8-1-72
+
+  \frac{d\mu}{d\mu_{cm}} = \frac{1+ \gamma\mu_{cm}}{\big(1+2\gamma\mu_{cm}+\gamma^{2}\big)^{3/2}} .
+
+Setting :eq:`eq8-1-72` equal to 0 reveals that the minimum lab cosine
+(*μ*\ :sup:`min`\ :sub:`lab`) occurs when *μ*\ :sub:`cm` = −1/γ. For elastic
+scattering, the minimum lab cosine occurs when *μ*\ :sub:`cm` = −\ *A*. Because
+hydrogen is the only nuclide with a mass ratio below 1, hydrogen is the
+only nuclide that has a double valued exit energy distribution in the
+lab system for elastic scattering.
+
+During the preparation of the KENO library, the lab distributions for
+discrete level inelastic scattering and hydrogen elastic scattering will
+be constructed so that *μ*\ :sup:`min`\ :sub:`lab` is a boundary for an
+angular bin, and no angular cosines in the lab system will be permitted
+below *μ*\ :sup:`min`\ :sub:`lab`. As shown in :numref:`fig8-1-199` for
+:sup:`7`\ Li, the exit cosines greater than *μ*\ :sup:`min`\ :sub:`lab`
+will have two possible exit energies in the double valued region. As a
+result, the angular distribution table in the library will have angles
+that appear twice with different probabilities. For example, an angle
+cosine *μ* may be present in the table with probabilities *P*\ :sub:`m` and
+*P*\ :sub:`n`. Although the value of the angle cosine is the same for both
+probabilities, the corresponding exit energy will be different for each
+(*μ*, *P)* pair. In other words, the probability for an exit cosine
+determines the location in the exit energy distribution table for
+selecting the outgoing energy.
+
+.. _fig8-1-199:
+.. figure:: figs/Keno/fig199.png
+  :align: center
+  :width: 600
+
+  :sup:`7`\ Li exit energy distribution for the first discrete
+  level inelastic scattering reaction (MT=51). *E*\ :sub:`threshold` =
+  5.4672 × 10\ :sup:`5` eV; ∆\ *E*\ :sub:`double` = 1.1539 × 10\ :sup:`4` eV.
+
+Based on the format of the kinematics data, angle cosine distributions
+are provided as a function of incident energy. If the incident energy,
+*E*, is between *E*\ :sub:`i` and *E*\ :sub:`i+1`, then the *i*\ :sup:`th`
+table is selected with probability *P*\ :sub:`i` and the *i*\ +1 table is
+selected with probability *P*\ :sub:`i+1`:
+
+.. math::
+  :label: eq8-1-73
+
+  P_{i} = \frac{E_{i+1} - E}{E_{i+1}-E_{i}} ,
+
+.. math::
+  :label: eq8-1-74
+
+  P_{i+1} = \frac{E - E_{i}}{E_{i+1} - E_{i}} .
+
+Once the angular distribution corresponding to the incident energy is
+selected, the exit angle cosine can be selected using procedures like
+those in Sect. Exit angle cosine. For example, if the *i*\ :sup:`th`
+incident energy is selected, either :eq:`eq8-1-29`  is used to select the
+*a*\ :sup:`th` cosine bin for equiprobable bins, or :eq:`eq8-1-34`  is used for
+nonequiprobable bins. Subsequently, either :eq:`eq8-1-31` or :eq:`eq8-1-36` is used
+to calculate the exit angle cosine, depending on the type of angular
+distribution provided.
+
+.. _ last equation said chapter 9
+
+The coupled secondary angle-energy data blocks (*E*, *µ*, *E′* ) follow
+the angular data block in the kinematics data. For elastic scattering
+and discrete level inelastic scattering, there is one possible exit
+energy. Therefore, in the exit energy distribution block, a single exit
+energy (*NPE* = 1) is provided for each (*E*, \ *µ*) pair, and the
+general structure (i.e., material identifiers and data flags are omitted
+for clarity) of the secondary energy distribution data block is
+presented in :numref:`tab8-1-27`. Because only one exit energy is provided for
+each (*E*, \ *µ*) pair, the probability for the exit energy is 1.0. As
+indicated in :numref:`tab8-1-27`, a cumulative probability of 1.0 is stored for
+each exit energy; however, the parameters stored in the PDF location are
+the power-interpolation parameters needed to interpolate the exit
+energy.
+
+.. list-table:: Secondary energy distribution format for elastic and discrete-level inelastic scattering
+  :name: tab8-1-27
+  :align: center
+
+  * - .. image:: figs/Keno/tab27.svg
+        :width: 600
+        :align: center
+
+When an exiting angle :math:`{\dot{\mu}}_{i}` is sampled between *µ*\ :sub:`a`
+and *µ*\ :sub:`a+1`, the exiting energy values that correspond to
+*µ*\ :sub:`a` and *µ*\ :sub:`a+1` for the incident energy *E*\ :sub:`i` can be used
+to interpolate the exiting energy *E*\ ′ that corresponds
+to\ :math:`{\dot{\mu}}_{i}`. Physically, the interpolation procedures
+correspond to an interpolation along one of the incident energy curves
+as depicted in :numref:`fig8-1-197`. In order to perform the interpolation, the
+*a*\ :sup:`th` and *a*\ +1\ :sup:`st` (*E*, \ *µ*) pairs are located in
+the secondary energy distribution block corresponding to *E*\ :sub:`i`.
+Subsequently, the corresponding *a*\ :sup:`th` and *a*\ +1 exit energy
+values (i.e., :math:`E^{'}_a` and :math:`E^{'}_{a+1}`) are read from the secondary energy distribution
+record.
+
+The exiting energy is interpolated with the following relation:
+
+.. math::
+  :label: eq8-1-75
+
+  E^{'}\left( {\dot{\mu}}_{i} \right) = E_{a}^{'} + \left( \frac{{\dot{\mu}}_{i}^{P_{a}} - \mu_{a}^{P_{a}}}{\mu_{a + 1}^{P_{a}} - \mu_{a}^{P_{a}}} \right)\left( E_{a + 1}^{'} - E_{a}^{'} \right)\ ,
+
+where
+
+    *P* = is a “power-interpolation” factor for the *a*\ :sup:`th` cosine
+    bin that is obtained from a fit to the *E′* distribution as a
+    function of *µ*.
+
+The interpolation procedure in :eq:`eq8-1-75` is analogous to the interpolation
+scheme that has been used successfully to interpolate Bondarenko factors
+as a function of temperature in the BONAMI module. If the curve is
+monotonic in nature, the power-interpolation scheme can be used to
+represent the curvature with a minimum number of points. For elastic and
+discrete level inelastic scattering, the *E′*\ (*µ*) distribution is
+monotonic and is suited for the power interpolation scheme. Note that if
+*p* is 1, :eq:`eq8-1-75` reduces to a linear interpolation in *µ*-*E′* space.
+
+.. _8-1-6-2-8:
+
+Thermal scattering effects
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A collision between a neutron and nucleus can be affected by the thermal
+motion of the target nucleus. Moreover, ENDF provides thermal scattering
+law data to account for the thermal effects of scattering with a
+material below 5 eV; however, the scattering law data are only available
+for a select number materials as shown in :numref:`tab8-1-28`. If thermal
+scattering law data are not available, elastic scattering is treated
+with the free gas approximation in the KENO library. For heavy nuclides
+with 0 K scattering libraries available, the Doppler Broadening
+Rejection Correction (DBRC) method is used instead. For DBRC-enabled
+nuclides, thermal scattering effects are taken into account up to 210 eV
+(although this parameter can be controlled by the user). More
+information on DBRC is given in :ref:`8-1-6-2-9`.
+
+.. list-table:: ENDF/B thermal scattering law data.
+  :align: center
+  :name: tab8-1-28
+
+  * - .. image:: figs/Keno/tab28.svg
+        :align: center
+        :width: 600
+
+The continuous energy cross section library is processed to account for
+the appropriate scattering effects. As a result, the KENO cross section
+library inherently accounts for thermal scattering using either the
+thermal scattering law data or the free gas approximation. In other
+words, the kinematics data based on thermal effects are combined with
+the fast data to represent the collision kinematics for the material. As
+noted previously, the kinematics data block for a reaction is divided
+into sections that describe the collision kinematics for a range of
+incident energies. As a result, the kinematics data structure has a
+modular format that is beneficial for data library production. Because
+of the kinematics data structure, the thermal scattering law data, which
+are typically applied up to 5 eV, can be processed independently with
+AMPX to obtain the angle energy probability distributions. Subsequently,
+one or more sections in the kinematics data block can be used to
+represent the thermal angle -energy distributions for energies up to
+5 eV. Moreover, the fast kinematics data can be represented with one or
+more sections for energies above 5 eV. As part of the library
+preparation, the thermal kinematics data are combined with the fast
+kinematics data block to complete the collision representation for the
+entire range of incident energies. Because the thermal scattering
+effects are treated during the processing of the cross section data for
+a material, the thermal effects are inherently treated in KENO. During
+the Monte Carlo random walk, the procedures provided in :ref:`8-1-6-2-7-2`
+and :ref:`8-1-6-2-7-3` are used to sample the exit angle and energy
+for the collision.
+
+.. _8-1-6-2-9:
+
+Doppler broadening rejection correction method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When colliding with a heavy nuclide, the thermal motion of the target
+nuclide can significantly affect the exit angle and energy of the
+neutron. The thermal motion of the target nuclide was previously
+ignored, but this assumption has been proven inadequate by Dagan and
+Becker :cite:`becker_proof_2009`.
+
+A new sampling equation has been implemented to allow for Doppler
+broadening of the scattering kernel. Removing this approximation can
+have a significant impact on the critical eigenvalue of systems by
+allowing neutrons to be upscattered into absorption resonances.
+Currently, DBRC is enabled in KENO only for :sup:`238`\ U, and this
+feature can be activated by setting the parameter **DBR**\ =1.
+
+.. _8-1-6-2-10:
+
+Doppler broadening methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+CE KENO calculations will perform temperature adjustment of neutron
+cross sections by default. The cross sections provided with SCALE are
+typically supplied in 300 K intervals, and additional cross section
+temperature resolution may be desired to model non–room temperature
+systems or systems with significant temperature effects.
+
+The capability to perform problem-dependent Doppler broadening of
+nuclear cross sections has been implemented in KENO. This feature is
+controlled by the **DBX** parameter, which causes KENO to perform
+Doppler broadening on the cross sections in all compositions in a
+problem before simulating particle histories. When this occurs, the
+cross sections for each material are broadened to the temperature
+assigned to that material in the **READ COMP** block, as long as the
+requested temperature is more than 4 K from the library temperature.
+Within this ±4 K band, the library temperature is used to avoid
+difficulties with numerical instabilities in small cross section
+adjustments. The default for this feature is **DBX=**\ 2, which performs
+Doppler broadening for both the 1-D and 2-D cross sections. Current
+options available are as follows:
+
+-  **DBX** = 0 – Doppler broadening is not performed. KENO selects the
+   library at the closest temperature. If desired, the user can use the
+   **TTL** parameter to force a job abort if the library temperature is
+   too far from the requested temperature. By default, **TTL**\ =-1, so
+   the closest library will be used regardless of the temperature
+   difference.
+
+-  **DBX** = 1 –Doppler broadening is performed using a finite
+   difference method on the one-dimensional cross sections that are
+   temperature dependent. Logarithmic interpolation is also used to
+   broaden the probability table data. When this option is used, the
+   collision probabilities are recalculated after the Doppler broadening
+   is complete to ensure consistency.
+
+-  **DBX** = 2 –The same actions as **DBX** = 1 are performed, and
+   Doppler broadening is also performed on the thermal moderator data by
+   conducting interpolation on the double differential probability data
+   present on the cross section library.
+
+Nuclide level energy unionization is automatically disabled
+(**M2U=**\ NO\ **)** when Doppler broadening is enabled in order to
+reduce the memory usage. At this writing, research is in progress to
+allow KENO to perform on-the-fly cross section Doppler broadening as
+particle histories are being simulated.
+
+.. _8-1-6-3:
+
+Multigroup mode solution procedure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. math::
+  :label: eq8-1-76
+
+  \frac{1}{v_{g}}\frac{\partial\Phi_{g}}{\partial t}\left( X,\Omega,t \right) + \Omega \bullet \nabla\Phi_{g}\left( X,\Omega,t \right) + \Sigma_{\text{tg}}\left( X \right)\ \Phi_{g}\left( X,\Omega,t \right) = \mathrm{q}_{\mathrm{g}}\left( X,\Omega,t \right),
+
+where
+
+   g = is the energy group of interest,
+
+   v\ :sub:`g` = is the average velocity of the neutrons in group g,
+
+   Φ\ :sub:`g`\ (X,Ω,t) = is the angular flux of neutrons having their
+   energies in group g, at position X and time t, and
+
+   Σ\ :sub:`tg`\ (X) = is the macroscopic total cross section of the
+   media at position X for group g, corresponding to
+
+   .. math::
+
+    \Sigma_{tg}(X) = \frac{\int^{}_{\Delta E_{g}}\Sigma_{t}(X,E)\Phi(X,E,\Omega,t)dE} {\int^{}_{\Delta E_{g}}\Phi(X,E,\Omega,t)dE} ,
+
+.. _ correct?
+
+where
+
+    ∆E\ :sub:`g` defines group g, and
+
+    q\ :sub:`g`\ (X,Ω,t) is the total source contributing to energy group g
+    at position X, and time t in direction Ω.
+
+Using the relationship X′ = X − RΩ, defining the problem to be time
+independent using an integrating factor on both sides of :eq:`eq8-1-76`,
+and defining
+
+.. _ last equation says chapter 9
+
+.. math::
+
+  T(R) = \int^{R}_{0}\Sigma_{tg}(X - R^{'}\Omega)dR^{'} ,
+
+the following equation can be written:
+
+.. math::
+  :label: eq8-1-77
+
+  \Phi_{g}(X,\Omega) = \int^{\infty}_{O}q_{g}(X - R\Omega,\Omega)e^{-T(R)}dR .
+
+At this point, the problem becomes an eigenvalue problem. If there is no
+external source, the source may be defined as
+
+.. math::
+  :label: eq8-1-78
+
+  q_{g}\left( X,\Omega \right) = \sum_{g^{'}}^{}{\int_{}^{}{{d\Omega^{'}}\Phi_{g^{'}}\left( X,\Omega^{'} \right)\ \Sigma_{s}\left( X,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega \right)} + \frac{1}{k}Q_{g}^{'}\left( X,\Omega \right)},
+
+where
+
+   k is the largest eigenvalue of the integral equation,
+
+   Q′\ :sub:`g`\ (X,Ω) is the fission source at position X for energy
+   group g and direction Ω (all fission contributions to group g from
+   all energy groups in the previous generation), and
+
+   Σ\ :sub:`s`\ (X,g′→g,Ω′⋅Ω) is the scattering cross section for
+   scattering at position X from group g′ and direction Ω′ to group g
+   and direction Ω.
+
+In terms of energy, the scatter can be defined as
+
+.. math::
+  :label: eq8-1-79
+
+  \Sigma_{s}\left( X,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega \right) = \frac{\int_{\mathrm{\Delta}E_{g}}^{}{\int_{\mathrm{\Delta}E_{g^{'}}}^{}{\Sigma_{s}\left( X,E^{'} \rightarrow E,\Omega^{'} \cdot \Omega \right)\ \Phi\left(X,E^{'},\Omega^{'} \right)\text{d}E^{'}\text{dE}}}}{\int_{\mathrm{\Delta}E_{g^{'}}}^{}{\Phi\left( X,E^{'},\Omega^{'} \right)\text{dE}^{'}}\ }\ \ ,
+
+where
+
+   ∆E\ :sub:`g` is the energy-range-defining energy group g, and
+
+   ∆E\ :sub:`g`\ ′ is the energy-range-defining energy group g′.
+
+Assuming the fission neutrons to be isotropic, the fission source
+Q\ :sub:`g′` (X,Ω) can be written as
+
+.. math::
+  :label: eq8-1-80
+
+  Q^{'}_{g}(X,\Omega) = \frac{1}{4\pi}\sum_{g^{'}}\int_{\Omega^{'}}^{}{d\Omega^{'}\Phi_{g^{'}}(X,\Omega^{'})\chi(X,g^{'}\rightarrow g)\nu_{g^{'}}(X)\Sigma_{fg^{'}}(X)} ,
+
+.. _ correct?
+
+where
+
+   χ(X,g′→g) is the fraction of neutrons born in energy group g from
+   fission in energy group g in the media at position X,
+
+   ν\ :sub:`g′` (X) is the number of neutrons resulting from a fission
+   in group g′ at position X, and
+
+   Σ\ :sub:`fg′` (X) is the macroscopic fission cross section of the
+   material at position X for a neutron in energy group g′.
+
+Substituting :eq:`eq8-1-78` into :eq:`eq8-1-77` yields the following equation:
+
+.. _ first equation says chapter 9
+
+.. math::
+  :label: eq8-1-81
+
+  \frac{\Phi_{g}\left( X,\Omega \right) = \int_{0}^{\infty}{dRe^{- T\left( R \right)}\left\{ \ \frac{1}{k}Q_{g}^{'}\left( X - R\Omega,\Omega \right) \right.\ }}{+ \left. \ \sum_{g^{'}}^{}{\left\lbrack \int_{\Omega^{'}}^{}{{d\Omega^{'}\ \Phi_{g^{'}}\left( X - R\Omega,\Omega^{'} \right)\text{Σ}}_{s}\left( X - R\Omega,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega \right)} \right\rbrack\ } \right\}}
+
+.. _ correct?
+
+The definition of k may be given as the ratio of the number of neutrons
+in the (n + 1)\ *th* generation to the number of neutrons in the n\ *th*
+generation or the largest eigenvalue of the integral equation. Using
+:eq:`eq8-1-80`, :eq:`eq8-1-81` can be written as
+
+.. _ last equation says chapter 9
+
+.. math::
+  :label: eq8-1-82
+
+  \frac{\Phi_{g}\left( X,\Omega \right) = \int_{0}^{\infty}{dRe^{- T\left( R \right)}\left\{ \sum_{g^{'}}^{}{\frac{1}{k}\int_{\Omega^{'}}^{}{\upsilon_{g^{'}}\left( X - R\Omega \right)\Sigma_{\text{fg}^{'}}(X - R\Omega)}}{\chi\left( X - R\Omega,g^{'} \rightarrow g \right)\text{Φ}}_{g}\left( X - R\Omega,\Omega^{'} \right)\frac{d\Omega^{'}}{4\pi}  \right.\ }}{+ \left. \ \sum_{g^{'}}^{}\left\lbrack \int_{\Omega^{'}}^{}{d\Omega^{'}\ \Sigma_{\text{tg}^{'}}\left( X - R\Omega,\Omega^{'} \right)\text{Σ}_{s}\left( X - R\Omega,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega \right)\ } \right\rbrack \right\}}
+
+Writing :eq:`eq8-1-82` in generation notation, multiplying and dividing
+certain terms by Σ\ :sub:`t`\ (X), and multiplying both sides of the
+equation by ν\ :sub:`g`\ (X)Σ\ :sub:`fg`\ (X) yields the following
+equation, which is solved by KENO:
+
+.. _ equation says chapter 9
+
+.. math::
+  :label: eq8-1-83
+
+  \frac{{\frac{\upsilon_{g}\left( X \right)\Sigma_{\text{fg}}\left( X \right)}{\Sigma_{\text{tg}}\left(X \right)}\Sigma_{\text{tg}}\left( X \right)\ \Phi}_{g,n}\left( X,\Omega \right) = \frac{\upsilon_{g}\left( X \right)\Sigma_{\text{fg}}\left( X \right)}{\Sigma_{\text{tg}}\left( X \right)}\Sigma_{\text{tg}}\left( X \right)\int_{0}^{\infty}{dRe^{- T\left( R \right)}}}{\begin{matrix}   \left\{ \frac{1}{k}\sum_{g^{'}}^{}\left\lbrack \int_{\Omega^{'}}^{}{\frac{\upsilon_{g^{'}}\left( X - R\Omega \right)\Sigma_{fg^{'}}\left( X - R\Omega \right)}{\Sigma_{tg^{'}}\left( X - R\Omega \right)}{\chi\left( X - R\Omega,g^{'} \rightarrow g \right)\ \Sigma_{tg^{'}}\left( X - R\Omega \right)\text{Φ}}_{g^{'},n - 1}\left( X - R\Omega,\Omega^{'} \right)\frac{d\Omega^{'}}{4\pi}} \right\rbrack \right.\ \\    + \left. \ \sum_{g^{'}}^{}\left\lbrack \int_{\Omega^{'}}^{}{\frac{\text{Σ}_{s}\left( X - R\Omega,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega\right)}{\Sigma_{tg^{'}}\left( X - R\Omega \right)}\ \Sigma_{\text{tg}^{'}}\left( X- R\Omega \right)\ \Phi_{g^{'},n}\left( X- R\Omega,\Omega^{'}\right)\text{d}\Omega^{'}} \right\rbrack \right\}\ , \\   \end{matrix}}
+
+.. _ correct?
+
+where n indicates the n\ *th* generation and n − 1 is the (n − 1)\ *th*
+generation. Note that the left-hand side of the
+equation—ν\ :sub:`g`\ (X) Σ\ :sub:`fg`\ (X)Φ\ :sub:`g,n`\ (X,Ω)—is the
+fission production for the n\ *th* generation.
+
+The solution strategy used by KENO solves :eq:`eq8-1-83` by using an iterative
+procedure. The fission production at point X in energy group g due to
+neutrons in the (n − 1)\ *th* generation, normalized to the system
+multiplication, is
+
+.. math::
+
+    \frac{1}{k}\sum_{g^{'}}\int_{\Omega^{'}}\frac{\nu_{g^{'}}(X)\Sigma_{fg^{'}}(X)}{\Sigma_{tg^{'}}(X)}\chi \big(X,g^{'} \rightarrow g\big)\Sigma_{tg^{'}}\big(X\big)\Phi_{g^{'},n-1}\big(X,\Omega^{'}\big)\frac{d\Omega^{'}}{4\pi} .
+
+The collision points used in KENO are chosen by selecting path lengths
+from the distribution
+
+  e\ :sup:`−T(R)` ,
+
+which is the probability of transport from any position X − RΩ to
+position X.
+
+The first collision density of neutrons in group g per unit solid angle
+about Ω resulting from the fission source produced by the (n − 1)
+generation, normalized to the system multiplication, is
+
+.. math::
+
+    \frac{\Sigma_{tg}\big(X\big)\int^{\infty}_{0}dRe^{-T(R)}\frac{1}{k}\int_{\Omega^{'}}\sum_{g^{'}}\frac{\nu_{g^{'}}\big(X-R\Omega\big)\Sigma_{fg^{'}}\big(X-R\Omega\big)}{E_{tg^{'}}\big(X-R\Omega\big)}}{\chi\big(X-R\Omega,g^{'}\rightarrow g\big)\Sigma_{tg^{'}}\big(X-R\Omega\big)\Phi_{g^{'},n-1}\big(X-R\Omega,\Omega^{'}\big)\frac{\text{d}\Omega^{'}}{4\pi}} .
+
+.. _ correct?
+
+The scattering source at position X emerging in group g and direction Ω
+resulting from previous collisions in the same generation, is
+
+.. math::
+
+    \sum_{g^{'}}^{}{\int_{\Omega^{'}}^{}{\ \frac{\Sigma_{s}\left( X,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega \right)}{\Sigma_{tg^{'}}\left( X \right)}\text{Σ}_{tg^{'}}\left( X \right)\ \Phi_{g^{'},n}\left( X,\Omega \right)d\Omega^{'}}}
+
+The collision density in group g, per solid angle about Ω is
+
+.. math::
+
+    \Sigma_{tg}\int_{0}^{\infty}{\text{dR}e^{- T\left( R \right)}\sum_{g^{'}}^{}{\int_{\Omega^{'}}^{}{{\frac{\text{Σ}_{s}\left( X - R\Omega,g^{'} \rightarrow g,\Omega^{'} \cdot \Omega \right)}{\Sigma_{tg^{'}}\left( X - R\Omega \right)}\text{Σ}_{tg^{'}}\left( X - R\Omega \right)\text{Φ}}_{g^{'},n}\left( X - R\Omega,\Omega^{'} \right)}}d\Omega^{'}\ }
+
+The total collision density times :math:`\frac{\nu_g(X)\Sigma_{fg}(X)}{\Sigma_{tg}(X)}` is the relationship from
+which KENO picks the source points for the next generation.
+
+.. _8-1-6-3-1:
+
+Collision treatment
+^^^^^^^^^^^^^^^^^^^
+
+A collision occurs in a geometrical region when a history exhausts its
+mean-free-path length within the boundaries of the region. For each
+collision, the absorbed weight and the fission weight are tabulated,
+then the weight is modified by the nonabsorption probability. This new
+weight is checked for splitting and Russian roulette, and if it
+survives, the history is scattered. A new energy group is selected from
+the cumulative transfer probability distribution. This group-to-group
+transfer determines an angular scattering distribution, usually
+expressed as a Legendre expansion of the cross section transfer array.
+A set of discrete angles and probabilities are generated by a
+generalized Gaussian quadrature procedure, preserving the moments of the
+Legendre expansion of the angular scattering distribution. KENO treats
+P\ :sub:`0` and P\ :sub:`1` Legendre expansions as special cases. If the
+scattering distribution is isotropic, a flag is set to randomly select
+new direction cosines from an isotropic distribution, instead of using
+discrete scattering angles. If the distribution is a P\ :sub:`1`
+expansion, KENO randomly selects the cosine of the scattering angle
+according to
+
+  (1) :math:`|\bar{\mu}| < \frac{10^{-10}}{3}`: scattering distribution is isotropic,
+
+  (2) :math:`|\bar{\mu}| \leq 1/3: \mu = \bigg(\sqrt{1+6\zeta\bar{\mu}+\big(3\bar{\mu}\big)^{2}} - 1\bigg)/ 3\bar{\mu}`,
+
+or
+
+  (3) :math:`|\bar{\mu}| > 1/3: \mu = \zeta\big(1-|\bar{\mu}|\big) + \bar{\mu}`
+
+
+where ζ is a uniform random variable between −1 and +1 and
+
+:math:`\bar{\mu}` is the mean cosine of the scattering angle.
+
+Otherwise, KENO randomly selects one of the discrete scattering angles
+(μ). New direction cosines are then calculated according to the
+following relationships where u, v, and w are the initial direction
+cosines and u′, v′, and w′ are the direction cosines after the
+collision:
+
+    u' = ucos\ :math:`\Psi - \sqrt{\text{v}^{2} + \text{w}^{2}}`\ sin\ :math:`\Psi`\ cos\ :math:`\eta`
+
+    v' = vcos\ :math:`\Psi + \frac{\text{uv}}{\sqrt{\text{v}^{2} + \text{w}^{2}}}\text{cos}\eta\text{sin}\Psi - \frac{\text{w}}{\sqrt{\text{v}^{2} + \text{w}^{2}}}\text{sin}\Psi\text{sin}\eta`
+
+    w' = wcos\ :math:`\Psi + \frac{\text{uw}}{\sqrt{\text{v}^{2} + \text{w}^{2}}}\text{cos}\eta\text{sin}\Psi + \frac{\text{v}}{\sqrt{\text{v}^{2} + \text{w}^{2}}}\text{sin}\Psi\text{sin}\eta`
+
+where
+
+   sinψ = :math:`\sqrt{1-\mu^{2}}`,
+
+   cosψ = μ = cosine of the scattering angle,
+
+   η = a random azimuthal angle between 0 and 2π.
+
+.. _8-1-6-3-2:
+
+Fission point selection
+^^^^^^^^^^^^^^^^^^^^^^^
+
+In order for a fission to occur, a neutron must first have a collision.
+The fission weight, :math:`\text{fisw}`, is defined as the neutron
+weight, :math:`\text{wt}`, times the ν-fission probability,
+:math:`\text{fnfp}`:
+
+.. math::
+  :label: eq8-1-84
+
+  fisw = wt\  \times \ fnfp
+
+Two important variables used in the processing of fission points are (1)
+FWR, which is defined as the fission weight, :math:`\text{fisw}`,
+divided by a random number, and (2) RAKBAR, which is defined as a factor
+times the running average value of k-effective, AKBAR. This factor is a
+function of the square root of the number of neutrons per generation and
+was chosen because it usually produces an adequate number of independent
+fission points and does not produce so many that an excessive amount of
+time is spent choosing from the fission points produced.
+
+The following procedure for generating fission points is repeated until
+FWR is less than RAKBAR. A fission point is generated only if FWR is
+greater than RAKBAR. Multiple fissions at the same point are allowed
+only if :math:`\text{fisw}` is greater than RAKBAR. If
+:math:`\text{fisw}` is greater than RAKBAR, a fission point is stored
+with FWR set equal to RAKBAR divided by a random number and
+:math:`\text{fisw}` is decremented by RAKBAR. Then the energy group of
+fission is chosen randomly from the fission spectrum of the mixture in
+which the fission occurred. The energy group of fission, the X, Y, and
+Z position, the location of the unit within the array, the region
+number, the value of FWR, the region number of the array boundary, and
+the nesting data for holes and/or arrays are stored in the fission bank.
+The quantity of fission points kept to be used as fission positions for
+the next generation is limited to the number of positions in the fission
+bank (input parameter **NFB**\ =). Typically **NFB** is equal to the
+input parameter **NPG**, the number of neutrons per generation. If a
+fission occurs and the fission counter is less than **NFB**, the fission
+point information is stored in the fission bank. If a fission occurs and
+the fission counter is greater than or equal to the number per
+generation, a search is made to find the smallest stored value of FWR.
+If FWR of the newly fissioned neutron is less than the smallest FWR in
+the table, it is discarded. Otherwise, the information from the newly
+fissioned neutron replaces that associated with the smallest value of
+FWR found in the table.
+
+When the next generation is ready to be processed, data are transferred
+from the fission bank into the neutron bank to be used as starting
+positions for the fission neutrons. If more than NPG neutrons are saved
+in the fission bank, **NPG** of those having the highest values of FWR
+will be used. If too few fission positions were stored (less than the
+number per generation), a warning message to that effect (K?-132) is
+printed, and additional fission points are randomly chosen from those
+that were stored until the number of fission points available to start
+the next generation is equal to the number of neutrons per generation.
+
+.. _8-1-6-3-3:
+
+Biasing or weighting
+^^^^^^^^^^^^^^^^^^^^
+
+In order to minimize the statistical deviation of k-effective per unit
+computer time, KENO uses weighted tracking rather than analog tracking.
+Weighted tracking accounts for absorption by reducing the neutron weight
+rather than allowing the neutron history to be terminated by absorption.
+To prevent expending excessive computer time tracking low-weight
+neutrons, Russian roulette is played when the weight of the neutron
+drops below a preset weight, WTLOW. Neutrons that survive Russian
+roulette are assigned a weight, WTAVG. The value of WTLOW and WTAVG can
+be assigned as a function of position and energy. The values used by
+KENO are
+
+   DWTAV = 0.5, the default value of WTAVG,
+
+   WTAVG = DWTAV, the weight given a neutron that survives Russian
+   roulette, and
+
+   WTLOW = WTAVG/3.0, the value of weight at which Russian roulette is
+   played.
+
+A study :cite:`hoffman_optimization_1982` by Hoffman shows these default values to be reasonable for
+bare critical assemblies. :numref:`fig8-1-200` from this study shows the
+analytic relationship between the variance and WTLOW when WTAVG is 0.5.
+Note that the default value of 0.167 for WTLOW is very close to the
+minimum point on the curve. Experimental results of actual Monte Carlo
+calculations\ :sup:`7` provide further assurance that 0.167 is an
+optimum choice for WTLOW when WTAVG is 0.5.
+
+.. _fig8-1-200:
+.. figure:: figs/Keno/fig200.png
+  :align: center
+  :width: 600
+
+  Analytic estimate of the relationship between WTLOW and the variance, :math:`\sigma^{2}_{k}`, when WTAVG is 0.5.
+
+:numref:`fig8-1-201`, also from the Hoffman study, shows the analytic
+relationship between the variance and the value chosen for WTAVG for a
+value of WTLOW = 0.167. Although the KENO default value for WTAVG is not
+the optimum, a close examination of the data shows that the variance was
+changing relatively slowly as a function of WTAVG. Even though this
+study shows a value near 0.26 to be optimum for this system, further
+studies of other systems are needed before changing the default value of
+WTAVG from 0.5 as it has been used in previous versions of KENO.
+
+.. _fig8-1-201:
+.. figure:: figs/Keno/fig201.png
+  :align: center
+  :width: 600
+
+  Analytic estimate of the relationship between WTAVG and the
+  variance, :math:`\sigma^{2}_{k}`, when WTLOW is :sup:`1`/:sub:`6`.
+
+Inside a fissile core, the importance of a neutron is a slowly varying
+function in terms of energy and position. Hence, for many systems, the
+standard defaults for WTLOW and WTAVG are good values to use. For
+reflectors, however, the worth of a neutron varies as a function of
+distance from the fissile material and as a function of energy. As a
+neutron in the reflector becomes less important relative to a neutron in
+the fissile region, it becomes desirable to spend less time tracking it.
+Therefore a space- and energy-dependent weighting or biasing function is
+used in KENO to allow the user to minimize the variance in k-effective
+per unit of tracking time. When a biasing function is used in a
+reflector, it becomes possible for a neutron to move from one importance
+region into another in which the WTLOW is greater than the weight of the
+neutron. When this occurs, Russian roulette is played to reduce the
+number of neutrons tracked. When the reverse occurs, that is, when the
+neutron moves to a region of higher importance, its weight may be much
+higher than WTAVG for that region. When the weight of the neutron is
+greater than a preset value, WTHI, the neutron is split into two
+neutrons, each having a weight equal to one-half the weight of the
+original neutron. This procedure is repeated until the weight of the
+split neutron is less than WTHI. The default value for WTHI is
+WTAVG*3.0. WTHI is the weight at which splitting occurs.
+
+The weighting or biasing function for a given core material and
+reflector material can be obtained by using the adjoint solution from
+S\ :sub:`n` type programs for a similar (usually simplified) problem.
+This adjoint flux gives the relative contribution of a neutron at a
+given energy and position to the total fissions in the system. The
+weighting function for KENO is thus proportional to the reciprocal of
+the adjoint flux. Although such a function can be difficult to obtain,
+the savings gained makes the effort worthwhile for many of the materials
+that are frequently used as reflectors. Biasing functions :cite:`odell_transport_1987` have been
+prepared for several reflector materials commonly used in KENO
+calculations. The use of biasing to minimize the variance in k-effective
+per unit of computer time will usually increase the variance in other
+parameters such as leakage or absorption in the reflector.
+
+.. _8-1-6-3-4:
+
+Differential albedos
+^^^^^^^^^^^^^^^^^^^^
+
+Arrays reflected by thick layers of material having a small absorption
+to the scattering ratio may require large amounts of computer time to
+determine k-effective\ :cite:`demaret_accurate_1999` because of the relatively long time a
+history may spend in the reflector. A differential albedo technique was
+developed for use with the KENO codes to eliminate tracking in the
+reflector. This involves returning a history at the point it impinges on
+the reflector and selecting an emergent energy and polar angle from a
+joint density function dependent upon the incident energy and polar
+angle. The weight of the history is adjusted by the functional return
+from the reflector, which is also based on the incident energy and
+angle.
+
+The characteristics of a differential albedo emulate the attributes of
+the reflector material and are independent of the material or materials
+adjacent to the reflector. Thus, a differential albedo that is generated
+for a given reflector material can be used with any array, regardless of
+the type of fuel or fissile material contained within the array.
+
+For many calculations involving reflected arrays of fissile material,
+the differential albedo treatment is a powerful tool that can
+significantly reduce the computing time required to determine
+k-effective. The savings will vary depending on the importance of the
+reflector to the system. A substantial effort is required to generate a
+differential albedo, but the savings gained were well worth the effort
+for commonly used reflector materials. The savings are not worth the
+applicability questions on modern computing platforms; the differential
+albedo capability is maintained only for backwards compatibility.
+
+To generate the differential albedo information for a material, a
+fixed-source calculation must be made for each incident energy and
+angle. The data presently available for use with KENO were generated by
+1‑D discrete ordinates calculations for slab geometry representing
+infinite slabs. Consequently, for a finite reflector, these data will
+not correctly treat histories that enter the reflector near an edge.
+Past experience with differential albedo reflectors indicates that
+k-effective appears to be conservative for small faces and will tend
+toward the correct result as the face becomes large relative to the area
+near the corners. Care must be taken to ensure that any surface to which
+a differential albedo is applied is large enough that the errors at the
+edges can be ignored.
+
+Because differential albedos are expensive and time consuming to
+generate, those corresponding to the Hansen-Roach 16-energy-group
+structure are the only differential albedos available for use with KENO
+at this writing. In the past, their use was limited to problems using
+cross sections having the Hansen‑Roach 16-energy-group structure. KENO
+extends the use of differential albedos to other energy-group structures
+by allowing appropriate energy transfers. This is accomplished by
+creating lethargy boundary tables for the albedo group structure and the
+cross section group structure and determining the lethargy interval
+corresponding to the desired transfer (cross section group structure to
+albedo group structure or vice versa) based on a uniform lethargy
+distribution over the interval. When the energy-group boundaries of the
+cross sections and albedos are different, the results should be
+scrutinized by the user to evaluate the effects of the approximations.
+
+.. _8-1-6-4:
+
+Geometry
+~~~~~~~~
+
+KENO V.a geometry is restricted to the use of specific shapes. These
+shapes are called geometry regions or regions. Allowed shapes in KENO
+V.a are cubes, cuboids (rectangular parallelepipeds), spheres,
+cylinders, hemispheres, and hemicylinders. These shapes must be oriented
+along orthogonal axes and cannot be rotated in KENO V.a. They can be
+translated. Hemispheres and hemicylinders are not limited to half
+spheres and half cylinders; the definitive plane can be positioned by
+entering a chord. The value of this chord can range from the positive
+magnitude of the radius (giving a complete sphere or cylinder) to the
+negative magnitude of the radius (giving a zero volume, nonexistent
+sphere or cylinder).
+
+KENO-VI geometry can model any geometric shape that can be described
+using quadratic equations. These geometric shapes are stacked together
+forming regions. The set of regions is then used to build units. A set
+of predefined shapes that include cones, cuboids (rectangular
+parallelepipeds), cylinders, dodecahedrons, ecylinders (extruded
+elliptical cylinders), ellipsoids, hexprisms, hoppers, parallelepipeds,
+planes, rhombohedrons, spheres, wedges (triangular prisms), as well as
+others is used to construct regions. In addition, the keyword
+**QUADRATIC** is provided which allows additional shapes to be
+constructed by specifying the quadratic equations that describe the
+shape. These shapes can be rotated and translated to any orientation and
+position within their respective units. Hemispheres and hemicylinders
+can be constructed using spheres and cylinders with a chord. Regions are
+rotated by providing the nonzero angles associated with the Euler
+X-convention.
+
+A major restriction applied to KENO V.a geometry is that intersections
+are not allowed. Furthermore, each successive geometry region must
+completely enclose the preceding region. Tangency and shared faces are
+allowed. The volume of a region is the volume of the specified shape
+minus the volume of the preceding region shape and any holes contained
+in the region. To alleviate the complete enclosure restriction, KENO V.a
+allows multiple sets of geometry regions, with each set independently
+governed by this restriction. Each set of these multiple geometry
+regions is called a *unit*. Units can be stacked together in a 3-D
+rectangular parallelepiped called an *array* or *lattice*, just as
+children’s blocks can be stacked. Units that are to be stacked together
+in this manner must have a rectangular parallelepiped outer region, and
+the adjacent faces of adjacent units must be the same size and shape. An
+array can be treated as a building block and used as a unit within
+another array.
+
+A major improvement in KENO-VI is the ability to intersect regions.
+Region volumes are no longer calculated due to the complexity involved
+with intersecting regions. Each set of multiple geometry regions is
+called a unit. KENO-VI allows multiple sets of geometry regions (i.e.,
+units), and each set has an independent coordinate system. A global unit
+must be specified for every problem, including single-unit problems.
+Units with cuboidal outer boundaries where the adjoining faces have the
+same dimensions can be stacked together in a 3-D rectangular
+parallelepiped called an *array* or *lattice*, just as children’s blocks
+can be stacked. Unlike KENO V.a, units having hexagonal or dodecahedral
+outer boundaries where the adjoining faces have the same dimensions can
+also be stacked together in an array. An array boundary must be
+specified that either coexists with the outermost edge of the array or
+that is entirely within the array. The array boundary can be any shape
+that is definable using quadratic equations. An array can be treated as
+a building block and used as a unit within another array.
+
+The use of holes in KENO allows a unit to be emplaced within another
+unit. This feature allows the addition of a complex structure,
+previously defined as a unit, to be directly placed within another unit.
+In KENO V.a a hole is not allowed to intersect other holes or regions,
+but holes may intersect multiple regions in KENO-VI.
+
+Multiple arrays can be described in KENO. The global array in an
+unreflected problem is the outermost array in the problem geometry
+description. The global array in a reflected problem is the array
+referenced by surrounding geometry regions following the last array
+placement description that does not immediately follow a unit number
+description. In KENO-VI, the outermost boundary is always specified as
+the global unit boundary. If the outermost boundary is to be the array
+boundary, a global unit must still be specified with the global unit
+boundary coinciding with the array boundary. Unlike past versions of
+KENO, KENO-VI cannot run a single unit problem without specifying a
+global unit.
+
+.. _8-1-6-5:
+
+Fluxes
+~~~~~~
+
+Fluxes are computed in KENO with a track length estimator. The scalar
+flux in region \ *z* for energy group *g* for a single generation is
+computed as
+
+.. math::
+  :label: eq8-1-85
+
+  \Phi_{g,z} = \frac{\sum^{K}_{k=1}W_{k,z}l_{k,z}}{V_{z}\sum^{K}_{k=1}W_{k,0}} ,
+
+where
+
+   *l*\ :math:`_{k,z}` = distance traversed by particle *k* while within region z
+   and energy group *g*,
+
+   *W*\ :math:`_{k,z}` = weight of particle *k* while traversing region *z*,
+
+   *V*\ :math:`_z` = volume of region *z*,
+
+   *W*\ :math:`_{k,0}` = initial weight of particle *k*, and
+
+   *K* = total number of histories in the generation.
+
+The average fluxes for all active generations and the standard deviation
+in the averages are also computed. Scaler fluxes computed by KENO are
+reported in units of neutrons per cm\ :sup:`2` per initial source
+neutron.
+
+KENO is also capable of computing the angular flux for a level symmetric
+quadrature set. The angular flux for energy group g in region z for
+quadrature direction \ *n* is computed as
+
+.. math::
+  :label: eq8-1-86
+
+  \Phi^{n}_{g,z} = \frac{\sum_{k=1}^{K}W_{k,z}l_{k,z,n}}{V_{z}\sum^{K}_{k=1}W_{k,0}} ,
+
+where
+
+   *l*\ :sub:`k,z,n` = the distance traversed by particle \ *k* while within
+   region \ *z* and energy group \ *g* within the quadrature
+   direction \ *n*.
+
+The angular flux can be expanded to flux moments using an appropriate
+spherical harmonics expansion. KENO has even number symmetric level
+quadrature sets S\ :sub:`2`\ −S\ :sub:`16`.
+
+Flux moments can also be computed directly in KENO. The *j\ th* moment,
+which corresponds to real valued spherical harmonics functions :cite:`demaret_accurate_1999-1` for
+a single generation for energy group \ *g* in region \ *z,* is computed
+as
+
+.. math::
+  :label: eq8-1-87
+
+    \phi^{j}_{g,z} = \frac{\sum_{k=1}^{K}R^{j}_{k}W_{k,z}l_{k,z}}{V_{z}\sum^{K}_{k=1}W_{k,0}} ,
+
+where
+
+   :math:`R^{j}_{k}` = real valued spherical harmonics function for moment index \ *j*
+   corresponding to the direction of particle \ *k*.
+
+KENO offers the option of computing the angular fluxes and flux moments
+using a transformed coordinate system so that the moments are based on a
+polar rather than a Cartesian position vector. This is a 3-D extension
+of the 1-D method for calculating the flux moments in terms of Legendre
+polynomials based only on the direction cosine with respect to the
+spatial coordinate.
+
+This coordinate transform is illustrated in :numref:`fig8-1-193`. Here,
+:math:`\hat{i}`, :math:`\hat{j}`, and :math:`\hat{k}`
+represent the directional coordinate system axes, µ, η, ξ represent the
+direction cosines, and θ and ρ\ represent the polar and
+azimuthal angles of the “normal” coordinate system. The same symbols
+primed represent the transformed coordinate system. The transformed
+polar or :math:`\hat{k}^{'}` axis is co-linear, with the position vector :math:`\vec{r}`
+directed from the
+center of the region for which moments are desired to the point at which
+the flux tally occurs. By using the center of the region as a reference
+point, consistency of the moment calculation is assured with differing
+models of the same system. The :math:`\hat{i}^{'}` and :math:`\hat{j}^{'}`
+axes are chosen to form an
+orthogonal coordinate system, with :math:`\hat{i}^{'}` held in the plane formed
+by :math:`\hat{i}` and :math:`\hat{j}`. The
+use of constraints other than the restriction of :math:`\hat{i}^{'}` to this plane may be
+explored in future studies. If an additional constraint is not placed on
+either :math:`\hat{i}^{'}` or :math:`\hat{j}^{'}`, the transform would be able to
+rotate about :math:`\hat{k}^{'}`, and the
+consistency of consecutive transformations of the same direction could
+not be assured. With the transform computed, the position and direction
+of travel of the particle remain unchanged, but the quadrature
+directions and/or spherical harmonics terms are calculated using the
+transformed coordinate system. With the direction cosines consistently
+transformed for each history, the new polar and azimuthal angles can be
+computed and the spherical harmonics functions can be calculated for
+each history.
+
+KENO offers a mesh flux tally in which the fluxes are computed in a
+user-defined cubic mesh superimposed on the geometry model. The mesh is
+defined from the origin of the global unit and is oriented with the
+Cartesian axes. At the end of each particle track, appropriate track
+lengths are assigned to the mesh intervals that were crossed for the
+region in which the track occurred. The length of the actual particle
+track is equal to the sum of the lengths assigned to the meshes
+encountered by the particle track. Because the coordinates of the mesh
+are defined in terms of the global unit, fluxes for regions in repeated
+units (i.e., units in arrays or holes) may be stored separately for each
+occurrence of the unit. The volumes of each region in each mesh interval
+are computed so that the fluxes are appropriately normalized on a per
+unit volume basis, consistent with :eq:`eq8-1-85`. When the mesh flux option is
+activated, all requested fluxes, scalar, angular and/or moment, are
+computed for each mesh interval.
+
+.. _fig8-1-202:
+.. figure:: figs/Keno/fig202.png
+  :align: center
+  :width: 600
+
+  Coordinate transform used for quadrature direction and spherical harmonics terms.
+
+.. _8-1-6-6:
+
+Reaction Rate and Few Group Micro Cross Section Calculations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A few-group microscopic reaction cross section calculation capability is
+included in the KENO codes to provide this data especially for the CE
+depletion calculations in SCALE. This new method produces multigroup
+cross sections and reaction rates directly in CE mode calculations
+rather than using a post-processing approach. In each generation, KENO
+uses track length estimators for the reaction rate tallies for all
+isotopes in each specified regions. At the end of each generation, a
+subsequent calculation is performed to compute few group microscopic
+reaction cross sections for all isotopes in a region as the ratio of the
+computed reaction rates to the flux averaged over this cell. Finally,
+KENO computes mean values and statistical uncertainties for all these
+quantities, and saves them in a file, which could be used by the
+depletion modules in SCALE.
+
+Reaction tally calculations can be enabled by entering the required data
+in the **READ REACTION** block described in :ref:`8-1-2-15`.
+
+.. _8-1-6-7:
+
+Source Convergence Diagnostics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fission source convergence detection techniques are implemented in KENO
+to provide improved confidence in the computed *k*\ :sub:`eff` and tally
+results. The dominance ratio of a system is equal to the ratio of the
+eigenvalue of the first nonfundamental mode to that of the fundamental
+mode, *k*\ :sub:`1`\/\ *k*\ :sub:`0`. The dominance ratio is strongly related to the
+convergence rate of the fission source for systems, and problems with
+larger dominance ratios will require more inactive generations to
+produce reliable *k*\ :sub:`eff` and reaction rate estimates. A converged
+*k*\ :sub:`eff` estimate does not necessarily guarantee a converged fission
+source distribution, and the fission source and flux distribution may
+continue to evolve well after *k*\ :sub:`eff` convergence is reached.
+Convergence of the fission source distribution is necessary to ensure
+that all regions containing fissile material in a model are adequately
+represented in the final *k*\ :sub:`eff` estimate. Typically, the *k*\ :sub:`eff`
+estimate converges much faster than the fission source and neutron flux
+distributions, and simulations may undersample important regions and
+produce inaccurate flux and reaction rate estimates if the user includes
+only enough inactive generations for the eigenvalue to converge. This is
+particularly important in models where one region is physically small
+but substantially more reactive than others (i.e. the k-effective of the
+World problem :cite:`whitesides_difficulty_1971`). The highly reactive region may not be adequately
+sampled, which may result in an underprediction of *k*\ :sub:`eff`. Thus, it is
+essential to monitor the convergence of both the fission source
+distribution and *k*\ :sub:`eff`; versions of KENO included in SCALE versions
+prior to SCALE 6.2 only monitored the convergence of *k*\ :sub:`eff`, but
+diagnostic tools to identify unconverged fission source distributions
+are included in SCALE 6.2 and beyond.
+
+.. note:: Due to limited experience with these tests in KENO, the
+  Shannon entropy test results should be used as a supplement to guarantee
+  that a problem’s fission source is converged. Failure of Shannon entropy
+  tests typically indicates insufficient convergence of fission site
+  source distributions. Whenever Shannon entropy tests report failure,
+  users should review the plots of *k*\ :sub:`eff` as a function of generation
+  skipped and *k*\ :sub:`eff` as a function of generation completed
+  (:ref:`8-1-4-26` and :ref:`8-1-4-27`) to ensure that the *k*\ :sub:`eff` value is adequately
+  converged. If it is not clear that the *k*\ :sub:`eff` value is converged,
+  users should rerun the calculation using a different number of neutrons
+  per generation (using the **NPG** parameter) or using a different random
+  number seed value (using the **RND** parameter) or a different starting
+  source term distribution (using the **READ START** block). 
+
+It may also be possible to pass the Shannon entropy tests by changing
+the source convergence mesh (using the **SCD** parameter and the **READ
+GRID** block) or changing the number skipped generations (using the
+**NSK** parameter).
+
+ 
+For KENO calculations that are used for other purposes (such as
+producing neutron flux and reaction rate distributions, fuel depletion
+calculations, or fission distributions for radiation transport
+calculations) in which the spatial dependence of the neutron flux and
+fission source may be more important, KENO calculations with failed
+Shannon entropy tests should be rerun because these spatially dependent
+distributions may not be adequately converged.
+
+.. _8-1-6-7-1:
+
+Shannon Entropy Statistics
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The fission source distribution, *S*, is measured at the beginning of
+each generation using given spatial meshes. The state of source
+distribution at the *j*\ :sup:`th` generation can then be characterized by
+Shannon entropy:
+
+.. math::
+  :label: eq8-1-88
+
+  H(S^{j}) = - \sum^{M}_{i}[S^{j}_{i}\text{log}_{2}(S^{j}_{i})] ,
+
+where :math:`{S}_{i}^{j}` is the fraction of the fission source
+distribution from the *j*\ :sup:`th’` generation tallied in the spatial bin
+*i*, and *M* is the total number of spatial bins (typically represented
+using a spatial mesh). The value of *H* ranges from a maximum value of
+log\ :sub:`2`\ *M* when the source distribution is uniform, and to a minimum value of zero
+when the whole source is located in a single bin. By computing *H* for
+each generation, the distribution of the fission source is used to
+generate a score for *H* for each generation, and the convergence of the
+fission source can be assessed by tracking the convergence and
+randomness of the values of *H* over each successive generation. Random
+fluctuations in the generation-to-generation Shannon entropy tallies
+make it difficult to determine if and when the Shannon entropy of a
+system has converged, so several metrics and tests are typically applied
+to examine the Shannon entropy and identify convergence in a
+system :cite:`ueki_information_2005`.
+
+The first test for fission source convergence is a comparison between
+the mean square of posterior relative entropy, and the centered mean
+square Shannon entropy. The posterior relative entropy, :math:`D(S^{j}\parallel T)` , is defined as
+the statistical distance between the binned fission source
+:math:`{S}^{j}_i`\ and the average fission source over the second half of
+the active generations, *T*, and is given by
+
+.. math::
+  :label: eq8-1-89
+
+  D(S^{j}\parallel T) = \sum^{M}_{i}[S^{j}_{i}\text{log}_{2}(S^{j}_{i} / T_{i})] ,
+
+where *T* is defined by
+
+.. math::
+  :label: eq8-1-90
+
+  T_{i} = \frac{2}{N}\sum^{N}_{j=N / 2+1}S^{j}_{i} ,
+
+where *N* is the number of active generations. The posterior relative
+entropy is non-negative and becomes zero only when :math:`{S}^{j}`\ =  *T*
+and achieves its maximum value when :math:`S^{j}` is uniform.
+
+The mean square posterior relative entropy is defined as
+
+.. math::
+  :label: eq8-1-91
+
+  msq(D) = \frac{2}{N}\sum^{N}_{j=N / 2+1}D(S^{j}_{i}\parallel T_{i})^{2} ,
+
+and the centered mean square Shannon entropy is defined as
+
+.. math::
+  :label: eq8-1-92
+
+  cmsq(H) = \frac{2}{N-2}\sum^{N}_{j=N / 2+1}[H(S^{j}_{i}) - \bar{H}]^{2} ,
+
+where :math:`\bar{H}` is defined as
+
+.. math::
+  :label: eq8-1-93
+
+  \bar{H} = \frac{2}{N}\sum^{N}_{j=N / 2+1}H(S^{j}_{i}) .
+
+This test compares the measure of fluctuations of Shannon entropy (*cmsq(H)*)
+with the measure of the magnitude of the penalty incurred by assuming *T*
+(*msq(D)*) and states that the fission source is converged if *msq(D)* < *cmsq(H)*.
+This test is
+useful to determine whether the source is converged by the end of the
+calculation. Failure of this test indicates that the fission source was
+still moving during the active generations, which indicates that the
+number of skipped generations was not sufficient to converge the fission
+source.
+
+The second test is given by
+
+.. math::
+  :label: eq8-1-94
+
+  D(S^{j}\parallel T) - [H(T-H(S^{j}))] \leq \varepsilon
+
+
+where ε has been set to 0.1. This test verifies that the Shannon entropy
+of each active generation does not vary significantly from the average
+Shannon entropy of the system and should be valid over all active
+generations. For example, this test could detect an unconverged fission
+source for a problem with an undersampled, highly fissile fuel region,
+as any neutrons that reached this region would produce an outlier in the
+Shannon entropy tally for that generation. This test is especially
+useful for reporting the generation at which the source converged. Once
+the converged generation is determined, the user can repeat the
+calculation with the number of inactive generations (skipped
+generations) set to be the identified generation or greater to ensure
+that only contributions from generations with a converged source
+contribute to flux and reaction rate tallies. This test complements the
+first test since it will not be affected by whether or not the binned
+source is uniform.
+
+The last test calculates whether
+
+.. math::
+  :label: eq8-1-95
+
+  H_{\eta} = H(S^{j}) - H_{b} \leq \eta ,
+
+where *H*\ :sub:`b` is the average Shannon Entropy over the second half of
+active generations, and η has been set to 0.1. This test verifies that
+the average Shannon entropy of all active generations does not differ
+significantly from the Shannon entropy of the last half of the active
+generations. This test is useful for detecting fission source
+convergence in problems where an inadequate number of inactive
+generations was sampled, as the Shannon entropy would continue to change
+during the active generations until it eventually converges.
+
+.. _8-1-6-7-2:
+
+Source Convergence Diagnostic Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Because the processing of the source tallies for fission source
+convergence calculations is quite fast and produces small memory
+requirements, these source convergence diagnostics have been permanently
+enabled in KENO and require no additional input parameters. However, the
+KENO input specifications were updated to allow users to specify the
+spatial mesh data for the source convergence tests via the **SCD**
+parameter and **READ GRID** data block.
 
 
 
@@ -19217,5 +21801,9 @@ written as
 
 
 
-.. 67 68, 69, 71 are list
+
+
+
+
+
 .. bibliography:: bibs/Keno.bib

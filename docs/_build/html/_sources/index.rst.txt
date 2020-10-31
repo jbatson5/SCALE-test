@@ -21,6 +21,9 @@ Welcome to the SCALE manual!
 
   Monte Carlo Transport Overview
   Keno
+  KenoA
+  KenoB
+  KenoC
   Monaco
 
 
@@ -38,4 +41,3 @@ Welcome to the SCALE manual!
   DEVC
   KMART
   K5C5
-  math 
