@@ -21690,7 +21690,7 @@ where *N* is the number of active generations. The posterior relative
 entropy is non-negative and becomes zero only when :math:`{S}^{j}`\ =  *T*
 and achieves its maximum value when :math:`S^{j}` is uniform.
 
-The mean square posterior relative entropy is defined as,
+The mean square posterior relative entropy is defined as
 
 .. math::
   :label: eq8-1-91
@@ -21713,7 +21713,7 @@ where :math:`\bar{H}` is defined as
 
 This test compares the measure of fluctuations of Shannon entropy (*cmsq(H)*)
 with the measure of the magnitude of the penalty incurred by assuming *T*
-(*msq(D)*) and states that the fission source is converged if *msq(D)* > *cmsq(H)*.
+(*msq(D)*) and states that the fission source is converged if *msq(D)* < *cmsq(H)*.
 This test is
 useful to determine whether the source is converged by the end of the
 calculation. Failure of this test indicates that the fission source was
