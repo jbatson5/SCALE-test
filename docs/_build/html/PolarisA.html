@@ -1,0 +1,1120 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCALE 6.2 Polaris Input Format &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Depletion, Activation, and Spent Fuel Source Terms Overview" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html" />
+    <link rel="prev" title="POLARIS - 2D Light Water Reactor Lattice Physics Module" href="Polaris.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SCALE 6.2 Polaris Input Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#box-channel-box">box – channel box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pin-pin-or-pincell">pin – pin or pincell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">pin – pin or pincell</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bu-initiate-calculation-with-cumulative-burnups">bu – initiate calculation with cumulative burnups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dbu-initiate-calculation-with-incremental-burnups">dbu – initiate calculation with incremental burnups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#t-initiate-calculation-by-cumulative-time">t – initiate calculation by cumulative time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dt-initiate-calculation-by-incremental-time">dt – initiate calculation by incremental time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#option-essm-embedded-self-shielding">option&lt;ESSM&gt; – embedded self-shielding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#option-fg-few-group-cross-section-generation">option&lt;FG&gt; – few-group cross section generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#state-mname-material-state">state&lt;MNAME&gt; – material state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#state-iname-insert-control-state">state&lt;INAME&gt; – insert/control state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#state-gname-geometry-state">state&lt;GNAME&gt; – geometry state</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SCALE 6.2 Polaris Input Format</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/PolarisA.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scale-6-2-polaris-input-format">
+<span id="a"></span><h1>SCALE 6.2 Polaris Input Format<a class="headerlink" href="#scale-6-2-polaris-input-format" title="Permalink to this headline">¶</a></h1>
+<p>For the release of SCALE 6.2.3, several new input cards were implemented
+into Polaris to model boiling water reactor (BWR) geometries and
+neutron/gamma detectors, which requires a gamma transport calculation.
+Moreover, improvements to existing input cards were implemented, along
+with the ability to specify time-dependent state properties and the
+ability to specify one or more depletion histories. This appendix
+documents the SCALE 6.2 input cards that were included in the Polaris
+input format which are accessible as part of the release of SCALE 6.3.</p>
+<p>The old input cards are not available <em>by default</em> with SCALE 6.3, and
+should be considered deprecated. To maximize backwards compatibility for
+input files developed with the original SCALE 6.2.0 release, the old
+input options are available if the input file begins with =polaris_6.2.</p>
+<p>The following input cards were introduced in SCALE 6.3 and are not
+available by default in SCALE 6.2:</p>
+<ul class="simple">
+<li><p><strong>cross</strong> – define the interior water cross geometry of SVEA assembly
+designs;</p></li>
+<li><p><strong>dxmap</strong> (or <strong>dymap</strong>) – define displacement maps that indicate
+that translation of the pin center in the x- (or y-) direction;</p></li>
+<li><p><strong>control &lt;BLADE&gt;</strong> - define the control blade geometry;</p></li>
+<li><p><strong>mesh</strong> – define advanced spatial meshing options for different
+materials; and</p></li>
+<li><p><strong>option &lt;GEOM&gt;</strong> – define geometry tolerances, advance meshing
+options, and plotting options.</p></li>
+<li><p><strong>option &lt;GAMMA&gt;</strong> – gamma transport calculation</p></li>
+<li><p><strong>detector</strong> – insert a detector geometry</p></li>
+<li><p><strong>history</strong> – time dependent history</p></li>
+<li><p><strong>bui [ti]</strong> – initiate calculation with cumulative burnups [time]
+(with restart)</p></li>
+<li><p><strong>property&lt;GRAIN&gt;</strong> – used to model stochastic media</p></li>
+<li><p><strong>state</strong> – the generalized state input is preceded by the
+state&lt;MNAME&gt;, state&lt;INAME&gt;, state&lt;GNAME&gt; variants</p></li>
+</ul>
+<div class="section" id="box-channel-box">
+<span id="a-1"></span><h2>box – channel box<a class="headerlink" href="#box-channel-box" title="Permalink to this headline">¶</a></h2>
+<p><strong>box</strong> [thick=*Real*] [rad=*Real*] [icdist=*Real*] [xrad=*Real*]
+[xlen=*Real*] [Mbox=MNAME]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>thick</p></td>
+<td><p><em>Real</em></p></td>
+<td><p>nominal
+thickness
+(cm)</p></td>
+<td><p>must be &gt;0</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p>rad</p></td>
+<td><p><em>Real</em></p></td>
+<td><p>inner
+corner
+radius (cm)</p></td>
+<td><p>must be &gt;0,</p>
+<p>additional
+constraints
+listed
+below</p>
+</td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-even"><td><p>icdist</p></td>
+<td><p><em>Real</em></p></td>
+<td><p>in-channel
+distance
+(cm)</p></td>
+<td><p>must be &gt;0</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p>xrad</p></td>
+<td><p><em>Real</em></p></td>
+<td><p>extra
+corner
+thickness
+(cm)</p></td>
+<td><p>must be &gt;=
+0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>xlen</p></td>
+<td><p><em>Real</em></p></td>
+<td><p>extra
+corner
+length (cm)</p></td>
+<td><p>excludes
+rounded
+corner
+length</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>M<sub>box</sub></p></td>
+<td><p>MNAME</p></td>
+<td><p>box
+material</p></td>
+<td></td>
+<td><p>*</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>*By default, <strong>box</strong> material will be set to CAN.1 by “system BWR.”
+Otherwise <strong>box</strong> material is required.</p>
+</div></blockquote>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">GE</span> <span class="m">7</span><span class="err">x</span><span class="m">7</span> <span class="err">assembly</span> <span class="err">with</span> <span class="m">1</span><span class="err">.</span><span class="m">88</span> <span class="err">cm</span> <span class="err">pin</span> <span class="err">pitch</span>
+<span class="err">%</span>   <span class="m">0</span><span class="err">.</span><span class="m">48</span> <span class="err">cm</span> <span class="err">narrow</span> <span class="err">gap</span>
+<span class="err">%</span>   <span class="m">0</span><span class="err">.</span><span class="m">95</span> <span class="err">cm</span> <span class="err">wide</span> <span class="err">gap</span>
+<span class="err">system</span> <span class="err">BWR</span>
+<span class="err">geom</span> <span class="err">ge</span><span class="m">7</span><span class="err">x</span><span class="m">7</span> <span class="err">:</span> <span class="err">ASSM</span> <span class="m">7</span> <span class="m">1</span><span class="err">.</span><span class="m">88</span>
+<span class="err">hgap</span> <span class="m">0</span><span class="err">.</span><span class="m">48</span> <span class="m">0</span><span class="err">.</span><span class="m">95</span>
+
+<span class="err">%</span> <span class="err">Box</span> <span class="err">geometry</span>
+<span class="err">%</span>   <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="err">thickness</span>
+<span class="err">%</span>   <span class="m">0</span><span class="err">.</span><span class="m">97</span> <span class="err">inner</span> <span class="err">corner</span> <span class="err">radius</span>
+<span class="err">%</span>   <span class="m">0</span><span class="err">.</span><span class="m">14</span> <span class="err">in-channel</span> <span class="err">distance</span>
+<span class="err">box</span> <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="m">0</span><span class="err">.</span><span class="m">97</span> <span class="m">0</span><span class="err">.</span><span class="m">14</span>
+
+<span class="err">%</span> <span class="err">Same</span> <span class="err">example,</span> <span class="err">all</span> <span class="err">variables</span>
+<span class="err">box</span> <span class="m">0</span><span class="err">.</span><span class="m">2</span> <span class="m">0</span><span class="err">.</span><span class="m">97</span> <span class="m">0</span><span class="err">.</span><span class="m">14</span> <span class="m">0</span> <span class="m">0</span> <span class="err">CAN.</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>box</strong> specifies the channel box geometry and material that
+surround the array of fuel pins.</p>
+<a class="reference internal image-reference" href="_images/img11.png"><img alt="_images/img11.png" class="align-center" src="_images/img11.png" style="width: 1400px;" /></a>
+<p>See also:</p>
+<p><strong>hgap</strong></p>
+<div class="figure align-center" id="id6">
+<span id="fig3-2a-1"></span><a class="reference internal image-reference" href="_images/fig119.png"><img alt="_images/fig119.png" src="_images/fig119.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Box geometry example (uniform thickness).</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id7">
+<span id="fig3-2a-2"></span><a class="reference internal image-reference" href="_images/fig215.png"><img alt="_images/fig215.png" src="_images/fig215.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Box geometry example (thick corners).</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="pin-pin-or-pincell">
+<span id="a-2"></span><h2>pin – pin or pincell<a class="headerlink" href="#pin-pin-or-pincell" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>pin – pin or pincell<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>pin</strong> PINID [nsect=*Int*] [nring=*Int*] [size=*Int*]</div>
+<div class="line">: r<sub>1</sub> r<sub>2</sub> … r<sub>i</sub> … r<sub>N</sub></div>
+<div class="line">: M<sub>1</sub> M<sub>2</sub> … M<sub>i</sub> … M<sub>N</sub> [M<sub>out</sub>]</div>
+<div class="line">[: nr<sub>1</sub> nr<sub>2</sub> … nr<sub>i</sub> … nr<sub>N</sub>
+nr<sub>out</sub>]</div>
+<div class="line">[: ns<sub>1</sub> ns<sub>2</sub> … ns<sub>i</sub> … ns<sub>N</sub>
+ns<sub>out</sub>]</div>
+</div>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab3-2a-2.svg"><img alt="_images/tab3-2a-2.svg" src="_images/tab3-2a-2.svg" width="700" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>*If not specified, the material class MCLASS is taken from the
+<strong>channel</strong> card (M<sub>chan</sub>) and set to the first member of that
+class, “M<sub>chan</sub>.1.” For example if M<sub>chan</sub>=“COOL,”
+then M<sub>out</sub>= “COOL.1.”</p>
+</div></blockquote>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%standard</span> <span class="err">fuel</span> <span class="err">pin</span>
+<span class="err">pin</span> <span class="m">1</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">4096</span> <span class="m">0</span><span class="err">.</span><span class="m">418</span> <span class="m">0</span><span class="err">.</span><span class="m">475</span>
+      <span class="err">:</span> <span class="err">FUEL</span>   <span class="err">GAS</span>   <span class="err">CLAD</span>
+
+<span class="err">%empty</span> <span class="err">guide</span> <span class="err">tube</span>
+<span class="err">pin</span> <span class="err">E</span> <span class="err">:</span>        <span class="m">0</span><span class="err">.</span><span class="m">561</span> <span class="m">0</span><span class="err">.</span><span class="m">602</span>
+      <span class="err">:</span>       <span class="err">COOL.</span><span class="m">1</span> <span class="err">CLAD.</span><span class="m">1</span>
+
+<span class="err">%pyrex</span>
+<span class="err">pin</span> <span class="err">P</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">214</span> <span class="m">0</span><span class="err">.</span><span class="m">231</span> <span class="m">0</span><span class="err">.</span><span class="m">241</span> <span class="m">0</span><span class="err">.</span><span class="m">427</span> <span class="m">0</span><span class="err">.</span><span class="m">437</span> <span class="m">0</span><span class="err">.</span><span class="m">484</span> <span class="m">0</span><span class="err">.</span><span class="m">561</span> <span class="m">0</span><span class="err">.</span><span class="m">602</span>
+      <span class="err">:</span> <span class="err">GAS</span>   <span class="err">TUBE</span>  <span class="err">GAS</span>   <span class="err">BP.</span><span class="m">3</span>  <span class="err">GAS</span>   <span class="err">TUBE</span>  <span class="err">COOL</span>  <span class="err">CLAD</span>
+
+<span class="err">%standard</span> <span class="err">fuel</span> <span class="err">pin</span> <span class="err">with</span> <span class="err">explicit</span> <span class="err">material</span> <span class="err">in</span> <span class="err">the</span> <span class="err">outermost</span> <span class="err">region</span>
+<span class="err">pin</span> <span class="m">1</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">4096</span> <span class="m">0</span><span class="err">.</span><span class="m">418</span> <span class="m">0</span><span class="err">.</span><span class="m">475</span>
+      <span class="err">:</span> <span class="err">FUEL</span>   <span class="err">GAS</span>   <span class="err">CLAD</span>   <span class="err">COOL.</span><span class="m">6</span>
+
+
+<span class="err">%standard</span> <span class="err">fuel</span> <span class="err">pin</span> <span class="err">with</span> <span class="err">explicit</span> <span class="err">ring</span> <span class="err">and</span> <span class="err">sector</span> <span class="err">mesh</span>
+<span class="err">pin</span> <span class="m">1</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">4096</span> <span class="m">0</span><span class="err">.</span><span class="m">418</span> <span class="m">0</span><span class="err">.</span><span class="m">475</span>
+      <span class="err">:</span> <span class="err">FUEL</span>   <span class="err">GAS</span>   <span class="err">CLAD</span>
+      <span class="err">:</span> <span class="m">5</span>      <span class="m">1</span>     <span class="m">1</span>      <span class="m">0</span>   <span class="err">%</span><span class="m">5</span> <span class="err">rings</span> <span class="err">in</span> <span class="err">fuel</span>
+      <span class="err">:</span> <span class="m">8</span>      <span class="m">1</span>     <span class="m">1</span>      <span class="m">1</span>   <span class="err">%</span><span class="m">8</span> <span class="err">sectors</span> <span class="err">only</span> <span class="err">in</span> <span class="err">fuel</span>
+
+
+<span class="err">%large</span> <span class="err">central</span> <span class="m">2</span><span class="err">x</span><span class="m">2</span> <span class="err">water</span> <span class="err">rod</span> <span class="err">in</span> <span class="m">4</span><span class="err">x</span><span class="m">4</span> <span class="err">assembly</span>
+<span class="err">pin</span> <span class="err">W</span> <span class="err">size=</span><span class="m">2</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">8</span>
+             <span class="err">:</span> <span class="err">COOL</span>
+
+<span class="err">%pinmap</span> <span class="err">must</span> <span class="err">show</span> <span class="err">adjacent</span> <span class="err">Ws</span>
+<span class="err">pinmap</span>
+<span class="err">F</span> <span class="err">F</span> <span class="err">F</span> <span class="err">F</span>
+<span class="err">F</span> <span class="err">W</span> <span class="err">W</span> <span class="err">F</span>
+<span class="err">F</span> <span class="err">W</span> <span class="err">W</span> <span class="err">F</span>
+<span class="err">F</span> <span class="err">F</span> <span class="err">F</span> <span class="err">F</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>pin</strong> card is one of the basic building blocks of the assembly
+model. It is the only geometry component which allows an integer (<em>Int</em>)
+identifier as well as a <em>Word</em>—all other geometric identifiers use
+<em>Word</em>. Note that the materials are required, except for the last
+M<sub>out</sub>, which can be used to overwrite the material given by a
+<strong>channel</strong> for the outermost region in the pincell. The various pin
+cell meshing options are displayed in <a class="reference internal" href="#fig3-2a-3"><span class="std std-numref">Fig. 28</span></a>. Note that extra
+rings in the radial zones create equal area regions, whereas rings in
+the outermost region create equal distance divisions between the last
+radius and the pincell boundary. Extra sectors create additional
+azimuthal divisions. A negative value of sectors is allowed and can be
+used to rotate the sector mesh by a half angle, e.g., ns=4 looks like ⊕
+and ns=-4 looks like ⊗.</p>
+<p>The total number of cells used in the transport calculation is
+determined from both the number of rings and the number of sectors. With
+the MoC transport solver, the fidelity of the solution is also dictated
+by the number of azimuthal and polar angles and ray spacing. These
+parameters are changed on the <strong>option&lt;KEFF&gt;</strong> card.</p>
+<p>Due to self-shielding and depletion, each cell could be modeled as a
+unique material with its own cross section data. However, this is
+prohibitively memory intensive and typically not necessary. The
+<strong>shield</strong> card provides the mechanism to control the additional
+self-shielded materials introduced.</p>
+<p>See also:</p>
+<p>pinmap, control, insert, channel, system, option&lt;KEFF&gt;, shield</p>
+<div class="figure align-center" id="id8">
+<span id="fig3-2a-3"></span><a class="reference internal image-reference" href="_images/fig314.png"><img alt="_images/fig314.png" src="_images/fig314.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Pincell meshing variants.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="bu-initiate-calculation-with-cumulative-burnups">
+<span id="a-3"></span><h2>bu – initiate calculation with cumulative burnups<a class="headerlink" href="#bu-initiate-calculation-with-cumulative-burnups" title="Permalink to this headline">¶</a></h2>
+<p><strong>bu</strong> [units=*GWD/MTIHM*|<em>MWD/MTIHM</em>] : [b<sub>1</sub> b<sub>2</sub> …
+b<sub>i</sub> … b<sub>N</sub>]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 26%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>Type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>units</p></td>
+<td><p>GWD/MTIHM|</p>
+<p>MWD/MTIHM</p>
+</td>
+<td><p>burnup units</p></td>
+<td></td>
+<td><p>GWD/MTIHM</p></td>
+</tr>
+<tr class="row-odd"><td><p>b<sub>i</sub></p></td>
+<td><p><em>Real</em></p></td>
+<td><p>list of</p>
+<p>absolute burnups</p>
+</td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">simple</span> <span class="err">depletion</span> <span class="err">case</span> <span class="err">with</span> <span class="err">constant</span> <span class="err">power</span> <span class="err">and</span> <span class="err">absolute/cumulative</span> <span class="err">burnups</span>
+<span class="err">power</span> <span class="m">40</span>
+<span class="err">bu</span> <span class="m">0</span> <span class="m">5</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span> <span class="m">30</span> <span class="m">40</span> <span class="m">50</span> <span class="m">60</span> <span class="m">80</span>
+
+<span class="err">%</span> <span class="err">using</span> <span class="err">MWd/MTIHM</span> <span class="err">units</span> <span class="err">with</span> <span class="err">variable</span> <span class="err">power</span>
+<span class="err">%</span> <span class="m">40</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="m">0</span><span class="err"></span><span class="m">5000</span> <span class="err">MWD/MTIHM,</span> <span class="err">then</span> <span class="m">30</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="m">5000</span><span class="err"></span><span class="m">10000</span> <span class="err">MWD/MTIHM</span>
+<span class="err">power</span>  <span class="m">40</span>    <span class="m">30</span>
+<span class="err">bu</span> <span class="err">MWD/MTIHM:</span> <span class="m">0</span> <span class="m">5000</span> <span class="m">10000</span>
+
+<span class="err">%</span> <span class="err">combine</span> <span class="err">burn/time</span> <span class="err">cards</span>
+<span class="err">%</span> <span class="m">20</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="m">0</span><span class="err"></span><span class="m">5</span> <span class="err">then</span> <span class="m">5</span><span class="err"></span><span class="m">10</span> <span class="err">GWD/MTIHM</span> <span class="err">steps,</span> <span class="err">then</span>
+<span class="err">%</span> <span class="m">40</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="err">a</span> <span class="m">5</span><span class="err">-day</span> <span class="err">step</span> <span class="err">then</span> <span class="m">30</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="err">a</span> <span class="m">5</span><span class="err">-day</span> <span class="err">step</span>
+<span class="err">power</span> <span class="m">20</span>
+<span class="err">bu</span>   <span class="err">GWD/MTIHM</span> <span class="err">:</span>  <span class="m">5</span> <span class="m">10</span> <span class="err">GWD/MTIHM</span>
+<span class="err">power</span> <span class="m">40</span> <span class="m">30</span>
+<span class="err">dt</span>  <span class="err">DAYS</span> <span class="err">:</span>   <span class="m">5</span>  <span class="m">5</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>bu</strong> card initiates a calculation for a given sequence of
+cumulative burnups. A burnup or time card usually follows a <strong>power</strong>
+card, the two effectively specifying the power history. If multiple
+burnups are given, then the <strong>power</strong> card must have either a single
+power or a list of powers the same size as the list times. A value of 0
+is implicit at the beginning of the first burnup list. Multiple
+burnup/time cards may be specified in an input. This can be convenient
+for switching units or changing from burnup-based to time-based
+depletion. Internal automatic substeps are always in effect unless
+modified with the <strong>option&lt;DEPL&gt;</strong> card.</p>
+<p>See also:</p>
+<p>t, dt, dbu, power, option&lt;DEPL&gt;, branch, deplete</p>
+</div>
+<div class="section" id="dbu-initiate-calculation-with-incremental-burnups">
+<span id="a-4"></span><h2>dbu – initiate calculation with incremental burnups<a class="headerlink" href="#dbu-initiate-calculation-with-incremental-burnups" title="Permalink to this headline">¶</a></h2>
+<p><strong>dbu</strong> [units=*GWD/MTIHM*|<em>MWD/MTIHM</em>] : [b<sub>1</sub> b<sub>2</sub> …
+b<sub>i</sub> … b<sub>N</sub>]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 29%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>Type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>units</p></td>
+<td><p>GWD/MTIHM|</p>
+<p>MWD/MTIHM</p>
+</td>
+<td><p>burnup units</p></td>
+<td></td>
+<td><p>GWD/MTIHM</p></td>
+</tr>
+<tr class="row-odd"><td><p>b<sub>i</sub></p></td>
+<td><p><em>Real</em></p></td>
+<td><p>list of</p>
+<p>incremental burnups</p>
+</td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">incremental</span> <span class="err">burnups</span> <span class="err">equivalent</span> <span class="err">to</span>
+<span class="err">%</span>   <span class="err">power</span> <span class="m">40</span>
+<span class="err">%</span>   <span class="err">bu</span> <span class="m">0</span> <span class="m">5</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span> <span class="m">30</span> <span class="m">40</span> <span class="m">50</span> <span class="m">60</span> <span class="m">80</span>
+<span class="err">power</span> <span class="m">40</span>
+<span class="err">dbu</span> <span class="m">5</span> <span class="m">5</span> <span class="m">5</span> <span class="m">5</span> <span class="m">10</span> <span class="m">10</span> <span class="m">10</span> <span class="m">10</span> <span class="m">20</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>dbu</strong> card initiates a calculation for a given sequence of
+<em>incremental</em> burnups. Otherwise, it is identical to the <strong>bu</strong> card for
+specifying cumulative burnups.</p>
+<p>See also:</p>
+<p><strong>t, dt, bu, power, option&lt;DEPL&gt;, branch, deplete</strong></p>
+</div>
+<div class="section" id="t-initiate-calculation-by-cumulative-time">
+<span id="a-5"></span><h2>t – initiate calculation by cumulative time<a class="headerlink" href="#t-initiate-calculation-by-cumulative-time" title="Permalink to this headline">¶</a></h2>
+<p><strong>t</strong>
+[units=*SECONDS*|<em>MINUTES</em>|<em>HOURS</em>|<em>DAYS</em>|<em>YEARS</em>] :
+[t<sub>1</sub> t<sub>2</sub> … t<sub>i</sub> … t<sub>N</sub>]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>Type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>units</p></td>
+<td><p><em>SECONDS</em>|<em>MINUTE
+S</em>|</p>
+<p><em>HOURS</em>|
+<em>DAYS</em><a href="#id2"><span class="problematic" id="id3">|</span></a><em>YEARS</em></p>
+</td>
+<td><p>time units</p></td>
+<td></td>
+<td><p>DAYS</p></td>
+</tr>
+<tr class="row-odd"><td><p>t<sub>i</sub></p></td>
+<td><p><em>Real</em></p></td>
+<td><p>list of</p>
+<p>times</p>
+</td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">burn</span> <span class="err">with</span> <span class="m">40</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="m">300</span> <span class="err">days</span> <span class="err">in</span> <span class="m">100</span><span class="err">-day</span> <span class="err">increments</span>
+<span class="err">power</span> <span class="m">40</span>
+<span class="err">t</span> <span class="m">100</span> <span class="m">200</span> <span class="m">300</span>
+
+<span class="err">%</span> <span class="err">simulate</span> <span class="m">2</span> <span class="err">cycles</span> <span class="err">of</span> <span class="err">time-dependent</span> <span class="err">irradiation</span> <span class="err">with</span> <span class="err">shutdown</span> <span class="err">cooling</span>
+<span class="err">%</span> <span class="err">note</span> <span class="err">that</span> <span class="err">time</span> <span class="err">defaults</span> <span class="err">to</span> <span class="err">DAYs</span>
+<span class="err">%</span>
+<span class="err">%</span> <span class="err">cycle</span> <span class="m">1</span>
+<span class="err">power</span> <span class="m">40</span>   <span class="m">30</span>   <span class="m">30</span>   <span class="m">30</span>
+<span class="err">t</span>    <span class="m">100</span>  <span class="m">200</span>  <span class="m">300</span>  <span class="m">400</span>
+<span class="err">power</span>  <span class="m">0</span>
+<span class="err">t</span>    <span class="m">415</span>
+<span class="err">%</span>
+<span class="err">%</span> <span class="err">cycle</span> <span class="m">2</span>
+<span class="err">power</span> <span class="m">30</span>   <span class="m">20</span>   <span class="m">20</span>   <span class="m">20</span>
+<span class="err">t</span>    <span class="m">515</span>  <span class="m">615</span>  <span class="m">715</span>  <span class="m">815</span>
+<span class="err">power</span>  <span class="m">0</span>
+<span class="err">t</span>    <span class="m">830</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>t</strong> card initiates a calculation for a given sequence of
+cumulative/absolute times. One of the time cards (<strong>t</strong>, <strong>dt</strong>, or
+<strong>ti)</strong> is required to model periods of decay in conjunction with
+<strong>power</strong> 0. Otherwise, the time card <strong>t</strong> is similar in functionality
+to the burnup <strong>bu</strong> card but with different units.</p>
+<p>See also:</p>
+<p><strong>dt, bu, dbu, power, option&lt;DEPL&gt;, branch, deplete</strong></p>
+</div>
+<div class="section" id="dt-initiate-calculation-by-incremental-time">
+<span id="a-6"></span><h2>dt – initiate calculation by incremental time<a class="headerlink" href="#dt-initiate-calculation-by-incremental-time" title="Permalink to this headline">¶</a></h2>
+<p><strong>dt</strong>
+[units=*SECONDS*|<em>MINUTES</em>|<em>HOURS</em>|<em>DAYS</em>|<em>YEARS</em>] :
+[t<sub>1</sub> t<sub>2</sub> … t<sub>i</sub> … t<sub>N</sub>]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>Type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>units</p></td>
+<td><p><em>SECONDS</em>|<em>MINUTE
+S</em>|</p>
+<p><em>HOURS</em>|
+<em>DAYS</em><a href="#id4"><span class="problematic" id="id5">|</span></a><em>YEARS</em></p>
+</td>
+<td><p>time units</p></td>
+<td></td>
+<td><p>DAYS</p></td>
+</tr>
+<tr class="row-odd"><td><p>t<sub>i</sub></p></td>
+<td><p><em>Real</em></p></td>
+<td><p>list of</p>
+<p>times</p>
+</td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">burn</span> <span class="err">with</span> <span class="m">40</span> <span class="err">W/gIHM</span> <span class="err">for</span> <span class="m">300</span> <span class="err">days</span> <span class="err">in</span> <span class="m">100</span><span class="err">-day</span> <span class="err">increments</span> <span class="err">equivalent</span> <span class="err">to</span>
+<span class="err">%</span>     <span class="err">power</span> <span class="m">40</span>
+<span class="err">%</span>     <span class="err">t</span> <span class="m">100</span> <span class="m">200</span> <span class="m">300</span>
+<span class="err">power</span> <span class="m">40</span>
+<span class="err">dt</span> <span class="m">100</span> <span class="m">100</span> <span class="m">100</span>
+
+<span class="err">%</span> <span class="err">decay</span> <span class="err">for</span> <span class="m">30</span> <span class="err">minutes</span>
+<span class="err">power</span> <span class="m">0</span>
+<span class="err">dt</span> <span class="m">30</span> <span class="err">MINUTES</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>dt</strong> card is identical to the cumulative time card <strong>t</strong> except
+that the values given are incremental.</p>
+<p>See also:</p>
+<p>t, bu, dbu, power, option&lt;DEPL&gt;, branch, deplete</p>
+<div class="section" id="option-essm-embedded-self-shielding">
+<span id="a-7"></span><h3>option&lt;ESSM&gt; – embedded self-shielding<a class="headerlink" href="#option-essm-embedded-self-shielding" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>opt</strong> <em>ESSM</em></div>
+<div class="line">[key<sub>1</sub>=val<sub>1</sub> key<sub>2</sub>=val<sub>2</sub> …
+key<sub>i</sub>=val<sub>i</sub> … key<sub>N</sub>=val<sub>N</sub>]</div>
+</div>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/tab3-2a-7.svg"><img alt="_images/tab3-2a-7.svg" src="_images/tab3-2a-7.svg" width="700" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">change</span> <span class="err">within</span> <span class="err">group</span> <span class="err">solver</span> <span class="err">to</span> <span class="err">use</span> <span class="err">source</span> <span class="err">iterations</span>
+<span class="err">opt</span> <span class="err">ESSM</span> <span class="err">WithinGroupSolver=SOURCE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="option-fg-few-group-cross-section-generation">
+<span id="a-8"></span><h2>option&lt;FG&gt; – few-group cross section generation<a class="headerlink" href="#option-fg-few-group-cross-section-generation" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>opt</strong> <em>FG</em></div>
+<div class="line-block">
+<div class="line">[AdjointMode=String InvVelMode=String]</div>
+<div class="line">[: b<sub>1</sub> b<sub>2</sub> … b<sub>i</sub> … b<sub>N</sub> ]</div>
+<div class="line">[: E<sub>1</sub> E<sub>2</sub> … E<sub>i</sub> … E<sub>N-1</sub> ]</div>
+</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>param</strong></p></th>
+<th class="head"><p><strong>type</strong></p></th>
+<th class="head"><p><strong>details</strong></p></th>
+<th class="head"><p><strong>default</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AdjointMode</p></td>
+<td><p><em>String</em></p></td>
+<td><p>type of adjoint
+calculation to
+use in
+few-group data
+generation</p>
+<p>“INFMED”:
+infinite medium
+adjoint</p>
+<p>“CRITICAL”:
+critical
+spectrum
+adjoint</p>
+<p>“UNIFORM”:
+uniform adjoint</p>
+</td>
+<td><p>“INFMED”</p></td>
+</tr>
+<tr class="row-odd"><td><p>InvVelMode</p></td>
+<td><p><em>String</em></p></td>
+<td><p>weighting
+option for
+few-group
+inverse
+velocities</p>
+<p>“FORWARD”:
+forward flux
+weighting</p>
+<p>“ADJOINT”:
+adjoint flux
+weighting</p>
+</td>
+<td><p>“FORWARD”</p></td>
+</tr>
+<tr class="row-even"><td><p>b<sub>i</sub></p></td>
+<td><p><em>Real</em></p></td>
+<td><p>list of burnups
+to include in
+output
+few-group cross
+section
+database, e.g.,
+XFile16 output</p>
+<p>units: GWd/MTHM</p>
+</td>
+<td><p>all burnups
+available</p></td>
+</tr>
+<tr class="row-odd"><td><p>E<sub>i</sub></p></td>
+<td><p><em>Real</em></p></td>
+<td><p>note descending
+order and only
+N-1 divisions
+are needed for
+an N group
+structure</p>
+<p>E<sub>0</sub> is
+maximum energy
+(typically 2e7
+eV)</p>
+<p>E<sub>N</sub> is
+minimum
+(typically 1e-5
+eV)</p>
+<p>units: eV</p>
+</td>
+<td><p>0.625 eV
+division (two
+groups)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">enable</span> <span class="err">the</span> <span class="err">critical</span> <span class="err">spectrum</span> <span class="err">adjoint</span>
+<span class="err">opt</span> <span class="err">FG</span> <span class="err">AdjointMode=</span><span class="s">&quot;CRITICAL&quot;</span>
+
+<span class="err">%only</span> <span class="err">include</span> <span class="m">0</span><span class="err">,</span><span class="m">10</span><span class="err">,</span><span class="m">15</span><span class="err">,</span><span class="m">20</span> <span class="err">GWd/MTHM</span> <span class="err">burnups</span> <span class="err">in</span> <span class="err">few-group</span> <span class="err">outputs,</span> <span class="err">including</span> <span class="err">XFile</span><span class="m">16</span>
+<span class="err">opt</span> <span class="err">FG</span> <span class="err">:</span> <span class="m">0</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span>
+
+<span class="err">%redefine</span> <span class="err">group</span> <span class="err">energy</span> <span class="err">divisions</span> <span class="err">for</span> <span class="m">3</span> <span class="err">groups</span> <span class="err">with</span> <span class="err">divisions</span> <span class="err">at</span> <span class="m">10</span> <span class="err">and</span> <span class="m">0</span><span class="err">.</span><span class="m">625</span> <span class="err">eV</span>
+<span class="err">opt</span> <span class="err">FG</span> <span class="err">:</span> <span class="err">:</span> <span class="m">10</span> <span class="m">0</span><span class="err">.</span><span class="m">625</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="state-mname-material-state">
+<span id="a-9"></span><h2>state&lt;MNAME&gt; – material state<a class="headerlink" href="#state-mname-material-state" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>state</strong> MNAME|MCLASS :</div>
+<div class="line">p<sub>1</sub>=val<sub>1</sub> p<sub>2</sub>=val<sub>2</sub> …
+p<sub>i</sub>=val<sub>i</sub> … p<sub>N</sub>=val<sub>N</sub></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>MNAME|MCLASS</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>material
+name or</p>
+<p>material
+class</p>
+</td>
+<td><p>use ALL for
+all
+materials</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p<sub>i</sub></p></td>
+<td><p>PNAME</p></td>
+<td><p>property
+name</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>val<sub>i</sub></p></td>
+<td><p><em>Value</em></p></td>
+<td><p>property
+value</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">reset</span> <span class="err">to</span> <span class="err">hot</span> <span class="err">zero</span> <span class="err">power</span> <span class="err">conditions</span>
+<span class="err">state</span> <span class="err">ALL</span>  <span class="err">:</span> <span class="err">temp=</span><span class="m">565</span>
+<span class="err">state</span> <span class="err">COOL</span> <span class="err">:</span> <span class="err">dens=</span><span class="m">0</span><span class="err">.</span><span class="m">75</span>
+
+
+<span class="err">%</span> <span class="err">set</span> <span class="err">channel/bypass</span> <span class="err">materials</span> <span class="err">to</span> <span class="err">different</span> <span class="err">ppm</span> <span class="err">boron</span>
+<span class="err">state</span> <span class="err">COOL</span> <span class="err">:</span> <span class="err">boron=</span><span class="m">0</span>
+<span class="err">state</span> <span class="err">BYP</span>  <span class="err">:</span> <span class="err">boron=</span><span class="m">600</span>
+
+<span class="err">%</span> <span class="err">set</span> <span class="err">all</span> <span class="err">materials</span> <span class="err">with</span> <span class="err">a</span> <span class="err">boron</span> <span class="err">property</span>
+<span class="err">state</span> <span class="err">ALL</span> <span class="err">:</span> <span class="err">boron=</span><span class="m">300</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The <strong>state</strong> card declares the <em>base state</em> for materials and the <em>base
+state</em> of possible control elements or insert elements.</p>
+<p><strong>See also: material, deplete, system</strong></p>
+</div>
+<div class="section" id="state-iname-insert-control-state">
+<span id="a-10"></span><h2>state&lt;INAME&gt; – insert/control state<a class="headerlink" href="#state-iname-insert-control-state" title="Permalink to this headline">¶</a></h2>
+<p><strong>state</strong> INAME : in=<em>Bool</em></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 29%" />
+<col style="width: 25%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>INAME</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>insert name or</p>
+<p>control element name</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Bool</p></td>
+<td><p>insertion</p></td>
+<td><p>“in=” is required</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">insert</span> <span class="err">bank</span> <span class="err">D</span> <span class="err">control</span> <span class="err">rods</span>
+<span class="err">state</span> <span class="err">BankD</span> <span class="err">:</span> <span class="err">in=true</span>
+<span class="err">%</span> <span class="err">remove</span> <span class="err">inserts</span> <span class="err">named</span> <span class="err">Ins</span><span class="m">6</span><span class="err">A</span>
+<span class="err">state</span> <span class="err">Ins</span><span class="m">6</span><span class="err">A</span> <span class="err">false</span>
+<span class="err">%</span> <span class="err">perform</span> <span class="err">reflector</span> <span class="err">calculation</span>
+<span class="err">state</span> <span class="err">ReflectorNode</span> <span class="err">:</span> <span class="err">in=true</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>This form of the <strong>state</strong> card is required to insert any control
+element or inserts. By default, inserts and control elements are out
+when defined.</p>
+<p>See also:</p>
+<p><strong>material, deplete, system</strong></p>
+</div>
+<div class="section" id="state-gname-geometry-state">
+<span id="a-11"></span><h2>state&lt;GNAME&gt; – geometry state<a class="headerlink" href="#state-gname-geometry-state" title="Permalink to this headline">¶</a></h2>
+<p><strong>state</strong> GNAME : pres=Bool</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 14%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>param</strong></p></td>
+<td><p><strong>type</strong></p></td>
+<td><p><strong>name</strong></p></td>
+<td><p><strong>details</strong></p></td>
+<td><p><strong>default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>GNAME</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>geometry name</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pres</p></td>
+<td><p>Bool</p></td>
+<td><p>present</p></td>
+<td><p>“pres=” is required</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">%</span> <span class="err">disable</span> <span class="err">reflector</span> <span class="err">calculation</span> <span class="err">even</span> <span class="err">though</span>
+<span class="err">%</span> <span class="err">reflector</span> <span class="err">geometry</span> <span class="err">is</span> <span class="err">present</span>
+<span class="err">state</span> <span class="err">ReflectorNode</span> <span class="err">:</span> <span class="err">pres=false</span>
+</pre></div>
+</div>
+<p>Comments:</p>
+<p>The geometry version of the <strong>state</strong> card is used to declare which
+geometric elements are present in the system. The geometry version of
+the <strong>add</strong> card is useful for performing branch calculations for
+reflector nodes. Note that an assembly geometry must be present to
+perform a calculation.</p>
+<p>See also:</p>
+<p><strong>geometry&lt;REFL&gt;, state&lt;MNAME&gt;, state&lt;INAME&gt;</strong></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html" class="btn btn-neutral float-right" title="Depletion, Activation, and Spent Fuel Source Terms Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Polaris.html" class="btn btn-neutral float-left" title="POLARIS - 2D Light Water Reactor Lattice Physics Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

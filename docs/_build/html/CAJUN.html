@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Monte Carlo Transport Overview" href="Monte%20Carlo%20Transport%20Overview.html" />
+    <link rel="prev" title="MCDancoff Data Guide" href="MCDancoff.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cajun-input-data">CAJUN Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cajun-i-o-units">CAJUN I/O Units</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CAJUN.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cajun-module-for-combining-and-manipulating-centrm-continuous-energy-libraries">
+<span id="id1"></span><h1>CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries<a class="headerlink" href="#cajun-module-for-combining-and-manipulating-centrm-continuous-energy-libraries" title="Permalink to this headline">¶</a></h1>
+<p><em>L. M. Petrie and N. M. Greene</em></p>
+<div class="section" id="introduction">
+<span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>CAJUN is a program used to combine continuous-energy (CE) cross section
+libraries for use in the cross-section processing codes CENTRM and PMC.
+It is used primarily by SCALE sequences when processing pointwise cross
+section data for DOUBLEHET unit cells with the XSProc module (see
+<a class="reference internal" href="XSProc.html#id2"><span class="std std-ref">Introduction</span></a>), although it can also be run standalone in conjunction
+with CRAWDAD. CAJUN combines multiple CE libraries into a single
+library, adds selected nuclides from one library into another library,
+deletes nuclides from a specified library, or renames nuclides in a
+library. CAJUN performs an analogous function for CE libraries as AJAX
+does for multigroup libraries.</p>
+<p>In order for input CE libraries to be read by CAJUN, they must be
+assigned a unit number from 1 to 99. The SHELL module can be used to
+link individual CE libraries to appropriate file names that are
+accessible by unit number.</p>
+</div>
+<div class="section" id="cajun-input-data">
+<span id="id3"></span><h2>CAJUN Input Data<a class="headerlink" href="#cajun-input-data" title="Permalink to this headline">¶</a></h2>
+<p>Input data for CAJUN is read into the program using FIDO type input. The
+data is divided into three data blocks. The first data block provides
+the output file number and number of libraries processed. The second
+data block provides input library numbers, number of nuclides in each
+library, and whether nuclides are selected by MAT or ZA number. The
+third data block provides current nuclide MAT or ZA numbers and new
+nuclide MAT or ZA numbers. Detailed description of the CAJUN input data
+is provided below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Data Block 1
+
+  0$$         unit assignments (1)
+
+      1.      lcen – logical unit number of output CE CENTRM library (1)
+
+  1$$         number of files to process (2)
+
+      1.      nfile – the number of CENTRM CE libraries to process (1)
+      2.      idtap – identifier for the new library (0)
+
+      T       terminate data block 1
+
+***********************************************************************
+ *** repeat data block(s) 2 and 3 &quot;nfile&quot; times to create new library
+***********************************************************************
+
+Data Block 2
+
+  2$$ file selection and treatment option (4)
+
+      1.      log – logical unit number of input CENTRM CE library (77)
+      2.      inum – number of nuclides selected from this library (0)
+              0 - select all nuclides on the library as is.
+              n – select all nuclides on the library as is except for those indicated in the 3$$ array.
+              n – select the &quot;n&quot; nuclides on the library listed in the 3$$ array.
+      3.      iopt – select nuclides by &#39;mat&#39; or &#39;nza&#39; number   (1)
+              0 – mat
+              1 – nza (default)
+      4.      nsq – sequence number of file opened on unit LOG (1)
+
+      T       terminate data block 2
+
+Data Block 3 (enter if inum is non-zero)
+
+  3$$         nuclide selection list (inum)
+            enter a positive identifier to select a nuclide.
+            enter a negative identifier to exclude a nuclide.
+
+  4$$         new nuclide identifiers (inum)
+            enter the new nuclide identifiers in the locations corresponding
+        to the positive identifier entry in the 3$ array.
+
+  5$$         version of the data (–1,0,1,2,3,4/unk,ENDF,JEF,JENDL,BROND,CENDL)  (inum)
+
+  6$$         8-Character Identifier for Thermal Kinematics Data  (inum)
+
+  7$$         ZA-override Values.  Non-zero values will replace the ZA values in the
+        Header Record.  The ZA values in the Data Directory records are not changed.  (inum)
+
+      T       terminate data block 3
+</pre></div>
+</div>
+</div>
+<div class="section" id="cajun-i-o-units">
+<span id="id4"></span><h2>CAJUN I/O Units<a class="headerlink" href="#cajun-i-o-units" title="Permalink to this headline">¶</a></h2>
+<p>CAJUN requires the following I/O devices.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 5%" />
+<col style="width: 69%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Unit No.</p></td>
+<td></td>
+<td><p>Purpose</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p>
+<p>6</p>
+<p>18</p>
+</td>
+<td></td>
+<td><p>Standard definition input</p>
+<p>Output</p>
+<p>Scratch file</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Monte%20Carlo%20Transport%20Overview.html" class="btn btn-neutral float-right" title="Monte Carlo Transport Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MCDancoff.html" class="btn btn-neutral float-left" title="MCDancoff Data Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

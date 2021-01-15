@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TSURFER Appendix A: Sensitivity/Uncertainty Notation &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences" href="sampler.html" />
+    <link rel="prev" title="TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments" href="tsurfer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-variables">Basic variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensitivity-relations">Sensitivity Relations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-covariances">Absolute covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relative-covariances">Relative covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixed-absolute-relative-covariances">Mixed absolute-relative covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#correlation-matrices">Correlation matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>TSURFER Appendix A: Sensitivity/Uncertainty Notation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tsurfer-appA.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tsurfer-appendix-a-sensitivity-uncertainty-notation">
+<span id="a"></span><h1>TSURFER Appendix A: Sensitivity/Uncertainty Notation<a class="headerlink" href="#tsurfer-appendix-a-sensitivity-uncertainty-notation" title="Permalink to this headline">¶</a></h1>
+<p>In the following expressions, the notation E[X] represents the expected value of
+random variable X, which is equal to the integral of X weighted by its
+probability density function over the range of allowable values.</p>
+<div class="section" id="basic-variables">
+<span id="a-1"></span><h2>Basic variables<a class="headerlink" href="#basic-variables" title="Permalink to this headline">¶</a></h2>
+<p>I =</p>
+<blockquote>
+<div><p>number of integral response (experiment and applications) used in GLLS analysis</p>
+</div></blockquote>
+<p>M       =</p>
+<blockquote>
+<div><p>number of nuclear data parameters used in transport calculations (i.e., number of unique nuclide-reaction pairs multiplied by the number of energy groups)</p>
+</div></blockquote>
+<p><strong>α</strong>   =</p>
+<blockquote>
+<div><p>M dimensional vector of prior nuclear data parameters, where component-i = α<sub>i</sub></p>
+</div></blockquote>
+<p><strong>A</strong>   =</p>
+<blockquote>
+<div><p>M by M diagonal matrix of prior nuclear data parameters, where diagonal element <strong>A</strong>(i,i) = α<sub>i</sub></p>
+</div></blockquote>
+<p><strong>m</strong>   =</p>
+<blockquote>
+<div><p>I dimensional vector of prior measured responses, where component-<em>i</em> = m<sub>i</sub></p>
+</div></blockquote>
+<p><strong>M</strong>   =</p>
+<blockquote>
+<div><p>I by I diagonal matrix of prior measured responses, where diagonal element <strong>M</strong>(i,i) = m<sub>i</sub></p>
+</div></blockquote>
+<p><strong>k(α)</strong>        =</p>
+<blockquote>
+<div><p>I dimensional vector of prior calculated responses obtained with nuclear data <em>α</em>, where component I = k<sub>i</sub></p>
+</div></blockquote>
+<p><strong>K</strong>   =</p>
+<blockquote>
+<div><p>I by I diagonal matrix of prior calculated responses, where diagonal element <strong>K</strong>(i,i) = k<sub>i</sub></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\mathbf{F}_{\mathbf{m} / \mathbf{k}}\)</span> =</p>
+<blockquote>
+<div><p>I by I diagonal matrix of “E/C” values =</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{l}
+\mathbf{M} \mathbf{K}^{-1}=\mathbf{K}^{-\mathbf{1}} \mathbf{M}
+\end{array}\]</div>
+<p>where diagonal element</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{F}_{\mathrm{m} / \mathrm{k}}(\mathrm{i}, \mathrm{i})=\frac{\mathrm{m}_{\mathrm{i}}}{\mathrm{k}_{\mathrm{i}}}\]</div>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{\mathbf{\hat{F}}}_{\mathbf{m/k}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I diagonal matrix, where diagonal element</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{F}_{\mathrm{m} / \mathrm{k}}\left(\mathrm{i}, \mathrm{i}\right)=\frac{\mathrm{m}_{\mathrm{i}}}{\mathrm{k}_{\mathrm{i}}}\]</div>
+<p>for a relative-formatted response and <span class="math notranslate nohighlight">\(\mathrm{F}_{\mathrm{m} / \mathrm{k}}(\mathrm{i}, \mathrm{i})=1\)</span></p>
+</div></blockquote>
+<p><strong>α′</strong>  =</p>
+<blockquote>
+<div><p>M dimensional vector of adjusted nuclear data parameters produced by GLLS procedure</p>
+</div></blockquote>
+<p><strong>m′</strong>  =</p>
+<blockquote>
+<div><p>I dimensional vector of adjusted measured responses produced by GLLS procedure</p>
+</div></blockquote>
+<p><strong>k′(α′)</strong>      =</p>
+<blockquote>
+<div><p>I dimensional vector of adjusted calculated responses obtained with modified  nuclear data <strong>α′</strong></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>k′(α′) = m′</strong>, due to GLLS adjustment procedure.  &lt;&lt;&lt;&lt;</p>
+</div>
+<p><span class="math notranslate nohighlight">\(\mathbf{\tilde{d}}\,\)</span>    =</p>
+<blockquote>
+<div><p>original absolute discrepancy vector = <span class="math notranslate nohighlight">\(\mathbf{k}-\mathbf{m}\)</span> , where component-i= <span class="math notranslate nohighlight">\({{k}_{i}}-{{m}_{i}}\)</span></p>
+</div></blockquote>
+<p><strong>d</strong>   =</p>
+<blockquote>
+<div><p>original relative discrepancy vector = <span class="math notranslate nohighlight">\(\mathbf{K}^{-1}(\mathbf{k}-\mathbf{m})\)</span> , where component-i = <span class="math notranslate nohighlight">\(\left(\mathrm{k}_{\mathrm{i}}-\mathrm{m}_{\mathrm{i}}\right) / \mathrm{k}_{\mathrm{i}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\mathbf{\hat{d}}\)</span></p>
+<blockquote>
+<div><p>original mixed absolute-relative discrepancy vector, where component-i = <span class="math notranslate nohighlight">\(\left(\mathrm{k}_{\mathrm{i}}-\mathrm{m}_{\mathrm{i}}\right) / \mathrm{k}_{\mathrm{i}}\)</span> for a relative-formatted response and <span class="math notranslate nohighlight">\(\left(\mathrm{k}_{i}-\mathrm{m}_{\mathrm{i}}\right)\)</span> for an absolute-formatted response</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\boldsymbol{\Delta} \boldsymbol{\alpha}]\)</span> =</p>
+<blockquote>
+<div><p>M dimensional vector of relative variations in nuclear data = <span class="math notranslate nohighlight">\(\mathbf{A}^{-1}\left(\boldsymbol{\alpha}^{\prime}-\boldsymbol{\alpha}\right)\)</span>
+where component-i = <span class="math notranslate nohighlight">\(\frac{\alpha_{i}^{\prime}-\alpha_{i}}{\alpha_{i}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\mathbf{\Delta m}]\)</span> =</p>
+<blockquote>
+<div><p>I dimensional vector of relative variations in measured responses = <span class="math notranslate nohighlight">\(\mathbf{M}^{-1}\left(\mathbf{m}^{\prime}-\mathbf{m}\right)\)</span>
+where component-i = <span class="math notranslate nohighlight">\(\frac{\text{m}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{m}}_{\text{i}}}}{{{\text{m}}_{\text{i}}}}\to \frac{\text{k}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{m}}_{\text{i}}}}{{{\text{m}}_{\text{i}}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\mathbf{\Delta m}]\)</span> =</p>
+<blockquote>
+<div><p>I dimensional vector of absolute variations in measured responses = <span class="math notranslate nohighlight">\(\mathbf{m}^{\prime}-\mathbf{m}\)</span>
+where component-i <span class="math notranslate nohighlight">\(\text{m}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{m}}_{\text{i}}}\to \text{k}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{m}}_{\text{i}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\mathbf{\Delta} \hat{\mathbf{m}}]\)</span> =</p>
+<blockquote>
+<div><p>I dimensional vector of mixed absolute-relative variations in measured responses, where component-i =
+<span class="math notranslate nohighlight">\(\frac{\text{m}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{m}}_{\text{i}}}}{{{\text{m}}_{\text{i}}}}\)</span> for a relative-formatted response and
+<span class="math notranslate nohighlight">\(\text{m}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{m}}_{\text{i}}}\)</span> for an absolute-formatted response</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\boldsymbol{\Delta} \mathbf{k}]\)</span> =</p>
+<blockquote>
+<div><p>I dimensional vector of relative variations in calculated responses =
+<span class="math notranslate nohighlight">\(\mathbf{K}^{-1}\left(\mathbf{k}^{\prime}-\mathbf{k}\right)\)</span>
+where component-i = <span class="math notranslate nohighlight">\(\frac{\text{k}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{k}}_{\text{i}}}}{{{\text{k}}_{\text{i}}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\boldsymbol{\Delta} \mathbf{k}]\)</span> =</p>
+<blockquote>
+<div><p>I dimensional vector of absolute variations in calculated responses = <span class="math notranslate nohighlight">\(\mathbf{k'}-\mathbf{k}\)</span>, where component-i = <span class="math notranslate nohighlight">\(\text{k}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{k}}_{\text{i}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\([\boldsymbol{\Delta} \hat{\mathbf{k}}]\)</span> =</p>
+<blockquote>
+<div><p>I dimensional vector of mixed absolute-relative variations in calculated responses, where component-i =
+<span class="math notranslate nohighlight">\(\text{k}{{\text{ }\!\!'\!\!\text{ }}_{\text{i}}}-{{\text{k}}_{\text{i}}}\)</span> for an absolute formatted response</p>
+</div></blockquote>
+</div>
+<div class="section" id="sensitivity-relations">
+<span id="a-2"></span><h2>Sensitivity Relations<a class="headerlink" href="#sensitivity-relations" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\widetilde{\mathbf{S}}_{\mathbf{k} \boldsymbol{\alpha}}\)</span> =</p>
+<blockquote>
+<div><p>I by M absolute sensitivity matrix; where element <span class="math notranslate nohighlight">\(\widetilde{\mathbf{S}}_{\mathbf{k} \boldsymbol{\alpha}}(\mathrm{i}, \mathrm{n})=\alpha_{\mathrm{n}} \frac{\partial \mathrm{k}_{\mathrm{i}}}{\partial \alpha_{\mathrm{n}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\mathbf{S}_{\mathbf{k} \boldsymbol{\alpha}}\)</span> =</p>
+<blockquote>
+<div><p>I by M relative sensitivity matrix = <span class="math notranslate nohighlight">\(\mathbf{K}^{-1} \mathbf{S}_{\mathbf{k} \boldsymbol{\alpha}}\)</span>,
+where element <span class="math notranslate nohighlight">\(\mathbf{S}_{k \alpha}(i, n)=\frac{\alpha_{n}}{k_{i}} \frac{\partial k_{i}}{\partial \alpha_{n}}\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\hat{\mathbf{S}}_{\mathbf{k}\boldsymbol{\alpha}}\)</span> =</p>
+<blockquote>
+<div><p>I by M mixed absolute-relative sensitivity matrix, where element <span class="math notranslate nohighlight">\(\hat{\mathbf{S}}_{\mathbf{k} \boldsymbol{\alpha}}(\mathrm{i}, \mathrm{n})=\frac{\alpha_{\mathrm{n}}}{\mathrm{k}_{\mathrm{i}}} \frac{\partial \mathrm{k}_{\mathrm{i}}}{\partial \alpha_{\mathrm{n}}}\)</span>
+if response-i is relative-formatted and <span class="math notranslate nohighlight">\(\hat{\mathbf{S}}_{\mathbf{k} \boldsymbol{\alpha}}(\mathrm{i}, \mathrm{n})=\alpha_{\mathrm{n}} \frac{\partial \mathbf{k}_{\mathrm{i}}}{\partial \alpha_{\mathrm{n}}}\)</span> if response-i is absolute-formatted</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+{[\boldsymbol{\Delta} \mathbf{k}]=\quad \mathbf{S}_{\mathbf{k} \boldsymbol{\alpha}}[\mathbf{\Delta} \boldsymbol{\alpha}]} \\
+{{[\boldsymbol{\Delta} \mathbf{k}}]=\mathbf{S}_{\mathbf{k} \boldsymbol{\alpha}}[\mathbf{\Delta} \boldsymbol{\alpha}]} \\
+{[\boldsymbol{\Delta} \hat{\mathbf{k}}]=\hat{\mathbf{S}}_{\mathbf{k} \boldsymbol{\alpha}}[\mathbf{\Delta} \boldsymbol{\alpha}]}
+\end{array}\end{split}\]</div>
+</div>
+<div class="section" id="absolute-covariances">
+<span id="a-3"></span><h2>Absolute covariances<a class="headerlink" href="#absolute-covariances" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{mm}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I covariance matrix for prior measured experiment responses where element <span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{mm}}}\)</span>(i,j) =
+<span class="math notranslate nohighlight">\(E\left( \delta {{m}_{i}}\,\delta {{m}_{j}} \right)\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{kk}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I covariance matrix for prior calculated responses, where element <span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{kk}}}\)</span>(i,j) =
+<span class="math notranslate nohighlight">\(E\left( \delta {{k}_{i}}\,\delta {{k}_{j}} \right)\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{dd}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I covariance matrix for the discrepancies (k-m), where element <span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{dd}}}\)</span>(i,j) =
+<span class="math notranslate nohighlight">\(E\left( \delta {{d}_{i}}\,\delta {{d}_{j}} \right)\)</span> = <span class="math notranslate nohighlight">\(\mathrm{E}\left(\delta\left(\mathrm{k}_{\mathrm{i}}-\mathrm{m}_{\mathrm{i}}\right) \delta\left(\mathrm{k}_{\mathrm{j}}-\mathrm{m}_{\mathrm{j}}\right)\right)\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{k'k'}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I covariance matrix for adjusted responses, where element <span class="math notranslate nohighlight">\({{\mathbf{\tilde{C}}}_{\mathbf{k'k'}}}\)</span>(i,j) =
+<span class="math notranslate nohighlight">\(E\left( \delta k{{'}_{i}}\,\delta k{{'}_{j}} \right)\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\mathbf{m}}\)</span> =</p>
+<blockquote>
+<div><p>I by I diagonal matrix containing standard deviations in prior measured responses, where diagonal element
+<span class="math notranslate nohighlight">\(\widetilde{\sigma}_{\mathrm{m}}\left(\mathrm{i} \mathrm{i}\right)=\sqrt{\widetilde{\mathrm{C}}_{\mathrm{mm}}(\mathrm{i}, \mathrm{i})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\mathbf{k}}\)</span> =</p>
+<blockquote>
+<div><p>I by I diagonal matrix containing
+standard deviations in prior calculated responses, where diagonal element
+<span class="math notranslate nohighlight">\(\widetilde{\sigma}_{\mathrm{k}}(\mathrm{i}, \mathrm{i})=\sqrt{\widetilde{\mathrm{C}}_{\mathrm{kk}}(\mathrm{i}, \mathrm{i})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\mathbf{k}^{\prime}}\)</span></p>
+</div>
+<div class="section" id="relative-covariances">
+<span id="a-4"></span><h2>Relative covariances<a class="headerlink" href="#relative-covariances" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\({{C}_{\mathbf{mm}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I relative covariance matrix for prior measured responses, = <span class="math notranslate nohighlight">\(\mathbf{M}^{-1}\left[\tilde{\mathbf{C}}_{\mathbf{m m}}\right] \mathbf{M}^{-1}\)</span>
+<span class="math notranslate nohighlight">\(C_{m m}(i, j)=\frac{\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})}{\mathrm{m}_{\mathrm{i}} \mathrm{m}_{\mathrm{j}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{C}_{\boldsymbol{\alpha \alpha}}}\)</span> =</p>
+<blockquote>
+<div><p>M by M relative covariance matrix for prior nuclear data, where element
+<span class="math notranslate nohighlight">\(\widetilde{C}_{\alpha \alpha}(i, j)\)</span>
+= <span class="math notranslate nohighlight">\(\frac{\mathrm{E}\left(\delta \alpha_{\mathrm{i}} \delta \alpha_{\mathrm{j}}\right)}{\alpha_{\mathrm{i}} \alpha_{\mathrm{j}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{C}_{\mathbf{kk}}}\)</span> =</p>
+<blockquote>
+<div><p>I by I relative covariance matrix for prior calculated responses =
+<span class="math notranslate nohighlight">\(\mathbf{K}^{-1}\left[\mathbf{C}_{\mathrm{kk}}\right] \mathbf{K}^{-1}\)</span>
+where element <span class="math notranslate nohighlight">\(C_{k k}(i, j)=\frac{\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})}{\mathrm{k}_{\mathrm{i}} \mathrm{k}_{\mathrm{j}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\({{C}_{\mathbf{dd}}}\)</span></p>
+<blockquote>
+<div><p>I by I relative covariance matrix for response discrepancies; =
+<span class="math notranslate nohighlight">\(\mathbf{K}^{-1}\left[\mathbf{C}_{\mathbf{dd}}\right] \mathbf{K}^{-1}\)</span>,
+where element <span class="math notranslate nohighlight">\(C_{d d}(i, j)=\frac{\mathrm{C}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j})}{\mathrm{k}_{\mathrm{i}} \mathrm{k}_{\mathrm{j}}}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\mathbf{m}}\)</span> =</p>
+<blockquote>
+<div><p>I by I diagonal matrix containing relative standard deviations in measured responses, where diagonal element
+<span class="math notranslate nohighlight">\(\sigma_{\mathrm{m}}\left(\mathrm{i}, \mathrm{i}\right)=\sqrt{\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{i})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\mathbf{k}}\)</span> =</p>
+<blockquote>
+<div><p>I by I diagonal matrix containing relative standard deviations in calculated responses, where diagonal element
+<span class="math notranslate nohighlight">\(\sigma_{k^{\prime}}\left(\mathrm{i}, \mathrm{i}\right)=\sqrt{\mathrm{C}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\boldsymbol{\alpha}}\)</span> =</p>
+<blockquote>
+<div><p>M by M diagonal matrix containing standard deviations in nuclear data, where diagonal element
+<span class="math notranslate nohighlight">\(\boldsymbol{\sigma}_{\boldsymbol{\alpha}}(\mathrm{i}, \mathfrak{i})=\sqrt{C_{\alpha \alpha}(i, i)}\)</span></p>
+</div></blockquote>
+</div>
+<div class="section" id="mixed-absolute-relative-covariances">
+<span id="a-5"></span><h2>Mixed absolute-relative covariances<a class="headerlink" href="#mixed-absolute-relative-covariances" title="Permalink to this headline">¶</a></h2>
+<p>If response-i and response-j are both absolute formatted, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\hat{\mathrm{C}}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j}) &amp;=\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j}) \\
+\hat{\mathrm{C}}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j}) &amp;=\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j}) \\
+\hat{\mathrm{C}}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j}) &amp;=\mathrm{C}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j}) \\
+\hat{\mathrm{C}}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j}) &amp;=\mathrm{C}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})
+\end{aligned}\end{split}\]</div>
+<p>Likewise, if both response-i and response-j are relative-formatted, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+\hat{\mathrm{C}}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})=\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})}{\mathrm{k}_{\mathrm{i}} \mathrm{k}_{\mathrm{j}}} \\
+\hat{\mathrm{C}}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})=\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})}{\mathrm{m}_{\mathrm{i}} \mathrm{m}_{\mathrm{j}}} \\
+\hat{\mathrm{C}}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j})=\mathrm{C}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j})}{\mathrm{d}_{\mathrm{i}} \mathrm{d}_{\mathrm{j}}} \\
+\hat{\mathrm{C}}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})=\mathrm{C}_{\mathrm{kk}^{\prime}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{kk}^{\prime}}(\mathrm{i}, \mathrm{j})}{\mathrm{k}_{\mathrm{i}}^{\prime} \mathrm{k}_{\mathrm{j}}^{\prime}}
+\end{array}\end{split}\]</div>
+<p>If response-i is absolute-formatted and response-j is relative-formatted, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+\hat{\mathrm{C}}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})}{\mathrm{k}_{\mathrm{j}}} \\
+\hat{\mathrm{C}}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})}{\mathrm{m}_{\mathrm{j}}} \\
+\hat{\mathrm{C}}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{dd}}(\mathrm{i}, \mathrm{j})}{\mathrm{d}_{\mathrm{j}}}
+\hat{\mathrm{C}}_{\mathrm{k}^{\prime}\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})}{\mathrm{k}_{\mathrm{j}}^{\prime}}
+\end{array}\end{split}\]</div>
+<p>Similar expressions can be derived if response-i is relative-formatted, and
+response-j is absolute-formatted.  The I by I diagonal matrices of standard
+deviation values are the following:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{\sigma}_{\mathrm{k}}(\mathrm{i}, \mathrm{i})=\left\{\begin{array}{ll}
+\sigma_{\mathrm{k}}(\mathrm{i}, \mathrm{i}) &amp; \text { absolute-formatted } \\
+\sigma_{\mathrm{k}}(\mathrm{i}, \mathrm{i}) &amp; \text { relative-formatted }
+\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{\sigma}_{\mathrm{m}}(\mathrm{i}, \mathrm{i})=\left\{\begin{array}{ll}
+\sigma_{\mathrm{m}}(\mathrm{i}, \mathrm{i}) &amp; \text { absolute-formatted } \\
+\sigma_{\mathrm{m}}(\mathrm{i}, \mathrm{i}) &amp; \text { relative-formatted }
+\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{\sigma}_{\mathrm{d}}(\mathrm{i}, \mathrm{i})=\left\{\begin{array}{ll}
+\sigma_{\mathrm{d}}(\mathrm{i}, \mathrm{i}) &amp; \text { absolute-formatted } \\
+\sigma_{\mathrm{d}}(\mathrm{i}, \mathrm{i}) &amp; \text { relative-formatted }
+\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{\sigma}_{\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i})=\left\{\begin{array}{ll}
+\sigma_{\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i}) &amp; \text { absolute-formatted } \\
+\sigma_{\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i}) &amp; \text { relative-formatted }
+\end{array}\right.\end{split}\]</div>
+</div>
+<div class="section" id="correlation-matrices">
+<span id="a-6"></span><h2>Correlation matrices<a class="headerlink" href="#correlation-matrices" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{kk}}\)</span> =</p>
+<blockquote>
+<div><p>I by I correlation matrix for prior calculated responses, where element
+<span class="math notranslate nohighlight">\(\mathrm{R}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})\)</span> =
+<span class="math notranslate nohighlight">\(\frac{\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})}{\sigma_{\mathrm{k}}(\mathrm{i}, \mathrm{i}) \sigma_{\mathrm{k}}(\mathrm{j}, \mathrm{j})}=\frac{\mathrm{C}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})}{\sigma_{\mathrm{k}}(\mathrm{i}, \mathrm{i}) \sigma_{\mathrm{k}}(\mathrm{j}, \mathrm{j})}=\frac{\hat{\mathrm{C}}_{\mathrm{kk}}(\mathrm{i}, \mathrm{j})}{\hat{\sigma}_{\mathrm{k}}(\mathrm{i}, \mathrm{i}) \hat{\sigma}_{\mathrm{k}}(\mathrm{j}, \mathrm{j})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{mm}}\)</span> =</p>
+<blockquote>
+<div><p>I by I correlation matrix for prior measured responses, where element
+<span class="math notranslate nohighlight">\(\mathrm{R}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})\)</span>
+<span class="math notranslate nohighlight">\(\frac{\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})}{\sigma_{\mathrm{m}}(\mathrm{i}, \mathrm{i}) \sigma_{\mathrm{m}}(\mathrm{j}, \mathrm{j})}=\frac{\mathrm{C}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})}{\sigma_{\mathrm{m}}(\mathrm{i}, \mathrm{i}) \sigma_{\mathrm{m}}(\mathrm{j}, \mathrm{j})}=\frac{\hat{\mathrm{C}}_{\mathrm{mm}}(\mathrm{i}, \mathrm{j})}{\hat{\sigma}_{\mathrm{m}}(\mathrm{i}, \mathrm{i}) \hat{\sigma}_{\mathrm{m}}(\mathrm{j}, \mathrm{j})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\mathbf{R}_{\boldsymbol{\alpha} \boldsymbol{\alpha}}\)</span> =</p>
+<blockquote>
+<div><p>M by M correlation matrix for prior nuclear data, where element
+<span class="math notranslate nohighlight">\(\mathrm{R}_{\alpha \alpha}(\mathrm{i}, \mathrm{j})=\frac{\mathrm{C}_{\alpha \alpha}(\mathrm{i}, \mathrm{j})}{\sigma_{\alpha}(\mathrm{i}, \mathrm{i}) \sigma_{\alpha}(\mathrm{j}, \mathrm{j})}\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{k}^{\prime} \mathbf{k}^{\prime}}\)</span> =</p>
+<blockquote>
+<div><p>I by I correlation matrix for adjusted responses, where element <span class="math notranslate nohighlight">\(\mathrm{R}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}} \quad(\mathrm{i}, \quad \mathrm{j})\)</span>
+= <span class="math notranslate nohighlight">\(\frac{C_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})}{\sigma_{\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i}) \sigma_{\mathrm{k}^{\prime}}(\mathrm{j}, \mathrm{j})}=\frac{\mathrm{C}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})}{\sigma_{\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i}) \sigma_{\mathrm{k}^{\prime}}(\mathrm{j}, \mathrm{j})}=\frac{\hat{\mathrm{C}}_{\mathrm{k}^{\prime} \mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{j})}{\hat{\sigma}_{\mathrm{k}^{\prime}}(\mathrm{i}, \mathrm{i}) \hat{\sigma}_{\mathrm{k}^{\prime}}(\mathrm{j}, \mathrm{j})}\)</span></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sampler.html" class="btn btn-neutral float-right" title="Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tsurfer.html" class="btn btn-neutral float-left" title="TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

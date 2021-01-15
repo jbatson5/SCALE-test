@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>XSDRNPM Appendices A and B &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NEWT: A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries" href="NEWT.html" />
+    <link rel="prev" title="XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis" href="XSD.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">XSDRNPM Appendices A and B</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#xsdrnpm-appendix-a-special-xsdrnpm-files">XSDRNPM APPENDIX A: Special XSDRNPM Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activity-file">Activity file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#balance-table-file">Balance table file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-and-derived-data-file">Input and derived data file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix-b-xsdrnpm-mixed-cross-sections">APPENDIX B: XSDRNPM Mixed Cross Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>XSDRNPM Appendices A and B</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/XSDAppAB.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xsdrnpm-appendices-a-and-b">
+<span id="ab"></span><h1>XSDRNPM Appendices A and B<a class="headerlink" href="#xsdrnpm-appendices-a-and-b" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="xsdrnpm-appendix-a-special-xsdrnpm-files">
+<span id="a"></span><h2>XSDRNPM APPENDIX A: Special XSDRNPM Files<a class="headerlink" href="#xsdrnpm-appendix-a-special-xsdrnpm-files" title="Permalink to this headline">¶</a></h2>
+<p>Three special files that can be optionally produced by XSDRNPM are
+described in this appendix. (See Sect. 10.1.5 and the discussion of the
+logical units in the 0$ array.) The files will be created with file
+names of the form <strong>ftNNfXXX.EXT</strong> where <strong>NN</strong> is the 2 digit logical
+unit number (from the 0$$ array), <strong>XXX</strong> is a 3 digit number which is
+incremented by one starting with one to make the name unique, and
+<strong>EXT</strong> is an extension identifying which type of file it is (<strong>acf</strong>
+for activity file, <strong>btf</strong> for balance table file, and <strong>idf</strong> for input
+and derived data file).</p>
+<div class="section" id="activity-file">
+<span id="a-1"></span><h3>Activity file<a class="headerlink" href="#activity-file" title="Permalink to this headline">¶</a></h3>
+<p>The data on the activity file depends on what input options are
+specified. The data is in ASCII sets, which consist of a label record
+followed by the record(s) of the activity. There will be at most <strong>IAZ</strong>
+sets ordered as the 49$ and 50$ arrays. The first sets of data will be
+the activities by interval (if the input parameter <strong>IAI</strong> was
+specified). A set will be formatted as below.</p>
+<p><strong>activity by interval for nuclide</strong> <em>nnnnnnnn</em> <strong>reaction type</strong>
+<em>rrrrrrrr</em></p>
+<p><strong>Activity(first interval)</strong></p>
+<blockquote>
+<div><p><strong>.</strong></p>
+<p><strong>.</strong></p>
+<p><strong>.</strong></p>
+<p><strong>.</strong></p>
+</div></blockquote>
+<p><strong>Activity(last interval)</strong></p>
+<p>The preceding set will be repeated <strong>IAZ</strong> times. Then sets giving the
+activities by zone will be given. They will be formatted as below.</p>
+<div class="line-block">
+<div class="line"><strong>activity by zone for nuclide</strong> <em>nnnnnnnn</em> <strong>reaction</strong> <em>rrrrrrrr</em></div>
+<div class="line"><strong>Activity(first zone)</strong></div>
+</div>
+<blockquote>
+<div><p><strong>.</strong></p>
+<p><strong>.</strong></p>
+<p><strong>.</strong></p>
+<p><strong>.</strong></p>
+</div></blockquote>
+<p><strong>Activity(last zone)</strong></p>
+</div>
+<div class="section" id="balance-table-file">
+<span id="a-2"></span><h3>Balance table file<a class="headerlink" href="#balance-table-file" title="Permalink to this headline">¶</a></h3>
+<p>The contents of the balance table are defined in <a class="reference internal" href="#tab9-1a-1"><span class="std std-numref">Table 313</span></a> and
+<a class="reference internal" href="#tab9-1a-2"><span class="std std-numref">Table 314</span></a>. The structure of the “balance table file” written
+to <strong>LBTF</strong> is:</p>
+<p>Record 1 <strong>KEFF, SP</strong></p>
+<blockquote>
+<div><p><strong>KEFF</strong> – k<sub>effective</sub> for problem</p>
+<p><strong>SP</strong> – search parameter for case</p>
+</div></blockquote>
+<p>Record 2 – Sets of ASCII data consisting of a label record followed by
+data records.</p>
+<blockquote>
+<div><p>Record last</p>
+<p>A set of data is as follows (igp is the total number of groups plus
+one):</p>
+</div></blockquote>
+<p><strong>fine(few) group summary for zone</strong> <em>zzzzz</em> <strong>set type</strong></p>
+<p><strong>Set type data(group 1)</strong></p>
+<p><strong>Set type data(group 2)</strong></p>
+<blockquote>
+<div><p><strong>.</strong></p>
+<p><strong>.</strong></p>
+<p><strong>.</strong></p>
+<p><strong>.</strong></p>
+</div></blockquote>
+<p><strong>Set type data(group igp)</strong></p>
+<p>The data for a set type will be written for each zone of the problem,
+plus a system summary if there is more than one zone. After one set type
+is finished, the next set type will be written. The order of the set
+types is as follows:</p>
+<p><strong>fixed source</strong></p>
+<p><strong>fission source</strong></p>
+<p><strong>absorption rate</strong></p>
+<p><strong>total leakage</strong></p>
+<p><strong>fission rate</strong></p>
+<p><strong>flux</strong></p>
+<p><strong>&lt;n,2n&gt; rate</strong></p>
+<p><strong>buckling loss</strong></p>
+<p><strong>right current</strong></p>
+<p><strong>left current</strong></p>
+<p><strong>right leakage</strong></p>
+<p><strong>left leakage</strong></p>
+<p>The fine group summary data will be written if <strong>LBTF</strong> is &gt; 0. After
+the fine group data is finished, the few group summary data will follow
+if a weighting calculation is specified with a broad group collapse.</p>
+</div>
+<div class="section" id="input-and-derived-data-file">
+<span id="a-3"></span><h3>Input and derived data file<a class="headerlink" href="#input-and-derived-data-file" title="Permalink to this headline">¶</a></h3>
+<p>The contents of the input and derived data file (specified by <strong>LIDF</strong>)
+is as follows:</p>
+<p>Record 1 – <strong>title</strong> (80 characters)</p>
+<p>Record 2 – <strong>1$$ array</strong> (label)</p>
+<p>Record 3,4 – <strong>data from 1$ array</strong></p>
+<p>Record 5 – <strong>2$$ array</strong> (label)</p>
+<p>Record 6 – <strong>data from 2$ array</strong></p>
+<p>Record 7 – <strong>3$$ array</strong> (label)</p>
+<p>Record 8,9 – <strong>data from 3$ array</strong></p>
+<p>Record 10 – <strong>4$$ array</strong> (label)</p>
+<p>Record 11 – <strong>data from 4$ array</strong></p>
+<p>Record 12 – <strong>5** array</strong> (label)</p>
+<p>Record 13,14 – <strong>data from the 5* array</strong></p>
+<p>Record 15 – <strong>cross section parameters</strong> (label)</p>
+<p>Record 16 – <strong>total groups, neutron groups, gamma groups, first thermal
+group</strong></p>
+<p>Record 17 – <strong>nuclides on library</strong> (label)</p>
+<p>Records 17a – <strong>list of nuclides on the cross section library</strong></p>
+<p>Record 18 – <strong>mixture numbers</strong> (label)</p>
+<p>Records 18a – <strong>data from the 13$ array</strong></p>
+<p>Record 19 – <strong>component numbers</strong> (label)</p>
+<p>Records 19a – <strong>data from the 14$ array</strong></p>
+<p>Record 20 – <strong>densities</strong> (label)</p>
+<p>Records 20a – <strong>data from the 15* array</strong></p>
+<p>Record 21 – <strong>cccc identifiers</strong> (label)</p>
+<p>Records 21a – <strong>data from the 16$ array</strong></p>
+<p>Record 22 – <strong>neutron energy group boundaries</strong> (label)</p>
+<p>Records 22a –- <strong>list of the energy boundaries for the neutron groups</strong></p>
+<p>Record 23 – <strong>neutron lethargy group boundaries</strong> (label)</p>
+<p>Records 23a – <strong>list of the lethargy boundaries for the neutron groups</strong></p>
+<p>Record 24 – <strong>neutron weighted velocities</strong> (label)</p>
+<p>Record 24a – <strong>list of the neutron average velocities</strong></p>
+<p>Record 25 – <strong>gamma energy group boundaries</strong> (label)</p>
+<p>Record 25a – <strong>list of the energy boundaries for the gamma groups</strong></p>
+<p>Record 26 – <strong>gamma lethargy group boundaries</strong> (label)</p>
+<p>Records 26a – <strong>list of the lethargy boundaries for the gamma groups</strong></p>
+<p>Record 27 – <strong>gamma weighted velocities</strong> (label)</p>
+<p>Records 27a – <strong>list of the gamma velocities</strong></p>
+<p>Record 28 – <strong>broad group numbers</strong> (label)</p>
+<p>Records 28a – <strong>list of the broad group numbers by fine group - 51$
+array</strong></p>
+<p>Record 29 – <strong>group band</strong> (label)</p>
+<p>Records 29a – <strong>group band numbers by fine group</strong></p>
+<p>Record 30 – <strong>calculation type</strong> (label)</p>
+<p>Records 30a – <strong>calculation type by fine group</strong></p>
+<p>Record 31 – <strong>right albedo</strong> (label)</p>
+<p>Records 31a – <strong>list of the right boundary albedos by group - 47*
+array</strong></p>
+<p>Record 32 – <strong>left albedo</strong> (label)</p>
+<p>Records 32a – <strong>list of the left boundary albedos by group - 48*
+array</strong></p>
+<p>Record 34 – <strong>mixture by zone</strong> (label)</p>
+<p>Records 34a – <strong>data from the 39$ array</strong></p>
+<p>Record 35 – <strong>order of scattering by zone</strong> (label)</p>
+<p>Records 35a – <strong>data from the 40$ array</strong></p>
+<p>Record 36 – <strong>activity materials</strong> (label)</p>
+<p>Records 36a – <strong>data from the 49$ array</strong></p>
+<p>Record 37 – <strong>activity reaction types</strong> (label)</p>
+<p>Records 37a – <strong>data from the 50$ array</strong></p>
+<p>Record 38 – <strong>quadrature weights</strong> (label)</p>
+<p>Records 38a – <strong>data from the 43* array</strong></p>
+<p>Record 39 – <strong>quadrature cosines</strong> (label)</p>
+<p>Records 39a – <strong>data from the 42* array</strong></p>
+<p>Record 40 – <strong>weights x cosines</strong> (label)</p>
+<p>Records 40a – <strong>product of quadrature weights times quadrature</strong></p>
+<p>Record 41 – <strong>reflected directions</strong> (label)</p>
+<p>Records 41a – <strong>reflected direction index array</strong></p>
+<p>Record 42 – <strong>pl scattering constants</strong> (label)</p>
+<p>Records 42a – <strong>constants for converting from discrete angles to
+Legendre moments</strong></p>
+<p>Record 43 – <strong>interval boundaries</strong> (label)</p>
+<p>Records 43a – <strong>data from the 35* array</strong></p>
+<p>Record 44 – <strong>interval midpoints</strong> (label)</p>
+<p>Records 44a – <strong>array containing the midpoints of each interval</strong></p>
+<p>Record 45 – <strong>zone by interval</strong> (label)</p>
+<p>Records 45a – <strong>data from the 36$ array</strong></p>
+<p>Record 46 – <strong>interval boundary areas</strong> (label)</p>
+<p>Records 46a – <strong>area of each interval boundary</strong></p>
+<p>Record 47 – <strong>interval volumes</strong> (label)</p>
+<p>Records 47a – <strong>volume of each interval</strong></p>
+<p>Record 48 – <strong>interval density factors</strong> (label)</p>
+<p>Records 48a – <strong>data from the 38* array</strong></p>
+<p>Record 49 – <strong>zone width modifiers</strong> (label)</p>
+<p>Records 49a – <strong>data from the 41* array</strong></p>
+<p>Record 50 – <strong>source spectrum by interval</strong> (label)</p>
+<p>Records 50a – <strong>data from the 30$ array</strong></p>
+<span id="tab9-1a-1"></span><table class="colwidths-given longtable docutils align-center" id="id1">
+<caption><span class="caption-number">Table 313 </span><span class="caption-text">Balance table definitions.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>FS</strong> = Fission Source<sub>grp,zone</sub> =  <span class="math notranslate nohighlight">\(1 / \lambda \Sigma_{\text {i} \subset \text{zone}}\left[X_{i, \operatorname{grp}} \Sigma_{\operatorname{grp}^{\prime}}\left(v \Sigma_{\text {fgrp }^{\prime}, i} \varphi_{\text {grp }^{\prime}, \mathrm{i}}\right) V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>XS</strong> = Fixed Source<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\Sigma_{1 \subset \text{zone} \text{}}\left[Q_{\text {grp }, i} V_{i}+A_{i} \Sigma_{\mu m&gt;0} B S_{i, \text { grp, } m} \mu_{m} w_{m}-A_{i+1} \Sigma_{\mu m&lt;0} B S_{i, \text { grp }, m} \mu_{m} w_{m}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>IS</strong> = Inscatter<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\Sigma_{\text {i} \subset \text{zone}} \sum_{j \neq \operatorname{grp}}\left[\Sigma_{j \rightarrow \operatorname{grp}, i} \varphi_{j, i} V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SS</strong> = Selfscatter<sub>grp,zone</sub> =  <span class="math notranslate nohighlight">\(\Sigma_{\text {i} \subset \text{zone}}\left[\Sigma_{\text {grp } \rightarrow \operatorname{grp}} \varphi_{\text {grp }, \mathrm{i}} \mathrm{V}_{\mathrm{i}}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>OS</strong> = Outscatter<sub>grp,zone</sub> =  <span class="math notranslate nohighlight">\(\Sigma_{\text {i} \subset \text{zone}} \sum_{j \neq \operatorname{grp}}\left[\sum_{\operatorname{grp} \rightarrow j} \varphi_{\text {grp }, i} V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>AB</strong> = Absorption<sub>grp,zone</sub> =  <span class="math notranslate nohighlight">\(\Sigma_{\text {i} \subset \text{zone}}\left[\Sigma_{\text {abs grp }, i} \varphi_{\text {grp }, \mathrm{i}} \mathrm{V}_{\mathrm{i}}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LK</strong> = Leakage<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\left\lbrack A_{\text{zr}}\Sigma_{m}\left( \psi_{m,\mathrm{\mspace{6mu}}\text{zr}}\mu_{m}w_{m} \right)\mathrm{\quad} - \mathrm{\quad}A_{z1}\Sigma_{m}\left( \psi_{m,\mathrm{\mspace{6mu}}z1}\mu_{m}w_{m} \right) \right\rbrack\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>RF</strong> = Right Boundary Flux<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\Sigma_{\mathrm{m}}\left(\psi_{\mathrm{m}, \mathrm{zr}, \mathrm{grp}} \mathrm{W}_{\mathrm{m}}\right)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LF</strong> = Left Boundary Flux<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\Sigma_{\mathrm{m}}\left(\psi_{\mathrm{m}, \mathrm{zr}, \mathrm{grp}} \mathrm{W}_{\mathrm{m}}\right)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>RL</strong> = Right Leakage<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\mathrm{A}_{\mathrm{zr}} \Sigma_{\mathrm{m}}\left(\psi_{\mathrm{m}, \mathrm{zr}, \mathrm{grp}} \mu_{\mathrm{m}} \mathrm{W}_{\mathrm{m}}\right)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LL</strong> = Left Leakage<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(A_{z l} \Sigma_{m}\left(\psi_{m, z l, g r p} \mu_{m} W_{m}\right)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NN</strong> = n,2n Rate<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\Sigma_{i \subset \text { zone }} \Sigma_{p \geq 2}\left[p / 2 \Sigma_{n, p n} \varphi_{g r p, i} V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>FR</strong> = Fission Rate<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\sum_{i \subset \text { zone }}\left[\Sigma_{f g r p, i} \varphi_{g r p, i} V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DB</strong> = DB<sup>2</sup> Flux<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\sum_{i \subset zone}\left[D_{g r p, i} B_{g r p, i}^{2} \varphi_{g r p, i} V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TF</strong> = Total Flux<sub>grp,zone</sub> = <span class="math notranslate nohighlight">\(\sum_{i \subset z o n e}\left[\varphi_{g r p, i} V_{i}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>BAL = {FS+XS+IS+NN+max(LL,0)-min(RL,0)} / {OS+AB+max(RL,0)-min(LL,0)}</strong></p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab9-1a-2"></span><table class="longtable docutils align-center" id="id2" style="width: 30">
+<caption><span class="caption-number">Table 314 </span><span class="caption-text">Balance table definition symbols.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{i} \subset \mathrm{zone}}\)</span> is the sum over all intervals i in the zone</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{grp}}\)</span> is the sum over all groups grp</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sum_{j \neq g r p}\)</span> is the sum over all groups j not equal to group grp</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{m}}\)</span> is the sum over the quadrature</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{p} \geq 2}\)</span> is the sum over all processes <span class="math notranslate nohighlight">\(\sum_{\mathrm{n}, \mathrm{pn}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\lambda \quad=\text { the eigenvalue }\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\chi \quad=\text { the fission spectrum }\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathbf{V}\)</span> = the average number of neutrons produced in a fission</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{f}}\)</span> = the fission cross section</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\varphi\)</span> =  the scalar flux</p></td>
+</tr>
+<tr class="row-odd"><td><p>V = the volume of a mesh interval</p></td>
+</tr>
+<tr class="row-even"><td><p>Q = the volumetric external source in a mesh interval</p></td>
+</tr>
+<tr class="row-odd"><td><p>A = the area of a boundary of a mesh interval</p></td>
+</tr>
+<tr class="row-even"><td><p>BS = the angular flux boundary source on an interval boundary</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mu_{\mathrm{m}}\)</span> = the mth discrete angle of the quadrature</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathrm{W}_{\mathrm{m}}\)</span> =  the mth weight of the quadrature</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sum_{j \rightarrow g r p}\)</span> =  the scattering cross section for scattering from group j to group grp</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{grp} \rightarrow \mathrm{j}}\)</span> =  the scattering cross section for scattering from group grp to group j</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sum_{\operatorname{grp} \rightarrow \operatorname{grp}}\)</span> =  the scattering cross section for within-group scattering (i.e., from group grp to the same group grp)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{abs}}\)</span> =  the absorption cross section</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\psi\)</span> =  the angular flux</p></td>
+</tr>
+<tr class="row-even"><td><p>A<sub>zr</sub> = the area of the right-hand boundary of the zone</p></td>
+</tr>
+<tr class="row-odd"><td><p>A<sub>zl</sub> = the area of the left-hand boundary of the zone</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sum_{\mathrm{n}, \mathrm{pn}}\)</span> =  the cross section for producing p neutrons, p=2,3,…,p an integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>D = the diffusion coefficient (used in providing a buckling correction for 2 and 3 dimensions)</p></td>
+</tr>
+<tr class="row-even"><td><p>B<sup>2</sup> = the buckling for the second and third dimensions (includes an extrapolation distance)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>max(LL,0)</strong> means that a positive Left Leakage is a source into the zone</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>min(RL,0)</strong> means that a negative Right Leakage is a source into the zone. It is included with a minus sign to make it a positive source</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>max(RL,0)</strong> means that a positive Right Leakage is a loss from the zone</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>min(LL,0)</strong> means that a negative Left Leakage is a loss from the zone. It is included with a minus sign to make it a positive loss</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="appendix-b-xsdrnpm-mixed-cross-sections">
+<span id="b"></span><h2>APPENDIX B: XSDRNPM Mixed Cross Sections<a class="headerlink" href="#appendix-b-xsdrnpm-mixed-cross-sections" title="Permalink to this headline">¶</a></h2>
+<p>When <strong>IPRT</strong> (2$$ array) is set &gt; −1, XSDRNPM prints the mixed reaction
+rate cross sections that are used in its calculations. The order of the
+cross sections for each group is given below in <a class="reference internal" href="#tab9-1b-1"><span class="std std-numref">Table 315</span></a>. The
+diffusion coefficient is used in computing buckling corrections, and in
+some of the options for computing the current used in weighting the
+transport cross section. The upscatter cross section is used to checking
+upscatter convergence. The &lt;n,2n&gt; cross section is used in computing the
+balance for the balance tables. It is actually a weighted sum of all the
+multiple neutron exit reactions other than fission. These are all
+treated in XSDRNPM as scattering reactions. Chi is the fission spectrum,
+and is used to distribute the fission source in energy space. The
+fission cross section is used to compute the fission rate reported in
+the balance tables. The absorption cross section is used to compute the
+absorptions in the balance tables, and to compute the absorption term in
+the eigenvalue. Nu*fission cross section is used to generate the source
+term for all except a fixed source calculation. The total cross section
+is used to determine the neutron transport.</p>
+<span id="tab9-1b-1"></span><table class="docutils align-center" id="id3">
+<caption><span class="caption-number">Table 315 </span><span class="caption-text">Order of mixed reaction cross sections</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><ol class="arabic simple">
+<li><p>Diffusion coefficient (for use in buckling corrections)</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="2">
+<li><p>Upscatter cross section</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="3">
+<li><p>&lt;n,2n&gt; cross section</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="4">
+<li><p>Chi (fission spectrun)</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="5">
+<li><p>Fission cross section</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="6">
+<li><p>Absorption cross section</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="7">
+<li><p>Nu*Fission cross section</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="8">
+<li><p>Total cross section</p></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NEWT.html" class="btn btn-neutral float-right" title="NEWT: A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="XSD.html" class="btn btn-neutral float-left" title="XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

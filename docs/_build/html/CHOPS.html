@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries" href="CRAWDAD.html" />
+    <link rel="prev" title="PMC Appendices A and B" href="PMCAppAB.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chops-input-data">CHOPS Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chops-i-o-units">CHOPS I/O units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chops-sample-input">CHOPS Sample Input</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CHOPS.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chops-module-to-compute-pointwise-disadvantage-factors-and-produce-a-cell-homogenized-centrm-library">
+<span id="id1"></span><h1>CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library<a class="headerlink" href="#chops-module-to-compute-pointwise-disadvantage-factors-and-produce-a-cell-homogenized-centrm-library" title="Permalink to this headline">¶</a></h1>
+<p><em>M. L. Williams and L. M. Petrie</em></p>
+<div class="section" id="introduction">
+<span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>CHOPS (<strong>C</strong>ompute <strong>HO</strong>mogenized <strong>P</strong>ointwise <strong>S</strong>tuff)
+computes pointwise (PW) disadvantage factors from the PW zone fluxes on
+a CENTRM output file, and then multiples the disadvantage factors by
+continuous-energy (CE) cross section data in a CENTRM library to
+generate a new cell-homogenized CENTRM CE library. The PW disadvantage
+factor for zone “Z”, as a function of energy E, is calculated from the
+expression,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-6-1">
+<span class="eqno">(374)<a class="headerlink" href="#equation-eq7-6-1" title="Permalink to this equation">¶</a></span>\[D_{Z}(E)=\frac{\Phi_{Z}(E)}{\Phi_{C}(E)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi_{Z}(E)\)</span> is the CENTRM PW flux spectrum averaged over the volume
+of zone Z in the cell, and <span class="math notranslate nohighlight">\(\Phi_{C}(E)\)</span> is the PW flux averaged over the
+entire cell volume. The cell-homogenized CE cross section for a nuclide
+“j” is equal to</p>
+<div class="math notranslate nohighlight" id="equation-eq7-6-2">
+<span class="eqno">(375)<a class="headerlink" href="#equation-eq7-6-2" title="Permalink to this equation">¶</a></span>\[\sigma_{C}^{(j)}(E)=\sum_{Z} F_{Z}^{(j)} D_{Z}(E) \sigma_{Z}^{(j)}(E)\]</div>
+<p>where <span class="math notranslate nohighlight">\(F_{Z}^{(j)}\)</span> is the fraction of all nuclide–j atoms contained in zone
+Z, and <span class="math notranslate nohighlight">\(\sigma_{Z}^{(j)}(E)\)</span> is the CE cross section for nuclide-j at the
+temperature of zone Z. When multiplied by the cell-homogenized number
+density of nuclide-j and by the cell-average flux, the cross section
+expression in <a class="reference internal" href="#equation-eq7-6-1">(374)</a> gives the correct average reaction rate at
+energy E.</p>
+<p>CHOPS is used in the automated double heterogeneity sequence in SCALE,
+in which a low-level heterogeneity, such as microspheres in a granular
+fuel element, are smeared into a homogenized absorber region appearing
+in the second level heterogeneity, such as fuel pellet or pebble
+appearing in a lattice. The disadvantage factors provide for flux
+weighting of the PW XS data so that the spatial self-shielding is
+treated correctly in the homogenized geometry. A second CENTRM PW
+transport calculation is performed with the cell-averaged PW library
+output by CHOPS in order to account for the additional self-shielding of
+the absorber pellets/pebbles in the lattice. CHOPS is called
+automatically by the XSProc module for double-heterogeneous unit cells,
+or it can run as a standalone code.</p>
+</div>
+<div class="section" id="chops-input-data">
+<span id="id3"></span><h2>CHOPS Input Data<a class="headerlink" href="#chops-input-data" title="Permalink to this headline">¶</a></h2>
+<p><strong>DATA BLOCK 1</strong></p>
+<p><strong>0$$ LOGICAL UNIT ASSIGNMENTS</strong> (10 entries. Default values given in
+parentheses)</p>
+<ol class="arabic simple">
+<li><p>lold – logical unit number of input CENTRM XS library (1)</p></li>
+</ol>
+<p>2. lnew – logical unit number of output CENTRM homogenized XS library
+(2)</p>
+<ol class="arabic simple" start="3">
+<li><p>lflx – logical unit number of input CENTRM PW flux library (3)</p></li>
+<li><p>ldis – logical unit number for edit of PW disadvantage factors (0)</p></li>
+<li><p>n15 – logical unit number for scratch (15)</p></li>
+<li><p>n16 – logical unit number for scratch (16)</p></li>
+<li><p>n17 – logical unit number for scratch (17)</p></li>
+<li><p>n18 – logical unit number for scratch (18)</p></li>
+<li><p>n19 – logical unit number for scratch (19)</p></li>
+<li><p>nsq – sequence number used in filename on unit “lnew” (1)</p></li>
+</ol>
+<p>[Example: if <em>lnew=11</em> and <em>nsq=3</em>: output filename of homogenized
+library<em>= ft11f003]</em></p>
+<p><strong>1$$ INTEGER PARAMETERS</strong> (5 entries )</p>
+<ol class="arabic simple">
+<li><p>idtap – identifier for the new library (55555)</p></li>
+</ol>
+<p>[for macro library, the value of <em>idtap</em> is made negative]</p>
+<p>2. nprt – output print option: 0 = &gt; min print; 1 = &gt; normal; 2 = &gt; max
+print (0)</p>
+<p>3. iden – if=0 = &gt; define homogenized XS id = id on CENTRM flux file
+(0)</p>
+<p>if&gt;0 = &gt; define homogenized XS id to be, (<em>iden</em>*10<sup>6</sup> + ZA)</p>
+<ol class="arabic simple" start="4">
+<li><p>macr – type of XS output: 0 = &gt; microscopic ; 1 = &gt; macroscopic (0)</p></li>
+<li><p>icorr – not used (0)</p></li>
+</ol>
+<p><strong>2** REAL PARAMETERS</strong> (3 entries )</p>
+<ol class="arabic simple">
+<li><p>tole – tolerance used to thin pointwise cross-sections (0.0025)</p></li>
+</ol>
+<p>( 0.0 means no thinning is done )</p>
+<ol class="arabic simple" start="2">
+<li><p>cleth – maximum lethargy between thinned pointwise cross-sections</p></li>
+</ol>
+<p>points that allow a point to be discarded (0.25)</p>
+<p>3. vfrac – multiplier applied to all output XS’s [eg, grain fraction]
+(1.0)</p>
+<p>T [ TERMINATE DATA BLOCK 1 ]</p>
+</div>
+<div class="section" id="chops-i-o-units">
+<span id="id4"></span><h2>CHOPS I/O units<a class="headerlink" href="#chops-i-o-units" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#tab7-6-1"><span class="std std-numref">Table 253</span></a> shows default logical unit numbers used by CHOPS. These
+values may be changed in the 0$$ array of input.</p>
+<span id="tab7-6-1"></span><table class="docutils align-center" id="id6">
+<caption><span class="caption-number">Table 253 </span><span class="caption-text">Default I/O unit assignments for CHOPS.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Unit number</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p>
+<p>2</p>
+<p>3</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+</td>
+<td><p>Input CENTRM CE data library</p>
+<p>Output homogenized CENTRM CE data library</p>
+<p>Input pointwise CENTRM flux file</p>
+<p>Scratch file</p>
+<p>Scratch file</p>
+<p>Scratch file</p>
+<p>Scratch file</p>
+<p>Scratch file</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="chops-sample-input">
+<span id="id5"></span><h2>CHOPS Sample Input<a class="headerlink" href="#chops-sample-input" title="Permalink to this headline">¶</a></h2>
+<p>The sample case in <a class="reference internal" href="#list7-6-1"><span class="std std-numref">Listing 133</span></a> first executes a CENTRM unit cell
+geometry calculation using the CSAS-MG sequence, which by default
+generates the PW flux file on unit 15, as well as the CE nuclear data
+library on unit 81 for input to CHOPS. The standalone CHOPS code then
+computes a cell-homogenized CE library for the unit cell. The new
+homogenized CENTRM CE library is output on unit 91with filename:
+<em>ft91f001</em></p>
+<div class="literal-block-wrapper docutils container" id="list7-6-1">
+<div class="code-block-caption"><span class="caption-number">Listing 133 </span><span class="caption-text">CHOPS sample input.</span><a class="headerlink" href="#list7-6-1" title="Permalink to this code">¶</a></div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span>  <span class="err">=CSAS-MG</span>      <span class="err">parm=centrm</span>
+ <span class="err">test</span> <span class="err">case</span> <span class="err">for</span> <span class="err">CHOPS</span>
+<span class="err">v</span><span class="m">7</span><span class="err">-</span><span class="m">252</span><span class="err">n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="c">&#39; Fuel pellet</span>
+<span class="err">o</span>          <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">59675</span><span class="err">e-</span><span class="m">2</span> <span class="m">900</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="err">u-</span><span class="m">235</span>   <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">88385</span><span class="err">e-</span><span class="m">4</span> <span class="m">900</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="err">u-</span><span class="m">238</span>   <span class="m">1</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">24804</span><span class="err">e-</span><span class="m">2</span> <span class="m">900</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="c">&#39; Clad</span>
+<span class="err">zr</span>         <span class="m">2</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">99789</span><span class="err">e-</span><span class="m">2</span> <span class="m">600</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="c">&#39; Coolant</span>
+<span class="err">h</span>          <span class="m">3</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">76619</span><span class="err">e-</span><span class="m">2</span> <span class="m">600</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="err">o</span>          <span class="m">3</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">38310</span><span class="err">e-</span><span class="m">2</span> <span class="m">600</span><span class="err">.</span><span class="m">0</span> <span class="n">end</span>
+<span class="err">END</span> <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+   <span class="err">latticecell</span> <span class="err">squarepitch</span> <span class="err">pitch=</span><span class="m">1</span><span class="err">.</span><span class="m">6</span>  <span class="m">3</span>
+     <span class="err">fueld=</span><span class="m">1</span><span class="err">.</span><span class="m">262</span> <span class="m">1</span> <span class="err">cladd=</span><span class="m">1</span><span class="err">.</span><span class="m">350</span> <span class="m">2</span>   <span class="n">end</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+<span class="err">END</span>
+<span class="nf">=CHOPS</span>
+<span class="m">0</span><span class="err">$$</span>  <span class="m">81</span> <span class="m">91</span> <span class="m">15</span> <span class="m">93</span> <span class="m">92</span>  <span class="err">e</span>
+<span class="m">1</span><span class="err">$$</span>  <span class="err">a</span><span class="m">2</span> <span class="m">1</span> <span class="err">e</span>
+<span class="m">2</span><span class="err">**</span>  <span class="err">a</span><span class="m">3</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="err">e</span>
+ <span class="err">t</span>
+<span class="err">END</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CRAWDAD.html" class="btn btn-neutral float-right" title="CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PMCAppAB.html" class="btn btn-neutral float-left" title="PMC Appendices A and B" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1161 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples of Complete XSProc Input Data &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Standard Composition Library" href="stdcmp.html" />
+    <link rel="prev" title="XSProc Standard Composition Examples" href="XSProcAppB.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples of Complete XSProc Input Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#infinite-homogeneous-medium-input-data">Infinite homogeneous medium input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latticecell-input-data">LATTICECELL input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiregion-input-data">MULTIREGION input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doublehet-input-data">DOUBLEHET input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-methods-of-specifying-a-fissile-solution">Two methods of specifying a fissile solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-unit-cells-in-a-single-problem">Multiple unit cells in a single problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-fissile-mixtures-in-a-single-unit-cell">Multiple fissile mixtures in a single unit cell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cell-weighting-an-infinite-homogeneous-problem">Cell weighting an infinite homogeneous problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cell-weighting-a-latticecell-problem">Cell weighting a LATTICECELL problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cell-weighting-a-multiregion-problem">Cell weighting a MULTIREGION problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Examples of Complete XSProc Input Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/XSProcAppC.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples-of-complete-xsproc-input-data">
+<span id="c"></span><h1>Examples of Complete XSProc Input Data<a class="headerlink" href="#examples-of-complete-xsproc-input-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="infinite-homogeneous-medium-input-data">
+<span id="c-1"></span><h2>Infinite homogeneous medium input data<a class="headerlink" href="#infinite-homogeneous-medium-input-data" title="Permalink to this headline">¶</a></h2>
+<p>Examples of XSProc input data for infinite homogeneous media problems
+are given below. In these cases the cross section library name “fine_n”
+indicates that the latest recommended fine-group SCALE library will used
+in the calculations.</p>
+<p>EXAMPLE 1. Default cell definition.</p>
+<blockquote>
+<div><p>Consider a cylindrical billet of 20 wt % enriched UO<sub>2</sub>,
+having a density of 10.85 g/cm<sup>3</sup> that is 26 cm in diameter
+and 26 cm tall.</p>
+</div></blockquote>
+<p>The average mean-free path in the uranium dioxide is on the order of
+2.5 cm. Because only a small fraction of the billet is within a
+mean-free path of the surface, the material can be treated as an
+infinite homogeneous medium; therefore the CELL DATA block can be
+omitted. The XSProc data follows:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">20</span><span class="err">%</span>  <span class="err">ENRICHED</span>  <span class="err">UO</span><span class="m">2</span>  <span class="err">BILLET</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span>  <span class="m">1</span>  <span class="m">0</span><span class="err">.</span><span class="m">99</span>  <span class="m">293</span>  <span class="m">92235</span>  <span class="m">20</span>  <span class="m">92238</span>  <span class="m">80</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+</pre></div>
+</div>
+<p>The volume fraction used for the UO<sub>2</sub>, 0.99, is calculated by
+dividing the actual density by the theoretical density obtained from the
+<em>Isotopes in standard composition library</em> table in the STDCMP chapter,
+(10.85/10.96). Since the enrichment was specified as 20%, it is assumed
+that the remainder is <sup>238</sup>U.</p>
+<p>An alternative input data description follows:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">20</span><span class="err">%</span> <span class="err">ENRICHED</span> <span class="err">UO</span><span class="m">2</span> <span class="err">BILLET</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span> <span class="m">1</span> <span class="err">DEN=</span><span class="m">10</span><span class="err">.</span><span class="m">85</span>  <span class="m">1</span>  <span class="m">293</span>  <span class="m">92235</span>  <span class="m">20</span>  <span class="m">92238</span>  <span class="m">80</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">COMP</span>
+</pre></div>
+</div>
+<p>EXAMPLE 2. Specify the cell definition.</p>
+<blockquote>
+<div><p>Consider a 5-liter Plexiglas bottle with an inner radius of 9.525 cm
+and inner height of 17.78 cm that is filled with highly enriched
+uranyl nitrate solution at 415 g/L and 0.39 mg of excess nitrate per
+gram of solution. The uranium isotopic content of the nitrate
+solution is 92.6 wt % <sup>235</sup>U, 5.9 wt % <sup>238</sup>U, 1.0 wt %
+<sup>234</sup>U, and 0.5 wt % <sup>236</sup>U. Solution density will be
+calculated from the given data.</p>
+</div></blockquote>
+<p>The size of the nitrate solution is on the order of 16 to 20 cm in
+diameter and height. The average mean-free path in the nitrate solution
+is on the order of 0.5 cm. Therefore, infinite homogeneous medium is an
+appropriate choice for this problem. By default BONAMI is used for
+self-shielding the infinite medium of Plexiglas, while CENTRM is used to
+shield the infinite medium fissile solution.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SET</span> <span class="err">UP</span> <span class="m">5</span> <span class="err">LITER</span> <span class="err">URANYL</span> <span class="err">NITRATE</span> <span class="err">SOLUTION</span> <span class="err">IN</span> <span class="err">A</span> <span class="err">PLEXIGLAS</span> <span class="err">CONTAINER</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">PLEXIGLAS</span>   <span class="m">1</span>  <span class="err">END</span>
+<span class="err">SOLUTION</span>   <span class="err">MIX=</span><span class="m">2</span>   <span class="err">RHO[UO</span><span class="m">2</span><span class="err">(NO</span><span class="m">3</span><span class="err">)</span><span class="m">2</span><span class="err">]=</span><span class="m">415</span>
+           <span class="m">92235</span>   <span class="m">92</span><span class="err">.</span><span class="m">6</span>   <span class="m">92238</span>   <span class="m">5</span><span class="err">.</span><span class="m">9</span>   <span class="m">92236</span>   <span class="m">0</span><span class="err">.</span><span class="m">5</span>
+<span class="err">END</span> <span class="err">SOLUTION</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">INFHOMMEDIUM</span>  <span class="m">2</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="latticecell-input-data">
+<span id="c-2"></span><h2>LATTICECELL input data<a class="headerlink" href="#latticecell-input-data" title="Permalink to this headline">¶</a></h2>
+<p>Examples of XSProc input data for <strong>LATTICECELL</strong> problems are given
+below.</p>
+<p>EXAMPLE 1. SQUAREPITCH ARRAY.</p>
+<blockquote>
+<div><p>Consider an infinite planar array (infinite in X and Y and one layer
+in Z) of 20 wt % enriched U metal rods with a 1-cm pitch. Each fuel
+rod is bare uranium metal, 0.75 cm OD × 30.0 cm long. The rods are
+submerged in water.</p>
+</div></blockquote>
+<p>Because the diameter of the fuel rod, 0.75 cm, is only slightly larger
+than the average mean-free path in the uranium metal, approximately 0.5,
+and because the configuration is a regular array, <strong>LATTICECELL</strong> is the
+appropriate choice for proper cross-section processing. The <em>parm</em> field
+is not provided, so the default CENTRM/PMC self-shielding method is
+used. XSProc data follows:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">INFINITE</span>  <span class="err">PLANAR</span>  <span class="err">ARRAY</span>  <span class="err">OF</span>  <span class="m">20</span><span class="err">%</span>  <span class="err">U</span>  <span class="err">METAL</span>  <span class="err">RODS</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">URANIUM</span>  <span class="m">1</span>  <span class="m">1</span>  <span class="m">293</span>  <span class="m">92235</span>  <span class="m">20</span>  <span class="m">92238</span>  <span class="m">80</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>      <span class="m">2</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">LATTICECELL</span>  <span class="err">SQUAREPITCH</span>   <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">2</span>  <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">75</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+<p>Since the MORE DATA and CENTRM DATA blocks were omitted, default options
+will be used in the self-shielding calculations. The default CENTRM/PMC
+computation options for a square pitch lattice cell are the
+method-of-characteristics (MoC) method with P0 scatter in CENTRM
+calculations.</p>
+<p>EXAMPLE 2. SQUAREPITCH PWR LATTICE.</p>
+<blockquote>
+<div><p>Consider an infinite, uniform planar array (infinite in X and Y and
+one layer in Z) of PWR-like fuel pins of 2.35% enriched UO<sub>2</sub>
+clad with zirconium. The density of the UO<sub>2</sub> is
+9.21 g/cm<sup>3</sup>. The fuel in each pin is 0.823 cm in diameter,
+the clad is 0.9627 cm in diameter, and the length of each pin is
+366 cm. The fuel pins are separated by 0.3124 cm of water in the
+horizontal plane.</p>
+</div></blockquote>
+<p><strong>LATTICECELL</strong> is the appropriate choice for cross-section processing.
+Assume that all defaults are appropriate; thus the CENTRM/PMC
+methodology is used, and the MORE DATA and CELL DATA blocks are not
+entered. The input cross section library named “broad_n” indicates that
+the recommended broad group SCALE library will be used. In this case
+CENTRM uses the 2D MoC transport solver. The XSProc data follows:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">PWR-LIKE</span> <span class="err">FUEL</span> <span class="err">BUNDLE;</span> <span class="err">uniform</span> <span class="err">infinite</span> <span class="err">array</span> <span class="err">model.</span>
+<span class="err">broad_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span>   <span class="m">1</span>  <span class="err">.</span><span class="m">84</span>  <span class="m">293</span><span class="err">.</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">35</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">65</span>  <span class="err">END</span>
+<span class="err">ZR</span>    <span class="m">2</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>   <span class="m">3</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">LATTICECELL</span>  <span class="err">SQUAREPITCH</span>  <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">2751</span>  <span class="m">3</span>  <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">823</span>  <span class="m">1</span>  <span class="err">CLADD=</span><span class="m">0</span><span class="err">.</span><span class="m">9627</span>  <span class="m">2</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+<p>EXAMPLE 3. SQUAREPITCH PWR LATTICE, with non-uniform Dancoff.</p>
+<p>This example is a single PWR assembly of fuel pins of the type described
+above, contained in a water pool. The interior pins in the assembly can
+be self-shielded using the same uniform, infinite lattice model in
+previous example. However self-shielding of the outer boundary-edge pins
+will be modified to account for being adjacent to a water reflector,
+rather than surrounded on all sides by similar pins. This requires that
+the MCDancoff module be executed previously to obtain non-uniform
+Dancoff factors for the edge pins. The average edge-pin value of 0.61 is
+used to represent Dancoff factors of all boundary pins. The default
+CENTRM MoC transport solver is used for both cells, but the original
+pitch of 1.2751 cm for the second cell (i.e., boundary pin) is modified
+to a new pitch corresponding to a Dancoff value of 0.61.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">PWR-LIKE</span> <span class="err">FUEL</span> <span class="err">BUNDLE,</span> <span class="err">with</span> <span class="err">boundary-pin</span> <span class="err">corrections</span>
+<span class="err">broad_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="c">&#39; mixtures for interior pins</span>
+<span class="err">UO</span><span class="m">2</span>   <span class="m">1</span>  <span class="err">.</span><span class="m">84</span>  <span class="m">293</span><span class="err">.</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">35</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">65</span>  <span class="err">END</span>
+<span class="err">ZR</span>    <span class="m">2</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>   <span class="m">3</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="c">&#39; mixtures for boundary pins</span>
+<span class="err">UO</span><span class="m">2</span>   <span class="m">4</span>  <span class="err">.</span><span class="m">84</span>  <span class="m">293</span><span class="err">.</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">35</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">65</span>  <span class="err">END</span>
+<span class="err">ZR</span>    <span class="m">5</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>   <span class="m">6</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">LATTICECELL</span>  <span class="err">SQUAREPITCH</span> <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">2751</span> <span class="m">3</span> <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">823</span> <span class="m">1</span> <span class="err">CLADD=</span><span class="m">0</span><span class="err">.</span><span class="m">9627</span> <span class="m">2</span>  <span class="err">END</span>
+<span class="err">LATTICECELL</span>  <span class="err">SQUAREPITCH</span> <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">2751</span> <span class="m">6</span> <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">823</span> <span class="m">4</span> <span class="err">CLADD=</span><span class="m">0</span><span class="err">.</span><span class="m">9627</span> <span class="m">5</span>  <span class="err">END</span>
+  <span class="err">CENTRM</span> <span class="err">DATA</span>  <span class="err">DAN</span><span class="m">2</span><span class="err">PITCH=</span><span class="m">0</span><span class="err">.</span><span class="m">61</span>    <span class="err">END</span> <span class="err">CENTRM</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+<p>EXAMPLE 6. SPHTRIANGP ARRAY.</p>
+<blockquote>
+<div><p>Consider an infinite array of spherical pellets of 2.67% enriched
+UO<sub>2</sub> with a density of 10.3 g/cm<sup>3</sup> and a diameter of
+1.0724 cm arranged in a “triangular” pitch, flooded with borated
+water at 4350 ppm. The boron is natural boron; the borated water is
+created by adding boric acid, H<sub>3</sub>BO<sub>3</sub>, and has a
+density of 1.0078 g/cm<sup>3</sup>. The temperature is 15ºC and the
+pitch is 1.1440 cm. The standard composition data for the borated
+water are given in Example 2 of <a class="reference internal" href="XSProcAppA.html#a-9"><span class="std std-ref">Combinations of basic and user-defined standard compositions to define a mixture</span></a>.</p>
+</div></blockquote>
+<p>Because the diameter of the fuel pellet, 1.0724 cm, is smaller than the
+average mean-free path in the UO<sub>2</sub>, approximately 1.5 cm, and
+because the configuration is a regular array, <strong>LATTICECELL</strong> is the
+appropriate choice for proper cross-section processing.</p>
+<p>The density fraction for the UO<sub>2</sub> is the ratio of actual to
+theoretical density (10.3/10.96 = 0.9398). Assume that the U is all
+<sup>235</sup>U and <sup>238</sup>U. See <a class="reference internal" href="XSProcAppA.html#a-9"><span class="std std-ref">Combinations of basic and user-defined standard compositions to define a mixture</span></a> for how to define
+borated water.</p>
+<p>The XSProc data follows:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SPHERICAL</span>  <span class="err">PELLETS</span>  <span class="err">IN</span>  <span class="err">BORATED</span>  <span class="err">WATER</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span>   <span class="m">1</span>  <span class="err">.</span><span class="m">9398</span>  <span class="m">288</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">67</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">33</span>  <span class="err">END</span>
+<span class="err">ATOMH</span><span class="m">3</span><span class="err">BO</span><span class="m">3</span>  <span class="m">2</span>  <span class="m">0</span><span class="err">.</span><span class="m">025066</span>  <span class="m">3</span>  <span class="m">5000</span>  <span class="m">1</span>  <span class="m">1001</span>  <span class="m">3</span>  <span class="m">8016</span>  <span class="m">3</span>
+       <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">288</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>   <span class="m">2</span>  <span class="m">0</span><span class="err">.</span><span class="m">984507</span>  <span class="m">288</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">LATTICECELL</span>  <span class="err">SPHTRIANGP</span>  <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">1440</span>  <span class="m">2</span>  <span class="err">FUELD=</span><span class="m">1</span><span class="err">.</span><span class="m">0724</span>  <span class="m">1</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiregion-input-data">
+<span id="c-3"></span><h2>MULTIREGION input data<a class="headerlink" href="#multiregion-input-data" title="Permalink to this headline">¶</a></h2>
+<p>Examples of XSProc input data for <strong>MULTIREGION</strong> problems are given
+below.</p>
+<p>EXAMPLE 1. SPHERICAL.</p>
+<blockquote>
+<div><p>Consider a small highly enriched uranium sphere supported by a
+Plexiglas collar in a tank of water. The uranium metal sphere has a
+diameter of 13.1075 cm, is 97.67% enriched, and has a density of
+18.794 g/cm<sup>3</sup>. The cylindrical Plexiglas collar has a
+4.1275-cm-radius central hole, extends to a radius of 12.7 cm and is
+2.54 cm thick. The water filled tank is 60 cm in diameter.</p>
+</div></blockquote>
+<p>The density fraction of the uranium metal is the ratio of actual to
+theoretical density, where the theoretical density is obtained from the
+<em>Isotopes in standard composition library</em> table in section 7.2.1. Thus,
+the density multiplier is 18.794/19.05 = 0.9866. The abundance of
+uranium is not stated beyond 97.67% enriched, so it is reasonable to
+assume the remainder is <sup>238</sup>U. The Plexiglas collar is not
+significantly different from water and does not surround the fuel, so it
+can be ignored. If it is ignored, the problem becomes a 1-D geometry
+that can be defined using the <strong>MULTIREGION</strong> type of calculation, and
+the eigenvalue of the system can be obtained without additional data by
+executing CSAS1. However, the Plexiglas has been included in this data
+so it can be passed to a code such as KENO V.a which can describe the
+geometry rigorously. The XSProc data follow:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SMALL</span>  <span class="err">WATER</span>  <span class="err">REFLECTED</span>  <span class="err">SPHERE</span>  <span class="err">ON</span>  <span class="err">PLEXIGLAS</span>  <span class="err">COLLAR</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">URANIUM</span>    <span class="m">1</span>  <span class="err">.</span><span class="m">9866</span>  <span class="m">293</span><span class="err">.</span>  <span class="m">92235</span>  <span class="m">97</span><span class="err">.</span><span class="m">67</span>  <span class="m">92238</span>  <span class="m">2</span><span class="err">.</span><span class="m">33</span>  <span class="err">END</span>
+<span class="err">PLEXIGLAS</span>  <span class="m">2</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">3</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">MULTIREGION</span> <span class="err">SPHERICAL</span> <span class="err">RIGHT_BDY=VACUUM</span> <span class="err">END</span> <span class="m">1</span> <span class="m">6</span><span class="err">.</span><span class="m">55375</span> <span class="m">3</span> <span class="m">30</span><span class="err">.</span><span class="m">0</span> <span class="err">END</span> <span class="err">ZONE</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+<p>EXAMPLE 2. BUCKLEDSLAB.</p>
+<blockquote>
+<div><p>This example features a 93.2% enriched uranyl-fluoride solution
+inside a rectangular Plexiglas container immersed in water. The
+fissile solution contains 578.7 g of UO<sub>2</sub>F<sub>2</sub> per
+liter and has no excess acid. The critical thickness of the fuel is
+5.384 cm. The finite height of the fuel slab is 147.32 cm, and the
+depth is 71.58 cm. The Plexiglas container is 1.905 cm thick and is
+reflected by 20.32 cm of water.</p>
+</div></blockquote>
+<p>The half thickness of the fuel (2.692) will be used with a reflected
+left boundary and a vacuum right boundary (default). The XSProc data
+follow:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">CRITICAL</span> <span class="err">SLAB</span> <span class="err">EXPERIMENT</span> <span class="err">USING</span> <span class="err">URANYL-FLUORIDE</span> <span class="err">SOLUTION</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">SOLUTION</span>  <span class="err">MIX=</span><span class="m">1</span>  <span class="err">RHO[UO</span><span class="m">2</span><span class="err">F</span><span class="m">2</span><span class="err">]=</span><span class="m">578</span><span class="err">.</span><span class="m">7</span>
+          <span class="m">92235</span>  <span class="m">93</span><span class="err">.</span><span class="m">2</span>  <span class="m">92238</span>  <span class="m">6</span><span class="err">.</span><span class="m">8</span>  <span class="err">TEMP=</span><span class="m">300</span>
+<span class="err">END</span> <span class="err">SOLUTION</span>
+<span class="err">PLEXIGLAS</span>  <span class="m">2</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">3</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">MULTIREGION</span>  <span class="err">BUCKLEDSLAB</span>  <span class="err">LEFT_BDY=REFLECTED</span>
+<span class="err">DY=</span><span class="m">71</span><span class="err">.</span><span class="m">58</span> <span class="err">DZ=</span><span class="m">147</span><span class="err">.</span><span class="m">32</span>  <span class="err">END</span>  <span class="m">1</span>  <span class="m">2</span><span class="err">.</span><span class="m">692</span>  <span class="m">2</span>  <span class="m">4</span><span class="err">.</span><span class="m">597</span>  <span class="m">3</span>  <span class="m">24</span><span class="err">.</span><span class="m">917</span>  <span class="err">END</span> <span class="err">ZONE</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="doublehet-input-data">
+<span id="c-4"></span><h2>DOUBLEHET input data<a class="headerlink" href="#doublehet-input-data" title="Permalink to this headline">¶</a></h2>
+<p>EXAMPLE 1: A doubly-heterogeneous spherical fuel element with 15,000 UO<sub>2</sub> particles in a graphite matrix.</p>
+<blockquote>
+<div><p>Grain fuel radius is 0.025 cm. Grain contains one coating layer that
+is 0.009-cm-thick. Pebbles are in a triangular pitch on a
+6.4-cm-pitch. Fuel pebble fuel zone is 2.5‑cm in radius and contains
+a 0.5-cm-thick graphite clad that contains small amounts of
+<sup>10</sup>B. Pebbles are surrounded by <sup>4</sup>He. In this case we
+designated the homogenized mixture as mixture 10. If we have a
+KENO V.a or KENO-VI input section, we would use mixture 10 in that
+section. Note that the keyword “FUELR=” is followed by the fuel
+dimension only, i.e., no mixture number. That is because the fuel
+mixture number is specified with “FUELMIX=” and therefore need not be
+repeated.</p>
+</div></blockquote>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">INFINITE</span> <span class="err">ARRAY</span> <span class="err">OF</span> <span class="err">UO</span><span class="m">2</span><span class="err">-FUELLED</span> <span class="err">PEBBLES</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="c">&#39; UO2 FUEL KERNEL</span>
+<span class="err">U-</span><span class="m">235</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">92585</span><span class="err">E-</span><span class="m">3</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">O</span>      <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">64272</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; FIRST COATING</span>
+<span class="err">C</span>      <span class="m">2</span> <span class="m">0</span> <span class="m">5</span><span class="err">.</span><span class="m">26449</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; GRAPHITE MATRIX</span>
+<span class="err">C</span>      <span class="m">6</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; CARBON PEBBLE OUTER COATING</span>
+<span class="err">C</span>      <span class="m">7</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">B-</span><span class="m">10</span>   <span class="m">7</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">64977</span><span class="err">E-</span><span class="m">9</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">HE-</span><span class="m">4</span>   <span class="m">8</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">65156</span><span class="err">E-</span><span class="m">5</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">END</span> <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">DOUBLEHET</span>  <span class="err">RIGHT_BDY=WHITE</span> <span class="err">FUELMIX=</span><span class="m">10</span> <span class="err">END</span>
+ <span class="err">GFR=</span><span class="m">0</span><span class="err">.</span><span class="m">025</span>  <span class="m">1</span> <span class="err">COATT=</span><span class="m">0</span><span class="err">.</span><span class="m">009</span> <span class="m">2</span> <span class="err">MATRIX=</span><span class="m">6</span> <span class="err">NUMPAR=</span><span class="m">15000</span> <span class="err">END</span> <span class="err">GRAIN</span>
+<span class="err">PEBBLE</span> <span class="err">SPHTRIANGP</span> <span class="err">RIGHT_BDY=WHITE</span> <span class="err">HPITCH=</span><span class="m">3</span><span class="err">.</span><span class="m">2</span> <span class="m">8</span> <span class="err">FUELR=</span><span class="m">2</span><span class="err">.</span><span class="m">5</span> <span class="err">CLADR=</span><span class="m">3</span><span class="err">.</span><span class="m">0</span> <span class="m">7</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+<p>EXAMPLE 2: A doubly-heterogeneous spherical fuel element with 10,000 UO<sub>2</sub> particles and 5,000 PuO<sub>2</sub> particles in a graphite matrix.</p>
+<blockquote>
+<div><p>Grain fuel radii for UO<sub>2</sub> and PuO<sub>2</sub> particles are
+0.025 cm and 0.012 cm, respectively. UO<sub>2</sub> grains contain one
+coating layer that is 0.009‑cm-thick. PuO<sub>2</sub> grains contain
+one coating layer that is 0.0095-cm-thick. Pebbles are in a
+triangular pitch on a 6.4-cm-pitch. Fuel pebble fuel zone is 2.5-cm
+in radius and contains a 0.5-cm-thick graphite clad that contains
+small amounts of <sup>10</sup>B. Pebbles are surrounded by
+<sup>4</sup>He. Since number of particles is entered, the total volume
+fraction and the pitch can be calculated by the code.</p>
+</div></blockquote>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">INFINITE</span> <span class="err">ARRAY</span> <span class="err">OF</span> <span class="err">UO</span><span class="m">2</span><span class="err">-</span> <span class="err">AND</span> <span class="err">PUO</span><span class="m">2</span><span class="err">-FUELLED</span> <span class="err">PEBBLES</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="c">&#39; UO2 FUEL KERNEL</span>
+<span class="err">U-</span><span class="m">235</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">92585</span><span class="err">E-</span><span class="m">3</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">O</span>      <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">64272</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; FIRST COATING</span>
+<span class="err">C</span>      <span class="m">2</span> <span class="m">0</span> <span class="m">5</span><span class="err">.</span><span class="m">26449</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; GRAPHITE MATRIX</span>
+<span class="err">C</span>      <span class="m">6</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; CARBON PEBBLE OUTER COATING</span>
+<span class="err">C</span>      <span class="m">7</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">B-</span><span class="m">10</span>   <span class="m">7</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">64977</span><span class="err">E-</span><span class="m">9</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">HE-</span><span class="m">4</span>   <span class="m">8</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">65156</span><span class="err">E-</span><span class="m">5</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; PUO2 FUEL KERNEL</span>
+<span class="err">PU-</span><span class="m">239</span>  <span class="m">11</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">24470</span><span class="err">E-</span><span class="m">02</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">O</span>       <span class="m">11</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">60983</span><span class="err">E-</span><span class="m">02</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; FIRST COATING</span>
+<span class="err">C</span>      <span class="m">12</span> <span class="m">0</span> <span class="m">5</span><span class="err">.</span><span class="m">26449</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="c">&#39; GRAPHITE MATRIX</span>
+<span class="err">C</span>      <span class="m">16</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">E-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="err">END</span>
+<span class="err">END</span> <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">DOUBLEHET</span>  <span class="err">RIGHT_BDY=WHITE</span> <span class="err">FUELMIX=</span><span class="m">10</span> <span class="err">END</span>
+ <span class="err">GFR=</span><span class="m">0</span><span class="err">.</span><span class="m">025</span>  <span class="m">1</span> <span class="err">COATT=</span><span class="m">0</span><span class="err">.</span><span class="m">009</span> <span class="m">2</span> <span class="err">MATRIX=</span><span class="m">6</span> <span class="err">NUMPAR=</span><span class="m">10000</span> <span class="err">END</span> <span class="err">GRAIN</span>
+ <span class="err">GFR=</span><span class="m">0</span><span class="err">.</span><span class="m">012</span> <span class="m">11</span> <span class="err">COATT=</span><span class="m">0</span><span class="err">.</span><span class="m">0095</span> <span class="m">12</span> <span class="err">MATRIX=</span><span class="m">16</span> <span class="err">NUMPAR=</span><span class="m">5000</span> <span class="err">END</span> <span class="err">GRAIN</span>
+<span class="err">PEBBLE</span> <span class="err">SPHTRIANGP</span> <span class="err">RIGHT_BDY=WHITE</span> <span class="err">HPITCH=</span><span class="m">3</span><span class="err">.</span><span class="m">2</span> <span class="m">8</span> <span class="err">FUELR=</span><span class="m">2</span><span class="err">.</span><span class="m">5</span> <span class="err">CLADR=</span><span class="m">3</span><span class="err">.</span><span class="m">0</span> <span class="m">7</span> <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+<p>EXAMPLE 3: A doubly-heterogeneous slab fuel element with flibe salt coolant</p>
+<blockquote>
+<div><p>Grain fuel radii for UO<sub>2</sub> particles are 0.025 cm. The
+UO<sub>2</sub> grains contain four coating layers with thicknesses of
+0.01, 0.0035, 0.003, and 0.004 cm, respectively. The fuel grains are
+embedded in a carbon matrix material to form the fuel compact. The
+x-dimension of fuel plate consists of a 0.5 cm (half-thickness) fuel
+compact region, a carbon clad with outer dimension of 1.27, followed
+by the flibe coolant with an outer reflected dimension of 1.62 cm.
+The width (y-dimension) of the slab plate is 22.5 cm and the height
+(z-dimension) is 500 cm. The y and z dimensions are only used to
+define volumes for the fuel plate.</p>
+</div></blockquote>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">slab</span> <span class="err">doublehet</span> <span class="err">sample</span> <span class="err">problem:</span> <span class="err">double-het</span> <span class="err">for</span> <span class="err">slab</span>
+<span class="err">v</span><span class="m">7</span><span class="err">.</span><span class="m">1</span><span class="err">-</span><span class="m">252</span><span class="err">n</span>
+<span class="n">read</span><span class="err"> </span><span class="n">comp</span>
+<span class="c">&#39; fuel kernel</span>
+<span class="err">u-</span><span class="m">238</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">12877</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">u-</span><span class="m">235</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">92585</span><span class="err">e-</span><span class="m">3</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">o</span>      <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">64272</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">b-</span><span class="m">10</span>   <span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">14694</span><span class="err">e-</span><span class="m">7</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">b-</span><span class="m">11</span>   <span class="m">1</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">64570</span><span class="err">e-</span><span class="m">7</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; first coating</span>
+<span class="err">c</span>      <span class="m">2</span> <span class="m">0</span> <span class="m">5</span><span class="err">.</span><span class="m">26449</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; inner pyro carbon</span>
+<span class="err">c</span>      <span class="m">3</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">52621</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; silicon carbide</span>
+<span class="err">c</span>      <span class="m">4</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">77240</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">si</span>     <span class="m">4</span> <span class="m">0</span> <span class="m">4</span><span class="err">.</span><span class="m">77240</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; outer pyro carbon</span>
+<span class="err">c</span>      <span class="m">5</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">52621</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; graphite matrix</span>
+<span class="err">c</span>      <span class="m">6</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">b-</span><span class="m">10</span>   <span class="m">6</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">64977</span><span class="err">e-</span><span class="m">9</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">b-</span><span class="m">11</span>   <span class="m">6</span> <span class="m">0</span> <span class="m">3</span><span class="err">.</span><span class="m">90864</span><span class="err">e-</span><span class="m">8</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="c">&#39; carbon slab outer coating</span>
+<span class="err">c</span>      <span class="m">7</span> <span class="m">0</span> <span class="m">8</span><span class="err">.</span><span class="m">77414</span><span class="err">e-</span><span class="m">2</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">b-</span><span class="m">10</span>   <span class="m">7</span> <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">64977</span><span class="err">e-</span><span class="m">9</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">b-</span><span class="m">11</span>   <span class="m">7</span> <span class="m">0</span> <span class="m">3</span><span class="err">.</span><span class="m">90864</span><span class="err">e-</span><span class="m">8</span> <span class="m">293</span><span class="err">.</span><span class="m">6</span> <span class="n">end</span>
+<span class="err">Li-</span><span class="m">6</span>         <span class="m">8</span>    <span class="m">0</span>   <span class="m">1</span><span class="err">.</span><span class="m">38344</span><span class="err">E-</span><span class="m">06</span>   <span class="m">948</span><span class="err">.</span><span class="m">15</span>  <span class="n">end</span>
+<span class="err">Li-</span><span class="m">7</span>         <span class="m">8</span>    <span class="m">0</span>   <span class="m">2</span><span class="err">.</span><span class="m">37205</span><span class="err">E-</span><span class="m">02</span>   <span class="m">948</span><span class="err">.</span><span class="m">15</span>  <span class="n">end</span>
+<span class="err">Be</span>           <span class="m">8</span>    <span class="m">0</span>   <span class="m">1</span><span class="err">.</span><span class="m">18609</span><span class="err">E-</span><span class="m">02</span>   <span class="m">948</span><span class="err">.</span><span class="m">15</span>  <span class="n">end</span>
+<span class="err">F</span>            <span class="m">8</span>    <span class="m">0</span>   <span class="m">4</span><span class="err">.</span><span class="m">74437</span><span class="err">E-</span><span class="m">02</span>   <span class="m">948</span><span class="err">.</span><span class="m">15</span>  <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">comp</span>
+<span class="n">read</span><span class="err"> </span><span class="n">celldata</span>
+  <span class="err">doublehet</span>  <span class="err">fuelmix=</span><span class="m">10</span> <span class="n">end</span>
+    <span class="err">gfr=</span><span class="m">0</span><span class="err">.</span><span class="m">02135</span>   <span class="m">1</span>
+    <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">01</span>    <span class="m">2</span>
+    <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">0035</span>  <span class="m">3</span>
+    <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">003</span>   <span class="m">4</span>
+    <span class="err">coatt=</span><span class="m">0</span><span class="err">.</span><span class="m">004</span>   <span class="m">5</span>
+    <span class="err">vf=</span><span class="m">0</span><span class="err">.</span><span class="m">4</span>
+    <span class="err">matrix=</span><span class="m">6</span>
+    <span class="n">end</span><span class="err"> </span><span class="n">grain</span>
+  <span class="err">slab</span> <span class="err">symmslabcell</span>
+    <span class="err">hpitch=</span><span class="m">1</span><span class="err">.</span><span class="m">62</span>   <span class="m">8</span>
+    <span class="err">cladr=</span><span class="m">1</span><span class="err">.</span><span class="m">27</span>    <span class="m">7</span>
+    <span class="err">fuelr=</span><span class="m">0</span><span class="err">.</span><span class="m">5</span>
+    <span class="err">fuelh=</span><span class="m">500</span>
+    <span class="err">fuelw=</span><span class="m">22</span><span class="err">.</span><span class="m">500</span>
+  <span class="n">end</span>
+  <span class="err">centrm</span> <span class="err">data</span> <span class="err">ixprt=</span><span class="m">1</span> <span class="err">isn=</span><span class="m">8</span> <span class="n">end</span><span class="err"> </span><span class="n">centrm</span>
+<span class="n">end</span><span class="err"> </span><span class="n">celldata</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="two-methods-of-specifying-a-fissile-solution">
+<span id="c-5"></span><h2>Two methods of specifying a fissile solution<a class="headerlink" href="#two-methods-of-specifying-a-fissile-solution" title="Permalink to this headline">¶</a></h2>
+<p>The standard composition specification data offer flexibility in the
+choice of input data. This section illustrates two methods of specifying
+the same fissile solution.</p>
+<p>Create a mixture 3 that is aqueous uranyl nitrate solution:</p>
+<blockquote>
+<div><p>UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>, solution density = 1.555 g
+cm<sup>3</sup>/</p>
+<p>0.2669 g U/g-soln., 0.415 g U/ cm<sup>3</sup>; excess nitrate =
+0.39 mg/g-soln</p>
+<p>Uranium isotopic content: 92.6 wt % U-235 5.9 wt % U-238</p>
+<p>1.0 wt % U-234 and 0.5 wt % U-236</p>
+</div></blockquote>
+<p>The SCALE atomic weights used in this problem are listed as follows:</p>
+<blockquote>
+<div><p>H 1.0078</p>
+<p>O 15.999</p>
+<p>N 14.0067</p>
+<p>U-234 234.041</p>
+<p>U-235 235.0439</p>
+<p>U-236 236.0456</p>
+<p>U-238 238.0508</p>
+</div></blockquote>
+<p>Two methods of describing the uranyl nitrate solution will be demonstrated.
+Method 1 is more rigorous, and method 2 is easier and as accurate.</p>
+<p class="centered">
+<strong>METHOD 1:</strong></p><p>This method involves breaking the solution into its component parts
+[(HNO<sub>3</sub>, UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>, and
+H<sub>2</sub>O)] and entering the basic standard composition
+specifications for each.</p>
+<ol class="arabic simple">
+<li><p>Calculate the density of the HNO<sub>3</sub> 0.39 × 10<sup>−3</sup> g
+NO<sub>3</sub>/g soln × [(62.997 g HNO<sub>3</sub>/mole
+HNO<sub>3</sub>)/(61.990 g NO<sub>3</sub>/mole NO<sub>3</sub>)] × 1.555 g
+soln/ cm<sup>3</sup>soln = 6.16 × 10<sup>−4</sup> g HNO<sub>3</sub>/cc
+soln.</p></li>
+<li><p>Calculate the density fraction of HNO<sub>3</sub> (actual
+density/theoretical density). In the Standard Composition Library the
+theoretical density of HNO<sub>3</sub> is 1.0. 6.16 × 10<sup>−4</sup>/1.0
+= 6.16 × 10<sup>−4</sup>.</p></li>
+<li><p>Calculate the molecular weight of the uranium</p></li>
+</ol>
+<blockquote>
+<div><p>The number of atoms in a mole of uranium is the sum of the number of
+atoms of each isotope in the mole of uranium.</p>
+<p>Let AU = the average molecular weight of uranium, g U/mole U</p>
+<p>GU = the density of uranium in g/cm<sup>3</sup>.</p>
+<p>Then the number of atoms in a mol of uranium =</p>
+<p>(6.023 × 10<sup>+23</sup> * 10<sup>−24</sup> * GU)/AU</p>
+<p>or 0.6023 * GU/AU.</p>
+<p>The weight fraction of each isotope is the weight % * 100.</p>
+<p>Therefore, F235 = 0.926, the weight fraction of U-235 in the U</p>
+<p>F238 = 0.059, the weight fraction of U-238 in the U</p>
+<p>F236 = 0.005, the weight fraction of U-236 in the U</p>
+<p>F234 = 0.010, the weight fraction of U-234 in the U</p>
+<p>A235 = 235.0442, the molecular weight of U-235</p>
+<p>A238 = 238.0510, the molecular weight of U-238</p>
+<p>A236 = 236.0458, the molecular weight of U-236</p>
+<p>A234 = 234.0406, the molecular weight of U-234.</p>
+<p>Then the number of atoms of isotopes in a mol of uranium =</p>
+<p>6.023 × 10<sup>+23</sup> * 10<sup>−24</sup> * ( (GU*F235/A235) +
+(GU*F238/A238) +</p>
+<p>GU*F236/A236) + (GU*F234/A234) )</p>
+<p>or</p>
+<p>0.6023*GU * ( 0.926/235.0442 + 0.059/238.0510 +</p>
+<p>0.005/236.0458 + 0.010/234.0406 ).</p>
+<p>Because the number of atoms of uranium equals the sum of the atoms of
+isotopes,</p>
+<p>0.6023 * GU/AU = 0.6023 * GU *( 0.926/235.0442 + 0.059/238.0510 +</p>
+<p>0.005/236.0458 + 0.010/234.0406 )</p>
+<p>1/AU = 0.926/235.0442 + 0.059/238.0510 + 0.005/236.0458 +
+0.010/234.0406</p>
+<p>AU = 235.2144.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Calculate the molecular weight of the
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>.</p></li>
+</ol>
+<blockquote>
+<div><p>235.2144 + (8 × 15.9954) + (2 × 14.0033) = 391.184 g
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>/mole</p>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Calculate the density of UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub></p></li>
+</ol>
+<blockquote>
+<div><p>0.415 g U/cc × [(391.184 g
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>/mol)/(235.2144 g U/mole)] =</p>
+<p>0.69018 g UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>/ cm<sup>3</sup>.soln.</p>
+</div></blockquote>
+<p>Calculate the density fraction (actual density/theoretical density) of
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>.</p>
+<blockquote>
+<div><p>[In the Standard Composition Library the theoretical density of
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub> is given as
+2.2030 g/cm<sup>3</sup>.]</p>
+<p>The density fraction is 0.69018/2.2030 = 0.31329.</p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>Calculate the amount of water in the solution</p></li>
+</ol>
+<blockquote>
+<div><p>1.555 g soln/ cm<sup>3</sup>. soln − 6.16 × 10<sup>−4</sup> g
+HNO<sub>3</sub>/cm<sup>3</sup> soln − 0.69018 g
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub>LL/ cm<sup>3</sup>. soln =
+0.8642 g H<sub>2</sub>O/cc soln.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>Calculate the density fraction (actual density/theoretical density)
+of water.</p></li>
+</ol>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">HNO</span><span class="m">3</span>       <span class="m">3</span>   <span class="m">6</span><span class="err">.</span><span class="m">16</span><span class="err">-</span><span class="m">4</span>   <span class="m">293</span>  <span class="err">END</span>
+<span class="err">UO</span><span class="m">2</span><span class="err">(NO</span><span class="m">3</span><span class="err">)</span><span class="m">2</span>  <span class="m">3</span>  <span class="err">.</span><span class="m">31329</span>  <span class="m">293</span>  <span class="m">92235</span>  <span class="m">92</span><span class="err">.</span><span class="m">6</span>  <span class="m">92238</span>  <span class="m">5</span><span class="err">.</span><span class="m">9</span>  <span class="m">92234</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>
+                   <span class="m">92236</span>   <span class="m">0</span><span class="err">.</span><span class="m">5</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">3</span>    <span class="err">.</span><span class="m">86575</span>  <span class="m">293</span>  <span class="err">END</span>
+</pre></div>
+</div>
+<p class="centered">
+<strong>METHOD 2:</strong></p><p>This method utilizes the solution option available in the standard
+composition specification data. Because the density is specified in the
+input data, this method should yield correct number densities that
+should agree with method 1 except for calculational round-off.</p>
+<ol class="arabic simple">
+<li><p>Calculate the fuel density</p></li>
+</ol>
+<blockquote>
+<div><p>0.415 g U/cc is 415 g U/L.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>The molecular weight of nitrate NO<sub>3</sub> is 61.9895.</p></li>
+<li><p>Calculate the molarity of the solution.</p></li>
+</ol>
+<blockquote>
+<div><p>0.39 mg nitrate/g soln × 1000 cm<sup>3</sup>soln/L soln × 1 g/1000 mg
+× 1.555 g soln/ cm<sup>3</sup>soln = 0.60645 g excess nitrate/L soln.</p>
+<p>A 1-molar solution is 1 mole of acid/L of solution:</p>
+<p>(For nitric acid 1 molar is 1 normal because there is only one atom
+of hydrogen per molecule of acid in HNO<sub>3</sub>.)</p>
+<p>(0.60645 g nitrate/L soln)/(61.9895 g NO<sub>3</sub>/mole NO<sub>3</sub>)
+= 9.783 × 10<sup>−3</sup> mole nitrate/L is identical to mole of
+acid/L, which is identical to molarity.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>The density fraction of the solution is 1.0. Do not try to use the
+density of the solution divided by the theoretical density of
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub> from the Standard Composition
+Library for your density multiplier. The
+UO<sub>2</sub>(NO<sub>3</sub>)<sub>2</sub> listed there is the solid, not
+the solution.</p></li>
+</ol>
+<blockquote>
+<div><p>The solution specification data follow:</p>
+</div></blockquote>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SOLUTION</span>      <span class="err">MIX=</span><span class="m">1</span>   <span class="err">RHO[UO</span><span class="m">2</span><span class="err">(NO</span><span class="m">3</span><span class="err">)</span><span class="m">2</span><span class="err">]</span> <span class="err">=</span> <span class="m">415</span>    <span class="m">92235</span>   <span class="m">92</span><span class="err">.</span><span class="m">6</span>    <span class="m">92238</span>   <span class="m">5</span><span class="err">.</span><span class="m">9</span>
+                      <span class="m">92234</span>    <span class="m">1</span><span class="err">.</span><span class="m">0</span>    <span class="m">92236</span>   <span class="m">0</span><span class="err">.</span><span class="m">5</span>
+              <span class="err">MOLAR</span> <span class="err">[HNO</span><span class="m">3</span><span class="err">]</span> <span class="err">=</span> <span class="m">9</span><span class="err">.</span><span class="m">783</span><span class="err">-</span><span class="m">3</span>
+              <span class="err">TEMP</span> <span class="err">=</span> <span class="m">293</span>      <span class="err">DENSITY</span> <span class="err">=</span> <span class="m">1</span><span class="err">.</span><span class="m">555</span> <span class="err">END</span> <span class="err">SOLUTION</span>
+</pre></div>
+</div>
+<p class="centered">
+<strong>Comparison of number densities from the two methods</strong></p><p>The number densities of methods 1 and 2 should agree within the limits
+of the input data. The density multipliers in method 1 are 5 digits and
+the density multipliers in method 2 are 4 digits. Therefore, the number
+densities calculated by the two methods should agree to 4 or 5 digits.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 32%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Method 1</p></td>
+<td><p>Method 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Nuclide number</p></td>
+<td><p>Atom density</p></td>
+<td><p>Atom density</p></td>
+</tr>
+<tr class="row-odd"><td><p>92235</p></td>
+<td><p>9.84603E−04</p></td>
+<td><p>9.84603E−04</p></td>
+</tr>
+<tr class="row-even"><td><p>92238</p></td>
+<td><p>6.19415E−05</p></td>
+<td><p>6.19415E−05</p></td>
+</tr>
+<tr class="row-odd"><td><p>92234</p></td>
+<td><p>1.06784E−05</p></td>
+<td><p>1.06784E−05</p></td>
+</tr>
+<tr class="row-even"><td><p>92236</p></td>
+<td><p>5.29387E−06</p></td>
+<td><p>5.29387E−06</p></td>
+</tr>
+<tr class="row-odd"><td><p>07014</p></td>
+<td><p>2.13092E−03</p></td>
+<td><p>2.13092E−03</p></td>
+</tr>
+<tr class="row-even"><td><p>08016</p></td>
+<td><p>3.74135E−02</p></td>
+<td><p>3.7410E−02</p></td>
+</tr>
+<tr class="row-odd"><td><p>01001</p></td>
+<td><p>5.77973E−02</p></td>
+<td><p>5.77983E−02</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multiple-unit-cells-in-a-single-problem">
+<span id="c-6"></span><h2>Multiple unit cells in a single problem<a class="headerlink" href="#multiple-unit-cells-in-a-single-problem" title="Permalink to this headline">¶</a></h2>
+<p>Consider a problem that involves three different UO<sub>2</sub> fuel
+assemblies: a 1.98%-enriched assembly, a 2.64%-enriched assembly, and a
+2.96%-enriched assembly. All fuel rods are UO<sub>2</sub> at
+10.138 g/cm<sup>3</sup> and are 0.94 cm in diameter. The Zircaloy-4 clad
+has an inside radius of 0.4875 cm and an outside radius of 0.545 cm. The
+rod pitch is 1.44 cm. Each fuel assembly is a 15 × 15 array of fuel pins
+with water holes, instrumentation holes, and burnable poison rods. For
+cross-section processing, the presence of the water holes,
+instrumentation holes, and burnable poison rods in the assemblies are
+ignored.</p>
+<p>The following XSProc input use the CENTRM/PMC method for self-shielding
+three latticecells with different fuel enrichments. The remaining
+mixture (SS-304), not specified in a unit cell, is processed as an
+infinite homogeneous medium using the BONAMI method. Each mixture can
+appear only in a single zone of one unit cell. For square pitch
+latticecells the default CENTRM transport solver is MoC with P0 scatter;
+however in this input, the solver for the 3<sup>rd</sup> cell is modified
+through CENTRM DATA to use the two-region approximation for the CE
+calculation [npxs=5], and discrete S<sub>N</sub> transport calculation
+with P1 anisotropic scatteringfor the MG solutions in the fast and
+thermal energy ranges [nfst=0, nthr=0].</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">DEMONSTRATION</span> <span class="err">PROBLEM</span> <span class="err">WITH</span> <span class="err">MULTIPLE</span> <span class="err">RESONANCE</span> <span class="err">CORRECTIONS</span> <span class="err">REQUIRED</span>
+<span class="err">broad_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span>        <span class="m">1</span>  <span class="err">.</span><span class="m">925</span>    <span class="m">300</span>  <span class="m">92235</span>  <span class="m">1</span><span class="err">.</span><span class="m">98</span>  <span class="m">92238</span>  <span class="m">98</span><span class="err">.</span><span class="m">02</span>  <span class="err">END</span>
+<span class="err">UO</span><span class="m">2</span>        <span class="m">2</span>  <span class="err">.</span><span class="m">925</span>    <span class="m">300</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">64</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">36</span>  <span class="err">END</span>
+<span class="err">UO</span><span class="m">2</span>        <span class="m">3</span>  <span class="err">.</span><span class="m">925</span>    <span class="m">300</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">96</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">04</span>  <span class="err">END</span>
+<span class="err">ZIRC</span><span class="m">4</span>      <span class="m">4</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">5</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">ZIRC</span><span class="m">4</span>      <span class="m">6</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">7</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">ZIRC</span><span class="m">4</span>      <span class="m">8</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">9</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">SS</span><span class="m">304</span>     <span class="m">10</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>     <span class="m">300</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">LATTICECELL</span> <span class="err">SQUAREPITCH</span> <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">44</span> <span class="m">5</span> <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">94</span>  <span class="m">1</span> <span class="err">CLADD=</span><span class="m">1</span><span class="err">.</span><span class="m">09</span>  <span class="m">4</span> <span class="err">GAPD=</span><span class="m">0</span><span class="err">.</span><span class="m">975</span>  <span class="m">0</span> <span class="err">END</span>
+<span class="err">LATTICECELL</span> <span class="err">SQUAREPITCH</span> <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">44</span> <span class="m">7</span> <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">94</span>  <span class="m">2</span> <span class="err">CLADD=</span><span class="m">1</span><span class="err">.</span><span class="m">09</span>  <span class="m">6</span> <span class="err">GAPD=</span><span class="m">0</span><span class="err">.</span><span class="m">975</span>  <span class="m">0</span> <span class="err">END</span>
+<span class="err">LATTICECELL</span> <span class="err">SQUAREPITCH</span> <span class="err">PITCH=</span><span class="m">1</span><span class="err">.</span><span class="m">44</span> <span class="m">9</span> <span class="err">FUELD=</span><span class="m">0</span><span class="err">.</span><span class="m">94</span>  <span class="m">3</span> <span class="err">CLADD=</span><span class="m">1</span><span class="err">.</span><span class="m">09</span>  <span class="m">8</span> <span class="err">GAPD=</span><span class="m">0</span><span class="err">.</span><span class="m">975</span>  <span class="m">0</span> <span class="err">END</span>
+<span class="err">CENTRM</span> <span class="err">DATA</span>  <span class="err">npxs=</span><span class="m">5</span> <span class="err">nthr=</span><span class="m">0</span> <span class="err">nfst=</span><span class="m">0</span> <span class="err">isct=</span><span class="m">1</span>    <span class="err">END</span> <span class="err">CENTRM</span> <span class="err">DATA</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-fissile-mixtures-in-a-single-unit-cell">
+<span id="c-7"></span><h2>Multiple fissile mixtures in a single unit cell<a class="headerlink" href="#multiple-fissile-mixtures-in-a-single-unit-cell" title="Permalink to this headline">¶</a></h2>
+<p>The following problem involves large units having the bulk of their
+fissile material more than one mean-free path away from the surface of
+the unit. The interaction between the units that occurs in the resonance
+range is a very small fraction of the total interaction because an
+overwhelming percentage of the interaction occurs deep within each unit.
+Therefore, the resonance range interaction between the units can be
+ignored, and the default infinite homogeneous medium cross-section
+processing in the resonance range can be considered adequate for this
+particular application.</p>
+<p>Consider a problem that consists of four 20.96-kg 93.2%-enriched uranium
+metal cylinders, density 18.76 g/cm<sup>3</sup>, and four 5-liters
+Plexiglas bottles filled with highly enriched uranyl nitrate solution at
+415 g/L, a specific gravity of 1.555, and 0.39 mg of excess nitrate per
+gram of solution. The isotopic content of the uranium metal is 93.2 wt %
+<sup>235</sup>U, 5.6 wt % <sup>238</sup>U, 1.0 wt % <sup>234</sup>U, and
+0.2 wt % <sup>236</sup>U. The uranium isotopic content of the nitrate
+solution is 92.6 wt % <sup>235</sup>U, 5.9 wt % <sup>238</sup>U, 1.0 wt %
+<sup>234</sup>U and 0.5 wt % <sup>236</sup>U. The size of the metal
+cylinders is between 10 and 12 cm in diameter and height, and the size
+of the nitrate solution is on the order of 16 and 20 cm in diameter and
+height. The average mean-free path in the uranium metal is on the order
+of 1.5 cm, and the average mean free path in the nitrate solution is on
+the order of 0.5 cm. Therefore, infinite homogeneous medium is an
+appropriate choice for this problem and the use of CENTRM/PMC is valid.</p>
+<p>See Examples 1–4 of  <a class="reference internal" href="XSProcAppA.html#a-2"><span class="std std-ref">Basic standard composition specifications</span></a> for data input details for the
+Plexiglas and uranium metal. See Example 1 of <a class="reference internal" href="XSProcAppA.html#a-5"><span class="std std-ref">Fissile solution specifications</span></a> for data
+input details for the uranyl nitrate solution. The XSProc data for this
+problem follow:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SET</span>  <span class="err">UP</span>  <span class="m">4</span> <span class="err">AQUEOUS</span>  <span class="m">4</span>  <span class="err">METAL</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">URANIUM</span>  <span class="m">1</span>  <span class="m">0</span><span class="err">.</span><span class="m">985</span>  <span class="m">293</span>  <span class="m">92235</span>  <span class="m">93</span><span class="err">.</span><span class="m">2</span>  <span class="m">92238</span>  <span class="m">5</span><span class="err">.</span><span class="m">6</span>  <span class="m">92234</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">92236</span>  <span class="m">0</span><span class="err">.</span><span class="m">2</span>  <span class="err">END</span>
+<span class="err">SOLUTION</span> <span class="m">2</span>  <span class="err">RHO[UO</span><span class="m">2</span><span class="err">(NO</span><span class="m">3</span><span class="err">)</span><span class="m">2</span><span class="err">]=</span><span class="m">415</span>  <span class="m">92235</span> <span class="m">92</span><span class="err">.</span><span class="m">6</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">9</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">5</span>
+            <span class="err">MOLAR[HNO</span><span class="m">3</span><span class="err">]=</span><span class="m">9</span><span class="err">.</span><span class="m">783</span><span class="err">-</span><span class="m">3</span>  <span class="err">DENSITY=</span><span class="m">1</span><span class="err">.</span><span class="m">555</span>  <span class="err">TEMPERATURE=</span><span class="m">293</span>  <span class="err">END</span> <span class="err">SOLUTION</span>
+<span class="err">PLEXIGLAS</span> <span class="m">3</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">COMP</span>
+</pre></div>
+</div>
+<p>Consider the same materials above except rearrange them so that a 10 cm
+diameter uranium metal sphere sits inside a 50 cm diameter spherical
+tank of uranyl nitrate solution having a 1-cm thick Plexiglas wall. This
+problem can be modeled in SCALE but only CENTRM/PMC will treat the
+resonance processing correctly. This problem is modeled below.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SET</span>  <span class="err">UP</span>  <span class="m">4</span> <span class="err">AQUEOUS</span>  <span class="m">4</span>  <span class="err">METAL</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">URANIUM</span>   <span class="m">1</span>  <span class="m">0</span><span class="err">.</span><span class="m">985</span>  <span class="m">293</span>   <span class="m">92235</span>  <span class="m">93</span><span class="err">.</span><span class="m">2</span>  <span class="m">92238</span>  <span class="m">5</span><span class="err">.</span><span class="m">6</span>  <span class="m">92234</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">92236</span>  <span class="m">0</span><span class="err">.</span><span class="m">2</span>  <span class="err">END</span>
+<span class="err">SOLUTION</span>  <span class="m">2</span>  <span class="err">RHO[UO</span><span class="m">2</span><span class="err">(NO</span><span class="m">3</span><span class="err">)</span><span class="m">2</span><span class="err">]=</span><span class="m">415</span>  <span class="m">92235</span> <span class="m">92</span><span class="err">.</span><span class="m">6</span> <span class="m">92238</span> <span class="m">5</span><span class="err">.</span><span class="m">9</span> <span class="m">92234</span> <span class="m">1</span><span class="err">.</span><span class="m">0</span> <span class="m">92236</span> <span class="m">0</span><span class="err">.</span><span class="m">5</span>
+             <span class="err">MOLAR[HNO</span><span class="m">3</span><span class="err">]=</span><span class="m">9</span><span class="err">.</span><span class="m">783</span><span class="err">-</span><span class="m">3</span>  <span class="err">DENSITY=</span><span class="m">1</span><span class="err">.</span><span class="m">555</span>  <span class="err">TEMPERATURE=</span><span class="m">293</span>  <span class="err">END</span> <span class="err">SOLUTION</span>
+<span class="err">PLEXIGLAS</span>  <span class="m">3</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">MULTIREGION</span> <span class="err">SPHERICAL</span> <span class="err">END</span> <span class="m">1</span> <span class="m">5</span><span class="err">.</span><span class="m">0</span> <span class="m">2</span> <span class="m">25</span><span class="err">.</span><span class="m">0</span> <span class="m">3</span> <span class="m">26</span><span class="err">.</span><span class="m">0</span> <span class="err">END</span> <span class="err">ZONE</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cell-weighting-an-infinite-homogeneous-problem">
+<span id="c-8"></span><h2>Cell weighting an infinite homogeneous problem<a class="headerlink" href="#cell-weighting-an-infinite-homogeneous-problem" title="Permalink to this headline">¶</a></h2>
+<p>Cell weighting an infinite homogeneous medium has no effect on the
+cross sections because there is only one zone and one set of
+cross sections. However, a cell-weighted mixture number can still be
+supplied using the keyword <strong>CELLMIX</strong>= followed by an unique mixture
+number. This cell-weighted mixture number can be used in subsequent
+codes and will produce results similar to the cross sections of the
+original mixture.</p>
+<p>EXAMPLE 1</p>
+<p>This problem would probably be run with CSAS1 to provide the k-infinity
+of 20%-enriched UO<sub>2</sub>.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">20</span><span class="err">%</span>  <span class="err">ENRICHED</span>  <span class="err">UO</span><span class="m">2</span>  <span class="err">BILLET</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span>  <span class="m">1</span>  <span class="m">0</span><span class="err">.</span><span class="m">99</span>  <span class="m">293</span>  <span class="m">92235</span>  <span class="m">20</span>  <span class="m">92238</span>  <span class="m">80</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">INFHOMMEDIUM</span>  <span class="m">1</span>  <span class="err">CELLMIX=</span><span class="m">100</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cell-weighting-a-latticecell-problem">
+<span id="c-9"></span><h2>Cell weighting a LATTICECELL problem<a class="headerlink" href="#cell-weighting-a-latticecell-problem" title="Permalink to this headline">¶</a></h2>
+<p>Cell weighting used with a <strong>LATTICECELL</strong> problem creates cell-weighted
+homogeneous cross sections that represent the characteristics of the
+heterogeneous unit cell. This cell-weighted mixture can then be used in
+a subsequent code for the overall volume where the cells are located
+without having to mock up the actual 3-D heterogeneous array of cells.
+This cell-weighted homogeneous mixture is designated by the user with
+the keyword <strong>CELLMIX</strong>= immediately followed by an unused mixture
+number. This needs to follow immediately after the cell description.
+Note that the mixtures used in the unit cell data cannot be used in a
+subsequent code because they have been flux weighted to create the user
+specified mixture. Therefore, if a mixture used in the unit cell
+description is also to be used in a subsequent code, another mixture
+must be created that is identical except for the mixture number. Every
+mixture that is to be used in a subsequent code except zero (i.e., void)
+must be defined in the standard composition data.</p>
+<p>A byproduct of the cell-weighting calculation is the eigenvalue
+(k-effective) of an infinite array of the cell described as the unit
+cell.</p>
+<p>EXAMPLE 1</p>
+<p>Consider a cylindrical stainless steel tank filled with spherical
+pellets of 2.67%-enriched UO<sub>2</sub> arranged in a close-packed
+“triangular” pitch, flooded with borated water at 4350 ppm. The
+cylindrical stainless tank is sitting in a larger tank filled with
+borated water at 4350 ppm.</p>
+<p>The data for the UO<sub>2</sub> and borated water were developed in detail
+in Example 3 of <a class="reference internal" href="#c-2"><span class="std std-ref">LATTICECELL input data</span></a>. The stainless steel must be defined, and
+mixture 3 was chosen because mixture 1 was the UO<sub>2</sub> and
+mixture 2 was the borated water. Because the borated water will be used
+as a reflector for the stainless steel tank and has been used in the
+unit cell data, it must be repeated with a different mixture number (in
+this case, as mixture 4).</p>
+<p>In the subsequent calculation, user specified cell mixture 100 will be
+used to represent the UO<sub>2</sub> pellets in the borated water,
+mixture 3 will represent the stainless steel tank, and mixture 4 will
+represent the borated water reflector around the stainless-steel tank.</p>
+<p>The XSProc data for creating the cell-weighted cross sections on
+mixture 100 follow:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">SPHERICAL</span>  <span class="err">PELLETS</span>  <span class="err">IN</span>  <span class="err">BORATED</span>  <span class="err">WATER</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">UO</span><span class="m">2</span>        <span class="m">1</span>  <span class="err">.</span><span class="m">9398</span>  <span class="m">293</span><span class="err">.</span>  <span class="m">92235</span>  <span class="m">2</span><span class="err">.</span><span class="m">67</span>  <span class="m">92238</span>  <span class="m">97</span><span class="err">.</span><span class="m">33</span>  <span class="err">END</span>
+<span class="err">ATOMH</span><span class="m">3</span><span class="err">BO</span><span class="m">3</span>  <span class="m">2</span>  <span class="m">0</span><span class="err">.</span><span class="m">025066</span>  <span class="m">3</span>  <span class="m">5000</span>  <span class="m">1</span>  <span class="m">1001</span>  <span class="m">3</span>  <span class="m">8016</span>  <span class="m">3</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">293</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">2</span>  <span class="m">0</span><span class="err">.</span><span class="m">984507</span>  <span class="m">293</span>  <span class="err">END</span>
+<span class="err">SS</span><span class="m">304</span>      <span class="m">3</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">293</span>  <span class="err">END</span>
+<span class="err">ATOMH</span><span class="m">3</span><span class="err">BO</span><span class="m">3</span>  <span class="m">4</span>  <span class="m">0</span><span class="err">.</span><span class="m">025066</span>  <span class="m">3</span>  <span class="m">5000</span>  <span class="m">1</span>  <span class="m">1001</span>  <span class="m">3</span>  <span class="m">8016</span>  <span class="m">3</span>  <span class="m">1</span><span class="err">.</span><span class="m">0</span>  <span class="m">293</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">4</span>  <span class="m">0</span><span class="err">.</span><span class="m">984507</span>  <span class="m">293</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">LATTICECELL</span>  <span class="err">SPHTRIANGP</span>   <span class="err">PITCH</span>  <span class="m">1</span><span class="err">.</span><span class="m">0724</span>  <span class="m">2</span>  <span class="err">FUELD</span>  <span class="m">1</span><span class="err">.</span><span class="m">0724</span>  <span class="m">1</span>  <span class="err">CELLMIX=</span><span class="m">100</span>  <span class="err">END</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cell-weighting-a-multiregion-problem">
+<span id="c-10"></span><h2>Cell weighting a MULTIREGION problem<a class="headerlink" href="#cell-weighting-a-multiregion-problem" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>MULTIREGION</strong> problem is cell weighted primarily to obtain a
+cell-weighted homogeneous cross section that represents the
+characteristics of the heterogeneous unit cell. The eigenvalue obtained
+for a <strong>MULTIREGION</strong> problem with cylindrical or spherical geometry
+having a white boundary condition specified on the right boundary
+approximates an infinite array of the cells. A vacuum boundary condition
+would represent a single cell. A slab with reflected boundary conditions
+for both boundaries represents an infinite array of slab cells. The
+cell-weighted cross sections for spherical or cylindrical geometries
+with a white right boundary condition do not use a Dancoff correction
+and thus may not be accurate for representing a large array of the
+specified units.</p>
+<p>EXAMPLE 1</p>
+<p>Consider a small, highly enriched uranium sphere supported by a
+Plexiglas collar in a tank of water. The uranium metal sphere has a
+diameter of 13.1075 cm, is 97.67% enriched, and has a density of
+18.794 g/cm<sup>3</sup>. The cylindrical Plexiglas collar has a 4.1275-cm
+radius central hole, extends to a radius of 12.7 cm and is 2.54 cm
+thick. The water-filled tank is 60 cm in diameter.</p>
+<p>The Plexiglas collar is not significantly different from water and does
+not surround the fuel, so it will be ignored. Because this makes the
+problem a 1-D geometry, it can be defined using the <strong>MULTIREGION</strong> type
+of calculation and the eigenvalue of the system can be obtained without
+additional data by executing CSAS1 with CENTRM/PMC, if PARM=CENTRM is
+specified on the command line. The abundance of uranium is not stated
+beyond 97.67% enriched, so assume the remainder is <sup>238</sup>U. The
+XSProc data follow:</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=CSAS5</span>
+<span class="err">SMALL</span>  <span class="err">WATER</span>  <span class="err">REFLECTED</span>  <span class="err">SPHERE</span>  <span class="err">ON</span>  <span class="err">PLEXIGLAS</span>  <span class="err">COLLAR</span>
+<span class="err">fine_n</span>
+<span class="err">READ</span> <span class="err">COMP</span>
+<span class="err">URANIUM</span>    <span class="m">1</span>  <span class="err">DEN=</span><span class="m">18</span><span class="err">.</span><span class="m">794</span>  <span class="m">1</span>  <span class="m">293</span><span class="err">.</span>  <span class="m">92235</span>  <span class="m">97</span><span class="err">.</span><span class="m">67</span>  <span class="m">92238</span>  <span class="m">2</span><span class="err">.</span><span class="m">33</span>  <span class="err">END</span>
+<span class="err">H</span><span class="m">2</span><span class="err">O</span>        <span class="m">2</span>  <span class="err">END</span>
+<span class="err">END</span>  <span class="err">COMP</span>
+<span class="err">READ</span> <span class="err">CELLDATA</span>
+<span class="err">MULTI</span> <span class="err">SPHERICAL</span> <span class="err">CELLMIX=</span><span class="m">100</span>  <span class="err">END</span>   <span class="m">1</span>  <span class="m">6</span><span class="err">.</span><span class="m">5537</span>  <span class="m">2</span>  <span class="m">30</span><span class="err">.</span><span class="m">0</span>  <span class="err">END</span> <span class="err">ZONE</span>
+<span class="err">END</span> <span class="err">CELLDATA</span>
+<span class="err">•</span>
+<span class="err">•</span>
+<span class="err">•</span>
+<span class="err">KENO</span> <span class="err">DATA</span> <span class="err">THAT</span> <span class="err">USES</span> <span class="err">MIX=</span><span class="m">100</span> <span class="err">FOR</span> <span class="err">A</span> <span class="err">HOMOGENEOUS</span> <span class="err">SPHERE</span> <span class="err">OF</span> <span class="m">30</span><span class="err">-CM</span> <span class="err">RADIUS</span> <span class="err">GOES</span> <span class="err">HERE.</span>
+<span class="err">•</span>
+<span class="err">•</span>
+<span class="err">END</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stdcmp.html" class="btn btn-neutral float-right" title="Standard Composition Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="XSProcAppB.html" class="btn btn-neutral float-left" title="XSProc Standard Composition Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1502 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BONAMI: Resonance Self-Shielding by the Bondarenko Method &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells" href="CENTRM.html" />
+    <link rel="prev" title="Standard Composition Library" href="stdcmp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bondarenko-self-shielding-theory">Bondarenko Self-Shielding Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameterized-flux-spectra">Parameterized Flux Spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#self-shielded-cross-section-data-in-scale-libraries">Self-Shielded Cross Section Data in SCALE Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#background-cross-section-options-in-bonami">Background Cross Section Options in BONAMI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#self-shielded-cross-sections-for-heterogeneous-media">Self-Shielded Cross Sections for Heterogeneous Media</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interpolation-scheme">Interpolation Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-instructions">Input Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notes-on-input">Notes on input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-problem">Sample Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BONAMI: Resonance Self-Shielding by the Bondarenko Method</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/BONAMI.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bonami-resonance-self-shielding-by-the-bondarenko-method">
+<span id="id1"></span><h1>BONAMI: Resonance Self-Shielding by the Bondarenko Method<a class="headerlink" href="#bonami-resonance-self-shielding-by-the-bondarenko-method" title="Permalink to this headline">¶</a></h1>
+<p><em>U. Mertyurek and M. L. Williams</em></p>
+<p>ABSTRACT</p>
+<p>BONAMI is a module of the SCALE code system that is used to perform
+Bondarenko calculations for resonance self-shielding. BONAMI obtains
+problem-independent cross sections and Bondarenko shielding factors from
+a multigroup (MG) AMPX master library, and it creates a MG AMPX working
+library of self-shielded, problem-dependent cross sections. Several
+options may be used to compute the background cross section values using
+the narrow resonance or intermediate resonance approximations, with and
+without Bondarenko iterations. A novel interpolation scheme is used that
+avoids many of the problems exhibited by other interpolation methods for
+the Bondarenko factors. BONAMI is most commonly used in automated SCALE
+sequences and is fully integrated within the SCALE cross section
+processing module, XSProc.</p>
+<p>Acknowledgments</p>
+<p>The authors express gratitude to B. T. Rearden and M. A. Jessee for
+their supervision of the SCALE project and review of the manuscript. The
+authors acknowledge N. M. Greene, formerly of ORNL, for his original
+development of and contributions to the BONAMI module and methodology.
+Finally, the authors wish to thank Sheila Walker for the completion and
+publication of this document.</p>
+<div class="section" id="introduction">
+<span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>BONAMI (<strong>BON</strong>darenko <strong>AM</strong>PX <strong>I</strong>nterpolator) is a SCALE
+module that performs resonance self-shielding calculations based on the
+Bondarenko method <a class="bibtex reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html#ilich-bondarenko-group-1964" id="id3">[IlichB64]</a>. It reads Bondarenko shielding factors
+(“f-factors”) and infinitely dilute microscopic cross sections from a
+problem-<em>independent</em> nuclear data library processed by the AMPX
+system <a class="bibtex reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html#wiarda-ampx-2015" id="id4">[WWCD15]</a>, interpolates the tabulated shielding factors to appropriate
+temperatures and background cross sections for each nuclide in the
+system, and produces a self-shielded, problem-dependent data set.</p>
+<p>The code performs self-shielding for an arbitrary number of mixtures
+using either the narrow resonance (NR) or intermediate resonance (IR)
+approximation <a class="bibtex reference internal" href="#goldstein-theory-1962" id="id5">[GC62]</a>. The latter capability was introduced in SCALE 6.2.
+BONAMI has several options for computing background cross sections,
+which may include Bondarenko iterations to approximately account for the
+impact of resonance interference for multiple resonance absorbers.
+Heterogeneous effects are treated using equivalence theory based on an
+“escape cross section” for arrays of slabs, cylinders, or spheres.
+During the execution of a typical SCALE computational sequence using
+XSProc, Dancoff factors for uniform lattices of square- or
+triangular-pitched units are calculated automatically for BONAMI by
+numerical integration over the chord length distribution. However, for
+non-uniform lattices—such as those containing water holes, control rods,
+and so on—the SCALE module MCDancoff can be run to compute Dancoff
+factors using Monte Carlo for an arbitrary 3D configuration, and these
+values are then provided in the sequence input.</p>
+<p>The major advantages of the Bondarenko approach are its simplicity and
+speed compared with SCALE’s more rigorous CENTRM/PMC self-shielding
+method, which performs a pointwise (PW) deterministic transport
+calculation “on the fly” to compute multigroup (MG) self-shielded cross
+sections. With the availability of IR theory in BONAMI, accurate results
+can be obtained for a variety of system types without the computation
+expense of CENTRM/PMC.</p>
+</div>
+<div class="section" id="bondarenko-self-shielding-theory">
+<span id="id6"></span><h2>Bondarenko Self-Shielding Theory<a class="headerlink" href="#bondarenko-self-shielding-theory" title="Permalink to this headline">¶</a></h2>
+<p>In MG resonance self-shielding calculations, one is interested in
+calculating effective cross sections of the form</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-1">
+<span class="eqno">(268)<a class="headerlink" href="#equation-eq7-3-1" title="Permalink to this equation">¶</a></span>\[\sigma^{(r)}_{X,g} = \frac{\int_{g}\sigma^{(r)}_{X}(E)\Phi(E)\text{dE}}{\int_{g}\Phi(E)\text{dE}} ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma^{(r)}_{X,g}\)</span> is the shielded MG cross section for reaction type <em>X</em> of
+resonance nuclide <em>r</em> in group <em>g</em>; <span class="math notranslate nohighlight">\(\sigma^{(r)}_{X}(E)\)</span> is a PW cross section; and <span class="math notranslate nohighlight">\(\Phi(E)\)</span> is the PW
+weighting function, which approximates the flux spectrum per unit of
+energy for the system of interest. PW cross section values are known
+from processing evaluated data in ENDF/B files; therefore, resonance
+self‑shielding depends mainly on determining the problem-dependent flux
+spectrum <span class="math notranslate nohighlight">\(\Phi(E)\)</span>, which may exhibit significant fine structure variations as a
+result of resonance reactions.</p>
+<p>The essence of the Bondarenko method is to parameterize the flux
+spectrum corresponding to varying degrees of self-shielding, represented
+by the background cross section parameter <span class="math notranslate nohighlight">\(\sigma_0\)</span> (called “sigma-zero”) and the
+Doppler broadening temperature <em>T</em>. Hence,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-2">
+<span class="eqno">(269)<a class="headerlink" href="#equation-eq7-3-2" title="Permalink to this equation">¶</a></span>\[\Phi \text{(E)}\to \Phi \text{(E;}\,\sigma _{\text{0,g}}^{\text{(r)}}\text{,T)}\ \ \,,\,\ \text{E}\in \text{g}\ ; \text{and} \
+\sigma^{(r)}_{X,g} \rightarrow \sigma^{(r)}_{X,g}(\sigma^{(r)}_{0,g},\text{T})\]</div>
+<p>With this approach, it is possible to preprocess MG data for different
+background cross sections representing varying degrees of resonance
+self-shielding. This allows the MG averaging to be performed during the
+original MG library processing, so that BONAMI can do a simple
+interpolation on the background cross section and temperature to obtain
+self-shielded cross sections. This procedure is much faster than the
+CENTRM/PMC method in SCALE, which computes a PW flux spectrum by solving
+the neutron transport equation on a PW energy mesh in CENTRM and then
+evaluates <a class="reference internal" href="#equation-eq7-3-1">(268)</a>. in PMC “on the fly” during a sequence execution.</p>
+<p>BONAMI performs two main tasks: (a) computation of background cross
+sections for all nuclides in each mixture in the system and (b)
+interpolation of shielded cross sections from the library values
+tabulated vs. background cross sections and temperature. The BONAMI
+calculation is essentially isolated from the computation of the
+tabulated shielded cross sections, which is performed by the AMPX
+processing code system—the only connection is through the definition of
+the background cross section used in processing the library values.
+Various approximations can be used to parameterize the flux spectrum in
+terms of a background XS, as required by the Bondarenko method. We will
+first consider several approaches to representing the flux in an
+infinite medium, which lead to different definitions of the background
+cross section. BONAMI’s use of equivalence theory to extend the
+homogeneous methods to address heterogeneous systems, such as reactor
+lattices, is discussed in the following section.</p>
+<div class="section" id="parameterized-flux-spectra">
+<span id="id7"></span><h3>Parameterized Flux Spectra<a class="headerlink" href="#parameterized-flux-spectra" title="Permalink to this headline">¶</a></h3>
+<p>Several approximations can be applied to the infinite medium transport
+equation to parameterize the flux spectrum in terms of a background XS,
+as required by the Bondarenko method. The resulting homogeneous spectra
+are used in AMPX to process MG cross sections which can also can be
+applied to heterogeneous systems (i.e., lattices) by using equivalence
+theory; thus the key step is determining approximations that provide
+parameterized solutions for homogeneous media. The neutron transport
+equation for a homogeneous medium at temperature <em>T</em>, containing a
+resonance nuclide <em>r</em> mixed with other nuclides can be expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-3">
+<span class="eqno">(270)<a class="headerlink" href="#equation-eq7-3-3" title="Permalink to this equation">¶</a></span>\[\left( \Sigma _{\text{t}}^{\text{(r)}}\text{(E,T)}\ +\sum\limits_{j\ne r}
+{\Sigma _{\text{t}}^{\text{(j)}}\text{(E,T)}} \right)\ \Phi \text{(E,T)}\ \,\,\,=\ \ \,{{\text{S}}^{\text{(r)}}}(\text{E,T})\ \,+\,\sum\limits_{j\ne r}{{{\text{S}}^{\text{(j)}}}(\text{E,T})} ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Sigma _{\text{t}}^{\text{(r)}}\text{(E,T)}\)</span>
+, <span class="math notranslate nohighlight">\(\text{S}_{{}}^{\text{(r)}}\text{(E,T)}\)</span> are the macroscopic total XS and
+elastic scattering source for <em>r</em>, respectively; and <span class="math notranslate nohighlight">\(\Sigma _{\text{t}}^{\text{(j)}}\text{(E,T)}\)</span>,
+<span class="math notranslate nohighlight">\(\text{S}_{{}}^{\text{(j)}}\text{(E,T)}\)</span> are the macroscopic total cross
+section and elastic source, respectively, for a nuclide <em>j</em>. The cross sections in
+all these expressions are Doppler-broadened to the temperature of the
+medium. The nuclides in the summations (i.e., all nuclides except <em>r</em>)
+are called background nuclides for the resonance absorber <em>r</em>.</p>
+<p>The NR approximation can be used to approximate scattering sources of
+nuclides for which the neutron energy loss is large compared with the
+practical widths of resonances for the absorber materials of interest.
+Applying the NR approximation for the scattering source of background
+material <em>j</em> gives</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-4">
+<span class="eqno">(271)<a class="headerlink" href="#equation-eq7-3-4" title="Permalink to this equation">¶</a></span>\[\text{S}^{(j)}(\text{E,T}) \rightarrow \Sigma^{(j)}_{p}C(E) \text{for j = a NR-scatterer nuclide}\]</div>
+<p>where C(E) is a slowly varying function representative of the asymptotic
+(i.e., no absorption) flux in a homogeneous medium, which approximates
+the flux between resonances. In the resolved resonance range of most
+important resonance absorbers, the asymptotic flux per unit energy is
+represented as,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-5">
+<span class="eqno">(272)<a class="headerlink" href="#equation-eq7-3-5" title="Permalink to this equation">¶</a></span>\[C(\text{E})\ =\ \ \,\frac{{{\Phi }_{\infty }}}{E}\ \ \ ,\]</div>
+<p>where <span class="math notranslate nohighlight">\({{\Phi }_{\infty }}\)</span> is an arbitrary normalization constant that cancels from the MG
+cross section expression. In the thermal range a Maxwellian spectrum is
+used for C(E), and in the fast range a fission spectrum is used. The
+SCALE Cross Section Libraries section of the SCALE documentation gives
+analytical expressions for C(E) used in AMPX to process MG data with the
+NR approximation. AMPX also has an option to input numerical values for
+C(E), obtained for example from a PW slowing-down calculation with
+CENTRM. This method has been used to process MG data for some nuclides
+on the SCALE libraries.</p>
+<p>Conversely, the wide resonance (WR) approximation has been used to
+represent elastic scattering sources of nuclides for which the neutron
+energy loss is small compared with the practical width of the resonance.
+This approximation tends to be more accurate for heavy nuclides and for
+lower energies. The limit of infinite mass is usually assumed, so the WR
+approximation is sometimes called the infinite mass (IM) approximation.
+Because of the assumption of IM, there is no energy loss due to
+collisions with WR scatterers. Applying the WR approximation for the
+slowing-down source of background nuclide <em>j</em> gives</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-6">
+<span class="eqno">(273)<a class="headerlink" href="#equation-eq7-3-6" title="Permalink to this equation">¶</a></span>\[\text{S}^{(j)}(\text{E,T}) \rightarrow \Sigma^{(j)}_{s}(\text{E,T})\Phi(\text{E,T}) ;
+\text{for} j  =  \text{a WR-scatterer nuclide}\]</div>
+<p>The IR approximation was proposed in the 1960s for scatterers with
+slowing-down properties intermediate between those of NR and WR
+scatterers <a class="bibtex reference internal" href="#goldstein-theory-1962" id="id8">[GC62]</a>. The IR method represents the scattering source for
+arbitrary nuclide <em>j</em> by a linear combination of NR and WR expressions.
+This is done by introducing an IR parameter usually called lambda, such
+that</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-7">
+<span class="eqno">(274)<a class="headerlink" href="#equation-eq7-3-7" title="Permalink to this equation">¶</a></span>\[\text{S}_{{}}^{\text{(j)}}(\text{E,T)}\,\ \to \ \,\underbrace{\lambda _{\text{g}}^{\text{(j)}}\Sigma _{\text{p}}^{\text{(j)}}\,C(E)}_{\mathbf{NR scatterer}}\ +\ \ (1-\lambda _{\text{g}}^{\text{(j)}})\,\,\underbrace{\Sigma _{\text{s}}^{\text{(j)}}(\text{E,T})\Phi (\text{E,T})}_{\mathbf{WR scatterer}}\ \,\ \,\ ;\,\,\ \ \text{E}\in \text{g}\,\text{.}\]</div>
+<p>A value of λ=1 reduces <a class="reference internal" href="#equation-eq7-3-7">(274)</a> to the NR expression, whereas λ=0 reduces the
+equation to the WR expression. Fractional λ’s are for IR scatterers.
+Since the type of scatterer can change with the energy, the IR lambdas
+are functions of the energy group as well as the nuclide. The λ values
+represent the moderation “effectiveness” of a given nuclide, compared to
+hydrogen. The AMPX module LAMBDA was used to compute the IR parameters
+on the SCALE libraries. (See AMPX documentation distributed with SCALE)
+Substituting <a class="reference internal" href="#equation-eq7-3-7">(274)</a> into <a class="reference internal" href="#equation-eq7-3-3">(270)</a> and then dividing by the absorber number
+density <em>N(r)</em> gives the following IR approximation for the infinite
+medium transport equation in energy group g</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-8">
+<span class="eqno">(275)<a class="headerlink" href="#equation-eq7-3-8" title="Permalink to this equation">¶</a></span>\[\left( \sigma _{\text{t}}^{\text{(r)}}\text{(E,T)}\ \text{+}\ \sigma _{0}^{\text{(r)}}\text{(E,T) } \right)\,{{\Phi }^{\text{(r)}}}\text{(E,T)}\ \ =\,\ \frac{\text{1}}{{{\text{N}}^{\text{(r)}}}}{{\text{S}}^{\text{(r)}}}\text{(E,T)}\ +\ \frac{\text{1}}{{{\text{N}}^{\text{(r)}}}}\sum\limits_{j\ne r}{\lambda _{\text{g}}^{\text{(j)}}\,\Sigma _{\text{p}}^{\text{(j)}}C(E)\,}\]</div>
+<p>where the background cross section of <em>r</em> in the homogeneous medium is
+defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-9">
+<span class="eqno">(276)<a class="headerlink" href="#equation-eq7-3-9" title="Permalink to this equation">¶</a></span>\[\sigma _{0}^{\text{(r)}}\text{(E,T)}\ \ =\ \ \frac{1}{{{\text{N}}^{\text{(r)}}}}\,\,\sum\limits_{j\ne r}{\left( \Sigma _{\text{a}}^{\text{(j)}}(\text{E,T})+\lambda _{\text{g}}^{\text{(j)}}\,\Sigma _{\text{s}}^{\text{(j)}}(\text{E,T})\,\, \right)}\]</div>
+<p>Although <a class="reference internal" href="#equation-eq7-3-8">(275)</a> provides the flux spectrum as a function of the background
+cross section <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}(u,T)\)</span> it is not in a form that can be
+preprocessed when the MG library is generated, because the energy variation of
+<span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}(E,T)\)</span> must be known. If the total cross sections
+of the background nuclides in <a class="reference internal" href="#equation-eq7-3-9">(276)</a> have different energy variations, the shape of
+<span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}(E,T)\)</span> depends on their relative concentrations—which
+are not known when the MG library is processed.
+However, if the cross sections in <a class="reference internal" href="#equation-eq7-3-9">(276)</a> are independent of energy,
+so that the background cross section is <em>constant</em>,
+<a class="reference internal" href="#equation-eq7-3-8">(275)</a> can be solved for any arbitrary value of <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}\)</span>
+as a parameter. This obviously occurs for the special case in which nuclide
+<em>r</em> is the only resonance nuclide in the mixture; i.e., the background materials
+are nonabsorbing moderators for which the total cross section is equal to the potential
+cross section. In this case, <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}(E,T)\quad \to \ \ \ \sigma \,_{0,g}^{(r)}\)</span>,
+where</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-10">
+<span class="eqno">(277)<a class="headerlink" href="#equation-eq7-3-10" title="Permalink to this equation">¶</a></span>\[\sigma \,_{0,g}^{(r)}\,\,=\quad \frac{1}{N_{{}}^{(r)}}\sum\limits_{j\,\ne \,i}{\ N_{{}}^{(j)}\,\lambda _{g}^{(j)}\sigma \,_{p}^{(j)}}\]</div>
+<p>If the mixture contains multiple resonance absorbers, as is usually the
+case, other approximations must be made to obtain a constant background
+cross section.</p>
+<p>The approximation of “no resonance interference” assumes that resonances
+of background nuclides do not overlap with those of nuclide <em>r</em>, so
+their total cross sections can be approximated by the potential values
+within resonances of <em>r</em> where self-shielding occurs. In this
+approximation, the expression in <a class="reference internal" href="#equation-eq7-3-10">(277)</a> is also used for the background
+cross section.</p>
+<p>Another approximation is to represent the energy-dependent cross
+sections of the background nuclides by their group-averaged (i.e.,
+self-shielded cross) values; thus</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-11">
+<span class="eqno">(278)<a class="headerlink" href="#equation-eq7-3-11" title="Permalink to this equation">¶</a></span>\[\sigma \,_{a}^{(j)}(E,T)\quad \to \ \ \ \sigma \,_{a,g}^{(j)}\ \quad ;\quad \ \ \quad \sigma \,_{s}^{(j)}(E,T)\quad \to \ \ \ \sigma \,_{s,g}^{(j)}\text{ for }E\in g\]</div>
+<p>In this case, the background cross section in <a class="reference internal" href="#equation-eq7-3-9">(276)</a> for nuclide <em>r</em> is the
+group-dependent expression,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-12">
+<span class="eqno">(279)<a class="headerlink" href="#equation-eq7-3-12" title="Permalink to this equation">¶</a></span>\[\sigma _{0,g}^{\text{(r)}}\ \ =\ \ \frac{1}{{{\text{N}}^{\text{(r)}}}}\,\,\sum\limits_{j\ne r}{\left( \Sigma _{\text{a,g}}^{\text{(j)}}+\lambda _{\text{g}}^{\text{(j)}}\,\Sigma _{\text{s,g}}^{\text{(j)}}\, \right)}\]</div>
+<p>An equation similar to <a class="reference internal" href="#equation-eq7-3-12">(279)</a> is used for the background cross sections of
+all resonance nuclides; thus the self-shielded cross sections of each
+resonance absorber depend on the shielded cross sections of all other
+resonance absorbers in the mixture. When self-shielding operations are
+performed with BONAMI for this approximation, “Bondarenko” iterations
+are performed to account for the inter-dependence of the shielded cross
+sections.</p>
+<p>Assuming that <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}\)</span> is represented as a groupwise-constant
+based on one of the previous approximations, several methods can be used to
+obtain a parameterized flux spectrum for preprocessing Bondarenko data in the MG
+libraries. In the simpliest approach, the scattering source of the resonance
+nuclide <em>r</em> in <a class="reference internal" href="#equation-eq7-3-8">(275)</a> is represented by the NR approximation,
+<span class="math notranslate nohighlight">\({{\text{S}}^{\text{(r)}}}(\text{E,T})\)</span> to <span class="math notranslate nohighlight">\(\Sigma _{\text{p}}^{\text{(r)}}C(E)\)</span>.
+In this case, <a class="reference internal" href="#equation-eq7-3-8">(275)</a> can be solved analytically to obtain the following
+expression for the flux spectrum used to process MG data as a function of <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-13">
+<span class="eqno">(280)<a class="headerlink" href="#equation-eq7-3-13" title="Permalink to this equation">¶</a></span>\[{{\Phi }^{\text{(r)}}}\text{(E;}\,\sigma _{0}^{\text{(r)}}\text{,T)}\ \ =\,\ \frac{\sigma _{\text{p}}^{\text{(r)}}\ +\ \,\frac{\text{1}}{{{\text{N}}^{\text{(r)}}}}\sum\limits_{j\ne r}{\,\Sigma _{\text{p}}^{\text{(j)}}\,}\ }{\sigma _{\text{t}}^{\text{(r)}}\text{(E,T)}\ \text{+}\ \sigma _{0}^{\text{(r)}}}C(E)\ \ \,\ \to \ \ \,\frac{C(E)\ }{\sigma _{\text{t}}^{\text{(r)}}\text{(E,T)}\ \text{+}\ \sigma _{0}^{\text{(r)}}}\]</div>
+<p>where C(E) includes is an arbitrary constant multiplier that cancels
+from <a class="reference internal" href="#equation-eq7-3-1">(268)</a>.</p>
+<p>A more accurate approach that does not require using the NR
+approximation is to directly solve the IR form of the neutron transport
+equation using PW cross sections, with the assumption of no interference
+between mixed absorber resonances. The IRFfactor module of AMPX uses
+XSProc to calculate the self-shielded flux spectrum for MG data
+processing using one of two options:</p>
+<ol class="loweralpha simple">
+<li><p>A homogeneous model corresponding to an infinite medium of the
+resonance nuclide mixed with hydrogen, in which the ratio of the
+absorber to hydrogen number densities is varied in CENTRM to obtain
+the desired background cross section values;</p></li>
+<li><p>A heterogeneous model corresponding to a 2D unit cell from an
+infinite lattice, in which the cell geometry (e.g., pitch) as well
+as the absorber number density is varied in CENTRM to obtain the
+desired background cross section values.</p></li>
+</ol>
+<p>Both of these models provide a numerical solution for the flux spectrum.
+Details on these approaches are given in reference 2.</p>
+</div>
+<div class="section" id="self-shielded-cross-section-data-in-scale-libraries">
+<span id="id9"></span><h3>Self-Shielded Cross Section Data in SCALE Libraries<a class="headerlink" href="#self-shielded-cross-section-data-in-scale-libraries" title="Permalink to this headline">¶</a></h3>
+<p>The AMPX code system processes self-shielded cross sections using the
+flux expressions described in the preceding section. For MG libraries in
+SCALE-6.2 and later versions, the NR approximation in <a class="reference internal" href="#equation-eq7-3-13">(280)</a> is used to
+represent the flux spectrum for nuclides with masses below A=40, since
+the NR approximation is generally accurate for low-mass nuclides and/or
+high energies. The standard AMPX weight functions are used to represent
+C(E) over the entire energy range for all nuclides with A&lt;40, except for
+hydrogen and oxygen which use a calculated C(E) from CENTRM. The NR
+approximation with a calculated C(E) function is also used to represent
+the spectrum above the resolved resonance range for nuclides with A&gt;40;
+but in the resolved resonance range of these nuclides, AMPX processes
+shielded cross sections with flux spectra obtained from CENTRM
+calculations using either a homogeneous or heterogeneous model.
+Regardless of the method used to obtain the flux spectrum, the
+parameterized shielded cross sections for absorber nuclide “r” are
+computed from the expression,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-14">
+<span class="eqno">(281)<a class="headerlink" href="#equation-eq7-3-14" title="Permalink to this equation">¶</a></span>\[\sigma _{\text{X,g}}^{\text{(r)}}(\sigma \,_{0}^{(r)}\,,T)\quad =\quad \,\frac{\int_{g}{\ \ \,\sigma _{X}^{(r)}(E,T)\ \,\Phi (E;\,\,\sigma \,_{0}^{(r)}\,,T)\ dE}}{\int_{g}{\ \,\Phi (E;\,\,\sigma \,_{0}^{(r)}\,,T)\ \,dE}}\quad ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi (E;\,\,\sigma \,_{0}^{(r)}\,,T)\)</span> is the flux for a given value
+of <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}\)</span> and <em>T</em>.</p>
+<p>Rather than storing self-shielded cross sections in the master library,
+AMPX converts them to Bondarenko shielding factors, also called
+f-factors, defined as the ratio of the shielded cross section to the
+infinitely dilute cross section. Thus the MG libraries in SCALE contain
+Bondarenko data consisting of f‑factors defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-15">
+<span class="eqno">(282)<a class="headerlink" href="#equation-eq7-3-15" title="Permalink to this equation">¶</a></span>\[f_{\text{X,g}}^{\text{(r)}}(\sigma \,_{0}^{{}}\,,T)\quad =\quad \,\frac{\sigma _{\text{X,g}}^{\text{(r)}}(\sigma \,_{0}^{{}},T)}{\sigma _{\text{X,g}}^{\text{(r)}}(\infty )}\quad ,\]</div>
+<p>and infinitely dilute cross sections defined as,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-16">
+<span class="eqno">(283)<a class="headerlink" href="#equation-eq7-3-16" title="Permalink to this equation">¶</a></span>\[\sigma _{\text{X,g}}^{\text{(r)}}(\infty )\quad =\quad \,\sigma _{\text{X,g}}^{\text{(r)}}(\sigma \,_{0}^{{}}=\infty ,T={{T}_{ref}}) \to \ \ \,\frac{\int_{g}{\ \sigma _{X}^{(r)}(E,{{T}_{ref}})\ C(E)\ \,dE}}{\int_{g}{\ \,C(E)\ \,dE}}\quad .\]</div>
+<p>In AMPX, the reference temperature for the infinitely dilute cross
+section is normally taken to be 293 K. Bondarenko data on SCALE
+libraries are provided for all energy groups and for five reaction
+types: total, radiative capture, fission, within-group scattering, and
+elastic scatter. Recent SCALE libraries include f-factors at ~10–30
+background cross section values (depending on nuclide) ranging from
+~10<sup>−3</sup> to ~10<sup>10</sup> barns, which span the range of
+self-shielding conditions. Typically the f-factor data are tabulated at
+five temperature values. Background cross sections and temperatures
+available for each nuclide in the SCALE MG libraries are given in the
+SCALE Cross Section Libraries chapter.</p>
+</div>
+<div class="section" id="background-cross-section-options-in-bonami">
+<span id="id10"></span><h3>Background Cross Section Options in BONAMI<a class="headerlink" href="#background-cross-section-options-in-bonami" title="Permalink to this headline">¶</a></h3>
+<p>To compute self-shielded cross sections for nuclide <em>r</em>, BONAMI first
+computes the appropriate background cross section for the system of
+interest and then interpolates the library Bondarenko data to obtain the
+f-factor corresponding to this σ<sub>0</sub> and nuclide temperature.
+Several options are available in BONAMI to compute the background cross
+section, based on <a class="reference internal" href="#equation-eq7-3-10">(277)</a> and <a class="reference internal" href="#equation-eq7-3-12">(279)</a> in the preceding section. The options are
+specified by input parameter “<strong>iropt</strong>” and have the following
+definitions:</p>
+<ol class="loweralpha simple">
+<li><p>iropt = 0 =&gt; NR approximation with Bondarenko iterations:</p></li>
+</ol>
+<p>Background cross sections for all nuclides are computed using <a class="reference internal" href="#equation-eq7-3-12">(279)</a> with
+λ=1; therefore,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-17">
+<span class="eqno">(284)<a class="headerlink" href="#equation-eq7-3-17" title="Permalink to this equation">¶</a></span>\[\sigma _{0}^{\text{(r)}}\ =\ \frac{1}{{{\text{N}}^{\text{(r)}}}}\,\,\sum\limits_{j\ne r}{\Sigma _{\text{t,g}}^{\text{(j)}}} .\]</div>
+<p>Since the background cross section for each nuclide depends on the shielded
+total cross sections of all other nuclides in the mixture,
+“Bondarenko iterations” are performed in BONAMI to obtain a consistent set of
+shielded cross sections. Bondarenko iterations provide a crude method of
+accounting for resonance interference effects that are ignored by the
+approximation for <span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}\)</span> in <a class="reference internal" href="#equation-eq7-3-10">(277)</a>. The BONAMI
+iterative algorithm generally converges in a few iterations.  Prior to
+SCALE-6.2, this option was the only one available in BONAMI, and it is still the default for XSProc.</p>
+<ol class="loweralpha simple" start="2">
+<li><p>iropt = 1 =&gt; IR approximation with no resonance interference
+(potential cross sections):</p></li>
+</ol>
+<p>Background cross sections for all nuclides are computed using <a class="reference internal" href="#equation-eq7-3-10">(277)</a>. No
+Bondarenko iterations are needed.</p>
+<ol class="loweralpha simple" start="3">
+<li><p>iropt t = 2 =&gt; IR approximation with Bondarenko iterations, but no
+resonance scattering:</p></li>
+</ol>
+<p>Background cross sections for all nuclides are computed using <a class="reference internal" href="#equation-eq7-3-12">(279)</a> with
+the scattering cross section approximated by the potential value;
+therefore,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-18">
+<span class="eqno">(285)<a class="headerlink" href="#equation-eq7-3-18" title="Permalink to this equation">¶</a></span>\[\sigma _{0}^{\text{(r)}}\ \ =\ \ \frac{1}{{{\text{N}}^{\text{(r)}}}}\,\,\sum\limits_{j\ne r}{\left( \Sigma _{\text{a,g}}^{\text{(j)}}+\lambda _{\text{g}}^{\text{(j)}}\,\Sigma _{\text{p}}^{\text{(j)}}\, \right)}\]</div>
+<p>Since the background cross section for each resonance nuclide includes the
+shielded absorption cross sections of all other nuclides, Bondarenko
+interactions are performed.</p>
+<ol class="loweralpha simple" start="4">
+<li><p>iropt = 3 =&gt; IR approximation with Bondarenko iterations:</p></li>
+</ol>
+<p>Background cross sections for all nuclides are computed using the full
+IR expression in <a class="reference internal" href="#equation-eq7-3-12">(279)</a>. Bondarenko interactions are performed.</p>
+<p>Computation of the background cross sections in BONAMI generally
+requires group-dependent values for the IR parameter λ. These are
+calculated by a module in AMPX during the library process and are stored
+in the MG libraries under the reaction identifier (MT number), MT=2000.</p>
+</div>
+<div class="section" id="self-shielded-cross-sections-for-heterogeneous-media">
+<span id="id11"></span><h3>Self-Shielded Cross Sections for Heterogeneous Media<a class="headerlink" href="#self-shielded-cross-sections-for-heterogeneous-media" title="Permalink to this headline">¶</a></h3>
+<p>Equivalence theory can be used to obtain shielded cross sections for
+heterogeneous systems containing one or more “lumps” of resonance
+absorber mixtures separated by moderators, such as reactor lattices. It
+can be shown that if the fuel escape probability is represented by the
+Wigner rational approximation, the collision probability formulation of
+the neutron transport equation for an absorber body in a heterogeneous
+medium can be reduced to a form identical to <a class="reference internal" href="#equation-eq7-3-3">(270)</a>. This can be done for
+an “equivalent” infinite homogeneous medium consisting of the same
+absorber body mixture plus an additional NR scatterer with a constant
+cross section called the “escape cross section” <a class="bibtex reference internal" href="#lamarsh-introduction-1966" id="id12">[Lam66]</a>.
+Equivalence
+theory states that the self-shielded cross section for resonance
+absorber <em>r</em> in the heterogeneous medium is equal to the self-shielded
+cross section of <em>r</em> in the equivalent infinite homogeneous medium;
+therefore the f-factors that were calculated for homogenous mixtures can
+also be used to compute self-shielded cross sections for heterogeneous
+media by simply interpolating the tabulated f-factors in the library to
+the modified sigma-zero value of</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-19">
+<span class="eqno">(286)<a class="headerlink" href="#equation-eq7-3-19" title="Permalink to this equation">¶</a></span>\[\hat{\sigma }_{0}^{(r)}\quad =\quad \sigma _{0}^{(r)}\ +\ \ \,\sigma _{esc}^{(r)}\]</div>
+<p>where,</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\hat{\sigma }_{0}^{(r)}\)</span>       = background cross section of r in the absorber lump of the heterogeneous system;</p>
+<p><span class="math notranslate nohighlight">\(\sigma \,_{0}^{(r)}\)</span>   = background cross section defined in <a class="reference internal" href="#id7"><span class="std std-ref">Parameterized Flux Spectra</span></a> for an infinite homogeneous medium of the
+absorber body mixture;</p>
+<p><span class="math notranslate nohighlight">\(\sigma _{esc}^{(r)}\)</span>    = microscopic escape cross section for nuclide <em>r</em>, defined as</p>
+</div></blockquote>
+<div class="math notranslate nohighlight" id="equation-eq7-3-20">
+<span class="eqno">(287)<a class="headerlink" href="#equation-eq7-3-20" title="Permalink to this equation">¶</a></span>\[\sigma _{esc}^{(r)}\quad =\quad \frac{{{\Sigma }_{esc}}}{{{N}^{(r)}}}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\({{\Sigma }_{esc}}\)</span>      = macroscopic escape cross section for the absorber lump defined in BONAMI as</p>
+</div></blockquote>
+<div class="math notranslate nohighlight" id="equation-eq7-3-21">
+<span class="eqno">(288)<a class="headerlink" href="#equation-eq7-3-21" title="Permalink to this equation">¶</a></span>\[{{\Sigma }_{esc}}\quad =\quad \,\frac{(1\quad -\quad c)A}{\bar{\ell }\ \,\ \left[ 1\quad +\quad \left( A\quad -\quad 1 \right)c \right]}\]</div>
+<p>where</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\bar{\ell }\)</span> = average chord length of the absorber body = <span class="math notranslate nohighlight">\(4\ \ \,\times \ \frac{volume}{surface\ \ area}\)</span>;</p>
+<p>A     = Bell factor, used to improve the accuracy of the Wigner rational approximation;</p>
+<p>c     = lattice Dancoff factor, which is equal to the probability that a neutron escaping from one
+absorber body will reach another absorber body before colliding in the intervening moderator.</p>
+</div></blockquote>
+<p>Values for the mean chord length <span class="math notranslate nohighlight">\(\bar{\ell }\)</span> are computed in BONAMI for slab,
+sphere, and cylinder absorber bodies. In the most common mode of operation where
+BONAMI is executed through the XSProc module in SCALE, Dancoff factors for
+uniform lattices are computed automatically and provided as input to BONAMI.
+For nonuniform lattices—such as those containing water holes, control rods,
+etc.—it may be desirable for the user to run the SCALE module MCDancoff to
+compute Dancoff factors using Monte Carlo for an arbitrary 3D configuration.
+In this case the values are provided in the MORE DATA input block of XSProc.
+The Bell factor “A” is a correction factor to account for errors caused by use
+of the Wigner rational approximation to represent the escape probability from a
+lump. Two optional Bell factor corrections are included in BONAMI. The first uses
+expressions developed by Otter  that essentially force the Wigner escape
+probability for an isolated absorber lump to agree with the exact escape
+probability for the particular geometry by determining a value of A as a function of
+<span class="math notranslate nohighlight">\({{\Sigma }_{T}}\bar{\ell }\)</span> for slab, cylindrical, or spherical
+geometries. Since the Otter expression was developed for isolated bodies,
+it does not account for errors in the Wigner rational approximation due to
+lattice effects. BONAMI also includes a Bell factor correction based on a
+modified formulation developed by Leslie <a class="bibtex reference internal" href="#leslie-improvements-1965" id="id13">[LHJ65]</a> that is a function of the Dancoff factor.</p>
+</div>
+</div>
+<div class="section" id="interpolation-scheme">
+<span id="id14"></span><h2>Interpolation Scheme<a class="headerlink" href="#interpolation-scheme" title="Permalink to this headline">¶</a></h2>
+<p>After the background cross section for a system has been computed,
+BONAMI interpolates f-factors at the appropriate σ<sub>0</sub> and
+temperature from the tabulated values in the library. <a class="reference internal" href="#fig7-3-1"><span class="std std-numref">Fig. 148</span></a> shows
+a typical variation of the f-factor vs. background cross sections for
+the capture cross section of <sup>238</sup>U in the SCALE 252 group
+library.</p>
+<div class="figure align-center" id="id23">
+<span id="fig7-3-1"></span><a class="reference internal image-reference" href="_images/fig1.png"><img alt="_images/fig1.png" src="_images/fig1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 148 </span><span class="caption-text">Plot of f-factor variation for <sup>238</sup>U capture reaction.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</div>
+<p>Interpolation of the f-factors can be problematic, and several different
+schemes have been developed for this purpose. Some of the interpolation
+methods that have been used in other codes are constrained
+Lagrangian, <a class="bibtex reference internal" href="#davis-sphinx-1977" id="id15">[DYB77]</a> arc-tangent fitting, <a class="bibtex reference internal" href="#kidman-improved-1974" id="id16">[Kid74]</a> and an approach developed by
+Segev <a class="bibtex reference internal" href="#segev-interpolation-1981" id="id17">[Seg81]</a>. All of these were tested and found to be inadequate for use
+with the SCALE libraries, which may have multiple energy groups within a
+single resonance. BONAMI uses a unique interpolation method developed by
+Greene, which is described in <a class="bibtex reference internal" href="#greene-method-1982" id="id18">[Gre82]</a>. Greene’s interpolation method
+is essentially a polynomial approach in which the powers of the
+polynomial terms can vary within a panel, as shown in <a class="reference internal" href="#equation-eq7-3-25">(292)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-22">
+<span class="eqno">(289)<a class="headerlink" href="#equation-eq7-3-22" title="Permalink to this equation">¶</a></span>\[f\left( \sigma  \right)\quad =\quad f\left( \sigma {{\,}_{1}} \right)\quad +\quad \frac{\sigma {{\,}^{q(\sigma )}}\quad -\quad \sigma \,_{1}^{q(\sigma )}}{\sigma \,_{2}^{q(\sigma )}\quad -\quad \sigma \,_{1}^{q(\sigma )}}\quad \left( f\left( {{\sigma }_{2}} \right)\quad -\quad f\left( {{\sigma }_{1}} \right) \right)\quad ,\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-23">
+<span class="eqno">(290)<a class="headerlink" href="#equation-eq7-3-23" title="Permalink to this equation">¶</a></span>\[q\left( \sigma  \right)\quad =\quad q\left( \sigma {{\,}_{1}} \right)\quad +\quad \frac{\sigma \quad -\quad \sigma \,_{1}^{{}}}{\sigma \,_{2}^{{}}\quad -\quad \sigma \,_{1}^{{}}}\quad \left( q\left( {{\sigma }_{2}} \right)\quad -\quad q\left( {{\sigma }_{1}} \right) \right)\quad .\]</div>
+<p><a class="reference internal" href="#fig7-3-2"><span class="std std-numref">Fig. 149</span></a> illustrates the expected behavior of <a class="reference internal" href="#equation-eq7-3-22">(289)</a> caused by varying
+the powers in a panel.</p>
+<p>By allowing the power <em>q</em> to vary as a function of independent
+variable σ, we can move between the various monotonic curves on the
+graph in a monotonic fashion. Note that when <em>p</em> crosses the
+<em>p</em> = 1 curve, the shape changes from concave to convex, or vice versa.
+This shape change means that we can use the scheme to introduce an
+inflection point, which is exactly the situation needed for
+interpolating f-factors.</p>
+<div class="figure align-center" id="id24">
+<span id="fig7-3-2"></span><a class="reference internal image-reference" href="_images/fig2.png"><img alt="_images/fig2.png" src="_images/fig2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 149 </span><span class="caption-text">Illustration of the effects of varying “powers” in the Greene interpolation method.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig7-3-3"><span class="std std-numref">Fig. 150</span></a> and <a class="reference internal" href="#fig7-3-3"><span class="std std-numref">Fig. 150</span></a> show typical “fits” of the f-factors using
+the Greene interpolation scheme for two example cases. Note, in
+particular, that since this scheme has guaranteed monotonicity, it
+easily accommodates the end panels that have the smooth asymptotic
+variation. Even considering the extra task of having to determine the
+powers for temperature and σ<sub>0</sub> interpolations, the method is not
+significantly more time-consuming than the alternative schemes for most
+applications.</p>
+<div class="figure align-center" id="id25">
+<span id="fig7-3-3"></span><a class="reference internal image-reference" href="_images/fig3.png"><img alt="_images/fig3.png" src="_images/fig3.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 150 </span><span class="caption-text">Use of Greene’s method to fit the σ<sub>0</sub> variation of Bondarenko factors for case 1.</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id26">
+<span id="fig7-3-4"></span><a class="reference internal image-reference" href="_images/fig4.png"><img alt="_images/fig4.png" src="_images/fig4.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 151 </span><span class="caption-text">Use of Greene’s method to fit the σ<sub>0</sub> variation of Bondarenko factors for case 2.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="input-instructions">
+<span id="id19"></span><h2>Input Instructions<a class="headerlink" href="#input-instructions" title="Permalink to this headline">¶</a></h2>
+<p>BONAMI is most commonly used as an integral component of XSProc through
+SCALE automated analysis sequences. XSProc automatically prepares all
+the input data for BONAMI and links it with the other self-shielding
+modules. During a SCALE sequence execution, the data are provided
+directly to BONAMI in memory through XSProc. Some of the input
+parameters can be modified in the MOREDATA block in XSProc.</p>
+<p>However, the legacy interface to execute stand-alone BONAMI calculations
+has been preserved for expert users. The legacy input to BONAMI uses the
+FIDO schemes described in the FIDO chapter of the SCALE manual. The
+BONAMI input for standalone execution is given below, where the MOREDATA
+input keywords are marked in bold.</p>
+<p class="centered">
+<strong>Data Block 1</strong></p><p>0$ Logical Unit Assignments [4]</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>masterlib— input master library (Default = 23)</p></li>
+<li><p>mwt—not used</p></li>
+<li><p>msc—not used</p></li>
+<li><p>newlib—output master library (Default = 22)</p></li>
+</ol>
+</div></blockquote>
+<p>1$ Case Description [6]</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>cellgeometry—geometry description</p>
+<blockquote>
+<div><p>0 homogeneous</p>
+<p>1 slab</p>
+<p>2 cylinder</p>
+<p>3 sphere</p>
+</div></blockquote>
+</li>
+<li><p>numzones—number of zones or material regions</p></li>
+</ol>
+<p>3. mixlength—mixing table length. This is the total number of entries
+needed to describe the concentrations of all constituents in all
+mixtures in the problem.</p>
+<ol class="arabic" start="4">
+<li><p>ib—not used</p></li>
+<li><p><strong>crossedt</strong>—output edit option</p>
+<blockquote>
+<div><p>0 no output (Default)</p>
+<p>1 input echo</p>
+<p>2 iteration list, timing</p>
+<p>3 background cross section calculation details</p>
+<p>4 shielded cross sections, Bondarenko factors</p>
+</div></blockquote>
+</li>
+<li><p>issopt—not used</p></li>
+<li><p><strong>iropt—</strong>resonance approximation option</p>
+<blockquote>
+<div><p>0 NR (Default) (Bondarenko iterations)</p>
+<p>1 IR with potential scattering</p>
+<p>2 IR with absorption and potential scattering (Bondarenko iterations)</p>
+<p>3 IR with absorption and elastic scattering (Bondarenko iterations)</p>
+</div></blockquote>
+</li>
+<li><p><strong>bellopt—</strong>Bell factor calculation option</p>
+<blockquote>
+<div><p>0 Otter
+1 Leslie (Default)</p>
+</div></blockquote>
+</li>
+<li><p><strong>escxsopt—</strong>escape cross section calculation option</p>
+<blockquote>
+<div><p>0 consistent</p>
+<p>1 inconsistent (Default)</p>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<p>2* Floating-Point Constants [2]</p>
+<blockquote>
+<div><p>1. <strong>bonamieps</strong>—convergence criteria for the Bondarenko iteration
+(Default = 0.001)</p>
+<p>2. <strong>bellfact</strong>—geometrical escape probability adjustment factor. See
+notes below on this parameter (Default = 0.0).</p>
+</div></blockquote>
+<p>T Terminate Data Block 1.</p>
+<p class="centered">
+<strong>Data Block 2</strong></p><p>3$       Mixture numbers in the mixing table [mixlength]
+4$       Component (nuclide) identifiers in the mixing table [mixlength]
+5*       Concentrations (atoms/b-cm) in the mixing table [mixlength]
+6$       Mixtures by zone [numzones]
+7*       Outer radii (cm) by zone [numzones]
+8*       Temperature (k) by zone [numzones]
+9*       Escape cross section (cm<sup>-1</sup>) by zone [numzones]
+10$       Not used
+11$       Not used
+12*       Temperature (K) of the nuclide in a one-to-one correspondence with the mixing table arrays.
+13*       Dancoff factors by zone [numzones]
+14*       Lbar (<span class="math notranslate nohighlight">\(\bar{\ell }\)</span>) factors by zone [numzones]</p>
+<p>T       Terminate Data Block 2.</p>
+<p>This concludes the input data required by BONAMI.</p>
+<div class="section" id="notes-on-input">
+<span id="id20"></span><h3>Notes on input<a class="headerlink" href="#notes-on-input" title="Permalink to this headline">¶</a></h3>
+<p>In the 1$ array, <em>cellgeometry</em> specifies the geometry. The geometry
+information is used in conjunction with the 7* array to calculate mean
+chord length <em>Lbar</em> if it is not provided by the user in the 14* array.</p>
+<p><em>numzones</em>, the number of zones, may or may not model a real situation.
+It may, for example, be used to specify <em>numzones</em> independent media to
+perform a cell calculation in parallel with one or more infinite medium
+calculations. The geometry description in 1$ array applies only to mean
+chord length calculations unless it is provided in 14*.</p>
+<p>In the 2* array, <em>bonamieps</em> is used to specify the convergence expected
+on all macroscopic total values by zone, that is, each <span class="math notranslate nohighlight">\({{\Sigma }_{t}}(g,j)\)</span> in group g and
+zone j is converged so that</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-24">
+<span class="eqno">(291)<a class="headerlink" href="#equation-eq7-3-24" title="Permalink to this equation">¶</a></span>\[\frac{\left| \,\Sigma \,_{t}^{i}(g,j)\quad -\quad \Sigma \,_{t}^{i-1}(g,j)\, \right|}{\Sigma \,_{t}^{i}(g,j)}\quad \le \quad bonamieps\quad .\]</div>
+<p>The “Bell” factor in the 2* array is the parameter used to adjust the
+Wigner rational approximation for the escape probability to a more
+correct value. It has been suggested that if one wishes to use one
+constant value, the Bell factor should be 1.0 for slabs and 1.35
+otherwise. In the ordinary case, BONAMI defaults the Bell factor to zero
+and uses a prescription by Otter <a class="bibtex reference internal" href="#otter-escape-1964" id="id21">[Ott64]</a> to determine a cross-section
+geometry-dependent value of the Bell factor for isolated absorber
+bodies. It uses a prescription by Leslie<sup>6</sup> to determine the
+Dancoff factor–dependent values of the Bell factor for lattices, which
+are much more accurate than the single value. The user who wishes to
+determine the constant value can, however, use it by inputting a value
+other than zero.</p>
+<p>The 3$, 4$, and 5* arrays are used to specify the concentrations of the
+constituents of all mixtures in the problem as follows:</p>
+<p>Entry 3$  (Mixture Number)  4$ (Nuclide ID)   5* (Concentrations)</p>
+<p>1</p>
+<p>2</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>mixlength</p>
+<p>.</p>
+<p>Because of the manner in which BONAMI references the nuclides in a
+calculation, each nuclide in the problem must have a unique entry in the
+mixing table. Thus one cannot specify a mixture and subsequently load it
+into more than one zone, as can be the case with many modules requiring
+this type of data.</p>
+<p>The 12* array is used to allow varying the temperatures by nuclide
+within a zone. In the event this array is omitted, the 12* array will
+default by nuclide to the temperature of the zone containing the
+nuclide.</p>
+<p>The mixture numbers in each zone are specified in the 6$ array. Mixture
+numbers are arbitrary and need only match up with those used in the
+3$ array.</p>
+<p>The radii in the 7* array are referenced to a zero value at the left
+boundary of the system.</p>
+<p>In the event the temperatures in the 8* array are not bounded by
+temperature values in the Bondarenko tables, BONAMI will extrapolate
+using the three temperature points closest to the value. For example, a
+request for 273 K for a nuclide with Bondarenko sets at 300, 900, and
+2,100 K would use the polynomial fit from those three temperature points
+to extrapolate the 273 K value.</p>
+<p>The escape cross sections in the 9* array allow a macro escape cross
+section (<span class="math notranslate nohighlight">\(\Sigma _{e}^{input}\)</span>) to be specified by zone. (This array can be ignored if
+Dancoff factors are provided.) If the Dancoff factor for a zone is
+specified as −1 in the input, then the user-specified escape cross
+section is used in calculating the background cross sections σ<sub>0</sub>
+as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-3-25">
+<span class="eqno">(292)<a class="headerlink" href="#equation-eq7-3-25" title="Permalink to this equation">¶</a></span>\[{{\sigma }_{0}}\quad =\quad \frac{\sum\limits_{n\ne i}{{{N}_{n}}\ \sigma \,_{t}^{n}\quad +\quad \Sigma _{e}^{input}}}{{{N}_{i}}}\quad\]</div>
+</div>
+</div>
+<div class="section" id="sample-problem">
+<span id="id22"></span><h2>Sample Problem<a class="headerlink" href="#sample-problem" title="Permalink to this headline">¶</a></h2>
+<p>In most cases, the input data to BONAMI are simple and obvious because
+the complicated parameters are determined internally based on the
+options selected. The user describes his geometry, the materials
+contained therein, the temperatures, and a few options.</p>
+<p>This problem is for a system of iron-clad uranium (U<sup>238</sup> –
+U<sup>235</sup> ) fuel pins arranged in a square lattice in a water pool.</p>
+<a class="reference internal image-reference" href="_images/ex1.png"><img alt="_images/ex1.png" class="align-center" src="_images/ex1.png" style="width: 300px;" /></a>
+<p>Our number densities are</p>
+<p>Fuel:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\({{N}_{{}^{235}U}}\)</span>  = 1.4987 × 10<sup>−4</sup></p>
+<p><span class="math notranslate nohighlight">\({{N}_{{}^{238}U}}\)</span>  = 2.0664× 10<sup>−-2</sup></p>
+</div></blockquote>
+<p>Clad:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\({{N}_{{}^{56}Fe}}\)</span>  = 9.5642× 10<sup>−5</sup></p>
+</div></blockquote>
+<p>Water:</p>
+<blockquote>
+<div><p>N<sub>H</sub> = 6.6662 × 10<sup>−2</sup></p>
+<p>N<sub>O</sub> = 3.3331 × 10<sup>−2</sup></p>
+</div></blockquote>
+<p>For the problem, we choose <em>iropt</em> = 1 (IR approximation with scattering
+approximated by λΣ<sub>p</sub>) and <em>crossedt</em> = 4 for the most detailed
+output edits. An 8-group test library is used for fast execution and a
+short output file.</p>
+<p>The XSProc/CSAS1X SCALE sequence input file, the corresponding i_bonami
+FIDO input file created by the sequence under the temporary working
+directory, and an abbreviated copy of the output from this case follows.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=csas1x</span>
+<span class="err">Assembly</span> <span class="err">pin</span>
+<span class="err">test-</span><span class="m">8</span><span class="err">grp</span>
+<span class="n">read</span><span class="err"> </span><span class="n">comp</span>
+<span class="c">&#39; fuel</span>
+<span class="err">u-</span><span class="m">235</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="err">.</span><span class="m">4987</span><span class="err">e-</span><span class="m">4</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span> <span class="n">end</span>
+<span class="err">u-</span><span class="m">238</span>  <span class="m">1</span> <span class="m">0</span> <span class="m">2</span><span class="err">.</span><span class="m">0664</span><span class="err">e-</span><span class="m">2</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span> <span class="n">end</span>
+<span class="c">&#39; clad</span>
+<span class="err">fe-</span><span class="m">56</span>  <span class="m">2</span>  <span class="m">0</span> <span class="m">9</span><span class="err">.</span><span class="m">5642</span><span class="err">e-</span><span class="m">5</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span> <span class="n">end</span>
+<span class="c">&#39; coolant</span>
+<span class="err">h</span>      <span class="m">3</span> <span class="m">0</span> <span class="m">6</span><span class="err">.</span><span class="m">6662</span><span class="err">e-</span><span class="m">2</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span> <span class="n">end</span>
+<span class="err">o</span>      <span class="m">3</span> <span class="m">0</span> <span class="m">3</span><span class="err">.</span><span class="m">3331</span><span class="err">e-</span><span class="m">2</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span> <span class="n">end</span>
+<span class="n">end</span><span class="err"> </span><span class="n">comp</span>
+<span class="c">&#39; ====================================================================</span>
+<span class="n">read</span><span class="err"> </span><span class="n">celldata</span>
+<span class="err">latticecell</span> <span class="err">squarepitch</span>  <span class="err">pitch=</span><span class="m">1</span><span class="err">.</span><span class="m">26</span> <span class="m">3</span>  <span class="err">fuelr=</span><span class="m">0</span><span class="err">.</span><span class="m">405765</span> <span class="m">1</span>
+                                       <span class="err">cladr=</span><span class="m">0</span><span class="err">.</span><span class="m">47498</span>  <span class="m">2</span> <span class="n">end</span>
+
+<span class="err">moredata</span> <span class="err">iropt=</span><span class="m">1</span> <span class="err">crossedt=</span><span class="m">4</span> <span class="n">end</span><span class="err"> </span><span class="n">moredata</span>
+<span class="n">end</span><span class="err"> </span><span class="n">celldata</span>
+<span class="c">&#39; ====================================================================</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>FIDO input i_bonami</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">-</span><span class="m">1</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+    <span class="m">500000</span>
+<span class="err">e</span>
+ <span class="m">0</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+        <span class="m">11</span>           <span class="m">0</span>          <span class="m">18</span>           <span class="m">1</span>
+<span class="err">e</span>
+ <span class="m">1</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+         <span class="m">1</span>           <span class="m">3</span>           <span class="m">5</span>           <span class="m">0</span>           <span class="m">4</span>        <span class="m">1010</span>
+         <span class="m">1</span>          <span class="err">-</span><span class="m">1</span>          <span class="err">-</span><span class="m">1</span>
+<span class="err">e</span>
+<span class="m">2</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">1</span><span class="err">.</span><span class="m">00000</span><span class="err">E-</span><span class="m">03   0.00000E+00</span>
+ <span class="err">e</span>
+<span class="err">t</span>
+ <span class="m">3</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+         <span class="m">1</span>           <span class="m">1</span>           <span class="m">2</span>           <span class="m">3</span>           <span class="m">3</span>
+<span class="err">e</span>
+ <span class="m">4</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+     <span class="m">92235</span>       <span class="m">92238</span>       <span class="m">26056</span>        <span class="m">1001</span>        <span class="m">8016</span>
+<span class="err">e</span>
+<span class="m">5</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">1</span><span class="err">.</span><span class="m">49870</span><span class="err">E-</span><span class="m">04</span>   <span class="m">2</span><span class="err">.</span><span class="m">06640</span><span class="err">E-</span><span class="m">02</span>   <span class="m">9</span><span class="err">.</span><span class="m">56420</span><span class="err">E-</span><span class="m">05</span>   <span class="m">6</span><span class="err">.</span><span class="m">66620</span><span class="err">E-</span><span class="m">02   3.33310E-02</span>
+ <span class="err">e</span>
+ <span class="m">6</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+         <span class="m">1</span>           <span class="m">2</span>           <span class="m">3</span>
+<span class="err">e</span>
+<span class="m">7</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">4</span><span class="err">.</span><span class="m">05765</span><span class="err">E-</span><span class="m">01</span>   <span class="m">4</span><span class="err">.</span><span class="m">74980</span><span class="err">E-</span><span class="m">01   7.10879E-01</span>
+ <span class="err">e</span>
+<span class="m">8</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">2</span><span class="err">.</span><span class="m">97150</span><span class="err">E+</span><span class="m">02</span>   <span class="m">2</span><span class="err">.</span><span class="m">97150</span><span class="err">E+</span><span class="m">02   2.97150E+02</span>
+ <span class="err">e</span>
+<span class="m">9</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">1</span><span class="err">.</span><span class="m">11870</span><span class="err">E+</span><span class="m">00</span>   <span class="m">4</span><span class="err">.</span><span class="m">15813</span><span class="err">E+</span><span class="m">00   1.78119E-01</span>
+ <span class="err">e</span>
+<span class="m">10</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+     <span class="m">92235</span>       <span class="m">92238</span>       <span class="m">26056</span>        <span class="m">1001</span>        <span class="m">8016</span>
+<span class="err">e</span>
+<span class="m">11</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+         <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>
+<span class="err">e</span>
+<span class="m">13</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">2</span><span class="err">.</span><span class="m">71260</span><span class="err">E-</span><span class="m">01</span>   <span class="m">5</span><span class="err">.</span><span class="m">20852</span><span class="err">E-</span><span class="m">01   9.24912E-01</span>
+ <span class="err">e</span>
+<span class="m">14</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">8</span><span class="err">.</span><span class="m">11530</span><span class="err">E-</span><span class="m">01</span>   <span class="m">1</span><span class="err">.</span><span class="m">38430</span><span class="err">E-</span><span class="m">01   4.71798E-01</span>
+ <span class="err">e</span>
+<span class="m">15</span><span class="err">**</span>  <span class="err">a</span><span class="m">0001</span>
+ <span class="m">0</span><span class="err">.</span><span class="m">00000</span><span class="err">E+</span><span class="m">00</span>   <span class="m">0</span><span class="err">.</span><span class="m">00000</span><span class="err">E+</span><span class="m">00</span>   <span class="m">0</span><span class="err">.</span><span class="m">00000</span><span class="err">E+</span><span class="m">00   0.00000E+00</span>
+ <span class="err">e</span>
+<span class="m">16</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+         <span class="m">2</span>           <span class="m">2</span>           <span class="m">2</span>
+<span class="err">e</span>
+<span class="m">17</span><span class="err">$$</span>  <span class="err">a</span><span class="m">0001</span>
+         <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>
+<span class="err">e</span>
+<span class="err">t</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span>                                   <span class="err">program</span> <span class="err">verification</span> <span class="err">information</span>
+
+                               <span class="err">code</span> <span class="err">system:</span>  <span class="err">SCALE</span>    <span class="err">version:</span>  <span class="m">6</span><span class="err">.</span><span class="m">2</span>
+
+
+
+
+          <span class="err">program:</span>  <span class="err">bonami</span>
+
+    <span class="err">creation</span> <span class="err">date:</span>   <span class="err">unknown</span>
+
+          <span class="err">library:</span>  <span class="err">/home</span><span class="m">02</span><span class="err">/u</span><span class="m">2</span><span class="err">m/Workfolder/sampletmp</span>
+
+
+        <span class="err">test</span> <span class="err">code:</span>  <span class="err">bonami</span>
+
+          <span class="err">version:</span>  <span class="m">6</span><span class="err">.</span><span class="m">2</span><span class="err">.</span><span class="m">0</span>
+
+          <span class="err">jobname:</span>  <span class="err">u</span><span class="m">2</span><span class="err">m</span>
+
+     <span class="err">machine</span> <span class="err">name:</span>  <span class="err">node</span><span class="m">22</span><span class="err">.ornl.gov</span>
+
+<span class="err">date</span> <span class="err">of</span> <span class="err">execution:</span>  <span class="m">04</span><span class="err">_dec_</span><span class="m">2013</span>
+
+<span class="err">time</span> <span class="err">of</span> <span class="err">execution:</span>  <span class="m">21</span><span class="err">:</span><span class="m">43</span><span class="err">:</span><span class="m">54</span><span class="err">.</span><span class="m">38</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>
+                <span class="err">BONAMI</span> <span class="err">CELL</span> <span class="err">PARAMETERS</span>
+<span class="err">---------------------------------------------</span>
+<span class="err">Bonami</span> <span class="err">Print</span> <span class="err">Option</span>          <span class="err">:</span> <span class="m">4</span>
+<span class="err">BellFactor</span>                   <span class="err">:</span> <span class="m">0</span>
+<span class="err">Bondarenko</span> <span class="err">Iteration</span> <span class="err">eps</span>     <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">001</span>
+<span class="err">Resonance</span> <span class="err">Option</span>             <span class="err">:</span> <span class="m">1</span>
+<span class="err">Bell</span> <span class="err">Factor</span>  <span class="err">Option</span>          <span class="err">:</span> <span class="err">LESLIE</span>
+<span class="err">Escape</span> <span class="err">CrossSection</span>  <span class="err">Option</span>  <span class="err">:</span> <span class="err">INCONSISTENT</span>
+<span class="err">CellGeometry</span>                 <span class="err">:</span> <span class="m">2</span>
+<span class="err">MasterLibrary</span>                <span class="err">:</span>
+<span class="err">Number</span> <span class="err">oF</span> <span class="err">Neutron</span> <span class="err">Groups</span>     <span class="err">:</span> <span class="m">8</span>
+<span class="err">First</span> <span class="err">Thermal</span> <span class="err">Neutron</span> <span class="err">Group</span>  <span class="err">:</span> <span class="m">5</span>
+<span class="err">__________________________________________</span>
+<span class="err">Processing</span> <span class="err">Zone</span>               <span class="err">:</span> <span class="m">1</span>
+<span class="err">Mixture</span> <span class="err">Number</span>                <span class="err">:</span> <span class="m">1</span>
+<span class="err">Number</span> <span class="err">Of</span> <span class="err">Nuclides</span>            <span class="err">:</span> <span class="m">2</span>
+<span class="err">Dancoff</span> <span class="err">Factor</span>                <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">27126</span>
+<span class="err">Lbar</span>                          <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">81153</span>
+<span class="err">Escape</span> <span class="err">Cross</span> <span class="err">Section</span> <span class="err">Input</span>    <span class="err">:</span> <span class="m">1</span><span class="err">.</span><span class="m">1187</span>
+<span class="err">Material</span> <span class="err">Temeprature</span>          <span class="err">:</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span>
+
+<span class="err">Processing</span> <span class="err">Nuclide</span> <span class="err">:</span>  <span class="m">92235</span>  <span class="err">Number</span> <span class="err">Density</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">00014987</span>
+<span class="err">Processing</span> <span class="err">Nuclide</span> <span class="err">:</span>  <span class="m">92238</span>  <span class="err">Number</span> <span class="err">Density</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">020664</span>
+
+<span class="err">Bondarenko</span> <span class="err">Iterations</span>
+<span class="err">iteration</span>    <span class="err">Nuclide</span> <span class="err">Group</span>   <span class="err">MaxChange</span>   <span class="err">Selfsig</span><span class="m">0</span>     <span class="err">Effsig</span><span class="m">0</span>
+     <span class="m">1</span>        <span class="m">92235</span>     <span class="m">0</span>             <span class="m">0</span>          <span class="m">0</span>   <span class="m">0</span>
+     <span class="m">1</span>        <span class="m">92238</span>     <span class="m">0</span>             <span class="m">0</span>          <span class="m">0</span>   <span class="m">0</span>
+
+<span class="err">Total</span> <span class="err">number</span> <span class="err">of</span> <span class="err">Bondarenko</span> <span class="err">Iterations</span>  <span class="err">:</span> <span class="m">1</span>
+<span class="err">Max</span> <span class="err">Change</span> <span class="err">in</span> <span class="err">Group</span>                    <span class="err">:</span> <span class="m">0</span>
+
+<span class="err">Group</span>  <span class="err">Eff</span> <span class="err">Macro</span> <span class="err">Sig</span><span class="m">0</span>      <span class="err">Escape</span> <span class="err">Xsec</span>
+   <span class="m">1</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">2</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">3</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">4</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">5</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">6</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">7</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+   <span class="m">8</span>      <span class="m">0</span><span class="err">.</span><span class="m">2351032</span>         <span class="m">0</span><span class="err">.</span><span class="m">9075513</span>
+
+<span class="err">---------------------------------------------------</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">Shielding</span> <span class="err">Nuclide</span> <span class="m">92235</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">1</span>     <span class="m">1</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">7</span><span class="err">.</span><span class="m">19131</span>      <span class="m">0</span><span class="err">.</span><span class="m">999998</span>   <span class="m">7</span><span class="err">.</span><span class="m">19129</span>
+   <span class="m">1</span>     <span class="m">2</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">10</span><span class="err">.</span><span class="m">2521</span>      <span class="m">0</span><span class="err">.</span><span class="m">999616</span>   <span class="m">10</span><span class="err">.</span><span class="m">2481</span>
+   <span class="m">1</span>     <span class="m">3</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">24</span><span class="err">.</span><span class="m">9361</span>       <span class="m">1</span><span class="err">.</span><span class="m">00241</span>   <span class="m">24</span><span class="err">.</span><span class="m">9963</span>
+   <span class="m">1</span>     <span class="m">4</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">75</span><span class="err">.</span><span class="m">1109</span>       <span class="m">1</span><span class="err">.</span><span class="m">05902</span>   <span class="m">79</span><span class="err">.</span><span class="m">5436</span>
+   <span class="m">1</span>     <span class="m">5</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">56</span><span class="err">.</span><span class="m">0286</span>       <span class="m">1</span><span class="err">.</span><span class="m">00205</span>   <span class="m">56</span><span class="err">.</span><span class="m">1434</span>
+   <span class="m">1</span>     <span class="m">6</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">198</span><span class="err">.</span><span class="m">645</span>        <span class="m">1</span><span class="err">.</span><span class="m">0008</span>   <span class="m">198</span><span class="err">.</span><span class="m">805</span>
+   <span class="m">1</span>     <span class="m">7</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">347</span><span class="err">.</span><span class="m">945</span>       <span class="m">1</span><span class="err">.</span><span class="m">00024</span>   <span class="m">348</span><span class="err">.</span><span class="m">028</span>
+   <span class="m">1</span>     <span class="m">8</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">761</span><span class="err">.</span><span class="m">257</span>        <span class="m">1</span><span class="err">.</span><span class="m">0066</span>   <span class="m">766</span><span class="err">.</span><span class="m">282</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">2</span>     <span class="m">1</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">3</span><span class="err">.</span><span class="m">71448</span>      <span class="m">0</span><span class="err">.</span><span class="m">999999</span>   <span class="m">3</span><span class="err">.</span><span class="m">71448</span>
+   <span class="m">2</span>     <span class="m">2</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">7</span><span class="err">.</span><span class="m">63235</span>       <span class="m">0</span><span class="err">.</span><span class="m">99935</span>   <span class="m">7</span><span class="err">.</span><span class="m">62739</span>
+   <span class="m">2</span>     <span class="m">3</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>          <span class="m">11</span><span class="err">.</span><span class="m">841</span>      <span class="m">0</span><span class="err">.</span><span class="m">999444</span>   <span class="m">11</span><span class="err">.</span><span class="m">8345</span>
+   <span class="m">2</span>     <span class="m">4</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">11</span><span class="err">.</span><span class="m">5408</span>       <span class="m">1</span><span class="err">.</span><span class="m">00561</span>   <span class="m">11</span><span class="err">.</span><span class="m">6055</span>
+   <span class="m">2</span>     <span class="m">5</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">12</span><span class="err">.</span><span class="m">5449</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">12</span><span class="err">.</span><span class="m">545</span>
+   <span class="m">2</span>     <span class="m">6</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">14</span><span class="err">.</span><span class="m">2501</span>       <span class="m">1</span><span class="err">.</span><span class="m">00007</span>   <span class="m">14</span><span class="err">.</span><span class="m">2511</span>
+   <span class="m">2</span>     <span class="m">7</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">14</span><span class="err">.</span><span class="m">8125</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003</span>   <span class="m">14</span><span class="err">.</span><span class="m">8128</span>
+   <span class="m">2</span>     <span class="m">8</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">15</span><span class="err">.</span><span class="m">1274</span>       <span class="m">1</span><span class="err">.</span><span class="m">00015</span>   <span class="m">15</span><span class="err">.</span><span class="m">1297</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+  <span class="m">18</span>     <span class="m">1</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">1</span><span class="err">.</span><span class="m">21846</span>      <span class="m">0</span><span class="err">.</span><span class="m">999996</span>   <span class="m">1</span><span class="err">.</span><span class="m">21846</span>
+  <span class="m">18</span>     <span class="m">2</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">1</span><span class="err">.</span><span class="m">40834</span>        <span class="m">1</span><span class="err">.</span><span class="m">0002</span>   <span class="m">1</span><span class="err">.</span><span class="m">40862</span>
+  <span class="m">18</span>     <span class="m">3</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">8</span><span class="err">.</span><span class="m">92885</span>       <span class="m">1</span><span class="err">.</span><span class="m">00132</span>   <span class="m">8</span><span class="err">.</span><span class="m">94062</span>
+  <span class="m">18</span>     <span class="m">4</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">39</span><span class="err">.</span><span class="m">2086</span>       <span class="m">1</span><span class="err">.</span><span class="m">06274</span>   <span class="m">41</span><span class="err">.</span><span class="m">6686</span>
+  <span class="m">18</span>     <span class="m">5</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">32</span><span class="err">.</span><span class="m">7026</span>       <span class="m">1</span><span class="err">.</span><span class="m">00105</span>   <span class="m">32</span><span class="err">.</span><span class="m">737</span>
+  <span class="m">18</span>     <span class="m">6</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">153</span><span class="err">.</span><span class="m">511</span>       <span class="m">1</span><span class="err">.</span><span class="m">00089</span>   <span class="m">153</span><span class="err">.</span><span class="m">647</span>
+  <span class="m">18</span>     <span class="m">7</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">285</span><span class="err">.</span><span class="m">775</span>       <span class="m">1</span><span class="err">.</span><span class="m">00026</span>   <span class="m">285</span><span class="err">.</span><span class="m">848</span>
+  <span class="m">18</span>     <span class="m">8</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">636</span><span class="err">.</span><span class="m">445</span>       <span class="m">1</span><span class="err">.</span><span class="m">00655</span>   <span class="m">640</span><span class="err">.</span><span class="m">611</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+ <span class="m">102</span>     <span class="m">1</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>        <span class="m">0</span><span class="err">.</span><span class="m">060296</span>             <span class="m">1</span>   <span class="m">0</span><span class="err">.</span><span class="m">0602962</span>
+ <span class="m">102</span>     <span class="m">2</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>        <span class="m">0</span><span class="err">.</span><span class="m">317627</span>       <span class="m">1</span><span class="err">.</span><span class="m">00352</span>   <span class="m">0</span><span class="err">.</span><span class="m">318746</span>
+ <span class="m">102</span>     <span class="m">3</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">4</span><span class="err">.</span><span class="m">16593</span>       <span class="m">1</span><span class="err">.</span><span class="m">01325</span>   <span class="m">4</span><span class="err">.</span><span class="m">22113</span>
+ <span class="m">102</span>     <span class="m">4</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">24</span><span class="err">.</span><span class="m">3615</span>       <span class="m">1</span><span class="err">.</span><span class="m">07832</span>   <span class="m">26</span><span class="err">.</span><span class="m">2695</span>
+ <span class="m">102</span>     <span class="m">5</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>          <span class="m">10</span><span class="err">.</span><span class="m">781</span>       <span class="m">1</span><span class="err">.</span><span class="m">00749</span>   <span class="m">10</span><span class="err">.</span><span class="m">8618</span>
+ <span class="m">102</span>     <span class="m">6</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">30</span><span class="err">.</span><span class="m">8844</span>       <span class="m">1</span><span class="err">.</span><span class="m">00074</span>   <span class="m">30</span><span class="err">.</span><span class="m">9073</span>
+ <span class="m">102</span>     <span class="m">7</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">47</span><span class="err">.</span><span class="m">3579</span>        <span class="m">1</span><span class="err">.</span><span class="m">0002</span>   <span class="m">47</span><span class="err">.</span><span class="m">3671</span>
+ <span class="m">102</span>     <span class="m">8</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">109</span><span class="err">.</span><span class="m">685</span>       <span class="m">1</span><span class="err">.</span><span class="m">00781</span>   <span class="m">110</span><span class="err">.</span><span class="m">542</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+<span class="m">1007</span>     <span class="m">1</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">2</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">3</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">4</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">5</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">12</span><span class="err">.</span><span class="m">5448</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">12</span><span class="err">.</span><span class="m">5449</span>
+<span class="m">1007</span>     <span class="m">6</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">14</span><span class="err">.</span><span class="m">2501</span>       <span class="m">1</span><span class="err">.</span><span class="m">00007</span>   <span class="m">14</span><span class="err">.</span><span class="m">2511</span>
+<span class="m">1007</span>     <span class="m">7</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">14</span><span class="err">.</span><span class="m">8125</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003</span>   <span class="m">14</span><span class="err">.</span><span class="m">8129</span>
+<span class="m">1007</span>     <span class="m">8</span>    <span class="m">7612</span><span class="err">.</span><span class="m">71875</span>         <span class="m">15</span><span class="err">.</span><span class="m">1278</span>       <span class="m">1</span><span class="err">.</span><span class="m">00015</span>   <span class="m">15</span><span class="err">.</span><span class="m">13</span>
+
+<span class="err">---------------------------------------------------</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">Shielding</span> <span class="err">Nuclide</span> <span class="m">92238</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">1</span>     <span class="m">1</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">7</span><span class="err">.</span><span class="m">33815</span>      <span class="m">0</span><span class="err">.</span><span class="m">999983</span>   <span class="m">7</span><span class="err">.</span><span class="m">33803</span>
+   <span class="m">1</span>     <span class="m">2</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">10</span><span class="err">.</span><span class="m">3566</span>       <span class="m">1</span><span class="err">.</span><span class="m">00418</span>   <span class="m">10</span><span class="err">.</span><span class="m">3999</span>
+   <span class="m">1</span>     <span class="m">3</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">15</span><span class="err">.</span><span class="m">0517</span>      <span class="m">0</span><span class="err">.</span><span class="m">976844</span>   <span class="m">14</span><span class="err">.</span><span class="m">7032</span>
+   <span class="m">1</span>     <span class="m">4</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>          <span class="m">15</span><span class="err">.</span><span class="m">951</span>      <span class="m">0</span><span class="err">.</span><span class="m">983793</span>   <span class="m">15</span><span class="err">.</span><span class="m">6925</span>
+   <span class="m">1</span>     <span class="m">5</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">9</span><span class="err">.</span><span class="m">43867</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">9</span><span class="err">.</span><span class="m">43887</span>
+   <span class="m">1</span>     <span class="m">6</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">10</span><span class="err">.</span><span class="m">1008</span>       <span class="m">1</span><span class="err">.</span><span class="m">00008</span>   <span class="m">10</span><span class="err">.</span><span class="m">1015</span>
+   <span class="m">1</span>     <span class="m">7</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">10</span><span class="err">.</span><span class="m">7744</span>       <span class="m">1</span><span class="err">.</span><span class="m">00004</span>   <span class="m">10</span><span class="err">.</span><span class="m">7748</span>
+   <span class="m">1</span>     <span class="m">8</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">12</span><span class="err">.</span><span class="m">2124</span>       <span class="m">1</span><span class="err">.</span><span class="m">00145</span>   <span class="m">12</span><span class="err">.</span><span class="m">2301</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">2</span>     <span class="m">1</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>          <span class="m">4</span><span class="err">.</span><span class="m">0228</span>      <span class="m">0</span><span class="err">.</span><span class="m">999974</span>   <span class="m">4</span><span class="err">.</span><span class="m">0227</span>
+   <span class="m">2</span>     <span class="m">2</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">9</span><span class="err">.</span><span class="m">05886</span>       <span class="m">1</span><span class="err">.</span><span class="m">00575</span>   <span class="m">9</span><span class="err">.</span><span class="m">11093</span>
+   <span class="m">2</span>     <span class="m">3</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">14</span><span class="err">.</span><span class="m">0213</span>      <span class="m">0</span><span class="err">.</span><span class="m">979923</span>   <span class="m">13</span><span class="err">.</span><span class="m">7398</span>
+   <span class="m">2</span>     <span class="m">4</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">11</span><span class="err">.</span><span class="m">9032</span>       <span class="m">0</span><span class="err">.</span><span class="m">98795</span>   <span class="m">11</span><span class="err">.</span><span class="m">7598</span>
+   <span class="m">2</span>     <span class="m">5</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">8</span><span class="err">.</span><span class="m">86555</span>      <span class="m">0</span><span class="err">.</span><span class="m">999984</span>   <span class="m">8</span><span class="err">.</span><span class="m">86541</span>
+   <span class="m">2</span>     <span class="m">6</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">9</span><span class="err">.</span><span class="m">24452</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">9</span><span class="err">.</span><span class="m">24471</span>
+   <span class="m">2</span>     <span class="m">7</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>          <span class="m">9</span><span class="err">.</span><span class="m">2797</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">9</span><span class="err">.</span><span class="m">27987</span>
+   <span class="m">2</span>     <span class="m">8</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>          <span class="m">9</span><span class="err">.</span><span class="m">3077</span>       <span class="m">1</span><span class="err">.</span><span class="m">00009</span>   <span class="m">9</span><span class="err">.</span><span class="m">30853</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+  <span class="m">18</span>     <span class="m">1</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>        <span class="m">0</span><span class="err">.</span><span class="m">376356</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">0</span><span class="err">.</span><span class="m">376361</span>
+  <span class="m">18</span>     <span class="m">2</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>     <span class="m">0</span><span class="err">.</span><span class="m">000528746</span>       <span class="m">1</span><span class="err">.</span><span class="m">00019</span>   <span class="m">0</span><span class="err">.</span><span class="m">000528845</span>
+  <span class="m">18</span>     <span class="m">3</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>     <span class="m">0</span><span class="err">.</span><span class="m">000308061</span>      <span class="m">0</span><span class="err">.</span><span class="m">966052</span>   <span class="m">0</span><span class="err">.</span><span class="m">000297603</span>
+  <span class="m">18</span>     <span class="m">4</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>     <span class="m">4</span><span class="err">.</span><span class="m">75014</span><span class="err">e-</span><span class="m">06</span>      <span class="m">0</span><span class="err">.</span><span class="m">967842   4.59738e-06</span>
+  <span class="m">18</span>     <span class="m">5</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>     <span class="m">2</span><span class="err">.</span><span class="m">60878</span><span class="err">e-</span><span class="m">06</span>       <span class="m">1</span><span class="err">.</span><span class="m">00006   2.60893e-06</span>
+  <span class="m">18</span>     <span class="m">6</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>     <span class="m">5</span><span class="err">.</span><span class="m">27139</span><span class="err">e-</span><span class="m">06</span>       <span class="m">1</span><span class="err">.</span><span class="m">00071   5.27512e-06</span>
+  <span class="m">18</span>     <span class="m">7</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>      <span class="m">9</span><span class="err">.</span><span class="m">3235</span><span class="err">e-</span><span class="m">06</span>       <span class="m">1</span><span class="err">.</span><span class="m">00018   9.32514e-06</span>
+  <span class="m">18</span>     <span class="m">8</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>     <span class="m">1</span><span class="err">.</span><span class="m">81868</span><span class="err">e-</span><span class="m">05</span>       <span class="m">1</span><span class="err">.</span><span class="m">00588   1.82937e-05</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+ <span class="m">102</span>     <span class="m">1</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>       <span class="m">0</span><span class="err">.</span><span class="m">0554327</span>       <span class="m">1</span><span class="err">.</span><span class="m">00006</span>   <span class="m">0</span><span class="err">.</span><span class="m">0554359</span>
+ <span class="m">102</span>     <span class="m">2</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">0</span><span class="err">.</span><span class="m">17972</span>      <span class="m">0</span><span class="err">.</span><span class="m">978628</span>   <span class="m">0</span><span class="err">.</span><span class="m">175879</span>
+ <span class="m">102</span>     <span class="m">3</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">1</span><span class="err">.</span><span class="m">03011</span>      <span class="m">0</span><span class="err">.</span><span class="m">934934</span>   <span class="m">0</span><span class="err">.</span><span class="m">963087</span>
+ <span class="m">102</span>     <span class="m">4</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">4</span><span class="err">.</span><span class="m">04777</span>      <span class="m">0</span><span class="err">.</span><span class="m">971568</span>   <span class="m">3</span><span class="err">.</span><span class="m">93268</span>
+ <span class="m">102</span>     <span class="m">5</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>        <span class="m">0</span><span class="err">.</span><span class="m">573119</span>        <span class="m">1</span><span class="err">.</span><span class="m">0006</span>   <span class="m">0</span><span class="err">.</span><span class="m">573462</span>
+ <span class="m">102</span>     <span class="m">6</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>        <span class="m">0</span><span class="err">.</span><span class="m">856257</span>       <span class="m">1</span><span class="err">.</span><span class="m">00068</span>   <span class="m">0</span><span class="err">.</span><span class="m">856839</span>
+ <span class="m">102</span>     <span class="m">7</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">1</span><span class="err">.</span><span class="m">49471</span>       <span class="m">1</span><span class="err">.</span><span class="m">00017</span>   <span class="m">1</span><span class="err">.</span><span class="m">49497</span>
+ <span class="m">102</span>     <span class="m">8</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">2</span><span class="err">.</span><span class="m">90465</span>       <span class="m">1</span><span class="err">.</span><span class="m">00586</span>   <span class="m">2</span><span class="err">.</span><span class="m">92168</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+<span class="m">1007</span>     <span class="m">1</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">2</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">3</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">4</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">5</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">8</span><span class="err">.</span><span class="m">86549</span>      <span class="m">0</span><span class="err">.</span><span class="m">999984</span>   <span class="m">8</span><span class="err">.</span><span class="m">86535</span>
+<span class="m">1007</span>     <span class="m">6</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">9</span><span class="err">.</span><span class="m">24445</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">9</span><span class="err">.</span><span class="m">24463</span>
+<span class="m">1007</span>     <span class="m">7</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">9</span><span class="err">.</span><span class="m">27974</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">9</span><span class="err">.</span><span class="m">27992</span>
+<span class="m">1007</span>     <span class="m">8</span>    <span class="m">44</span><span class="err">.</span><span class="m">0034676</span>         <span class="m">9</span><span class="err">.</span><span class="m">30769</span>       <span class="m">1</span><span class="err">.</span><span class="m">00009</span>   <span class="m">9</span><span class="err">.</span><span class="m">30852</span>
+<span class="err">Zone</span> <span class="err">Calculation</span> <span class="err">is</span> <span class="err">completed</span> <span class="err">in</span> <span class="m">0</span> <span class="err">seconds</span>
+                <span class="err">BONAMI</span> <span class="err">CELL</span> <span class="err">PARAMETERS</span>
+<span class="err">---------------------------------------------</span>
+<span class="err">Bonami</span> <span class="err">Print</span> <span class="err">Option</span>          <span class="err">:</span> <span class="m">4</span>
+<span class="err">BellFactor</span>                   <span class="err">:</span> <span class="m">0</span>
+<span class="err">Bondarenko</span> <span class="err">Iteration</span> <span class="err">eps</span>     <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">001</span>
+<span class="err">Resonance</span> <span class="err">Option</span>             <span class="err">:</span> <span class="m">1</span>
+<span class="err">Bell</span> <span class="err">Factor</span>  <span class="err">Option</span>          <span class="err">:</span> <span class="err">LESLIE</span>
+<span class="err">Escape</span> <span class="err">CrossSection</span>  <span class="err">Option</span>  <span class="err">:</span> <span class="err">INCONSISTENT</span>
+<span class="err">CellGeometry</span>                 <span class="err">:</span> <span class="m">2</span>
+<span class="err">MasterLibrary</span>                <span class="err">:</span>
+<span class="err">Number</span> <span class="err">oF</span> <span class="err">Neutron</span> <span class="err">Groups</span>     <span class="err">:</span> <span class="m">8</span>
+<span class="err">First</span> <span class="err">Thermal</span> <span class="err">Neutron</span> <span class="err">Group</span>  <span class="err">:</span> <span class="m">5</span>
+<span class="err">__________________________________________</span>
+<span class="err">Processing</span> <span class="err">Zone</span>               <span class="err">:</span> <span class="m">2</span>
+<span class="err">Mixture</span> <span class="err">Number</span>                <span class="err">:</span> <span class="m">2</span>
+<span class="err">Number</span> <span class="err">Of</span> <span class="err">Nuclides</span>            <span class="err">:</span> <span class="m">1</span>
+<span class="err">Dancoff</span> <span class="err">Factor</span>                <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">520852</span>
+<span class="err">Lbar</span>                          <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">13843</span>
+<span class="err">Escape</span> <span class="err">Cross</span> <span class="err">Section</span> <span class="err">Input</span>    <span class="err">:</span> <span class="m">4</span><span class="err">.</span><span class="m">15813</span>
+<span class="err">Material</span> <span class="err">Temeprature</span>          <span class="err">:</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span>
+
+<span class="err">Processing</span> <span class="err">Nuclide</span> <span class="err">:</span>  <span class="m">26056</span>  <span class="err">Number</span> <span class="err">Density</span> <span class="err">:</span><span class="m"> 9.5642e-05</span>
+
+<span class="err">Bondarenko</span> <span class="err">Iterations</span>
+<span class="err">iteration</span>    <span class="err">Nuclide</span> <span class="err">Group</span>   <span class="err">MaxChange</span>   <span class="err">Selfsig</span><span class="m">0</span>     <span class="err">Effsig</span><span class="m">0</span>
+     <span class="m">1</span>        <span class="m">26056</span>     <span class="m">0</span>             <span class="m">0</span>          <span class="m">0</span>   <span class="m">0</span>
+
+<span class="err">Total</span> <span class="err">number</span> <span class="err">of</span> <span class="err">Bondarenko</span> <span class="err">Iterations</span>  <span class="err">:</span> <span class="m">1</span>
+<span class="err">Max</span> <span class="err">Change</span> <span class="err">in</span> <span class="err">Group</span>                    <span class="err">:</span> <span class="m">0</span>
+
+<span class="err">Group</span>  <span class="err">Eff</span> <span class="err">Macro</span> <span class="err">Sig</span><span class="m">0</span>      <span class="err">Escape</span> <span class="err">Xsec</span>
+   <span class="m">1</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">2</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">3</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">4</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">5</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">6</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">7</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+   <span class="m">8</span>     <span class="m">0</span><span class="err">.</span><span class="m">0003553244</span>          <span class="m">3</span><span class="err">.</span><span class="m">487286</span>
+
+<span class="err">---------------------------------------------------</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">Shielding</span> <span class="err">Nuclide</span> <span class="m">26056</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">1</span>     <span class="m">1</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">3</span><span class="err">.</span><span class="m">07957</span>       <span class="m">1</span><span class="err">.</span><span class="m">00005</span>   <span class="m">3</span><span class="err">.</span><span class="m">07972</span>
+   <span class="m">1</span>     <span class="m">2</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">4</span><span class="err">.</span><span class="m">68958</span>       <span class="m">1</span><span class="err">.</span><span class="m">00091</span>   <span class="m">4</span><span class="err">.</span><span class="m">69382</span>
+   <span class="m">1</span>     <span class="m">3</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">7</span><span class="err">.</span><span class="m">85712</span>      <span class="m">0</span><span class="err">.</span><span class="m">999843</span>   <span class="m">7</span><span class="err">.</span><span class="m">85589</span>
+   <span class="m">1</span>     <span class="m">4</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">0029</span>             <span class="m">1</span>   <span class="m">12</span><span class="err">.</span><span class="m">0029</span>
+   <span class="m">1</span>     <span class="m">5</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">3689</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">12</span><span class="err">.</span><span class="m">369</span>
+   <span class="m">1</span>     <span class="m">6</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">8598</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003</span>   <span class="m">12</span><span class="err">.</span><span class="m">8602</span>
+   <span class="m">1</span>     <span class="m">7</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">13</span><span class="err">.</span><span class="m">5237</span>      <span class="m">0</span><span class="err">.</span><span class="m">999906</span>   <span class="m">13</span><span class="err">.</span><span class="m">5224</span>
+   <span class="m">1</span>     <span class="m">8</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">15</span><span class="err">.</span><span class="m">0714</span>       <span class="m">0</span><span class="err">.</span><span class="m">99949</span>   <span class="m">15</span><span class="err">.</span><span class="m">0637</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">2</span>     <span class="m">1</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">2</span><span class="err">.</span><span class="m">26476</span>       <span class="m">1</span><span class="err">.</span><span class="m">00047</span>   <span class="m">2</span><span class="err">.</span><span class="m">26583</span>
+   <span class="m">2</span>     <span class="m">2</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>          <span class="m">4</span><span class="err">.</span><span class="m">6817</span>        <span class="m">1</span><span class="err">.</span><span class="m">0009</span>   <span class="m">4</span><span class="err">.</span><span class="m">68592</span>
+   <span class="m">2</span>     <span class="m">3</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">7</span><span class="err">.</span><span class="m">81457</span>      <span class="m">0</span><span class="err">.</span><span class="m">999813</span>   <span class="m">7</span><span class="err">.</span><span class="m">81311</span>
+   <span class="m">2</span>     <span class="m">4</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">11</span><span class="err">.</span><span class="m">9143</span>             <span class="m">1</span>   <span class="m">11</span><span class="err">.</span><span class="m">9143</span>
+   <span class="m">2</span>     <span class="m">5</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">0468</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">12</span><span class="err">.</span><span class="m">0469</span>
+   <span class="m">2</span>     <span class="m">6</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>          <span class="m">12</span><span class="err">.</span><span class="m">065</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">12</span><span class="err">.</span><span class="m">0653</span>
+   <span class="m">2</span>     <span class="m">7</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">0887</span>       <span class="m">1</span><span class="err">.</span><span class="m">00005</span>   <span class="m">12</span><span class="err">.</span><span class="m">0893</span>
+   <span class="m">2</span>     <span class="m">8</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">2042</span>       <span class="m">1</span><span class="err">.</span><span class="m">00013</span>   <span class="m">12</span><span class="err">.</span><span class="m">2057</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+ <span class="m">102</span>     <span class="m">1</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>      <span class="m">0</span><span class="err">.</span><span class="m">00206393</span>        <span class="m">1</span><span class="err">.</span><span class="m">0015</span>   <span class="m">0</span><span class="err">.</span><span class="m">00206702</span>
+ <span class="m">102</span>     <span class="m">2</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>      <span class="m">0</span><span class="err">.</span><span class="m">00787763</span>        <span class="m">1</span><span class="err">.</span><span class="m">0035</span>   <span class="m">0</span><span class="err">.</span><span class="m">00790524</span>
+ <span class="m">102</span>     <span class="m">3</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>       <span class="m">0</span><span class="err">.</span><span class="m">0425504</span>       <span class="m">1</span><span class="err">.</span><span class="m">00623</span>   <span class="m">0</span><span class="err">.</span><span class="m">0428155</span>
+ <span class="m">102</span>     <span class="m">4</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>       <span class="m">0</span><span class="err">.</span><span class="m">0885525</span>             <span class="m">1</span>   <span class="m">0</span><span class="err">.</span><span class="m">0885529</span>
+ <span class="m">102</span>     <span class="m">5</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>        <span class="m">0</span><span class="err">.</span><span class="m">322101</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">0</span><span class="err">.</span><span class="m">322109</span>
+ <span class="m">102</span>     <span class="m">6</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>        <span class="m">0</span><span class="err">.</span><span class="m">794804</span>        <span class="m">1</span><span class="err">.</span><span class="m">0002</span>   <span class="m">0</span><span class="err">.</span><span class="m">79496</span>
+ <span class="m">102</span>     <span class="m">7</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">1</span><span class="err">.</span><span class="m">43496</span>      <span class="m">0</span><span class="err">.</span><span class="m">998734</span>   <span class="m">1</span><span class="err">.</span><span class="m">43314</span>
+ <span class="m">102</span>     <span class="m">8</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">2</span><span class="err">.</span><span class="m">86723</span>      <span class="m">0</span><span class="err">.</span><span class="m">996792</span>   <span class="m">2</span><span class="err">.</span><span class="m">85803</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+<span class="m">1007</span>     <span class="m">1</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">2</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">3</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">4</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">5</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">0468</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">12</span><span class="err">.</span><span class="m">0469</span>
+<span class="m">1007</span>     <span class="m">6</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>          <span class="m">12</span><span class="err">.</span><span class="m">065</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">12</span><span class="err">.</span><span class="m">0653</span>
+<span class="m">1007</span>     <span class="m">7</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">0887</span>       <span class="m">1</span><span class="err">.</span><span class="m">00005</span>   <span class="m">12</span><span class="err">.</span><span class="m">0893</span>
+<span class="m">1007</span>     <span class="m">8</span>    <span class="m">36461</span><span class="err">.</span><span class="m">8672</span>         <span class="m">12</span><span class="err">.</span><span class="m">2042</span>       <span class="m">1</span><span class="err">.</span><span class="m">00013</span>   <span class="m">12</span><span class="err">.</span><span class="m">2057</span>
+<span class="err">Zone</span> <span class="err">Calculation</span> <span class="err">is</span> <span class="err">completed</span> <span class="err">in</span> <span class="m">0</span> <span class="err">seconds</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">BONAMI</span> <span class="err">CELL</span> <span class="err">PARAMETERS</span>
+<span class="err">---------------------------------------------</span>
+<span class="err">Bonami</span> <span class="err">Print</span> <span class="err">Option</span>          <span class="err">:</span> <span class="m">4</span>
+<span class="err">BellFactor</span>                   <span class="err">:</span> <span class="m">0</span>
+<span class="err">Bondarenko</span> <span class="err">Iteration</span> <span class="err">eps</span>     <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">001</span>
+<span class="err">Resonance</span> <span class="err">Option</span>             <span class="err">:</span> <span class="m">1</span>
+<span class="err">Bell</span> <span class="err">Factor</span>  <span class="err">Option</span>          <span class="err">:</span> <span class="err">LESLIE</span>
+<span class="err">Escape</span> <span class="err">CrossSection</span>  <span class="err">Option</span>  <span class="err">:</span> <span class="err">INCONSISTENT</span>
+<span class="err">CellGeometry</span>                 <span class="err">:</span> <span class="m">2</span>
+<span class="err">MasterLibrary</span>                <span class="err">:</span>
+<span class="err">Number</span> <span class="err">oF</span> <span class="err">Neutron</span> <span class="err">Groups</span>     <span class="err">:</span> <span class="m">8</span>
+<span class="err">First</span> <span class="err">Thermal</span> <span class="err">Neutron</span> <span class="err">Group</span>  <span class="err">:</span> <span class="m">5</span>
+<span class="err">__________________________________________</span>
+<span class="err">Processing</span> <span class="err">Zone</span>               <span class="err">:</span> <span class="m">3</span>
+<span class="err">Mixture</span> <span class="err">Number</span>                <span class="err">:</span> <span class="m">3</span>
+<span class="err">Number</span> <span class="err">Of</span> <span class="err">Nuclides</span>            <span class="err">:</span> <span class="m">2</span>
+<span class="err">Dancoff</span> <span class="err">Factor</span>                <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">924912</span>
+<span class="err">Lbar</span>                          <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">471798</span>
+<span class="err">Escape</span> <span class="err">Cross</span> <span class="err">Section</span> <span class="err">Input</span>    <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">178119</span>
+<span class="err">Material</span> <span class="err">Temeprature</span>          <span class="err">:</span> <span class="m">297</span><span class="err">.</span><span class="m">15</span>
+
+<span class="err">Processing</span> <span class="err">Nuclide</span> <span class="err">:</span>   <span class="m">1001</span>  <span class="err">Number</span> <span class="err">Density</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">066662</span>
+<span class="err">Processing</span> <span class="err">Nuclide</span> <span class="err">:</span>   <span class="m">8016</span>  <span class="err">Number</span> <span class="err">Density</span> <span class="err">:</span> <span class="m">0</span><span class="err">.</span><span class="m">033331</span>
+
+<span class="err">Bondarenko</span> <span class="err">Iterations</span>
+<span class="err">iteration</span>    <span class="err">Nuclide</span> <span class="err">Group</span>   <span class="err">MaxChange</span>   <span class="err">Selfsig</span><span class="m">0</span>     <span class="err">Effsig</span><span class="m">0</span>
+     <span class="m">1</span>         <span class="m">1001</span>     <span class="m">0</span>             <span class="m">0</span>          <span class="m">0</span>   <span class="m">0</span>
+     <span class="m">1</span>         <span class="m">8016</span>     <span class="m">0</span>             <span class="m">0</span>          <span class="m">0</span>   <span class="m">0</span>
+
+<span class="err">Total</span> <span class="err">number</span> <span class="err">of</span> <span class="err">Bondarenko</span> <span class="err">Iterations</span>  <span class="err">:</span> <span class="m">1</span>
+<span class="err">Max</span> <span class="err">Change</span> <span class="err">in</span> <span class="err">Group</span>                    <span class="err">:</span> <span class="m">0</span>
+
+<span class="err">Group</span>  <span class="err">Eff</span> <span class="err">Macro</span> <span class="err">Sig</span><span class="m">0</span>      <span class="err">Escape</span> <span class="err">Xsec</span>
+   <span class="m">1</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">2</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">3</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">4</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">5</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">6</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">7</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+   <span class="m">8</span>       <span class="m">1</span><span class="err">.</span><span class="m">494705</span>         <span class="m">0</span><span class="err">.</span><span class="m">1593803</span>
+
+<span class="err">---------------------------------------------------</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">Shielding</span> <span class="err">Nuclide</span> <span class="m">1001</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">1</span>     <span class="m">1</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">2</span><span class="err">.</span><span class="m">98905</span>      <span class="m">0</span><span class="err">.</span><span class="m">999485</span>   <span class="m">2</span><span class="err">.</span><span class="m">98751</span>
+   <span class="m">1</span>     <span class="m">2</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">9</span><span class="err">.</span><span class="m">87269</span>      <span class="m">0</span><span class="err">.</span><span class="m">999169</span>   <span class="m">9</span><span class="err">.</span><span class="m">86448</span>
+   <span class="m">1</span>     <span class="m">3</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">19</span><span class="err">.</span><span class="m">9332</span>      <span class="m">0</span><span class="err">.</span><span class="m">999972</span>   <span class="m">19</span><span class="err">.</span><span class="m">9326</span>
+   <span class="m">1</span>     <span class="m">4</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">20</span><span class="err">.</span><span class="m">4672</span>      <span class="m">0</span><span class="err">.</span><span class="m">998926</span>   <span class="m">20</span><span class="err">.</span><span class="m">4453</span>
+   <span class="m">1</span>     <span class="m">5</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">21</span><span class="err">.</span><span class="m">1735</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">21</span><span class="err">.</span><span class="m">1736</span>
+   <span class="m">1</span>     <span class="m">6</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">26</span><span class="err">.</span><span class="m">1886</span>       <span class="m">0</span><span class="err">.</span><span class="m">99995</span>   <span class="m">26</span><span class="err">.</span><span class="m">1873</span>
+   <span class="m">1</span>     <span class="m">7</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">35</span><span class="err">.</span><span class="m">0621</span>      <span class="m">0</span><span class="err">.</span><span class="m">999821</span>   <span class="m">35</span><span class="err">.</span><span class="m">0558</span>
+   <span class="m">1</span>     <span class="m">8</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">54</span><span class="err">.</span><span class="m">9507</span>      <span class="m">0</span><span class="err">.</span><span class="m">997361</span>   <span class="m">54</span><span class="err">.</span><span class="m">8057</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">2</span>     <span class="m">1</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">2</span><span class="err">.</span><span class="m">98901</span>      <span class="m">0</span><span class="err">.</span><span class="m">999485</span>   <span class="m">2</span><span class="err">.</span><span class="m">98747</span>
+   <span class="m">2</span>     <span class="m">2</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>          <span class="m">9</span><span class="err">.</span><span class="m">8726</span>      <span class="m">0</span><span class="err">.</span><span class="m">999168</span>   <span class="m">9</span><span class="err">.</span><span class="m">86439</span>
+   <span class="m">2</span>     <span class="m">3</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">19</span><span class="err">.</span><span class="m">9315</span>      <span class="m">0</span><span class="err">.</span><span class="m">999972</span>   <span class="m">19</span><span class="err">.</span><span class="m">9309</span>
+   <span class="m">2</span>     <span class="m">4</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">20</span><span class="err">.</span><span class="m">4556</span>      <span class="m">0</span><span class="err">.</span><span class="m">998926</span>   <span class="m">20</span><span class="err">.</span><span class="m">4336</span>
+   <span class="m">2</span>     <span class="m">5</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">21</span><span class="err">.</span><span class="m">1321</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">21</span><span class="err">.</span><span class="m">1322</span>
+   <span class="m">2</span>     <span class="m">6</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">26</span><span class="err">.</span><span class="m">0865</span>       <span class="m">0</span><span class="err">.</span><span class="m">99995</span>   <span class="m">26</span><span class="err">.</span><span class="m">0852</span>
+   <span class="m">2</span>     <span class="m">7</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">34</span><span class="err">.</span><span class="m">8778</span>      <span class="m">0</span><span class="err">.</span><span class="m">999829</span>   <span class="m">34</span><span class="err">.</span><span class="m">8718</span>
+   <span class="m">2</span>     <span class="m">8</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">54</span><span class="err">.</span><span class="m">5786</span>      <span class="m">0</span><span class="err">.</span><span class="m">997396</span>   <span class="m">54</span><span class="err">.</span><span class="m">4365</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+ <span class="m">102</span>     <span class="m">1</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>     <span class="m">3</span><span class="err">.</span><span class="m">56422</span><span class="err">e-</span><span class="m">05</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003   3.56433e-05</span>
+ <span class="m">102</span>     <span class="m">2</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>     <span class="m">8</span><span class="err">.</span><span class="m">96827</span><span class="err">e-</span><span class="m">05</span>      <span class="m">0</span><span class="err">.</span><span class="m">998165   8.9518e-05</span>
+ <span class="m">102</span>     <span class="m">3</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>      <span class="m">0</span><span class="err">.</span><span class="m">00171679</span>      <span class="m">0</span><span class="err">.</span><span class="m">999794</span>   <span class="m">0</span><span class="err">.</span><span class="m">00171643</span>
+ <span class="m">102</span>     <span class="m">4</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>       <span class="m">0</span><span class="err">.</span><span class="m">0116042</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">0</span><span class="err">.</span><span class="m">0116044</span>
+ <span class="m">102</span>     <span class="m">5</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>       <span class="m">0</span><span class="err">.</span><span class="m">0413709</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001</span>   <span class="m">0</span><span class="err">.</span><span class="m">0413714</span>
+ <span class="m">102</span>     <span class="m">6</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>        <span class="m">0</span><span class="err">.</span><span class="m">102043</span>       <span class="m">1</span><span class="err">.</span><span class="m">00007</span>   <span class="m">0</span><span class="err">.</span><span class="m">10205</span>
+ <span class="m">102</span>     <span class="m">7</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>        <span class="m">0</span><span class="err">.</span><span class="m">184322</span>      <span class="m">0</span><span class="err">.</span><span class="m">998389</span>   <span class="m">0</span><span class="err">.</span><span class="m">184025</span>
+ <span class="m">102</span>     <span class="m">8</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>        <span class="m">0</span><span class="err">.</span><span class="m">372079</span>      <span class="m">0</span><span class="err">.</span><span class="m">992163</span>   <span class="m">0</span><span class="err">.</span><span class="m">369163</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+<span class="m">1007</span>     <span class="m">1</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">2</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">3</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">4</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">5</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">21</span><span class="err">.</span><span class="m">1312</span>       <span class="m">1</span><span class="err">.</span><span class="m">00005</span>   <span class="m">21</span><span class="err">.</span><span class="m">1322</span>
+<span class="m">1007</span>     <span class="m">6</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">26</span><span class="err">.</span><span class="m">0871</span>      <span class="m">0</span><span class="err">.</span><span class="m">999927</span>   <span class="m">26</span><span class="err">.</span><span class="m">0852</span>
+<span class="m">1007</span>     <span class="m">7</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">34</span><span class="err">.</span><span class="m">8779</span>      <span class="m">0</span><span class="err">.</span><span class="m">999826</span>   <span class="m">34</span><span class="err">.</span><span class="m">8718</span>
+<span class="m">1007</span>     <span class="m">8</span>    <span class="m">4</span><span class="err">.</span><span class="m">33502197</span>         <span class="m">54</span><span class="err">.</span><span class="m">5802</span>      <span class="m">0</span><span class="err">.</span><span class="m">997367</span>   <span class="m">54</span><span class="err">.</span><span class="m">4365</span>
+
+<span class="err">---------------------------------------------------</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">Shielding</span> <span class="err">Nuclide</span> <span class="m">8016</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">1</span>     <span class="m">1</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">2</span><span class="err">.</span><span class="m">36081</span>      <span class="m">0</span><span class="err">.</span><span class="m">980071</span>   <span class="m">2</span><span class="err">.</span><span class="m">31376</span>
+   <span class="m">1</span>     <span class="m">2</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">95917</span>      <span class="m">0</span><span class="err">.</span><span class="m">995755</span>   <span class="m">3</span><span class="err">.</span><span class="m">94236</span>
+   <span class="m">1</span>     <span class="m">3</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">84394</span>             <span class="m">1</span>   <span class="m">3</span><span class="err">.</span><span class="m">84394</span>
+   <span class="m">1</span>     <span class="m">4</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">85289</span>             <span class="m">1</span>   <span class="m">3</span><span class="err">.</span><span class="m">85291</span>
+   <span class="m">1</span>     <span class="m">5</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">85531</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">3</span><span class="err">.</span><span class="m">85537</span>
+   <span class="m">1</span>     <span class="m">6</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>          <span class="m">3</span><span class="err">.</span><span class="m">8648</span>       <span class="m">1</span><span class="err">.</span><span class="m">00006</span>   <span class="m">3</span><span class="err">.</span><span class="m">86502</span>
+   <span class="m">1</span>     <span class="m">7</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">89139</span>       <span class="m">1</span><span class="err">.</span><span class="m">00014</span>   <span class="m">3</span><span class="err">.</span><span class="m">89194</span>
+   <span class="m">1</span>     <span class="m">8</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">4</span><span class="err">.</span><span class="m">01909</span>       <span class="m">1</span><span class="err">.</span><span class="m">00036</span>   <span class="m">4</span><span class="err">.</span><span class="m">02056</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+   <span class="m">2</span>     <span class="m">1</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">2</span><span class="err">.</span><span class="m">34636</span>      <span class="m">0</span><span class="err">.</span><span class="m">979939</span>   <span class="m">2</span><span class="err">.</span><span class="m">29929</span>
+   <span class="m">2</span>     <span class="m">2</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">95907</span>      <span class="m">0</span><span class="err">.</span><span class="m">995756</span>   <span class="m">3</span><span class="err">.</span><span class="m">94226</span>
+   <span class="m">2</span>     <span class="m">3</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">84393</span>             <span class="m">1</span>   <span class="m">3</span><span class="err">.</span><span class="m">84393</span>
+   <span class="m">2</span>     <span class="m">4</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">85288</span>             <span class="m">1</span>   <span class="m">3</span><span class="err">.</span><span class="m">8529</span>
+   <span class="m">2</span>     <span class="m">5</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">85529</span>       <span class="m">1</span><span class="err">.</span><span class="m">00002</span>   <span class="m">3</span><span class="err">.</span><span class="m">85535</span>
+   <span class="m">2</span>     <span class="m">6</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">86474</span>       <span class="m">1</span><span class="err">.</span><span class="m">00006</span>   <span class="m">3</span><span class="err">.</span><span class="m">86496</span>
+   <span class="m">2</span>     <span class="m">7</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">89128</span>       <span class="m">1</span><span class="err">.</span><span class="m">00014</span>   <span class="m">3</span><span class="err">.</span><span class="m">89183</span>
+   <span class="m">2</span>     <span class="m">8</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">4</span><span class="err">.</span><span class="m">01888</span>       <span class="m">1</span><span class="err">.</span><span class="m">00037</span>   <span class="m">4</span><span class="err">.</span><span class="m">02035</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+ <span class="m">102</span>     <span class="m">1</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>      <span class="m">0</span><span class="err">.</span><span class="m">00010111</span>        <span class="m">1</span><span class="err">.</span><span class="m">0002</span>   <span class="m">0</span><span class="err">.</span><span class="m">00010113</span>
+ <span class="m">102</span>     <span class="m">2</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>     <span class="m">0</span><span class="err">.</span><span class="m">000101635</span>      <span class="m">0</span><span class="err">.</span><span class="m">991292</span>   <span class="m">0</span><span class="err">.</span><span class="m">00010075</span>
+ <span class="m">102</span>     <span class="m">3</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>     <span class="m">7</span><span class="err">.</span><span class="m">10826</span><span class="err">e-</span><span class="m">06</span>       <span class="m">1</span><span class="err">.</span><span class="m">00036   7.11084e-06</span>
+ <span class="m">102</span>     <span class="m">4</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>      <span class="m">7</span><span class="err">.</span><span class="m">2788</span><span class="err">e-</span><span class="m">06</span>       <span class="m">1</span><span class="err">.</span><span class="m">00001   7.27885e-06</span>
+ <span class="m">102</span>     <span class="m">5</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>     <span class="m">2</span><span class="err">.</span><span class="m">38519</span><span class="err">e-</span><span class="m">05</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003   2.38526e-05</span>
+ <span class="m">102</span>     <span class="m">6</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>     <span class="m">5</span><span class="err">.</span><span class="m">83622</span><span class="err">e-</span><span class="m">05</span>       <span class="m">1</span><span class="err">.</span><span class="m">00019   5.83734e-05</span>
+ <span class="m">102</span>     <span class="m">7</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>     <span class="m">0</span><span class="err">.</span><span class="m">000105195</span>      <span class="m">0</span><span class="err">.</span><span class="m">998729</span>   <span class="m">0</span><span class="err">.</span><span class="m">000105061</span>
+ <span class="m">102</span>     <span class="m">8</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>     <span class="m">0</span><span class="err">.</span><span class="m">000209981</span>      <span class="m">0</span><span class="err">.</span><span class="m">996663</span>   <span class="m">0</span><span class="err">.</span><span class="m">00020928</span>
+
+<span class="err">mt</span>   <span class="err">Group</span>      <span class="err">sig</span><span class="m">0</span>      <span class="err">infDiluted</span> <span class="err">Xsec</span>    <span class="err">f-factor</span>  <span class="err">shielded</span> <span class="err">Xsec</span>
+<span class="m">1007</span>     <span class="m">1</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">2</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">3</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">4</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>               <span class="m">0</span>             <span class="m">0</span>   <span class="m">0</span>
+<span class="m">1007</span>     <span class="m">5</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">85523</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003</span>   <span class="m">3</span><span class="err">.</span><span class="m">85535</span>
+<span class="m">1007</span>     <span class="m">6</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">86483</span>       <span class="m">1</span><span class="err">.</span><span class="m">00003</span>   <span class="m">3</span><span class="err">.</span><span class="m">86496</span>
+<span class="m">1007</span>     <span class="m">7</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">3</span><span class="err">.</span><span class="m">89119</span>       <span class="m">1</span><span class="err">.</span><span class="m">00016</span>   <span class="m">3</span><span class="err">.</span><span class="m">89183</span>
+<span class="m">1007</span>     <span class="m">8</span>    <span class="m">45</span><span class="err">.</span><span class="m">7377472</span>         <span class="m">4</span><span class="err">.</span><span class="m">01794</span>        <span class="m">1</span><span class="err">.</span><span class="m">0006</span>   <span class="m">4</span><span class="err">.</span><span class="m">02035</span>
+<span class="err">Zone</span> <span class="err">Calculation</span> <span class="err">is</span> <span class="err">completed</span> <span class="err">in</span> <span class="m">0</span> <span class="err">seconds</span>
+ <span class="err">module:</span> <span class="err">BonamiM</span>  <span class="err">has</span> <span class="err">terminated</span> <span class="err">after</span> <span class="err">a</span> <span class="err">cpu</span> <span class="err">usage</span> <span class="err">of</span>  <span class="m">0</span><span class="err">.</span><span class="m">0100</span>  <span class="err">seconds</span>
+</pre></div>
+</div>
+<p id="bibtex-bibliography-BONAMI-0"><dl class="citation">
+<dt class="bibtex label" id="davis-sphinx-1977"><span class="brackets"><a class="fn-backref" href="#id15">DYB77</a></span></dt>
+<dd><p>W. J. Davis, M. B. Yarbrough, and A. B. Bortz. SPHINX, a one-dimensional diffusion and transport nuclear cross section processing code. <em>Westinghouse Advanced Reactors Division report WARD-XS-3045-17 (August 1977)</em>, 1977.</p>
+</dd>
+<dt class="bibtex label" id="goldstein-theory-1962"><span class="brackets">GC62</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id8">2</a>)</span></dt>
+<dd><p>Rubin Goldstein and E. Richard Cohen. Theory of resonance absorption of neutrons. <em>Nuclear Science and Engineering</em>, 13(2):132–140, 1962. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="greene-method-1982"><span class="brackets"><a class="fn-backref" href="#id18">Gre82</a></span></dt>
+<dd><p>N. M. Greene. Method for interpolating in Bondarenko factor tables and other functions. Technical Report, Oak Ridge National Lab., TN (USA), 1982.</p>
+</dd>
+<dt class="bibtex label" id="kidman-improved-1974"><span class="brackets"><a class="fn-backref" href="#id16">Kid74</a></span></dt>
+<dd><p>R. B. Kidman. Improved F-factor interpolation scheme for 1DX. <em>Trans. Amer. Nucl. Soc</em>, 1974.</p>
+</dd>
+<dt class="bibtex label" id="lamarsh-introduction-1966"><span class="brackets"><a class="fn-backref" href="#id12">Lam66</a></span></dt>
+<dd><p>John R. Lamarsh. <em>Introduction to nuclear reactor theory</em>. Volume 3. Addison-Wesley Reading, Massachusetts, 1966.</p>
+</dd>
+<dt class="bibtex label" id="leslie-improvements-1965"><span class="brackets"><a class="fn-backref" href="#id13">LHJ65</a></span></dt>
+<dd><p>D. C. Leslie, J. G. Hill, and A. Jonsson. Improvements to the Theory of Resonance Escape in Heterogeneous Fuel: I. Regular Arrays of Fuel Rods. <em>Nuclear Science and Engineering</em>, 22(1):78–86, 1965. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="otter-escape-1964"><span class="brackets"><a class="fn-backref" href="#id21">Ott64</a></span></dt>
+<dd><p>John M. Otter. Escape Probability Approximations in Lumped Resonance Absorbers. Technical Report, Atomics International. Div. of North American Aviation, Inc., Canoga Park …, 1964.</p>
+</dd>
+<dt class="bibtex label" id="segev-interpolation-1981"><span class="brackets"><a class="fn-backref" href="#id17">Seg81</a></span></dt>
+<dd><p>M. Segev. Interpolation of resonance integrals. <em>Nuclear Science and Engineering</em>, 79(1):113–118, 1981. Publisher: Taylor &amp; Francis.</p>
+</dd>
+<dt class="bibtex label" id="wiarda-ampx-2015"><span class="brackets"><a class="fn-backref" href="#id4">WWCD15</a></span></dt>
+<dd><p>Dorothea Wiarda, Mark L. Williams, Cihangir Celik, and Michael E. Dunn. AMPX: A Modern Cross Section Processing System for Generating Nuclear Data Libraries. Technical Report, Oak Ridge National Lab.(ORNL), Oak Ridge, TN (United States), 2015.</p>
+</dd>
+<dt class="bibtex label" id="ilich-bondarenko-group-1964"><span class="brackets"><a class="fn-backref" href="#id3">IlichB64</a></span></dt>
+<dd><p>Igor ́Ilích Bondarenko. <em>Group constants for nuclear reactor calculations</em>. Consultants Bureau, 1964.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CENTRM.html" class="btn btn-neutral float-right" title="CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stdcmp.html" class="btn btn-neutral float-left" title="Standard Composition Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

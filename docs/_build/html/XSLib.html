@@ -1,0 +1,3626 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCALE Cross Section Libraries &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="SCALE Nuclear Data Libraries" href="Nuclear%20Data%20Libraries%20Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Nuclear Data Libraries</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Nuclear%20Data%20Libraries%20Overview.html">SCALE Nuclear Data Libraries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SCALE Cross Section Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SCALE Cross Section Libraries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/XSLib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scale-cross-section-libraries">
+<span id="id1"></span><h1>SCALE Cross Section Libraries<a class="headerlink" href="#scale-cross-section-libraries" title="Permalink to this headline">¶</a></h1>
+<p><em>M. L. Williams, D. Wiarda, C. Celik, K. S. Kim, M. E. Dunn, B. T. Rearden</em></p>
+<p>ABSTRACT</p>
+<p>The cross section data libraries available in the SCALE code system are briefly described in this
+section.  All libraries were processed from ENDF/B-VII.0 and –VII.1 evaluated
+data files using the AMPX code system.  Continuous-energy libraries as well as
+several multigroup libraries for a variety of applications are included in
+SCALE.  Several fine-group and broad-group structures are available so that a
+user may select the nuclear data library based on considerations of application,
+accuracy, and execution time.</p>
+<p>ACKNOWLEDGMENTS</p>
+<p>We would like to acknowledge all those who participated in developing and
+implementing the SCALE cross section libraries for their assistance in preparing
+previous versions of this document.  Special thanks go to S. Goluoglu, N. M.
+Greene, and L. M. Petrie for their contributions to SCALE data processing
+efforts, and to C. R. Daily and W. J. Marshall for their extensive validation
+testing of the libraries described here.</p>
+<div class="section" id="introduction">
+<span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>SCALE includes both multigroup (MG) and pointwise continuous energy (CE)
+nuclear data libraries, which were processed using the AMPX code
+system. <a href="#id8"><span class="problematic" id="id3">[1]_</span></a> Libraries are available for neutron and for coupled
+neutron-photon transport calculations. The CE libraries are used for
+Monte Carlo calculations with CE‑KENO (criticality) and CE‑Monaco
+(shielding), and are also used by the pointwise (PW) discrete ordinates
+code CENTRM to obtain PW flux spectra for computing self-shielded MG
+cross sections. The MG libraries are used in the MG-KENO and MG-Monaco
+Monte Carlo codes, and in the deterministic transport codes XSDRNPM,
+NEWT, and DENOVO. All cross section libraries in SCALE 6.2 and later
+versions are based strictly on ENDF/B‑VII.0 <a href="#id9"><span class="problematic" id="id4">[2]_</span></a> and ENDF/B‑VII.1 <a href="#id10"><span class="problematic" id="id5">[3]_</span></a>,
+while earlier SCALE releases included libraries processed from
+ENDF/B-VI.8, V, and IV. The CE and MG libraries include the 417 nuclides
+shown in <a class="reference internal" href="#tab10-1-1"><span class="std std-numref">Table 318</span></a>. ENDF/B-VII does not have evaluated data for
+several isotopes in the SCALE Standard Composition Data; therefore the
+libraries do not include cross sections for these nuclides, which are
+listed in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-2</span></code>. If one of these isotopes is explicitly requested
+or if the natural element containing the isotope is requested in the
+SCALE input, a warning message is written saying that the nuclide is
+being omitted from the calculations. The most commonly encountered
+example of this is O-18 which has an abundance of approximately 0.2% in
+elemental oxygen.</p>
+<p>The libraries include 19 thermal-scattering moderators for which
+bound-scattering kernels [e.g., S(α,β) ] are provided in ENDF/B-VII.0
+and ENDF/B‑VII.1, as given in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-3</span></code>. This table also lists the
+temperatures available in MG and CE libraries for the materials with
+bound kernels. The thermal scattering kernels for all other materials
+are based on the free-gas kernel. On the MG libraries, these nuclides
+have 2‑D scattering matrices processed from the free-gas kernel
+evaluated at the temperatures of 293K, 600K, 900K, 1200K, and 2400K.
+SCALE 6.2 includes routines that automatically interpolate the CE cross
+section data, as well as thermal scattering kernels to any arbitrary
+temperature for Monte Carlo calculations. <a href="#id11"><span class="problematic" id="id6">[4]_</span></a> Analogous procedures are
+available for MG data. The CE libraries do no not include free gas
+kernel data because the transport codes internally evaluate the free gas
+scattering information at the specified temperature.</p>
+<p>For each reaction and nuclide, CE data were processed from ENDF/B in the
+manner described in <span class="xref std std-ref">10-1-2-5</span>. The CE data were further processed
+into several generic MG libraries focused on different applications. CE
+data are stored as individual files for each nuclide, and an associated
+cross section directory file contains the names of the individual files.
+Furthermore, the MG libraries each contain data for all nuclides. AMPX
+master libraries are very general and contain essentially all reaction
+data available in ENDF/B, as well as several specialized cross sections
+used in SCALE. The master libraries also include Bondarenko shielding
+factors tabulated as a function of background cross section and
+temperature for all nuclides and groups, and the master libraries may
+contain intermediate resonance parameters for self-shielding. A much
+improved methodology in AMPX was used to process more accurate shielding
+factors for the most important resonance absorbers.<sup>1</sup></p>
+<p>The CE and MG libraries available in SCALE 6.2 are given in
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-4</span></code>, which also lists the main source of data for each library.
+The desired MG or CE library for a computation is typically selected by
+specifying the appropriate mnemonic name from <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-4</span></code>. The CE
+library mnemonic corresponds to the actual name of the cross section
+directory file, and the MG mnemonic is an alias for the file containing
+the actual master library, shown in the third column of Table 10.1.4.
+SCALE control modules recognize the mnemonics in the first column, or
+the standard MG library name in the third columns of the table. Users
+also may supply their own MG library by specifying the file name as the
+library name in the control module input (only lower case alphanumeric
+characters are allowed in the filename, and the filename must be eight
+characters or less in length). The library must be an AMPX master
+library and must be located in the SCALE data directory or the temporary
+working directory where the problem is run.</p>
+<p>The CE data libraries do not require additional processing prior to
+their use in transport computations. However the MG libraries
+distributed with the SCALE code system contain problem-<em>independent</em>
+cross sections processed with generic weighting functions appropriate
+for a specified type of application (e.g., criticality safety,
+shielding, etc.). These data must be further processed into
+problem-<em>dependent</em> libraries by performing resonance self-shielding
+and other modifications. This is done by the XSProc module (see
+<a class="reference internal" href="XSProc.html#id1"><span class="std std-ref">XSPROC: The Material and Cross Section Processing Module for SCALE</span></a>) during the execution of a SCALE control sequence prior to
+executing a transport solver.</p>
+<span id="tab10-1-1"></span><table class="longtable colwidths-auto docutils align-center" id="id7">
+<caption><span class="caption-number">Table 318 </span><span class="caption-text">Nuclides in CE and MG ENDF/B-VII.0 and –VII.1 libraries.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>SCALE ID</strong></p></th>
+<th class="head"><p><strong>Name</strong></p></th>
+<th class="head"><p><strong>Gamma
+production
+data</strong><sup>a</sup></p></th>
+<th class="head"><p><strong>Full
+range
+Bondarenko
+factors</strong><sup>b</sup></p></th>
+<th class="head"><p><strong>Gamma
+interaction
+evaluation</strong><sup>c</sup></p></th>
+<th class="head"><p><strong>Notes</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1001</p></td>
+<td><p>h</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1001001</p></td>
+<td><p>h-liquid_ch4</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2001001</p></td>
+<td><p>h-solid_ch4</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4001001</p></td>
+<td><p>h-cryo_ortho</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5001001</p></td>
+<td><p>h-cryo_para</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6001001</p></td>
+<td><p>h-benzene</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>7001001</p></td>
+<td><p>h-zrh2</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8001001</p></td>
+<td><p>hfreegas</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>9001001</p></td>
+<td><p>h-poly</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1002</p></td>
+<td><p>d</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>4001002</p></td>
+<td><p>d-cryo_ortho</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5001002</p></td>
+<td><p>d-cryo_para</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8001002</p></td>
+<td><p>dfreegas</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1003</p></td>
+<td><p>h-3</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2003</p></td>
+<td><p>he-3</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>he</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2004</p></td>
+<td><p>he-4</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>he</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3006</p></td>
+<td><p>li-6</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>li</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3007</p></td>
+<td><p>li-7</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>li</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>4007</p></td>
+<td><p>be-7</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>be</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4009</p></td>
+<td><p>be-9</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>be</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3004009</p></td>
+<td><p>bebound</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>be</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5004009</p></td>
+<td><p>be-beo</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>be</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5010</p></td>
+<td><p>b-10</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>b</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5011</p></td>
+<td><p>b-11</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>b</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>6000</p></td>
+<td><p>c</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>c</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3006000</p></td>
+<td><p>graphite</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>c</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5006000</p></td>
+<td><p>h-benzene</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>c</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>7014</p></td>
+<td><p>n-14</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>n</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>7015</p></td>
+<td><p>n-15</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>n</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8016</p></td>
+<td><p>o-16</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>o</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5008016</p></td>
+<td><p>o-beo</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>o</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8017</p></td>
+<td><p>o-17</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>o</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>9019</p></td>
+<td><p>f-19</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>f</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>11022</p></td>
+<td><p>na-22</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>na</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>11023</p></td>
+<td><p>na-23</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>na</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>12024</p></td>
+<td><p>mg-24</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mg</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>12025</p></td>
+<td><p>mg-25</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mg</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>12026</p></td>
+<td><p>mg-26</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mg</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>13027</p></td>
+<td><p>al-27</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>al</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1013027</p></td>
+<td><p>albound</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>al</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>14028</p></td>
+<td><p>si-28</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>si</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>14029</p></td>
+<td><p>si-29</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>si</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>14030</p></td>
+<td><p>si-30</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>si</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1014028</p></td>
+<td><p>sibound</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>si</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>1014029</p></td>
+<td><p>sibound</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>si</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>1014030</p></td>
+<td><p>sibound</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>si</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>15031</p></td>
+<td><p>p-31</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>p</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>16032</p></td>
+<td><p>s-32</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>s</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>16033</p></td>
+<td><p>s-33</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>s</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>16034</p></td>
+<td><p>s-34</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>s</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>16036</p></td>
+<td><p>s-36</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>s</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>17035</p></td>
+<td><p>cl-35</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cl</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>17037</p></td>
+<td><p>cl-37</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cl</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>18036</p></td>
+<td><p>ar-36</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ar</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>18038</p></td>
+<td><p>ar-38</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ar</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>18040</p></td>
+<td><p>ar-40</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ar</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>19039</p></td>
+<td><p>k-39</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>k</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>19040</p></td>
+<td><p>k-40</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>k</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>19041</p></td>
+<td><p>k-41</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>k</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>20040</p></td>
+<td><p>ca-40</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ca</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>20042</p></td>
+<td><p>ca-42</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ca</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>20043</p></td>
+<td><p>ca-43</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ca</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>20044</p></td>
+<td><p>ca-44</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ca</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>20046</p></td>
+<td><p>ca-46</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ca</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>20048</p></td>
+<td><p>ca-48</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ca</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>21045</p></td>
+<td><p>sc-45</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sc</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>22046</p></td>
+<td><p>ti-46</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ti</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>22047</p></td>
+<td><p>ti-47</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ti</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>22048</p></td>
+<td><p>ti-48</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ti</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>22049</p></td>
+<td><p>ti-49</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ti</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>22050</p></td>
+<td><p>ti-50</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ti</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>23000</p></td>
+<td><p>v</p></td>
+<td><p>yes</p></td>
+<td></td>
+<td><p>v</p></td>
+<td><p>ENDF/B-VII.0
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>23050</p></td>
+<td><p>v-50</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>v</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>23051</p></td>
+<td><p>v-51</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>v</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>24050</p></td>
+<td><p>cr-50</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>24052</p></td>
+<td><p>cr-52</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>24053</p></td>
+<td><p>cr-53</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>24054</p></td>
+<td><p>cr-54</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>25055</p></td>
+<td><p>mn-55</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>26054</p></td>
+<td><p>fe-54</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>fe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>26056</p></td>
+<td><p>fe-56</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>fe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>26057</p></td>
+<td><p>fe-57</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>fe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>26058</p></td>
+<td><p>fe-58</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>fe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1026000</p></td>
+<td><p>febound</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>fe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>27058</p></td>
+<td><p>co-58</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>co</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1027058</p></td>
+<td><p>co-58m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>co</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>27059</p></td>
+<td><p>co-59</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>co</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>28058</p></td>
+<td><p>ni-58</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ni</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>28059</p></td>
+<td><p>ni-59</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ni</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>28060</p></td>
+<td><p>ni-60</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ni</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>28061</p></td>
+<td><p>ni-61</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ni</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>28062</p></td>
+<td><p>ni-62</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ni</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>28064</p></td>
+<td><p>ni-64</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ni</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>29063</p></td>
+<td><p>cu-63</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>29065</p></td>
+<td><p>cu-65</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>30000</p></td>
+<td><p>zn</p></td>
+<td></td>
+<td></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.0
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>30064</p></td>
+<td><p>zn-64</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>30065</p></td>
+<td><p>zn-65</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.1only</p></td>
+</tr>
+<tr class="row-even"><td><p>30066</p></td>
+<td><p>zn-66</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>30067</p></td>
+<td><p>zn-67</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>30068</p></td>
+<td><p>zn-68</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>30070</p></td>
+<td><p>zn-70</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zn</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>31069</p></td>
+<td><p>ga-69</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ga</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>31071</p></td>
+<td><p>ga-71</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ga</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>32070</p></td>
+<td><p>ge-70</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ge</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>32072</p></td>
+<td><p>ge-72</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ge</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>32073</p></td>
+<td><p>ge-73</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ge</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>32074</p></td>
+<td><p>ge-74</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ge</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>32076</p></td>
+<td><p>ge-76</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ge</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>33074</p></td>
+<td><p>as-74</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>as</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>33075</p></td>
+<td><p>as-75</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>as</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>34074</p></td>
+<td><p>se-74</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>34076</p></td>
+<td><p>se-76</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>34077</p></td>
+<td><p>se-77</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>34078</p></td>
+<td><p>se-78</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>34079</p></td>
+<td><p>se-79</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>34080</p></td>
+<td><p>se-80</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>34082</p></td>
+<td><p>se-82</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>se</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>35079</p></td>
+<td><p>br-79</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>br</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>35081</p></td>
+<td><p>br-81</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>br</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>36078</p></td>
+<td><p>kr-78</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>36080</p></td>
+<td><p>kr-80</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>36082</p></td>
+<td><p>kr-82</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>36083</p></td>
+<td><p>kr-83</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>36084</p></td>
+<td><p>kr-84</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>36085</p></td>
+<td><p>kr-85</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>36086</p></td>
+<td><p>kr-86</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>kr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>37085</p></td>
+<td><p>rb-85</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>rb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>37086</p></td>
+<td><p>rb-86</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>rb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>37087</p></td>
+<td><p>rb-87</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>rb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>38084</p></td>
+<td><p>sr-84</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>38086</p></td>
+<td><p>sr-86</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>38087</p></td>
+<td><p>sr-87</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>38088</p></td>
+<td><p>sr-88</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>38089</p></td>
+<td><p>sr-89</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>38090</p></td>
+<td><p>sr-90</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>39089</p></td>
+<td><p>y-89</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>39090</p></td>
+<td><p>y-90</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>39091</p></td>
+<td><p>y-91</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40090</p></td>
+<td><p>zr-90</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040090</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40091</p></td>
+<td><p>zr-91</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040091</p></td>
+<td><p>zr91-zr5h8</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40092</p></td>
+<td><p>zr-92</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040092</p></td>
+<td><p>zr92-zr5h8</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40093</p></td>
+<td><p>zr-93</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040093</p></td>
+<td><p>zr93-zr5h8</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40094</p></td>
+<td><p>zr-94</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040094</p></td>
+<td><p>zr94-zr5h8</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40095</p></td>
+<td><p>zr-95</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040095</p></td>
+<td><p>zr95-zr5h8</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40096</p></td>
+<td><p>zr-96</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1040096</p></td>
+<td><p>zr96-zr5h8</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>zr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>41093</p></td>
+<td><p>nb-93</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>41094</p></td>
+<td><p>nb-94</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>nb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>41095</p></td>
+<td><p>nb-95</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>nb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>42092</p></td>
+<td><p>mo-92</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>42094</p></td>
+<td><p>mo-94</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>42095</p></td>
+<td><p>mo-95</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>42096</p></td>
+<td><p>mo-96</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>42097</p></td>
+<td><p>mo-97</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>42098</p></td>
+<td><p>mo-98</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>42099</p></td>
+<td><p>mo-99</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>42100</p></td>
+<td><p>mo-100</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>mo</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>43099</p></td>
+<td><p>tc-99</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tc</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>44096</p></td>
+<td><p>ru-96</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44098</p></td>
+<td><p>ru-98</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>44099</p></td>
+<td><p>ru-99</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44100</p></td>
+<td><p>ru-100</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>44101</p></td>
+<td><p>ru-101</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44102</p></td>
+<td><p>ru-102</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>44103</p></td>
+<td><p>ru-103</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44104</p></td>
+<td><p>ru-104</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>44105</p></td>
+<td><p>ru-105</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44106</p></td>
+<td><p>ru-106</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ru</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>45103</p></td>
+<td><p>rh-103</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>rh</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>45105</p></td>
+<td><p>rh-105</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>rh</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>46102</p></td>
+<td><p>pd-102</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>46104</p></td>
+<td><p>pd-104</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>46105</p></td>
+<td><p>pd-105</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>46106</p></td>
+<td><p>pd-106</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>46107</p></td>
+<td><p>pd-107</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>46108</p></td>
+<td><p>pd-108</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>46110</p></td>
+<td><p>pd-110</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>47107</p></td>
+<td><p>ag-107</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ag</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>47109</p></td>
+<td><p>ag-109</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ag</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1047110</p></td>
+<td><p>ag-110m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ag</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>47111</p></td>
+<td><p>ag-111</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ag</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>48106</p></td>
+<td><p>cd-106</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>48108</p></td>
+<td><p>cd-108</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>48110</p></td>
+<td><p>cd-110</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>48111</p></td>
+<td><p>cd-111</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>48112</p></td>
+<td><p>cd-112</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>48113</p></td>
+<td><p>cd-113</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>48114</p></td>
+<td><p>cd-114</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1048115</p></td>
+<td><p>cd-115m</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>48116</p></td>
+<td><p>cd-116</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>49113</p></td>
+<td><p>in-113</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>49115</p></td>
+<td><p>in-115</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50112</p></td>
+<td><p>sn-112</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50113</p></td>
+<td><p>sn-113</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50114</p></td>
+<td><p>sn-114</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50115</p></td>
+<td><p>sn-115</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50116</p></td>
+<td><p>sn-116</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50117</p></td>
+<td><p>sn-117</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50118</p></td>
+<td><p>sn-118</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50119</p></td>
+<td><p>sn-119</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50120</p></td>
+<td><p>sn-120</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50122</p></td>
+<td><p>sn-122</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50123</p></td>
+<td><p>sn-123</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50124</p></td>
+<td><p>sn-124</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50125</p></td>
+<td><p>sn-125</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50126</p></td>
+<td><p>sn-126</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>51121</p></td>
+<td><p>sb-121</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>51123</p></td>
+<td><p>sb-123</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>51124</p></td>
+<td><p>sb-124</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>51125</p></td>
+<td><p>sb-125</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>sb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>51126</p></td>
+<td><p>sb-126</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>52120</p></td>
+<td><p>te-120</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52122</p></td>
+<td><p>te-122</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>52123</p></td>
+<td><p>te-123</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52124</p></td>
+<td><p>te-124</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>52125</p></td>
+<td><p>te-125</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52126</p></td>
+<td><p>te-126</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1052127</p></td>
+<td><p>te-127m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52128</p></td>
+<td><p>te-128</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1052129</p></td>
+<td><p>te-129m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52130</p></td>
+<td><p>te-130</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>52132</p></td>
+<td><p>te-132</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>te</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>53127</p></td>
+<td><p>i-127</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>i</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>53129</p></td>
+<td><p>i-129</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>i</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>53130</p></td>
+<td><p>i-130</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>i</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>53131</p></td>
+<td><p>i-131</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>i</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>53135</p></td>
+<td><p>i-135</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>i</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>54123</p></td>
+<td><p>xe-123</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54124</p></td>
+<td><p>xe-124</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>54126</p></td>
+<td><p>xe-126</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54128</p></td>
+<td><p>xe-128</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>54129</p></td>
+<td><p>xe-129</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54130</p></td>
+<td><p>xe-130</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>54131</p></td>
+<td><p>xe-131</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54132</p></td>
+<td><p>xe-132</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>54133</p></td>
+<td><p>xe-133</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54134</p></td>
+<td><p>xe-134</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>54135</p></td>
+<td><p>xe-135</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54136</p></td>
+<td><p>xe-136</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>xe</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>55133</p></td>
+<td><p>cs-133</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cs</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>55134</p></td>
+<td><p>cs-134</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cs</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>55135</p></td>
+<td><p>cs-135</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cs</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>55136</p></td>
+<td><p>cs-136</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cs</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>55137</p></td>
+<td><p>cs-137</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>cs</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56130</p></td>
+<td><p>ba-130</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>56132</p></td>
+<td><p>ba-132</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56133</p></td>
+<td><p>ba-133</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>56134</p></td>
+<td><p>ba-134</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56135</p></td>
+<td><p>ba-135</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>56136</p></td>
+<td><p>ba-136</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56137</p></td>
+<td><p>ba-137</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>56138</p></td>
+<td><p>ba-138</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56140</p></td>
+<td><p>ba-140</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ba</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>57138</p></td>
+<td><p>la-138</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>la</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>57139</p></td>
+<td><p>la-139</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>la</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>57140</p></td>
+<td><p>la-140</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>la</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>58136</p></td>
+<td><p>ce-136</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>58138</p></td>
+<td><p>ce-138</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>58139</p></td>
+<td><p>ce-139</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>58140</p></td>
+<td><p>ce-140</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>58141</p></td>
+<td><p>ce-141</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>58142</p></td>
+<td><p>ce-142</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>58143</p></td>
+<td><p>ce-143</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>58144</p></td>
+<td><p>ce-144</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ce</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>59141</p></td>
+<td><p>pr-141</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>59142</p></td>
+<td><p>pr-142</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>59143</p></td>
+<td><p>pr-143</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>60142</p></td>
+<td><p>nd-142</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60143</p></td>
+<td><p>nd-143</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>60144</p></td>
+<td><p>nd-144</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60145</p></td>
+<td><p>nd-145</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>60146</p></td>
+<td><p>nd-146</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60147</p></td>
+<td><p>nd-147</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>60148</p></td>
+<td><p>nd-148</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60150</p></td>
+<td><p>nd-150</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>nd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>61147</p></td>
+<td><p>pm-147</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>61148</p></td>
+<td><p>pm-148</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1061148</p></td>
+<td><p>pm-148m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>61149</p></td>
+<td><p>pm-149</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>61151</p></td>
+<td><p>pm-151</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>62144</p></td>
+<td><p>sm-144</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>62147</p></td>
+<td><p>sm-147</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>62148</p></td>
+<td><p>sm-148</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>62149</p></td>
+<td><p>sm-149</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>62150</p></td>
+<td><p>sm-150</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>62151</p></td>
+<td><p>sm-151</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>62152</p></td>
+<td><p>sm-152</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>62153</p></td>
+<td><p>sm-153</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>62154</p></td>
+<td><p>sm-154</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>sm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>63151</p></td>
+<td><p>eu-151</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>63152</p></td>
+<td><p>eu-152</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>63153</p></td>
+<td><p>eu-153</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>63154</p></td>
+<td><p>eu-154</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>63155</p></td>
+<td><p>eu-155</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>63156</p></td>
+<td><p>eu-156</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>63157</p></td>
+<td><p>eu-157</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>eu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>64152</p></td>
+<td><p>gd-152</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>64153</p></td>
+<td><p>gd-153</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>64154</p></td>
+<td><p>gd-154</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>64155</p></td>
+<td><p>gd-155</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>64156</p></td>
+<td><p>gd-156</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>64157</p></td>
+<td><p>gd-157</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>64158</p></td>
+<td><p>gd-158</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>64160</p></td>
+<td><p>gd-160</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>gd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>65159</p></td>
+<td><p>tb-159</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>tb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>65160</p></td>
+<td><p>tb-160</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>66156</p></td>
+<td><p>dy-156</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>66158</p></td>
+<td><p>dy-158</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>66160</p></td>
+<td><p>dy-160</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>66161</p></td>
+<td><p>dy-161</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>66162</p></td>
+<td><p>dy-162</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>66163</p></td>
+<td><p>dy-163</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>66164</p></td>
+<td><p>dy-164</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>67165</p></td>
+<td><p>ho-165</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ho</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1067166</p></td>
+<td><p>ho-166m</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ho</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>68162</p></td>
+<td><p>er-162</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>er</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>68164</p></td>
+<td><p>er-164</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>er</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>68166</p></td>
+<td><p>er-166</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>er</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>68167</p></td>
+<td><p>er-167</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>er</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>68168</p></td>
+<td><p>er-168</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>er</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>68170</p></td>
+<td><p>er-170</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>er</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>69168</p></td>
+<td><p>tm-168</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tm</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>69169</p></td>
+<td><p>tm-169</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tm</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>69170</p></td>
+<td><p>tm-170</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tm</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>71175</p></td>
+<td><p>lu-175</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>lu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>71176</p></td>
+<td><p>lu-176</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>lu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>72174</p></td>
+<td><p>hf-174</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>hf</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>72176</p></td>
+<td><p>hf-176</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>hf</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>72177</p></td>
+<td><p>hf-177</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>hf</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>72178</p></td>
+<td><p>hf-178</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>hf</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>72179</p></td>
+<td><p>hf-179</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>hf</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>72180</p></td>
+<td><p>hf-180</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>hf</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>73180</p></td>
+<td><p>ta-180</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ta</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>73181</p></td>
+<td><p>ta-181</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ta</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>73182</p></td>
+<td><p>ta-182</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ta</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>74180</p></td>
+<td><p>w-180</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>w</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>74182</p></td>
+<td><p>w-182</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>w</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>74183</p></td>
+<td><p>w-183</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>w</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>74184</p></td>
+<td><p>w-184</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>w</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>74186</p></td>
+<td><p>w-186</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>w</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>75185</p></td>
+<td><p>re-185</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>re</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>75187</p></td>
+<td><p>re-187</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>re</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>77191</p></td>
+<td><p>ir-191</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ir</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>77193</p></td>
+<td><p>ir-193</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>ir</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>79197</p></td>
+<td><p>au-197</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>au</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>80196</p></td>
+<td><p>hg-196</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>80198</p></td>
+<td><p>hg-198</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>80199</p></td>
+<td><p>hg-199</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>80200</p></td>
+<td><p>hg-200</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>80201</p></td>
+<td><p>hg-201</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>80202</p></td>
+<td><p>hg-202</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>80204</p></td>
+<td><p>hg-204</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>hg</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>81203</p></td>
+<td><p>tl-203</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tl</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>81205</p></td>
+<td><p>tl-205</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>tl</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>82204</p></td>
+<td><p>pb-204</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>82206</p></td>
+<td><p>pb-206</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>82207</p></td>
+<td><p>pb-207</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pb</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>82208</p></td>
+<td><p>pb-208</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pb</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>83209</p></td>
+<td><p>bi-209</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>bi</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>88223</p></td>
+<td><p>ra-223</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ra</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>88224</p></td>
+<td><p>ra-224</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ra</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>88225</p></td>
+<td><p>ra-225</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ra</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>88226</p></td>
+<td><p>ra-226</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>ra</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>89225</p></td>
+<td><p>ac-225</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>ac</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>89226</p></td>
+<td><p>ac-226</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>ac</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>89227</p></td>
+<td><p>ac-227</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>ac</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>90227</p></td>
+<td><p>th-227</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>90228</p></td>
+<td><p>th-228</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>90229</p></td>
+<td><p>th-229</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>90230</p></td>
+<td><p>th-230</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>90231</p></td>
+<td><p>th-231</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>90232</p></td>
+<td><p>th-232</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>90233</p></td>
+<td><p>th-233</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>90234</p></td>
+<td><p>th-234</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>th</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>91229</p></td>
+<td><p>pa-229</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pa</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>91230</p></td>
+<td><p>pa-230</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pa</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>91231</p></td>
+<td><p>pa-231</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pa</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>91232</p></td>
+<td><p>pa-232</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>pa</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>91233</p></td>
+<td><p>pa-233</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pa</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>92230</p></td>
+<td><p>u-230</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>92231</p></td>
+<td><p>u-231</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>92232</p></td>
+<td><p>u-232</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>92233</p></td>
+<td><p>u-233</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>92234</p></td>
+<td><p>u-234</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>92235</p></td>
+<td><p>u-235</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>92236</p></td>
+<td><p>u-236</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>92237</p></td>
+<td><p>u-237</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>92238</p></td>
+<td><p>u-238</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>92239</p></td>
+<td><p>u-239</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>92240</p></td>
+<td><p>u-240</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>92241</p></td>
+<td><p>u-241</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>u</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>93234</p></td>
+<td><p>np-234</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>np</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>93235</p></td>
+<td><p>np-235</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>np</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>93236</p></td>
+<td><p>np-236</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>np</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>93237</p></td>
+<td><p>np-237</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>np</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>93238</p></td>
+<td><p>np-238</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>np</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>93239</p></td>
+<td><p>np-239</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>np</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>94236</p></td>
+<td><p>pu-236</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>94237</p></td>
+<td><p>pu-237</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>94238</p></td>
+<td><p>pu-238</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>94239</p></td>
+<td><p>pu-239</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>94240</p></td>
+<td><p>pu-240</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>94241</p></td>
+<td><p>pu-241</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>94242</p></td>
+<td><p>pu-242</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>94243</p></td>
+<td><p>pu-243</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>94244</p></td>
+<td><p>pu-244</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>94246</p></td>
+<td><p>pu-246</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>pu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>95240</p></td>
+<td><p>am-240</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>95241</p></td>
+<td><p>am-241</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>95242</p></td>
+<td><p>am-242</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1095242</p></td>
+<td><p>am-242m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>95243</p></td>
+<td><p>am-243</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>95244</p></td>
+<td><p>am-244</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1095244</p></td>
+<td><p>am-244m</p></td>
+<td></td>
+<td><p>yes</p></td>
+<td><p>am</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96240</p></td>
+<td><p>cm-240</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>96241</p></td>
+<td><p>cm-241</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96242</p></td>
+<td><p>cm-242</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>96243</p></td>
+<td><p>cm-243</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96244</p></td>
+<td><p>cm-244</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>96245</p></td>
+<td><p>cm-245</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96246</p></td>
+<td><p>cm-246</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>96247</p></td>
+<td><p>cm-247</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96248</p></td>
+<td><p>cm-248</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>96249</p></td>
+<td><p>cm-249</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96250</p></td>
+<td><p>cm-250</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cm</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>97245</p></td>
+<td><p>bk-245</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>bk</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>97246</p></td>
+<td><p>bk-246</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>bk</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>97247</p></td>
+<td><p>bk-247</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>bk</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>97248</p></td>
+<td><p>bk-248</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>bk</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>97249</p></td>
+<td><p>bk-249</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>bk</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>97250</p></td>
+<td><p>bk-250</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>bk</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>98246</p></td>
+<td><p>cf-246</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>98248</p></td>
+<td><p>cf-248</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>98249</p></td>
+<td><p>cf-249</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>98250</p></td>
+<td><p>cf-250</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>98251</p></td>
+<td><p>cf-251</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>98252</p></td>
+<td><p>cf-252</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>98253</p></td>
+<td><p>cf-253</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>98254</p></td>
+<td><p>cf-254</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>cf</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>99251</p></td>
+<td><p>es-251</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>es</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>99252</p></td>
+<td><p>es-252</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>es</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-even"><td><p>99253</p></td>
+<td><p>es-253</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>es</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>99254</p></td>
+<td><p>es-254</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>es</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1099254</p></td>
+<td><p>es-254m</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>es</p></td>
+<td><p>ENDF/B-VII.1
+only</p></td>
+</tr>
+<tr class="row-odd"><td><p>99255</p></td>
+<td><p>es-255</p></td>
+<td><p>ENDF/B-VII.1</p></td>
+<td><p>yes</p></td>
+<td><p>es</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>100255</p></td>
+<td><p>fm-255</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>fm</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Nuclear%20Data%20Libraries%20Overview.html" class="btn btn-neutral float-left" title="SCALE Nuclear Data Libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

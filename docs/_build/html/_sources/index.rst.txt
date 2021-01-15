@@ -7,25 +7,42 @@ Welcome to the SCALE manual!
 ====================================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Radiation Shielding
+  :maxdepth: 2
+  :caption: Reactor Physics
 
-   MAVRIC
-   CAAScapability
-   appendixb
-   appendixc
+  TRITON
+  TRITONAppABC
+  Polaris
+  PolarisA
 
 .. toctree::
   :maxdepth: 2
-  :caption: Monte Carlo Transport
+  :caption: Depletion, Activation, and Spent Fuel Source Terms
 
-  Monte Carlo Transport Overview
-  Keno
-  KenoA
-  KenoB
-  KenoC
-  Monaco
+  Depletion, Activation, and Spent Fuel Source Terms Overview
+  ORIGEN
+  ORIGEN-Data.rst
+  ORIGAMI
+  SLIG
+  Origenutil
 
+.. toctree::
+  :maxdepth: 2
+  :caption: Sensitivity and Uncertainty Analysis
+
+  Sensitivity and Uncertainty Analysis Overview
+  tsunami-1d
+  tsunami-1d-appA
+  tsunami-3d
+  sams
+  sams-appA
+  tsar
+  tsunami-ip
+  tsunami-ip-appAB
+  tsurfer
+  tsurfer-appA
+  sampler
+  sampler-appABC
 
 .. toctree::
   :maxdepth: 2
@@ -41,3 +58,61 @@ Welcome to the SCALE manual!
   DEVC
   KMART
   K5C5
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Material Specification and Cross Section Processing
+
+  Material Specification and Cross Section Processing Overview
+  XSProc
+  XSProcAppA
+  XSProcAppB
+  XSProcAppC
+  stdcmp
+  BONAMI
+  CENTRM
+  PMC
+  PMCAppAB
+  CHOPS
+  CRAWDAD
+  MCDancoff
+  CAJUN
+
+
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Monte Carlo Transport
+
+  Monte Carlo Transport Overview
+  Keno
+  KenoA
+  KenoB
+  KenoC
+  Monaco
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Radiation Shielding
+
+   MAVRIC
+   CAAScapability
+   appendixb
+   appendixc
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Deterministic Transport
+
+  Deterministic Transport Intro
+  XSD
+  XSDAppAB
+  NEWT
+  DENOVO
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Nuclear Data Libraries
+
+  Nuclear Data Libraries Overview
+  XSLib 

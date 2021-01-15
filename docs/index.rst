@@ -6,38 +6,10 @@
 Welcome to the SCALE manual!
 ====================================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Radiation Shielding
-
-   MAVRIC
-   CAAScapability
-   appendixb
-   appendixc
 
 .. toctree::
-  :maxdepth: 2
-  :caption: Monte Carlo Transport
+  :maxdepth: 1
+  :caption: Nuclear Data Libraries
 
-  Monte Carlo Transport Overview
-  Keno
-  KenoA
-  KenoB
-  KenoC
-  Monaco
-
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Criticality Safety
-
-  Criticality Safety Overview
-  CSAS5
-  CSAS5App
-  CSAS6
-  CSAS6App
-  STARBUCS
-  Sourcerer
-  DEVC
-  KMART
-  K5C5
+  Nuclear Data Libraries Overview
+  XSLib

@@ -1,0 +1,1534 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PMC Appendices A and B" href="PMCAppAB.html" />
+    <link rel="prev" title="CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells" href="CENTRM.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsar.html">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description-of-pmc-input-nuclear-data">Description of PMC input nuclear data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description-of-pmc-input-pointwise-flux-data">Description of PMC input pointwise flux data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-features">Code Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options-for-treatment-of-1-d-cross-sections">Options for treatment of 1-D cross sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-averaging-of-1d-cross-sections">Spatial averaging of 1D cross sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#energy-ranges-for-multigroup-weighting">Energy ranges for multigroup weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options-for-treatment-of-2-d-cross-sections">Options for treatment of 2-D cross sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#calculation-of-problem-dependent-multigroup-cross-sections">Calculation of Problem-Dependent Multigroup Cross Sections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-cross-sections">1-D cross sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-scattering-cross-sections">2-D scattering cross sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-dependent-fission-spectra">Problem-dependent fission spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definition-of-background-cross-sections">Definition of background cross sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pmc-input-data">PMC Input Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notes-for-pmc-users">Notes for PMC users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-case">Example Case</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pmc-input-for-example-case">PMC input for example case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pmc-output-for-example-case">PMC output for example case</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#formats-of-data-files">Formats of Data Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/PMC.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pmc-a-program-to-produce-multigroup-cross-sections-using-pointwise-energy-spectra-from-centrm">
+<span id="id1"></span><h1>PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM<a class="headerlink" href="#pmc-a-program-to-produce-multigroup-cross-sections-using-pointwise-energy-spectra-from-centrm" title="Permalink to this headline">¶</a></h1>
+<p><em>M. L. Williams, D. F. Hollenbach, U. Merteryuk</em></p>
+<p>ABSTRACT</p>
+<p>PMC generates problem-dependent multigroup cross sections from an
+existing multigroup cross-section library, a pointwise nuclear data
+library, and a pointwise neutron flux file produced by the CENTRM
+continuous-energy transport code. In the SCALE sequences, PMC is a
+computational module called from XSProc to produce self-shielded
+multigroup (MG) cross-sections over a specified energy range (e.g.,
+resolved resonance range) of individual nuclides in the system of
+interest. The self-shielded cross sections are obtained by integrating
+the pointwise (PW) nuclear data using the CENTRM problem-specific,
+continuous-energy flux as a weight function for each spatial mixture in
+the system. Several options are available in PMC to specify various
+types of weighting methods for the one-dimensional and two-dimensional
+MG data. PMC outputs problem-dependent self-shielded cross sections that
+can be used in XSDRNPM, KENO, NEWT or other MG transport codes.</p>
+<p>ACKNOWLEDGMENTS</p>
+<p>The authors acknowledge the suggestions and direct contributions of L.
+M. Petrie of Oak Ridge National Laboratory, and former ORNL staff
+N. M. Greene, and R. M. Westfall.</p>
+<div class="section" id="introduction">
+<span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>PMC is a computational module used for the CENTRM/PMC self-shielding
+method performed by the XSProc driver module [see <a class="reference internal" href="XSProc.html#id1"><span class="std std-ref">XSPROC: The Material and Cross Section Processing Module for SCALE</span></a>].
+It can also be run in standalone mode. PMC (<strong>P</strong>roduce
+<strong>M</strong>ultigroup <strong>C</strong>ross sections) computes multigroup (MG)
+cross sections by utilizing the pointwise (PW) neutron spectra
+calculated in CENTRM <a class="bibtex reference internal" href="#williams-computation-1995" id="id3">[WA95]</a> to weight cross sections in a
+continuous-energy (CE) library file. This provides problem-dependent,
+self-shielded MG data representative of the fine-structure variation in
+the neutron energy spectrum for the system of interest. PMC only
+computes shielded cross sections within the energy interval of the
+CENTRM PW flux calculation, defined by the energy limits DEMIN and
+DEMAX. By default the lower limit is DEMIN=0.001 eV, and the upper
+energy is DEMAX=20,000 eV; however these parameters can be modified by
+the user in the CENTRM DATA input block. Outside of this energy
+interval, the shielded cross sections previously computed with the
+Bondarenko method in BONAMI are retained. PMC is automatically called
+from the XSProc driver module during execution of a SCALE sequence, and
+the resulting zone-averaged, problem-dependent cross sections can be
+passed to MG transport solvers (e.g., KENO, NEWT, XSDRNPM, etc.) called
+by the sequence.</p>
+<div class="section" id="description-of-pmc-input-nuclear-data">
+<span id="id4"></span><h3>Description of PMC input nuclear data<a class="headerlink" href="#description-of-pmc-input-nuclear-data" title="Permalink to this headline">¶</a></h3>
+<p>The nuclear data input to PMC consists of both MG and CE cross sections.
+Input MG data are obtained from the MG library specified in the sequence
+input. During SCALE execution, CE data used by both CENTRM and PMC are
+prepared by the code CRAWDAD (<a class="reference internal" href="CRAWDAD.html#id1"><span class="std std-ref">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</span></a>), which reads CE files for
+individual nuclides, interpolates the data to the appropriate
+temperatures for the specified mixtures, and concatenates the data into
+a one problem-specific, multiple-nuclide CENTRM PW library. In general
+each nuclide has its own unique energy mesh defined such that the cross
+section at any energy value can be interpolated linearly from the
+library point data to accuracy better than 0.1%. Although cross sections
+in the original CE data files include values over the full energy range
+of 0-20 MeV, CRAWDAD reduces the energy range to interval of the CENTRM
+PW calculation (i.e., DEMIN→DEMAX). It is this combined PW library that
+is accessed by PMC. The format of the CENTRM PW library is described in
+<a class="reference internal" href="CENTRM.html#id1"><span class="std std-ref">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</span></a>.</p>
+</div>
+<div class="section" id="description-of-pmc-input-pointwise-flux-data">
+<span id="id5"></span><h3>Description of PMC input pointwise flux data<a class="headerlink" href="#description-of-pmc-input-pointwise-flux-data" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the input nuclear data, PMC also requires PW flux values
+calculated in CENTRM to be provided. Depending on the CENTRM transport
+approximation, the flux data includes the PW scalar flux spectrum as a
+function of energy and spatial-zone, and also may include PW spherical
+harmonic moments of the angular flux (e.g., the current), which can be
+used in processing MG scattering matrices for higher-order Legendre
+moments. The non-uniform energy-mesh of the PW flux is determined during
+the CENTRM calculation in order to represent the spectrum variation with
+a minimum number of energy points. Like the CE cross section data, the
+flux spectrum at any energy value can be obtained within a specified
+tolerance by linear interpolation of the PW flux values.</p>
+</div>
+</div>
+<div class="section" id="code-features">
+<span id="id6"></span><h2>Code Features<a class="headerlink" href="#code-features" title="Permalink to this headline">¶</a></h2>
+<p>Two types of MG data are processed by PMC: 1-D cross sections and 2-D
+scatter matrices. The 1-D cross sections are weighted-average values
+over each energy group, by nuclide and reaction type. If there are “G”
+energy groups on the input library, then the 1-D cross section for each
+reaction type can be viewed as a 1-D vector with G values (of course
+some may be zero). Depending on the options and PW energy range
+specified, PMC will generally only re-compute and replace some of the
+G-group data. The 2‑D cross sections correspond to group-to-group
+transfers (and corresponding Legendre moments) associated with various
+types of scatter reactions. These data can be arranged into a 2-D G by
+G matrix. For most materials this matrix is quite sparse. The 2-D data
+depend not only on the cross-section data, but also on the
+energy/angular distributions of the secondary neutrons, which are
+represented by Legendre moments. PMC always re-normalizes the 2-D
+elastic and inelastic scattering matrices (including moments) to be
+consistent with the respective self-shielded 1-D data. In the case of
+elastic scattering, PMC also has rigorous options that can be used to
+modify the secondary energy distribution to account for self-shielding
+effects, such as by correcting the group removal cross section.</p>
+<div class="section" id="options-for-treatment-of-1-d-cross-sections">
+<span id="id7"></span><h3>Options for treatment of 1-D cross sections<a class="headerlink" href="#options-for-treatment-of-1-d-cross-sections" title="Permalink to this headline">¶</a></h3>
+<p>PMC computes new MG data for each reaction type (MT) and each nuclide on
+the input MG library, which also has CE data on the CENTRM PW library.
+Cross sections for reactions on the input MG library which do not have
+corresponding PW reaction data are not replaced; i.e., the original MG
+values are retained. SCALE CE library files for individual nuclides
+contain all reaction types included in the ENDF/B data; however the
+CRAWDAD module, executed prior to PMC, only includes certain ones when
+it produces the problem-specific CENTRM library. By default the CENTRM
+PW nuclear data library always includes cross sections for the total
+(MT-1), radiative capture (MT-102), and elastic scattering reactions
+(MT-2) of all nuclides; as well as fission (MT-18), and prompt, delayed,
+and total-nubar values (MTs-456, 455, 452, respectively) for fissionable
+nuclides. The (n,alpha) cross sections (MT-107) for B-10 and Li-6 are
+also always included if these nuclides are present in a mixture. If the
+CENTRM PW transport calculation includes the inelastic scattering
+option, indicated by CENTRM input parameter nmf6 &gt;= 0, the
+discrete-level PW inelastic (MTs 50-90) and continuum inelastic (MT-91)
+data are also included in the CENTRM PW library.</p>
+<p>PW data for the unresolved resonance range are infinitely dilute on the
+CENTRM library; therefore PMC does not use PW cross sections to compute
+self-shielded data for the unresolved range. Instead, self-shielded
+cross sections in the unresolved range are calculated using the
+Bondarenko method in BONAMI prior to the CENTRM and PMC calculations.
+This step is automatically performed by XSProc in the SCALE calculation
+sequences.</p>
+<p>PMC offers two methods to compute the total cross section. In the first
+method the MG value for the total cross section (MT=1) is processed
+directly from the PW MT-1 data on the CENTRM library. Total cross
+sections are generally considered the most accurate type of evaluated
+reaction data (due to measurement techniques); however if PW data for
+MT-1 are processed as an independent cross section, there is no
+guarantee that the sum of the partial cross sections will sum to the
+total. These small imbalances in cross sections affect the neutron
+balance, and may impact eigenvalue calculations. For this reason the PMC
+default option does not compute the total cross section by weighting the
+MT-1 PW data, but rather by summing the MG partial cross sections
+(including the original MG data not re-processed in PMC).</p>
+<p>The 1-D cross sections can be weighted using either the P<sub>0</sub>
+(scalar flux) or P<sub>1</sub> (current) PW Legendre moment. In almost all
+cases flux weighting is more desirable, since resonance reaction rates
+are usually the dominant factor in the PW range. However,
+current-weighting may be more accurate for certain problems where
+spatial transport and leakage strongly influence the spectrum in the
+resonance range, such as when the leakage spectrum is greatly impacted
+by cross section interference minima such as occur in iron media. The
+current-weighting option has been successfully applied for criticality
+calculations involving mixtures of highly-enriched uranium and iron. An
+alternative approach to using the current-weighted total cross section
+is to include a Legendre expansion of the angular-flux-weighted total
+cross section, which modifies the diagonal elements of the 2D elastic
+scattering moments.<sup>7</sup> This option is specified by setting PMC
+input parameter n2d=±2, as discussed in <a class="reference internal" href="#id10"><span class="std std-ref">Options for treatment of 2-D cross sections</span></a>.</p>
+</div>
+<div class="section" id="spatial-averaging-of-1d-cross-sections">
+<span id="id8"></span><h3>Spatial averaging of 1D cross sections<a class="headerlink" href="#spatial-averaging-of-1d-cross-sections" title="Permalink to this headline">¶</a></h3>
+<p>PMC computes MG microscopic cross sections for each material mixture in
+a given CENTRM calculation, using the spatially averaged PW spectrum
+within the mixture. In SCALE this method is called “zone-weighting”, and
+it is the default for PMC. Zone-weighted cross sections are generated
+for every mixture zone in the unit cell. In configurations containing
+fuel/absorber mixtures (e.g., lattices) in multiple unit cells,
+CENTRM/PMC calculations may be performed for each mixture, resulting in
+multiple mixture-weighted cross sections for the same nuclide ID. For
+this reason, both the nuclide ID and a mixture number are generally
+required to uniquely identify any specific cross section data generated
+by PMC.</p>
+<p>PMC also has an option to calculate “cell-weighted” (i.e., homogenized)
+MG data, which applies disadvantage factors to preserve the
+cell-averaged reaction rates for the entire unit cell. This is not
+typically done, except for treating doubly-heterogeneous cells with
+SCALE. In this case the PMC cell-weighting option is performed to
+produce homogenized MG cross sections for the low level heterogeneity
+(e.g., fuel grain in a fuel pebble). The XSProc control module
+automatically sets the correct PMC weighing flag based on the type of
+unit cell.</p>
+</div>
+<div class="section" id="energy-ranges-for-multigroup-weighting">
+<span id="id9"></span><h3>Energy ranges for multigroup weighting<a class="headerlink" href="#energy-ranges-for-multigroup-weighting" title="Permalink to this headline">¶</a></h3>
+<p>The energy range of the MG and CE libraries in SCALE typically spans
+10<sup>−5</sup> to 2*10<sup>7</sup> eV. In general this encompasses the (a)
+thermal region where upscatter is treated, (b) resolved and unresolved
+resonance ranges, and (c) high energy region above the resonance ranges.
+The thermal range for the current SCALE libraries is defined to be below
+5 eV. Energy limits for the resolved and unresolved resonance ranges are
+defined by the individual ENDF/B evaluations for each nuclide, and these
+limits are included in the CENTRM PW library.</p>
+<p>As discussed in section 8.3, the CENTRM PW flux file contains values of
+the zone-flux (and moments) per unit lethargy, calculated over the
+entire energy range 10<sup>−5</sup> eV to 20 MeV; however, only the fluxes
+in the energy range from DEMAX to DEMIN are computed from the PW
+transport solution and exhibit the spectral fine-structure due to
+resonance reactions. The flux outside interval [DEMAX, DEMIN] is
+represented by the smoother “pseudo-pointwise” values obtained from
+CENTRM’s MG solution. PMC provides two options to define the
+nuclide-specific energy range for computing problem-dependent MG data:</p>
+<p>Option (1). Compute MG cross sections of a given nuclide only over the
+resolved resonance range of the nuclide. If the CENTRM PW calculation
+does not encompass the entire resolved resonance range for the nuclide,
+pseudo-point fluxes are be used in the self-shielding calculations for
+some groups in the resolved regions. The pseudo-point fluxes are
+generally a good representation for the gross spectrum shape, but do not
+reflect fine-structure effects caused by resonance absorption; therefore
+with this option, the user should take care that the CENTRM PW limits
+are appropriate for the resonance nuclides of interest.</p>
+<p>Option (2). Compute MG cross sections for a given nuclide over the
+entire energy range for which PW flux values are calculated in the
+CENTRM. In this case PMC computes MG cross sections only over the
+portion of the PW data that is contained within the PW flux range; i.e.,
+the pseudo PW spectrum is not used to process any data. Shielded cross
+sections for groups not included in the PW calculation are based on the
+BONAMI self-shielding method.</p>
+<p>Option (2) above is default in PMC. SCALE-6.2 has DEMIN and DEMAX
+default values of 0.001 eV and 20 keV. This is sufficient for resonance
+self-shielding of essentially all actinide and important fission product
+nuclides; but some structural materials such as iron have resonances
+above 20 keV which would be shielded by BONAMI (<a class="reference internal" href="BONAMI.html#id1"><span class="std std-ref">BONAMI: Resonance Self-Shielding by the Bondarenko Method</span></a>).</p>
+</div>
+<div class="section" id="options-for-treatment-of-2-d-cross-sections">
+<span id="id10"></span><h3>Options for treatment of 2-D cross sections<a class="headerlink" href="#options-for-treatment-of-2-d-cross-sections" title="Permalink to this headline">¶</a></h3>
+<p>The input parameter N2D defines five PMC options for processing
+problem-dependent, 2-D elastic scattering matrices. The first approach,
+N2D=0, simply multiplies the elastic scattering matrices by the ratio of
+the new to old 1-D elastic cross sections for the specified reaction
+process, where the “old” data are the 1-D values in the original MG
+library, and the “new” data are the problem-dependent MG cross sections
+processed using the PW flux as described above. The P<sub>ℓ</sub> Legendre
+moments as well as the P<sub>0</sub> matrix are scaled by the same ratio
+for a given group. This method is also always used for discrete-level
+and continuum inelastic cross sections, as well as any other 2-D data
+other than elastic. The basic assumption is that the relative
+group-to-group scattering distribution does not change from the
+distribution in the original MG library, which is processed with an
+infinitely dilute spectrum— i.e., self-shielding only affects the total
+scatter rate. This approach gives good results for many applications,
+and is very efficient computationally. However, for intermediate and
+high mass materials, the elastic removal rate from a group may be
+sensitive to the problem-dependent CE spectrum. In these cases the
+scaling approximation may not give the correct elastic removal rate from
+the group, because the within-group elastic cross section will be in
+error. In these cases the alternate approaches described below can be
+used.</p>
+<p>The option N2D= −1 corrects for the impact of resonance self-shielding
+on the elastic removal from an energy group. This option recomputes a
+new value for the within-group cross section by applying a correction
+factor based on the ratio of shielded versus unshielded removal
+probabilities for <em>s</em>-wave scatter (isotropic center-of-mass scatter).
+The P<sub>0</sub> out-scattering cross sections are then renormalized to
+give the correct 1D shielded cross section for the group. This approach
+provides a reasonable and computationally efficient approximation to
+process 2D elastic matrices in the resolved resonance range of actinide
+nuclides. However the assumption of s-wave scatter may not be valid in
+the resolved resonance range of a structural material such as iron;
+therefore users should beware when applying the approximation if the PW
+range is extended above 50 keV, for systems with large sensitivity to
+structural materials.</p>
+<p>Option N2D=1 uses the CENTRM PW flux to recompute the entire set of
+group-to-group scatter data (including Legendre moments) assuming
+<em>s</em>-wave kinematics. Since the CENTRM PW flux is used as the weighting
+function, this approach is sometimes more accurate for groups with large
+spectral gradients as discussed above. As with the N2D=-1 option, the
+main limitation is the <em>s</em>-wave scattering approximation for the
+secondary energy distribution. This option requires more computation
+time than the N2D methods discussed previously, and usually gives
+similar results as N2D=-1.</p>
+<p>A rigorous derivation of the MG transport equation from the CE equation
+results in a directionally dependent total cross section. PMC option
+N2D=2 uses the method in <a class="bibtex reference internal" href="#bell-nuclear-1970" id="id11">[BG70]</a> to address this effect by modifying
+the Legendre moments of the 2D elastic matrix. For cross section moment
+“n”, the diagonal term (i.e., within-group scatter) is modified by
+adding a term equal to the difference in the MG total cross section
+weighted with the PW scalar flux and the MG total cross section weighted
+with the n<sub>th</sub> Legendre moment of the PW flux.</p>
+<p>Option N2D=-2 is essentially a combination of options N2D=2 and N2D=-1.
+This option applies the elastic removal correction to the diagonal term
+of the P<sub>0</sub> moment of the elastic 2D matrix, and applies the PL
+correction described above to the diagonal term of the PL Legendre
+moment of the elastic matrix.</p>
+<p>The thermal energy range presents a particularly difficult challenge for
+processing problem-dependent 2‑D scattering data, due to the complicated
+kinematics associated with molecular motion, chemical binding, and
+coherent scattering effects. PMC currently the scaling approximation
+(N2D=0 option) for the thermal energy range, regardless of the input
+value of N2D.</p>
+</div>
+</div>
+<div class="section" id="calculation-of-problem-dependent-multigroup-cross-sections">
+<span id="id12"></span><h2>Calculation of Problem-Dependent Multigroup Cross Sections<a class="headerlink" href="#calculation-of-problem-dependent-multigroup-cross-sections" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="d-cross-sections">
+<span id="id13"></span><h3>1-D cross sections<a class="headerlink" href="#d-cross-sections" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq7-5-1">
+<span class="eqno">(360)<a class="headerlink" href="#equation-eq7-5-1" title="Permalink to this equation">¶</a></span>\[\sigma_{z, r, g}^{j}=\frac{\int_{\Delta E_{g}} \sigma_{z, r}^{j}(E) \Phi_{z}(E) d E}{\int_{\Delta E_{g}} \Phi_{z}(E) d E}=\frac{\int_{\Delta E_{g}} \sigma_{z, r}^{j}(E) \Phi_{z}(E) d E}{\Phi_{z, g}}\]</div>
+<p>where</p>
+<blockquote>
+<div><p>Φ<sub>z,g</sub> is the multigroup zone flux,</p>
+<p>σ<sup>j</sup><sub>z,r,g</sub> is the zone-average, group cross section, and</p>
+<p>∆E<sub>g</sub> is the energy interval of group g.</p>
+</div></blockquote>
+<p>The integration in <a class="reference internal" href="#equation-eq7-5-1">(360)</a> is performed by summing over a discrete energy
+mesh within the group boundaries. Since the CE cross section and the PW
+flux generally have different energy grids, the integration mesh for the
+numerator is formed by taking the union of the two. The CE
+cross sections and the PW flux are mapped onto the union mesh, and the
+integral is evaluated using the trapezoidal method. <a class="reference internal" href="#equation-eq7-5-1">(360)</a> is used to
+compute weighted group data for all MT’s for which CE data are available
+on the CENTRM library, except in the case of the fission neutron yield
+ν. Instead of using the PW scalar flux as the weighting function, the MG
+value for ν is weighted by the product of the PW flux and the PW fission
+cross section for the material.</p>
+</div>
+<div class="section" id="d-scattering-cross-sections">
+<span id="id14"></span><h3>2-D scattering cross sections<a class="headerlink" href="#d-scattering-cross-sections" title="Permalink to this headline">¶</a></h3>
+<p>The 2-D MG cross section moments are defined as the weighted
+group-average of terms appearing in a Legendre (PL) expansion of the CE
+double-differential scatter cross section, which describes the transfer
+of neutrons from one energy to another, for a given angle of scatter.
+The PL Legendre moments on the original MG library are fully consistent
+with the ENDF/B kinematic specifications. Thus the specified anisotropy
+in elastic or inelastic data in the center-of-mass (CM) system is
+reflected in the PL scattering matrices; however the library MG data are
+processed with an infinitely dilute flux spectrum. PMC provides several
+options for modifying these data to correct for problem-specific
+spectral effects, such as self-shielding. First, consider the scaling
+method (N2D=0) in which all the elements of the original scatter matrix
+(i.e., on the input Master library) for a given initial group are
+multiplied by the ratio of 1-D scatter cross sections. This has the
+effect of normalizing the original scatter matrix to the
+problem-dependent value calculated for the 1-D scatter data. In this
+case the l<sub>th</sub> Legendre moment of the 2-D multigroup
+cross section for reaction type “s” of nuclide “j” in zone “z” (at a
+specified temperature), for scatter from initial group g′ to final
+group g, is computed by:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-2">
+<span class="eqno">(361)<a class="headerlink" href="#equation-eq7-5-2" title="Permalink to this equation">¶</a></span>\[\sigma_{l, z, s, g^{\prime} \rightarrow g}^{j}=\frac{\left(\sigma_{z, s, g^{\prime}}^{j}\right)_{n e w}}{\left(\sigma_{s, g^{\prime}}^{j}\right)_{o r i g}} \times\left(\sigma_{l, s, g^{\prime} \rightarrow g}^{j}\right)_{o r i g}\]</div>
+<p>where the subscripts “<em>orig</em>” and “<em>new,</em>” respectively, refer
+to the original MG data on the Master library, and the new
+problem-dependent data computed by PMC. The types of reactions for which
+problem-dependent 2-D cross sections may be processed using the scaling
+method are elastic (MT=2), discrete-level inelastic (MT’s 50–89),
+continuum inelastic (MT=90), and (n,2n) (MT=16). This approach is also
+applied to obtain problem-dependent thermal scatter matrices, which
+contain upscatter as well as down-scatter reactions. The CENTRM nuclear
+data libraries include PW cross sections for incoherent (MT=1007) and
+coherent (MT=1008, if available) thermal scattering reactions, which can
+be processed into 1-D MG data by PMC in the same manner as other
+reaction types. The 1-D weighted thermal scattering data are then used
+to normalize the 2-D thermal matrices on the input Master library. For
+materials with both coherent and incoherent thermal scatter data, each
+matrix is scaled by the corresponding type of 1-D data. The coherent
+scattering matrix only contains within-group terms.</p>
+<p>The option N2D= −1 recomputes the P<sub>0</sub> within-group elastic
+cross section based on the assumption of s-wave scatter kinematics, and
+scales the other terms of the original P0 elastic matrix by the modified
+removal rate. This procedure approximately corrects for effects of
+resonance self-shielding on the group removal probability, without
+having to recompute the entire matrix assuming <em>s</em>-wave scatter, as done
+for N2D=1. Suppressing the zone index for simplicity, the P<sub>0</sub>
+within-group XS is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-3">
+<span class="eqno">(362)<a class="headerlink" href="#equation-eq7-5-3" title="Permalink to this equation">¶</a></span>\[\sigma_{\mathrm{g}, \mathrm{g}} \equiv \frac{\int_{\mathrm{g}} \sigma_{\mathrm{s}}(\mathrm{E})\left[1-\mathrm{p}_{\mathrm{r}}(\mathrm{E})\right] \Phi(\mathrm{E}) \mathrm{d} \mathrm{E}}{\int_{\mathrm{g}} \Phi(\mathrm{E}) \mathrm{d} \mathrm{E}}\]</div>
+<p>where p<sub>r</sub>(E) is the probability that a neutron at energy E,
+within group g, will scatter to an energy below the lower boundary of
+the group. For <em>s</em>-wave scattering this equation becomes,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-4">
+<span class="eqno">(363)<a class="headerlink" href="#equation-eq7-5-4" title="Permalink to this equation">¶</a></span>\[\sigma_{\text{g,g}} = \frac{\int^{\text{min}\left(\text{E}_{\text{Hi}}, \frac{\text{E}_{\text{Lo}}}{\alpha}\right)}_{\text{E}_{\text{Lo}}} \sigma_{\text{s}}(\text{E})\left[\frac{\text{E}-\text{E}_{\text{L}}}{\text{E}(1-\alpha)}\right] \Phi(\text{E})\text{dE}}{\int_{\text{g}}\Phi(\text{E})\text{dE}}\]</div>
+<p>The N2D= −1 option recomputes a modified P<sub>0</sub> within-group
+cross section from the expression,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-5">
+<span class="eqno">(364)<a class="headerlink" href="#equation-eq7-5-5" title="Permalink to this equation">¶</a></span>\[\left(\sigma_{\mathrm{g}, \mathrm{g}}\right)_{\text {new}}=\frac{\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{(\varphi)}}{\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{\infty}}\left(\sigma_{\mathrm{g}, \mathrm{g}}\right)_{\text {orig}}\]</div>
+<p>where</p>
+<blockquote>
+<div><p>(σ<sub>g,g</sub>)<sub>orig</sub> is the original within-group
+cross section on the MG library, based on actual kinematics and weighted
+with an infinitely dilute spectrum;</p>
+<p><span class="math notranslate nohighlight">\(\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{(\infty)}\)</span> is the infinitely dilute within-group cross section based on
+s-wave kinematics, which is computed from <a class="reference internal" href="#equation-eq7-5-4">(363)</a>  using an infinitely
+dilute spectrum</p>
+<p><span class="math notranslate nohighlight">\(\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{(\varphi)}\)</span> is the self-shielded within-group based on s-wave kinematics,
+computed from <a class="reference internal" href="#equation-eq7-5-4">(363)</a> using Φ(E) →CENTRM PW flux.</p>
+</div></blockquote>
+<p>If the effects of resonance self-shielding are small, then there will be
+little change in the original within-group value, since in this case
+<span class="math notranslate nohighlight">\(\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{(\varphi)} \sim \widetilde{\mathrm{O}}_{\mathrm{g}, \mathrm{g}}^{(\infty)}\)</span>.</p>
+<p>The P<sub>0</sub> group-to-group out-scatter terms for N2D=-1 are scaled
+as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-6">
+<span class="eqno">(365)<a class="headerlink" href="#equation-eq7-5-6" title="Permalink to this equation">¶</a></span>\[\sigma_{g \rightarrow g^{\prime}}=\frac{\left(\sigma_{\mathrm{s}, \mathrm{g}}\right)_{\mathrm{new}}-\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{(\varphi)}}{\left(\sigma_{\mathrm{s}, \mathrm{g}}^{\infty}\right)_{\mathrm{new}}-\widetilde{\sigma}_{\mathrm{g}, \mathrm{g}}^{\infty}} \times\left(\sigma_{\mathrm{g} \rightarrow \mathrm{g}^{\prime}}\right)_{\mathrm{orig}}\]</div>
+<p>Again if there is little self-shielding, the change in off-diagonal
+matrix elements is small, so that the original secondary energy
+distribution is preserved. Finally the entire modified P<sub>0</sub>
+scatter matrix is renormalized to correspond to the self-shielded 1-D
+scatter cross section.</p>
+<p>For the option N2D=1, an entirely new PL elastic scattering matrix is
+computed. The l<sub>th</sub> Legendre moment of the 2-D MG elastic
+cross section of nuclide “j” in zone “z” (at a specified temperature),
+for scattering from initial group g′ to final group g is rigorously
+defined as, <a class="bibtex reference internal" href="#bell-nuclear-1970" id="id15">[BG70]</a></p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-7">
+<span class="eqno">(366)<a class="headerlink" href="#equation-eq7-5-7" title="Permalink to this equation">¶</a></span>\[\sigma_{l, g^{\prime} \rightarrow g}^{j}=\frac{\int_{\Delta E_{g}} \int_{\Delta E_{g^{\prime}}} \sigma_{l}^{j}\left(E^{\prime} \rightarrow E\right) \Phi_{l, z}\left(E^{\prime}\right) d E^{\prime} d E}{\int_{\Delta E_{g^{\prime}}} \Phi_{l, z}\left(E^{\prime}\right) d E^{\prime}}=\frac{\int_{\Delta E_{g}} \int_{\Delta E_{g^{\prime}}} \sigma^{j}\left(E^{\prime}\right) f_{l}^{j}\left(E^{\prime} \rightarrow E\right) \Phi_{l, z}\left(E^{\prime}\right) d E^{\prime} d E}{\int_{\Delta E_{g^{\prime}}} \Phi_{l, z}\left(E^{\prime}\right) d E^{\prime}}\]</div>
+<p>where σ<sub>z</sub>(E) is the CE elastic cross-section data from the
+CENTRM nuclear data file, evaluated at the appropriate temperature for
+zone z;<span class="math notranslate nohighlight">\(f_{l}^{j}\)</span> (E′→E) is the secondary neutron energy distribution
+from elastic scattering; and Φ<sub>l,z</sub>(E) is the lth PW flux
+moment averaged over zone Z. PMC assumes <em>s</em>-wave scattering from
+stationary nuclei to evaluate the scattering distribution, and uses the
+P<sub>0</sub> flux moment (i.e., scalar flux) as for the weighting
+function for all PL matrices; therefore the expression evaluated by PMC
+for N2D=1 is:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-8">
+<span class="eqno">(367)<a class="headerlink" href="#equation-eq7-5-8" title="Permalink to this equation">¶</a></span>\[\sigma_{l, z, g^{\prime} \rightarrow g}^{j}=\frac{\int_{g^{\prime}} \int_{g} \frac{\sigma_{z}^{j}(\mathrm{E}) \Phi_{z}\left(E^{\prime}\right) P_{l}\left(G^{j}\right)}{\left(1-\alpha^{j}\right) E^{\prime}} d E^{\prime} d E}{\int_{g} \Phi_{z}\left(E^{\prime}\right) d E^{\prime}}\]</div>
+<p>here P<em>l</em> is the <em>l</em><sub>th</sub> order Legendre polynomial; and
+G<sup>j</sup> is the kinematics relation expressing the cosine of the
+scattering angle as a function of E and E’, for elastic scattering from
+nuclear mass A<sup>j</sup>. The kinematics function for nuclide j is
+defined as,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-9">
+<span class="eqno">(368)<a class="headerlink" href="#equation-eq7-5-9" title="Permalink to this equation">¶</a></span>\[\mathrm{G}^{\mathrm{j}}\left(\mathrm{E}^{\prime}, \mathrm{E}\right)=\frac{\mathrm{A}^{\mathrm{j}}+1}{2} \sqrt{\frac{\mathrm{E}}{\mathrm{E}^{\prime}}}-\frac{\mathrm{A}^{\mathrm{j}}-1}{2} \sqrt{\frac{\mathrm{E}^{\prime}}{\mathrm{E}}} ,\]</div>
+<p>where G<sup>j</sup>(E′,E) is equal to the cosine of the angle of scatter
+between the initial and final directions. The integral over the final
+group (g) is evaluated analytically using routines developed by
+J. A. Bucholz <a class="bibtex reference internal" href="#bucholz-method-1978" id="id16">[Buc78]</a>. Integration over the initial group (g′) is then
+performed numerically using the same method as for evaluating the
+problem-dependent 1-D cross sections.</p>
+<p>Option N2D=2 adds the following term to the diagonal of the <em>l</em><sub>th</sub>
+moment of the PL elastic scatter matrix,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-10">
+<span class="eqno">(369)<a class="headerlink" href="#equation-eq7-5-10" title="Permalink to this equation">¶</a></span>\[\left(\sigma_{l ; g, g}^{j}\right)_{n e w}=\left(\sigma_{l ; g, g}^{j}\right)_{o r i g}+\sigma_{t ; g}^{j}-\sigma_{t, l ; g}^{j} ; \quad 0&lt;l&lt;i s c t\]</div>
+<p>where isct is the order of scatter specified in CENTRM calculation [see <a class="reference internal" href="CENTRM.html#id1"><span class="std std-ref">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</span></a>]; <span class="math notranslate nohighlight">\(\sigma_{t ; g}^{j}\)</span>
+is the standard 1D total cross section weighted with the
+scalar flux, and <span class="math notranslate nohighlight">\(\sigma_{t, l ; g}^{j}\)</span> is the total cross section weighted with the <em>l</em><sub>th</sub>
+Legendre moment of the angular flux; i.e.,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-11">
+<span class="eqno">(370)<a class="headerlink" href="#equation-eq7-5-11" title="Permalink to this equation">¶</a></span>\[\sigma_{t, l ; g}^{j}=\frac{\int_{g} \sigma_{t}^{j}(E) \Phi_{l}(E) d E}{\int_{g} \Phi_{l}(E) d E}\]</div>
+</div>
+<div class="section" id="problem-dependent-fission-spectra">
+<span id="id17"></span><h3>Problem-dependent fission spectra<a class="headerlink" href="#problem-dependent-fission-spectra" title="Permalink to this headline">¶</a></h3>
+<p>Fission spectra (chi) describing the energy distribution of secondary
+neutrons produced by fission depend upon the energy of the neutron
+causing the fission, thus the MG chi data should be a 2-D matrix,
+χ<sub>g→g′</sub>. However, neutron transport codes in SCALE expect a 1-D
+distribution, χ<sub>g′</sub>; therefore the production of fission neutrons
+in group g′ by neutrons in group g is approximated as,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-12">
+<span class="eqno">(371)<a class="headerlink" href="#equation-eq7-5-12" title="Permalink to this equation">¶</a></span>\[\mathrm{P}_{\mathrm{g} \rightarrow \mathrm{g}^{\prime}}=\chi_{\mathrm{g}^{\prime}} \cdot \mathrm{v}_{\mathrm{g}} \sigma_{\mathrm{f}, \mathrm{g}} \Phi_{\mathrm{g}}\]</div>
+<p>and the total number of secondary neutrons generated in group g’ is,</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-13">
+<span class="eqno">(372)<a class="headerlink" href="#equation-eq7-5-13" title="Permalink to this equation">¶</a></span>\[\mathrm{P}_{\mathrm{g}^{\prime}}=\chi_{\mathrm{g}^{\prime}} \sum_{\mathrm{g}} v_{\mathrm{g}} \sigma_{\mathrm{f}, \mathrm{g}} \Phi_{\mathrm{g}}\]</div>
+<p>SCALE MG libraries contain “generic” 1-D chi distributions for each
+fissionable nuclide. These are processed from the evaluated ENDF/B
+fission data, weighted by the standard weighting function used to
+process the SCALE MG libraries (i.e., Maxwellian in thermal energy
+range, 1/E in epithermal range, fission spectrum in fast range). The
+SCALE MG libraries also contain 2-D chi distributions processed from
+ENDF/B fission data, can be processed with a problem-dependent weighting
+function to create a more representative 1-D chi. This procedure is done
+in PMC for each fissionable nuclide, using the following equation that
+preserves the secondary neutron energy distribution:</p>
+<div class="math notranslate nohighlight" id="equation-eq7-5-14">
+<span class="eqno">(373)<a class="headerlink" href="#equation-eq7-5-14" title="Permalink to this equation">¶</a></span>\[\chi_{\mathrm{g}^{\prime}}=\frac{\sum_{\mathrm{g}} \chi_{\mathrm{g} \rightarrow \mathrm{g}^{\prime}} v_{\mathrm{g}} \sigma_{\mathrm{f}, \mathrm{g}} \Phi_{\mathrm{g}}}{\sum_{\mathrm{g}} v_{\mathrm{g}} \sigma_{\mathrm{f}, \mathrm{g}} \Phi_{\mathrm{g}}}\]</div>
+<p>In the above equation, <span class="math notranslate nohighlight">\(v_{\mathrm{g}}, \sigma_{\mathrm{f}, \mathrm{g}}, \text { and } \Phi_{\mathrm{g}}\)</span> are
+problem-dependent 1-D data computed by PMC using the PW fluxes
+calculated by CENTRM, and <span class="math notranslate nohighlight">\(\chi_{\mathrm{g} \rightarrow \mathrm{g}^{\prime}}\)</span>, are the 2-D MG fission spectra data
+on the AMPX multigroup Master library. The 1D prompt chi computed by PMC
+includes all fission components (first-chance-fission,
+second-chance-fission, etc) given in the ENDF/B files, weighted by the
+relative fission-source fraction associated with each channel. PMC also
+computes an effective delayed neutron fission spectra, and this is
+combined with the prompt chi, using the appropriate delayed neutron
+fraction, to obtain the final 1-D fission spectra. The 1-D chi computed
+by PMC replaces the generic 1-D values for MT-1018 that were originally
+in the Master library.</p>
+</div>
+<div class="section" id="definition-of-background-cross-sections">
+<span id="id18"></span><h3>Definition of background cross sections<a class="headerlink" href="#definition-of-background-cross-sections" title="Permalink to this headline">¶</a></h3>
+<p>The value of the “background cross section (σ<sub>0</sub>)” may be used in
+PMC to determine which materials are considered to be infinitely dilute,
+in which case no cross section processing is done for the material. No
+processing is performed for material “j” if its background cross section
+exceeds the value of input parameter <em>XS_dilute</em> ; i.e., if <span class="math notranslate nohighlight">\(\sigma_{0}^{(\mathrm{j})}\)</span> &gt;
+XS_dilute. The expression used in PMC to compute the background cross
+section <span class="math notranslate nohighlight">\(\sigma_{0}^{(\mathrm{j})}\)</span> is given in the BONAMI section.</p>
+</div>
+</div>
+<div class="section" id="pmc-input-data">
+<span id="id19"></span><h2>PMC Input Data<a class="headerlink" href="#pmc-input-data" title="Permalink to this headline">¶</a></h2>
+<p>The Fido input blocks shown in this section are only required when
+executing PMC as a standalone module. In the more typical case where PMC
+is executed through the XSProc module during a SCALE sequence
+calculation, the default parameter values are automatically defined
+within XSProc. Default values for XSProc execution can be overridden
+using keyword input in the CENTRM DATA block (see <a class="reference internal" href="CENTRM.html#id52"><span class="std std-ref">CENTRM Input Data</span></a>). The
+keyword input names correspond to the variable names given in this
+section.</p>
+<p class="centered">
+<strong><strong>DATA BLOCK 1</strong></strong></p><p><strong>0$$ LOGICAL UNIT ASSIGNMENTS</strong> (8 entries. Default values given in
+parenthesis)*</p>
+<ol class="arabic simple">
+<li><p>LIBM = Input AMPX Master nuclear data library (22)</p></li>
+<li><p>LIBX = Input CENTRM pointwise nuclear data library (90)</p></li>
+<li><p>LIBF = Pointwise flux file produced by CENTRM (91)</p></li>
+<li><p>LIBNM = Output problem-dependent Master library created by PMC (92)</p></li>
+<li><p>LIBSC = Scratch unit (18)</p></li>
+<li><p>LIBSX = Scratch unit (24)</p></li>
+</ol>
+<p><em>(</em>) Parameters in the 0$$ array cannot be modified for XSProc
+execution.*</p>
+<p><strong>1$$ INTEGER PARAMETERS</strong> (10 entries )</p>
+<ol class="arabic">
+<li><p>MRANGE</p>
+<blockquote>
+<div><p>= 0, obsolete option</p>
+<p>= 1, Compute new group cross sections over resolved resonance range of
+pointwise nuclides [from EUPR to ELOR given in CENTRM data library]</p>
+<p>= 2, Compute new group cross sections over pointwise flux range [from
+DEMAX to DEMIN in CENTRM flux calculation] (2).</p>
+</div></blockquote>
+</li>
+<li><p>N2D</p>
+<blockquote>
+<div><p>= -2, Apply removal correction to P0 elastic scatter matrix AND
+apply consistent PN correction to higher order Legendre components;
+normalize to 1D.</p>
+<p>−1, Apply elastic removal correction to P0 elastic scatter matrix;
+normalize to 1D.</p>
+<p>= 0, Normalize P<sub>N</sub> components of original elastic scattering
+matrix to new 1-D elastic value.</p>
+<p>= 1, Compute new P<sub>N</sub> components of elastic matrix, using scalar
+flux as weighting function.</p>
+<p>= 2, Modify diagonal elements of the PN moments of the elastic matrix
+using the consistent PN method (-1).</p>
+</div></blockquote>
+</li>
+<li><p>NTHRM</p>
+<blockquote>
+<div><p>= 0 Treatment of thermal scatter kernels [not functional] (0)</p>
+</div></blockquote>
+</li>
+<li><p>NPRT</p>
+<blockquote>
+<div><p>= −1, Minimum printed output;</p>
+<p>= 0, Standard print out;</p>
+<p>= 1, Also print new weighted cross sections for MT’s 1, 2, 18, and 102.</p>
+<p>= 2, Maximum amount of printed output includes 2D matrices (−1).</p>
+</div></blockquote>
+</li>
+<li><p>NWT</p>
+<blockquote>
+<div><p>= 0, Generate zone-weighted multigroup data;</p>
+<p>= 1, Generate cell-weighted multigroup data (0).</p>
+</div></blockquote>
+</li>
+<li><p>MTT</p>
+<blockquote>
+<div><p>= 0, Process all MT’s included in LIBX. [<strong>NOTE:</strong> With this
+option, total cross section may not equal to sum of partials];</p>
+<p>= 1, Process all MT’s except 1, 27, 101; then compute:</p>
+<blockquote>
+<div><p>MT 101 = sum of MT’s 102-114,</p>
+<p>MT 27 = sum of MT’s 18 and 101,</p>
+<p>MT 1 = sum of MT’s 2, 4, 16, 17, and 27 (1).</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p>PMC_OMIT</p>
+<blockquote>
+<div><p>= 0, Process all pointwise nuclides used in CENTRM
+calculation;</p>
+<p>= 1, Process only nuclides in fuel zones.</p>
+<p>&gt; 1, Process all materials except those in 2$$ array</p>
+</div></blockquote>
+</li>
+<li><p>IXTR2</p>
+<blockquote>
+<div><p>= 0, PMC run in CSAS standard sequence;</p>
+<p>= 1, PMC run in stand-alone mode (1);</p>
+<p>= 2 PMC run in CSAS double-heterogeneous cell sequence</p>
+</div></blockquote>
+</li>
+<li><p>IXTR3</p>
+<blockquote>
+<div><p>= −1, Process new data for all Legendre components on the input
+AMPX master library up to P<sub>7</sub>.</p>
+<p>= N, Process new data through P<sub>N</sub> moments. [N=Scattering
+Order+1] (−1).</p>
+</div></blockquote>
+</li>
+<li><p>N1D</p>
+<p>= 0 Use CENTRM scalar flux for weighting function;</p>
+<p>= 1, Use the absolute value of CENTRM current for weighting function
+(0).</p>
+</li>
+</ol>
+<p><em>1</em>* REAL PARAMETERS** (10 entries)</p>
+<p>1. XS_DILUTE = background cross section (barns) considered to be
+infinitely dilute (10<sup>10</sup>)</p>
+<p>2-10. Fill with 0.0</p>
+<blockquote>
+<div><p><strong>T [ TERMINATE DATA BLOCK 1 ]</strong></p>
+</div></blockquote>
+<p class="centered">
+<strong>DATA BLOCK 2 :  INDIVIDUAL NUCLIDES OMITTED FROM PROCESSING</strong></p><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This data cannot be entered for XSProc execution.</p>
+</div>
+<p><strong>2$$ ISOTOPE IDENTIFIERS</strong> (PMC_OMIT entries). Only enter PMC_OMIT &gt; 1</p>
+<p>[IDs of nuclides to be omitted from pointwise processing]</p>
+<blockquote>
+<div><p><strong>T [TERMINATE DATA BLOCK</strong></p>
+<blockquote>
+<div><p><strong>END OF PMC INPUT DATA</strong></p>
+</div></blockquote>
+</div></blockquote>
+<div class="section" id="notes-for-pmc-users">
+<span id="id20"></span><h3>Notes for PMC users<a class="headerlink" href="#notes-for-pmc-users" title="Permalink to this headline">¶</a></h3>
+<p>1. N2D specifies the method used to process the P<sub>N</sub> components
+of the 2-D elastic scattering matrices. In the option N2D=0, the
+P<sub>N</sub> components of the original elastic scattering matrix are
+simply re‑normalized using the new, problem-dependent 1-D elastic
+values. This simple scaling approach often works well, but it does not
+account for the impact of resonance self-shielding on the group removal
+probability. The default option N2D= −1 approximately corrects the P0
+elastic matrix for removal self-shielding effects on and is usually
+preferred to N2D=0, except for fast systems. Option N2D=1 re-computes
+all the P<sub>N</sub> components of 2-D elastic cross sections using the
+scalar flux as a weighting function, along with the assumption of
+<em>s</em>-wave scattering within the PW energy range. This approach takes
+significantly more execution time than N2D=-1, and usually is not
+necessary. Option N2D=2 corrects the diagonal terms of the Legendre
+moments, using the consistent PN expression. Option N2D=-2 is similar to
+N2D=2, except the elastic removal correction is applied to the P0 moment
+(Like for N2D=-1). Option N2D=-2 has been found to improve results for
+many infinite lattice cases.</p>
+<p>2. NWT specifies whether the new multigroup cross sections are
+zone-weighted or cell-weighted. When PMC is executed through XSProc,
+nuclides are always zone-weighted unless the double-heterogeneous option
+is specified in the CELLDATA block of the sequence input. Except for
+double-heterogeneous cells, cell-weighting of the MG cross sections
+should be done by the multigroup XSDRNPM calculation.</p>
+<p>3. PMC_OMIT is used to indicate which pointwise nuclides are processed
+when computing new group cross sections. If PMC_OMIT=1, only nuclides in
+fuel mixtures are processed. Fuel mixtures are defined as having at
+least one material with Z ≥ 90. Option PMC_OMIT&gt;1 only works for PMC
+standalone runs, since there is no mechanism for inputting the 2$$ array
+in sequences.</p>
+<p>4. IXTR3 is used to indicate through what Legendre order the scattering
+matrices are to be processed. By default, in stand-alone mode all
+P<sub>N</sub> moments on the Master library are processed, where as in a
+SCALE sequence only through order N=5 are processed. With few
+exceptions, the SCALE multigroup libraries contain scattering data
+through P<sub>5</sub>.</p>
+<p>5. If input parameter XS_DILUTE &gt; 0.0, PMC computes background cross
+sections (σ<sub>0</sub>) for each material, and bypasses processing
+materials with σ<sub>0</sub> &gt; XS_DILUTE. The default of XS_DILUTE
+=10<sup>10</sup> barns causes essentially all materials to be processed
+regardless of dilution. Smaller XS_DILUTE values may reduce the number
+of materials being processed, and hence reduce the execution time;
+however, XS_DILUTE should not be so low that important absorbers are not
+shielded.</p>
+</div>
+</div>
+<div class="section" id="example-case">
+<span id="id21"></span><h2>Example Case<a class="headerlink" href="#example-case" title="Permalink to this headline">¶</a></h2>
+<p>Usually PMC is executed through one of the automated SCALE sequences
+such as CSAS or TRITON where it is called by XSProc in conjunction with
+other SCALE modules, such as CRAWDAD which provides the pointwise
+nuclear data library and CENTRM which provides pointwise fluxes. In such
+cases the user does not have to prepare input directly for PMC.</p>
+<div class="section" id="pmc-input-for-example-case">
+<span id="id22"></span><h3>PMC input for example case<a class="headerlink" href="#pmc-input-for-example-case" title="Permalink to this headline">¶</a></h3>
+<p>An example of PMC stand-alone execution is given below, but it should be
+noted that this PMC case cannot be executed unless it is linked to the
+output data files produced by other modules. The example problem given
+in the CENTRM chapter shows the coupled execution of several stand-alone
+modules, including PMC, which mimics the function of XSProc.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=pmc</span>
+<span class="m">0</span><span class="err">$$</span>      <span class="err">-</span><span class="m">42</span>      <span class="m">81</span>      <span class="m">15</span>     <span class="err">-</span><span class="m">42</span>      <span class="m">18</span>      <span class="m">19</span>      <span class="m">17</span>
+<span class="m">1</span><span class="err">$$</span>     <span class="m">2</span>   <span class="err">-</span><span class="m">1</span>    <span class="m">0</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">5</span>    <span class="m">0</span>
+ <span class="m">1</span><span class="err">t</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pmc-output-for-example-case">
+<span id="id23"></span><h3>PMC output for example case<a class="headerlink" href="#pmc-output-for-example-case" title="Permalink to this headline">¶</a></h3>
+<p>Only the printed output produced by PMC for the example problem is shown
+here. In this case the “standard” PMC editing option (NPRT=0) was
+specified. The XSProc default of “minimum” print in the SCALE sequences
+produces considerably less output.</p>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span>                <span class="err">program</span> <span class="err">verification</span> <span class="err">information</span>
+
+            <span class="err">code</span> <span class="err">system:</span>    <span class="err">scale</span>  <span class="err">version:</span>    <span class="m">6</span><span class="err">.</span><span class="m">0</span>
+
+
+
+        <span class="err">program:</span>  <span class="err">pmc</span>
+
+  <span class="err">creation</span> <span class="err">date:</span>  <span class="m">18</span><span class="err">_nov_</span><span class="m">2008</span>
+
+        <span class="err">library:</span>  <span class="err">/scale/scale</span><span class="m">6</span><span class="err">/Linux_x</span><span class="m">86</span><span class="err">_</span><span class="m">64</span><span class="err">/bin</span>
+
+  <span class="err">production</span> <span class="err">code:</span>  <span class="err">pmc</span>
+
+        <span class="err">version:</span>  <span class="m">6</span><span class="err">.</span><span class="m">0</span><span class="err">.</span><span class="m">9</span>
+
+        <span class="err">jobname:</span>  <span class="err">xmw</span>
+
+    <span class="err">machine</span> <span class="err">name:</span>  <span class="err">node</span><span class="m">12</span><span class="err">.ornl.gov</span>
+
+<span class="err">date</span> <span class="err">of</span> <span class="err">execution:</span>  <span class="m">05</span><span class="err">_dec_</span><span class="m">2008</span>
+
+<span class="err">time</span> <span class="err">of</span> <span class="err">execution:</span>  <span class="m">13</span><span class="err">:</span><span class="m">22</span><span class="err">:</span><span class="m">19</span><span class="err">.</span><span class="m">23</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>
+
+     <span class="m">0</span><span class="err">$</span> <span class="err">array</span>      <span class="m">7</span> <span class="err">entries</span> <span class="n">read</span>
+
+     <span class="m">1</span><span class="err">$</span> <span class="err">array</span>     <span class="m">10</span> <span class="err">entries</span> <span class="n">read</span>
+
+     <span class="m">1</span><span class="err">t</span>
+
+          <span class="err">****</span> <span class="err">LOGICAL</span> <span class="err">UNITS</span> <span class="err">****</span>
+
+     <span class="err">nin</span>   <span class="err">=</span>   <span class="m">5</span>   <span class="err">Card</span> <span class="err">Image</span> <span class="err">Input</span> <span class="err">Unit</span>
+     <span class="err">nout</span>  <span class="err">=</span>   <span class="m">6</span>   <span class="err">Print</span> <span class="err">Output</span> <span class="err">Unit</span>
+     <span class="err">libm</span>  <span class="err">=</span> <span class="err">-</span><span class="m">42</span>   <span class="err">Input</span> <span class="err">Master</span> <span class="err">Library</span>
+     <span class="err">libx</span>  <span class="err">=</span>  <span class="m">81</span>   <span class="err">Input</span> <span class="err">Pointwise</span> <span class="err">XS</span> <span class="err">Library</span>
+     <span class="err">libf</span>  <span class="err">=</span>  <span class="m">15</span>   <span class="err">Input</span> <span class="err">Pointwise</span> <span class="err">Flux</span> <span class="err">File</span>
+     <span class="err">libnm</span> <span class="err">=</span> <span class="err">-</span><span class="m">42</span>   <span class="err">Output</span> <span class="err">Master</span> <span class="err">Library</span>
+     <span class="err">libsc</span> <span class="err">=</span>  <span class="m">18</span>   <span class="err">Scratch</span> <span class="err">Unit</span> <span class="m">1</span>
+     <span class="err">libsx</span> <span class="err">=</span>  <span class="m">19</span>   <span class="err">Scratch</span> <span class="err">Unit</span> <span class="m">2</span>
+     <span class="err">libsm</span> <span class="err">=</span>  <span class="m">17</span>   <span class="err">scratch</span> <span class="err">unit</span> <span class="err">(master</span> <span class="err">library)</span>
+
+
+
+          <span class="err">****</span> <span class="err">INPUT</span> <span class="err">PARAMETERS</span> <span class="err">****</span>
+
+     <span class="err">mrange</span> <span class="err">=</span>  <span class="m">2</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">choosing</span> <span class="err">energy</span> <span class="err">range</span>     <span class="m">0</span>   <span class="err">Averaging</span> <span class="err">over</span> <span class="err">pointwise</span> <span class="err">xs</span> <span class="err">limits</span>
+                                                        <span class="m">1</span>   <span class="err">Averaging</span> <span class="err">over</span> <span class="err">resolved</span> <span class="err">resonance</span> <span class="err">range</span>
+                                                        <span class="m">2</span>   <span class="err">Averaging</span> <span class="err">over</span> <span class="err">pointwise</span> <span class="err">flux</span> <span class="err">limits</span>
+
+     <span class="err">n</span><span class="m">2</span><span class="err">d</span>    <span class="err">=</span> <span class="err">-</span><span class="m">1</span>   <span class="err">Option</span> <span class="err">for</span> <span class="m">2</span><span class="err">-D</span> <span class="err">scat.</span> <span class="err">calculation</span>    <span class="err">-</span><span class="m">1</span>  <span class="err">Recompute</span> <span class="err">self-scatter,</span> <span class="err">then</span> <span class="err">normalize</span> <span class="m">2</span><span class="err">-D</span> <span class="err">elastic</span>
+                                                            <span class="err">data</span> <span class="err">to</span> <span class="err">shielded</span> <span class="m">1</span><span class="err">-D</span> <span class="err">value</span>
+                                                        <span class="m">0</span>   <span class="err">Normalize</span> <span class="m">2</span><span class="err">-D</span> <span class="err">elastic</span> <span class="err">data</span> <span class="err">to</span> <span class="err">shielded</span> <span class="m">1</span><span class="err">-D</span> <span class="err">value</span>
+                                                        <span class="m">1</span>   <span class="err">Recompute</span> <span class="m">2</span><span class="err">-D</span> <span class="err">elastic</span> <span class="err">using</span> <span class="err">flux</span> <span class="err">and</span> <span class="err">s-wave</span> <span class="err">kernel</span>
+                                                        <span class="m">2</span>   <span class="err">Recompute</span> <span class="m">2</span><span class="err">-D</span> <span class="err">moments</span> <span class="err">with</span> <span class="err">flux-moments</span> <span class="err">weighting</span>
+
+     <span class="err">nthrm</span>  <span class="err">=</span>  <span class="m">0</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">thermal</span> <span class="err">scatter</span> <span class="err">kernal</span>
+                      <span class="err">(NOT</span> <span class="err">FUNCTIONAL)</span>
+
+     <span class="err">nprt</span>   <span class="err">=</span>  <span class="m">0</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">PMC</span> <span class="err">print</span> <span class="err">output</span>         <span class="err">-</span><span class="m">1</span>   <span class="err">Minimum</span> <span class="err">data</span> <span class="err">printed</span>
+                                                        <span class="m">0</span>   <span class="err">Standard</span> <span class="err">printed</span> <span class="err">output</span>
+                                                        <span class="m">1</span>   <span class="err">Print</span> <span class="m">1</span><span class="err">-D</span> <span class="err">XSs</span>
+                                                        <span class="m">2</span>   <span class="err">Print</span> <span class="err">both</span> <span class="m">1</span><span class="err">-D</span> <span class="err">and</span> <span class="m">2</span><span class="err">-D</span> <span class="err">XSs</span>
+
+     <span class="err">nwt</span>    <span class="err">=</span>  <span class="m">0</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">XS</span> <span class="err">averaging</span>              <span class="m">0</span>   <span class="err">Zone</span> <span class="err">average</span>
+                                                        <span class="m">1</span>   <span class="err">Cell</span> <span class="err">average</span>
+
+     <span class="err">mtt</span>    <span class="err">=</span>  <span class="m">1</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">total</span> <span class="err">XS</span> <span class="err">calculation</span>      <span class="m">0</span>   <span class="err">Average</span> <span class="err">independently</span>
+                                                        <span class="m">1</span>   <span class="err">As</span> <span class="err">sum</span> <span class="err">of</span> <span class="err">partial</span> <span class="err">XS</span>
+
+     <span class="err">ixtr(</span><span class="m">1</span><span class="err">)=</span>  <span class="m">0</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">Processing</span> <span class="err">PW</span> <span class="err">Materials</span>   <span class="m">0</span>   <span class="err">Process</span> <span class="err">all</span> <span class="err">Pointwise</span> <span class="err">Materials</span> <span class="err">Used</span> <span class="err">in</span> <span class="err">CENTRM</span>
+                                                        <span class="err">N</span>   <span class="err">Omit</span> <span class="err">N</span> <span class="err">Materials</span>
+
+     <span class="err">ixtr(</span><span class="m">2</span><span class="err">)=</span>  <span class="m">0</span>   <span class="err">Option</span> <span class="err">for</span> <span class="err">calculation</span> <span class="err">sequence</span>      <span class="m">0</span>   <span class="err">CSAS</span> <span class="err">Standard</span> <span class="err">Sequence</span>
+                                                        <span class="m">1</span>   <span class="err">Independant</span> <span class="err">(stand-alone)</span> <span class="err">Execution</span>
+                                                        <span class="m">2</span>   <span class="err">CSAS</span> <span class="err">Doubly-Heterogeneous</span> <span class="err">Cell</span> <span class="err">Sequence</span>
+
+     <span class="err">ixtr(</span><span class="m">3</span><span class="err">)=</span>  <span class="m">5</span>   <span class="err">Legendre</span> <span class="err">expansion</span> <span class="err">order</span>            <span class="err">-</span><span class="m">1</span>   <span class="err">Process</span> <span class="err">all</span> <span class="err">Legendre</span> <span class="err">expansion</span> <span class="err">moments</span> <span class="err">found</span> <span class="err">on</span> <span class="err">AMPX</span> <span class="err">LIB.</span>
+                                                  <span class="err">=</span><span class="m">0</span><span class="err">,...N</span>   <span class="err">Process</span> <span class="err">only</span> <span class="err">up</span> <span class="err">through</span> <span class="err">PN</span> <span class="err">moments</span>
+
+     <span class="err">n</span><span class="m">1</span><span class="err">d</span>    <span class="err">=</span>  <span class="m">0</span>   <span class="err">Option</span> <span class="err">for</span> <span class="m">1</span><span class="err">-D</span> <span class="err">cross-sections</span>        <span class="m">0</span>   <span class="err">Weight</span> <span class="err">using</span> <span class="err">using</span> <span class="err">scalar</span> <span class="err">flux</span>
+                                                        <span class="m">1</span>   <span class="err">Weight</span> <span class="err">using</span> <span class="err">using</span> <span class="err">abs</span> <span class="err">value</span> <span class="err">of</span> <span class="err">current</span> <span class="err">(</span><span class="m">1</span><span class="err">st</span> <span class="err">moment)</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">****</span> <span class="err">POINTWISE</span> <span class="err">CROSS</span> <span class="err">SECTION</span> <span class="err">LIBRARY</span> <span class="err">****</span>
+
+     <span class="err">tape</span> <span class="err">identifier</span>                   <span class="m">66666</span>
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">nuclides</span>                       <span class="m">9</span>
+     <span class="err">Max</span> <span class="err">no.</span> <span class="err">of</span> <span class="err">temperatures</span>               <span class="m">2</span>
+     <span class="err">Max</span> <span class="err">no.</span> <span class="err">of</span> <span class="err">processes</span>                  <span class="m">9</span>
+     <span class="err">Max</span> <span class="err">no.</span> <span class="err">of</span> <span class="err">energy</span> <span class="err">points</span>         <span class="m">174194</span>
+
+
+
+          <span class="err">****</span> <span class="err">POINTWISE</span> <span class="err">FLUX</span> <span class="err">FILE</span> <span class="err">****</span>
+
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">nuclides</span>                      <span class="m">10</span>
+     <span class="err">No.</span> <span class="err">flux</span> <span class="err">moments</span>                      <span class="m">1</span>
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">zones</span>                          <span class="m">3</span>
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">energy</span> <span class="err">points</span>              <span class="m">48313</span>
+     <span class="err">Upper</span> <span class="err">energy</span> <span class="err">limit,demax</span><span class="m">    0.25000E+05</span>
+     <span class="err">Lower</span> <span class="err">energy</span> <span class="err">limit,demin</span><span class="m">    0.10000E-02</span>
+
+
+
+          <span class="err">****</span> <span class="err">AMPX</span> <span class="err">INPUT</span> <span class="err">MASTER</span> <span class="err">LIBRARY</span> <span class="err">****</span>
+
+     <span class="err">ID</span> <span class="err">of</span> <span class="err">the</span> <span class="err">tape</span>              <span class="m">238000</span>
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">nuclides</span>                 <span class="m">10</span>
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">neutron</span> <span class="err">groups</span>          <span class="m">238</span>
+     <span class="err">No.</span> <span class="err">of</span> <span class="err">gamma</span> <span class="err">groups</span>              <span class="m">0</span>
+
+
+          <span class="err">****</span> <span class="err">POINTWISE</span> <span class="err">CROSS</span> <span class="err">SECTION</span> <span class="err">DIRECTORY</span> <span class="err">****</span>
+
+    <span class="err">ZA</span>     <span class="err">Pointwise</span>   <span class="err">Pointwise</span>  <span class="err">Unresolved</span>   <span class="err">Resolved</span>    <span class="err">Resolved</span>
+             <span class="err">EMAX</span>        <span class="err">EMIN</span>        <span class="err">EMAX</span>        <span class="err">EMAX</span>        <span class="err">EMIN</span>
+    <span class="m">8016</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00  0.0000E+00</span>
+   <span class="m">40090</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">4000</span><span class="err">E+</span><span class="m">06</span>  <span class="m">0</span><span class="err">.</span><span class="m">6000</span><span class="err">E+</span><span class="m">05  0.0000E+00</span>
+   <span class="m">40091</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E+</span><span class="m">06</span>  <span class="m">0</span><span class="err">.</span><span class="m">2000</span><span class="err">E+</span><span class="m">05  0.0000E+00</span>
+   <span class="m">40092</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E+</span><span class="m">06</span>  <span class="m">0</span><span class="err">.</span><span class="m">7100</span><span class="err">E+</span><span class="m">05  0.0000E+00</span>
+   <span class="m">40094</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E+</span><span class="m">06</span>  <span class="m">0</span><span class="err">.</span><span class="m">9000</span><span class="err">E+</span><span class="m">05  0.0000E+00</span>
+   <span class="m">40096</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E+</span><span class="m">06</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E+</span><span class="m">06  0.0000E+00</span>
+   <span class="m">92235</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">2250</span><span class="err">E+</span><span class="m">04  0.0000E+00</span>
+   <span class="m">92238</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">1490</span><span class="err">E+</span><span class="m">06</span>  <span class="m">0</span><span class="err">.</span><span class="m">2000</span><span class="err">E+</span><span class="m">05  0.0000E+00</span>
+    <span class="m">1001</span>  <span class="m">0</span><span class="err">.</span><span class="m">2500</span><span class="err">E+</span><span class="m">05</span>  <span class="m">0</span><span class="err">.</span><span class="m">1000</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00  0.0000E+00</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">****</span> <span class="err">NUCLIDES</span> <span class="err">IN</span> <span class="err">POINTWISE</span> <span class="err">FLUX</span> <span class="err">CALCULATION</span> <span class="err">****</span>
+      <span class="err">Zone</span>   <span class="err">IR(#</span> <span class="err">of</span> <span class="err">nuclides)</span>     <span class="err">Temperature</span>
+        <span class="m">1</span>           <span class="m">3</span>                  <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+        <span class="m">2</span>           <span class="m">5</span>                  <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+        <span class="m">3</span>           <span class="m">2</span>                  <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+               <span class="err">--</span> <span class="err">Nuclide</span>  <span class="err">by</span> <span class="err">Zone</span> <span class="err">--</span>
+                <span class="m">0</span> <span class="err">--</span> <span class="err">no;</span>  <span class="m">1</span> <span class="err">--</span> <span class="err">yes</span>
+
+     <span class="err">ID::</span>       <span class="m">1008016</span>     <span class="m">3008016</span>     <span class="m">2040090</span>     <span class="m">2040091</span>     <span class="m">2040092</span>     <span class="m">2040094</span>
+   <span class="err">ZONE::</span>
+     <span class="m">1</span>            <span class="m">1</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>
+     <span class="m">2</span>            <span class="m">0</span>           <span class="m">0</span>           <span class="m">1</span>           <span class="m">1</span>           <span class="m">1</span>           <span class="m">1</span>
+     <span class="m">3</span>            <span class="m">0</span>           <span class="m">1</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>
+     <span class="err">ID::</span>       <span class="m">2040096</span>     <span class="m">1092235</span>     <span class="m">1092238</span>     <span class="m">3001001</span>
+   <span class="err">ZONE::</span>
+     <span class="m">1</span>            <span class="m">0</span>           <span class="m">1</span>           <span class="m">1</span>           <span class="m">0</span>
+     <span class="m">2</span>            <span class="m">1</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>
+     <span class="m">3</span>            <span class="m">0</span>           <span class="m">0</span>           <span class="m">0</span>           <span class="m">1</span>
+
+             <span class="err">--</span> <span class="err">Atom</span> <span class="err">Density</span> <span class="err">by</span> <span class="err">Zone</span> <span class="err">--</span>
+     <span class="err">ID::</span>      <span class="m">1008016</span>     <span class="m">3008016</span>     <span class="m">2040090</span>     <span class="m">2040091</span>     <span class="m">2040092</span>     <span class="m">2040094</span>
+   <span class="err">ZONE::</span>
+     <span class="m">1</span>      <span class="m">4</span><span class="err">.</span><span class="m">5968</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00  0.0000E+00</span>
+     <span class="m">2</span>      <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">2</span><span class="err">.</span><span class="m">5714</span><span class="err">E-</span><span class="m">02</span>  <span class="m">5</span><span class="err">.</span><span class="m">6076</span><span class="err">E-</span><span class="m">03</span>  <span class="m">8</span><span class="err">.</span><span class="m">5714</span><span class="err">E-</span><span class="m">03  8.6863E-03</span>
+     <span class="m">3</span>      <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">2</span><span class="err">.</span><span class="m">3831</span><span class="err">E-</span><span class="m">02</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00  0.0000E+00</span>
+
+             <span class="err">--</span> <span class="err">Averaged</span> <span class="err">Cell</span> <span class="err">Atom</span> <span class="err">Density</span>    <span class="err">--</span>
+            <span class="m">2</span><span class="err">.</span><span class="m">2461</span><span class="err">E-</span><span class="m">02</span>  <span class="m">1</span><span class="err">.</span><span class="m">0506</span><span class="err">E-</span><span class="m">02</span>  <span class="m">1</span><span class="err">.</span><span class="m">8133</span><span class="err">E-</span><span class="m">03</span>  <span class="m">3</span><span class="err">.</span><span class="m">9544</span><span class="err">E-</span><span class="m">04</span>  <span class="m">6</span><span class="err">.</span><span class="m">0445</span><span class="err">E-</span><span class="m">04  6.1255E-04</span>
+
+
+     <span class="err">ID::</span>      <span class="m">2040096</span>     <span class="m">1092235</span>     <span class="m">1092238</span>     <span class="m">3001001</span>
+   <span class="err">ZONE::</span>
+     <span class="m">1</span>      <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">4</span><span class="err">.</span><span class="m">8838</span><span class="err">E-</span><span class="m">04</span>  <span class="m">2</span><span class="err">.</span><span class="m">2480</span><span class="err">E-</span><span class="m">02  0.0000E+00</span>
+     <span class="m">2</span>      <span class="m">1</span><span class="err">.</span><span class="m">3994</span><span class="err">E-</span><span class="m">03</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00  0.0000E+00</span>
+     <span class="m">3</span>      <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00</span>  <span class="m">0</span><span class="err">.</span><span class="m">0000</span><span class="err">E+</span><span class="m">00  4.7662E-02</span>
+
+             <span class="err">--</span> <span class="err">Averaged</span> <span class="err">Cell</span> <span class="err">Atom</span> <span class="err">Density</span>    <span class="err">--</span>
+            <span class="m">9</span><span class="err">.</span><span class="m">8685</span><span class="err">E-</span><span class="m">05</span>  <span class="m">2</span><span class="err">.</span><span class="m">3863</span><span class="err">E-</span><span class="m">04</span>  <span class="m">1</span><span class="err">.</span><span class="m">0984</span><span class="err">E-</span><span class="m">02  2.1012E-02</span>
+
+
+
+          <span class="err">****</span> <span class="err">INPUT</span> <span class="err">MASTER</span> <span class="err">LIB.</span> <span class="err">DIRECTORY</span> <span class="err">****</span>
+
+     <span class="err">nmt:</span>   <span class="err">No.</span> <span class="err">of</span> <span class="m">1</span><span class="err">-D</span> <span class="err">Neutron</span> <span class="err">Processes</span>
+     <span class="err">nbond:</span> <span class="err">No.</span> <span class="err">of</span> <span class="err">Sets</span> <span class="err">of</span> <span class="err">Bondarenko</span> <span class="err">Data</span>
+     <span class="err">nrec:</span>  <span class="err">No.</span> <span class="err">of</span> <span class="err">Records</span> <span class="err">for</span> <span class="err">this</span> <span class="err">Nuclide</span>
+
+        <span class="err">id</span>          <span class="err">za</span>          <span class="err">nmt</span>        <span class="err">nbond</span>     <span class="err">nrec</span>
+
+     <span class="m">1008016</span>      <span class="m">8016</span><span class="err">.</span><span class="m">0</span>         <span class="m">49</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">3008016</span>      <span class="m">8016</span><span class="err">.</span><span class="m">0</span>         <span class="m">49</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">2040090</span>     <span class="m">40090</span><span class="err">.</span><span class="m">0</span>         <span class="m">86</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">2040091</span>     <span class="m">40091</span><span class="err">.</span><span class="m">0</span>         <span class="m">45</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">2040092</span>     <span class="m">40092</span><span class="err">.</span><span class="m">0</span>         <span class="m">47</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">2040094</span>     <span class="m">40094</span><span class="err">.</span><span class="m">0</span>         <span class="m">39</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">2040096</span>     <span class="m">40096</span><span class="err">.</span><span class="m">0</span>         <span class="m">32</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">1092235</span>     <span class="m">92235</span><span class="err">.</span><span class="m">0</span>         <span class="m">77</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">1092238</span>     <span class="m">92238</span><span class="err">.</span><span class="m">0</span>         <span class="m">77</span>          <span class="m">0</span>          <span class="m">3</span>
+     <span class="m">3001001</span>      <span class="m">1001</span><span class="err">.</span><span class="m">0</span>         <span class="m">10</span>          <span class="m">0</span>          <span class="m">3</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">1008016</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+      <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+   <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+    <span class="m">1</span>        <span class="m">459</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>    <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">2</span>        <span class="m">459</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>    <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">102</span>        <span class="m">459</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>    <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+
+           <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">1</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  1008016</span>
+
+
+<span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">3008016</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+      <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+   <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+    <span class="m">1</span>        <span class="m">459</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>    <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">2</span>        <span class="m">459</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>    <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">102</span>        <span class="m">459</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>    <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+
+           <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">3</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  3008016</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">2040090</span>
+
+  <span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+  <span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+          <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+       <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+        <span class="m">1</span>       <span class="m">4488</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+        <span class="m">2</span>       <span class="m">4488</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">102</span>       <span class="m">4488</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+               <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">2</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+  <span class="err">====&gt;&gt;</span> <span class="err">Done</span> <span class="err">Processing</span> <span class="err">Shielded</span> <span class="err">Zone-Averaged</span> <span class="err">Cross</span> <span class="err">Section</span>  <span class="m">2040090</span>
+
+
+    <span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">2040091</span>
+
+  <span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+  <span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+          <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+       <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+        <span class="m">1</span>      <span class="m">24295</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+        <span class="m">2</span>      <span class="m">24295</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">102</span>      <span class="m">24295</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+               <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">2</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+  <span class="err">====&gt;&gt;</span> <span class="err">Done</span> <span class="err">Processing</span> <span class="err">Shielded</span> <span class="err">Zone-Averaged</span> <span class="err">Cross</span> <span class="err">Section</span>  <span class="m">2040091</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span>  <span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">2040092</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+        <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+     <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+      <span class="m">1</span>       <span class="m">8142</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">2</span>       <span class="m">8142</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">102</span>       <span class="m">8142</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+             <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">2</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  2040092</span>
+
+
+  <span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">2040094</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+        <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+     <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+      <span class="m">1</span>       <span class="m">8068</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">2</span>       <span class="m">8068</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">102</span>       <span class="m">8068</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+             <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">2</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  2040094</span>
+
+
+  <span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">2040096</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+        <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+     <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+      <span class="m">1</span>       <span class="m">4944</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">2</span>       <span class="m">4944</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">102</span>       <span class="m">4944</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+             <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">2</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+  <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+       <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  2040096</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">1092235</span>
+
+  <span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+  <span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+          <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+       <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+        <span class="m">1</span>      <span class="m">59851</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+        <span class="m">2</span>      <span class="m">59851</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+       <span class="m">18</span>      <span class="m">59851</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">102</span>      <span class="m">59851</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+       <span class="m">51</span>         <span class="m">94</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+       <span class="m">52</span>         <span class="m">74</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">452</span>         <span class="m">48</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">455</span>          <span class="m">6</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+      <span class="m">456</span>         <span class="m">48</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+
+               <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">1</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>    <span class="m">18</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>    <span class="m">51</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>    <span class="m">52</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">452</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">455</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">456</span>
+         <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+    <span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>  <span class="m">1018</span>
+     <span class="err">Collapsing</span> <span class="m">2</span><span class="err">D</span> <span class="err">chi</span> <span class="err">to</span> <span class="err">effective</span> <span class="m">1</span><span class="err">D</span>
+
+  <span class="err">====&gt;&gt;</span> <span class="err">Done</span> <span class="err">Processing</span> <span class="err">Shielded</span> <span class="err">Zone-Averaged</span> <span class="err">Cross</span> <span class="err">Section</span>  <span class="m">1092235</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">1092238</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+      <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+   <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+    <span class="m">1</span>     <span class="m">174194</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">2</span>     <span class="m">174194</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+   <span class="m">18</span>     <span class="m">174194</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">102</span>     <span class="m">174194</span>            <span class="m">900</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">452</span>         <span class="m">10</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">455</span>          <span class="m">4</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">456</span>         <span class="m">10</span>              <span class="m">0</span><span class="err">.</span><span class="m">0</span>
+
+           <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">1</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>    <span class="m">18</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">452</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">455</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">456</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>  <span class="m">1018</span>
+ <span class="err">Collapsing</span> <span class="m">2</span><span class="err">D</span> <span class="err">chi</span> <span class="err">to</span> <span class="err">effective</span> <span class="m">1</span><span class="err">D</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  1092238</span>
+
+
+<span class="err">P</span> <span class="err">r</span> <span class="err">o</span> <span class="err">c</span> <span class="err">e</span> <span class="err">s</span> <span class="err">s</span> <span class="err">i</span> <span class="err">n</span> <span class="err">g</span>   <span class="err">N</span> <span class="err">u</span> <span class="err">c</span> <span class="err">l</span> <span class="err">i</span> <span class="err">d</span> <span class="err">e</span>  <span class="m">3001001</span>
+
+<span class="err">Energy</span> <span class="err">Range</span> <span class="err">for</span> <span class="err">Multigroup</span> <span class="err">Averaging</span> <span class="err">of</span> <span class="err">this</span> <span class="err">Data</span>
+<span class="err">EH</span> <span class="err">=</span> <span class="m">2</span><span class="err">.</span><span class="m">50000</span><span class="err">E+</span><span class="m">04</span>  <span class="err">EL</span><span class="m"> = 1.00000E-03</span>
+
+      <span class="err">INFORMATION</span> <span class="err">ON</span> <span class="err">CENTRM</span> <span class="err">POINTWISE</span> <span class="err">XS</span> <span class="err">LIB:</span>
+
+   <span class="err">MT</span>    <span class="err">ENERGY</span> <span class="err">POINTS</span>      <span class="err">TEMPERATURE</span> <span class="err">(K)</span>
+    <span class="m">1</span>        <span class="m">324</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+    <span class="m">2</span>        <span class="m">324</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+  <span class="m">102</span>        <span class="m">324</span>            <span class="m">600</span><span class="err">.</span><span class="m">0</span>
+
+           <span class="err">&lt;&lt;&lt;&lt;&lt;</span> <span class="err">ZONE:</span>    <span class="m">3</span> <span class="err">&gt;&gt;&gt;&gt;&gt;</span>
+
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">1</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>     <span class="m">2</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+<span class="err">PROCESSING</span> <span class="err">MT</span> <span class="err">=</span>   <span class="m">102</span>
+     <span class="err">Generating</span> <span class="err">new</span> <span class="err">multigroup</span> <span class="err">data</span> <span class="err">from</span> <span class="err">group</span>   <span class="m">55</span> <span class="err">through</span> <span class="err">group</span>  <span class="m">234</span>
+
+<span class="nf">====&gt;&gt; Done Processing Shielded Zone-Averaged Cross Section  3001001</span>
+
+
+<span class="err">elapsed</span> <span class="err">time</span>   <span class="m">0</span><span class="err">.</span><span class="m">01</span> <span class="err">min.</span>
+</pre></div>
+</div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="err">Number</span> <span class="err">of</span> <span class="err">nuclides</span> <span class="err">in</span> <span class="err">new</span> <span class="err">master</span> <span class="err">library</span>  <span class="m">10</span>
+
+  <span class="err">The</span> <span class="err">Output</span> <span class="err">AMPX</span> <span class="err">Master</span> <span class="err">Library</span> <span class="err">Produced</span> <span class="err">by</span> <span class="err">PMC</span>
+
+         <span class="err">Logical</span> <span class="err">Unit</span> <span class="err">No.</span>                           <span class="err">-</span><span class="m">42</span>
+         <span class="err">Tape</span> <span class="err">ID</span> <span class="err">No.</span>                             <span class="m">238000</span>
+         <span class="err">No.</span> <span class="err">of</span> <span class="err">Weighted</span> <span class="err">Cross</span> <span class="err">Section</span> <span class="err">Sets</span>          <span class="m">10</span>
+         <span class="err">No.</span> <span class="err">of</span> <span class="err">Neutron</span> <span class="err">Groups</span>                      <span class="m">238</span>
+         <span class="err">No.</span> <span class="err">of</span> <span class="err">Gamma</span> <span class="err">Groups</span>                          <span class="m">0</span>
+         <span class="err">First</span> <span class="err">Thermal</span> <span class="err">Neutron</span> <span class="err">Group</span>                <span class="m">149</span>
+
+  <span class="err">Contents</span> <span class="err">of</span> <span class="err">Output</span> <span class="err">Master</span> <span class="err">Library</span>
+
+         <span class="err">o</span><span class="m">16</span> <span class="m">825</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">8</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">3</span>                   <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">1008016</span>
+         <span class="err">o</span><span class="m">16</span> <span class="m">825</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">8</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">3</span>                   <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">3008016</span>
+         <span class="err">zr</span><span class="m">90</span> <span class="m">4025</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">0</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">1</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">2040090</span>
+         <span class="err">zr</span><span class="m">91</span> <span class="m">4028</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">0</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">1</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">2040091</span>
+         <span class="err">zr</span><span class="m">92</span> <span class="m">4031</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">3</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">4</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">2040092</span>
+         <span class="err">zr</span><span class="m">94</span> <span class="m">4037</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">3</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">1</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">2040094</span>
+         <span class="err">zr</span><span class="m">96</span> <span class="m">4043</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">0</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">1</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">2040096</span>
+         <span class="err">u</span><span class="m">235</span> <span class="m">9228</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">0</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">7</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">1092235</span>
+         <span class="err">u</span><span class="m">238</span> <span class="m">9237</span> <span class="err">endfb</span><span class="m">7</span> <span class="err">rel</span><span class="m">6</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">5</span>                 <span class="m">08</span><span class="err">/</span><span class="m">13</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">1092238</span>
+         <span class="err">h_h</span><span class="m">2</span><span class="err">o</span> <span class="m">1</span> <span class="err">endfbv</span><span class="m">7</span> <span class="err">rel</span><span class="m">0</span> <span class="err">rev</span><span class="m">7</span> <span class="err">mod</span><span class="m">0</span>                  <span class="m">09</span><span class="err">/</span><span class="m">29</span><span class="err">/</span><span class="m">08</span>                           <span class="err">ID</span>    <span class="m">3001001</span>
+
+   <span class="err">elapsed</span> <span class="err">time</span>   <span class="m">0</span><span class="err">.</span><span class="m">02</span> <span class="err">min.</span>
+
+          <span class="err">****</span> <span class="err">PMC</span> <span class="err">CALCULATION</span> <span class="err">COMPLETED</span> <span class="err">****</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="formats-of-data-files">
+<span id="id24"></span><h2>Formats of Data Files<a class="headerlink" href="#formats-of-data-files" title="Permalink to this headline">¶</a></h2>
+<p>The CENTRM chapter of the SCALE manual describes the format for the CENTRM
+PW nuclear data library and the format of the output PW flux file produced by
+CENTRM, which is input to the PMC code.</p>
+<p id="bibtex-bibliography-PMC-0"><dl class="citation">
+<dt class="bibtex label" id="bell-nuclear-1970"><span class="brackets">BG70</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id15">2</a>)</span></dt>
+<dd><p>George I. Bell and Samuel Glasstone. Nuclear reactor theory. Technical Report, US Atomic Energy Commission, Washington, DC (United States), 1970.</p>
+</dd>
+<dt class="bibtex label" id="bucholz-method-1978"><span class="brackets"><a class="fn-backref" href="#id16">Buc78</a></span></dt>
+<dd><p>J.A. Bucholz. A Method of Generating Multigroup Transfer Matrices Using an Analytical Angular Integration Free of Truncation Error. Technical Report ORNL/NUREG/CSD-8, Union Carbide Corporation (Nuclear Division), Oak Ridge National Laboratory, September 1978.</p>
+</dd>
+<dt class="bibtex label" id="williams-computation-1995"><span class="brackets"><a class="fn-backref" href="#id3">WA95</a></span></dt>
+<dd><p>Mark L. Williams and Mehdi Asgari. Computation of continuous-energy neutron spectra with discrete ordinates transport theory. <em>Nuclear Science and Engineering</em>, 121(2):173–201, 1995. Publisher: Taylor &amp; Francis.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PMCAppAB.html" class="btn btn-neutral float-right" title="PMC Appendices A and B" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CENTRM.html" class="btn btn-neutral float-left" title="CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

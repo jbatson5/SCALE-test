@@ -58,3 +58,7 @@ div.math {
       overflow: visible !important;
    }
 }
+
+redtext:
+  parent: bodytext
+  textColor: red

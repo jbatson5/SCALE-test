@@ -1,0 +1,1383 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TSAR: Tool for Sensitivity Analysis of Reactivity Responses &mdash; SCALE Manual 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TSUNAMI Utility Modules" href="tsunami-ip.html" />
+    <link rel="prev" title="Sensitivity Data File Formats" href="sams-appA.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SCALE Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Reactor Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TRITON.html">TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRITONAppABC.html">TRITON Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polaris.html">POLARIS - 2D Light Water Reactor Lattice Physics Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolarisA.html">SCALE 6.2 Polaris Input Format</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Depletion, Activation, and Spent Fuel Source Terms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Depletion%2C%20Activation%2C%20and%20Spent%20Fuel%20Source%20Terms%20Overview.html">Depletion, Activation, and Spent Fuel Source Terms Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN.html">Origen: Neutron Activation, Actinide Transmutation, Fission Product Generation, and Radiation Source Term Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html">Origen Data Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#energy-resource">Energy Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#decay-resource-format">Decay Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#fission-yield-resource-format">Fission Yield Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#gamma-resource-format">Gamma Resource Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGEN-Data.html#origen-end7dec-nuclide-set">ORIGEN “end7dec” Nuclide Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ORIGAMI.html">ORIGAMI: A Code for Computing Assembly Isotopics with ORIGEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLIG.html">SCALE/Origen Library Generator (SLIG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Origenutil.html">ORIGEN Utility Programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sensitivity and Uncertainty Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity%20and%20Uncertainty%20Analysis%20Overview.html">Snesitivity and Uncertainty Analysis Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d.html">TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-1d-appA.html">XSDRNPM Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-3d.html">TSUNAMI-3D: Control Module for Three-Dimensional Cross Section Sensitivity and Uncertainty Analysis for Criticality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams.html">SAMS: Sensitivity Analysis Module for Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sams-appA.html">Sensitivity Data File Formats</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TSAR: Tool for Sensitivity Analysis of Reactivity Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodology">Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reactivity-sensitivity-coefficients">Reactivity sensitivity coefficients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reactivity-uncertainty-analysis">Reactivity uncertainty analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cross-section-covariance-data">Cross-section-covariance data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#input-description">Input Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-data">Parameter data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-input-covariance-data">User-input covariance data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#html-data">HTML data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-problem-and-output-description">Sample Problem and Output Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-and-text-output">Input and text output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#html-output">HTML Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip.html">TSUNAMI Utility Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsunami-ip-appAB.html">Data File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer.html">TSURFER: An Adjustment Code to Determine Biases and Uncertainties in Nuclear System Responses by Consolidating Differential Data and Benchmark Integral Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsurfer-appA.html">TSURFER Appendix A: Sensitivity/Uncertainty Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampler.html">Sampler: A Module for Statistical Uncertainty Analysis with Scale Sequences</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Criticality Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Criticality%20Safety%20Overview.html">Criticality Safety Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5.html">CSAS5:  Control Module For Enhanced Criticality Safety Analysis Sequences With KENO V.a</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS5App.html">Additional Example Applications of CSAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6.html">CSAS6:  Control Module for Enhanced Criticality Safety Analysis with KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSAS6App.html">Additional Example Applications of CSAS6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STARBUCS.html">STARBUCS: A Scale Control Module for Automated Criticality Safety Analyses Using Burnup Credit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sourcerer.html">Sourcerer: Deterministic Starting Source for Criticality Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEVC.html">DEVC: Denovo EigenValue Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KMART.html">KMART5 and KMART6: Postprocessors for KENO V.A and KENO-VI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K5C5.html">K5toK6 and C5toC6: Input File Conversion Programs for KENO and CSAS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Material Specification and Cross Section Processing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Material%20Specification%20and%20Cross%20Section%20Processing%20Overview.html">Material Specification and Cross Section Processing Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProc.html">XSPROC: The Material and Cross Section Processing Module for SCALE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppA.html">XSProc: Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppB.html">XSProc Standard Composition Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSProcAppC.html">Examples of Complete XSProc Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdcmp.html">Standard Composition Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BONAMI.html">BONAMI: Resonance Self-Shielding by the Bondarenko Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CENTRM.html">CENTRM: A Neutron Transport Code for Computing Continuous-Energy Spectra in General One-Dimensional Geometries and Two-Dimensional Lattice Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMC.html">PMC: A Program to Produce Multigroup Cross Sections Using Pointwise Energy Spectra from CENTRM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PMCAppAB.html">PMC Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHOPS.html">CHOPS: Module to Compute Pointwise Disadvantage Factors and Produce a Cell-Homogenized CENTRM Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRAWDAD.html">CRAWDAD: Module to Produce CENTRM-Formatted Continuous-Energy Nuclear Data Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MCDancoff.html">MCDancoff Data Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAJUN.html">CAJUN: Module for Combining and Manipulating CENTRM Continuous-Energy Libraries</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Monte Carlo Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Monte%20Carlo%20Transport%20Overview.html">Monte Carlo Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoA.html">Keno Appendix A: KENO V.a Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoB.html">Keno Appendix B: KENO VI Shape Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KenoC.html">Keno Appendix C: Sample problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Monaco.html">Monaco: A Fixed-Source Monte Carlo Transport Code for Shielding Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Radiation Shielding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MAVRIC.html">MAVRIC: Monaco with Automated Variance Reduction using Importance Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAAScapability.html">MAVRIC Appendix A: CAAS Capability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixb.html">MAVRIC Appendix B: MAVRIC Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixc.html">MAVRIC Appendix C: Advanced Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Deterministic Transport</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic%20Transport%20Intro.html">Deterministic Transport Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSD.html">XSDRNPM: A One-Dimensional Discrete-Ordinates Code for Transport Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSDAppAB.html">XSDRNPM Appendices A and B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEWT.html">NEWT:  A New Transport Algorithm for Two-Dimensional Discrete-Ordinates Analysis in Non-Orthogonal Geometries</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SCALE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>TSAR: Tool for Sensitivity Analysis of Reactivity Responses</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tsar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tsar-tool-for-sensitivity-analysis-of-reactivity-responses">
+<span id="id1"></span><h1>TSAR: Tool for Sensitivity Analysis of Reactivity Responses<a class="headerlink" href="#tsar-tool-for-sensitivity-analysis-of-reactivity-responses" title="Permalink to this headline">¶</a></h1>
+<p>ABSTRACT</p>
+<p>TSAR (Tool for Sensitivity Analysis of Reactivity Responses) is a SCALE
+functional module that computes nuclear data sensitivity coefficients for
+eigenvalue-difference responses such as reactor reactivity and worth
+coefficients.  Examples include void reactivity, Doppler coefficients, and
+control rod worths.  TSAR reads previously computed sensitivity coefficients for
+the k-eigenvalues at two states of a reactor system (or for two different
+systems) and combines them to obtain sensitivity coefficients for the
+difference.  The k-eigenvalue sensitivities are typically obtained using the
+TSUNAMI-3D or -1D control sequences in SCALE.  The reactivity sensitivity
+coefficients are combined with nuclear data covariance information to determine
+the uncertainty in the reactivity response.</p>
+<p>ACKNOWLEDGMENT</p>
+<p>Development of the TSAR code was funded by the U. S. Nuclear Regulatory
+Commission Office of Research.</p>
+<div class="section" id="introduction">
+<span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The TSUNAMI-1D, -2D, or -3D control sequences in SCALE compute
+multigroup sensitivity coefficients and uncertainties for the critical
+multiplication factor <em>k</em>, the reciprocal of the λ-eigenvalue of the
+neutron transport equation for a multiplying medium. The TSAR module in
+SCALE performs sensitivity/uncertainty (S/U) calculations for responses
+represented by the <em>difference</em> of two eigenvalues. These types of
+responses are often of interest in reactor physics applications. For
+example, TSAR can compute data sensitivities and uncertainties of
+reactivity responses such as control rod worths, fuel and moderator
+temperature coefficients, and void coefficients for two defined states
+of a power reactor <a class="bibtex reference internal" href="#williams-sensitivity-2006" id="id3">[WGC06]</a>. Another potential application is in the
+analysis of benchmark critical experiments for nuclear data testing and
+validation studies. Data and methods deficiencies can introduce a
+computational bias manifested as a trend in calculated critical
+eigenvalues versus experiment parameters. TSAR can be applied to the
+<em>difference</em> in the computed eigenvalues of two benchmarks to establish
+the sensitivity of the bias trend to various nuclear data used in the
+calculations.</p>
+<p>TSAR builds upon capabilities of other SCALE modules. TSUNAMI is first
+used to calculate sensitivities for the multiplication factors of the
+reference and altered states of the reactor, respectively. TSAR reads
+the sensitivity data files (.sdf file) produced by TSUNAMI <em>keff</em>
+calculations and uses them to compute relative or absolute sensitivities
+of an eigenvalue-difference response. The reactivity sensitivities are
+written to an output file for subsequent applications or visualization.
+TSAR also combines the calculated reactivity sensitivity coefficients
+with input nuclear data covariance matrices included in SCALE to
+determine the uncertainty of the reactivity response.</p>
+</div>
+<div class="section" id="methodology">
+<span id="id4"></span><h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">¶</a></h2>
+<p>A detailed description of the S/U methodology for reactivity responses is given
+in Reference D D; thus, only a brief overview is presented here.  The
+lambda-eigenvalue form of the neutron transport equation for a multiplying
+medium is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-1">
+<span class="eqno">(177)<a class="headerlink" href="#equation-eq6-4-1" title="Permalink to this equation">¶</a></span>\[(\mathbf{L}-\lambda \mathbf{P}) \Phi=0\]</div>
+<p>where L and P are the loss and production operators, respectively, for
+the Boltzmann equation describing a multiplying medium and <span class="math notranslate nohighlight">\(\lambda =\frac{1}{k}\)</span>  is the
+fundamental lambda-eigenvalue. It is assumed that the system is
+initially in a well-defined state 1 having a lambda- eigenvalue of
+λ<sub>1.</sub> The reactivity for state 1 is defined as <span class="math notranslate nohighlight">\({{\rho }_{\text{1}}}\ =\ \text{1}\,-{{\lambda }_{\text{1}}}\)</span> . Suppose that
+changes in L and/or P transformed the original system into a new
+distinct configuration designated as state 2, with the lambda eigenvalue
+of λ<sub>2</sub> and static reactivity of ρ<sub>2</sub> = 1- λ<sub>2</sub>.
+For example, the configuration change could be caused by moving a
+control rod or by voiding of the coolant. The reactivity
+insertion/withdrawal associated with the designated change in conditions
+is defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-2">
+<span class="eqno">(178)<a class="headerlink" href="#equation-eq6-4-2" title="Permalink to this equation">¶</a></span>\[\rho_{1 \rightarrow 2}=\rho_{2}-\rho_{1}=\lambda_{1}-\lambda_{2} .\]</div>
+<p><a class="reference internal" href="#equation-eq6-4-2">(178)</a> defines the eigenvalue-difference (i.e., reactivity) response
+addressed by TSAR.  The code edits the eigenvalues for the two reactor states
+and the value of the reactivity obtained from <a class="reference internal" href="#equation-eq6-4-2">(178)</a>.</p>
+<div class="section" id="reactivity-sensitivity-coefficients">
+<span id="id5"></span><h3>Reactivity sensitivity coefficients<a class="headerlink" href="#reactivity-sensitivity-coefficients" title="Permalink to this headline">¶</a></h3>
+<p>The relative k-sensitivity coefficient for an arbitrary data parameter α
+appearing in the transport equation is equal to</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-3">
+<span class="eqno">(179)<a class="headerlink" href="#equation-eq6-4-3" title="Permalink to this equation">¶</a></span>\[\mathrm{S}_{\mathrm{k}, \alpha}=\frac{\alpha \partial \mathrm{k}}{\mathrm{k} \partial \alpha}=-\frac{\alpha \partial \lambda}{\lambda \partial \alpha}\]</div>
+<p>An analogous expression defines the relative sensitivity coefficient of the
+reactivity response:</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-4">
+<span class="eqno">(180)<a class="headerlink" href="#equation-eq6-4-4" title="Permalink to this equation">¶</a></span>\[\mathrm{S}_{\rho, \alpha}=\frac{\alpha \partial \rho_{1 \rightarrow 2}}{\rho_{1 \rightarrow 2} \partial \alpha}\]</div>
+<p>Unlike the multiplication factor, the reactivity response can be negative.
+This can be source of confusion when interpreting the relative sensitivity
+coefficient; hence, by convention TSAR defines sensitivities relative to the
+<em>absolute value</em> of the reactivity; thus,</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-5">
+<span class="eqno">(181)<a class="headerlink" href="#equation-eq6-4-5" title="Permalink to this equation">¶</a></span>\[\mathrm{S}_{\rho, \alpha} \rightarrow \frac{\alpha}{\left|\rho_{1 \rightarrow 2}\right|} \frac{\partial \rho_{1 \rightarrow 2}}{\partial \alpha} .\]</div>
+<p>In this way, a positive value for the relative sensitivity coefficient means
+that increasing the value of α always increases the value of the reactivity
+(i.e., a positive ρ becomes more positive, and a negative ρ becomes less
+negative).  Conversely, a negative relative sensitivity coefficient means that
+increasing α always decreases the reactivity (i.e., a positive ρ becomes less
+positive, and a negative ρ becomes more negative).  This convention is used in
+TSAR for all relative quantities involving the reactivity.</p>
+<p>From the definitions in <a class="reference internal" href="#equation-eq6-4-2">(178)</a> and <a class="reference internal" href="#equation-eq6-4-3">(179)</a>, <a class="reference internal" href="#equation-eq6-4-4">(180)</a> is simplified to
+the following expression used in TSAR:</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-6">
+<span class="eqno">(182)<a class="headerlink" href="#equation-eq6-4-6" title="Permalink to this equation">¶</a></span>\[\mathrm{S}_{\rho, \alpha}=\frac{\lambda_{2} \mathrm{~S}_{\mathrm{k} 2, \alpha}-\lambda_{1} \mathrm{~S}_{\mathrm{kl}, \alpha}}{\left|\rho_{1 \rightarrow 2}\right|} ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\text{S}_{\text{k1,}\alpha }^{{}}\)</span> and <span class="math notranslate nohighlight">\(\text{S}_{\text{k2,}\alpha}^{{}}\)</span>
+are the k-sensitivities for the two states.  The relative change in the
+reactivity response due to an arbitrary relative variation (or uncertainty) in
+parameter α can be found very easily once the ρ-sensitivities are determined
+that is,</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-7">
+<span class="eqno">(183)<a class="headerlink" href="#equation-eq6-4-7" title="Permalink to this equation">¶</a></span>\[\frac{\Delta \rho_{1 \rightarrow 2}}{\left|\rho_{1 \rightarrow 2}\right|} \sim \mathrm{S}_{\rho, \alpha} \frac{\Delta \alpha}{\alpha} .\]</div>
+<p>In cases where the net reactivity change is very small, the denominator
+of <a class="reference internal" href="#equation-eq6-4-6">(182)</a> approaches zero; thus, the relative sensitivity coefficient can
+increase without bound. For this reason TSAR provides an input option to
+compute U<em>absolute</em>U rather than U<em>relative</em>U sensitivity
+coefficients. Absolute quantities are indicated here by the presence of
+a tilde (∼), while relative quantities have no tilde. The absolute
+sensitivity coefficient is defined in TSAR as the absolute change in the
+reactivity, expressed in pcm (percent-milli), due to a fractional change
+in data:</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-8">
+<span class="eqno">(184)<a class="headerlink" href="#equation-eq6-4-8" title="Permalink to this equation">¶</a></span>\[\mathrm{S}_{\rho, \alpha}=\left(\lambda_{2} \mathrm{~S}_{\mathrm{k} 2, \alpha}-\lambda_{1} \mathrm{~S}_{\mathrm{k} 1, \alpha}\right) \times 10^{5} ,\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-9">
+<span class="eqno">(185)<a class="headerlink" href="#equation-eq6-4-9" title="Permalink to this equation">¶</a></span>\[\Delta \rho_{1 \rightarrow 2}(p c m) \sim \mathrm{S}_{\rho, \alpha} \frac{\Delta \alpha}{\alpha} .\]</div>
+<p>Prior to executing TSAR, it is necessary to perform TSUNAMI calculations
+for each reactor state, in order to evaluate the relative k-sensitivity
+coefficients in <a class="reference internal" href="#equation-eq6-4-3">(179)</a>. These are written out in the SDF sensitivity file
+format and saved for input to TSAR. TSAR reads the two previously
+prepared files and uses them to evaluate <a class="reference internal" href="#equation-eq6-4-6">(182)</a> or <a class="reference internal" href="#equation-eq6-4-8">(184)</a> for the reactivity
+sensitivities. The ρ-sensitivities are then output to another SDF file.
+As discussed in <span class="xref std std-ref">6-1</span> of the SCALE documentation, the complete
+sensitivities calculated by TSUNAMI include implicit effects associated
+with perturbations in resonance self-shielding; hence, the reactivity
+sensitivities also account for these effects, which can be significant.</p>
+<p>TSAR prints the number of different sensitivity profiles that are
+computed and optionally can edit the input k-sensitivities corresponding
+to each reactor state, as well the calculated ρ-sensitivities.
+Sensitivities may be edited by a sum over group for each
+nuclide-reaction pair. In addition, the TSAR output SDF file containing
+multigroup ρ-sensitivities for each nuclide-reaction pair can be read by
+Fulcrum to produce plots of the energy-dependent sensitivities. The
+filename of the reactivity sensitivity data file is given as
+<em>job_name.react.sdf</em>, where <em>job_name</em> is the name of the TSAR input
+file (i.e., <em>job_name.inp</em>, <em>job_name.input</em>, or simply <em>job_name</em>).
+Additionally, if the user requests edits of the input k-sensitivities
+using the <em>print=all</em> option, the k-sensitivity data files are copied to
+the return directory as <em>job_name.kstate1.sdf</em> and
+<em>job_name.kstate2.sdf</em>. The <em>print</em> keyword is further described in the
+TSAR input section.</p>
+</div>
+<div class="section" id="reactivity-uncertainty-analysis">
+<span id="id6"></span><h3>Reactivity uncertainty analysis<a class="headerlink" href="#reactivity-uncertainty-analysis" title="Permalink to this headline">¶</a></h3>
+<p>TSAR performs uncertainty analysis for eigenvalue-difference responses in much
+the same manner as the TSUNAMI sequences for the multiplication factor, except
+that either absolute or relative uncertainties may be computed.  Assume that the
+transport calculations for the eigenvalues of the two reactor states use “N”
+input parameters, consisting of nuclear data for all groups, reaction types, and
+nuclides.  The relative sensitivity coefficients for these data can be expressed
+as components of the N-dimension column vector <span class="math notranslate nohighlight">\(\mathbf{S}_{\rho }^{{}}\)</span> and
+similarly for the absolute sensitivities <span class="math notranslate nohighlight">\(\mathbf{S}_{\rho }^{{}}\)</span>.  The
+relative and absolute reactivity variances—indicated as <span class="math notranslate nohighlight">\(\sigma _{\rho}^{\text{2}}\)</span>
+and <span class="math notranslate nohighlight">\(\sigma _{\rho }^{\text{2}}\)</span>, respectively—are calculated in
+TSAR as</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-10">
+<span class="eqno">(186)<a class="headerlink" href="#equation-eq6-4-10" title="Permalink to this equation">¶</a></span>\[\sigma_{\rho}^{2}=\frac{\sigma_{\rho}^{2}}{\rho^{2}}=\mathbf{S}_{\boldsymbol{\rho}}^{\mathbf{T}} \mathbf{C}_{\boldsymbol{a} \boldsymbol{a}} \mathbf{S}_{\boldsymbol{\rho}} \quad \text { and } \quad \sigma_{\rho}^{2}=\mathbf{S}_{\boldsymbol{\rho}}^{\mathbf{T}} \mathbf{C}_{\boldsymbol{a} \boldsymbol{\alpha}} \mathbf{S}_{\boldsymbol{\rho}} ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{C}_{\boldsymbol{a} \boldsymbol{a}}\)</span></p>
+<p>is the relative covariance matrix describing nuclear data uncertainties and correlations, which are read from the SCALE covariance libraries.  Due to the manner in which the absolute sensitivity coefficient is defined in Eq. (6.4.8), the absolute variance of the reactivity still uses the relative covariance matrix of the nuclear data.</p>
+<p>The reactivity variance is related to the uncertainties and correlations in the
+calculated eigenvalues of the two reactor states.  It can be shown that
+expression in <a class="reference internal" href="#equation-eq6-4-10">(186)</a> for the relative variance in an eigenvalue-difference
+response is equivalent to</p>
+<div class="math notranslate nohighlight" id="equation-eq6-4-11">
+<span class="eqno">(187)<a class="headerlink" href="#equation-eq6-4-11" title="Permalink to this equation">¶</a></span>\[\sigma_{\rho}^{2}=\frac{\lambda_{1}^{2}}{\left(\lambda_{1}-\lambda_{2}\right)^{2}} \sigma_{\mathrm{k} 1}^{2}+\frac{\lambda_{2}^{2}}{\left(\lambda_{1}-\lambda_{2}\right)^{2}} \sigma_{\mathrm{k} 2}^{2}-2 \mathrm{c}_{1 \rightarrow 2} \frac{2 \lambda_{1} \lambda_{2}}{\left(\lambda_{1}-\lambda_{2}\right)^{2}} \sigma_{\mathrm{k} 1} \sigma_{\mathrm{k} 2} .\]</div>
+<p>In the above equations, <span class="math notranslate nohighlight">\(\sigma _{\text{k1}}^{{}}\)</span> and <span class="math notranslate nohighlight">\(\sigma _{\text{k2}}^{{}}\)</span>
+are relative standard deviations of the
+multiplication factors and the correlation coefficient between the two
+reactor states is designated as c<sub>1→2</sub> ∈ [-1,1]. The eigenvalue
+calculations of the two states are correlated because they both use the
+same nuclear data libraries; therefore, the variance in the
+eigenvalue-difference is not simply the sum of the variances of the
+eigenvalues. A positive correlation (i.e., c<sub>1→2</sub> &gt; 0) reduces
+the uncertainty in the reactivity because common uncertainties tend to
+cancel from the eigenvalue difference. On the other hand, negative
+correlations increase the reactivity uncertainty. It also can be seen
+from <a class="reference internal" href="#equation-eq6-4-11">(187)</a>. that whenever the difference in the eigenvalues of the two
+states is small, the relative variance of the reactivity is
+substantially greater than the individual eigenvalue variances because
+the coefficients of <span class="math notranslate nohighlight">\(\sigma _{\text{k1}}^{\text{2}}\)</span> and <span class="math notranslate nohighlight">\(\sigma _{\text{k2}}^{\text{2}}\)</span>
+are large. Since this is usually the case for
+reactivity changes in a reactor, relative uncertainties in reactivity
+responses tend to be much larger than those for eigenvalues. If the
+reactivity response is close to zero, it is usually preferable to
+consider absolute rather than relative uncertainties. Whenever the
+eigenvalue difference is less than 10<sup>-10</sup>, TSAR will abort the
+calculation if a relative uncertainty is specified.</p>
+<p>TSAR calculates the variance in the reactivity response using the
+expressions in <a class="reference internal" href="#equation-eq6-4-10">(186)</a>. The square root of the variance corresponds to the
+standard deviation, which indicates the reactivity uncertainty. TSAR
+edits this value, as well the individual contributions of each
+nuclide-reaction pair (including cross correlations) to the overall
+uncertainty.</p>
+</div>
+<div class="section" id="cross-section-covariance-data">
+<span id="id7"></span><h3>Cross-section-covariance data<a class="headerlink" href="#cross-section-covariance-data" title="Permalink to this headline">¶</a></h3>
+<p>The cross-section-covariance data are read from the COVERX-formatted
+covariance library identified by <em>coverx=</em> in the <em>PARAMETER</em> data block
+on the TSAR input file. Cross-section-covariance data files distributed
+with SCALE are discussed in <span class="xref std std-ref">11-3</span>, and the format of the COVERX
+data file is presented if <span class="xref std std-ref">6-7abc</span>. The recommended SCALE
+covariance libraries include uncertainty data for all materials in
+ENDF/B-VII. These data were obtained from a variety of sources,
+including ENDF/B-VI and VII, JENDL, and approximate values based on
+uncertainties in measured integral parameters. <a class="bibtex reference internal" href="tsurfer.html#williams-scale-6-2008" id="id8">[WR08]</a>. The <em>COVARIANCE</em>
+data block can be used to override and/or supplement the library
+uncertainty values for specified nuclide-reaction pairs. The keyword
+<em>use_icov</em> is entered in the <em>PARAMETER</em> data block to utilize the
+covariance data defined in the <em>COVARIANCE</em> data block. Additionally, a
+default uniform standard deviation value can be assigned for any missing
+covariance data. This default value is defined by the <em>udcov=</em> keyword
+in the <em>PARAMETER</em> data block, and the keyword <em>use_dcov</em> is entered to
+activate the option. Warning messages are printed to identify
+substituted covariance matrices.</p>
+<p>When <em>use_dcov</em> and/or <em>use_icov</em> and <em>cov_fix</em> are specified in the
+<em>PARAMETER</em> data block, and a reaction has zero or large (standard
+deviation &gt; 1000%) values on the diagonal of the covariance matrix, the
+diagonal elements and off-diagonal terms are replaced according to the
+user-input criteria. Warning messages are printed to identify the
+replaced values. Additional options for user-specified covariance data
+are given in <a class="reference internal" href="#id11"><span class="std std-ref">User-input covariance data</span></a>.</p>
+<p>In the reactivity-uncertainty-analysis edit, a single asterisk (“*”)
+identifies uncertainty contributions from nuclide-reaction pairs for
+which the default cross-section-covariance data is applied. Likewise,
+the markers (“**”), (“<strong>*”), (“**</strong>”), denote (a) user-input covariance
+data, (b) covariance library data replaced by default values, and (c)
+covariance library data replaced by user-input values, respectively. In
+the HTML output, these uncertainty contributions are distinguished by
+using unique HTML colors. The different HTML colors are specified by the
+HTML block keywords <em>ud_clr</em>=, <em>ui_clr</em>=, <em>udfix_clr</em>=, and
+<em>uifix_clr</em>=. The HTML block keyword options are discussed in more
+detail in <a class="reference internal" href="#id12"><span class="std std-ref">HTML data</span></a>.</p>
+<p>TSAR computes a problem-specific covariance library that contains
+cross-section covariances only for the nuclide-reaction pairs (including
+cross correlations) listed on the k<sub>1</sub>-and
+k<sub>2</sub>-sensitivity data files. This covariance library, referred to
+as the working covariance library, is written in COVERX format like the
+SCALE covariance library. The working covariance library contains any
+default or user-input covariance data for nuclide-reaction pairs that
+were not on the input covariance library as well as any modified
+cross-section-covariance data. The working covariance library can be
+read by the Javapeño plotting tool to visualize the
+cross-section-covariance data used in the reactivity uncertainty
+analysis.</p>
+</div>
+</div>
+<div class="section" id="input-description">
+<span id="id9"></span><h2>Input Description<a class="headerlink" href="#input-description" title="Permalink to this headline">¶</a></h2>
+<p>The user input for TSAR consists of a SCALE Analytic Sequence
+Specification Record (i.e., <em>=tsar</em>), an optional title followed by
+three blocks of data in free-form keyword format, and a SCALE input
+termination END record. The data blocks begin with <strong>READ KEYNAME</strong>and
+end with <strong>END KEYNAME</strong>, where <strong>KEYNAME</strong> is the name of an individual
+data block. The <em>PARAMETER</em> data block is the only required block of
+data, while the <em>HTML</em> and <em>COVARIANCE</em> data blocks are optional. The
+data blocks can be entered in any order.</p>
+<div class="section" id="parameter-data">
+<span id="id10"></span><h3>Parameter data<a class="headerlink" href="#parameter-data" title="Permalink to this headline">¶</a></h3>
+<p>The <em>PARAMETER</em> block of data is used to specify the name of the
+previously prepared k-sensitivity data files, the name of the
+ρ-sensitivity data file, and other keyword options that control the code
+execution. The keyword options are listed in <a class="reference internal" href="#tab6-4-1"><span class="std std-numref">Table 90</span></a> along with
+their default values and description. A keyword that ends with “<em>=</em>”
+must be followed by additional data. Keywords that do not end with
+“<em>=</em>” are Boolean flags that are used to turn on certain features of
+the code, such as the computation of certain data or certain output
+edits. If the keyword is present for a Boolean entry, the value is set
+to true. Otherwise, the value is set to false.</p>
+<span id="tab6-4-1"></span><table class="longtable docutils align-center" id="id16">
+<caption><span class="caption-number">Table 90 </span><span class="caption-text">Input data for parameter block of TSAR input.</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Keyword</strong></p></th>
+<th class="head"><p><strong>Default value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>cov_fix</em></p>
+<p>(optional)</p>
+</td>
+<td><p>False</p></td>
+<td><p>Replace zero and
+large (standard
+deviation &gt;
+<em>large_cov</em>) values
+on diagonal of
+cross-section-covariance
+data with user-input
+values or default
+values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>coverx=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>44groupcov</p></td>
+<td><p>Name of
+cross-section-covariance
+data file to use in
+analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>large_cov=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>10.0</p></td>
+<td><p>Cutoff fractional
+standard deviation
+value for <em>cov_fix</em>.
+Covariance data with
+uncertainties larger
+than <em>large_cov</em> are
+replaced with
+user-defined or
+default values.
+Default =10, which is
+1000% uncertainty.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>nocovar</em></p>
+<p>(optional)</p>
+</td>
+<td><p>False</p></td>
+<td><p>If <em>nocovar</em> is
+present, the
+reactivity
+uncertainty
+calculation is
+bypassed.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>nohtml</em></p>
+<p>(optional)</p>
+</td>
+<td><p>False</p></td>
+<td><p>If <em>nohtml</em> is
+present,
+HTML-formatted output
+is not generated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>print=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>rho</p></td>
+<td><p>Available options are
+<em>rho</em>, <em>all</em>, or
+<em>none</em>. If
+<em>print=rho</em>,
+ρ-sensitivities edits
+are generated. If
+<em>print=all</em>, ρ-,
+k<sub>1</sub>-, and
+k<sub>2</sub>-sensitivities
+edits are generated.
+The <em>print=none</em>
+option turns off all
+sensitivity edits.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>return_work_cov</em></p>
+<p>(optional)</p>
+</td>
+<td><p>False</p></td>
+<td><p>If <em>return_work_cov</em>
+is present, the
+working covariance
+library is copied to
+the return directory
+with the file name
+<em>job_name.wrk.cov,</em>
+where <em>job_name</em> is
+the name of the input
+file. If
+<em>return_work_cov</em> is
+not present, the
+working covariance
+library remains in
+the temporary working
+directory with the
+file name
+<em>job_name.wrk</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>sdf_file_1=</em></p>
+<p>(required)</p>
+</td>
+<td><p>n/a</p></td>
+<td><p>The file name of the
+initial state
+k<sub>1</sub>-sensitivity
+data file.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>sdf_file_2=</em></p>
+<p>(required)</p>
+</td>
+<td><p>n/a</p></td>
+<td><p>The file name of the
+final state
+k<sub>2</sub>-sensitivity
+data file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>type=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>relative</p></td>
+<td><p>Available options are
+<em>relative</em> (or <em>rel</em>)
+and <em>absolute</em> (or
+<em>abs</em>). If
+<em>type=relative</em>, the
+output reactivity
+sensitivity data file
+contains relative
+ρ–sensitivities. If
+<em>type=absolute</em>, the
+output reactivity
+sensitivity data file
+contains absolute
+ρ–sensitivities
+(i.e., pcm units).</p></td>
+</tr>
+<tr class="row-even"><td><p><em>udcov=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>0.05</p></td>
+<td><p>User-defined default
+value of standard
+deviation in
+cross-section data to
+use for all groups
+for nuclide-reaction
+pairs for which
+cross-section-covariance
+data are too large or
+not available on the
+input covariance
+library.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>udcov_corr=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>1.0</p></td>
+<td><p>User-defined default
+correlation value to
+use for
+nuclide-reaction
+pairs for which
+cross-section-covariance
+data are not
+available on the
+input covariance
+library.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>udcov_corr_type=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>zone</p></td>
+<td><p>User-defined default
+correlation in
+cross-section data to
+use for
+nuclide-reaction
+pairs for which
+cross-section-covariance
+data are not
+available on the
+input SCALE
+covariance library.
+Allowed values are
+<em>long</em>, <em>zone</em>, and
+<em>short</em>. See
+<a class="reference internal" href="#tab6-4-2"><span class="std std-numref">Table 91</span></a> for
+details on <em>long</em>,
+<em>zone</em>, and <em>short.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>udcov_therm=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>0.0</p></td>
+<td><p>User-defined default
+value of standard
+deviation in
+cross-section data to
+use for thermal data
+for nuclide-reaction
+pairs for which
+cross-section-covariance
+data are too large or
+not available on the
+input covariance
+library. If input,
+the
+<em>udcov</em>_<em>therm</em>
+value overrides the
+<em>udcov</em> value in the
+thermal range (i.e.,
+neutron energies
+below 0.625 eV).</p></td>
+</tr>
+<tr class="row-even"><td><p><em>udcov_inter=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>0.0</p></td>
+<td><p>User-defined default
+value of standard
+deviation in
+cross-section data to
+use for intermediate
+data for
+nuclide-reaction
+pairs for which
+cross-section-covariance
+data are too large or
+not available on the
+input covariance
+library. If input,
+the <em>udcov_inter</em>
+value overrides the
+<em>udcov</em> value in the
+intermediate range
+(i.e., neutron
+energies above 0.625
+eV and below 25 keV).</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>udcov_fast=</em></p>
+<p>(optional)</p>
+</td>
+<td><p>0.0</p></td>
+<td><p>User-defined default
+value of standard
+deviation in
+cross-section data to
+use for fast data for
+nuclide-reaction
+pairs for which
+cross-section-covariance
+data are too large or
+not available on the
+input covariance
+library. If input,
+the <em>udcov_fast</em>
+value overrides the
+<em>udcov</em> value in the
+fast range (i.e.,
+neutron energies
+above 25 keV).</p></td>
+</tr>
+<tr class="row-even"><td><p><em>use_dcov</em></p>
+<p>(optional)</p>
+</td>
+<td><p>False</p></td>
+<td><p>Use user-defined
+default
+cross-section-covariance
+data for
+nuclide-reaction
+pairs not included on
+the input covariance
+library.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>use_icov</em></p>
+<p>(optional)</p>
+</td>
+<td><p>False</p></td>
+<td><p>Use user-defined
+cross-section-covariance
+data input in the
+<em>COVARIANCE</em> input
+data block in place
+of the default values
+for user-input
+nuclide-reaction
+pairs that are not on
+the input covariance
+library.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="user-input-covariance-data">
+<span id="id11"></span><h3>User-input covariance data<a class="headerlink" href="#user-input-covariance-data" title="Permalink to this headline">¶</a></h3>
+<p>The <em>COVARIANCE</em> data block described in <a class="reference internal" href="#tab6-4-2"><span class="std std-numref">Table 91</span></a> allows the user
+to specify a covariance matrix for specific nuclide-reaction pairs for
+which covariance data are not present on the input covariance library or
+that have zero or large values on the diagonal. The <em>COVARIANCE</em> data
+block must begin with <em>READ COVARIANCE</em> and end with <em>END COVARIANCE</em>.</p>
+<span id="tab6-4-2"></span><table class="longtable docutils align-center" id="id17">
+<caption><span class="caption-number">Table 91 </span><span class="caption-text">Input data for covariance block of TSAR input.</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Input
+parameter</strong></p></th>
+<th class="head"><p><strong>Requirement</strong></p></th>
+<th class="head"><p><strong>Default
+value</strong></p></th>
+<th class="head"><p><strong>Allowed
+values</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nuclide</p></td>
+<td><p>Required</p></td>
+<td><p>none</p></td>
+<td><p>Nuclide
+name or ZA
+number</p></td>
+<td><p>Nuclide for
+which
+covariance
+data are to
+be entered</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reaction</p></td>
+<td><p>Required</p></td>
+<td><p>none</p></td>
+<td><p>Reaction
+name or ZA
+number</p></td>
+<td><p>Reaction
+for which
+covariance
+data are to
+be entered.
+See the
+TSUNAMI-IP
+manual for
+available
+reaction
+types.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>all=</em></p></td>
+<td><p>Optional</p></td>
+<td><p>0.0</p></td>
+<td><p>any number</p></td>
+<td><p>Fractional
+standard
+deviation
+value to be
+applied to
+all groups</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>fast=</em></p></td>
+<td><p>Optional</p></td>
+<td><p>0.0</p></td>
+<td><p>any number</p></td>
+<td><p>Fractional
+standard
+deviation
+value to be
+applied to
+fast
+groups. If
+input, the
+<em>fast</em>
+value
+overrides
+the <em>all</em>
+value in
+the fast
+range
+(i.e.,
+neutron
+energies
+above 25
+keV).</p></td>
+</tr>
+<tr class="row-even"><td><p><em>therm=</em></p></td>
+<td><p>Optional</p></td>
+<td><p>0.0</p></td>
+<td><p>any number</p></td>
+<td><p>Fractional
+standard
+deviation
+value to be
+applied to
+thermal
+groups. If
+input, the
+<em>therm</em>
+value
+overrides
+the <em>all</em>
+value in
+the thermal
+range
+(i.e.,
+neutron
+energies
+below 0.625
+eV).</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>inter=</em></p></td>
+<td><p>Optional</p></td>
+<td><p>0.0</p></td>
+<td><p>any number</p></td>
+<td><p>Fractional
+standard
+deviation
+value to be
+applied to
+intermediate
+groups. If
+input, the
+<em>inter</em>
+value
+overrides
+the <em>all</em>
+value in
+the
+intermediate
+range
+(i.e.,
+neutron
+energies
+above 0.625
+eV and
+below 25
+keV).</p></td>
+</tr>
+<tr class="row-even"><td><p><em>corr=</em></p></td>
+<td><p>Optional</p></td>
+<td><p>1.0</p></td>
+<td><p>any number
+from -1.0
+to 1.0</p></td>
+<td><p>Correlation
+between
+groups</p></td>
+</tr>
+<tr class="row-odd"><td><p>corr_type<em>=</em></p></td>
+<td><p>Optional</p></td>
+<td><p><em>zone</em></p></td>
+<td><p><em>long,
+short,
+zone</em></p></td>
+<td><p>Type of
+correlation
+applied
+from
+group-to-group
+covariance
+values</p>
+<p><em>long</em> –
+correlation
+is applied
+between all
+groups</p>
+<p><em>short</em> –
+correlation
+is applied
+only
+between
+adjacent
+groups</p>
+<p><em>zone</em> –
+correlation
+is applied
+within
+fast,
+intermediate,
+and thermal
+groups, but
+no
+correlation
+is applied
+between
+zones</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>end</em></p></td>
+<td><p>Required</p></td>
+<td></td>
+<td></td>
+<td><p>Denotes end
+of input
+for current
+nuclide/reaction</p></td>
+</tr>
+</tbody>
+</table>
+<p>Any MT number or reaction name will be treated as a valid input, but
+only those present on the k<sub>1</sub>- or k<sub>2</sub>-sensitivity data
+files will impact the results. The reaction sensitivity types computed
+by SAMS from TSUNAMI-1D and TSUNAMI-3D are described in the TSUNAMI-IP
+manual. An energy-covariance matrix is created for the specified
+nuclide-reaction pair with the square of the entered standard deviation
+for the diagonal terms for all groups using the <em>all=</em> value. Groups in
+the fast, intermediate, and thermal energies are then set to the square
+of the standard deviation value entered for <em>fast=</em>, <em>inter=</em>, and
+<em>therm=</em>, respectively. The off-diagonal terms of the energy matrix are
+generated according to the input for <em>corr=</em>, and <em>corr_type=</em>, with
+default settings of <em>1.0</em> and <em>zone.</em> Data entered in this block are
+used only for missing data and do not override values on the input
+covariance data file. The SCALE 5.1 input format is supported where data
+are entered in triplets with the nuclide name (e.g., u-235), then the
+reaction MT number or name (e.g., 18 or fission), and then a standard
+deviation value. In this case, the <em>end</em> keyword must not be entered.
+The standard deviation value is applied to all groups with default
+setting for correlations. These data are only used if <em>use_icov</em> is
+specified in the <em>PARAMETER</em> data block. When both <em>use_icov</em> and
+<em>cov_fix</em> are specified in the <em>PARAMETER</em> data block, and a reaction
+has zero or large (standard deviation &gt; 1000%) values on the diagonal of
+the covariance matrix, these values are replaced with the square of the
+user input standard deviation value, and the corresponding off-diagonal
+terms are substituted according to the values of <em>corr</em> and <em>corr_type</em>.</p>
+</div>
+<div class="section" id="html-data">
+<span id="id12"></span><h3>HTML data<a class="headerlink" href="#html-data" title="Permalink to this headline">¶</a></h3>
+<p>The optional <em>HTML</em> data block is used to customize HTML-formatted
+output. The <em>HTML</em> data block must begin with <em>READ HTML</em> and end with
+<em>END HTML</em>. The data input to the <em>HTML</em> data block consists of several
+keywords that are shown, along with their default values and
+descriptions, in Table 6.4.3X. A keyword that ends with “<em>=</em>” must
+be followed by text data. For color entries, any valid html color name
+can be entered or the hexadecimal representation can be used if preceded
+by a # sign. For example, to change the background color of the html
+output to white, <em>bg_clr=white</em> and <em>bg_clr=#ffffff</em> have the same
+effect, because ffffff is the hexadecimal representation of white. An
+extensive list of available colors for customized output is shown in
+<span class="xref std std-ref">6-7abc</span>. Please note that not all features are supported by all
+browsers.</p>
+<span id="tab6-4-3"></span><table class="longtable docutils align-center" id="id18">
+<caption><span class="caption-number">Table 92 </span><span class="caption-text">Input data for html block of TSAR input.</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Keyword</strong></p></td>
+<td><p><strong>Default value</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><em>bg_clr=</em></p></td>
+<td><p>papayawhip</p></td>
+<td><p>Background color</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>h1_clr=</em></p></td>
+<td><p>maroon</p></td>
+<td><p>Color used for major
+headings</p></td>
+</tr>
+<tr class="row-even"><td><p><em>h2_clr=</em></p></td>
+<td><p>navy</p></td>
+<td><p>Color used for
+sub-headings</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>txt_clr=</em></p></td>
+<td><p>black</p></td>
+<td><p>Color for plain text</p></td>
+</tr>
+<tr class="row-even"><td><p><em>lnk_clr=</em></p></td>
+<td><p>navy</p></td>
+<td><p>Color for hyperlinks</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>lnk_dec=</em></p></td>
+<td><p>none</p></td>
+<td><p>Decoration for
+hyperlinks. (none,
+underline, overline,
+line-through, blink)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>vlnk_clr</em></p></td>
+<td><p>navy</p></td>
+<td><p>Color for visited
+hyperlinks</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>ud_clr=</em></p></td>
+<td><p>blue</p></td>
+<td><p>Color for values in
+tables that use
+default covariance
+data</p></td>
+</tr>
+<tr class="row-even"><td><p><em>ui_clr=</em></p></td>
+<td><p>red</p></td>
+<td><p>Color for values in
+tables that use
+user-input covariance
+data</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>udfix_clr=</em></p></td>
+<td><p>royalblue</p></td>
+<td><p>Color for values in
+tables that use
+default corrected
+covariance data</p></td>
+</tr>
+<tr class="row-even"><td><p><em>uifix_clr=</em></p></td>
+<td><p>green</p></td>
+<td><p>Color for values in
+tables that use
+user-input corrected
+covariance data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sample-problem-and-output-description">
+<span id="id13"></span><h2>Sample Problem and Output Description<a class="headerlink" href="#sample-problem-and-output-description" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-and-text-output">
+<span id="id14"></span><h3>Input and text output<a class="headerlink" href="#input-and-text-output" title="Permalink to this headline">¶</a></h3>
+<p>An example of TSAR input is given in <a class="reference internal" href="#list6-4-1"><span class="std std-numref">Listing 95</span></a> Each section of the
+text output, not shown, is described in order below.</p>
+<ol class="arabic simple">
+<li><p>Input Listing and Summary of Calculations – The TSAR input data is
+printed for each data block. Both user-specified and default values
+for the various keywords are edited.</p></li>
+<li><p>k1-Sensitivity Data File Summary and Sensitivity Coefficients – The
+header information for the k<sub>1</sub>-sensitivity data files follows
+the input data. This includes the title on the sensitivity data file,
+the number of energy groups, the number of sensitivity profiles, and
+the values of k<sub>1</sub> and λ<sub>1</sub>. If <em>print=all</em> is
+specified in the <em>PARAMETER</em> data block, the energy, region, and
+mixture-integrated k<sub>1</sub>-sensitivity coefficients are edited
+for each nuclide-reaction pair.</p></li>
+<li><p>k2-Sensitivity Data File Summary and Sensitivity Coefficients – The
+header information for the k<sub>2</sub>-sensitivity data files follows
+the k<sub>1</sub>-sensitivity data file edit. This includes the title
+on the sensitivity data file, the number of energy groups, the number
+of sensitivity profiles, and the values of k<sub>2</sub> and
+λ<sub>1</sub>. If <em>print=all</em> is specified in the <em>PARAMETER</em> data
+block, the energy, region, and mixture-integrated
+k<sub>2</sub>-sensitivity coefficients are edited for each
+nuclide-reaction pair.</p></li>
+<li><p>Reactivity Value and Optional ρ–Sensitivity Coefficients – After the
+k<sub>1</sub> and k<sub>2</sub> sensitivity edits, the reactivity between
+the two states is edited in pcm units. If <em>print=all</em> or <em>print=rho</em>
+is specified in the <em>PARAMETER</em> data block, the energy, region, and
+mixture-integrated ρ–sensitivity coefficients are edited for each
+nuclide-reaction pair.</p></li>
+<li><p>Reactivity Uncertainty Analysis – Following the edit of the
+reactivity value and the optional ρ‑sensitivity edit, the reactivity
+uncertainty analysis is printed on the text output. First, a message
+is printed that states that the working covariance library is being
+generated. If <em>PARAMETER</em> block keywords <em>use_dcov, use_icov,</em> and/or
+<em>cov_fix</em> are specified, covariance warnings are printed whenever
+user-input covariance data are included in the reactivity uncertainty
+analysis. Following the covariance warnings, the total reactivity
+uncertainty is printed along with the reactivity uncertainty
+contributions from individual energy covariance matrices. The
+reactivity uncertainty contributions are sorted in descending order.</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="list6-4-1">
+<div class="code-block-caption"><span class="caption-number">Listing 95 </span><span class="caption-text">TSAR sample problem input.</span><a class="headerlink" href="#list6-4-1" title="Permalink to this code">¶</a></div>
+<div class="highlight-scale notranslate"><div class="highlight"><pre><span></span><span class="nf">=shell</span>
+  <span class="err">cp</span> <span class="err">$SCALE/output/tsunami-</span><span class="m">1</span><span class="err">d</span><span class="m">1</span><span class="err">.sdf</span> <span class="err">.</span>
+  <span class="err">cp</span> <span class="err">$SCALE/output/tsunami-</span><span class="m">1</span><span class="err">d</span><span class="m">1</span><span class="err">_</span><span class="m">147</span><span class="err">HtoU.sdf</span> <span class="err">.</span>
+<span class="n">end</span>
+<span class="nf">=tsar</span>
+<span class="err">tsar</span> <span class="err">example</span> <span class="err">problem</span>
+<span class="n">read</span><span class="err"> </span><span class="n">parameter</span>
+  <span class="err">sdf_file_</span><span class="m">1</span><span class="err">=tsunami-</span><span class="m">1</span><span class="err">d</span><span class="m">1</span><span class="err">.sdf</span>
+  <span class="err">sdf_file_</span><span class="m">2</span><span class="err">=tsunami-</span><span class="m">1</span><span class="err">d</span><span class="m">1</span><span class="err">_</span><span class="m">147</span><span class="err">HtoU.sdf</span>
+  <span class="err">use_dcov</span>
+  <span class="err">use_icov</span>
+  <span class="err">cov_fix</span>
+  <span class="err">print=all</span>
+  <span class="err">udcov_fast=</span><span class="m">0</span><span class="err">.</span><span class="m">10</span>
+  <span class="err">udcov_inter=</span><span class="m">0</span><span class="err">.</span><span class="m">15</span>
+  <span class="err">udcov_therm=</span><span class="m">0</span><span class="err">.</span><span class="m">08</span>
+  <span class="err">udcov_corr_type=zone</span>
+  <span class="err">udcov_corr=</span><span class="m">1</span><span class="err">.</span><span class="m">0</span>
+  <span class="err">return_work_cov</span>
+<span class="n">end</span><span class="err"> </span><span class="n">parameter</span>
+<span class="n">read</span><span class="err"> </span><span class="n">html</span>
+ <span class="err">bg_clr=Aliceblue</span>
+ <span class="err">ud_clr=blue</span>
+ <span class="err">ui_clr=</span><span class="n">read</span>
+ <span class="err">udfix_clr=green</span>
+ <span class="err">uifix_clr=darkorange</span>
+<span class="n">end</span><span class="err"> </span><span class="n">html</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="html-output">
+<span id="id15"></span><h2>HTML Output<a class="headerlink" href="#html-output" title="Permalink to this headline">¶</a></h2>
+<p>The input file for the TSAR sample problem shown in <a class="reference internal" href="#list6-4-1"><span class="std std-numref">Listing 95</span></a> is
+named tsar1.input. In this case, the HTML-formatted output is stored in
+a file called tsar1.html and additional resources are stored in
+directories called tsar1.htmd and applet_resources. This section
+contains example TSAR HTML-formatted output only for demonstration of
+the interface. The problem does not correspond to the sample problem
+distributed with SCALE and is included for illustrative purposes only.
+When tsar1.html is opened in a web browser, the information shown in
+<a class="reference internal" href="#fig6-4-2"><span class="std std-numref">Fig. 77</span></a> is displayed.</p>
+<div class="figure align-center" id="id19">
+<span id="fig6-4-2"></span><a class="reference internal image-reference" href="_images/fig130.png"><img alt="_images/fig130.png" src="_images/fig130.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Initial screen from TSAR HTML output.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</div>
+<p>The title of the input file is displayed between the two SCALE logos.
+Clicking on the SCALE logo will link the user directly to the SCALE
+website, if Internet access is available. Because this SCALE input file
+only executed TSAR, only a single output listing is available. The text
+“1. TSAR” is a hyperlink to view the output from TSAR. Clicking on the
+“1. TSAR” hyperlink will bring up the information shown in
+<a class="reference internal" href="#fig6-4-3"><span class="std std-numref">Fig. 78</span></a>.</p>
+<p>The initial page of output from TSAR is shown in <a class="reference internal" href="#fig6-4-3"><span class="std std-numref">Fig. 78</span></a>. Program
+verification information is shown in the table under the TSAR logo. This
+table includes information about the code that was executed and the date
+and time it was run. The menu on the left side of the screen contains
+hyperlinks to specific portions of the code output. Echoes of the input
+data are available in the Input Data section. Any errors or warning
+messages are available in the Messages sections. Results from the code
+execution are shown in the results section.</p>
+<div class="figure align-center" id="id20">
+<span id="fig6-4-3"></span><a class="reference internal image-reference" href="_images/fig320.png"><img alt="_images/fig320.png" src="_images/fig320.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Program verification screen from TSAR HTML output.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+</div>
+<p>Selecting Input Parameters will reveal the menu of available input data.
+Selecting Input Parameters causes the table shown in <a class="reference internal" href="#fig6-4-4"><span class="std std-numref">Fig. 79</span></a> to be
+displayed.  Other input data can also be displayed by selecting the desired data
+from the menu.</p>
+<div class="figure align-center" id="id21">
+<span id="fig6-4-4"></span><a class="reference internal image-reference" href="_images/fig415.png"><img alt="_images/fig415.png" src="_images/fig415.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Input parameters from TSAR HTML output.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
+<p>Selecting Results causes a menu of available results to be revealed.  From this
+menu, selecting Reactivity Sensitivities causes a submenu to be revealed. From
+the submenu, the Reactivity Sensitivities can be visualized in tabular format or
+plot format.  Selecting Energy, Region, and Mixture Integrated Sensitivity
+Coefficients from this submenu causes the information shown in <a class="reference internal" href="#fig6-4-5"><span class="std std-numref">Fig. 80</span></a> to
+appear.</p>
+<div class="figure align-center" id="id22">
+<span id="fig6-4-5"></span><a class="reference internal image-reference" href="_images/fig514.png"><img alt="_images/fig514.png" src="_images/fig514.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Global integral indices from TSAR HTML output.</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</div>
+<p>Plots of sensitivity data from the initial and final states as well as
+the reactivity sensitivities are available for viewing in the TSAR HTML
+output. If the <em>return_work_cov</em> keyword option is included in the
+PARAMETER block on the TSAR input file, then the covariance data can be
+viewed by selecting “XS Covariance Plot” in the results submenu. A Java
+applet version of Javapeño will appear in the browser window with the
+working covariance library preloaded. Data can be added to the plot by
+double-clicking on the list of available data on the right side of
+Javapeño. The plot shown in <a class="reference internal" href="#fig6-4-6"><span class="std std-numref">Fig. 81</span></a> was produced with this
+procedure.</p>
+<div class="figure align-center" id="id23">
+<span id="fig6-4-6"></span><a class="reference internal image-reference" href="_images/fig611.png"><img alt="_images/fig611.png" src="_images/fig611.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Covariance data from TSAR HTML output.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</div>
+<p id="bibtex-bibliography-tsar-0"><dl class="citation">
+<dt class="bibtex label" id="williams-sensitivity-2006"><span class="brackets"><a class="fn-backref" href="#id3">WGC06</a></span></dt>
+<dd><p>Mark L. Williams, Jess C. Gehin, and Kevin T. Clarno. Sensitivity analysis of reactivity responses using one-dimensional discrete ordinates and three-dimensional Monte Carlo methods. In <em>C135. pdf in Proc. of PHYSOR–2006, American Nuclear Society Topical Meeting on Reactor Physics: Advances in Nuclear Analysis and Simulation</em>. 2006.</p>
+</dd>
+<dt class="bibtex label" id="williams-scale-6-2008"><span class="brackets"><a class="fn-backref" href="#id8">WR08</a></span></dt>
+<dd><p>Mark L. Williams and Bradley T. Rearden. SCALE-6 Sensitivity/uncertainty methods and covariance data. <em>Nuclear Data Sheets</em>, 109(12):2796–2800, 2008. Publisher: Citeseer.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tsunami-ip.html" class="btn btn-neutral float-right" title="TSUNAMI Utility Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sams-appA.html" class="btn btn-neutral float-left" title="Sensitivity Data File Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SCALE developers
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
