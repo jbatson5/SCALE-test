@@ -646,10 +646,10 @@ where
 
   .. math::
 
-  \beta_{A B}=\left\{\begin{array}{cc}
-  \frac{e^{-\sigma_{t} s_{1}}-e^{-\sigma_{t} s_{2}}}{\sigma_{t}\left(s_{2}-s_{1}\right)} & s_{1} \neq s_{2} \\
-  e^{-\sigma_{t} s_{1}} & s_{1}=s_{2}
-  \end{array}\right.
+    \beta_{A B}=\left\{\begin{array}{cc}
+    \frac{e^{-\sigma_{t} s_{1}}-e^{-\sigma_{t} s_{2}}}{\sigma_{t}\left(s_{2}-s_{1}\right)} & s_{1} \neq s_{2} \\
+    e^{-\sigma_{t} s_{1}} & s_{1}=s_{2}
+    \end{array}\right.
 
 Thus far, this development has considered only the special case where
 contributions to side B are the result only of the cell internal source

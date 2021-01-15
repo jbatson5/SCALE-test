@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
   
@@ -265,7 +266,7 @@ testing of the libraries described here.</p>
 <span id="id2"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>SCALE includes both multigroup (MG) and pointwise continuous energy (CE)
 nuclear data libraries, which were processed using the AMPX code
-system. <a href="#id8"><span class="problematic" id="id3">[1]_</span></a> Libraries are available for neutron and for coupled
+system. <a href="#id11"><span class="problematic" id="id3">[1]_</span></a> Libraries are available for neutron and for coupled
 neutron-photon transport calculations. The CE libraries are used for
 Monte Carlo calculations with CE‑KENO (criticality) and CE‑Monaco
 (shielding), and are also used by the pointwise (PW) discrete ordinates
@@ -273,13 +274,13 @@ code CENTRM to obtain PW flux spectra for computing self-shielded MG
 cross sections. The MG libraries are used in the MG-KENO and MG-Monaco
 Monte Carlo codes, and in the deterministic transport codes XSDRNPM,
 NEWT, and DENOVO. All cross section libraries in SCALE 6.2 and later
-versions are based strictly on ENDF/B‑VII.0 <a href="#id9"><span class="problematic" id="id4">[2]_</span></a> and ENDF/B‑VII.1 <a href="#id10"><span class="problematic" id="id5">[3]_</span></a>,
+versions are based strictly on ENDF/B‑VII.0 <a href="#id12"><span class="problematic" id="id4">[2]_</span></a> and ENDF/B‑VII.1 <a href="#id13"><span class="problematic" id="id5">[3]_</span></a>,
 while earlier SCALE releases included libraries processed from
 ENDF/B-VI.8, V, and IV. The CE and MG libraries include the 417 nuclides
 shown in <a class="reference internal" href="#tab10-1-1"><span class="std std-numref">Table 318</span></a>. ENDF/B-VII does not have evaluated data for
 several isotopes in the SCALE Standard Composition Data; therefore the
 libraries do not include cross sections for these nuclides, which are
-listed in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-2</span></code>. If one of these isotopes is explicitly requested
+listed in <a class="reference internal" href="#tab10-1-2"><span class="std std-numref">Table 319</span></a>. If one of these isotopes is explicitly requested
 or if the natural element containing the isotope is requested in the
 SCALE input, a warning message is written saying that the nuclide is
 being omitted from the calculations. The most commonly encountered
@@ -287,7 +288,7 @@ example of this is O-18 which has an abundance of approximately 0.2% in
 elemental oxygen.</p>
 <p>The libraries include 19 thermal-scattering moderators for which
 bound-scattering kernels [e.g., S(α,β) ] are provided in ENDF/B-VII.0
-and ENDF/B‑VII.1, as given in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-3</span></code>. This table also lists the
+and ENDF/B‑VII.1, as given in <a class="reference internal" href="#tab10-1-3"><span class="std std-numref">Table 320</span></a>. This table also lists the
 temperatures available in MG and CE libraries for the materials with
 bound kernels. The thermal scattering kernels for all other materials
 are based on the free-gas kernel. On the MG libraries, these nuclides
@@ -295,7 +296,7 @@ have 2‑D scattering matrices processed from the free-gas kernel
 evaluated at the temperatures of 293K, 600K, 900K, 1200K, and 2400K.
 SCALE 6.2 includes routines that automatically interpolate the CE cross
 section data, as well as thermal scattering kernels to any arbitrary
-temperature for Monte Carlo calculations. <a href="#id11"><span class="problematic" id="id6">[4]_</span></a> Analogous procedures are
+temperature for Monte Carlo calculations. <a href="#id14"><span class="problematic" id="id6">[4]_</span></a> Analogous procedures are
 available for MG data. The CE libraries do no not include free gas
 kernel data because the transport codes internally evaluate the free gas
 scattering information at the specified temperature.</p>
@@ -314,9 +315,9 @@ contain intermediate resonance parameters for self-shielding. A much
 improved methodology in AMPX was used to process more accurate shielding
 factors for the most important resonance absorbers.<sup>1</sup></p>
 <p>The CE and MG libraries available in SCALE 6.2 are given in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-4</span></code>, which also lists the main source of data for each library.
+<a class="reference internal" href="#tab10-1-4"><span class="std std-numref">Table 321</span></a>, which also lists the main source of data for each library.
 The desired MG or CE library for a computation is typically selected by
-specifying the appropriate mnemonic name from <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab10-1-4</span></code>. The CE
+specifying the appropriate mnemonic name from <a class="reference internal" href="#tab10-1-4"><span class="std std-numref">Table 321</span></a>. The CE
 library mnemonic corresponds to the actual name of the cross section
 directory file, and the MG mnemonic is an alias for the file containing
 the actual master library, shown in the third column of Table 10.1.4.
@@ -338,8 +339,16 @@ problem-<em>dependent</em> libraries by performing resonance self-shielding
 and other modifications. This is done by the XSProc module (see
 <a class="reference internal" href="XSProc.html#id1"><span class="std std-ref">XSPROC: The Material and Cross Section Processing Module for SCALE</span></a>) during the execution of a SCALE control sequence prior to
 executing a transport solver.</p>
-<span id="tab10-1-1"></span><table class="longtable colwidths-auto docutils align-center" id="id7">
+<span id="tab10-1-1"></span><table class="tight-table docutils align-center" id="id7">
 <caption><span class="caption-number">Table 318 </span><span class="caption-text">Nuclides in CE and MG ENDF/B-VII.0 and –VII.1 libraries.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>SCALE ID</strong></p></th>
 <th class="head"><p><strong>Name</strong></p></th>
@@ -3562,6 +3571,406 @@ only</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>fm</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><sup>a</sup> Yield data are only available in coupled MG libraries and in
+the CE libraries.</p>
+<p><sup>b</sup> Narrow and/or intermediate resonance factors are only available
+on MG libraries.</p>
+<p><sup>c</sup> Incident gamma cross sections are only available on coupled MG
+libraries. A separate incident gamma CE library is available</p>
+<span id="tab10-1-2"></span><table class="docutils align-center" id="id8">
+<caption><span class="caption-number">Table 319 </span><span class="caption-text">Isotopes with no ENDF/B-VII.0 or –VII.1 nuclear data.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>SCALE
+standard
+composition
+ID</p></th>
+<th class="head"><p>Missing
+Isotopes</p></th>
+<th class="head"><p>ZA numbers</p></th>
+<th class="head"><p>% Abundance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>oxygen</p></td>
+<td><p>8000</p></td>
+<td><p>18</p></td>
+<td><p>8018</p></td>
+<td><p>0.20</p></td>
+</tr>
+<tr class="row-odd"><td><p>neon</p></td>
+<td><p>10000</p></td>
+<td><p>21, 22</p></td>
+<td><p>10021,
+10022</p></td>
+<td><p>0.27, 9.25</p></td>
+</tr>
+<tr class="row-even"><td><p>ytterbium</p></td>
+<td><p>70000</p></td>
+<td><p>All<sup>(1)</sup></p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>osmium</p></td>
+<td><p>76000</p></td>
+<td><p>All<sup>(2)</sup></p></td>
+<td><ol class="arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>platinum</p></td>
+<td><p>78000</p></td>
+<td><p>All<sup>(3)</sup></p></td>
+<td><ol class="arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>tantalum</p></td>
+<td><p>73000</p></td>
+<td><p>180m</p></td>
+<td><p>1073180</p></td>
+<td><p>0.01</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>no data for any of the 7 naturally-occurring ytterbium isotopes</p></li>
+<li><p>no data for any of the 7 naturally-occurring osmium isotopes</p></li>
+<li><p>no data for any of the 6 naturally-occurring platinum isotopes</p></li>
+</ol>
+<span id="tab10-1-3"></span><table class="docutils align-center" id="id9">
+<caption><span class="caption-number">Table 320 </span><span class="caption-text">Temperatures at which thermal moderator data are available<sup>a</sup>.</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>ID</strong></p></td>
+<td><p><strong>Name</strong></p></td>
+<td><p><strong>Temperatures</strong></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1001</p></td>
+<td><p>h-1</p></td>
+<td><p>293.6 350.0 400.0
+450.0 500.0 550.0
+600.0 650.0 800.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1001001</p></td>
+<td><p>h-liquid_ch4</p></td>
+<td><p>100.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2001001</p></td>
+<td><p>h-solid_ch4</p></td>
+<td><p>22.0</p></td>
+</tr>
+<tr class="row-even"><td><p>4001001</p></td>
+<td><p>h-cryo_ortho</p></td>
+<td><p>20.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5001001</p></td>
+<td><p>h-cryo_para</p></td>
+<td><p>20.0</p></td>
+</tr>
+<tr class="row-even"><td><p>6001001</p></td>
+<td><p>h-benzene</p></td>
+<td><p>296.0 350.0 400.0
+450.0 500.0 600.0
+800.0 1000.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>7001001</p></td>
+<td><p>h-zrh2</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-even"><td><p>9001001</p></td>
+<td><p>h-poly</p></td>
+<td><p>296.0 350.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1002</p></td>
+<td><p>h-2</p></td>
+<td><p>293.6 350.0 400.0
+450.0 500.0 550.0
+600.0 650.0</p></td>
+</tr>
+<tr class="row-even"><td><p>4001002</p></td>
+<td><p>d-cryo_ortho</p></td>
+<td><p>19.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5001002</p></td>
+<td><p>d-cryo_para</p></td>
+<td><p>19.0</p></td>
+</tr>
+<tr class="row-even"><td><p>3004009</p></td>
+<td><p>bebound</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0001
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5004009</p></td>
+<td><p>be-beo</p></td>
+<td><p>293.6 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-even"><td><p>3006000</p></td>
+<td><p>c-graphite</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0 1600.0
+2000.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5006000</p></td>
+<td><p>h-benzene</p></td>
+<td><p>296.0 350.0 400.0
+450.0 500.0 600.0
+800.0 1000.0</p></td>
+</tr>
+<tr class="row-even"><td><p>5008016</p></td>
+<td><p>o-beo</p></td>
+<td><p>293.6 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1013027</p></td>
+<td><p>albound</p></td>
+<td><p>20.0 80.0 293.6 400.0
+600.0 800.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1014028<sup>a</sup></p></td>
+<td><p>sibound</p></td>
+<td><p>293.6 350.0 400.0
+500.0 800.0 1000.0
+1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1014029<sup>a</sup></p></td>
+<td><p>sibound</p></td>
+<td><p>293.6 350.0 400.0
+500.0 800.0 1000.0
+1200.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1014030<sup>a</sup></p></td>
+<td><p>sibound</p></td>
+<td><p>293.6 350.0 400.0
+500.0 800.0 1000.0
+1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1026000</p></td>
+<td><p>febound</p></td>
+<td><p>20.0 80.0 293.6 400.0
+600.0 800.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1040090</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1040091</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1040092</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1040093</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1040094</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1040095</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1040096</p></td>
+<td><p>zr90-zr5h8</p></td>
+<td><p>296.0 400.0 500.0
+600.0 700.0 800.0
+1000.0 1200.0</p></td>
+</tr>
+</tbody>
+</table>
+<p><sup>a)</sup> only available in ENDF/B-VII.1</p>
+<span id="tab10-1-4"></span><table class="colwidths-given docutils align-center" id="id10">
+<caption><span class="caption-number">Table 321 </span><span class="caption-text">Standard SCALE cross section libraries.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Mnemonic
+names</strong></p></td>
+<td><p><strong>Primary data
+source/format</strong></p></td>
+<td><p><strong>Last field of
+cross section library
+filename</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>v7-238 ; v7-238n ;</p>
+<p>v7.0-238n</p>
+</td>
+<td><p>ENDF/B-VII.0
+238-group neutron
+library</p></td>
+<td><p>xn238v7.0<sup>a</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>v7-252 ; v7-252n;</p>
+<p>v7.1-252n</p>
+</td>
+<td><p>ENDF/B-VII.1
+252-group neutron
+library</p></td>
+<td><p>xn252v7.1 <sup>a</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>v7-56; v7-56n;
+v7.1-56n</p></td>
+<td><p>ENDF/B-VII.1 56-group
+neutron library</p></td>
+<td><p>xn56v7.1 <sup>a</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>test-8grp</p></td>
+<td><p>TEST LIBRARY 8-group
+ENDF/B-VII.1 neutron
+library<sup>e</sup></p></td>
+<td><p>test8g_v7.1</p></td>
+</tr>
+<tr class="row-even"><td><p>v7.1-200n47g</p></td>
+<td><p>ENDF/B-VII.1 200
+neutron/47 gamma
+library</p></td>
+<td><p>xn200g47v7.1<strong>a</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>v7-200n47g ;</p>
+<p>v7.0-200n47g ;
+v7-200g47</p>
+</td>
+<td><p>ENDF/B-VII.0 200
+neutron/47 gamma
+library</p></td>
+<td><p>xn200g47v7.0<strong>a</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>v7.1-28n19g</p></td>
+<td><p>ENDF/B-VII.1 28
+neutron/19 gamma
+library</p></td>
+<td><p>xn28g19v7.1<strong>a</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>v7-27n19g ;
+v7.0-27n19g</p></td>
+<td><p>ENDF/B-VII.0 27
+neutron/19 gamma
+library</p></td>
+<td><p>xn27g19v7.0<strong>a</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ce_v7.1_endf<em>b</em></p></td>
+<td><p>ENDF/B-VII.1
+Continuous-energy
+neutron and gamma
+library</p></td>
+<td><p>_ _</p></td>
+</tr>
+<tr class="row-odd"><td><p>ce_v7 ; ce_v7_endf ;
+ce_v7.0_endf<em>b</em></p></td>
+<td><p>ENDF/B-VII.0
+Continuous-energy
+neutron and gamma
+library</p></td>
+<td><p>_ _</p></td>
+</tr>
+<tr class="row-even"><td><p>ce_v7.1_endf.xml:sup:<cite>d</cite></p></td>
+<td><p>ENDF/B-VII.1
+Continuous-energy
+neutron and gamma
+library</p></td>
+<td><p>_ _</p></td>
+</tr>
+<tr class="row-odd"><td><p>ce_v7.xml ;
+ce_v7_endf.xml ;
+ce_v7.0_endf.xml:sup:<cite>d</cite></p></td>
+<td><p>ENDF/B-VII.0
+Continuous-energy
+neutron and gamma
+library</p></td>
+<td><p>_ _</p></td>
+</tr>
+<tr class="row-even"><td><p>File name<em>c</em></p></td>
+<td><p>User-supplied library</p></td>
+<td><p>file name</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>a</em> Format of the
+library names are
+“scale.revxx.lastfield”
+where “xx” is the
+revision number.</p>
+<p><em>b</em> ASCII text file
+that contains
+location of
+continuous energy
+data files.</p>
+<blockquote>
+<div><p><em>c</em> For continuous
+energy mode
+calculations in
+KENO, the library
+name must start
+with “<a href="#id15"><span class="problematic" id="id16">CE_</span></a>”.</p>
+<p><em>d</em> Contains the
+same information
+as ce_v7.x_endf in
+xml format for use
+in the CE_MONACO
+sequence.</p>
+<p><em>e</em> Transitional
+library that will
+not be included
+with SCALE 6.2
+release. Mnemonic
+names will alias
+to ENDF/B VII.1
+libraries in
+production
+release.</p>
+</div></blockquote>
+</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

@@ -75,6 +75,9 @@ html_css_files = [
     'custom.css',
 ]
 
+def setup(app):
+   app.add_stylesheet('css/custom.css')
+
 from pygments.lexer import RegexLexer, bygroups, include, inherit, words
 from pygments.style import Style
 from pygments import token
