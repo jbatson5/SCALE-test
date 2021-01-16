@@ -37,7 +37,7 @@ release = '0.0.1'
 import sys, os
 sys.path.append(os.path.abspath('extensions'))
 
-import sphinx_rtd_theme
+
 
 extensions = ['sphinxcontrib.bibtex', "sphinx_rtd_theme", 'sphinxcontrib.rsvgconverter']
 
@@ -64,7 +64,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'Keno.rst']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+
+html_theme = 'alabaster'
+
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
