@@ -109,7 +109,7 @@ and other modifications. This is done by the XSProc module (see
 :ref:`7-1`) during the execution of a SCALE control sequence prior to
 executing a transport solver.
 
-.. tabularcolumns:: | m{1cm} | m{1cm} | m{1cm} | m{1cm} | m{1cm} | m{1cm} |
+.. tabularcolumns:: | m{2cm} | m{2cm} | m{2cm} | m{2cm} | m{2cm} | m{2cm} |
 
 .. _tab10-1-1:
 .. table:: Nuclides in CE and MG ENDF/B-VII.0 and –VII.1 libraries.
@@ -2202,10 +2202,10 @@ methods and data for shielding applications.
   :class: longtable
 
   +------+------+------+------+------+------+------+------+------+------+
-  | **Gr\| **En\| **Gr\| **En\| **Gr\| **En\| **Gr\| **En\| **Gr\| **En\|
-  | p**  | ergy | p**  | ergy | p**  | ergy | p**  | ergy | p**  | ergy |
+  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  |
+  | p    | ergy | p    | ergy | p    | ergy | p    | ergy | p    | ergy |
   |      | (eV) |      | (eV) |      | (eV) |      | (eV) |      | (eV) |
-  |      | **   |      | **   |      | **   |      | **   |      | **   |
+  |      |      |      |      |      |      |      |      |      |      |
   +======+======+======+======+======+======+======+======+======+======+
   | 1    | 2.00 | 42   | 2.72 | 83   | 3.33 | 124  | 2.35 | 165  | 5.04 |
   |      | 00E+ |      | 53E+ |      | 73E+ |      | 79E+ |      | 35E+ |
@@ -2390,10 +2390,10 @@ methods and data for shielding applications.
   :align: center
 
   +------+------+------+------+------+------+------+------+------+------+
-  | **Gr\| **En\| **Gr\| **En\| **Gr\| **En\| **Gr\| **En\| **Gr\| **En\|
-  | p**  | ergy | p**  | ergy | p**  | ergy | p**  | ergy | p**  | ergy |
+  | Gr\  | En\  | Gr\  | En\  | Gr  \| En\  | Gr\  |   En\| Gr\  | En\  |
+  | p    | ergy | p    | ergy | p    | ergy | p    | ergy | p    | ergy |
   |      | (eV) |      | (eV) |      | (eV) |      | (eV) |      | (eV) |
-  |      | **   |      | **   |      | **   |      | **   |      | **   |
+  |      |      |      |      |      |      |      |      |      |      |
   +======+======+======+======+======+======+======+======+======+======+
   | 1    | 2.00 | 11   | 5.00 | 21   | 1.80 | 31   | 7.00 | 41   | 1.00 |
   |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |
@@ -2449,9 +2449,13 @@ methods and data for shielding applications.
   | p.   |      |      |      |      |      |      |      |      |      |
   +------+------+------+------+------+------+------+------+------+------+
 
+.. tabularcolumns:: |m{2cm}|m{2cm}|m{5cm}|
+
+
 .. _tab10-1-15:
 .. table:: Available dose functions on the coupled neutron-gamma libraries.
   :align: center
+  :class: longtable
 
   +-----------------------+-----------------------+-----------------------+
   | MAT                   | MT                    | Description           |
