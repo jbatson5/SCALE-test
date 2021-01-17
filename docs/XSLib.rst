@@ -31,7 +31,7 @@ Introduction
 
 SCALE includes both multigroup (MG) and pointwise continuous energy (CE)
 nuclear data libraries, which were processed using the AMPX code
-system. [1]_ Libraries are available for neutron and for coupled
+system :cite:`wiarda_ampx_2015`. Libraries are available for neutron and for coupled
 neutron-photon transport calculations. The CE libraries are used for
 Monte Carlo calculations with CE‑KENO (criticality) and CE‑Monaco
 (shielding), and are also used by the pointwise (PW) discrete ordinates
@@ -39,7 +39,7 @@ code CENTRM to obtain PW flux spectra for computing self-shielded MG
 cross sections. The MG libraries are used in the MG-KENO and MG-Monaco
 Monte Carlo codes, and in the deterministic transport codes XSDRNPM,
 NEWT, and DENOVO. All cross section libraries in SCALE 6.2 and later
-versions are based strictly on ENDF/B‑VII.0 [2]_ and ENDF/B‑VII.1 [3]_,
+versions are based strictly on ENDF/B‑VII.0 :cite:`chadwick_endfb-vii_2006` and ENDF/B‑VII.1 :cite:`chadwick_endfb-vii_2011`,
 while earlier SCALE releases included libraries processed from
 ENDF/B-VI.8, V, and IV. The CE and MG libraries include the 417 nuclides
 shown in :numref:`tab10-1-1`. ENDF/B-VII does not have evaluated data for
@@ -62,7 +62,7 @@ have 2‑D scattering matrices processed from the free-gas kernel
 evaluated at the temperatures of 293K, 600K, 900K, 1200K, and 2400K.
 SCALE 6.2 includes routines that automatically interpolate the CE cross
 section data, as well as thermal scattering kernels to any arbitrary
-temperature for Monte Carlo calculations. [4]_ Analogous procedures are
+temperature for Monte Carlo calculations :cite:`hart_creation_2016`. Analogous procedures are
 available for MG data. The CE libraries do no not include free gas
 kernel data because the transport codes internally evaluate the free gas
 scattering information at the specified temperature.
@@ -1704,6 +1704,7 @@ self-shielding data.
   |        | 6.7900 |        | 1.1500 |        | 3.5500 |        |        |
   |        | E+05   |        | E+03   |        | E+01   |        | 2.9700 |
   |        |        |        |        |        |        |        | E+00   |
+  +--------+--------+--------+--------+--------+--------+--------+--------+
   |        | 6.7000 |        | 9.5000 |        | 3.4600 |        |        |
   |        | E+05   |        | E+02   |        | E+01   |        | 2.8700 |
   |        |        |        |        |        |        |        | E+00   |
@@ -1719,6 +1720,7 @@ self-shielding data.
   |        | 4.9952 |        | 3.0500 |        | 3.1250 |        |        |
   |        | E+05   |        | E+02   |        | E+01   |        | 2.4700 |
   |        |        |        |        |        |        |        | E+00   |
+  +--------+--------+--------+--------+--------+--------+--------+--------+
   |        | 4.7000 |        | 2.8500 |        | 3.0000 |        |        |
   |        | E+05   |        | E+02   |        | E+01   |        | 2.3800 |
   |        |        |        |        |        |        |        | E+00   |
@@ -2174,7 +2176,7 @@ ENDF/B-VII.0, respectively, are available for radiation transport
 calculations with SCALE shielding modules. The 200 neutron and 47 gamma
 energy group structures are provided in :numref:`tab10-1-13` and :numref:`tab10-1-11`,
 respectively. The neutron group structure is identical to the 199-group
-VITAMIN-B6\ [5] structure except that an additional group has been
+VITAMIN-B6 :cite:`wiarda_development_2009` structure except that an additional group has been
 added to extend the top energy boundary to 20 MeV. The MG neutron data
 were generated using the standard weighting function described in
 :numref:`tab10-1-6`, and the MG photon data were weighted with a flat spectrum
@@ -2190,11 +2192,13 @@ previous SCALE shielding libraries.
 
 The fine-group coupled libraries were validated by performing radiation
 transport calculations with the SCALE shielding sequence MAVRIC for
-several shielding benchmark calculations [5]_. The calculated results
+several shielding benchmark calculations :cite:`wiarda_development_2009`. The calculated results
 for transmission/attenuation values and spectral results matched
 experimental measurements well. Overall, the results obtained with using
 the 200n-47g coupled library demonstrate the effectiveness of the SCALE
 methods and data for shielding applications.
+
+.. tabularcolumns:: |m{1cm}|m{4em}|m{4em}|m{4em}|m{4em}|m{4em}|m{4em}|m{4em}|m{4em}|m{4em}|
 
 .. _tab10-1-13:
 .. table:: Energy boundaries for the 200 neutron group structure.
@@ -2594,5 +2598,198 @@ methods and data for shielding applications.
   |                       |                       | (rem/h)/(photons/cm\  |
   |                       |                       | :sup:`2`/s)           |
   +-----------------------+-----------------------+-----------------------+
+
+.. _10-1-2-5:
+
+The 27N-19G and 28N-19G shielding libraries (V7-27N19G, V7.1-28N19G)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the fine-group shielding library, SCALE has broad-group
+ENDF/B-VII.0 and ENDF/B‑VII.1 libraries. The ENDF/B-VII.‑0 library has
+27 neutron and 19 gamma groups; the ENDF/B‑VII.1 library has 28 neutron
+and 19 gamma groups. The change in the neutron group structure was
+necessary to allow for thermal up-scatter up to 5 eV. The gamma groups
+are identical in both libraries. The broad-group library was primarily
+developed to perform adjoint discrete ordinates calculations needed to
+prepare importance maps and biased source distributions for biasing
+forward Monte Carlo shielding calculations with the fine-group libraries
+in the MAVRIC shielding analysis sequence. The constituents of the
+27n-19g library and the processing methods are the same as the 200n‑47g
+library. The 27 neutron, 28 neutron and 19 gamma group structures are
+provided in :numref:`tab10-1-16`, :numref:`tab10-1-17`, and :numref:`tab10-1-18`,
+respectively. The broad-group library has the same dose factor
+information described in :numref:`tab10-1-15` for the fine group library. The
+27n‑19g ENDF/B‑VII.0 library was used as part of the benchmark testing
+with the 200n‑47g library, which is described in :cite:`wiarda_development_2009`.
+
+.. tabularcolumns:: |m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}
+
+.. _tab10-1-16:
+.. table:: Energy boundaries for the 27 neutron group structure
+  :align: center
+
+
+  +------+------+------+------+------+------+------+------+------+------+
+  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  |
+  | p    | ergy | p    | ergy | p    | ergy | p    | ergy | p    | ergy |
+  |      | (eV) |      | (eV) |      | (eV) |      | (eV) |      | (eV) |
+  |      |      |      |      |      |      |      |      |      |      |
+  +======+======+======+======+======+======+======+======+======+======+
+  | 1    | 2.00 | 7    | 4.07 | 13   | 2.90 | 19   | 1.00 | 25   | 5.00 |
+  |      | 00E+ |      | 62E+ |      | 23E+ |      | 00E+ |      | 00E- |
+  |      | 07   |      | 05   |      | 01   |      | 00   |      | 02   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 2    | 6.37 | 8    | 1.11 | 14   | 1.06 | 20   | 8.00 | 26   | 3.00 |
+  |      | 63E+ |      | 09E+ |      | 77E+ |      | 00E- |      | 00E- |
+  |      | 06   |      | 05   |      | 01   |      | 01   |      | 02   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 3    | 3.01 | 9    | 1.50 | 15   | 3.05 | 21   | 4.13 | 27   | 1.00 |
+  |      | 19E+ |      | 34E+ |      | 90E+ |      | 99E- |      | 00E- |
+  |      | 06   |      | 04   |      | 00   |      | 01   |      | 02   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 4    | 1.82 | 10   | 3.03 | 16   | 1.85 | 22   | 3.25 |      | 1.00 |
+  |      | 68E+ |      | 54E+ |      | 54E+ |      | 00E- |      | 00E- |
+  |      | 06   |      | 03   |      | 00   |      | 01   |      | 05\  |
+  |      |      |      |      |      |      |      |      |      | *a*  |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 5    | 1.42 | 11   | 5.82 | 17   | 1.30 | 23   | 2.25 |      |      |
+  |      | 27E+ |      | 95E+ |      | 00E+ |      | 00E- |      |      |
+  |      | 06   |      | 02   |      | 00   |      | 01   |      |      |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 6    | 9.07 | 12   | 1.01 | 18   | 1.12 | 24   | 1.00 |      |      |
+  |      | 18E+ |      | 30E+ |      | 53E+ |      | 00E- |      |      |
+  |      | 05   |      | 02   |      | 00   |      | 01   |      |      |
+  +------+------+------+------+------+------+------+------+------+------+
+
+..
+
+    :sup:`a`\Lower energy boundary of last group.
+
+.. tabularcolumns:: |m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}
+
+.. _tab10-1-17:
+.. table:: Energy boundaries for the 28 neutron group structure.
+  :align: center
+
+  +------+------+------+------+------+------+------+------+------+------+
+  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  |
+  | p    | ergy | p    | ergy | p    | ergy | p    | ergy | p    | ergy |
+  |      | (eV) |      | (eV) |      | (eV) |      | (eV) |      | (eV) |
+  |      |      |      |      |      |      |      |      |      |      |
+  +======+======+======+======+======+======+======+======+======+======+
+  | 1    | 2.00 | 7    | 4.07 | 13   | 2.90 | 19   | 1.12 | 25   | 1.00 |
+  |      | 00E+ |      | 62E+ |      | 23E+ |      | 53E+ |      | 00E- |
+  |      | 07   |      | 05   |      | 01   |      | 00   |      | 01   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 2    | 6.37 | 8    | 1.11 | 14   | 1.06 | 20   | 1.00 | 26   | 5.00 |
+  |      | 63E+ |      | 09E+ |      | 77E+ |      | 00E+ |      | 00E- |
+  |      | 06   |      | 05   |      | 01   |      | 00   |      | 02   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 3    | 3.01 | 9    | 1.50 | 15   | 5.00 | 21   | 8.00 | 27   | 3.00 |
+  |      | 19E+ |      | 34E+ |      | 0E+0 |      | 00E- |      | 00E- |
+  |      | 06   |      | 04   |      | 0    |      | 01   |      | 02   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 4    | 1.82 | 10   | 3.03 | 16   | 3.05 | 22   | 4.13 | 28   | 1.00 |
+  |      | 68E+ |      | 54E+ |      | 90E+ |      | 99E- |      | 00E- |
+  |      | 06   |      | 03   |      | 00   |      | 01   |      | 02   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 5    | 1.42 | 11   | 5.82 | 17   | 1.85 | 23   | 3.25 |      | 1.00 |
+  |      | 27E+ |      | 95E+ |      | 54E+ |      | 00E- |      | 00E- |
+  |      | 06   |      | 02   |      | 00   |      | 01   |      | 05\  |
+  |      |      |      |      |      |      |      |      |      | *a*  |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 6    | 9.07 | 12   | 1.01 | 18   | 1.30 | 24   | 2.25 |      |      |
+  |      | 18E+ |      | 30E+ |      | 00E+ |      | 00E- |      |      |
+  |      | 05   |      | 02   |      | 00   |      | 01   |      |      |
+  +------+------+------+------+------+------+------+------+------+------+
+
+..
+
+    :sup:`a`\Lower energy boundary of last group.
+
+.. tabularcolumns:: |m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}
+
+.. _tab10-1-18:
+.. table:: Energy boundaries for the 19 gamma group structure.
+  :align: center
+
+  +------+------+------+------+------+------+------+------+------+------+
+  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  | Gr\  | En\  |
+  | p    | ergy | p    | ergy | p    | ergy | p    | ergy | p    | ergy |
+  |      | (eV) |      | (eV) |      | (eV) |      | (eV) |      | (eV) |
+  |      |      |      |      |      |      |      |      |      |      |
+  +======+======+======+======+======+======+======+======+======+======+
+  | 1    | 2.00 | 5    | 5.00 | 9    | 2.00 | 13   | 8.00 | 17   | 2.00 |
+  |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |
+  |      | 07   |      | 06   |      | 06   |      | 05   |      | 05   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 2    | 1.00 | 6    | 4.00 | 10   | 1.66 | 14   | 6.00 | 18   | 1.00 |
+  |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |
+  |      | 07   |      | 06   |      | 06   |      | 05   |      | 05   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 3    | 8.00 | 7    | 3.00 | 11   | 1.33 | 15   | 4.00 | 19   | 4.50 |
+  |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |
+  |      | 06   |      | 06   |      | 06   |      | 05   |      | 04   |
+  +------+------+------+------+------+------+------+------+------+------+
+  | 4    | 6.50 | 8    | 2.50 | 12   | 1.00 | 16   | 3.00 |      | 1.00 |
+  |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |      | 00E+ |
+  |      | 06   |      | 06   |      | 06   |      | 05   |      | 4\ * |
+  |      |      |      |      |      |      |      |      |      | a*   |
+  +------+------+------+------+------+------+------+------+------+------+
+
+..
+
+    :sup:`a`\Lower energy boundary of last group.
+
+.. _10-1-2-6:
+
+The continuous-energy libraries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ENDF/B-VII.1 and ENDF/B-VII.0 CE libraries are general-purpose
+libraries used for both criticality calculations and shielding
+calculations, although the former do not use the photon data in the
+libraries. These libraries have CE data for the same nuclides as the MG
+libraries. CE data for each nuclide are stored in individual files
+contained in the SCALE data directory, and the cross section directory
+files “ce_v7_endf” and “ce_v7np_endf.xml” in the data directory defined
+the names and other information about the CE data files. The CE
+libraries were generated using AMPX to an energy-mesh tolerance of 0.1%;
+i.e., the data value at any intermediate energy point can be
+interpolated linearly within an error of 0.1%. Cross section data and
+kinematic data are provided for all reactions given in the ENDF
+evaluations and are identical to the reactions available on the MG
+libraries. Kinematic data are given for a range of incident energies as
+marginal probability distributions over the exit angles and conditional
+probability distributions over the exit energies in the laboratory
+system. Usually, 32 equiprobable exit angle bins are used for the
+conditional probability distribution, except if the distribution is
+isotropic or can be described with fewer exit angles. For elastic and
+discrete inelastic reaction, a larger number of exit angles are used as
+needed to accurately describe the kinematic in the laboratory system.
+Gamma production kinematic data are provided if available for nuclides
+that provide gamma production kinematic data. If gamma production data
+are present, sections for each discrete photon and the continuum are
+given along with the yield for each of the section. The incident neutron
+CE libraries are generated at temperature 293K, 565K, 600K, 900K, 1200K,
+and 2400K. The kinematic data are not temperature dependent except for
+thermal moderators, which are included at the temperatures provided by
+the evaluator (see :numref:`tab10-1-3` for a list of thermal moderator nuclides
+and the list of available temperatures). Probability tables for the
+unresolved resonance range are provided, if the ENDF/B-VII.0 evaluations
+included unresolved resonance data :cite:`dunn_calculating_2004`. Probability tables are
+available at 293K, 565K, 600K, 900K, 1200K, and 2400K. For neutron
+transport calculations, the CE cross sections and thermal kernels are
+automatically interpolated to the specified temperature using the
+methods described in :cite:`wiarda_development_2009`.
+
+For use in CE_MONACO, CE libraries for incident gammas are also
+available, based on ENDF/B‑VII.1 ENDF/B‑VII.0 data, respectively. Only
+temperature independent cross section and kinematic data are available
+in the incident gamma libraries.
+
+.. bibliography:: bibs/XSLib.bib
+
+
 
 ..
