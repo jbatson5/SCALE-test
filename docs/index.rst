@@ -13,3 +13,5 @@ Welcome to the SCALE manual!
 
   Nuclear Data Libraries Overview
   XSLib
+  XSLibAppA
+  COVLIB
