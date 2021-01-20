@@ -1694,7 +1694,7 @@ self-shielding data.
   |        |        |        |        |        |        |        |        |
   | 40     | 8.6110 | 80     | 1.8000 | 120    | 3.9100 | 160    | 3.1500 |
   |        | E+05   |        | E+03   |        | E+01   |        | E+00   |
-  |        |        |        |        |        |        |        |        |
+  +--------+--------+--------+--------+--------+--------+--------+--------+
   |        | 8.2000 |        | 1.5500 |        | 3.8000 |        | 3.0500 |
   |        | E+05   |        | E+03   |        | E+01   |        | E+00   |
   |        |        |        |        |        |        |        |        |
@@ -2453,7 +2453,7 @@ methods and data for shielding applications.
   | p.   |      |      |      |      |      |      |      |      |      |
   +------+------+------+------+------+------+------+------+------+------+
 
-.. tabularcolumns:: |m{2cm}|m{2cm}|m{5cm}|
+.. tabularcolumns:: |m{2cm}|m{2cm}|m{7cm}|
 
 
 .. _tab10-1-15:
@@ -2622,7 +2622,7 @@ information described in :numref:`tab10-1-15` for the fine group library. The
 27n‑19g ENDF/B‑VII.0 library was used as part of the benchmark testing
 with the 200n‑47g library, which is described in :cite:`wiarda_development_2009`.
 
-.. tabularcolumns:: |m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}
+.. tabularcolumns:: |m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}
 
 .. _tab10-1-16:
 .. table:: Energy boundaries for the 27 neutron group structure
@@ -2665,7 +2665,7 @@ with the 200n‑47g library, which is described in :cite:`wiarda_development_200
 
     :sup:`a`\Lower energy boundary of last group.
 
-.. tabularcolumns:: |m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}
+.. tabularcolumns:: |m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}
 
 .. _tab10-1-17:
 .. table:: Energy boundaries for the 28 neutron group structure.
@@ -2707,7 +2707,7 @@ with the 200n‑47g library, which is described in :cite:`wiarda_development_200
 
     :sup:`a`\Lower energy boundary of last group.
 
-.. tabularcolumns:: |m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}|m{1cm}|m{2cm}
+.. tabularcolumns:: |m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}|m{1em}|m{2cm}
 
 .. _tab10-1-18:
 .. table:: Energy boundaries for the 19 gamma group structure.

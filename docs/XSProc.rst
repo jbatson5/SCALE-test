@@ -654,6 +654,7 @@ SCALE.
 
 .. table:: Outline of XSProc input data
   :align: center
+  :class: longtable
 
   +-----------------+-----------------+-----------------+-----------------+
   | Data Position   | Type of Data    | Data Entry      | Comments        |
@@ -874,6 +875,7 @@ specify the mixture. The user may select whichever options are most
 convenient to define a particular mixture, and these may be entered in
 any order.
 
+.. tabularcolumns: |m{2cm}|m{9cm}|
 .. _tab7-1-2:
 
 .. table:: Outline of standard composition specification options (Mixtures can be defined using one or more of these options in any order).
@@ -1502,6 +1504,7 @@ the following text.
   can be as many as 12 characters long and is separated from the **END**
   by a single blank. At least two blanks must follow this entry.
 
+.. tabularcolumns:: |m{3em}|m{3cm}|m{3cm}|m{7cm}|
 .. _tab7-1-3:
 .. table:: Unit cell specifications for INFHOMMEDIUM problems.
   :align: center
@@ -1751,13 +1754,91 @@ text below.
   as 12 characters long and is separated from the **END** by a single blank. At least
   two blanks must follow this entry. Must not start in column 1.
 
+.. tabularcolumns:: |m{1cm}|m{2cm}|m{2cm}|m{3cm}|m{3cm}|m{7cm}|
+
 .. _tab7-1-4:
-.. list-table:: Unit cell specification for LATTICECELL problems.
+.. table:: Unit cell specification for LATTICECELL problems
   :align: center
+  :class: longtable
 
-  * - .. image:: figs/XSProc/tab4.svg
-        :width: 1000
-
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | Entry no. | Input Keyword     |            |                                                                        |                                   | Comments                                                                                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 1         | **LATTICECELL**   |            |                                                                        |                                   | Keyword to begin LATTICECELL unit cell. Enter the keyword LATTICECELL. This word may be  |
+  |           |                   |            |                                                                        |                                   | truncated to any number of letters as long as they exactly replicate the beginning part  |
+  |           |                   |            |                                                                        |                                   | of the keyword (e.g., LAT is acceptable).                                                |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 2         |                   |            |                                                                        |                                   | One of the following keywords is specified. This keyword determines the                  |
+  |           |                   |            |                                                                        |                                   | type of lattice or array configuration and which subsequent data                         |
+  |           |                   |            |                                                                        |                                   | need to be specified.                                                                    |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **SQUAREPITCH**   |            |                                                                        |                                   | Used for cylindrical rods in a square pitch.                                             |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ASQUAREPITCH**  |            |                                                                        |                                   | Used for annular cylindrical rods in a square pitch.                                     |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ASQP**          |            |                                                                        |                                   | Used for annular cylindrical rods in a square pitch.                                     |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **TRIANGPITCH**   |            |                                                                        |                                   | Used for cylindrical rods in a triangular pitch.                                         |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ATRIANGPITCH**  |            |                                                                        |                                   | Used for annular cylindrical rods in a triangular pitch.                                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ATRP**          |            |                                                                        |                                   | Used for annular cylindrical rods in a triangular pitch.                                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **SPHSQUAREP**    |            |                                                                        |                                   | Used for spherical pellets in a cubic lattice.                                           |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ASPHSQUAREP**   |            |                                                                        |                                   | Used for annular spherical pellets in a cubic lattice.                                   |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ASSP**          |            |                                                                        |                                   | Used for annular spherical pellets in a cubic lattice.                                   |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **SPHTRIANGP**    |            |                                                                        |                                   | Used for spherical pellets in a bi-centered or face-centered                             |
+  |           |                   |            |                                                                        |                                   | hexagonal close-packed lattice.                                                          |
+  |           |                   |            |                                                                        |                                   |                                                                                          |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ASPHTRIANGP**   |            |                                                                        |                                   | Used for annular spherical pellets in a bi-centered or                                   |
+  |           | OR                |            |                                                                        |                                   | face-centered hexagonal close-packed lattice.                                            |
+  |           | **ASTP**          |            |                                                                        |                                   |                                                                                          |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **SYMMSLABCELL**  |            |                                                                        |                                   | Used for a symmetric array of slabs.                                                     |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | Enter the following keywords and subordinate data as required to specify the unit cell. Each dimension can be entered as a diameter or radius using the appropriate keyword. The following keywords may be entered in any order.                   |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  |           | **ASYMMSLABCELL** |            |                                                                        |                                   | Used for a periodic but asymmetric array of slabs.                                       |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 3         | **PITCH**         | **HPITCH** | Cell pitch or half pitch (cm) + moderator mixture                      | Always                            | The pitch is the center-to-center spacing (cm) between                                   |
+  |           |                   |            |                                                                        |                                   | fuel lumps. For asymmetric slab cell, **PITCH** is the                                   |
+  |           |                   |            |                                                                        |                                   | center-to-center distance between inner moderators (cm).                                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 4         | **FUELD**         | **FUELR**  | Outside diameter or radius of fuel (cm) + fuel mixture                 | Always                            | Outside diameter (radius) of fuel (cm) or the thickness                                  |
+  |           |                   |            |                                                                        |                                   | (half-thickness) of the fuel in a slab. For asymmetric slab                              |
+  |           |                   |            |                                                                        |                                   | cells, **FUELR** is measured from the centerline of the inner moderator.                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 5         | **GAPD**          | **GAPR**   | Outside diameter or radius of outer gap (cm) + gap mixture             | Outer gap Present                 | OMIT IF NO GAP between the fuel and clad outer clad.                                     |
+  |           |                   |            |                                                                        |                                   | A mixture number of zero is often used. For asymmetric                                   |
+  |           |                   |            |                                                                        |                                   | slab cells, **GAPR** is measured from the centerline of the inner moderator.             |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 6         | **CLADD**         | **CLADR**  | Outside diameter or radius of outer clad (cm) + clad mixture           | Outer clad Present                | OMIT IF NO CLAD between fuel and outer moderator.                                        |
+  |           |                   |            |                                                                        |                                   | For asymmetric slab cells, **CLADR** is measured from the                                |
+  |           |                   |            |                                                                        |                                   | centerline of the inner moderator.                                                       |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 7         | **IMODD**         | **IMODR**  | Outside diameter or radius of inner moderator (cm) + moderator mixture | Annular cell                      | Dimension of inner moderator mixture inside the fuel.                                    |
+  |           |                   |            |                                                                        |                                   | For a slab, this is the moderator on the other side of the                               |
+  |           |                   |            |                                                                        |                                   | slab. Enter for annular cells only.                                                      |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 8         | **IGAPD**         | **IGAPR**  | Outside diameter or radius of inner gap (cm) + gap mixture             | Annular cell + Inner Gap Present  | OMIT IF NO GAP between the inner clad and fuel. For                                      |
+  |           |                   |            |                                                                        |                                   | an asymmetric slab, **IGAPR** is the distance from the center of                         |
+  |           |                   |            |                                                                        |                                   | the inner moderator to the outside of the inner gap (cm).                                |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 9         | **ICLADD**        | **ICLADR** | Outside diameter or radius of inner clad (cm) + clad mixture           | Annular cell + Inner Clad Present | OMIT IF NO CLAD between fuel and inner moderator.                                        |
+  |           |                   |            |                                                                        |                                   | For an asymmetric slab, **ICLADR** is the distance from                                  |
+  |           |                   |            |                                                                        |                                   | the center of the inner moderator to the outside of the inner clad (cm).                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 10        | **CELLMIX**       |            | Unique mixture number                                                  | Cell-weighted mixture             | Used if a cell-weighted mixture is specified. Calls                                      |
+  |           |                   |            |                                                                        |                                   | XSDRN to produce a cell-weighted mixture :ref:`7-1-2-4`.                                 |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
+  | 11        | **END**           |            | Terminate **LATTICECELL** data                                         | Always                            | Terminate the **LATTICECELL** input data by entering                                     |
+  |           |                   |            |                                                                        |                                   | the word **END**. Do not start in column 1. At least two                                 |
+  |           |                   |            |                                                                        |                                   | blanks or a new line must follow **END**.                                                |
+  +-----------+-------------------+------------+------------------------------------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------+
 .. _fig7-1-1:
 .. figure:: figs/XSProc/fig1.png
   :align: center
@@ -2813,7 +2894,7 @@ A description of CENTRM DATA parameters is given below.
 
 27. **DAN2PITCH** CENTRM DANCOFF FACTOR SEARCH. Fuel Dancoff factor to
     search for a Dancoff-equivalent pitch used in the CENTRM cell
-    calculation. Only applicable in LATTICECELL cases with fuel in
+    calculation. Only applicable in LATTICECELL and DOUBLEHET cases with fuel in
     center region, with SN or MoC transport solvers. Default is 0, which
     indicates no pitch modification. NOTE! This option should not be
     used to enter Dancoff factors for the CENTRM *2REGION* transport
@@ -2832,11 +2913,11 @@ A description of CENTRM DATA parameters is given below.
     self-scatter, then renormalize matrix to shielded 1-D elastic
     values; (0) normalize original scatter matrix to shielded 1-D
     elastic values; (1) compute new P\ :sub:`N` moments of elastic
-    matrix using scalar flux and S‑wave kinematics; or (2)  use
+    matrix using scalar flux and S‑wave kinematics for both thermal and epithermal energy ranges; or (2)  use
     flux-moments to compute “consistent PN” correction for diagonal
     elements of elastic P\ :sub:`N` components. Default value is −1. For
     unit cell calculations in reactor lattices, option -2 may improve
-    results. NOTE: option 0 is always used in thermal range
+    results. NOTE: option 0 is always used in thermal range except for option 1.
 
 30. **IXTR3** PMC P\ :sub:`N` ORDER FLAG. This option determines the
     maximum order of Legendre moments to be retained on output MG
@@ -2864,9 +2945,10 @@ A description of CENTRM DATA parameters is given below.
     (0) flux weighting or (1) current weighting is used to collapse the
     cross sections. Default value is 0, flux weighting.
 
-35. **PMC_DILUTE** PMC INFINITELY DILUTE BACKGROUND. The background
-    cross section :math:`\sigma_{0}` value above which materials are considered
-    to be infinitely dilute in PMC. No resonance shielding corrections
+35. **PMC_DILUTE** PMC DILUTE BACKGROUND CROSS SECTION. The background
+    cross section :math:`\sigma_{0}` value above which nuclide cross sections are not processed
+    in PMC but the BONAMI cross sections are used instead.
+    No resonance shielding corrections
     are performed for materials with background cross sections greater
     than *pmc_dilute*. Higher values of *pmc_dilute* result in more
     nuclides being processed. The default value is 1.0E10.

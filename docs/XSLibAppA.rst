@@ -28,7 +28,7 @@ These reactions are listed in :numref:`tab10-1a-2`.
 The dose conversion factors and their corresponding MT numbers in the
 SCALE shielding cross-section libraries can be found in :numref:`tab10-1-12`.
 
-.. tabularcolumns:: |m{1cm}|m{1cm}|m{4cm}|
+.. tabularcolumns:: |m{1em}|m{2cm}|m{7cm}|
 .. _tab10-1a-1:
 .. table:: ENDF MT Reaction Types.
   :align: center
@@ -902,7 +902,7 @@ SCALE shielding cross-section libraries can be found in :numref:`tab10-1-12`.
   | 892–999               |                       | (Unassigned)          |
   +-----------------------+-----------------------+-----------------------+
 
-.. tabularcolumns:: |m{4em}|m{4cm}|
+.. tabularcolumns:: |m{4em}|m{7cm}|
 
 .. _tab10-1a-2:
 .. table:: SCALE Specific MT Reaction Types.

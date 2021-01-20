@@ -1,4 +1,4 @@
-*k*\ :sub:`eff`.. _6-1:
+.. _6-1:
 
 TSUNAMI-1D:  Control Module for One-Dimensional Cross-Section Sensitivity and Uncertainty
 =========================================================================================
@@ -1983,7 +1983,7 @@ PARM=CENTRM profiles.
 .. code-block:: none
   :name: list6-1-1
 
-  -----------------------------
+   -----------------------------
       Uncertainty Information
    -----------------------------
 
@@ -2051,7 +2051,7 @@ PARM=CENTRM profiles.
                c n,p                               c n,p                     4.5780E-07
                c n,n'                              c n,d                    -3.2157E-07
                c n,n'                              c n,p                    -1.5591E-07
-  Note: relative standard deviation in k-eff can be computed from
+   Note: relative standard deviation in k-eff can be computed from
    individual values by adding the square of the values with positive signs and
    subtracting the square of the values with negative signs, then taking the square root
 

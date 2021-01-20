@@ -1,7 +1,7 @@
 .. _6-0:
 
-Snesitivity and Uncertainty Analysis Overview
-=============================================
+Overview
+========
 
 **Introduction by B. T. Rearden**
 

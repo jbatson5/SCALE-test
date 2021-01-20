@@ -297,8 +297,10 @@ range is extended above 50 keV, for systems with large sensitivity to
 structural materials.
 
 Option N2D=1 uses the CENTRM PW flux to recompute the entire set of
-group-to-group scatter data (including Legendre moments) assuming
-*s*-wave kinematics. Since the CENTRM PW flux is used as the weighting
+group-to-group scatter data (including Legendre moments) using PW thermal scattering kernel data for the thermal energy range and
+assuming
+*s*-wave kinematics for the epithermal energy range.
+Since the CENTRM PW flux is used as the weighting
 function, this approach is sometimes more accurate for groups with large
 spectral gradients as discussed above. As with the N2D=-1 option, the
 main limitation is the *s*-wave scattering approximation for the
@@ -306,14 +308,16 @@ secondary energy distribution. This option requires more computation
 time than the N2D methods discussed previously, and usually gives
 similar results as N2D=-1.
 
-A rigorous derivation of the MG transport equation from the CE equation
-results in a directionally dependent total cross section. PMC option
-N2D=2 uses the method in :cite:`bell_nuclear_1970` to address this effect by modifying
-the Legendre moments of the 2D elastic matrix. For cross section moment
-“n”, the diagonal term (i.e., within-group scatter) is modified by
-adding a term equal to the difference in the MG total cross section
-weighted with the PW scalar flux and the MG total cross section weighted
-with the n\ :sub:`th` Legendre moment of the PW flux.
+A rigorous derivation of the MG transport equation from the CE equation results
+in a directionally dependent total cross section. PMC option N2D=2 uses the
+method in :cite:`bell_nuclear_1970` to address this effect by modifying the
+Legendre moments of the 2D elastic matrix. For cross section moment “n”, the
+diagonal term (i.e., within-group scatter) is modified by adding a term equal to
+the difference in the MG total cross section weighted with the PW scalar flux
+and the MG total cross section weighted with the n\ :sub:`th` Legendre moment of
+the PW flux. When using MoC (NPXS=6), since default ISCT is 0, there are no Pn
+flux moments on CENTRM PW flux file. Therefore, no diagonal P\ :sub:`n` correction will
+be applied to cross section moments.
 
 Option N2D=-2 is essentially a combination of options N2D=2 and N2D=-1.
 This option applies the elastic removal correction to the diagonal term
@@ -324,9 +328,9 @@ moment of the elastic matrix.
 The thermal energy range presents a particularly difficult challenge for
 processing problem-dependent 2‑D scattering data, due to the complicated
 kinematics associated with molecular motion, chemical binding, and
-coherent scattering effects. PMC currently the scaling approximation
-(N2D=0 option) for the thermal energy range, regardless of the input
-value of N2D.
+coherent scattering effects. PMC currently uses the scaling approximation
+(N2D=0 option) for the thermal energy range with any input
+value of N2D except for N2D=1.
 
 .. _7-5-3:
 
@@ -769,8 +773,9 @@ probability. The default option N2D= −1 approximately corrects the P0
 elastic matrix for removal self-shielding effects on and is usually
 preferred to N2D=0, except for fast systems. Option N2D=1 re-computes
 all the P\ :sub:`N` components of 2-D elastic cross sections using the
-scalar flux as a weighting function, along with the assumption of
-*s*-wave scattering within the PW energy range. This approach takes
+scalar flux as a weighting function, along with the the use of PW
+thermal scattering kernel data and  assumption of
+*s*-wave scattering within the epithermal  PW energy range. This approach takes
 significantly more execution time than N2D=-1, and usually is not
 necessary. Option N2D=2 corrects the diagonal terms of the Legendre
 moments, using the consistent PN expression. Option N2D=-2 is similar to
@@ -849,6 +854,8 @@ Only the printed output produced by PMC for the example problem is shown
 here. In this case the “standard” PMC editing option (NPRT=0) was
 specified. The XSProc default of “minimum” print in the SCALE sequences
 produces considerably less output.
+
+.. highlight:: none
 
 ::
 

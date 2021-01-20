@@ -1,4 +1,4 @@
-*k*.. _3-1:
+.. _3-1:
 
 TRITON: A Multipurpose Transport, Depletion, And Sensitivity and Uncertainty Analysis Module
 ============================================================================================

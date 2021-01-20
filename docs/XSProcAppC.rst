@@ -460,6 +460,61 @@ EXAMPLE 3: A doubly-heterogeneous slab fuel element with flibe salt coolant
     centrm data ixprt=1 isn=8 end centrm
   end celldata
 
+
+
+EXAMPLE 4: A doubly-heterogeneous triangular-pitch fuel element with 1,302 UO\ :sub:`2` particles in a graphite matrix with the DAN2PITCH option for grain.
+
+
+    Grain fuel radius for UO2 particles are 0.02125 cm.  The UO2 grains contain four
+    coating layers with radii of 0.03125, 0.03525, 0.03875, and 0.04275 cm,
+    respectively.  The fuel grains are embedded in a carbon matrix material to form
+    the fuel compact.    Fuel compact is in a triangular pitch on a 1.8796-cm-pitch.
+    Fuel zone is 0.6225-cm in radius and there is a 0.0125 cm gap between fuel and
+    graphite moderator. Since number of particles is entered, the total volume
+    fraction and the pitch can be calculated by the code. Dancoff factor of 0.6552
+    is inputted for a grain to consider neutron leakage effect.
+
+::
+
+  DH_dan2pitch_nonuniform
+  v7.1-252
+  read composition
+   u-235       1 0 3.6676E-03   600.0   end
+   u-238       1 0 1.9742E-02   600.0   end
+   o-16        1 0 3.5114E-02   600.0   end
+   c           1 0 1.1705E-02   600.0   end
+   c           2 0 5.2646E-02   600.0   end
+   c           3 0 9.5263E-02   600.0   end
+   si-28       4 0 4.4159E-02   600.0   end
+   si-29       4 0 2.2433E-03   600.0   end
+   si-30       4 0 1.4805E-03   600.0   end
+   c           4 0 4.7883E-02   600.0   end
+   c           5 0 9.5263E-02   600.0   end
+   c-graphite  6 0 7.2701E-02   600.0   end
+   he          7 0 2.4006E-05   600.0   end
+   c-graphite  8 0 9.2756E-02   600.0   end
+  end composition
+
+  read celldata
+   doublehet  fuelmix=9 end
+    gfr=0.02125   1
+    coatr=0.03125 2
+    coatr=0.03525 3
+    coatr=0.03875 4
+    coatr=0.04275 5
+    numpar=1302
+    matrix=6  end grain
+   centrm data alump=0.0 dan2pitch=0.6562 end centrm
+   rod triangpitch
+    fuelr=0.6225
+    gapr=0.635 7
+    hpitch=0.9398 8
+    fuelh=1.000
+    right_bdy=white left_bdy=reflected end
+   centrm data iup=12 isn=16  alump=0.0  end centrm
+  end celldata
+
+
 .. _7-1c-5:
 
 Two methods of specifying a fissile solution

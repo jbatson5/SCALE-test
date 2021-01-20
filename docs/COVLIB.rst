@@ -30,7 +30,7 @@ covariance libraries.
 Introduction
 ------------
 
-The SCALE 6.2 covariance library is based on available ENDF/B-VII.1 [1]_
+The SCALE 6.2 covariance library is based on available ENDF/B-VII.1 :cite:`chadwick_endfb-vii_2011`
 data for 187 nuclides, combined with the previous SCALE 6.1 covariance
 data are retained for the ~215 nuclides not available in ENDF/B‑VII.1.
 The ENDF/B-VII.1 uncertainties were modified for a few nuclides, as
@@ -111,7 +111,7 @@ A rigorous, modern evaluation of nuclear data typically uses a
 regression algorithm that adjusts parameters in a nuclear physics model
 (e.g., Reich-Moore resonance formula, optical model, etc.), to fit a set
 of differential experimental measurements that have various sources of
-statistical and systematic uncertainties. [2]_ Information from the
+statistical and systematic uncertainties :cite:`larson_systematic_2006`. Information from the
 regression analysis of the model parameters can be propagated to
 uncertainties and correlations in the evaluated differential data. In
 this manner, the differential nuclear data and covariances are
@@ -148,7 +148,7 @@ for materials without covariances in ENDF/B-VII.1. Nuclear data experts
 at BNL, LANL, and ORNL devised simple procedures to estimate data
 uncertainties in the absence of high fidelity covariance evaluations.
 The result of this project is a set of covariance data in ENDF/B file 33
-format that can be processed into multigroup covariances. [3]_ Some of
+format that can be processed into multigroup covariances :cite:`little_low-fidelity_2008`. Some of
 these data were later revised and included in ENDF/B‑VII.1, while others
 were carried over from SCALE 6.1 to the SCALE 6.2 library. In this
 documentation, these data are known as BLO (BNL-LANL-ORNL) uncertainty
@@ -159,11 +159,11 @@ cross sections, resonance integrals, and potential cross sections to
 approximate the standard deviations of capture, fission, and elastic
 scattering reactions for the thermal (<0.5 eV) and resonance ranges (0.5
 eV- 5 keV). Full energy correlation was assumed for the covariances
-within each of these respective ranges. [4]_\ :sup:`,`\  [5]_ This
+within each of these respective ranges :cite:`williams_approximate_2007,williams_scale-6_2008` This
 procedure was originally introduced for the approximate uncertainty data
 in SCALE 5.1. However, the current version includes updated integral
 measurement uncertainties, using the more recent values tabulated by
-Mughabghab in the *Atlas of Neutron Resonances*. [6]_ The lo-fi relative
+Mughabghab in the *Atlas of Neutron Resonances* :cite:`mughabghab_atlas_2006`. The lo-fi relative
 uncertainty is computed as the absolute uncertainty in the integral
 parameter (i.e., thermal cross section or resonance integral) taken from
 the *Atlas*, divided by the average of the measured parameter and the
@@ -211,9 +211,9 @@ cross sections, and prompt nubar. BNL used optical model calculations
 with estimated uncertainties in model parameters to compute covariances
 in the fast range for about 300 structural isotopes, fission products,
 and non-fissionable heavy nuclei. Estimated uncertainties in model
-parameters were based on previous work and expert judgment. [7]_
+parameters were based on previous work and expert judgment :cite:`pigni_extensive_2009`.
 Covariances for 14 actinide isotopes were obtained from earlier work
-performed by BNL for Subgroup-26 (SG-26). [8]_ The SG-26 actinide
+performed by BNL for Subgroup-26 (SG-26) :cite:`rochman_preliminary_2007`. The SG-26 actinide
 covariances cover the full energy range, including thermal, resonance,
 and fast regions. If the thermal data uncertainties estimated by the
 SG-26 approach exceed the thermal uncertainty given in reference 6, the
@@ -222,14 +222,14 @@ technique.
 
 LANL produced covariances in the fast range for an additional 47
 actinide materials. The LANL actinide covariances were based on
-empirical estimates of nuclear reaction models. [9]_ Full energy range
+empirical estimates of nuclear reaction models :cite:`kawano_evaluation_2008`. Full energy range
 covariances were also produced by LANL for 16 light isotopes ranging
-from hydrogen to fluorine. [10]_ These included high fidelity
+from hydrogen to fluorine :cite:`hale_covariances_2008`. These included high fidelity
 covariances from R-matrix analyses for :sup:`1`\ H, :sup:`6`\ Li, and
 :sup:`10`\ B, along with lo-fi uncertainties for the other materials,
 based on approximations such as least-squares fitting to experimental
 data, statistical model calculations at higher energies, or sometimes
-simply best-judgment estimation.\ [3]
+simply best-judgment estimation :cite:`little_low-fidelity_2008`.
 
 .. _10-2-2-3:
 
@@ -256,7 +256,7 @@ library:
    the prompt and delayed nubar uncertainties
 
 A few inconsistencies were found in the ENDF/B-VII.1 uncertainty data,
-and these were modified for the SCALE 6.2 covariance library. [11]_ The
+and these were modified for the SCALE 6.2 covariance library :cite:`williams_applications_2014`. The
 corrections were also conveyed to the National Nuclear Data Center,
 where they were added to the ENDF/A file for possible inclusion in the
 future release of ENDF/B-VII.2. These modifications are summarized
@@ -271,17 +271,17 @@ below:
     ENDF/B-VII.1 uncertainty at 0.01 eV.
 
 (c) H thermal capture: standard deviation reduced from 2.5% to 0.2%,
-    consistent with Williams and Rearden 2008.\ [5]
+    consistent with Williams and Rearden 2008 :cite:`williams_scale-6_2008`,
 
 (d) :sup:`103`\ Rh thermal capture: reduced from ~4% to 1.04%,
-consistent with Williams and Rearden 2008. [5]
+consistent with Williams and Rearden 2008 :cite:`williams_scale-6_2008`.
 
 (e) :sup:`151`\ Sm thermal capture: modified to ~1.8%, consistent with
-Williams and Rearden 2008.\ [5]`
+Williams and Rearden 2008 :cite:`williams_scale-6_2008`.
 
 (f) :sup:`147`\ Pm: standard deviation was reduced from 24% to 5% in the
 energy range 0.5–5000 eV, consistent with the quoted resonance integral
-uncertainty in Williams and Rearden 2008. [5]
+uncertainty in Williams and Rearden 2008 :cite:`williams_scale-6_2008`.
 
 Several modifications were also made to the uncertainties obtained from
 the original BLO data used in SCALE 6.1. The energy boundary between the
@@ -289,7 +289,7 @@ thermal and resonance covariance blocks was modified from 0.5 to 0.625
 eV in order to coincide with a 56-group boundary. The BLO lo-fi data do
 not include thermal or resonance range uncertainties for isotope
 reactions that do not have integral uncertainties given in the
-Mughabghab text.\ [6] These occur mainly for relatively unimportant
+Mughabghab text :cite:`mughabghab_atlas_2006`. These occur mainly for relatively unimportant
 data such as elastic cross sections of several fission products.
 Therefore in these cases the uncertainties were estimated using
 different approaches. For example, the thermal data uncertainty was
@@ -298,7 +298,7 @@ available in the Mughabghab tabulation, and sometimes the high-energy
 uncertainty was extended to lower energies. The uncertainty in the
 :sup:`149`\ Sm resonance capture integral is not provided in the 2006
 edition of Mughabghab’s text, so it was set to the value of 5.7%, which
-was obtained from an earlier tabulation by Mughabghab. [12]_
+was obtained from an earlier tabulation by Mughabghab :cite:`mughabghab_thermal_2003`.
 
 .. _10-2-2-4:
 
@@ -337,7 +337,7 @@ Multigroup Covariance Processing
 
 Covariance data were processed with the AMPX code PUFF-IV. PUFF-IV has
 major improvements in the treatment of the resolved and unresolved
-resonance parameter uncertainties over previous code versions. [13]_ All
+resonance parameter uncertainties over previous code versions :cite:`wiarda_recent_2008`. All
 nuclides with resonance parameter uncertainty files were processed with
 the full sensitivity option in PUFF-IV.
 
@@ -368,7 +368,7 @@ nomenclature:
 Several covariance evaluations include cross correlations between
 reactions. These are summarized in :numref:`tab10-2-2`.
 
-.. tabularcolumns:: |m{2em}|m{2em}|m{3em}|m{3cm}|
+.. tabularcolumns:: |m{2cm}|m{2cm}|m{3cm}|m{7cm}|
 
 .. _tab10-2-1:
 .. table:: Contents of SCALE 6.2 covariance libraries.
@@ -1249,7 +1249,7 @@ reactions. These are summarized in :numref:`tab10-2-2`.
   |                 |                 |                 | resonance range |
   |                 |                 |                 | uncertainty     |
   |                 |                 |                 | values from     |
-  |                 |                 |                 | Mughabghab\ [11]|
+  |                 |                 |                 | Mughabghab      |
   |                 |                 |                 |                 |
   +-----------------+-----------------+-----------------+-----------------+
   | pm-148          | 61148           | BLO             |                 |
@@ -1899,7 +1899,7 @@ realistic. The ENDF/B-VII.0 :sup:`235`\ U thermal nubar uncertainty of
 0.71% was revised to the JENDL-3.3 value of 0.31%. In addition, the
 thermal nubar certainty in the pre-released ENDF/B-VII.1 :sup:`233`\ U
 evaluation was modified to the value in a recent ORNL data
-evaluation. [14]_ This ORNL :sup:`233`\ U cross section evaluation also
+evaluation :cite:`leal_233_2008`. This ORNL :sup:`233`\ U cross section evaluation also
 provided the thermal and resonance cross sections for the prereleased
 ENDF/B‑VII.1 data. The ENDF/B-VII.1 pre-release nubar data for
 :sup:`239`\ Pu was incomplete when the 44-group covariance library was
@@ -1918,7 +1918,7 @@ ENDF/B-VI value of about 0.2%, since this is more consistent with the
 Mughabghab integral uncertainty. The uncertainty in the :sup:`149`\ Sm
 resonance capture integral is not provided in the 2006 edition of
 Mughabghab’s text; therefore it was set to the value of 5.7% which was
-obtained from an earlier tabulation by Mughabghab.\ [12]
+obtained from an earlier tabulation by Mughabghab :cite:`mughabghab_thermal_2003`.
 
 .. _tab10-2-3:
 .. table:: Summary of changes made to covariance evaluations for the 44-group library.
@@ -1956,7 +1956,7 @@ obtained from an earlier tabulation by Mughabghab.\ [12]
 At the time of the preparation of the 44-group covariance library,
 ENDF/B did not provide fission spectra uncertainty estimates. The
 methodology used to construct these data for the 44-group covariance
-library is described in Broadhead and Wagschal. [15]_ In this approach,
+library is described in Broadhead and Wagschal :cite:`broadhead_fission_2004`. In this approach,
 the fission spectrum is represented as either a Watt or Maxwellian
 distribution. These energy distributions are widely used to represent
 fission spectra and have been commonly employed in many ENDF/B
@@ -1971,7 +1971,7 @@ Maxwellian representation of the fission spectrum can be transferred to
 the actual fission spectra contained in the different multigroup cross
 section libraries.
 
-The methodology in Broadhead and Wagschal\ [15] determines
+The methodology in Broadhead and Wagschal :cite:`broadhead_fission_2004` determines
 energy-dependent covariances from uncertainties and correlations in the
 *a* and *b* parameters for the Watt spectrum or the *T* parameter for a
 Maxwellian spectrum, appearing the analytical expressions given below:
@@ -1985,8 +1985,8 @@ required to normalize the integrated spectrum to unity. The value of “I”
 is fixed by the values of the other parameters. Due to the normalization
 constraint, the fission spectrum covariance includes anti-correlations.
 The assumed fission spectra parameters and uncertainties are given in
-Maerker, Marable, and Wagschal 1980 [16]_ and in Howerton and Doyas
-1971. [17]_
+Maerker, Marable, and Wagschal 1980 :cite:`maerker_estimation_1980` and in Howerton and Doyas
+1971 :cite:`howerton_fission_1971`.
 
 :numref:`tab10-2-4` shows that fission spectra covariances are not provided for
 all fissionable materials in the SCALE multigroup cross sections.
@@ -2091,7 +2091,7 @@ nomenclature:*
 
 7. SG-26: approximate covariances from WPEC Subgroup-26
 
-.. tabularcolumns:: |m{1cm}|m{4em}|m{4cm}|
+.. tabularcolumns:: |m{3cm}|m{5em}|m{7cm}|
 
 .. _tab10-2-6:
 .. table:: Contents of SCALE 6.1 44-group covariance library.
@@ -2102,15 +2102,15 @@ nomenclature:*
   | **SCALE name**        | **Data source**       | **Comments**          |
   +-----------------------+-----------------------+-----------------------+
   | ac-225                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ac-226                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ac-227                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ag-107                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ag-109                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ag-110m               | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ag-111                | BLO approximate data  |                       |
@@ -2130,19 +2130,19 @@ nomenclature:*
   |                       |                       | Mughabghab value      |
   +-----------------------+-----------------------+-----------------------+
   | am-243                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | am-244                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | am-244m               | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ar-36                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ar-38                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ar-40                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | as-74                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | as-75                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | au-197                | ENDF/B-VII-p          | Pre-released          |
@@ -2156,9 +2156,9 @@ nomenclature:*
   | b-11                  | JENDL 3.3             |                       |
   +-----------------------+-----------------------+-----------------------+
   | ba-130                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ba-132                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ba-133                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ba-135                | BLO approximate data  |                       |
@@ -2172,7 +2172,7 @@ nomenclature:*
   | ba-140                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | be-7                  | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | be-9                  | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | Bebound               | BLO approximate data  | Duplicate of          |
@@ -2183,7 +2183,7 @@ nomenclature:*
   |                       |                       | for ENDF/B-VII.1      |
   +-----------------------+-----------------------+-----------------------+
   | bk-249                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | bk-250                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | br-79                 | BLO approximate data  |                       |
@@ -2195,17 +2195,17 @@ nomenclature:*
   | C-graphite            | ENDF/B-VI             | Duplicate of carbon   |
   +-----------------------+-----------------------+-----------------------+
   | Ca                    | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ca-40                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ca-42                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ca-43                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ca-44                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ca-46                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ca-48                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | Cd                    | BLO approximate data  |                       |
@@ -2223,17 +2223,17 @@ nomenclature:*
   | cd-113                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cd-114                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cd-115m               | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cd-116                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cd-136                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cd-138                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cd-139                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cd-140                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cd-141                | BLO approximate data  |                       |
@@ -2253,17 +2253,17 @@ nomenclature:*
   | cf-252                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cf-253                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cf-254                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | Cl                    | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cl-35                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cl-37                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cm-241                | BLO approximate data  | Thermal uncertainty   |
-  |                       |                       | replaced by           |
+  +-----------------------+-----------------------+-----------------------+
   | cm-242                | SG-26                 | Mughabghab value      |
   +-----------------------+-----------------------+-----------------------+
   | cm-243                | SG-26                 | Thermal uncertainty   |
@@ -2283,9 +2283,9 @@ nomenclature:*
   | cm-247                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cm-248                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cm-249                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cm-250                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | co-58                 | BLO approximate data  | Pre-released          |
@@ -2355,7 +2355,7 @@ nomenclature:*
   | cs-134                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cs-135                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | cs-136                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | cs-137                | BLO approximate data  |                       |
@@ -2365,9 +2365,9 @@ nomenclature:*
   | cu-65                 | ENDF/B-VI             |                       |
   +-----------------------+-----------------------+-----------------------+
   | dy-156                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | dy-158                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | dy-160                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | dy-161                | BLO approximate data  |                       |
@@ -2377,23 +2377,23 @@ nomenclature:*
   | dy-163                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | dy-164                | BLO approximate data  |                       |
-  |                       | BLO approximate data  |                       |
-  | er-162                |                       |                       |
-  |                       | BLO approximate data  |                       |
-  | er-164                |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
+  | er-162                | BLO approximate data  |                       |
+  +-----------------------+-----------------------+-----------------------+
+  | er-164                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | er-166                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | er-167                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | er-168                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | er-170                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | es-253                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | es-254                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | es-255                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | eu-151                | BLO approximate data  |                       |
@@ -2497,7 +2497,7 @@ nomenclature:*
   | gd-160                | ENDF/B-VII.0          |                       |
   +-----------------------+-----------------------+-----------------------+
   | ge-70                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ge-72                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ge-73                 | BLO approximate data  |                       |
@@ -2544,19 +2544,19 @@ nomenclature:*
   | hf-179                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | hf-180                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-196                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-198                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-199                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-200                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-201                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-202                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | hg-204                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ho-165                | BLO approximate data  |                       |
@@ -2568,7 +2568,7 @@ nomenclature:*
   | i-130                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | i-131                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | i-135                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | In                    | ENDF/B-VI             |                       |
@@ -2582,11 +2582,11 @@ nomenclature:*
   | ir-193                | ENDF/B-VII.0          |                       |
   +-----------------------+-----------------------+-----------------------+
   | K                     | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | k-39                  | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | k-40                  | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | k-41                  | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | kr-78                 | BLO approximate data  |                       |
@@ -2618,11 +2618,11 @@ nomenclature:*
   | lu-176                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | Mg                    | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | mg-24                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | mg-25                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | mg-26                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | mn-55                 | ENDF/B-VI             | LB=8 representation   |
@@ -2640,7 +2640,7 @@ nomenclature:*
   |                       |                       | results.              |
   +-----------------------+-----------------------+-----------------------+
   | Mo                    | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | mo-92                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | mo-94                 | BLO approximate data  |                       |
@@ -2650,7 +2650,7 @@ nomenclature:*
   | mo-96                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | mo-97                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | mo-98                 | BLO approximate data  |                       |
   |                       | BLO approximate data  |                       |
   | mo-99                 |                       |                       |
@@ -2803,7 +2803,7 @@ nomenclature:*
   | pm-148m               | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | pm-149                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | pm-151                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | pr-141                | BLO approximate data  |                       |
@@ -2856,11 +2856,11 @@ nomenclature:*
   | pu-243                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | pu-244                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | pu-246                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | rb-85                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | rb-86                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | rb-87                 | BLO approximate data  |                       |
@@ -2902,9 +2902,9 @@ nomenclature:*
   | rh-105                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ru-96                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ru-98                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ru-103                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | ru-99                 | BLO approximate data  |                       |
@@ -2924,19 +2924,19 @@ nomenclature:*
   | S                     | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | s-32                  | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | s-33                  | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | s-34                  | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | s-36                  | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sb-123                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sb-124                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | sb-125                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | sb-126                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sc-45                 | ENDF/B-VI             |                       |
@@ -3013,7 +3013,7 @@ nomenclature:*
   +-----------------------+-----------------------+-----------------------+
   | sm-149                | BLO approximate data  | Resonance range       |
   |                       |                       | uncertainty from      |
-  |                       |                       | [9]                   |
+  |                       |                       | Kawano 2008           |
   +-----------------------+-----------------------+-----------------------+
   | sm-150                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
@@ -3026,7 +3026,7 @@ nomenclature:*
   | sm-154                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sn-112                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | sn-113                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sn-114                | BLO approximate data  |                       |
@@ -3044,11 +3044,11 @@ nomenclature:*
   | sn-120                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sn-122                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | sn-123                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sn-124                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | sn-125                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | sr-84                 | BLO approximate data  |                       |
@@ -3088,17 +3088,17 @@ nomenclature:*
   | te-127m               | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | te-128                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | te-129m               | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | te-130                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | th-227                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | th-228                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | th-229                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | th-230                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | th-232                | ENDF/B-VII.0          | | Cross               |
@@ -3114,9 +3114,9 @@ nomenclature:*
   | ti-47                 | BLO approximate data  | evaluation proposed   |
   |                       |                       | for ENDF/B-VII.1      |
   | ti-48                 | ENDF/B-VII-p          |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ti-49                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | ti-50                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | u-232                 | BLO approximate data  |                       |
@@ -3185,7 +3185,7 @@ nomenclature:*
   | w-186                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | xe-123                | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | xe-124                | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | xe-126                | BLO approximate data  |                       |
@@ -3223,7 +3223,7 @@ nomenclature:*
   | zr-93                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | zr-94                 | BLO approximate data  |                       |
-  |                       |                       |                       |
+  +-----------------------+-----------------------+-----------------------+
   | zr-95                 | BLO approximate data  |                       |
   +-----------------------+-----------------------+-----------------------+
   | zr-96                 | BLO approximate data  |                       |
@@ -3255,99 +3255,4 @@ nomenclature:*
   | :sup:`235`\ U  | Fission    | :sup:`240`\ Pu | Fission    |
   +----------------+------------+----------------+------------+
 
-References
-~~~~~~~~~~
-
-.. [1]
-   . M. B. Chadwick et al., “ENDF/B-VII.1 Nuclear Data for Science and
-   Technology: Cross Sections, Covariances, Fission Product Yields and
-   Decay Data,” *Nuclear Data Sheets,* Special Issue on ENDF/B-VII.1
-   Library\\ 112, no. 12 (2011): 2887–3152.
-
-.. [2]
-   . N. M. Larson, L. C. Leal, H. Derrien, G. Arbanas, R. O.
-   Sayer\ \ **,** and D. Wiarda, “A Systematic Description of the
-   Generation of Covariance Matrices,” C061.pdf in *Proc. of
-   PHYSOR–2006, American Nuclear Society Topical Meeting on Reactor
-   Physics: Advances in Nuclear Analysis and Simulation*, September
-   10–14, 2006, Vancouver, British Columbia, Canada.
-
-.. [3]
-   . R. Little, T. Kawano, G. D. Hale, M. T. Pigni, M. Herman, P.
-   Obložinský, M. L. Williams, M. E. Dunn, G. Arbanas, D. Wiarda, R. D.
-   McKnight, J. N. McKamy and J. R. Felty, “Low-fidelity Covariance
-   Project,” *Nuclear Data Sheets* 109, no. 12 (2008): 2828–2833.
-
-.. [4]
-   . M. L. Williams, B. L. Broadhead, M. E. Dunn, and B. T. Rearden,
-   “Approximate Techniques for Representing Nuclear Data Uncertainties,”
-   in *Proc. of the Eighth International Topical Meeting on Nuclear
-   Applications and Utilization of Accelerators (ACCAPP ‘07),* July
-   30–August 2, 2007, Pocatello, Idaho, 744–752.
-
-.. [5]
-   . M. L. Williams and B. T. Rearden, “SCALE 6 Sensitivity/Uncertainty
-   Methods and Covariance Data,” *Nuclear Data Sheets* 109, no. 12
-   (2008): 2796–2800.
-
-.. [6]
-   . S. F. Mughabghab, *Atlas of Neutron Resonances: Resonance
-   Parameters and Thermal Cross Sections*, Elsevier, Amsterdam (2006).
-
-.. [7]
-   . M. T. Pigni, M. Herman, and P. Oblozinsky, “Extensive set of cross
-   section covariance estimates in the fast neutron region,” *Nucl. Sci.
-   Eng*. 162, no. 1 (2009): 25–40.
-
-.. [8]
-   . D. Rochman, M. Herman, P. Oblozinsky, and S. F. Mughabghab,
-   “Preliminary Cross Section and Nubar Covariances for WPEC Subgroup
-   26,” BNL-77407-2007-IR (2007).
-
-.. [9]
-   . T. Kawano, P. Talou, P. G. Young, G. Hale, M. B. Chadwick, and R.
-   C. Little, “Evaluation of Covariances for Actinides and Light
-   Elements at LANL,” *Nuclear Data Sheets* 109, no. 12, (2008):
-   2817–2821.
-
-.. [10]
-   . G. Hale, “Covariances from Light-Element R-Matrix Analyses,”
-   *Nuclear Data Sheets* 109 no. 12, (2008): 2812–2816.
-
-.. [11]
-   . M. L Williams, G. Ilas, W. J. Marshall, B. T. Rearden,
-   “Applications of Nu clear Data Covariances in in Criticality Safety
-   and Spent Fuel Characterization”, *Nuclear Data Sheets* 110, (2014):
-   341-345.
-
-.. [12]
-   . S. F. Mughabghab, “Thermal Neutron Capture Cross Sections Resonance
-   Integrals and G-Factors,” INDC (NDS)-440, International Atomic Energy
-   Agency (2003).
-
-.. [13]
-   . D. Wiarda, G. Arbanas, L. Leal, M. E. Dunn, “Recent Advances in the
-   AMPX Covariance Processing Capabilities in PUFF-IV”, *Nuclear Data
-   Sheets Vol. 109,* no. 12 (2008) : 2745-2751
-
-.. [14]
-   . L. C. Leal, D. Wiarda, B. T. Rearden, H. Derrien,
-   “\ \ :sup:`233`\ \ U Cross-Section and Covariance Data Update for
-   SCALE 5.1 Libraries,” UT-Battelle, LLC, Oak Ridge National
-   Laboratory, ORNL/TM-2007/115 (2008).
-
-.. [15]
-   . B. L. Broadhead and J. J. Wagschal, “The Fission Spectrum
-   Uncertainty,” 95821.pdf in *Proc. of* *PHYSOR 2004—The Physics of
-   Fuel Cycles and Advanced Nuclear Systems: Global Developments*, April
-   25–29, 2004, Chicago, Illinois.
-
-.. [16]
-   . R. E. Maerker, J. H. Marable, and J. J. Wagschal, “Estimation of
-   the Uncertainties in the ENDF/B‑V :sup:`235`\ \ U Fission Spectrum,”
-   *Trans. Am. Nucl. Soc.* 35 (1980): 555–556.
-
-.. [17]
-   . R. J. Howerton and R. J. Doyas, “Fission Temperatures as a Function
-   of the Average Number of Neutrons from Fission,” *Nucl. Sci. Eng.*
-   46, no. 414 (1971).
+.. bibliography:: bibs/COVLIB.bib
